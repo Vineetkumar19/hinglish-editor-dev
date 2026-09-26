@@ -107,10 +107,11 @@ class Sequence:
                                     float(center.findtext('value/vert')) * self.height / CENTER_Y_UNIT)
         return clip if start >= 0 or end >= 0 else None
 
-    def blocked_seconds(self):
+    def blocked_seconds(self, include_popups=True):
         """Time ranges covered by B-roll/cutaways above the talking head (zooms there would be hidden).
 
-        Long clips on upper tracks (caption layers, logos, full-length graphics) are ignored.
+        Long clips on upper tracks (caption layers, logos, full-length graphics) are ignored. Smart Visuals
+        pop-up cards leave the face visible; with include_popups=False they do not block anything.
         """
         ranges = []
         for track in self.upper:
@@ -120,6 +121,8 @@ class Sequence:
                 start, end = _int(item, 'start'), _int(item, 'end')
                 name = (item.findtext('name') or '') + (item.get('id') or '')
                 if start < 0 or end <= start or 'caption' in name.lower() or end - start > .5 * self.frames:
+                    continue
+                if not include_popups and 'popup' in name.lower():
                     continue
                 ranges.append((float(start / self.fps), float(end / self.fps)))
         return ranges

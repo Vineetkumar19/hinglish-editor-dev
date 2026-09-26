@@ -87,7 +87,7 @@ def run(root, input_path, output_format=None, settings=None, progress=print):
     results = []
     for timeline, folder, words, phrases, profile, moments in plans:
         seq = Sequence(timeline.xml_path)
-        blocked = seq.blocked_seconds()
+        blocked = seq.blocked_seconds(include_popups=False)   # pop-up cards do not hide the face
         progress('  Finding shot changes')
         shots = sequence_shots(seq, root / 'cache' / 'zoom' / 'shots')
         events = build_events(moments, phrases, words, settings, profile, seq.frames / float(seq.fps), blocked, shots)

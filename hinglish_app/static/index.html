@@ -32,14 +32,17 @@
         <button class="mode" data-mode="broll">
           <span class="mode-icon broll-icon">▶</span><span><b>Add B-roll</b><small>Footage for what you say</small></span><i>4</i>
         </button>
+        <button class="mode" data-mode="visuals">
+          <span class="mode-icon visuals-icon">◈</span><span><b>Smart Visuals</b><small>Real people, logos, facts</small></span><i>5</i>
+        </button>
         <button class="mode" data-mode="zoom">
-          <span class="mode-icon zoom-icon">⤢</span><span><b>Smart Zoom</b><small>Zooms on key moments</small></span><i>5</i>
+          <span class="mode-icon zoom-icon">⤢</span><span><b>Smart Zoom</b><small>Zooms on key moments</small></span><i>6</i>
         </button>
         <button class="mode" data-mode="sound">
-          <span class="mode-icon sound-icon">♪</span><span><b>Sound Design</b><small>Music + effects by meaning</small></span><i>6</i>
+          <span class="mode-icon sound-icon">♪</span><span><b>Sound Design</b><small>Music + effects by meaning</small></span><i>7</i>
         </button>
         <button class="mode" data-mode="eyecontact">
-          <span class="mode-icon eye-icon">◉</span><span><b>Eye Contact</b><small>Look into the camera (RTX)</small></span><i>7</i>
+          <span class="mode-icon eye-icon">◉</span><span><b>Eye Contact</b><small>Look into the camera (RTX)</small></span><i>8</i>
         </button>
       </nav>
 
@@ -110,6 +113,16 @@
             <div><span>Effects folder</span><b id="sfxFolder">…</b><button id="pickSfx" class="text-button">Change</button></div>
           </div>
           <small class="broll-note">A thinking local model (Ollama qwen3:8b; keep the Ollama app running) reads the story, the emotion of every line and how you say it, then picks music per emotional section and the few moments that deserve a sound — choosing real files from your library by vector search. Mixed with sound-design-brain rules: music ducks under your voice and swells in pauses, effects are felt not noticed. Music and each effect land on their own tracks.</small>
+        </section>
+
+        <section class="visuals-field hidden">
+          <div class="zoom-grid">
+            <label>How many visuals<select id="visualsDensity"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+            <label>AI brain<select id="visualsBrain"><option value="auto" selected>Auto (Ollama if running)</option><option value="ollama">Ollama qwen3 (thinking)</option><option value="local">Built-in Qwen</option></select></label>
+            <div class="broll-sources"><span>Internet sources</span><b id="visualsSources">Wikipedia + Commons</b></div>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="visualsPopups" checked> Pop-up logo / face when a name is said</label></div>
+          <small class="broll-note">The local AI reads your whole script like a researcher: who you talk about (Gandhi, Virat Kohli), which apps and brands (Zomato, Swiggy, ChatGPT), places and events (Salt March, Taj Mahal). It remembers the story, so a Gandhi story shows Gandhi only. It finds the exact Wikipedia/Wikidata item, then fetches real logos (PNG), photos and archival videos from Wikimedia Commons (free, no key), plus Pexels/Pixabay for places. Every file must prove it is about that person/brand, and the AI checks the best one before it is used. Stories and facts go full screen for exactly the spoken line; logos and faces pop up on the word. Credits for the video description are saved in CREDITS.txt.</small>
         </section>
 
         <section class="broll-field hidden">

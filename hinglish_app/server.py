@@ -17,10 +17,11 @@ import uuid
 from . import DEFAULT_PORT
 
 VIDEO_EXTENSIONS = {'.mp4', '.mov', '.mxf', '.mkv', '.avi', '.mts', '.m2ts', '.webm'}
-TIMELINE_MODES = ('broll', 'zoom', 'sound', 'eyecontact')   # work on a whole edited sequence (or XML)
+TIMELINE_MODES = ('broll', 'visuals', 'zoom', 'sound', 'eyecontact')   # work on a whole edited sequence (or XML)
 SOUND_CHOICES = {'sound_style': ('auto', 'cinematic', 'funny', 'chill', 'emotional'),
                  'sound_density': ('low', 'medium', 'high')}
 EYE_CHOICES = {'eye_reach': ('near', 'far'), 'eye_size': ('3', '2', '4', '5', '6')}
+VISUALS_CHOICES = {'visuals_density': ('medium', 'low', 'high'), 'visuals_brain': ('auto', 'ollama', 'local')}
 ZOOM_CHOICES = {'zoom_style': ('smooth', 'mixed', 'punch'), 'zoom_strength': ('subtle', 'medium', 'strong'),
                 'zoom_frequency': ('low', 'medium', 'high')}
 
@@ -110,8 +111,8 @@ class AppState:
     def create_job(self, payload):
         mode = payload.get('mode')
         if mode not in ('clean', 'script', 'captions') + TIMELINE_MODES:
-            raise ValueError('Choose Smart Clean, Script Edit, Auto Captions, B-roll, Smart Zoom, Sound Design '
-                             'or Eye Contact')
+            raise ValueError('Choose Smart Clean, Script Edit, Auto Captions, B-roll, Smart Visuals, Smart Zoom, '
+                             'Sound Design or Eye Contact')
         source_paths = [Path(p).resolve() for p in payload.get('source_paths', []) if p]
         input_path = Path(payload['input_path']).resolve() if payload.get('input_path') else None
         timeline_mode = mode in TIMELINE_MODES
@@ -228,6 +229,16 @@ class AppState:
             if payload['mode'] == 'broll':
                 command += ['-m', 'hinglish_broll', '--root', str(self.root), '--input', str(supplied),
                             '--density', payload.get('density', 'medium'), '--device', payload.get('device', 'cpu')]
+            elif payload['mode'] == 'visuals':
+                command += ['-m', 'hinglish_visuals', '--root', str(self.root), '--input', str(supplied),
+                            '--device', payload.get('device', 'cpu')]
+                for key, allowed in VISUALS_CHOICES.items():
+                    value = payload.get(key, allowed[0])
+                    if value not in allowed:
+                        raise ValueError(f'Unknown {key.replace("_", " ")}: {value}')
+                    command += ['--' + key.split('_', 1)[1], value]
+                if payload.get('visuals_popups') is False:
+                    command.append('--no-popups')
             elif payload['mode'] == 'sound':
                 command += ['-m', 'hinglish_sound', '--root', str(self.root), '--input', str(supplied),
                             '--device', payload.get('device', 'cpu')]
@@ -357,6 +368,17 @@ class AppState:
             raise ValueError('Invalid B-roll choices')
         return rebuild_project(project, choices)
 
+    def rebuild_visuals(self, payload):
+        from hinglish_visuals.pipeline import rebuild_project
+        project = Path(payload.get('project_path', '')).resolve()
+        allowed = (self.root / 'output' / 'visuals').resolve()
+        if not project.is_relative_to(allowed) or project.name != 'visuals-project.json' or not project.is_file():
+            raise ValueError('This Smart Visuals project is unavailable')
+        choices = payload.get('choices') or {}
+        if not isinstance(choices, dict) or not all(isinstance(v, str) for v in choices.values()):
+            raise ValueError('Invalid visual choices')
+        return rebuild_project(project, choices)
+
     def sound_settings(self, values=None):
         from dataclasses import asdict
         from hinglish_sound.settings import load_settings, save_user_settings
@@ -466,6 +488,8 @@ def make_handler(state):
                     return self._json(200, state.rebuild_captions(payload))
                 if parsed.path == '/api/broll/rebuild':
                     return self._json(200, state.rebuild_broll(payload))
+                if parsed.path == '/api/visuals/rebuild':
+                    return self._json(200, state.rebuild_visuals(payload))
                 if parsed.path == '/api/broll/settings':
                     return self._json(200, state.broll_settings(payload))
                 if parsed.path == '/api/sound/settings':

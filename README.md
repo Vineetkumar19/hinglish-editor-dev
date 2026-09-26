@@ -26,6 +26,16 @@ First time only: **Add B-roll → B-roll settings** — paste your free **Pexels
 
 How it decides: the local Qwen model summarises the video, then picks the phrases that benefit from a cutaway and writes what should be on screen plus English search terms. CLIP compares every candidate clip with that description; your own footage is preferred when equally good, and no clip is used twice. Reels (≤ 3 min) get 1.5–3 s cutaways, long YouTube videos 3–6 s cutaways every ~20–40 s; the opening hook always stays on your face. Density: Low / Medium / High.
 
+### Smart Visuals (new)
+
+One click puts the REAL thing you talk about on screen: the actual person (Gandhi, Virat Kohli), the app or brand logo (Zomato, Swiggy, ChatGPT), the place or the historical event. It is not generic B-roll.
+
+- A local AI agent (Ollama `qwen3:8b` when running, else the built-in Qwen) reads the whole speech with memory of the story, so a Gandhi story shows Gandhi only. It fixes speech-recognition spellings ("Jomato" → Zomato) and finds the exact Wikidata item.
+- Media come from the internet with no account or key: Wikidata (official logo, portrait, video), Wikipedia and Wikimedia Commons (free photos and archival videos). Pexels and Pixabay (your B-roll keys) add places. Every file must prove it is about that person or brand, and the AI checks the best one before it is used.
+- Logos and faces pop up on the word that names them, never over your face. Stories, facts, places and footage go full screen for exactly the spoken line.
+- Output `output\visuals\<date>\...\VISUALS_SEQUENCE.xml` (new sequence `<name>_VISUALS`: V2 full screen, V3 transparent pop-ups), `preview.mp4`, `report.html` (swap or remove, **Save & rebuild**) and **`CREDITS.txt`**. Paste the credits into your video description.
+- Same button in the app, Premiere Pro (CEP and UXP) and DaVinci Resolve Studio. Details: `DEV NOTES\05 - Smart Visuals.md`.
+
 ### Smart Zoom (new)
 
 One click adds zooms on the key moments: the local AI picks the important phrases **and the stressed word**, and the zoom lands on that word. Types: smooth zoom-in (sine ease), impact punch (settling overshoot), punch-in, zoom-out reveal, slow story push-in, plus alternate framing on every cut to hide jump cuts. Zooms go toward your face (OpenCV YuNet, local) without ever revealing frame edges. Settings: Style (Mixed/Smooth/Punch), Strength (108/115/125 %), How often (Low/Medium/High). Output `output\zoom\<date>\...\ZOOMED_SEQUENCE.xml` (new sequence `<name>_ZOOM`; audio never cut; ramps are written frame-by-frame so Premiere and Resolve match exactly), `preview.mp4` (timelines ≤ 5 min) and `report.html`. Works on any XML from the other features, including `_BROLL` sequences (zooms under B-roll are skipped).

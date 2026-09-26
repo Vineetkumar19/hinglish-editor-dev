@@ -192,6 +192,45 @@ class DashboardServerTests(unittest.TestCase):
         self.assertNotIn('--format', command)
         self.assertEqual(self.state.snapshot(job['id'])['status'], 'complete')
 
+    def test_visuals_job_passes_choices_and_rebuild_only_accepts_generated_projects(self):
+        timeline = self.root / 'sequence.xml'
+        timeline.write_text('<xmeml/>')
+        page = self.root / 'output' / 'visuals' / 'r' / '001-a' / 'report.html'
+        page.parent.mkdir(parents=True)
+        page.write_text('ok')
+        launched = {}
+
+        class FakeProcess:
+            def __init__(self, command, **_):
+                launched['command'] = command
+                self.stdout = iter([f'Results: {page}\n'])
+            def wait(self):
+                return 0
+        with patch('hinglish_app.server.subprocess.Popen', FakeProcess):
+            status, job = self.request('/api/jobs', {'mode': 'visuals', 'timeline_xml': str(timeline),
+                                                     'visuals_density': 'high', 'visuals_brain': 'local',
+                                                     'visuals_popups': False})
+            for _ in range(50):
+                if self.state.snapshot(job['id'])['status'] in ('complete', 'failed'): break
+                threading.Event().wait(.05)
+        command = launched['command']
+        self.assertIn('hinglish_visuals', command)
+        self.assertEqual(command[command.index('--density') + 1], 'high')
+        self.assertEqual(command[command.index('--brain') + 1], 'local')
+        self.assertIn('--no-popups', command)
+        self.assertEqual(self.state.snapshot(job['id'])['status'], 'complete')
+        outside = self.root / 'visuals-project.json'
+        outside.write_text('{}')
+        with self.assertRaises(HTTPError) as caught:
+            self.request('/api/visuals/rebuild', {'project_path': str(outside), 'choices': {}})
+        self.assertEqual(caught.exception.code, 400)
+        project = page.parent / 'visuals-project.json'
+        project.write_text('{}')
+        with patch('hinglish_visuals.pipeline.rebuild_project', return_value={'xml_files': [], 'filled': 2}) as rebuild:
+            status, result = self.request('/api/visuals/rebuild', {'project_path': str(project), 'choices': {'1': ''}})
+        self.assertEqual((status, result['filled']), (200, 2))
+        rebuild.assert_called_once_with(project.resolve(), {'1': ''})
+
 
 if __name__ == '__main__':
     unittest.main()

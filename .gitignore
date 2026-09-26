@@ -27,3 +27,6 @@ library/
 # Eye Contact: NVIDIA AR SDK + built samples (NVIDIA licence, large) and this PC's paths
 tools/maxine/
 config.eyecontact.local.json
+
+# Smart Visuals: this PC's brain choice (keys stay in config.broll.local.json)
+config.visuals.local.json

@@ -1,6 +1,6 @@
 const token=document.documentElement.dataset.token;
 const headers={'Content-Type':'application/json','X-Hinglish-Token':token};
-const TIMELINE_MODES=['broll','zoom','sound','eyecontact'];
+const TIMELINE_MODES=['broll','visuals','zoom','sound','eyecontact'];
 let mode='clean',captionStyle='flash_cut',jobId=null,timer=null,lastResult=null,sourcePaths=[];
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 
@@ -18,11 +18,12 @@ function setMode(next){
   $$('.caption-script-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
   $$('.caption-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
   $$('.broll-field').forEach(x=>x.classList.toggle('hidden',mode!=='broll'));
+  $$('.visuals-field').forEach(x=>x.classList.toggle('hidden',mode!=='visuals'));
   $$('.zoom-field').forEach(x=>x.classList.toggle('hidden',mode!=='zoom'));
   $$('.sound-field').forEach(x=>x.classList.toggle('hidden',mode!=='sound'));
   $$('.eye-field').forEach(x=>x.classList.toggle('hidden',mode!=='eyecontact'));
   $$('.timeline-field').forEach(x=>x.classList.toggle('hidden',!TIMELINE_MODES.includes(mode)));
-  if(mode==='broll')loadBrollSettings();
+  if(mode==='broll'||mode==='visuals')loadBrollSettings();
   if(mode==='sound')loadSoundSettings();
   if(mode==='eyecontact')loadEyeStatus();
   const data={
@@ -30,6 +31,7 @@ function setMode(next){
     script:['SCRIPT EDIT','Build by meaning','Build my timeline','≋','Selected clips are arranged by the meaning of your script.'],
     captions:['AUTO CAPTIONS','Premium Hinglish captions','Generate captions','CC','Selected videos receive timed Roman Hinglish captions.'],
     broll:['ADD B-ROLL','B-roll for what you say','Add B-roll','▶','Choose a video, or a timeline XML from Smart Clean / Script Edit / Premiere.'],
+    visuals:['SMART VISUALS','Real photos, logos and footage','Add smart visuals','◈','Choose a video, or a timeline XML from Smart Clean / Script Edit / B-roll / Premiere.'],
     zoom:['SMART ZOOM','Zooms on key moments','Add smart zooms','⤢','Choose a video, or a timeline XML from Smart Clean / Script Edit / B-roll / Premiere.'],
     sound:['SOUND DESIGN','Music and effects by meaning','Design the sound','♪','Choose a video, or your finished timeline XML (e.g. after B-roll and Smart Zoom).'],
     eyecontact:['EYE CONTACT','Look into the camera','Fix eye contact','◉','Choose your camera videos, or a timeline XML (only your camera clips are processed).']
@@ -132,6 +134,7 @@ function showSettings(s){
   const sources=[];if(s.use_library&&s.library_folders.length)sources.push(`My footage (${s.library_folders.length} folder${s.library_folders.length===1?'':'s'})`);
   if(s.use_pexels&&s.pexels_key)sources.push('Pexels');if(s.use_pixabay&&s.pixabay_key)sources.push('Pixabay');
   $('#sourceSummary').textContent=sources.length?sources.join(' + '):'None yet — open B-roll settings';
+  $('#visualsSources').textContent=['Wikipedia + Commons (free)'].concat(sources.filter(x=>x==='Pexels'||x==='Pixabay')).join(' + ');
 }
 async function loadBrollSettings(){try{showSettings(await api('/api/broll/settings'))}catch(e){$('#sourceSummary').textContent=e.message}}
 $('#openBrollSettings').onclick=()=>{$('#settingsError').textContent='';$('#brollSettings').showModal()};
@@ -171,6 +174,7 @@ $('#run').onclick=async()=>{
       eye_reach:$('#eyeReach').value,eye_size:$('#eyeSize').value,eye_look_away:$('#eyeLookAway').checked,
       sound_style:$('#soundStyle').value,sound_density:$('#soundDensity').value,sound_music:$('#soundMusic').checked,
       sound_effects:$('#soundEffects').checked,sound_transitions:$('#soundTransitions').checked,
+      visuals_density:$('#visualsDensity').value,visuals_brain:$('#visualsBrain').value,visuals_popups:$('#visualsPopups').checked,
       zoom_style:$('#zoomStyle').value,zoom_strength:$('#zoomStrength').value,zoom_frequency:$('#zoomFrequency').value,
       zoom_face:$('#zoomFace').checked,zoom_jump_cuts:$('#zoomJumpCuts').checked,
       device:$('#device').value,pacing:$('#pacing').value,preview:true};

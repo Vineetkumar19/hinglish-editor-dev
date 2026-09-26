@@ -120,8 +120,9 @@ def run(root, input_path, settings=None, progress=print, simulate=False):
     is_xml = input_path.suffix.lower() == '.xml'
     progress('Reading the timeline' if is_xml else 'Finding your videos')
     if is_xml:
-        # stock B-roll downloads and the sound library never hold your talking head
+        # stock B-roll / Smart Visuals downloads and the sound library never hold your talking head
         sources = used_sources(input_path, skip=[root / 'cache' / 'broll', root / 'output' / 'broll',
+                                                 root / 'cache' / 'visuals', root / 'output' / 'visuals',
                                                  root / 'library', root / 'output' / 'eyecontact'])
     else:
         sources = [{'path': str(p), 'ranges': []} for p in _videos(input_path)]

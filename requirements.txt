@@ -9,3 +9,5 @@ silero-vad==6.2.1
 faster-whisper==1.2.1
 Pillow>=10,<13
 opencv-python-headless>=4.9,<5
+requests>=2.31,<3
+regex>=2023.10
