@@ -17,11 +17,12 @@ class Profile:
     max_coverage: float     # share of the timeline B-roll may cover
     hook: float             # protected opening seconds
     tail: float             # protected closing seconds
+    ideal: float            # preferred clip length when the phrase is shorter
 
 
 BASE = {
-    'short': Profile('short', 1.5, 3.0, 1.5, 3.2, .42, 2.0, 1.0),
-    'long': Profile('long', 3.0, 6.0, 10.0, 17.0, .22, 5.0, 2.0),
+    'short': Profile('short', 1.5, 3.0, 1.5, 3.2, .42, 2.0, 1.0, 2.2),
+    'long': Profile('long', 3.0, 6.0, 10.0, 17.0, .22, 5.0, 2.0, 4.5),
 }
 DENSITY = {'low': (1.6, .6), 'medium': (1.0, 1.0), 'high': (.7, 1.35)}
 

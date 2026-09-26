@@ -34,6 +34,17 @@ AUTO CAPTION OUTPUT
 - report.html = on-video Caption Studio for manual text, style, position, size and format changes
 - Original video and audio are unchanged
 
+ADD B-ROLL (NEW)
+First time only:
+1. Double-click Run Hinglish Editor.bat -> Add B-roll -> B-roll settings
+2. Paste your Pexels key and Pixabay key, and/or add folders of your own clips -> Save settings
+Every time:
+- Premiere: open your edited sequence -> Hinglish Editor panel -> Add B-roll -> Add B-roll to the open sequence
+- Resolve Studio: open the timeline -> Workspace > Scripts > Hinglish Editor -> Add B-roll -> run -> Import to Resolve
+- App: choose a video (or a timeline XML) -> Add B-roll
+Result: new sequence NAME_BROLL with B-roll on V2. Open Review result to swap/remove clips, then Save & rebuild.
+Reels get quick 1.5-3 s cutaways; long YouTube videos get 3-6 s cutaways every ~20-40 s.
+
 OLD / UNSUPPORTED / MODIFIED EDITORS
 Use the standalone app. Import the generated XML manually.
 

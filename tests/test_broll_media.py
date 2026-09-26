@@ -57,6 +57,16 @@ class StockTests(unittest.TestCase):
         self.assertEqual(pick_file(files, 1080, 1920)[2], '4k')      # 9:16 crop needs 1920 height
         self.assertEqual(pick_file([(640, 360, 'small')], 1920, 1080)[2], 'small')
 
+    def test_cached_names_are_flat_and_unique_for_library_paths(self):
+        from hinglish_broll.stock import cached_name
+        a = Candidate('library', r'library:e:\madurai series\clip one.mp4@12.0', 't', 5, 1080, 1920)
+        b = Candidate('library', r'library:e:\madurai series\clip one.mp4@30.0', 't', 5, 1080, 1920)
+        name = cached_name(a, 'thumb')
+        self.assertTrue(name.endswith('.jpg'))
+        self.assertNotRegex(name, r'[\\/:]')
+        self.assertNotEqual(name, cached_name(b, 'thumb'))
+        self.assertEqual(cached_name(Candidate('pexels', 'pexels:7', 't', 5, 1080, 1920)), 'pexels-7-1080x1920.mp4')
+
     def test_pexels_results_are_parsed_and_cached(self):
         data = {'videos': [{'id': 7, 'width': 1080, 'height': 1920, 'duration': 12, 'url': 'page', 'image': 'thumb.jpg',
                             'user': {'name': 'Asha'}, 'video_files': [
@@ -112,6 +122,14 @@ class RankerTests(unittest.TestCase):
         picks = choose([(s, [wide, own])], 'portrait', .2)
         self.assertEqual(picks[0][0].id, 'library:x')
         self.assertEqual(picks[0][1][0].id, 'pexels:w')
+
+    def test_same_library_file_is_avoided_when_another_is_nearly_as_good(self):
+        first, second = self.slot(3, 3), self.slot(12, 2)
+        a1 = Candidate('library', 'library:a@0', 'a', 30, 1080, 1920, path='a.mp4', offset=0, score=.32)
+        a2 = Candidate('library', 'library:a@20', 'a', 30, 1080, 1920, path='a.mp4', offset=20, score=.32)
+        b = Candidate('library', 'library:b@0', 'b', 30, 1080, 1920, path='b.mp4', offset=0, score=.31)
+        picks = choose([(first, [a1]), (second, [a2, b])], 'portrait', .2)
+        self.assertEqual(picks[1][0].id, 'library:b@0')
 
     def test_too_short_clips_are_not_used(self):
         picks = choose([(self.slot(3, length=5), [self.cand('pexels:s', .4, duration=3)])], 'portrait', .2)

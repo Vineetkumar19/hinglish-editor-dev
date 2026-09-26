@@ -3,6 +3,7 @@ from dataclasses import dataclass, field, asdict
 import hashlib
 import json
 from pathlib import Path
+import re
 import time
 
 import requests
@@ -140,7 +141,10 @@ def download(url, target, session=None, timeout=120):
 
 
 def cached_name(candidate, kind='video'):
-    safe = candidate.id.replace(':', '-')
+    """Filesystem-safe, unique name (library ids contain full paths)."""
+    safe = re.sub(r'[^A-Za-z0-9_-]+', '-', candidate.id).strip('-')
+    if len(safe) > 60:
+        safe = safe[:24] + '-' + hashlib.sha1(candidate.id.encode()).hexdigest()[:16]
     if kind == 'thumb':
         return f'{safe}.jpg'
     return f'{safe}-{candidate.width}x{candidate.height}.mp4'

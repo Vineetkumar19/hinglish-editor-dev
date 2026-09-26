@@ -14,6 +14,20 @@
 
 The app never overwrites the original sequence. It creates a new editable XML timeline.
 
+### Add B-roll (new)
+
+One click adds cutaway footage that matches what you are saying (Hindi, English or Hinglish).
+
+- **Premiere Pro:** open the edited sequence → **Window > Extensions > Hinglish Editor** → **Add B-roll**. A new sequence `<name>_BROLL` is imported with B-roll on V2 (your talking head stays on V1; any caption layer stays on top).
+- **DaVinci Resolve Studio:** open the timeline → **Workspace > Scripts > Hinglish Editor** → **Add B-roll** → keep *Use the timeline open in DaVinci Resolve* ticked → **Import to Resolve** when finished.
+- **Standalone app:** choose a video, or **Or choose a timeline XML…** (e.g. `EDITED_SEQUENCE.xml` from Script Edit).
+
+First time only: **Add B-roll → B-roll settings** — paste your free **Pexels** and **Pixabay** API keys and/or add folders of your own footage. Keys stay in `config.broll.local.json` on this computer (never uploaded, never shown again).
+
+How it decides: the local Qwen model summarises the video, then picks the phrases that benefit from a cutaway and writes what should be on screen plus English search terms. CLIP compares every candidate clip with that description; your own footage is preferred when equally good, and no clip is used twice. Reels (≤ 3 min) get 1.5–3 s cutaways, long YouTube videos 3–6 s cutaways every ~20–40 s; the opening hook always stays on your face. Density: Low / Medium / High.
+
+Each run writes `output\broll\<date>\...\`: `BROLL_SEQUENCE.xml`, `report.html` (swap any clip for one of the alternatives or remove it, then **Save & rebuild**) and the prepared clips in `media\` (cropped to the sequence size and frame rate, muted).
+
 ### Auto Captions
 
 Open **Auto Captions**, click **Choose videos** or **Choose folder**, select one of the fifteen templates and run it. **Typography 1** adds colored text strips, a condensed hero word, shadow, glow, blur transitions and camera push motion. An optional rough script can supply the preferred spelling of names and English words even when the spoken wording differs. Each video receives:

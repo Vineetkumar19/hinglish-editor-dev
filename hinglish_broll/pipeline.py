@@ -50,7 +50,9 @@ def timelines_for(root, input_path, output, output_format, progress):
         base = folder / 'source-timeline.xml'
         export_xml(base, [Cut(media.id, 0, math.floor(media.duration * float(media.rate) + 1e-6), 0)],
                    {media.id: media}, output_format)
-        found.append((parse_xmeml(base), folder))
+        timeline = parse_xmeml(base)
+        timeline.name = video.stem
+        found.append((timeline, folder))
     if not found:
         raise ValueError('No supported videos or XML timeline were found')
     return found
@@ -117,7 +119,7 @@ def render_choice(root, folder, timeline, slot_index, slot, candidate, device):
 
 def report_thumb(root, folder, candidate, need):
     """Local jpg for the review page (copied so the page works from its own folder)."""
-    target = Path(folder) / 'thumbs' / cached_name(candidate, 'thumb').replace('library-', 'lib-')[:120]
+    target = Path(folder) / 'thumbs' / cached_name(candidate, 'thumb')
     if target.exists():
         return target
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -139,6 +141,7 @@ def timeline_to_dict(t):
 
 def write_outputs(root, folder, project):
     timeline = parse_xmeml(project['timeline']['xml_path'])
+    timeline.name = project['timeline']['name']
     placements = [{'path': str(Path(folder) / s['clip']), 'start': s['start'], 'end': s['end'],
                    'name': s['chosen']['title'][:60] if s.get('chosen') else 'B-roll'}
                   for s in project['slots'] if s.get('chosen') and s.get('clip')]

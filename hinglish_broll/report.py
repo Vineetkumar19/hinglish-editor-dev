@@ -29,7 +29,7 @@ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:18px}
 .moment.removed{opacity:.55}
 .time{color:var(--accent);font-weight:700;font-size:13px}.said{font-size:16px;margin:4px 0 8px}
 .idea{color:var(--muted);font-size:13px}.idea b{color:var(--text)}
-.preview{width:100%;aspect-ratio:var(--ratio);background:#000;border-radius:10px;object-fit:cover;max-height:320px}
+.preview{display:block;margin:0 auto;height:min(420px,60vh);width:auto;max-width:100%;aspect-ratio:var(--ratio);background:#000;border-radius:10px;object-fit:cover}
 .options{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .option{position:relative;padding:0;width:104px;height:74px;overflow:hidden;border-width:2px}
 .option img{width:100%;height:100%;object-fit:cover;display:block}

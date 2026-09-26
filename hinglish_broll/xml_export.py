@@ -24,7 +24,7 @@ def export_broll_xml(timeline, placements, target, suffix='_BROLL'):
     sequence.set('id', (sequence.get('id') or 'sequence') + '-broll')
     name = sequence.find('name')
     if name is None: name = add(sequence, 'name')
-    name.text = (name.text or 'Sequence') + suffix
+    name.text = (timeline.name or name.text or 'Sequence') + suffix
     video = sequence.find('./media/video')
     tracks = video.findall('track')
     fps, fps_text = timeline.fps, _fps_text(timeline.fps)

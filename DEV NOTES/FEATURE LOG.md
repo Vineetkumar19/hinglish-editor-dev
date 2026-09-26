@@ -14,3 +14,4 @@
 | # | Feature | Status | Note |
 |---|---|---|---|
 | 00 | Baseline copy created, 116/116 tests pass | ✅ Done | [00 - START HERE](00%20-%20START%20HERE.md) |
+| 01 | One-click B-roll (local AI + your footage + Pexels/Pixabay), Premiere/Resolve/app | ✅ Built · ⏳ live stock + editor test | [01 - B-roll generation](01%20-%20B-roll%20generation.md) |

@@ -4,16 +4,31 @@ from pathlib import Path
 import numpy as np
 
 
+WEIGHTS = ('model.safetensors', 'pytorch_model.bin')
+
+
 def model_folder(name, root, offline=False):
-    from huggingface_hub import snapshot_download
+    """Local snapshot with config + one weights file (safetensors preferred, else PyTorch .bin)."""
+    from huggingface_hub import list_repo_files, snapshot_download
     cache = str(Path(root) / 'models')
-    patterns = ['*.json', '*.txt', 'model.safetensors']
+
+    def complete(folder):
+        return any((Path(folder) / w).is_file() for w in WEIGHTS)
+
     try:
-        return snapshot_download(name, cache_dir=cache, allow_patterns=patterns, local_files_only=True)
+        folder = snapshot_download(name, cache_dir=cache, local_files_only=True,
+                                   allow_patterns=['*.json', '*.txt', *WEIGHTS])
+        if complete(folder):
+            return folder
     except Exception:
-        if offline:
-            raise
-        return snapshot_download(name, cache_dir=cache, allow_patterns=patterns)
+        pass
+    if offline:
+        raise FileNotFoundError(f'The visual model {name} is not downloaded yet')
+    files = set(list_repo_files(name))
+    weights = next((w for w in WEIGHTS if w in files), None)
+    if not weights:
+        raise FileNotFoundError(f'{name} has no PyTorch weights')
+    return snapshot_download(name, cache_dir=cache, allow_patterns=['*.json', '*.txt', weights])
 
 
 class Vision:

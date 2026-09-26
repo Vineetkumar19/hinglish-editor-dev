@@ -98,8 +98,16 @@ class PlacementTests(unittest.TestCase):
 
     def test_phrases_break_on_pause_and_length(self):
         words = [Word('Aaj', 0, .3), Word('hum', .35, .6), Word('Madurai', .65, 1.1), Word('gaye.', 1.15, 1.5),
-                 Word('Wahan', 2.5, 2.8), Word('temple', 2.85, 3.2)]
-        self.assertEqual([p.text for p in build_phrases(words)], ['Aaj hum Madurai gaye.', 'Wahan temple'])
+                 Word('Wahan', 2.5, 2.8), Word('ka', 2.85, 3.0), Word('temple', 3.05, 3.4), Word('dekha', 3.45, 3.8)]
+        self.assertEqual([p.text for p in build_phrases(words)], ['Aaj hum Madurai gaye.', 'Wahan ka temple dekha'])
+
+    def test_fragments_join_a_neighbour_so_meaning_survives(self):
+        words = [Word('Bhai', 0, .3), Word('nahin', .35, .6), Word('thi.', .65, .9),
+                 Word('Washing', 1.3, 1.7), Word('machine', 1.75, 2.1), Word('bhi', 2.15, 2.3), Word('nahin.', 2.35, 2.7),
+                 Word('Haan', 6, 6.2), Word('ji.', 6.25, 6.4)]
+        phrases = build_phrases(words)
+        self.assertEqual([p.text for p in phrases], ['Bhai nahin thi. Washing machine bhi nahin.', 'Haan ji.'])
+        self.assertEqual([p.id for p in phrases], [0, 1])
 
     def test_short_profile_protects_hook_and_respects_spacing(self):
         profile = profile_for(60)
@@ -125,6 +133,17 @@ class PlacementTests(unittest.TestCase):
         slots = place(moments, phrases, profile, 120)
         self.assertIn(13, [s.moment.phrase_id for s in slots])
         self.assertTrue(all(s.duration >= 3 - 1e-6 for s in slots))
+
+    def test_an_early_weak_moment_does_not_block_two_better_ones(self):
+        from hinglish_broll.phrases import Phrase
+        profile = profile_for(60)
+        # "Bhai nahin thi." then "Python nahin. Washing machine nahin. Fridge nahin. AC." then later phrase.
+        phrases = [Phrase(0, 25.5, 26.2, 'Bhai nahin thi.'),
+                   Phrase(1, 26.9, 33.0, 'Python nahin. Washing machine nahin. Fridge nahin. AC.'),
+                   Phrase(2, 38.2, 39.5, 'Milega par jugaad se.')]
+        moments = [Moment(0, 'v', ['q'], 3), Moment(1, 'v', ['q'], 3), Moment(2, 'v', ['q'], 3)]
+        # Greedy-in-time would keep 0 and lose the richer list phrase 1; they cannot both fit.
+        self.assertEqual([s.moment.phrase_id for s in place(moments, phrases, profile, 60)], [1, 2])
 
     def test_density_changes_amount(self):
         phrases = build_phrases(self.words(60))

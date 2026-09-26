@@ -1,6 +1,6 @@
 # 01 – B-roll generation (one click)
 
-**Status:** 🔨 In progress   **Started:** 26 Sep 2026
+**Status:** ✅ Built and tested with your own footage library · ⏳ Stock footage waits on your API keys · ⏳ Needs a real Premiere/Resolve test   **Started:** 26 Sep 2026
 **Inspired by:** FireCut "Find B-roll". FireCut uses paid Storyblocks footage. Ours uses **your own footage library + free Pexels/Pixabay stock**.
 
 ## What it does
@@ -54,5 +54,31 @@ You get a **new sequence**: your timeline plus B-roll on a new video track (V2).
 - A vision-language model that "watches" each candidate clip before it is picked.
 - Optional local AI video generation for moments where no stock or library clip fits.
 
-## Test log
-_(filled in as the feature is built)_
+## How to try it in Premiere / Resolve (DEV copy)
+Run `Install Editor Plugins.bat` **from this DEV folder**. Premiere and Resolve then use the DEV copy, which has the new **Add B-roll** button.
+To switch back to your original, run `Install Editor Plugins.bat` from `E:\remove silence`.
+
+## Test log (26 Sep 2026, current laptop: Ryzen 5 4600H, GTX 1650, CPU mode)
+| Test | Result |
+|---|---|
+| Automated tests | **146 / 146 pass** (116 original + 30 new B-roll tests) |
+| Local AI understanding (sample Madurai Hinglish text) | Topic, places and foods found correctly. "paise bachana mushkil" became "young man counting rupee notes, worried". About 75 s on CPU. |
+| Single Reel clip (22.8 s) | 2 moments. Clips from the footage library chosen. Output is 1080×1920, 30 fps, muted, exact frame counts. |
+| Multi-clip edited sequence (6 clips, 46 s) | V1 untouched (6 clips), B-roll on V2, audio intact. Moments picked: "PG le liya", "basic chizen", the "…nahin, …nahin, AC" list, "table itna chhota… laptop". |
+| Save & rebuild (review page → app server) | Swapping one clip and removing another took 3.9 s. XML rewritten correctly. |
+| App UI | Add B-roll mode, density selector and B-roll settings (keys + footage folders) all work. |
+
+### Fixed during testing
+- The AI invented a price ("500 extra"). The prompt now forbids made-up numbers, text and signs.
+- The AI skipped named landmarks. The prompt now always prioritises places, foods and objects.
+- Filler phrases ("Haan ji") got B-roll. Fillers are now skipped, and short fragments are merged with a neighbour.
+- Early weak moments blocked better ones. Placement now picks the best-scoring combination (optimal DP).
+- Clips were always the 1.5 s minimum. Ideal length is now 2.2 s (Reels) and 4.5 s (YouTube).
+- The same library file was used twice. A different file is now preferred when nearly as good.
+- CLIP model files and thumbnail names for library paths were fixed.
+
+### Known limits / next ideas
+- **Speech-recognition mistakes.** "pushing machine" (washing machine) was not corrected by the small 4B model. On the RTX 5070 Ti a bigger model (Qwen3-14B) should fix most of these.
+- **Talking-head takes in the library.** Clips of you talking to camera in a footage folder can be picked as B-roll. Keep talking-head takes out of the library folders, or we can add face/speech detection later.
+- **Long list phrases.** A list like "no fan, no washing machine, no fridge, no AC" gets one cutaway. Several quick cuts (one per item) would be better.
+- **Stock footage** (Pexels + Pixabay) is covered by automated tests but not yet run live. It needs your keys in Settings.
