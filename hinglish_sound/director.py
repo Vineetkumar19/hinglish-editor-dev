@@ -1,41 +1,44 @@
 """The sound director: a thinking local model reads the video (words + voice + edit) with the
 sound-design brain's rules, then picks real files from retrieved candidates (RAG)."""
 
-RULES = '''SOUND DESIGN RULES (the editor's sound-design brain, tuned for engaging Reels):
-1. Dialogue is king: a sound supports the words, never fights them. But in a Reel the sound design IS
-   part of the entertainment and the viewer must HEAR it: a designed sound roughly every 2-3 seconds
-   keeps attention. Leave silence only where the story needs weight.
-2. Read each line's emotion from its words AND the voice evidence ("louder/higher/fast" = excited, angry
-   or shocked; "quieter/lower/slow/monotone" = sad, tired, serious, vulnerable). Hinglish: Hindi in
-   Latin letters mixed with English; speech recognition may misspell words.
-3. MUSIC is a bed chosen by emotion, never by keywords:
-   - personal struggle / vulnerability / serious realisation -> ambient, slow strings or solo piano,
-     no percussion (moods like reflective, tense, cinematic)
-   - sad -> piano / strings (reflective)
-   - informational, casual -> lo-fi / chill / neutral
-   - hopeful resolution, things get better -> hopeful / upbeat
-   - comedy -> funny / upbeat; tension, mystery -> tense / thriller
-   Change music only at a real emotional turn (max 2 sections in a short Reel, a few in long videos);
-   a transformation can START ambient and RESOLVE to hopeful/uplifting at the reveal.
-4. PULL BACK AND PUNCH: before the single biggest realisation/reveal, the music dips into a vacuum and a
-   low sub boom lands on the key word - felt, not heard. Use it at most once or twice per Reel.
-5. Effect vocabulary - choose the type, then describe the exact sound:
-   - whoosh: moving to a new point or place ("Mumbai se Delhi"), a quick turn in the story, anything moving
-   - impact: punchline, realisation, strong statement, shocking fact, a number, the big word
-     -> cinematic hit / deep boom / bass drop (a whoosh is layered in automatically)
-   - riser: tension building towards a punchline or reveal (it ends on the punch word)
-   - poke: every concrete thing you could "click": app names, phone, message, notification, typing,
-     camera, and items in a list (one pop per item)
-   - cute: a positive realisation, a small win, a warm moment -> ding / chime / sparkle
-   - retro: money, coins, prices, gaming, achievement, score
-   - awkward: failure, rejection, embarrassment, sarcasm -> error buzzer / fail sting / record scratch
-   - suspense: worry, fear, time pressure, uncertainty -> heartbeat / clock ticking
-   - glitch: confusion, something broken or not working, a system failing, tech
-   - vanish: something gone, wasted, disappeared
-6. Match the palette: serious or emotional stories get cinematic, clean sounds, never cartoon/silly ones;
-   comedic stories may use cartoon sounds.
-7. Spacing and variety: never two sounds within 0.8 s; do not use the same type three times in a row.
-8. A sound lands on the exact word: copy that word exactly from the line.'''
+RULES = '''SOUND DESIGN RULES (how a professional sound editor "spots" a talking-head video):
+1. Dialogue is king. Every sound must have a REASON in the words; no reason, no sound. Silence and the
+   music bed carry most of the video. A sound that is not motivated makes a video feel cheap.
+2. Spot only real triggers, and name the trigger and its evidence (the exact words that prove it):
+   punchline (a joke lands) | reveal (the answer or twist) | shocking_fact | number_or_price | money |
+   list_item (one per item in a spoken list) | app_or_device (Zomato, Instagram, phone, laptop) |
+   message_or_notification | new_place_or_time_jump ("Mumbai se Delhi", "5 saal baad") | topic_change |
+   failure_or_rejection | success_or_win | realisation | tension_or_worry | confusion_or_broken |
+   something_gone | question_hook (a question that makes the viewer wait for the answer).
+3. The sound must match the TONE of that exact line, read from its words AND how it is said:
+   - sad, vulnerable, serious, lonely lines: at most a soft low boom or a gentle riser; never pops, dings,
+     game or cartoon sounds; often nothing at all (let the music carry it).
+   - funny lines: playful sounds are welcome (pop, boing only in a comedic video, record scratch for fails).
+   - excited, energetic lines: punchy hits, whooshes, bright dings.
+   - informational lines: clean subtle UI sounds (click, pop, soft whoosh), never dramatic booms.
+4. Effect types and what they are for:
+   whoosh = movement, a new place/time, a topic change | impact = punchline, reveal, shocking fact, the big
+   word | riser = tension building INTO a reveal (ends on the reveal word) | poke = apps, phones, clicks,
+   list items, notifications | cute = small win, warm realisation (ding, chime, sparkle) | retro = money,
+   coins, prices, score, level up | awkward = failure, rejection, embarrassment (buzzer, record scratch) |
+   suspense = worry, time pressure (heartbeat, ticking) | glitch = confusion, something broken, tech |
+   vanish = something gone or wasted.
+5. PULL BACK AND PUNCH: before the single biggest reveal, the music dips into a vacuum and a low boom lands
+   on the key word. At most once per Reel.
+6. MUSIC is one instrumental bed chosen by the video's overall emotion and energy (never songs with
+   singing: they fight the words). Change it only at a real emotional turn (at most once in a Reel).
+7. Fewer, better sounds: about {count} designed sounds for this whole video. B-roll cuts and zoom landings
+   already have sounds (listed as editing events): do not add sounds on top of them.
+8. A sound lands on the exact word: copy that word exactly from the line.
+
+EXAMPLES (Hinglish lines -> what a pro does):
+- "Aur phir maine Zomato khola" -> app_or_device, evidence "Zomato khola", poke: soft phone tap, on "Zomato".
+- "Teen cheezein chahiye: laptop, mic aur light" -> list_item x3, poke: one soft pop on each item.
+- "Aur result? Zero." (serious) -> reveal, impact: deep cinematic boom on "Zero", pull_back true.
+- "Mujhe laga main jeet gaya... par nahi" (funny) -> failure_or_rejection, awkward: record scratch on "nahi".
+- "Main bahut akela feel kar raha tha" (sad) -> NO effect; the music carries it.
+- "Mumbai se seedha Delhi" -> new_place_or_time_jump, whoosh on "Delhi".
+- "500 rupaye bach gaye" (happy) -> money, retro: coin sound on "500".'''
 
 ANALYSIS_SYSTEM = RULES + '''
 
@@ -48,19 +51,35 @@ emotional turn, which few moments truly deserve sound), then answer:
 - lines: for EVERY line id: emotion (one or two words), intensity 1-3, role in the story
 - music: the music sections (from_id..to_id covering the whole video, in order), each with a mood from
   the available moods, energy 1-3 and why
-- moments: about {count} designed sounds on the speech, spread over the whole video (B-roll cuts and
-  zoom landings already get their own whoosh/boom automatically - do not add those): id, the exact word
-  it lands on, the effect type, intent (the exact sound in plain words, e.g. "deep cinematic boom",
-  "phone notification ping", "clock ticking"), strength 1-3, pull_back (true only for the one or two
-  biggest reveals) and why'''
+- moments: at most {count} designed sounds, only on real triggers: id, trigger, evidence (the exact words
+  from that line that prove the trigger), the exact word it lands on, the effect type, intent (the exact
+  sound in plain words, e.g. "deep cinematic boom", "soft phone tap", "clock ticking"), strength 1-3,
+  pull_back (true only for the single biggest reveal) and why (tone of the line + why this sound).
+{preferences}'''
 
 PICK_SYSTEM = '''You are the sound editor. For each moment you get the director's intent and the real
-candidate files retrieved from the library (with type, genre, length, shape and quality). Pick the ONE
-candidate that best matches the intent AND the emotion of the video: prefer professional studio sounds,
+candidate files retrieved from the library. Each file says what it SOUNDS like (a listening model heard
+it) plus its type, genre, length, shape and quality. Trust "sounds like" over the file name. Pick the ONE
+candidate that best matches the intent AND the tone of that line: prefer professional studio sounds,
 punchy short hits for impacts, crisp short sounds for pops and clicks, a riser that builds up, never a
 cartoon/silly sound in a serious or emotional story. If none fits, answer -1.
-Do the same for each music section (prefer calm instrumental beds without a strong melody for talking).
+Do the same for each music section: an instrumental bed (never one marked HAS SINGING) whose energy
+fits the section, without a strong lead melody that competes with talking.
 Write why first, then the choice.'''
+
+# Which effect types may answer which trigger (a pro never puts a coin sound on a joke).
+TRIGGERS = {
+    'punchline': ('impact', 'awkward', 'cute'), 'reveal': ('impact', 'riser'), 'shocking_fact': ('impact', 'riser'),
+    'number_or_price': ('retro', 'poke', 'impact'), 'money': ('retro',), 'list_item': ('poke',),
+    'app_or_device': ('poke', 'glitch'), 'message_or_notification': ('poke',),
+    'new_place_or_time_jump': ('whoosh',), 'topic_change': ('whoosh',),
+    'failure_or_rejection': ('awkward', 'vanish'), 'success_or_win': ('cute', 'retro'),
+    'realisation': ('cute', 'impact'), 'tension_or_worry': ('suspense', 'riser'),
+    'confusion_or_broken': ('glitch', 'awkward'), 'something_gone': ('vanish',), 'question_hook': ('riser', 'whoosh'),
+}
+HEAVY_EMOTIONS = ('sad', 'vulnerab', 'lonely', 'alone', 'serious', 'grief', 'hurt', 'tired', 'depress', 'emotional',
+                  'regret', 'fear', 'pain', 'heartbroken', 'helpless', 'somber', 'melanchol')
+PLAYFUL = ('poke', 'cute', 'retro', 'awkward', 'glitch')    # never on a heavy line in a non-comedic video
 
 ROLES = ['hook', 'setup', 'conflict', 'realisation', 'punchline', 'twist', 'resolution', 'call_to_action',
          'filler']
@@ -80,11 +99,12 @@ def analysis_schema(moods, families):
             'energy': {'type': 'integer', 'minimum': 1, 'maximum': 3}, 'why': {'type': 'string', 'maxLength': 200}},
             'required': ['from_id', 'to_id', 'mood', 'energy', 'why']}},
         'moments': {'type': 'array', 'items': {'type': 'object', 'properties': {
-            'id': {'type': 'integer'}, 'word': {'type': 'string', 'maxLength': 40},
+            'id': {'type': 'integer'}, 'trigger': {'type': 'string', 'enum': list(TRIGGERS)},
+            'evidence': {'type': 'string', 'maxLength': 60}, 'word': {'type': 'string', 'maxLength': 40},
             'type': {'type': 'string', 'enum': families}, 'intent': {'type': 'string', 'maxLength': 80},
             'strength': {'type': 'integer', 'minimum': 1, 'maximum': 3}, 'pull_back': {'type': 'boolean'},
             'why': {'type': 'string', 'maxLength': 200}},
-            'required': ['id', 'word', 'type', 'intent', 'strength', 'pull_back', 'why']}}},
+            'required': ['id', 'trigger', 'evidence', 'word', 'type', 'intent', 'strength', 'pull_back', 'why']}}},
         'required': ['story', 'palette', 'lines', 'music', 'moments']}
 
 
@@ -123,14 +143,53 @@ FAMILY_MEANING = {
 }
 
 
-def analyse(brain, kind, lines, voice_notes, events, moods, families, count=8):
+def _words(text):
+    import re
+    return [w for w in re.sub(r'[^\w]+', ' ', str(text).casefold()).split() if w]
+
+
+def validate_moments(analysis, lines, families, palette):
+    """The director's moments held to the rules in code -> (kept, dropped with reasons).
+    - the trigger's evidence must really be in that line (no invented reasons)
+    - the effect type must suit the trigger (else the closest allowed type that exists)
+    - TONE: no playful sound on a sad/serious/vulnerable line unless the video is comedic"""
+    feel = {l.get('id'): l for l in analysis.get('lines', []) if isinstance(l, dict)}
+    by_id = {l.id: l for l in lines}
+    kept, dropped = [], []
+    for m in analysis.get('moments', []):
+        if not isinstance(m, dict):
+            continue
+        line = by_id.get(m.get('id'))
+        if line is None:
+            continue
+        said = set(_words(line.text))
+        evidence = _words(m.get('evidence', ''))
+        if not evidence or sum(w in said for w in evidence) / len(evidence) < .6:
+            dropped.append((m, 'no trigger in the words of that line'))
+            continue
+        allowed = [t for t in TRIGGERS.get(m.get('trigger'), ()) if t in families]
+        if not allowed:
+            dropped.append((m, f'no fitting sound type for a {m.get("trigger")}'))
+            continue
+        if m.get('type') not in allowed:
+            m = {**m, 'type': allowed[0]}
+        emotion = str(feel.get(line.id, {}).get('emotion', '')).casefold()
+        if palette != 'comedic' and m['type'] in PLAYFUL and any(h in emotion for h in HEAVY_EMOTIONS):
+            dropped.append((m, f'a playful {m["type"]} sound does not fit a {emotion} line'))
+            continue
+        kept.append(m)
+    return kept, dropped
+
+
+def analyse(brain, kind, lines, voice_notes, events, moods, families, count=8, preferences=''):
     voice = {n['id']: n['voice'] for n in voice_notes}
     data = {'lines': [{'id': l.id, 'time': f'{l.start:.1f}-{l.end:.1f}s', 'text': l.text,
                        'voice': voice.get(l.id, 'normal delivery')} for l in lines],
             'editing_events': events,
             'music_moods_in_library': {m: MOOD_MEANING.get(m, m) for m in moods},
             'effect_types_in_library': {f: FAMILY_MEANING.get(f, f) for f in families}}
-    return brain.ask(ANALYSIS_SYSTEM.format(kind=kind, count=count), data, analysis_schema(moods, families), think=True,
+    return brain.ask(ANALYSIS_SYSTEM.format(kind=kind, count=count, preferences=preferences), data,
+                     analysis_schema(moods, families), think=True,
                      max_tokens=7000, label='Thinking about the story, emotions and sound')
 
 

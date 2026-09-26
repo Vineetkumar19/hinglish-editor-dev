@@ -194,6 +194,7 @@ def mix(voice, sections, cues, folder, pull_backs=(), trim_db=0.0):
     clean_voice = highpass(voice[None, :], VOICE_HPF)[0]
     master = np.stack([clean_voice, clean_voice]).astype(np.float32)
     stems = {'music': None, 'effects': []}
+    bed, placed = None, []
     if sections:
         bed = music_bed(sections, voice_db, envelope, total, pull_backs, trim_db)
         master += bed
@@ -203,6 +204,7 @@ def mix(voice, sections, cues, folder, pull_backs=(), trim_db=0.0):
         if audio.shape[1] == 0:
             continue
         master[:, start:start + audio.shape[1]] += audio
+        placed.append((start, audio, cue))
         stems['effects'].append({'path': str(write_wav(folder / 'sound' / f'sfx-{n:02d}-{cue.category}.wav', audio)),
                                  'start': start / SAMPLE_RATE, 'length': audio.shape[1] / SAMPLE_RATE,
                                  'category': cue.category})
@@ -210,4 +212,5 @@ def mix(voice, sections, cues, folder, pull_backs=(), trim_db=0.0):
     master = limiter(master * db(TARGET_LOUDNESS - loud))
     preview = write_wav(folder / 'sound' / 'full-mix.wav', master)
     return {'voice_db': round(voice_db, 1), 'voice_peak': round(voice_peak, 1), 'stems': stems,
-            'preview_mix': str(preview), 'master': master}
+            'preview_mix': str(preview), 'master': master, 'bed': bed, 'effects': placed,
+            'speech': envelope[:total] > .5}

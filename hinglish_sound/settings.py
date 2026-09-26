@@ -46,10 +46,12 @@ SFX_CREST_MAX = 10.0          # ...but never more than this
 TRANSITION_OFFSET = -4.0      # whoosh on each B-roll cut-in (sounding loudness vs your speech)
 ZOOM_OFFSET = -4.0            # low boom when a zoom lands on the key word
 
-DENSITY = {  # about one designed speech sound every N seconds (edit sounds come on top), minimum spacing
-    'short': {'low': (4.0, 1.2), 'medium': (2.5, .8), 'high': (1.8, .6)},
-    'long': {'low': (15.0, 3.0), 'medium': (8.0, 2.0), 'high': (5.0, 1.5)},
+DENSITY = {  # about one designed sound every N seconds INCLUDING B-roll/zoom sounds, minimum spacing
+    # v4: fewer, motivated sounds (v3's one-every-2.5-s plus edit sounds on top felt random)
+    'short': {'low': (6.0, 2.0), 'medium': (4.0, 1.5), 'high': (3.0, 1.0)},
+    'long': {'low': (20.0, 4.0), 'medium': (12.0, 3.0), 'high': (8.0, 2.0)},
 }
+EDIT_SHARE = .5               # B-roll whooshes + zoom booms may use at most half of the budget
 STYLES = ('auto', 'cinematic', 'funny', 'chill', 'emotional')
 
 
@@ -68,6 +70,9 @@ class SoundSettings:
     pro_folder: str = ''                           # downloaded pro pack; '' = <project>/library/sfx-pro
     think_model: str = 'qwen3:8b'                  # Ollama model that reasons about the video
     embed_model: str = 'qwen3-embedding:0.6b'      # Ollama model for the library vector index
+    listen: bool = True                            # CLAP listens to every file (what it really sounds like)
+    listen_model: str = 'laion/larger_clap_general'
+    evaluate: bool = True                          # check every effect/music bed and the final mix
 
     def __post_init__(self):
         if self.style not in STYLES: raise ValueError('Style must be one of ' + ', '.join(STYLES))
@@ -75,7 +80,7 @@ class SoundSettings:
 
 
 USER_KEYS = ('music_folder', 'sfx_folder', 'pro_folder', 'style', 'density', 'music', 'effects', 'transitions',
-             'music_level', 'think_model', 'embed_model')
+             'music_level', 'think_model', 'embed_model', 'listen', 'listen_model', 'evaluate')
 
 
 def load_settings(root, **overrides):

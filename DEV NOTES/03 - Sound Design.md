@@ -1,4 +1,36 @@
-# 03 – Sound Design (music + sound effects), v3
+# 03 – Sound Design (music + sound effects), v4
+
+## v4 – the AI can now HEAR, needs a reason for every sound, and learns your taste (after "it adds random music and sounds")
+**Why v3 sounded random:**
+1. The AI never heard a sound. It chose files by their names and tags ("impact_03.wav"), which say nothing about the sound.
+2. Too many sounds: one every 2.5 s, plus a whoosh on every B-roll, a boom on every zoom and a whoosh on every hit.
+3. Music was picked by folder name: nothing checked for singing or matched the energy.
+4. Nothing checked the result or learned from your changes.
+
+**What changed:**
+| | Now |
+|---|---|
+| **Ears (CLAP, local)** | `laion/larger_clap_general` listens to every effect and music file once (cached), so search and the AI's choice go by what a file SOUNDS like. Each file gets "sounds like: boom, bass drop" and "cartoonish or clean"; music also gets "HAS SINGING or instrumental", energy and BPM. Search fuses name match + sound match (sound counts double). |
+| **A reason for every sound** | The director works like a pro "spotting session": each sound needs a trigger (punchline, reveal, list item, app name, number, new place, failure, win, worry…) AND the exact words that prove it. No trigger in the words = no sound. |
+| **Tone rules in code** | The trigger decides the allowed types (a reveal gets a hit, never a coin). No playful sound (pop, ding, game, buzzer, glitch) on a sad, serious or vulnerable line unless the video is comedic. Singing tracks are never speech beds. |
+| **Fewer, better sounds** | Budget includes B-roll/zoom sounds. Reel medium: about 1 sound per 4 s, at least 1.5 s apart. Low 1 per 6 s, high 1 per 3 s. Edit sounds may use at most half; the layered whoosh only on the biggest hits; pull-back-and-punch once per Reel. |
+| **Evaluator** | Every picked effect is listened to: SOUNDS LIKE the wanted type (a voice, laughter, a music loop or the wrong kind fails) and TONE (no cartoon in serious/emotional/informational). Music fails when it has singing; energy mismatch warns. A failed file → next candidate. |
+| **Mix check** | Measured on the final audio: each effect's loudness vs your words, music under speech (≤ −8 dB), master ≈ −14, no clipping, number of sounds within budget, spacing. |
+| **Learns your taste** | report.html: untick sounds you don't like → **Save & remix**. Files you removed twice are never used again; your recent keeps/removals are given to the AI as examples next time (`cache\learning\sound-preferences.json`, delete to reset). |
+
+- **First run:** the listening model downloads once (~0.8 GB, into `models\`) and listens to all ~1,400 files (a few minutes on CPU, cached after that).
+- Settings (`config.sound.local.json`): `listen`, `listen_model`, `evaluate`.
+- **Tested in the cloud (no torch/Ollama/models there):**
+  - 12 new tests: the rules, the listening index (with a stand-in model), the evaluator, the mix check, taste learning and the report
+  - the pipeline was linted and import-checked
+  - ⏳ your listening test on the laptop
+
+**How to improve further (in order of value):**
+1. Use Save & remix on 5–10 videos: your taste becomes the AI's examples.
+2. Add better sounds: a pro library is the biggest quality lever (Mixkit pack already added). Put packs into the effects folder; they are listened to automatically.
+3. On the RTX 5070 Ti, set `think_model` to `qwen3:14b` for better story reading.
+4. Later, reference matching: give it 3–5 Reels you love; it measures their sound density and levels, and targets them.
+
 
 ## v3 (after "I can't hear any sound effects")
 - **Extended library:** a professional pack of **757 Mixkit sounds** was downloaded to `library\sfx-pro\` (167 MB):

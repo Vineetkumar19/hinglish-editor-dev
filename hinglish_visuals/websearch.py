@@ -4,7 +4,6 @@ Images: "Zomato logo png", "Mahatma Gandhi photo", "Meenakshi Amman Temple" thro
 (DuckDuckGo / Bing / Yahoo via the `ddgs` package, no key). Videos: web video search plus YouTube search,
 downloaded with yt-dlp (YouTube and 1000+ sites), only the part that is needed. Every file still has to
 name the person/brand/place in its title or address, then CLIP and the AI judge pick the best one."""
-from dataclasses import replace
 import hashlib
 import json
 from pathlib import Path

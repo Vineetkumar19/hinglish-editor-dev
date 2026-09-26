@@ -5,6 +5,7 @@ edit sounds (B-roll cuts, zoom landings) -> brain-rule mix -> own tracks in the 
 from dataclasses import asdict
 from datetime import datetime
 import json
+import math
 from pathlib import Path
 import uuid
 
@@ -18,14 +19,16 @@ from hinglish_broll.timeline import timeline_words
 from hinglish_clean.detection import write_json
 
 from .brain import Brain
-from .cues import edit_cues, keep_musical, layer_hits, place_cue, word_time
-from .director import analyse, pick
+from . import learning
+from .cues import Cue, edit_cues, keep_musical, layer_hits, place_cue, word_time
+from .director import analyse, pick, validate_moments
+from .evaluator import check_effect, check_music, mix_qa
 from .library import scan
 from .mix import mix
 from .prosody import describe_lines
 from .report import write_report
-from .settings import DENSITY, OLD_SCAN_CACHE, SFX_BEHAVIOUR, load_settings
-from .vectors import SoundIndex, document
+from .settings import DENSITY, EDIT_SHARE, OLD_SCAN_CACHE, SFX_BEHAVIOUR, load_settings
+from .vectors import SoundIndex
 from .xml_export import export_sound_xml
 
 PREVIEW_LIMIT = 300.0
@@ -92,12 +95,59 @@ def music_sections(plan, lines, seconds, moods):
     return sections
 
 
+def _rank(picked, count):
+    """The picker's choice first, then the other candidates (the evaluator walks this list)."""
+    first = picked if isinstance(picked, int) and 0 <= picked < count else 0
+    return [first] + [j for j in range(count) if j != first]
+
+
+def open_listener(root, settings, progress):
+    if not settings.listen:
+        return None
+    try:
+        from .listen import Listener
+        progress('Loading the listening model (CLAP: it hears what each sound really is)')
+        return Listener(root, settings.listen_model, settings.device, settings.cpu_threads)
+    except Exception as error:
+        progress(f'  Listening model unavailable ({error}); choosing by names and tags only')
+        return None
+
+
+def finish(root, folder, plan, seq, voice, sections, cues, pull_backs, settings, progress):
+    """Mix, measure (mix QA), export the XML, render the preview and write the report."""
+    from hinglish_zoom.preview import render_preview
+    progress('Mixing with the sound-design brain rules')
+    mixed = mix(voice, sections, cues, folder, pull_backs, settings.music_level)
+    qa = mix_qa(voice, mixed['bed'], mixed['effects'], mixed['master'], mixed['speech'], cues,
+                plan['budget'], plan['gap'])
+    failed = [r for r in qa if not r['passed']]
+    progress(f'  Mix check: {len(qa) - len(failed)}/{len(qa)} passed' +
+             ('' if not failed else ' (' + '; '.join(f"{r['check']}: {r['value']}" for r in failed[:3]) + ')'))
+    xml = export_sound_xml(plan['timeline_xml'], seq.fps, mixed['stems'], Path(folder) / 'SOUND_SEQUENCE.xml')
+    preview = None
+    if plan['seconds'] <= PREVIEW_LIMIT:
+        progress('Rendering a preview with the new sound')
+        render_preview(seq, np.ones(seq.frames), [None] * seq.frames, Path(folder) / 'preview.mp4',
+                       progress=lambda _: None, audio=mixed['master'].mean(axis=0))
+        preview = 'preview.mp4'
+    plan.update(music=[{k: v for k, v in s.items()} for s in sections], cues=[c.to_dict() for c in cues],
+                pull_backs=pull_backs, voice_db=mixed['voice_db'], voice_peak=mixed['voice_peak'],
+                stems=mixed['stems'], mix_qa=qa, preview=preview)
+    write_json(Path(folder) / 'sound-plan.json', plan)
+    write_report(Path(folder) / 'report.html', plan['name'], plan, preview)
+    return xml
+
+
 def run(root, input_path, output_format=None, overrides=None, progress=print):
     root = Path(root).resolve()
     settings = load_settings(root, **(overrides or {}))
     stamp = datetime.now().strftime('%Y%m%d-%H%M%S-') + uuid.uuid4().hex[:6]
     output = root / 'output' / 'sound' / stamp
     output.mkdir(parents=True)
+    taste_data = learning.load(root)
+    banned = learning.banned(taste_data)
+    if banned:
+        progress(f'  {len(banned)} sounds you removed before are never used again')
     progress('Reading your sound library')
     music_assets = scan(settings.music_folder, 'music', root / 'cache' / 'sound', OLD_SCAN_CACHE, progress) \
         if settings.music else []
@@ -107,11 +157,16 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
         for folder in (settings.sfx_folder, pro):          # your library + the professional pack
             sfx_assets += scan(folder, 'sfx', root / 'cache' / 'sound', OLD_SCAN_CACHE, progress)
     brain = Brain(root, settings.think_model, settings.embed_model, progress=progress)
-    progress('Building the vector index of your library (first time only)')
-    sfx_index, music_index = SoundIndex(sfx_assets, brain), SoundIndex(music_assets, brain)
+    listener = open_listener(root, settings, progress)
+    progress('Building the library index: names + what each file sounds like (first time only)')
+    sfx_index = SoundIndex(sfx_assets, brain, listener, progress)
+    music_index = SoundIndex(music_assets, brain, listener, progress)
     moods = sorted({a.category for a in music_assets})
     families = sorted({a.category for a in sfx_assets} & set(SFX_BEHAVIOUR))
     progress(f'  {len(music_assets)} music tracks, {len(sfx_assets)} effects indexed')
+    if listener is not None and music_assets:
+        singing = sum(1 for f in music_index.facts if f and f.get('vocals'))
+        progress(f'  Heard {singing} music tracks with singing: they are kept out of speech beds')
 
     progress('Reading the timeline')
     jobs = timelines_for(root, input_path, output, output_format, progress)
@@ -119,7 +174,7 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
     progress('Understanding your speech (reusing saved transcripts when available)')
     words_by_source, notes = transcripts_for(root, sources, settings.device, progress)
 
-    from hinglish_zoom.preview import _audio_track, render_preview
+    from hinglish_zoom.preview import _audio_track
     from hinglish_zoom.xml_apply import Sequence
     results = []
     for timeline, folder in jobs:
@@ -143,97 +198,135 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
         if settings.style != 'auto':
             events.append(f'The editor asked for a {settings.style} sound style.')
         every, gap = DENSITY[form][settings.density]
-        count = max(4, round(seconds / every) - (len(broll) + len(lands) if settings.transitions else 0))
+        budget = max(2, math.ceil(seconds / every))
+        edit_limit = min(len(broll) + len(lands), int(budget * EDIT_SHARE)) if settings.transitions else 0
+        ai_count = max(1, budget - edit_limit)
+        progress(f'  Sound budget: {budget} sounds ({ai_count} on your words, up to {edit_limit} on cuts/zooms), '
+                 f'at least {gap:.1f}s apart')
 
-        analysis = analyse(brain, kind, lines, voice_notes, events, moods, families, count)
+        analysis = analyse(brain, kind, lines, voice_notes, events, moods, families, ai_count,
+                           learning.taste(taste_data))
         palette = STYLE_PALETTE.get(settings.style, analysis.get('palette', 'informational'))
         feel = {l['id']: l for l in analysis.get('lines', []) if isinstance(l, dict)}
         progress(f'  Story: {analysis.get("story", "")[:140]}')
         progress(f'  Palette: {palette}')
 
+        kept_moments, dropped = validate_moments(analysis, lines, families, palette) if settings.effects else ([], [])
+        for m, why in dropped:
+            progress(f'  Skipped a sound on "{m.get("word", "")}": {why}')
         by_id = {l.id: l for l in lines}
-        moments = []
-        for m in analysis.get('moments', []) if settings.effects else []:
-            line = by_id.get(m.get('id'))
-            if line is None or m.get('type') not in families:
-                continue
-            moments.append({**m, 'line_text': line.text, 'target': word_time(line, words, m.get('word', '')),
-                            'emotion': feel.get(line.id, {}).get('emotion', '')})
+        moments = [{**m, 'line_text': by_id[m['id']].text, 'target': word_time(by_id[m['id']], words, m.get('word', '')),
+                    'emotion': feel.get(m['id'], {}).get('emotion', '')} for m in kept_moments]
         sections = music_sections(analysis.get('music', []), lines, seconds, moods) if settings.music else []
 
-        # RAG: retrieve real candidates for every moment and music section from the vector index.
+        # RAG: retrieve real candidates for every moment and music section (names + what they sound like).
         exclude = () if palette == 'comedic' else ('funny',)
         effect_candidates = []
         for m in moments:
             query = f"{m['intent']}. {m['type']} sound effect. Feeling: {m['emotion']}. {palette} video."
             hits = sfx_index.search(query, top=6, categories=[m['type']], exclude_genres=exclude,
-                                    max_duration=SFX_BEHAVIOUR[m['type']]['max_len'])
+                                    max_duration=SFX_BEHAVIOUR[m['type']]['max_len'], banned=banned)
             if len(hits) < 3:
-                hits += [h for h in sfx_index.search(query, top=6, exclude_genres=exclude) if h not in hits]
-            effect_candidates.append([{'asset': a, 'doc': document(a)[:220]} for a, _, _ in hits[:6]])
+                hits += [h for h in sfx_index.search(query, top=6, exclude_genres=exclude, banned=banned)
+                         if h not in hits]
+            effect_candidates.append([{'asset': a, 'doc': sfx_index.docs[sfx_index.assets.index(a)][:260]}
+                                      for a, _, _ in hits[:6]])
         music_candidates = []
         for s in sections:
             query = f"{s['mood']} instrumental background music bed for talking, no vocals, no strong melody. {s['why']}"
-            hits = music_index.search(query, top=5, categories=[s['mood']]) or music_index.search(query, top=5)
-            music_candidates.append([{'asset': a, 'doc': document(a)[:220]} for a, _, _ in hits])
+            hits = (music_index.search(query, top=5, categories=[s['mood']], instrumental_only=True, banned=banned)
+                    or music_index.search(query, top=5, instrumental_only=True, banned=banned)
+                    or music_index.search(query, top=5, banned=banned))
+            music_candidates.append([{'asset': a, 'doc': music_index.docs[music_index.assets.index(a)][:260]}
+                                     for a, _, _ in hits])
 
         picks = pick(brain, analysis.get('story', ''), palette, moments, effect_candidates, sections,
                      music_candidates) if moments or sections else {'effects': [], 'music': []}
 
-        cues, used, pull_backs = [], set(), []
+        # The evaluator listens to the picked file; a failed one is replaced by the next candidate.
+        cues, used = [], set()
         choice = {p.get('moment'): p for p in picks.get('effects', []) if isinstance(p, dict)}
         for i, (m, cands) in enumerate(zip(moments, effect_candidates)):
-            p = choice.get(i, {'choice': 0, 'why': 'best vector match'})
-            j = p.get('choice', 0)
-            if not isinstance(j, int) or not 0 <= j < len(cands):
+            p = choice.get(i, {'choice': 0, 'why': 'best match'})
+            rejected, chosen, verdict = [], None, None
+            for j in _rank(p.get('choice', 0), len(cands)):
+                asset = cands[j]['asset']
+                if asset.path in used:
+                    continue
+                if settings.evaluate:
+                    k = sfx_index.assets.index(asset)
+                    verdict = check_effect(listener, None if sfx_index.audio is None else sfx_index.audio[k],
+                                           sfx_index.facts[k], m['type'], m.get('intent', ''), palette)
+                    if verdict.passed is False:
+                        rejected.append({'file': Path(asset.path).name, **verdict.to_dict()})
+                        progress(f'  Evaluator FAIL {Path(asset.path).name}: {"; ".join(verdict.reasons)}')
+                        continue
+                chosen = asset
+                break
+            if chosen is None:
+                progress(f'  No file really sounds like "{m.get("intent", "")}"; no sound on "{m.get("word", "")}"')
                 continue
-            asset = cands[j]['asset']
-            if asset.path in used:
-                continue
-            used.add(asset.path)
-            cue = place_cue(asset, m['target'], asset.category if asset.category in SFX_BEHAVIOUR else m['type'],
+            used.add(chosen.path)
+            cue = place_cue(chosen, m['target'], chosen.category if chosen.category in SFX_BEHAVIOUR else m['type'],
                             f"{m.get('why', '')} | pick: {p.get('why', '')}", m.get('word', ''), m.get('intent', ''),
                             strength=m.get('strength', 2), emotion=m['emotion'])
-            cue.pull_back = bool(m.get('pull_back'))
+            cue.pull_back, cue.trigger, cue.line = bool(m.get('pull_back')), m.get('trigger', ''), m['line_text']
+            cue.evaluation = {**(verdict.to_dict() if verdict else {'passed': None}), 'rejected': rejected}
             cues.append(cue)
-        cues = keep_musical(cues, seconds, every, gap)
-        pull_backs = [c.target for c in cues if getattr(c, 'pull_back', False)][:2]
+        cues = keep_musical(cues, seconds, seconds / ai_count, gap)
+        pull_backs = [c.target for c in cues if c.pull_back][:1]
         cues += layer_hits(cues, sfx_index, palette, used)
         if settings.transitions:
-            cues += edit_cues(sfx_index, palette, [a for a, _ in broll], lands, cues, used)
+            cues += edit_cues(sfx_index, palette, [a for a, _ in broll], lands, cues, used, edit_limit, gap, banned)
         cues.sort(key=lambda c: c.time)
 
         mchoice = {p.get('section'): p for p in picks.get('music', []) if isinstance(p, dict)}
         for i, (s, cands) in enumerate(zip(sections, music_candidates)):
-            j = mchoice.get(i, {}).get('choice', 0)
-            j = j if isinstance(j, int) and 0 <= j < len(cands) else 0
-            if cands:
-                s.update(path=cands[j]['asset'].path, loudness=cands[j]['asset'].loudness,
-                         pick_why=mchoice.get(i, {}).get('why', ''))
+            for j in _rank(mchoice.get(i, {}).get('choice', 0), len(cands)):
+                asset = cands[j]['asset']
+                verdict = check_music(music_index.facts_for(asset), s.get('energy', 2), s['mood']) \
+                    if settings.evaluate else None
+                if verdict is not None and verdict.passed is False:
+                    progress(f'  Evaluator FAIL music {Path(asset.path).name}: {"; ".join(verdict.reasons)}')
+                    continue
+                s.update(path=asset.path, loudness=asset.loudness, pick_why=mchoice.get(i, {}).get('why', ''),
+                         evaluation=verdict.to_dict() if verdict else None)
+                break
         sections = [s for s in sections if s.get('path')]
         progress(f'  {len(cues)} sounds, {len(sections)} music section(s)')
 
-        progress('Mixing with the sound-design brain rules')
-        mixed = mix(voice, sections, cues, folder, pull_backs, settings.music_level)
-        xml = export_sound_xml(timeline.xml_path, seq.fps, mixed['stems'], folder / 'SOUND_SEQUENCE.xml')
-        preview = None
-        if seconds <= PREVIEW_LIMIT:
-            progress('Rendering a preview with the new sound')
-            render_preview(seq, np.ones(seq.frames), [None] * seq.frames, folder / 'preview.mp4',
-                           progress=lambda _: None, audio=mixed['master'].mean(axis=0))
-            preview = 'preview.mp4'
         lines_out = [{'id': l.id, 'start': l.start, 'end': l.end, 'text': l.text,
                       'voice': next((n['voice'] for n in voice_notes if n['id'] == l.id), ''),
                       **{k: feel.get(l.id, {}).get(k, '') for k in ('emotion', 'intensity', 'role')}} for l in lines]
-        plan = {'settings': asdict(settings), 'story': analysis.get('story', ''), 'palette': palette,
-                'thinking': analysis.get('_thinking', ''), 'lines': lines_out, 'events': events,
-                'music': [{k: v for k, v in s.items()} for s in sections],
-                'cues': [c.to_dict() for c in cues], 'pull_backs': pull_backs,
-                'voice_db': mixed['voice_db'], 'voice_peak': mixed['voice_peak'], 'stems': mixed['stems']}
-        write_json(folder / 'sound-plan.json', plan)
-        write_report(folder / 'report.html', timeline.name, plan, preview)
+        plan = {'name': timeline.name, 'settings': asdict(settings), 'story': analysis.get('story', ''),
+                'palette': palette, 'thinking': analysis.get('_thinking', ''), 'lines': lines_out, 'events': events,
+                'timeline_xml': timeline.xml_path, 'seconds': seconds, 'budget': budget, 'gap': gap,
+                'listener': settings.listen_model if listener else '',
+                'dropped': [{'word': m.get('word', ''), 'type': m.get('type', ''), 'why': why} for m, why in dropped]}
+        xml = finish(root, folder, plan, seq, voice, sections, cues, pull_backs, settings, progress)
         results.append({'name': timeline.name, 'folder': folder.name, 'sounds': len(cues), 'xml': str(xml)})
     if not results:
         raise ValueError('No speech could be understood in the supplied timeline')
     (output / 'result.json').write_text(json.dumps({'results': results, 'notes': notes}, indent=2), encoding='utf-8')
     return output / results[0]['folder'] / 'report.html'
+
+
+def remix(plan_file, keep, music=True, progress=print):
+    """Save & remix from the report: only the kept sounds, music on/off. Your choices are remembered."""
+    from hinglish_zoom.preview import _audio_track
+    from hinglish_zoom.xml_apply import Sequence
+    plan_file = Path(plan_file)
+    folder, root = plan_file.parent, plan_file.parents[4]
+    plan = json.loads(plan_file.read_text(encoding='utf-8'))
+    keep = sorted({int(i) for i in keep if 0 <= int(i) < len(plan['cues'])})
+    learning.record(root, plan['cues'], keep)
+    fields = Cue.__dataclass_fields__
+    cues = [Cue(**{k: v for k, v in plan['cues'][i].items() if k in fields}) for i in keep]
+    sections = [s for s in plan['music'] if s.get('path')] if music else []
+    seq = Sequence(plan['timeline_xml'])
+    voice = _audio_track(seq.path, plan['seconds'])[:int(plan['seconds'] * 48000)]
+    settings = load_settings(root, **{k: v for k, v in plan['settings'].items() if k in ('music_level',)})
+    (folder / 'preview.mp4').unlink(missing_ok=True)
+    xml = finish(root, folder, plan, seq, voice, sections, cues, [c.target for c in cues if c.pull_back][:1],
+                 settings, progress)
+    return {'xml_files': [str(xml.resolve())], 'sounds': len(cues)}

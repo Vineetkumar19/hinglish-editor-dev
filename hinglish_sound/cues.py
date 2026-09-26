@@ -18,9 +18,13 @@ class Cue:
     reason: str
     word: str = ''
     sound: str = ''      # the director's intent
-    source: str = 'ai'   # ai | broll | zoom
+    source: str = 'ai'   # ai | broll | zoom | layer
     strength: int = 2
     emotion: str = ''
+    trigger: str = ''    # why a sound is here (punchline, list_item, app_or_device...)
+    line: str = ''       # the spoken line
+    pull_back: bool = False
+    evaluation: dict = None
 
     def to_dict(self):
         return asdict(self)
@@ -85,19 +89,22 @@ EDIT_QUERIES = {
 LAYER_QUERY = 'fast cinematic whoosh swoosh leading into a hit'
 
 
-def edit_cues(index, palette, broll_cuts, zoom_lands, taken, used):
-    """A whoosh on each B-roll cut-in and a boom where a zoom lands on the key word."""
+def edit_cues(index, palette, broll_cuts, zoom_lands, taken, used, limit=None, gap=.8, banned=()):
+    """A whoosh on B-roll cut-ins and a boom where a zoom lands on the key word, at most `limit` of them
+    (earliest first) and never within `gap` s of another sound."""
     cues = []
     serious = palette != 'comedic'
     for source, times, category, offset in (('broll', broll_cuts, 'whoosh', TRANSITION_OFFSET),
                                             ('zoom', zoom_lands, 'impact', ZOOM_OFFSET)):
         query = EDIT_QUERIES[source].get(palette, EDIT_QUERIES[source]['informational'])
         for t in times:
-            if any(abs(t - c.target) < .8 for c in taken + cues):
+            if limit is not None and len(cues) >= limit:
+                break
+            if any(abs(t - c.target) < gap for c in taken + cues):
                 continue
             hits = index.search(query, top=4, categories=[category],
                                 exclude_genres=('funny',) if serious else (), max_duration=2.0,
-                                exclude_paths=used)
+                                exclude_paths=used, banned=banned)
             hits = [h for h in hits if h[0].duration <= 3.0] or hits
             if not hits:
                 continue
@@ -113,8 +120,8 @@ def layer_hits(cues, index, palette, used):
     """Pro composite: a whoosh whose peak arrives exactly on every hit (impact) of strength 2-3."""
     layers = []
     for cue in cues:
-        if cue.category != 'impact' or cue.source != 'ai' or cue.strength < 2:
-            continue
+        if cue.category != 'impact' or cue.source != 'ai' or cue.strength < 3:
+            continue                        # v4: only the biggest hits get the layered whoosh
         hits = index.search(LAYER_QUERY, top=3, categories=['whoosh'],
                             exclude_genres=('funny',) if palette != 'comedic' else (), max_duration=1.6,
                             exclude_paths=used)

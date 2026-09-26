@@ -112,7 +112,7 @@
             <div><span>Music folder</span><b id="musicFolder">…</b><button id="pickMusic" class="text-button">Change</button></div>
             <div><span>Effects folder</span><b id="sfxFolder">…</b><button id="pickSfx" class="text-button">Change</button></div>
           </div>
-          <small class="broll-note">A thinking local model (Ollama qwen3:8b; keep the Ollama app running) reads the story, the emotion of every line and how you say it, then picks music per emotional section and the few moments that deserve a sound — choosing real files from your library by vector search. Mixed with sound-design-brain rules: music ducks under your voice and swells in pauses, effects are felt not noticed. Music and each effect land on their own tracks.</small>
+          <small class="broll-note">A thinking local model (Ollama qwen3:8b; keep the Ollama app running) reads the story and the tone of every line and how you say it. A listening model (CLAP, local) has heard every file in your library, so sounds are chosen by what they really sound like, not by file names. Every sound needs a reason in your words (punchline, list item, app name, reveal…); no playful sounds on sad lines; songs with singing are never used under speech. An evaluator listens to every pick and measures the final mix. On the results page untick sounds you don't like and Save &amp; remix: it learns your taste.</small>
         </section>
 
         <section class="visuals-field hidden">

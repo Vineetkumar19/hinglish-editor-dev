@@ -383,6 +383,17 @@ class AppState:
             raise ValueError('Invalid visual choices')
         return rebuild_project(project, choices)
 
+    def rebuild_sound(self, payload):
+        from hinglish_sound.pipeline import remix
+        plan = Path(payload.get('plan_path', '')).resolve()
+        allowed = (self.root / 'output' / 'sound').resolve()
+        if not plan.is_relative_to(allowed) or plan.name != 'sound-plan.json' or not plan.is_file():
+            raise ValueError('This sound design is unavailable')
+        keep = payload.get('keep') or []
+        if not isinstance(keep, list) or not all(isinstance(i, int) for i in keep):
+            raise ValueError('Invalid sound choices')
+        return remix(plan, keep, payload.get('music', True) is not False)
+
     def sound_settings(self, values=None):
         from dataclasses import asdict
         from hinglish_sound.settings import load_settings, save_user_settings
@@ -492,6 +503,8 @@ def make_handler(state):
                     return self._json(200, state.rebuild_captions(payload))
                 if parsed.path == '/api/broll/rebuild':
                     return self._json(200, state.rebuild_broll(payload))
+                if parsed.path == '/api/sound/rebuild':
+                    return self._json(200, state.rebuild_sound(payload))
                 if parsed.path == '/api/visuals/rebuild':
                     return self._json(200, state.rebuild_visuals(payload))
                 if parsed.path == '/api/broll/settings':
