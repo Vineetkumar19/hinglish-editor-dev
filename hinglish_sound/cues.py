@@ -3,6 +3,7 @@ from dataclasses import dataclass, asdict
 import math
 import re
 
+from .library import exact_peak_time
 from .settings import LAYER_WHOOSH_OFFSET, SFX_BEHAVIOUR, TRANSITION_OFFSET, ZOOM_OFFSET
 
 
@@ -48,8 +49,10 @@ def place_cue(asset, target, category, reason, word='', sound='', source='ai', o
               emotion=''):
     behaviour = SFX_BEHAVIOUR[category]
     length = min(asset.duration, behaviour['max_len'])
-    if behaviour['align'] == 'peak' and asset.peak_time < length:
-        start = target - asset.peak_time          # sub-frame sync: the loudest instant hits the word / cut
+    peak = exact_peak_time(asset.path, length + .05) if behaviour['align'] == 'peak' else None
+    peak = asset.peak_time if peak is None else peak
+    if behaviour['align'] == 'peak' and peak < length:
+        start = target - peak                     # sub-frame sync: the loudest instant hits the word / cut
     else:
         start = target - .02
     return Cue(round(max(0.0, start), 3), round(target, 3), asset.path, category, round(length, 3),

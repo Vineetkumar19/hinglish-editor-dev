@@ -1,6 +1,8 @@
 """Understand the Hinglish speech and choose B-roll moments with the local AI model."""
 import re
 
+from hinglish_eval import guard, model_rules, tune
+
 from .placement import Moment
 
 SUMMARY_SYSTEM = '''You read the transcript of a talking-head video. The speech is Hinglish:
@@ -83,7 +85,9 @@ def summarize(llm, phrases, max_chars=9000):
         third = max_chars // 3
         middle = len(text) // 2
         text = text[:third] + ' ... ' + text[middle - third // 2: middle + third // 2] + ' ... ' + text[-third:]
-    return llm.json(SUMMARY_SYSTEM, {'transcript': text}, SUMMARY_SCHEMA, max_tokens=400)
+    return guard.ask_checked(llm.json, SUMMARY_SYSTEM, {'transcript': text}, SUMMARY_SCHEMA,
+                             model_rules.broll_summary(phrases), label='video summary', feature='broll',
+                             max_tokens=400)
 
 
 def windows(phrases, max_phrases=45, max_chars=2600):
@@ -149,9 +153,12 @@ def plan_moments(llm, phrases, summary, profile, orientation, progress=print):
         progress(f'  Choosing B-roll moments {n}/{len(groups)}')
         span = group[-1].end - group[0].start
         # Ask for more than will be placed; placement keeps the best-spaced ones.
-        count = max(1, min(len(group), round(span / profile.min_spacing * 1.6)))
+        count = max(1, min(len(group), round(span / profile.min_spacing * 1.6 * tune.value('broll', 'count_scale', 1.0))))
         data = {'video_context': summary,
                 'phrases': [{'id': p.id, 'time': f'{p.start:.1f}-{p.end:.1f}s', 'text': p.text} for p in group]}
-        raw = llm.json(MOMENTS_SYSTEM.format(kind=kind, count=count), data, MOMENTS_SCHEMA, max_tokens=2400)
+        raw = guard.ask_checked(llm.json, MOMENTS_SYSTEM.format(kind=kind, count=count), data, MOMENTS_SCHEMA,
+                                model_rules.broll_moments(group, count), label=f'B-roll moments {n}/{len(groups)}',
+                                feature='broll', progress=progress, repair=model_rules.broll_repair(group),
+                                max_tokens=2400)
         moments += validate_moments(raw, {p.id for p in group}, group)
     return moments

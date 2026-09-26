@@ -19,6 +19,7 @@
 | 03 | Fixes from the first real run (madurai_1) — see below | ✅ Done, 169/169 tests | this file |
 | 07 | Sound Design: AI music mood + sound effects on exact words, B-roll whooshes, ducked mix, own audio tracks | ✅ v3 (audible effects, 757-sound pro pack) · ⏳ your listening test | [03 - Sound Design](03%20-%20Sound%20Design.md) |
 | 08 | Eye Contact: NVIDIA Maxine redraws your eyes into the lens while you read; RTX only; app + Premiere + Resolve | ✅ Built, pipeline tested here (simulated) · ⏳ RTX 5070 Ti setup + real test | [04 - Eye Contact](04%20-%20Eye%20Contact.md) |
+| 09 | Quality Evaluator: rules for every AI answer (asked again + repaired), output specs for all 7 features, auto-redo with corrections, quality report in the app | ✅ Built, running on every job · found and fixed caption overlap, late/early sound hits, overlapping zooms | [05 - Quality Evaluator](05%20-%20Quality%20Evaluator.md) |
 
 ### 03 – Fixes from the first real run (26 Sep)
 - **"Failed to fetch"**: the DEV app now uses port **8766**, so it can't clash with the original app on 8765 (the old Premiere plugin keeps restarting that one). The page also reconnects for about 60 s and shows plain instructions.

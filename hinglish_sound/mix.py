@@ -8,7 +8,8 @@ import torchaudio.functional as AF
 
 from .library import SAMPLE_RATE, decode, loudness_db
 from .settings import (DUCK_ATTACK, DUCK_RELEASE, MUSIC_DUCK, MUSIC_EQ_DIP, MUSIC_IN_GAPS, PEAK_CEILING,
-                       PULL_BACK_DB, SFX_BEHAVIOUR, SFX_CREST_KEEP, SFX_CREST_MAX, SFX_CREST_TRIM, SFX_PEAK_ROOM, SFX_UNDER_VOICE,
+                       NO_CREST_TRIM, PULL_BACK_DB, SFX_BEHAVIOUR, SFX_CREST_KEEP, SFX_CREST_MAX,
+                       SFX_CREST_RELEASE, SFX_CREST_TRIM, SFX_PEAK_ROOM, SFX_UNDER_VOICE,
                        TARGET_LOUDNESS, VOICE_HPF)
 
 HOP = 480   # 10 ms envelope resolution at 48 kHz
@@ -147,9 +148,10 @@ def effect(cue, words_db, voice_peak, envelope, total):
         audio = highpass(audio, cutoff)
     # SFX bus compressor (brain §8): tame the sharpest transient so the body of the sound can come up.
     # Tiny clicks/pops are nearly all spike, so they are trimmed harder (never more than SFX_CREST_MAX).
-    peak = peak_db(audio)
-    trim = min(SFX_CREST_MAX, max(SFX_CREST_TRIM, peak - body_db(audio) - SFX_CREST_KEEP))
-    audio = limiter(audio, ceiling_db=peak - trim)
+    if cue.category not in NO_CREST_TRIM:
+        peak = peak_db(audio)
+        trim = min(SFX_CREST_MAX, max(SFX_CREST_TRIM, peak - body_db(audio) - SFX_CREST_KEEP))
+        audio = limiter(audio, ceiling_db=peak - trim, release=SFX_CREST_RELEASE)
     gain = words_db + cue.offset_db - body_db(audio)             # heard as loud as intended next to your words
     gain = min(gain, voice_peak + SFX_PEAK_ROOM - peak_db(audio))  # never a spike far above the voice
     start = int(cue.time * SAMPLE_RATE)
@@ -158,14 +160,14 @@ def effect(cue, words_db, voice_peak, envelope, total):
     return start, audio[:, :n] * db(max(-40.0, min(30.0, gain))) * duck
 
 
-def limiter(mix, ceiling_db=PEAK_CEILING, rate=SAMPLE_RATE):
+def limiter(mix, ceiling_db=PEAK_CEILING, rate=SAMPLE_RATE, release=.15):
     ceiling = float(db(ceiling_db))
     block = int(.005 * rate)
     n = mix.shape[1] // block + 1
     padded = np.pad(np.abs(mix).max(axis=0), (0, n * block - mix.shape[1]))
     peaks = padded.reshape(n, block).max(axis=1)
     gain = np.minimum(1.0, ceiling / np.maximum(peaks, 1e-9))
-    release = np.exp(-block / (.15 * rate))
+    release = np.exp(-block / (release * rate))
     for i in range(1, n):
         gain[i] = min(gain[i], 1 - (1 - gain[i - 1]) * release)
     for i in range(n - 2, -1, -1):
@@ -209,5 +211,6 @@ def mix(voice, sections, cues, folder, pull_backs=(), trim_db=0.0):
     loud = loudness_db(master.mean(axis=0), SAMPLE_RATE)
     master = limiter(master * db(TARGET_LOUDNESS - loud))
     preview = write_wav(folder / 'sound' / 'full-mix.wav', master)
-    return {'voice_db': round(voice_db, 1), 'voice_peak': round(voice_peak, 1), 'stems': stems,
+    return {'voice_db': round(voice_db, 1), 'voice_peak': round(voice_peak, 1), 'words_db': round(words_db, 2),
+            'stems': stems,
             'preview_mix': str(preview), 'master': master}

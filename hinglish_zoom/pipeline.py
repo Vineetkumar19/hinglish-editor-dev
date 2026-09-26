@@ -11,6 +11,7 @@ from hinglish_broll.planner import summarize
 from hinglish_broll.pipeline import timelines_for, transcripts_for
 from hinglish_broll.timeline import timeline_words
 from hinglish_clean.detection import write_json
+from hinglish_eval import guard
 
 from .curve import build_curve, quantize
 from .events import build_events, jump_cut_baseline
@@ -78,6 +79,7 @@ def run(root, input_path, output_format=None, settings=None, progress=print):
             progress(f'  Topic: {summary.get("topic", "")}')
             moments = plan_zooms(llm, phrases, profile, timeline.orientation, progress, summary)
             plans.append((timeline, folder, words, phrases, profile, moments))
+            guard.save(folder)   # the model checks for this timeline (quality report)
     finally:
         llm.close()
     if not plans:

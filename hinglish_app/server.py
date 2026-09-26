@@ -25,6 +25,23 @@ ZOOM_CHOICES = {'zoom_style': ('smooth', 'mixed', 'punch'), 'zoom_strength': ('s
                 'zoom_frequency': ('low', 'medium', 'high')}
 
 
+QUALITY_ATTEMPTS = 3   # first run + up to 2 corrected redos when a feature's output breaks its rules
+
+
+def quality_summary(folder):
+    try:
+        data = json.loads((Path(folder) / 'quality-check.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    chosen = next((a for a in data['attempts'] if a['attempt'] == data['chosen_attempt']), None)
+    if not chosen or not chosen.get('evaluations'):
+        return None
+    evals = chosen['evaluations']
+    failed = [c['title'] for e in evals for c in e['checks'] if c['hard'] and not c['passed']]
+    return {'score': min(e['score'] for e in evals), 'passed': not failed, 'failed': failed[:5],
+            'attempts': len(data['attempts']), 'used': data['chosen_attempt']}
+
+
 class LocalHTTPServer(ThreadingHTTPServer):
     """A single local bridge; Windows must not share this port between apps."""
     allow_reuse_address = False
@@ -283,6 +300,10 @@ class AppState:
                     command += ['--script', str(script_file)]
             if fmt in ('instagram_vertical', 'square', 'youtube_horizontal'):
                 command += ['--format', fmt]
+            if payload.get('quality_check', True):
+                # every feature runs under the quality evaluator: rules checked, failures redone with corrections
+                command = command[:2] + ['-m', 'hinglish_eval', 'run', '--root', str(self.root),
+                                         '--attempts', str(QUALITY_ATTEMPTS), '--'] + command[2:]
             self._update(job_id, status='running', progress=3, stage='Starting local AI')
             process = subprocess.Popen(command, cwd=self.root, stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
@@ -305,8 +326,11 @@ class AppState:
             xml = [str(p.resolve()) for p in output.rglob('*.xml') if p.name != 'source-timeline.xml']
             previews = [str(p.resolve()) for p in output.rglob('preview.mp4')]
             previews += [str(p.resolve()) for p in output.rglob('cleaned.mp4')]
+            quality = output / 'quality-check.html'
             result = {'page': str(result_page.resolve()), 'folder': str(output.resolve()),
-                      'xml_files': xml, 'previews': previews}
+                      'xml_files': xml, 'previews': previews,
+                      'quality': str(quality.resolve()) if quality.is_file() else None,
+                      'quality_summary': quality_summary(output)}
             self._update(job_id, status='complete', progress=100, stage='Ready to review', result=result)
         except BaseException as error:
             self._log(job_id, str(error))

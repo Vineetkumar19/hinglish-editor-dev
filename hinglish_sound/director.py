@@ -1,6 +1,8 @@
 """The sound director: a thinking local model reads the video (words + voice + edit) with the
 sound-design brain's rules, then picks real files from retrieved candidates (RAG)."""
 
+from hinglish_eval import guard, model_rules
+
 RULES = '''SOUND DESIGN RULES (the editor's sound-design brain, tuned for engaging Reels):
 1. Dialogue is king: a sound supports the words, never fights them. But in a Reel the sound design IS
    part of the entertainment and the viewer must HEAR it: a designed sound roughly every 2-3 seconds
@@ -123,18 +125,23 @@ FAMILY_MEANING = {
 }
 
 
-def analyse(brain, kind, lines, voice_notes, events, moods, families, count=8):
+def analyse(brain, kind, lines, voice_notes, events, moods, families, count=8, progress=print):
     voice = {n['id']: n['voice'] for n in voice_notes}
     data = {'lines': [{'id': l.id, 'time': f'{l.start:.1f}-{l.end:.1f}s', 'text': l.text,
                        'voice': voice.get(l.id, 'normal delivery')} for l in lines],
             'editing_events': events,
             'music_moods_in_library': {m: MOOD_MEANING.get(m, m) for m in moods},
             'effect_types_in_library': {f: FAMILY_MEANING.get(f, f) for f in families}}
-    return brain.ask(ANALYSIS_SYSTEM.format(kind=kind, count=count), data, analysis_schema(moods, families), think=True,
-                     max_tokens=7000, label='Thinking about the story, emotions and sound')
+    ask = lambda system, payload, schema: brain.ask(system, payload, schema, think=True, max_tokens=7000,
+                                                    label='Thinking about the story, emotions and sound')
+    short = 'Reel' in kind or 'short' in kind
+    return guard.ask_checked(ask, ANALYSIS_SYSTEM.format(kind=kind, count=count), data, analysis_schema(moods, families),
+                             model_rules.sound_analysis(lines, count, moods, families, short),
+                             label='story and sound moments', feature='sound', progress=progress,
+                             repair=model_rules.sound_repair(lines, families))
 
 
-def pick(brain, story, palette, moments, effect_candidates, sections, music_candidates):
+def pick(brain, story, palette, moments, effect_candidates, sections, music_candidates, progress=print):
     data = {'story': story, 'palette': palette,
             'moments': [{'moment': i, 'line': m['line_text'], 'word': m['word'], 'type': m['type'],
                          'intent': m['intent'], 'emotion': m.get('emotion', ''),
@@ -143,5 +150,8 @@ def pick(brain, story, palette, moments, effect_candidates, sections, music_cand
             'music_sections': [{'section': i, 'mood': s['mood'], 'why': s['why'],
                                 'candidates': [{'choice': j, 'file': c['doc']} for j, c in enumerate(cands)]}
                                for i, (s, cands) in enumerate(zip(sections, music_candidates))]}
-    return brain.ask(PICK_SYSTEM, data, PICK_SCHEMA, think=False, max_tokens=3000,
-                     label='Choosing the exact files from your library')
+    ask = lambda system, payload, schema: brain.ask(system, payload, schema, think=False, max_tokens=3000,
+                                                    label='Choosing the exact files from your library')
+    return guard.ask_checked(ask, PICK_SYSTEM, data, PICK_SCHEMA,
+                             model_rules.sound_pick(moments, effect_candidates, sections, music_candidates),
+                             label='file choices', feature='sound', progress=progress)
