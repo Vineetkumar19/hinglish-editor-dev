@@ -21,7 +21,8 @@ class Profile:
 
 
 BASE = {
-    'short': Profile('short', 1.5, 3.0, 1.5, 3.2, .42, 2.0, 1.0, 2.2),
+    # With spoken-line timing a B-roll lasts exactly as long as its line (capped at max_len).
+    'short': Profile('short', 1.5, 4.0, 1.5, 3.2, .42, 2.0, 1.0, 2.2),
     'long': Profile('long', 3.0, 6.0, 10.0, 17.0, .22, 5.0, 2.0, 4.5),
 }
 DENSITY = {'low': (1.6, .6), 'medium': (1.0, 1.0), 'high': (.7, 1.35)}
@@ -49,7 +50,7 @@ class BrollSettings:
     pexels_key: str = ''
     pixabay_key: str = ''
     library_folders: list[str] = field(default_factory=list)
-    results_per_query: int = 8
+    results_per_query: int = 12
 
     def __post_init__(self):
         if self.density not in DENSITY:

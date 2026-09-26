@@ -162,6 +162,36 @@ class DashboardServerTests(unittest.TestCase):
         with self.assertRaises(HTTPError):
             self.request('/api/jobs', {'mode': 'broll', 'timeline_xml': str(self.root / 'missing.xml')})
 
+    def test_zoom_job_passes_style_choices_to_the_engine(self):
+        timeline = self.root / 'sequence.xml'
+        timeline.write_text('<xmeml/>')
+        (self.root / 'output' / 'zoom' / 'r' / '001-a').mkdir(parents=True)
+        page = self.root / 'output' / 'zoom' / 'r' / '001-a' / 'report.html'
+        page.write_text('ok')
+        launched = {}
+
+        class FakeProcess:
+            def __init__(self, command, **_):
+                launched['command'] = command
+                self.stdout = iter([f'Results: {page}\n'])
+            def wait(self):
+                return 0
+        with patch('hinglish_app.server.subprocess.Popen', FakeProcess):
+            status, job = self.request('/api/jobs', {'mode': 'zoom', 'timeline_xml': str(timeline),
+                                                     'zoom_style': 'punch', 'zoom_strength': 'strong',
+                                                     'zoom_frequency': 'high', 'zoom_face': False})
+            for _ in range(50):
+                if self.state.snapshot(job['id'])['status'] in ('complete', 'failed'): break
+                threading.Event().wait(.05)
+        command = launched['command']
+        self.assertIn('hinglish_zoom', command)
+        for flag, value in (('--style', 'punch'), ('--strength', 'strong'), ('--frequency', 'high')):
+            self.assertEqual(command[command.index(flag) + 1], value)
+        self.assertIn('--no-face', command)
+        self.assertNotIn('--no-jump-cuts', command)
+        self.assertNotIn('--format', command)
+        self.assertEqual(self.state.snapshot(job['id'])['status'], 'complete')
+
 
 if __name__ == '__main__':
     unittest.main()

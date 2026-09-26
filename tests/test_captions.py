@@ -95,6 +95,13 @@ class CaptionTests(unittest.TestCase):
             self.assertLess(frame[:, :, 3].min(), 255)
             self.assertGreater(frame[:, :, 3].max(), 0)
 
+    def test_typography_one_single_word_cue_renders_in_every_layout(self):
+        # A one-word caption ("Haan.") used to crash the two-line layouts (IndexError).
+        for start in [n / 30 for n in range(8)]:
+            cue = CaptionCue((CaptionWord('Haan.', start, start + .4),), start, start + .5)
+            frame = draw_caption(108, 192, cue, start + .2, 'typography_1')
+            self.assertEqual(frame.size, (108, 192))
+
     def test_typography_one_has_colored_strip_motion_blur_and_camera_change(self):
         cue = CaptionCue(tuple(CaptionWord(word, i * .3, (i + 1) * .3)
                                for i, word in enumerate('Madurai me Rapido booking struggle hai'.split())),

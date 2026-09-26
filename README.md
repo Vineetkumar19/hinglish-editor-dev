@@ -26,7 +26,11 @@ First time only: **Add B-roll → B-roll settings** — paste your free **Pexels
 
 How it decides: the local Qwen model summarises the video, then picks the phrases that benefit from a cutaway and writes what should be on screen plus English search terms. CLIP compares every candidate clip with that description; your own footage is preferred when equally good, and no clip is used twice. Reels (≤ 3 min) get 1.5–3 s cutaways, long YouTube videos 3–6 s cutaways every ~20–40 s; the opening hook always stays on your face. Density: Low / Medium / High.
 
-Each run writes `output\broll\<date>\...\`: `BROLL_SEQUENCE.xml`, `report.html` (swap any clip for one of the alternatives or remove it, then **Save & rebuild**) and the prepared clips in `media\` (cropped to the sequence size and frame rate, muted).
+### Smart Zoom (new)
+
+One click adds zooms on the key moments: the local AI picks the important phrases **and the stressed word**, and the zoom lands on that word. Types: smooth zoom-in (sine ease), impact punch (settling overshoot), punch-in, zoom-out reveal, slow story push-in, plus alternate framing on every cut to hide jump cuts. Zooms go toward your face (OpenCV YuNet, local) without ever revealing frame edges. Settings: Style (Mixed/Smooth/Punch), Strength (108/115/125 %), How often (Low/Medium/High). Output `output\zoom\<date>\...\ZOOMED_SEQUENCE.xml` (new sequence `<name>_ZOOM`; audio never cut; ramps are written frame-by-frame so Premiere and Resolve match exactly), `preview.mp4` (timelines ≤ 5 min) and `report.html`. Works on any XML from the other features, including `_BROLL` sequences (zooms under B-roll are skipped).
+
+Each B-roll run writes `output\broll\<date>\...\`: `BROLL_SEQUENCE.xml`, `report.html` (swap any clip for one of the alternatives or remove it, then **Save & rebuild**) and the prepared clips in `media\` (cropped to the sequence size and frame rate, muted).
 
 ### Auto Captions
 

@@ -1,5 +1,6 @@
 const token=document.documentElement.dataset.token;
 const headers={'Content-Type':'application/json','X-Hinglish-Token':token};
+const TIMELINE_MODES=['broll','zoom','sound','eyecontact'];
 let mode='clean',captionStyle='flash_cut',jobId=null,timer=null,lastResult=null,sourcePaths=[];
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 
@@ -17,12 +18,21 @@ function setMode(next){
   $$('.caption-script-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
   $$('.caption-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
   $$('.broll-field').forEach(x=>x.classList.toggle('hidden',mode!=='broll'));
+  $$('.zoom-field').forEach(x=>x.classList.toggle('hidden',mode!=='zoom'));
+  $$('.sound-field').forEach(x=>x.classList.toggle('hidden',mode!=='sound'));
+  $$('.eye-field').forEach(x=>x.classList.toggle('hidden',mode!=='eyecontact'));
+  $$('.timeline-field').forEach(x=>x.classList.toggle('hidden',!TIMELINE_MODES.includes(mode)));
   if(mode==='broll')loadBrollSettings();
+  if(mode==='sound')loadSoundSettings();
+  if(mode==='eyecontact')loadEyeStatus();
   const data={
     clean:['SMART CLEAN','Remove silence','Clean my videos','✂','Each selected video receives its own cleaned timeline.'],
     script:['SCRIPT EDIT','Build by meaning','Build my timeline','≋','Selected clips are arranged by the meaning of your script.'],
     captions:['AUTO CAPTIONS','Premium Hinglish captions','Generate captions','CC','Selected videos receive timed Roman Hinglish captions.'],
-    broll:['ADD B-ROLL','B-roll for what you say','Add B-roll','▶','Choose a video, or a timeline XML from Smart Clean / Script Edit / Premiere.']
+    broll:['ADD B-ROLL','B-roll for what you say','Add B-roll','▶','Choose a video, or a timeline XML from Smart Clean / Script Edit / Premiere.'],
+    zoom:['SMART ZOOM','Zooms on key moments','Add smart zooms','⤢','Choose a video, or a timeline XML from Smart Clean / Script Edit / B-roll / Premiere.'],
+    sound:['SOUND DESIGN','Music and effects by meaning','Design the sound','♪','Choose a video, or your finished timeline XML (e.g. after B-roll and Smart Zoom).'],
+    eyecontact:['EYE CONTACT','Look into the camera','Fix eye contact','◉','Choose your camera videos, or a timeline XML (only your camera clips are processed).']
   }[mode];
   $('#stepLabel').textContent=data[0];$('#modeTitle').textContent=data[1];
   $('#runText').textContent=data[2];$('#runIcon').textContent=data[3];$('#inputHelp').textContent=data[4];
@@ -133,6 +143,22 @@ $('#saveBrollSettings').onclick=async()=>{
     $('#pexelsKey').value='';$('#pixabayKey').value='';showSettings(s);$('#brollSettings').close();
   }catch(e){$('#settingsError').textContent=e.message}
 };
+// ---- Eye contact ----
+async function loadEyeStatus(){
+  const box=$('#eyeStatus');box.className='eye-status';box.textContent='Checking this PC…';
+  try{const s=await api('/api/eyecontact/status');
+    box.classList.add(s.ready?'ok':'warn');
+    box.textContent=s.ready?`Ready on ${s.gpu}`:(s.checks.find(c=>!c.ok)||{text:'Not set up yet'}).text;
+  }catch(e){box.classList.add('warn');box.textContent=e.message}
+}
+// ---- Sound design ----
+async function loadSoundSettings(){try{const s=await api('/api/sound/settings');
+  $('#musicFolder').textContent=s.music_folder;$('#sfxFolder').textContent=s.sfx_folder}catch(e){$('#musicFolder').textContent=e.message}}
+async function changeSoundFolder(key){try{const r=await api('/api/pick?kind=folder');if(!r.path)return;
+  await api('/api/sound/settings',{method:'POST',body:JSON.stringify({[key]:r.path})});loadSoundSettings()}catch(e){alert(e.message)}}
+$('#pickMusic').onclick=()=>changeSoundFolder('music_folder');
+$('#pickSfx').onclick=()=>changeSoundFolder('sfx_folder');
+
 $('#pickXml').onclick=async()=>{try{const r=await api('/api/pick?kind=xml');if(r.path){sourcePaths=[];$('#inputPath').value=r.path;
   $('#selectedFiles').classList.add('hidden');if(inResolve)$('#useResolve').checked=false}}catch(e){alert(e.message)}};
 
@@ -141,17 +167,40 @@ $('#run').onclick=async()=>{
     const payload={mode,source_paths:sourcePaths,input_path:sourcePaths.length?'':$('#inputPath').value,
       script:mode==='captions'?$('#captionReference').value:$('#script').value,
       caption_style:captionStyle,format:$('#format').value,density:$('#density').value,
-      use_resolve_timeline:mode==='broll'&&inResolve&&$('#useResolve').checked,
+      use_resolve_timeline:TIMELINE_MODES.includes(mode)&&inResolve&&$('#useResolve').checked,
+      eye_reach:$('#eyeReach').value,eye_size:$('#eyeSize').value,eye_look_away:$('#eyeLookAway').checked,
+      sound_style:$('#soundStyle').value,sound_density:$('#soundDensity').value,sound_music:$('#soundMusic').checked,
+      sound_effects:$('#soundEffects').checked,sound_transitions:$('#soundTransitions').checked,
+      zoom_style:$('#zoomStyle').value,zoom_strength:$('#zoomStrength').value,zoom_frequency:$('#zoomFrequency').value,
+      zoom_face:$('#zoomFace').checked,zoom_jump_cuts:$('#zoomJumpCuts').checked,
       device:$('#device').value,pacing:$('#pacing').value,preview:true};
     const job=await api('/api/jobs',{method:'POST',body:JSON.stringify(payload)});
     jobId=job.id;lastResult=null;$('#run').disabled=true;$('#result').classList.add('hidden');
-    $('#progress').classList.remove('hidden');poll();
-  }catch(e){alert(e.message)}
+    $('#progress').classList.remove('hidden');lostPolls=0;poll();
+  }catch(e){alert(e instanceof TypeError?'The local engine is not running. Double-click Run Hinglish Editor.bat in the DEV folder, then try again.':e.message)}
 };
+
+let lostPolls=0;
+function engineProblem(e){
+  // Network error: the local engine window closed or is restarting. Keep trying for about a minute.
+  if(e instanceof TypeError){
+    lostPolls++;
+    if(lostPolls<=60){
+      $('#statusText').textContent='Reconnecting to the local engine…';
+      $('#stage').textContent=`The engine is not answering (${lostPolls}s). Keep the Hinglish Editor window open.`;
+      timer=setTimeout(poll,1000);return true;
+    }
+    return 'The local engine stopped. Double-click Run Hinglish Editor.bat in the DEV folder, then click the orange button again.';
+  }
+  // A different/restarted engine does not know this page or this job.
+  if(/Not connected|Job not found/.test(e.message))
+    return 'The local engine restarted, so this run stopped. Press F5 to reload this page, then click the orange button again.';
+  return null;
+}
 
 async function poll(){
   try{
-    const job=await api(`/api/jobs/${jobId}`);$('#percent').textContent=`${job.progress}%`;
+    const job=await api(`/api/jobs/${jobId}`);lostPolls=0;$('#percent').textContent=`${job.progress}%`;
     $('#bar').style.width=`${job.progress}%`;$('#stage').textContent=job.stage;
     $('#statusText').textContent=job.status==='running'?'Editing locally':job.status==='failed'?'Could not finish':'Preparing';
     $('#logs').textContent=job.logs.join('\n');$('#logs').scrollTop=$('#logs').scrollHeight;
@@ -161,7 +210,11 @@ async function poll(){
     }
     if(job.status==='failed')throw new Error(job.stage);
     timer=setTimeout(poll,900);
-  }catch(e){$('#run').disabled=false;$('#statusText').textContent='Needs attention';$('#stage').textContent=e.message}
+  }catch(e){
+    const problem=engineProblem(e);
+    if(problem===true)return;
+    $('#run').disabled=false;$('#statusText').textContent='Needs attention';$('#stage').textContent=problem||e.message;
+  }
 }
 
 async function open(path){if(path)await api('/api/open',{method:'POST',body:JSON.stringify({path})})}

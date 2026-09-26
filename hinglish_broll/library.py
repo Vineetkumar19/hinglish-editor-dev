@@ -14,6 +14,8 @@ from .timeline import path_key
 
 VIDEO_EXTENSIONS = {'.mp4', '.mov', '.mkv', '.avi', '.mts', '.m2ts', '.webm', '.mxf'}
 INDEX_VERSION = 1
+DUPLICATE_SIMILARITY = .93   # CLIP image similarity above this = same shot as the video being edited
+RAW_TAKE_SHARE = .3          # a clip with this share of look-alike frames is a take of the same video
 
 
 def sample_times(duration):
@@ -110,6 +112,24 @@ class Library:
     def vision_name(self):
         return getattr(self.vision.model.config, '_name_or_path', 'clip')
 
+    def exclude_lookalikes(self, reference, threshold=DUPLICATE_SIMILARITY):
+        """Drop library moments that look like the video being edited (raw takes of the same shoot).
+
+        reference: CLIP image embeddings sampled from the timeline's own footage.
+        Returns the number of library clips that were removed completely.
+        """
+        if reference is None or not len(reference):
+            return 0
+        kept, removed = [], 0
+        for path, duration, width, height, times, embeddings in self.entries:
+            similar = (embeddings.astype(np.float32) @ reference.T).max(axis=1) >= threshold
+            if similar.mean() >= RAW_TAKE_SHARE:     # mostly the same shot: a raw take of this video
+                removed += 1
+                continue
+            kept.append((path, duration, width, height, times[~similar], embeddings[~similar]))
+        self.entries = kept
+        return removed
+
     def search(self, text_embedding, need, top=5):
         """Best (file, moment) matches for one visual description; one hit per file."""
         hits = []
@@ -119,6 +139,8 @@ class Library:
             sims = embeddings.astype(np.float32) @ text_embedding
             best = int(np.argmax(sims))
             offset = float(min(max(0.0, times[best] - need / 2), duration - need))
-            hits.append(Candidate('library', 'library:' + path_key(path) + f'@{offset:.1f}', Path(path).name,
-                                  duration, width, height, path=path, offset=offset, score=float(sims[best])))
+            hit = Candidate('library', 'library:' + path_key(path) + f'@{offset:.1f}', Path(path).name,
+                            duration, width, height, path=path, offset=offset, score=float(sims[best]))
+            hit.vector = embeddings[best].astype(np.float32)
+            hits.append(hit)
         return sorted(hits, key=lambda c: -c.score)[:top]

@@ -14,8 +14,15 @@ import threading
 import time
 import uuid
 
+from . import DEFAULT_PORT
 
 VIDEO_EXTENSIONS = {'.mp4', '.mov', '.mxf', '.mkv', '.avi', '.mts', '.m2ts', '.webm'}
+TIMELINE_MODES = ('broll', 'zoom', 'sound', 'eyecontact')   # work on a whole edited sequence (or XML)
+SOUND_CHOICES = {'sound_style': ('auto', 'cinematic', 'funny', 'chill', 'emotional'),
+                 'sound_density': ('low', 'medium', 'high')}
+EYE_CHOICES = {'eye_reach': ('near', 'far'), 'eye_size': ('3', '2', '4', '5', '6')}
+ZOOM_CHOICES = {'zoom_style': ('smooth', 'mixed', 'punch'), 'zoom_strength': ('subtle', 'medium', 'strong'),
+                'zoom_frequency': ('low', 'medium', 'high')}
 
 
 class LocalHTTPServer(ThreadingHTTPServer):
@@ -30,7 +37,7 @@ class LocalHTTPServer(ThreadingHTTPServer):
 
 
 class AppState:
-    def __init__(self, root, port=8765):
+    def __init__(self, root, port=DEFAULT_PORT):
         self.root = Path(root).resolve()
         self.static = Path(__file__).parent / 'static'
         self.port = port
@@ -102,19 +109,21 @@ class AppState:
 
     def create_job(self, payload):
         mode = payload.get('mode')
-        if mode not in ('clean', 'script', 'captions', 'broll'):
-            raise ValueError('Choose Smart Clean, Script Edit, Auto Captions or B-roll')
+        if mode not in ('clean', 'script', 'captions') + TIMELINE_MODES:
+            raise ValueError('Choose Smart Clean, Script Edit, Auto Captions, B-roll, Smart Zoom, Sound Design '
+                             'or Eye Contact')
         source_paths = [Path(p).resolve() for p in payload.get('source_paths', []) if p]
         input_path = Path(payload['input_path']).resolve() if payload.get('input_path') else None
-        if mode == 'broll' and payload.get('timeline_xml'):
+        timeline_mode = mode in TIMELINE_MODES
+        if timeline_mode and payload.get('timeline_xml'):
             timeline = Path(payload['timeline_xml']).resolve()
             if not timeline.is_file() or timeline.suffix.lower() != '.xml':
                 raise ValueError('The exported timeline XML is unavailable')
             payload = {**payload, 'input_path': str(timeline)}
             input_path, source_paths = timeline, []
-        elif mode == 'broll' and payload.get('use_resolve_timeline'):
+        elif timeline_mode and payload.get('use_resolve_timeline'):
             input_path, source_paths = 'resolve', []
-        elif mode == 'broll' and input_path and input_path.is_file() and input_path.suffix.lower() == '.xml':
+        elif timeline_mode and input_path and input_path.is_file() and input_path.suffix.lower() == '.xml':
             pass
         elif source_paths:
             if any(not p.is_file() or p.suffix.lower() not in VIDEO_EXTENSIONS for p in source_paths):
@@ -214,11 +223,44 @@ class AppState:
                 from .resolve_adapter import export_current_timeline
                 supplied = export_current_timeline(work / 'resolve-timeline.xml')
                 self._log(job_id, 'Exported the current Resolve timeline')
+            if payload['mode'] in TIMELINE_MODES and Path(supplied).suffix.lower() == '.xml':
+                fmt = 'source'   # an existing sequence keeps its own canvas
             if payload['mode'] == 'broll':
                 command += ['-m', 'hinglish_broll', '--root', str(self.root), '--input', str(supplied),
                             '--density', payload.get('density', 'medium'), '--device', payload.get('device', 'cpu')]
-                if Path(supplied).suffix.lower() == '.xml':
-                    fmt = 'source'   # an existing sequence keeps its own canvas
+            elif payload['mode'] == 'sound':
+                command += ['-m', 'hinglish_sound', '--root', str(self.root), '--input', str(supplied),
+                            '--device', payload.get('device', 'cpu')]
+                for key, allowed in SOUND_CHOICES.items():
+                    value = payload.get(key, allowed[0] if key == 'sound_style' else 'medium')
+                    if value not in allowed:
+                        raise ValueError(f'Unknown {key.replace("_", " ")}: {value}')
+                    command += ['--' + key.split('_', 1)[1], value]
+                for key, flag in (('sound_music', '--no-music'), ('sound_effects', '--no-effects'),
+                                  ('sound_transitions', '--no-transitions')):
+                    if payload.get(key) is False:
+                        command.append(flag)
+            elif payload['mode'] == 'eyecontact':
+                command += ['-m', 'hinglish_eyecontact', '--root', str(self.root), '--input', str(supplied)]
+                for key, flag in (('eye_reach', '--reach'), ('eye_size', '--eye-size')):
+                    value = str(payload.get(key, EYE_CHOICES[key][0]))
+                    if value not in EYE_CHOICES[key]:
+                        raise ValueError(f'Unknown {key.replace("_", " ")}: {value}')
+                    command += [flag, value]
+                if payload.get('eye_look_away') is False:
+                    command.append('--no-look-away')
+            elif payload['mode'] == 'zoom':
+                command += ['-m', 'hinglish_zoom', '--root', str(self.root), '--input', str(supplied),
+                            '--device', payload.get('device', 'cpu')]
+                for key, allowed in ZOOM_CHOICES.items():
+                    value = payload.get(key, allowed[0] if key == 'zoom_style' else 'medium')
+                    if value not in allowed:
+                        raise ValueError(f'Unknown {key.replace("_", " ")}: {value}')
+                    command += ['--' + key.split('_', 1)[1], value]
+                if payload.get('zoom_face') is False:
+                    command.append('--no-face')
+                if payload.get('zoom_jump_cuts') is True:
+                    command.append('--jump-cuts')
             elif payload['mode'] == 'clean':
                 command += ['-m', 'hinglish_clean', '--root', str(self.root), '--input', str(supplied)]
                 if not payload.get('preview', True):
@@ -244,6 +286,7 @@ class AppState:
             self._update(job_id, status='running', progress=3, stage='Starting local AI')
             process = subprocess.Popen(command, cwd=self.root, stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
+                env={**os.environ, 'PYTHONIOENCODING': 'utf-8'},   # engines print Hinglish/Devanagari
                 creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
             result_page = None
             line_count = 0
@@ -314,6 +357,17 @@ class AppState:
             raise ValueError('Invalid B-roll choices')
         return rebuild_project(project, choices)
 
+    def sound_settings(self, values=None):
+        from dataclasses import asdict
+        from hinglish_sound.settings import load_settings, save_user_settings
+        return asdict(load_settings(self.root)) if values is None else save_user_settings(self.root, values)
+
+    def eyecontact_status(self):
+        from hinglish_eyecontact.maxine import doctor
+        report = doctor(self.root)
+        return {'ready': report.ready, 'gpu': report.gpu.name if report.gpu else '',
+                'checks': [{'ok': ok, 'text': text} for ok, text in report.checks]}
+
     def broll_settings(self, values=None):
         from hinglish_broll.settings import public_settings, save_user_settings
         return public_settings(self.root) if values is None else save_user_settings(self.root, values)
@@ -363,6 +417,12 @@ def make_handler(state):
             if parsed.path == '/api/broll/settings':
                 if not self._authorized(): return self._json(403, {'error': 'Not connected'})
                 return self._json(200, state.broll_settings())
+            if parsed.path == '/api/sound/settings':
+                if not self._authorized(): return self._json(403, {'error': 'Not connected'})
+                return self._json(200, state.sound_settings())
+            if parsed.path == '/api/eyecontact/status':
+                if not self._authorized(): return self._json(403, {'error': 'Not connected'})
+                return self._json(200, state.eyecontact_status())
             if parsed.path.startswith('/api/jobs/'):
                 if not self._authorized(): return self._json(403, {'error': 'Not connected'})
                 try: return self._json(200, state.snapshot(parsed.path.rsplit('/', 1)[-1]))
@@ -408,13 +468,15 @@ def make_handler(state):
                     return self._json(200, state.rebuild_broll(payload))
                 if parsed.path == '/api/broll/settings':
                     return self._json(200, state.broll_settings(payload))
+                if parsed.path == '/api/sound/settings':
+                    return self._json(200, state.sound_settings(payload))
                 return self._json(404, {'error': 'Unknown action'})
             except Exception as error:
                 return self._json(400, {'error': str(error)})
     return Handler
 
 
-def serve(root, port=8765):
+def serve(root, port=DEFAULT_PORT):
     state = AppState(root, port)
     server = LocalHTTPServer(('127.0.0.1', port), make_handler(state))
     state.publish_bridge()

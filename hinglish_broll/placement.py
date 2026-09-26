@@ -8,6 +8,8 @@ class Moment:
     visual: str             # what should be on screen, in English
     queries: list[str]      # English stock search phrases
     priority: int = 2       # 3 = strongly benefits from B-roll, 1 = optional
+    quote: str = ''         # words copied from the line this B-roll illustrates
+    meaning: str = ''       # the planner's English reading of that line
 
 
 @dataclass
@@ -23,13 +25,47 @@ class Slot:
         return self.end - self.start
 
 
-def place(moments, phrases, profile, duration):
+MIN_LINE = 1.0     # shortest B-roll that still reads as a shot
+
+
+def line_span(moment, phrase, lines):
+    """Exact time of the spoken line the moment's quote comes from (inside its planner phrase).
+
+    B-roll must play only while that line is spoken: it starts with the line and never runs into
+    the next line. A short line may extend into the following silence, never into speech."""
+    import re
+    tokens = lambda text: [t for t in re.sub(r'[^\w]+', ' ', text.casefold()).split() if t]
+    inside = [l for l in lines if l.start >= phrase.start - 1e-3 and l.end <= phrase.end + 1e-3] or \
+             [l for l in lines if l.end > phrase.start and l.start < phrase.end]
+    if not inside:
+        return None
+    wanted = tokens(moment.quote)
+    score = lambda l: sum(t in set(tokens(l.text)) for t in wanted) / max(1, len(wanted))
+    line = max(inside, key=score) if wanted else inside[0]
+    following = [l.start for l in lines if l.start >= line.end - 1e-3]
+    next_speech = min(following) if following else float('inf')
+    end = max(line.end, min(line.start + MIN_LINE, next_speech))
+    return line.start, end
+
+
+def place(moments, phrases, profile, duration, lines=None):
     by_id = {p.id: p for p in phrases}
     earliest, latest = profile.hook, duration - profile.tail
     proposals = []
     for m in moments:
         phrase = by_id.get(m.phrase_id)
         if phrase is None:
+            continue
+        if lines:
+            span = line_span(m, phrase, lines)
+            if span is None:
+                continue
+            start = max(span[0], earliest)
+            end = min(span[1], start + profile.max_len, latest)
+            if end - start < MIN_LINE - 1e-6:
+                continue
+            spoken = ' '.join(l.text for l in lines if l.end > start and l.start < end)
+            proposals.append(Slot(m, round(start, 3), round(end, 3), spoken, len(phrase.text.split())))
             continue
         start = max(phrase.start, earliest)
         # Cover the phrase (at least the ideal length), running over the next words up to the maximum.

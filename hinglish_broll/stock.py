@@ -68,7 +68,7 @@ class StockClient:
                 time.sleep(float(response.headers.get('Retry-After', 0) or 0) or 5 * (attempt + 1))
                 continue
             if response.status_code in (401, 403):
-                raise PermissionError(f'{self.name.title()} rejected the API key. Check Settings → B-roll.')
+                raise PermissionError(f'{self.name.title()} rejected the API key. Re-copy it into B-roll settings.')
             response.raise_for_status()
             data = response.json()
             file.write_text(json.dumps(data), encoding='utf-8')
@@ -108,7 +108,9 @@ class PixabayClient(StockClient):
             sizes = v.get('videos') or {}
             files = [(s.get('width'), s.get('height'), s.get('url')) for s in sizes.values() if isinstance(s, dict)]
             chosen = pick_file(files, target_w, target_h)
-            if not chosen or not _orientation_ok(chosen[0], chosen[1], orientation):
+            # Pixabay has few vertical videos and no orientation filter: keep wide clips too; they are
+            # centre-cropped for 9:16 and ranked slightly lower than true vertical footage.
+            if not chosen:
                 continue
             thumb = (sizes.get('medium') or {}).get('thumbnail') or (sizes.get('small') or {}).get('thumbnail', '')
             results.append(Candidate('pixabay', f"pixabay:{v['id']}", v.get('tags', query), float(v.get('duration') or 0),

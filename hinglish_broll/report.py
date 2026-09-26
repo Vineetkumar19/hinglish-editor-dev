@@ -3,6 +3,8 @@ from pathlib import Path
 import html
 import json
 
+from hinglish_app import BRIDGE_URL
+
 
 def _safe_json(value):
     return json.dumps(value, ensure_ascii=False).replace('<', '\\u003c')
@@ -50,8 +52,8 @@ function pick(slot,id){choices[slot]=id;const card=document.querySelector(`[data
   $('#status').textContent=`${Object.keys(choices).length} change(s) — click Save & rebuild`;}
 document.querySelectorAll('.option,.none').forEach(b=>b.onclick=()=>pick(b.closest('.moment').dataset.slot,b.dataset.id||''));
 $('#save').onclick=async()=>{const button=$('#save');button.disabled=true;$('#status').textContent='Rebuilding…';
-  try{const bridge=await(await fetch('http://127.0.0.1:8765/api/bridge')).json();
-    const r=await fetch('http://127.0.0.1:8765/api/broll/rebuild',{method:'POST',headers:{'Content-Type':'application/json',
+  try{const bridge=await(await fetch('__BRIDGE__/api/bridge')).json();
+    const r=await fetch('__BRIDGE__/api/broll/rebuild',{method:'POST',headers:{'Content-Type':'application/json',
       'X-Hinglish-Token':bridge.token},body:JSON.stringify({project_path:project.project_path,choices})});
     const d=await r.json();if(!r.ok)throw new Error(d.error||'Rebuild failed');
     $('#status').textContent=`Saved ✓ ${d.filled} B-roll clips. Re-import BROLL_SEQUENCE.xml`;setTimeout(()=>location.reload(),900);}
@@ -83,6 +85,7 @@ def write_report(path, project):
             f'<section class="moment{"" if chosen_id else " removed"}" data-slot="{s["index"]}">'
             f'<div><div class="time">{_clock(s["start"])} – {_clock(s["end"])}</div>'
             f'<p class="said">“{html.escape(s["text"])}”</p>'
+            + (f'<div class="idea">Means: <b>{html.escape(s["meaning"])}</b></div>' if s.get('meaning') else '') +
             f'<div class="idea">Shows: <b>{html.escape(s["visual"])}</b><br>Searched: {html.escape(", ".join(s["queries"]))}</div>'
             f'<div class="options">{options}</div></div><div>{preview}</div></section>')
     summary = project.get('summary') or {}
@@ -97,7 +100,7 @@ def write_report(path, project):
 {''.join(cards) or '<p class="empty">No B-roll moments were chosen for this timeline.</p>'}
 <footer>Open <b>BROLL_SEQUENCE.xml</b> in Premiere Pro or DaVinci Resolve. Your original timeline is unchanged.
 {('<br>Stock footage by ' + html.escape(', '.join(credits)) + '. Pexels and Pixabay content is free to use.') if credits else ''}</footer></main>
-<script>{SCRIPT.replace('__PROJECT__', _safe_json(project))}</script></body></html>'''
+<script>{SCRIPT.replace('__PROJECT__', _safe_json(project)).replace('__BRIDGE__', BRIDGE_URL)}</script></body></html>'''
     path.write_text(page, encoding='utf-8')
 
 

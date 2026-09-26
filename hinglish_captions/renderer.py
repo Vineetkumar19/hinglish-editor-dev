@@ -177,6 +177,8 @@ def _draw_typography_one_v2(width, height, cue, seconds, font_id, position, size
     center_y = height * min(.90, max(.10, float(position)))
     seed = sum(ord(char) for char in cue.text)
     variant = round(cue.start * 30) % 8
+    if len(raw_words) < 2 and variant in (1, 7):
+        variant = 2   # two-line layouts need two words; a single word gets the huge boxed keyword
     palette = [('#F12722', '#850B0B'), ('#F4B400', '#8E5D00'), ('#1769F5', '#07388F')]
     accent, deep = palette[round(cue.start * 100) % 3]
 

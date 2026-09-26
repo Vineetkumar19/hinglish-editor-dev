@@ -6,6 +6,8 @@ from .pipeline import run
 
 
 def main():
+    if hasattr(sys.stdout, 'reconfigure'):   # Windows consoles/pipes default to cp1252
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     parser = argparse.ArgumentParser(description='Add B-roll to a timeline or video. Local AI planning.')
     parser.add_argument('--root', default='.')
     parser.add_argument('--input', required=True, help='Sequence XML (Premiere/Resolve) or video file/folder')

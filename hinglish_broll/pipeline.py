@@ -17,8 +17,9 @@ from .library import Library, VIDEO_EXTENSIONS, read_frames
 from .llm import LocalLLM
 from .phrases import build_phrases
 from .placement import Moment, Slot, place
+from .places import conflicts, is_template, video_country, with_country
 from .planner import plan_moments, summarize
-from .ranker import choose, fetch_thumbs, moment_embedding, score_stock
+from .ranker import GENERIC_SCENES, add_specificity, choose, fetch_thumbs, moment_embedding, score_stock
 from .report import write_index, write_report
 from .settings import load_settings, profile_for
 from .stock import Candidate, PexelsClient, PixabayClient, cached_name, download
@@ -80,20 +81,27 @@ def transcripts_for(root, sources, device, progress):
     return mapping, notes
 
 
-def gather_candidates(slot, embedding, library, clients, orientation, timeline, per_query, thumbs, progress):
+def gather_candidates(slot, embedding, library, clients, orientation, timeline, per_query, thumbs, progress,
+                      country=''):
     need = slot.duration
     found = list(library.search(embedding, need)) if library else []
-    for client in clients:
-        for n, query in enumerate(slot.moment.queries):
+    for client in list(clients):
+        for n, query in enumerate(with_country(slot.moment.queries, country)):
             try:
                 results = client.search(query, orientation, timeline.width, timeline.height, per_query)
-            except PermissionError:
-                raise
+            except PermissionError as error:
+                # A wrong key must not stop the run: drop that site, keep the other sources.
+                progress(f'  {error} Skipping {client.name.title()} for this run.')
+                clients.remove(client)
+                break
             except Exception as error:
                 progress(f'  {client.name.title()} search skipped: {error}')
                 results = []
-            found += [c for c in results if c.duration >= need + STOCK_OFFSET * 0.5]
-            if n == 0 and len(results) >= 4:   # the specific query was enough; save API quota
+            # Wrong country (Seoul traffic for a Delhi story) is worse than no B-roll.
+            found += [c for c in results if c.duration >= need + STOCK_OFFSET * 0.5
+                      and not conflicts(f'{c.title} {c.page_url}', country)
+                      and not is_template(f'{c.title} {c.page_url}')]
+            if n == 0 and len(results) >= 8:   # the specific query found plenty; save API quota
                 break
     unique = {}
     for c in found:
@@ -134,6 +142,23 @@ def report_thumb(root, folder, candidate, need):
     return target if target.exists() else None
 
 
+def timeline_fingerprint(vision, timelines, every=1.5, limit=300):
+    """CLIP embeddings of frames from the timelines' own footage (to spot raw takes in the library)."""
+    clips = [clip for timeline in timelines for clip in timeline.clips]
+    total = sum(max(0.0, c.source_out - c.source_in) for c in clips) or 1.0
+    step = max(every, total / limit)          # one frame every 1.5 s, at most ~300 frames per run
+    images = []
+    for clip in clips:
+        span = max(0.0, clip.source_out - clip.source_in)
+        count = max(1, round(span / step))
+        times = [clip.source_in + span * (k + .5) / count for k in range(count)]
+        try:
+            images += [im for _, im in read_frames(clip.path, times)]
+        except Exception:
+            continue
+    return vision.images(images) if images else None
+
+
 def timeline_to_dict(t):
     return {'name': t.name, 'fps': f'{t.fps.numerator}/{t.fps.denominator}', 'width': t.width, 'height': t.height,
             'duration': t.duration, 'xml_path': t.xml_path}
@@ -156,7 +181,7 @@ def run(root, input_path, output_format=None, density=None, device=None, progres
     settings = load_settings(root, density=density, device=device)
     sources = settings.sources()
     if not sources:
-        raise ValueError('Add a Pexels/Pixabay API key or a footage folder in Settings → B-roll first')
+        raise ValueError('Add a Pexels/Pixabay API key or a footage folder in B-roll settings first')
     stamp = datetime.now().strftime('%Y%m%d-%H%M%S-') + uuid.uuid4().hex[:6]
     output = root / 'output' / 'broll' / stamp
     output.mkdir(parents=True)
@@ -182,7 +207,8 @@ def run(root, input_path, output_format=None, density=None, device=None, progres
             summary = summarize(llm, phrases)
             progress(f'  Topic: {summary["topic"]}')
             moments = plan_moments(llm, phrases, summary, profile, timeline.orientation, progress)
-            slots = place(moments, phrases, profile, timeline.duration)
+            # Exact spoken lines: each B-roll plays only while its own line is being said.
+            slots = place(moments, phrases, profile, timeline.duration, build_phrases(words, merge=False))
             progress(f'  {len(slots)} B-roll moments chosen')
             plans.append((timeline, folder, summary, profile, slots))
     finally:
@@ -197,6 +223,9 @@ def run(root, input_path, output_format=None, density=None, device=None, progres
     if 'library' in sources:
         progress('Checking your footage library')
         library = Library(root, settings.library_folders, vision, exclude=all_sources, progress=progress).build()
+        removed = library.exclude_lookalikes(timeline_fingerprint(vision, [t for t, _ in jobs]))
+        if removed:
+            progress(f'  Skipped {removed} of your clips that are takes of this same video')
         progress(f'  {len(library.entries)} of your clips are searchable')
     clients = []
     if 'pexels' in sources: clients.append(PexelsClient(settings.pexels_key, root))
@@ -204,23 +233,28 @@ def run(root, input_path, output_format=None, density=None, device=None, progres
     thumbs = root / 'cache' / 'broll' / 'thumbs'
 
     results = []
+    generic = vision.texts([f'a photo of {scene}' for scene in GENERIC_SCENES])
     for timeline, folder, summary, profile, slots in plans:
-        pairs = []
+        pairs, embeddings = [], []
+        country = video_country(summary)
+        if country:
+            progress(f'  Video is set in {country.title()}: searching local footage, rejecting other countries')
         for n, slot in enumerate(slots, 1):
             progress(f'Finding footage {n}/{len(slots)}: {slot.moment.visual}')
             embedding = moment_embedding(vision, slot, summary.get('visual_world', ''))
             candidates = gather_candidates(slot, embedding, library, clients, timeline.orientation, timeline,
-                                           settings.results_per_query, thumbs, progress)
+                                           settings.results_per_query, thumbs, progress, country)
             fetch_thumbs(candidates, thumbs)
             score_stock(vision, embedding, candidates)
-            pairs.append((slot, candidates))
+            pairs.append((slot, candidates)); embeddings.append(embedding)
+        add_specificity(pairs, embeddings, generic)
         picks = choose(pairs, timeline.orientation, settings.min_similarity)
         project = {'version': 1, 'timeline': timeline_to_dict(timeline), 'summary': summary,
                    'profile': profile.name, 'density': settings.density, 'device': settings.device, 'slots': []}
         for i, (slot, _) in enumerate(pairs):
             chosen, others = picks[i]
             entry = {'index': i, 'start': slot.start, 'end': slot.end, 'text': slot.text,
-                     'visual': slot.moment.visual, 'queries': slot.moment.queries,
+                     'meaning': slot.moment.meaning, 'visual': slot.moment.visual, 'queries': slot.moment.queries,
                      'priority': slot.moment.priority, 'chosen': None, 'clip': None, 'alternatives': []}
             for c in ([chosen] if chosen else []) + others:
                 thumb = report_thumb(root, folder, c, slot.duration)

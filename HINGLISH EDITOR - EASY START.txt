@@ -45,6 +45,13 @@ Every time:
 Result: new sequence NAME_BROLL with B-roll on V2. Open Review result to swap/remove clips, then Save & rebuild.
 Reels get quick 1.5-3 s cutaways; long YouTube videos get 3-6 s cutaways every ~20-40 s.
 
+SMART ZOOM (NEW)
+- Premiere: open your edited sequence -> Hinglish Editor panel -> Smart Zoom -> choose Style / Strength / How often -> run
+- Resolve Studio: open the timeline -> Workspace > Scripts > Hinglish Editor -> Smart Zoom -> run -> Import to Resolve
+- App: choose a video (or a timeline XML) -> Smart Zoom -> Add smart zooms
+Result: new sequence NAME_ZOOM. Zooms land on the stressed word, go into your face, ease in/out smoothly.
+Audio is never cut. Review result shows every zoom plus a preview video.
+
 OLD / UNSUPPORTED / MODIFIED EDITORS
 Use the standalone app. Import the generated XML manually.
 

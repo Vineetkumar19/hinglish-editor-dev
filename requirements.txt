@@ -8,3 +8,4 @@ hf-xet>=1.1,<2
 silero-vad==6.2.1
 faster-whisper==1.2.1
 Pillow>=10,<13
+opencv-python-headless>=4.9,<5

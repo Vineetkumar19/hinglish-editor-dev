@@ -26,7 +26,7 @@ Baseline check: **116 / 116 tests passed** in this copy before any new work.
 
 ## Things to know
 
-- **Don't run the original app and this copy at the same time.** Both use the same local port (8765).
+- The DEV app uses its **own port 8766**, and the original app uses 8765, so both can run at the same time (changed 26 Sep).
 - **Don't run `Install Editor Plugins.bat` from here** unless you want Premiere/Resolve to use this DEV copy instead of the original.
 
 ## How the work is organised

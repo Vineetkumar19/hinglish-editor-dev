@@ -1,4 +1,4 @@
-window.HINGLISH_BRIDGE = "http://127.0.0.1:8765";
+window.HINGLISH_BRIDGE = "http://127.0.0.1:8766";  // DEV copy port (original app uses 8765)
 try {
   const fs=require('fs'),path=require('path');
   const file=path.join(process.env.LOCALAPPDATA,'Hinglish Editor','install.json');

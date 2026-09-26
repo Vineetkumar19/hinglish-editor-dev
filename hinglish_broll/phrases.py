@@ -12,7 +12,7 @@ class Phrase:
     text: str
 
 
-def build_phrases(words, pause=.4, max_words=10, max_seconds=4.5):
+def build_phrases(words, pause=.4, max_words=10, max_seconds=4.5, merge=True):
     phrases, current = [], []
 
     def flush():
@@ -29,7 +29,8 @@ def build_phrases(words, pause=.4, max_words=10, max_seconds=4.5):
         if word.text.rstrip().endswith(END_MARKS):
             flush()
     flush()
-    return merge_short(phrases)
+    # Merged phrases give the planner context; unmerged ones are the exact spoken lines for timing.
+    return merge_short(phrases) if merge else phrases
 
 
 def merge_short(phrases, min_words=4, max_gap=.9, max_seconds=7.0):

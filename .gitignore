@@ -17,3 +17,13 @@ input/phase2/script.txt
 
 # B-roll: API keys and footage folders stay on this computer
 config.broll.local.json
+
+# Sound design: library folder choices stay on this computer
+config.sound.local.json
+
+# Downloaded pro SFX pack (Mixkit licence: use in videos, do not redistribute)
+library/
+
+# Eye Contact: NVIDIA AR SDK + built samples (NVIDIA licence, large) and this PC's paths
+tools/maxine/
+config.eyecontact.local.json

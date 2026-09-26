@@ -32,7 +32,15 @@
         <button class="mode" data-mode="broll">
           <span class="mode-icon broll-icon">▶</span><span><b>Add B-roll</b><small>Footage for what you say</small></span><i>4</i>
         </button>
-        <div class="coming"><span>COMING NEXT</span><p>Smart zooms</p><p>Music</p></div>
+        <button class="mode" data-mode="zoom">
+          <span class="mode-icon zoom-icon">⤢</span><span><b>Smart Zoom</b><small>Zooms on key moments</small></span><i>5</i>
+        </button>
+        <button class="mode" data-mode="sound">
+          <span class="mode-icon sound-icon">♪</span><span><b>Sound Design</b><small>Music + effects by meaning</small></span><i>6</i>
+        </button>
+        <button class="mode" data-mode="eyecontact">
+          <span class="mode-icon eye-icon">◉</span><span><b>Eye Contact</b><small>Look into the camera (RTX)</small></span><i>7</i>
+        </button>
       </nav>
 
       <div class="panel">
@@ -64,11 +72,47 @@
           <div class="script-actions"><button id="loadCaptionScript" class="text-button">Load reference .txt</button><span>Main names and English terms are enough</span></div>
         </div>
 
-        <section class="broll-field hidden">
-          <div class="broll-row">
-            <label class="broll-resolve hidden"><input type="checkbox" id="useResolve" checked> Use the timeline open in DaVinci Resolve</label>
-            <button id="pickXml" class="text-button">Or choose a timeline XML…</button>
+        <div class="timeline-field broll-row hidden">
+          <label class="broll-resolve hidden"><input type="checkbox" id="useResolve" checked> Use the timeline open in DaVinci Resolve</label>
+          <button id="pickXml" class="text-button">Or choose a timeline XML…</button>
+        </div>
+
+        <section class="zoom-field hidden">
+          <div class="zoom-grid">
+            <label>Zoom style<select id="zoomStyle"><option value="smooth" selected>Smooth (recommended)</option><option value="mixed">Mixed (smooth + punch)</option><option value="punch">Punch-in</option></select></label>
+            <label>Strength<select id="zoomStrength"><option value="subtle">Subtle 106%</option><option value="medium" selected>Medium 112%</option><option value="strong">Strong 118%</option></select></label>
+            <label>How often<select id="zoomFrequency"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
           </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="zoomFace" checked> Zoom into my face</label><label><input type="checkbox" id="zoomJumpCuts"> Hide jump cuts (alternate framing on cuts)</label></div>
+          <small class="broll-note">The local AI finds the key moments and the exact stressed word; zooms land on that word with smooth easing. Used sparingly like a pro edit: about one zoom every ~9 s in Reels, every ~25 s in long YouTube videos, always into your face and never across a shot change. Audio is never cut.</small>
+        </section>
+
+        <section class="eye-field hidden">
+          <div class="zoom-grid">
+            <label>Where was your script?<select id="eyeReach"><option value="near" selected>Near the lens</option><option value="far">Further away</option></select></label>
+            <label>Eye size sensitivity<select id="eyeSize"><option value="2">2 · smaller</option><option value="3" selected>3 · default</option><option value="4">4</option><option value="5">5</option><option value="6">6 · larger</option></select></label>
+            <div></div>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="eyeLookAway" checked> Natural glances (never a fixed stare)</label></div>
+          <div id="eyeStatus" class="eye-status">Checking this PC…</div>
+          <small class="broll-note">NVIDIA Maxine Eye Contact redraws your eyes so you look into the camera while you read. "Near the lens" = laptop or phone right under the camera; "Further away" = paper on the desk or a screen to the side. It needs an NVIDIA RTX GPU: run <b>Setup Eye Contact (RTX).bat</b> once on the RTX laptop. Only your camera clips are processed (B-roll is skipped); you get eye-contact copies with your original audio and timing, and the same timeline relinked to them. Your originals are never changed.</small>
+        </section>
+
+        <section class="sound-field hidden">
+          <div class="zoom-grid">
+            <label>Sound style<select id="soundStyle"><option value="auto" selected>Auto (AI decides)</option><option value="cinematic">Cinematic</option><option value="funny">Funny / meme</option><option value="chill">Chill vlog</option><option value="emotional">Emotional story</option></select></label>
+            <label>How many effects<select id="soundDensity"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+            <div></div>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="soundMusic" checked> Background music</label><label><input type="checkbox" id="soundEffects" checked> Sound effects</label><label><input type="checkbox" id="soundTransitions" checked> Whoosh on B-roll cuts</label></div>
+          <div class="sound-library">
+            <div><span>Music folder</span><b id="musicFolder">…</b><button id="pickMusic" class="text-button">Change</button></div>
+            <div><span>Effects folder</span><b id="sfxFolder">…</b><button id="pickSfx" class="text-button">Change</button></div>
+          </div>
+          <small class="broll-note">A thinking local model (Ollama qwen3:8b; keep the Ollama app running) reads the story, the emotion of every line and how you say it, then picks music per emotional section and the few moments that deserve a sound — choosing real files from your library by vector search. Mixed with sound-design-brain rules: music ducks under your voice and swells in pauses, effects are felt not noticed. Music and each effect land on their own tracks.</small>
+        </section>
+
+        <section class="broll-field hidden">
           <div class="broll-grid">
             <label>How much B-roll<select id="density"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
             <div class="broll-sources"><span>Footage sources</span><b id="sourceSummary">Checking…</b><button id="openBrollSettings" class="text-button">B-roll settings</button></div>

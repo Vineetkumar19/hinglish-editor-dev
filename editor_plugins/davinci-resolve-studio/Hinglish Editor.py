@@ -10,7 +10,7 @@ import webbrowser
 
 CONFIG = Path(os.environ.get("LOCALAPPDATA", "")) / "Hinglish Editor" / "install.json"
 APP_ROOT = Path(json.loads(CONFIG.read_text(encoding="utf-8"))["root"])
-URL = "http://127.0.0.1:8765/"
+URL = "http://127.0.0.1:8766/"  # DEV copy port (original app uses 8765)
 
 
 def running():

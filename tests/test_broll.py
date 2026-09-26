@@ -145,6 +145,22 @@ class PlacementTests(unittest.TestCase):
         # Greedy-in-time would keep 0 and lose the richer list phrase 1; they cannot both fit.
         self.assertEqual([s.moment.phrase_id for s in place(moments, phrases, profile, 60)], [1, 2])
 
+    def test_broll_lasts_exactly_as_long_as_its_spoken_line(self):
+        from hinglish_broll.phrases import Phrase
+        lines = [Phrase(0, 10.0, 13.0, 'Jab tumne apne school ke geography mein padha'),
+                 Phrase(1, 13.1, 15.0, 'Mere company ne mujhe bheja'),
+                 Phrase(2, 16.0, 16.6, 'Haan ji'),
+                 Phrase(3, 18.0, 20.0, 'Flat milna impossible hai')]
+        merged = [Phrase(0, 10.0, 15.0, 'Jab tumne apne school ke geography mein padha Mere company ne mujhe bheja'),
+                  Phrase(1, 16.0, 16.6, 'Haan ji'), Phrase(2, 18.0, 20.0, 'Flat milna impossible hai')]
+        moments = [Moment(0, 'india map', ['india map'], 3, quote='school ke geography'),
+                   Moment(1, 'nodding', ['nod'], 2, quote='Haan ji')]
+        slots = place(moments, merged, profile_for(60), 60, lines)
+        self.assertEqual((slots[0].start, slots[0].end), (10.0, 13.0))     # the geography line only
+        self.assertIn('geography', slots[0].text)
+        self.assertNotIn('company', slots[0].text)                          # never runs into the next line
+        self.assertEqual((slots[1].start, slots[1].end), (16.0, 17.0))     # short line: extends into silence only
+
     def test_density_changes_amount(self):
         phrases = build_phrases(self.words(60))
         moments = [Moment(p.id, 'v', ['q']) for p in phrases]

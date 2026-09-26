@@ -5,13 +5,14 @@ import threading
 import urllib.request
 import webbrowser
 
+from . import DEFAULT_PORT
 from .server import serve
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Hinglish Editor local dashboard and plugin bridge')
     parser.add_argument('--root', type=Path, default=Path.cwd())
-    parser.add_argument('--port', type=int, default=8765)
+    parser.add_argument('--port', type=int, default=DEFAULT_PORT)
     parser.add_argument('--no-open', action='store_true')
     args = parser.parse_args(argv)
     try:
