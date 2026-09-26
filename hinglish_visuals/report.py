@@ -14,6 +14,9 @@ margin-right:6px;background:#2a2f38;color:#fff}.tag.popup{background:#6b4dff}.ta
 .card-preview{display:block;margin:0 auto;max-width:100%;max-height:260px;background:
 repeating-conic-gradient(#2a2f38 0% 25%,#1d2128 0% 50%) 50%/22px 22px;border-radius:10px;padding:10px}
 .credit{font-size:12px;color:var(--muted);margin-top:6px}
+.verdict{margin-top:8px;font-size:13px;border-radius:8px;padding:7px 10px;background:#11261b;border:1px solid #28543c}
+.verdict.fail{background:#2a1416;border-color:#6b2a30}.verdict.none{background:#1d2128;border-color:var(--line)}
+.verdict b{margin-right:6px}.rejected{font-size:12px;color:#e7a0a6;margin:4px 0 0 0;padding-left:18px}
 '''
 
 SCRIPT = '''
@@ -44,6 +47,25 @@ def credit_line(media):
     if media.get('nonfree'): parts.append('trademark/non-free, shown for identification')
     if media.get('page_url'): parts.append(media['page_url'])
     return ' · '.join(p for p in parts if p)
+
+
+def evaluation_html(slot):
+    """PASS / FAIL box: what the evaluator saw, which rules failed, and the files it threw out."""
+    out = ''
+    verdict = slot.get('evaluation')
+    if verdict:
+        state = 'none' if verdict.get('passed') is None else '' if verdict.get('passed') else 'fail'
+        label = 'NOT CHECKED' if state == 'none' else 'PASS' if not state else 'FAIL'
+        detail = verdict.get('seen') or '; '.join(verdict.get('warnings', []))
+        extra = ''.join(f'<br>⚠ {html.escape(w)}' for w in verdict.get('warnings', []) if verdict.get('seen'))
+        out += (f'<div class="verdict {state}"><b>{"✓" if label == "PASS" else "•"} Evaluator {label}</b>'
+                f'{html.escape(detail[:260])}{extra}<br><small>{html.escape(verdict.get("judge", ""))}</small></div>')
+    rejected = slot.get('rejected') or []
+    if rejected:
+        out += ('<ul class="rejected">' + ''.join(
+            f'<li>✗ Rejected {html.escape(r.get("source", ""))} “{html.escape(r.get("title", "")[:60])}”: '
+            f'{html.escape("; ".join(r.get("reasons", []))[:200])}</li>' for r in rejected) + '</ul>')
+    return out
 
 
 def write_report(path, project, has_preview=False):
@@ -83,15 +105,18 @@ def write_report(path, project, has_preview=False):
             + (f'<div class="idea">Means: <b>{html.escape(s["meaning"])}</b></div>' if s.get('meaning') else '') +
             f'<div class="idea">Shows: <b>{html.escape(s["visual"])}</b><br>Searched: {html.escape(", ".join(s["queries"]))}</div>'
             f'<div class="options">{options}</div>'
-            + (f'<div class="credit">{html.escape(credit_line(chosen))}</div>' if chosen else '') +
+            + (f'<div class="credit">{html.escape(credit_line(chosen))}</div>' if chosen else '')
+            + evaluation_html(s) +
             f'</div><div>{preview}</div></section>')
     summary = project.get('summary') or {}
     filled = sum(1 for s in project['slots'] if s.get('clip'))
+    passed = sum(1 for s in project['slots'] if s.get('clip') and (s.get('evaluation') or {}).get('passed'))
+    thrown = sum(len(s.get('rejected') or []) for s in project['slots'])
     video = ('<video class="preview" style="height:min(560px,70vh);margin:0 0 20px" src="preview.mp4" controls playsinline></video>'
              if has_preview else '')
     page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Smart Visuals Review</title><style>{STYLE}{EXTRA_STYLE}:root{{--ratio:{t["width"]}/{t["height"]}}}</style></head><body>
-<header><div><h1>Smart Visuals · {html.escape(t["name"])}</h1><small>{filled} of {len(project["slots"])} moments have a real photo, logo or video · brain: {html.escape(project.get("brain", ""))}</small></div>
+<header><div><h1>Smart Visuals · {html.escape(t["name"])}</h1><small>{filled} of {len(project["slots"])} moments have a real photo, logo or video · evaluator passed {passed}, threw out {thrown} wrong files · brain: {html.escape(project.get("brain", ""))}</small></div>
 <div><span id="status">Pick a different file or “No visual”, then save.</span> <button id="save" class="primary" disabled>Save &amp; rebuild</button></div></header>
 <main><p class="summary">Topic: <b>{html.escape(summary.get("topic", ""))}</b>{(" · Story: " + html.escape(" ".join(project.get("stories", [])))[:600]) if project.get("stories") else ""}</p>
 {video}

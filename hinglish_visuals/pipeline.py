@@ -18,6 +18,7 @@ from hinglish_broll.xml_export import build_track, export_tracks_xml
 from hinglish_clean.detection import write_json
 
 from .brain import open_brain
+from .evaluator import info_for, open_evaluator
 from .gather import gather
 from .layout import avoid_zone, face_box, to_canvas
 from .planner import judge, plan_visuals, resolve_entity
@@ -87,8 +88,20 @@ def face_zone(locator, timeline, start, end):
         return None
 
 
-def render_slot(root, folder, timeline, slot, media, session, device, scorer=None, finder=None):
-    """Download and render one chosen media into this slot's clip; returns the clip path (relative)."""
+class Rejected(Exception):
+    """The evaluator looked at the file and failed it."""
+
+    def __init__(self, verdict):
+        super().__init__('; '.join(verdict.reasons))
+        self.verdict = verdict
+
+
+def render_slot(root, folder, timeline, slot, media, session, device, scorer=None, finder=None, evaluator=None,
+                info=None):
+    """Download, CHECK and render one media into this slot's clip -> (clip path, verdict or None).
+    With an evaluator the pixels are checked first (the exact seconds for a video); a failed file raises
+    Rejected and nothing is rendered."""
+    verdict = None
     if media.kind == 'video' and media.source == 'web':    # YouTube / any site: only the useful part
         path, _ = (finder or WebSearch(root)).download_video(media, slot['end'] - slot['start'])
         media.duration = 0.0                               # the downloaded part, not the whole video
@@ -97,6 +110,14 @@ def render_slot(root, folder, timeline, slot, media, session, device, scorer=Non
     safe = re.sub(r'[^A-Za-z0-9]+', '-', media.id)[-36:].strip('-')
     seconds = slot['end'] - slot['start']
     size = (timeline.width, timeline.height, timeline.fps)
+    if media.kind == 'video':
+        duration = media.duration or probe_duration(path)
+        media.offset = choose_offset(path, seconds, duration, scorer)
+    if evaluator is not None:
+        verdict = (evaluator.video(path, media.offset, seconds, info) if media.kind == 'video'
+                   else evaluator.image(path, info))
+        if verdict.passed is False:
+            raise Rejected(verdict)
     if slot['display'] == 'popup':
         card, position = popup_card(path, timeline.width, timeline.height,
                                     'logo' if slot['show'] == 'logo' else 'photo',
@@ -107,18 +128,14 @@ def render_slot(root, folder, timeline, slot, media, session, device, scorer=Non
         card.save(card_png)
         if not clip.exists():
             popup_clip(card, position, seconds, *size, clip)
-        return clip
-    if media.kind == 'video':
-        duration = media.duration or probe_duration(path)
-        media.offset = choose_offset(path, seconds, duration, scorer)
-        clip = Path(folder) / 'media' / f'visual-{slot["index"] + 1:02d}-{safe}.mp4'
-        if not clip.exists():
-            video_clip(path, media.offset, seconds, *size, clip, device)
-        return clip
+        return clip, verdict
     clip = Path(folder) / 'media' / f'visual-{slot["index"] + 1:02d}-{safe}.mp4'
     if not clip.exists():
-        still_clip(path, seconds, *size, clip, device)
-    return clip
+        if media.kind == 'video':
+            video_clip(path, media.offset, seconds, *size, clip, device)
+        else:
+            still_clip(path, seconds, *size, clip, device)
+    return clip, verdict
 
 
 def report_thumb(folder, media, session):
@@ -174,10 +191,11 @@ class ClipScorer:
 
 
 def run(root, input_path, output_format=None, density=None, device=None, popups=None, brain_choice=None,
-        progress=print, web=None, brain=None, scorer=None, use_web=None, finder=None):
+        progress=print, web=None, brain=None, scorer=None, use_web=None, finder=None, evaluator=None,
+        evaluator_choice=None):
     root = Path(root).resolve()
     settings = load_settings(root, density=density, device=device, popups=popups, brain=brain_choice,
-                             use_web=use_web)
+                             use_web=use_web, evaluator=evaluator_choice)
     stamp = datetime.now().strftime('%Y%m%d-%H%M%S-') + uuid.uuid4().hex[:6]
     output = root / 'output' / 'visuals' / stamp
     output.mkdir(parents=True)
@@ -287,7 +305,8 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
                 entry = {'index': i, 'start': slot.start, 'end': slot.end, 'text': slot.text, 'quote': m.quote,
                          'meaning': m.meaning, 'visual': m.visual, 'queries': m.queries, 'priority': m.priority,
                          'entity': m.entity, 'label': entity.label or entity.name, 'show': m.show,
-                         'display': m.display, 'chosen': None, 'clip': None,
+                         'display': m.display, 'category': m.category, 'chosen': None, 'clip': None,
+                         'evaluation': None, 'rejected': [],
                          'alternatives': [c.to_dict() for c in ordered[:8]]}
                 project['slots'].append(entry)
             plans_render = project['slots']
@@ -302,26 +321,45 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
             brain.close()
 
     summaries = []
+    if evaluator is None:       # evaluator=False: switched off by the caller
+        evaluator = open_evaluator(root, settings.evaluator, settings.vision_check_model,
+                                   getattr(scorer, 'vision', None), progress)
+    evaluator = evaluator or None
+    if evaluator is not None:
+        progress(f'Evaluator: {evaluator.name}. Every file must pass TYPE, IDENTITY and QUALITY before it is used')
     locator = open_face_locator(root, progress) if any(e['display'] == 'popup' for _, _, p in results
                                                        for e in p['slots']) else None
     for timeline, folder, project in results:
         for entry in project['slots']:
             if entry['display'] == 'popup':
                 entry['avoid'] = face_zone(locator, timeline, entry['start'], entry['end'])
+            info = info_for(entry, project['entities'].get(entry['entity']))
             for n, data in enumerate(entry['alternatives'][:RENDER_TRIES]):
                 media = Media(**{k: v for k, v in data.items() if k in Media.__dataclass_fields__})
                 progress(f'Preparing visual {entry["index"] + 1}/{len(project["slots"])}: {entry["label"]} '
                          f'({"pop-up" if entry["display"] == "popup" else media.kind}, {media.source})')
                 try:
-                    clip = render_slot(root, folder, timeline, entry, media, web.session, settings.device,
-                                       scorer.scorer(entry['visual']) if scorer and media.kind == 'video' else None,
-                                       finder)
+                    clip, verdict = render_slot(
+                        root, folder, timeline, entry, media, web.session, settings.device,
+                        scorer.scorer(entry['visual']) if scorer and media.kind == 'video' else None,
+                        finder, evaluator, info)
+                except Rejected as rejected:
+                    progress(f'  Evaluator FAIL: {rejected}. Trying the next file')
+                    entry['rejected'].append({'id': media.id, 'title': media.title, 'source': media.source,
+                                              **rejected.verdict.to_dict()})
+                    data['evaluation'] = rejected.verdict.to_dict()
+                    continue
                 except Exception as error:
                     progress(f'  Could not use this file ({error}); trying the next one')
                     continue
+                if verdict is not None:
+                    progress(f'  Evaluator {verdict.label}' + (f': saw {verdict.seen[:110]}' if verdict.seen else ''))
+                    data['evaluation'] = entry['evaluation'] = verdict.to_dict()
                 data['offset'] = media.offset
                 entry['chosen'], entry['clip'] = data, clip.relative_to(folder).as_posix()
                 break
+            if not entry['clip'] and entry['rejected']:
+                progress(f'  The evaluator rejected all {len(entry["rejected"])} files; you stay on screen here')
         xml = write_outputs(root, folder, project, progress)
         filled = sum(1 for s in project['slots'] if s['clip'])
         progress(f'  {filled}/{len(project["slots"])} visuals placed')
@@ -362,6 +400,12 @@ def write_outputs(root, folder, project, progress=print, preview=True):
     write_json(Path(folder) / 'visuals-project.json', project)
     write_report(Path(folder) / 'report.html', project, preview_file.exists())
     write_credits(Path(folder) / 'CREDITS.txt', project)
+    rows = [{'index': s['index'], 'label': s['label'], 'start': s['start'], 'used': bool(s.get('clip')),
+             'verdict': s.get('evaluation'), 'rejected': s.get('rejected', [])} for s in project['slots']]
+    (Path(folder) / 'EVALUATION.json').write_text(json.dumps({
+        'passed': sum(1 for r in rows if r['used'] and (r['verdict'] or {}).get('passed')),
+        'rejected_files': sum(len(r['rejected']) for r in rows), 'results': rows},
+        ensure_ascii=False, indent=1), encoding='utf-8')
     return xml
 
 
@@ -386,8 +430,10 @@ def rebuild_project(project_file, choices, progress=print):
         if data is None:
             raise ValueError('That file is not one of the suggestions for this moment')
         media = Media(**{k: v for k, v in data.items() if k in Media.__dataclass_fields__})
-        clip = render_slot(root, folder, timeline, slot, media, session, project.get('device', 'cpu'))
+        clip, _ = render_slot(root, folder, timeline, slot, media, session, project.get('device', 'cpu'))
         data['offset'] = media.offset
+        slot['evaluation'] = {'passed': True, 'score': 1.0, 'reasons': [], 'warnings': [], 'judge': 'chosen by you',
+                              'seen': '', 'checks': {}}
         slot['chosen'], slot['clip'] = data, clip.relative_to(folder).as_posix()
     preview = Path(folder) / 'preview.mp4'
     preview.unlink(missing_ok=True)

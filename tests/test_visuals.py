@@ -408,28 +408,63 @@ class PipelineTests(unittest.TestCase):
         web_logo = root / 'web-logo.png'
         Image.new('RGBA', (600, 240), (226, 55, 68, 255)).save(web_logo)
         web_clip = write_video(root / 'web-clip.mp4', 8, 640, 360, 30, audio=False)
+        fake_logo = root / 'fake-logo.png'
+        Image.new('RGBA', (900, 400), (250, 120, 20, 255)).save(fake_logo)       # an orange Swiggy-like logo
+
+        class Looker:
+            """Reads the colour as the brand: red = Zomato, orange = Swiggy (stands in for the vision model)."""
+            name = 'fake vision'
+            def look(self, images, system):
+                px = np.asarray(images[0].convert('RGB')).astype(int)
+                strong = px[..., 0] > 200
+                red = (strong & (px[..., 1] < 90)).sum() >= (strong & (px[..., 1] >= 100) & (px[..., 1] < 170)).sum()
+                logo = 'Zomato' in system
+                return {'seen': 'a red zomato logo' if red else 'an orange swiggy logo',
+                        'text_in_image': ('zomato' if red else 'SWIGGY') if logo else '',
+                        'category_seen': 'logo' if logo else 'footage', 'category_ok': True,
+                        'identity': 'unsure', 'identity_reason': '', 'fits_moment': True, 'quality_ok': True,
+                        'quality_issue': ''}
+        from hinglish_visuals.evaluator import Evaluator
 
         class WebFinder:
             def images(self, query, limit=30, transparent=False):
-                return [Media('image', 'web', 'web:zlogo', 'Zomato Logo PNG', 'https://logos.test/zomato-logo.png',
+                return [Media('image', 'web', 'web:fake', 'Zomato logo PNG HD', 'https://clip.test/zomato-logo.png',
+                              page_url='https://clip.test/z', width=900, height=400, license='from the web',
+                              text='Zomato logo PNG HD', role='web'),
+                        Media('image', 'web', 'web:zlogo', 'Zomato Logo PNG', 'https://logos.test/zomato-logo.png',
                               page_url='https://logos.test/zomato', width=600, height=240, license='from the web',
                               text='Zomato Logo PNG zomato logo', role='web')] if 'Zomato' in query else []
             def videos(self, query, limit=12):
                 return [Media('video', 'web', 'web:yt1', 'Mahatma Gandhi Salt March 1930 real footage',
                               'https://www.youtube.com/watch?v=abcdefghijk', duration=300, author='History TV',
                               text='Mahatma Gandhi Salt March 1930 real footage', role='web')] if 'Gandhi' in query else []
-            def download_image(self, m, target): return web_logo
+            def download_image(self, m, target): return fake_logo if m.id == 'web:fake' else web_logo
             def download_video(self, m, need): return web_clip, 36.0
         with patch('hinglish_visuals.pipeline.transcripts_for',
                    lambda root, sources, device, progress: ({path_key(s): words for s in sources}, [])):
             page = __import__('hinglish_visuals.pipeline', fromlist=['run']).run(
                 root, xml, web=EmptyWiki(), brain=ScriptedBrain(), scorer=False, progress=lambda m: None,
-                finder=WebFinder())
+                finder=WebFinder(), evaluator=Evaluator(Looker()))
         project = json.loads((page.parent / 'visuals-project.json').read_text(encoding='utf-8'))
         placed = {s['label']: s['chosen'] for s in project['slots'] if s['clip']}
         self.assertEqual(placed['Zomato']['source'], 'web')
         self.assertEqual(placed['Mahatma Gandhi']['url'], 'https://www.youtube.com/watch?v=abcdefghijk')
         self.assertIn('History TV', (page.parent / 'CREDITS.txt').read_text(encoding='utf-8'))
+        logo_slot = next(s for s in project['slots'] if s['label'] == 'Zomato')
+        self.assertEqual(placed['Zomato']['id'], 'web:zlogo')                      # the fake was thrown out
+        self.assertEqual([r['id'] for r in logo_slot['rejected']], ['web:fake'])
+        self.assertIn('does not read "Zomato"', logo_slot['rejected'][0]['reasons'][0])
+        self.assertTrue(logo_slot['evaluation']['passed'])
+        report = (page.parent / 'report.html').read_text(encoding='utf-8')
+        self.assertIn('Evaluator PASS', report)
+        self.assertIn('Rejected web', report)
+        evaluation = json.loads((page.parent / 'EVALUATION.json').read_text(encoding='utf-8'))
+        self.assertEqual(evaluation['rejected_files'], 1)
+
+        # Re-checking the finished output from the rendered files.
+        from hinglish_visuals.evaluator import evaluate_output
+        summary = evaluate_output(page.parent / 'visuals-project.json', Evaluator(Looker()), lambda m: None)
+        self.assertEqual((summary['checked'], summary['failed']), (2, 0))
 
 
 
@@ -518,6 +553,109 @@ class WebAgentTests(unittest.TestCase):
         self.assertGreater(start, 100)
         self.assertIn('download_ranges', calls['options'])
         self.assertIn('ffmpeg_location', calls['options'])
+
+
+
+class EvaluatorTests(unittest.TestCase):
+    temple = {'name': 'Meenakshi Amman Temple', 'about': 'Hindu temple in Madurai', 'kind': 'place', 'show': 'photo',
+              'category': 'temple', 'visual': 'Meenakshi temple towers'}
+    zomato = {'name': 'Zomato', 'about': 'Indian food delivery company', 'kind': 'brand', 'show': 'logo',
+              'category': 'logo', 'visual': 'Zomato logo'}
+
+    def answer(self, **values):
+        base = {'seen': 'x', 'text_in_image': '', 'category_seen': 'temple', 'category_ok': True, 'identity': 'yes',
+                'identity_reason': '', 'fits_moment': True, 'quality_ok': True, 'quality_issue': ''}
+        base.update(values)
+        return base
+
+    def test_rules_fail_a_dog_a_random_temple_a_wrong_logo_and_a_watermark(self):
+        from hinglish_visuals.evaluator import decide
+        dog = decide(self.answer(category_ok=False, category_seen='a dog'), self.temple)
+        self.assertFalse(dog.passed)
+        self.assertIn('TYPE: not temple; it shows a dog', dog.reasons[0])
+        other = decide(self.answer(identity='no', identity_reason='this is the Golden Temple'), self.temple)
+        self.assertFalse(other.passed)
+        self.assertIn('Golden Temple', other.reasons[0])
+        swiggy = decide(self.answer(category_seen='logo', identity='unsure', text_in_image='SWIGGY'), self.zomato)
+        self.assertFalse(swiggy.passed)
+        self.assertIn('does not read "Zomato"', swiggy.reasons[0])
+        stamped = decide(self.answer(quality_ok=False, quality_issue='large Shutterstock watermark'), self.temple)
+        self.assertFalse(stamped.passed)
+
+    def test_rules_pass_the_real_thing_and_warn_on_a_loose_match(self):
+        from hinglish_visuals.evaluator import decide
+        logo = decide(self.answer(category_seen='logo', identity='unsure', text_in_image='ZOMAT0'), self.zomato)
+        self.assertTrue(logo.passed)
+        loose = decide(self.answer(fits_moment=False), self.temple)
+        self.assertTrue(loose.passed)
+        self.assertLess(loose.score, 1.0)
+        self.assertTrue(loose.warnings)
+
+    def test_vision_model_gets_the_picture_and_the_rules_and_is_cached(self):
+        from hinglish_visuals.evaluator import VisionModel, Evaluator
+        sent = []
+
+        class Response:
+            def __init__(self, data): self.data = data
+            def raise_for_status(self): pass
+            def json(self): return self.data
+
+        class Session:
+            trust_env = True
+            def get(self, url, timeout=None): return Response({'models': [{'name': 'qwen2.5vl:7b'}]})
+            def post(self, url, json=None, timeout=None):
+                sent.append(json)
+                return Response({'message': {'content': __import__('json').dumps({
+                    'seen': 'a brown and white dog on grass', 'text_in_image': '', 'category_seen': 'dog',
+                    'category_ok': False, 'identity': 'no', 'identity_reason': 'it is a dog',
+                    'fits_moment': False, 'quality_ok': True, 'quality_issue': ''})}})
+        with tempfile.TemporaryDirectory() as folder:
+            picture = Path(folder) / 'dog.jpg'
+            Image.new('RGB', (640, 480), (120, 90, 60)).save(picture)
+            evaluator = Evaluator(VisionModel(folder, session=Session()))
+            first = evaluator.image(picture, self.temple)
+            second = evaluator.image(picture, self.temple)
+        self.assertEqual(len(sent), 1)                                  # same picture + rules = cached
+        body = sent[0]
+        self.assertEqual(body['model'], 'qwen2.5vl:7b')
+        self.assertEqual(len(body['messages'][1]['images']), 1)
+        self.assertIn('does it clearly show temple', body['messages'][0]['content'])
+        self.assertIn('Meenakshi Amman Temple', body['messages'][0]['content'])
+        self.assertFalse(first.passed)
+        self.assertEqual(first.label, 'FAIL')
+        self.assertEqual(first.seen, second.seen)
+
+    def test_video_is_judged_on_frames_from_the_seconds_that_will_be_used(self):
+        from hinglish_visuals.evaluator import Evaluator
+        seen = {}
+
+        class Looker:
+            name = 'fake'
+            def look(self, images, system):
+                seen['count'] = len(images)
+                return {'seen': 'temple towers', 'text_in_image': '', 'category_seen': 'temple', 'category_ok': True,
+                        'identity': 'yes', 'identity_reason': '', 'fits_moment': True, 'quality_ok': True,
+                        'quality_issue': ''}
+        with tempfile.TemporaryDirectory() as folder:
+            clip = write_video(Path(folder) / 'v.mp4', 6, 320, 240, 25, audio=False)
+            verdict = Evaluator(Looker()).video(clip, 2.0, 3.0, self.temple)
+        self.assertEqual(seen['count'], 3)
+        self.assertTrue(verdict.passed)
+
+    def test_clip_fallback_fails_a_picture_that_is_more_dog_than_temple(self):
+        from hinglish_visuals.evaluator import ClipCheck, Evaluator
+
+        class FakeVision:
+            def texts(self, texts):
+                return np.array([[1.0, 0.0] if 'dog' in t else [0.0, 1.0] for t in texts], np.float32)
+            def images(self, images):
+                return np.array([[1.0, 0.0]] * len(images), np.float32)       # looks like a dog
+        with tempfile.TemporaryDirectory() as folder:
+            picture = Path(folder) / 'p.jpg'
+            Image.new('RGB', (400, 400)).save(picture)
+            verdict = Evaluator(clip=ClipCheck(FakeVision())).image(picture, self.temple)
+        self.assertFalse(verdict.passed)
+        self.assertIn('dog', verdict.reasons[0])
 
 
 if __name__ == '__main__':

@@ -174,7 +174,7 @@ $('#run').onclick=async()=>{
       eye_reach:$('#eyeReach').value,eye_size:$('#eyeSize').value,eye_look_away:$('#eyeLookAway').checked,
       sound_style:$('#soundStyle').value,sound_density:$('#soundDensity').value,sound_music:$('#soundMusic').checked,
       sound_effects:$('#soundEffects').checked,sound_transitions:$('#soundTransitions').checked,
-      visuals_density:$('#visualsDensity').value,visuals_brain:$('#visualsBrain').value,visuals_popups:$('#visualsPopups').checked,visuals_web:$('#visualsWeb').checked,
+      visuals_density:$('#visualsDensity').value,visuals_brain:$('#visualsBrain').value,visuals_popups:$('#visualsPopups').checked,visuals_web:$('#visualsWeb').checked,visuals_check:$('#visualsCheck').checked,
       zoom_style:$('#zoomStyle').value,zoom_strength:$('#zoomStrength').value,zoom_frequency:$('#zoomFrequency').value,
       zoom_face:$('#zoomFace').checked,zoom_jump_cuts:$('#zoomJumpCuts').checked,
       device:$('#device').value,pacing:$('#pacing').value,preview:true};

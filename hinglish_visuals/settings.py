@@ -41,6 +41,8 @@ class VisualsSettings:
     vision_model: str = 'openai/clip-vit-base-patch32'
     use_stock: bool = True              # Pexels / Pixabay (keys from B-roll settings) for places and things
     use_web: bool = True                # search the whole web: images from any site, YouTube/web videos
+    evaluator: str = 'auto'             # auto: vision model (Ollama) else CLIP type check; vlm | clip | off
+    vision_check_model: str = 'qwen2.5vl:7b'
     pexels_key: str = ''
     pixabay_key: str = ''
     language: str = 'en'                # Wikipedia / Wikidata language for names and descriptions
@@ -52,6 +54,8 @@ class VisualsSettings:
             raise ValueError('Device must be cpu or cuda')
         if self.brain not in BRAINS:
             raise ValueError('Brain must be auto, ollama or local')
+        if self.evaluator not in ('auto', 'vlm', 'clip', 'off'):
+            raise ValueError('Evaluator must be auto, vlm, clip or off')
 
 
 def load_settings(root, **overrides):

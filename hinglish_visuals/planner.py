@@ -50,6 +50,8 @@ For each moment:
 - display: "popup" = small card on top while the speaker stays visible (use for logos, and for a
   person's face when the name is first mentioned); "fullscreen" = the visual replaces the speaker
   (use for stories, facts, events, places, footage).
+- category: the kind of thing that must be visible, 1-3 plain English words ("temple", "man",
+  "logo", "train", "crowd march", "city street"). An evaluator later rejects pictures that are not this.
 - visual: exactly what the viewer should see, specific to THIS line, max 14 words
   ("Gandhi leading the Salt March crowd in 1930", "Zomato app logo").
 - search: 1-3 English phrases you would type into Google Images or YouTube to find THIS visual. They
@@ -77,12 +79,13 @@ PLAN_SCHEMA = {'type': 'object', 'properties': {
         'meaning': {'type': 'string', 'maxLength': 160},
         'show': {'type': 'string', 'enum': list(SHOWS)},
         'display': {'type': 'string', 'enum': ['popup', 'fullscreen']},
+        'category': {'type': 'string', 'maxLength': 40},
         'visual': {'type': 'string', 'minLength': 3, 'maxLength': 120},
         'search': {'type': 'array', 'items': {'type': 'string', 'minLength': 2, 'maxLength': 60},
                    'minItems': 1, 'maxItems': 3},
         'priority': {'type': 'integer', 'minimum': 1, 'maximum': 3}},
-        'required': ['id', 'quote', 'entity', 'mention', 'meaning', 'show', 'display', 'visual', 'search',
-                     'priority'], 'additionalProperties': False}}},
+        'required': ['id', 'quote', 'entity', 'mention', 'meaning', 'show', 'display', 'category', 'visual',
+                     'search', 'priority'], 'additionalProperties': False}}},
     'required': ['story', 'entities', 'moments'], 'additionalProperties': False}
 
 RESOLVE_SYSTEM = '''A video's speaker mentions a real {kind}. Below are Wikidata search results.
@@ -114,6 +117,7 @@ class VisualMoment(Moment):
     show: str = 'photo'              # logo | photo | video
     display: str = 'fullscreen'      # popup | fullscreen
     candidates: list = field(default_factory=list)
+    category: str = ''               # the kind of thing that must be visible (checked by the evaluator)
 
 
 def _key(text):
@@ -155,7 +159,8 @@ def validate_plan(raw, group, entities):
         moments.append(VisualMoment(
             match.id, _clean(item.get('visual', ''), 120) or entity['name'], search,
             item.get('priority') if item.get('priority') in (1, 2, 3) else 2, str(item.get('quote', '')),
-            _clean(item.get('meaning', ''), 160), entity['key'], _clean(item.get('mention', ''), 40), show, display))
+            _clean(item.get('meaning', ''), 160), entity['key'], _clean(item.get('mention', ''), 40), show, display,
+            category=_clean(item.get('category', ''), 40).lower()))
     return moments
 
 

@@ -241,6 +241,8 @@ class AppState:
                     command.append('--no-popups')
                 if payload.get('visuals_web') is False:
                     command.append('--no-web')
+                if payload.get('visuals_check') is False:
+                    command += ['--evaluator', 'off']
             elif payload['mode'] == 'sound':
                 command += ['-m', 'hinglish_sound', '--root', str(self.root), '--input', str(supplied),
                             '--device', payload.get('device', 'cpu')]

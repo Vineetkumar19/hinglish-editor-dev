@@ -2,6 +2,33 @@
 
 **Status:** ✅ v2 built: the agent searches the WHOLE web · ⏳ First real run on the laptop (the cloud session has no internet access to image sites, YouTube or Wikipedia)   **Date:** 26 Sep 2026
 
+## v3 – the Evaluator (after "check if it is really a Zomato PNG / really Meenakshi temple, not a dog")
+Every picture and video is LOOKED AT before it goes on your timeline. The evaluator ignores titles and web
+addresses (they can lie) and judges the pixels. Brain: Ollama **qwen2.5vl:7b** (vision model, already on the
+laptop). It first writes what it really sees, then answers the rules. The PASS/FAIL decision is made by fixed
+rules in code (`hinglish_visuals/evaluator.py`), not by the model's mood:
+
+| Rule | Fails when | Example |
+|---|---|---|
+| 1. TYPE | it doesn't show the kind of thing that was said | you said temple → it is a dog, a person, a text page, a cartoon |
+| 2. IDENTITY | it is a different one | a random temple instead of Meenakshi Amman; a logo that reads "SWIGGY" when you said Zomato (the letters in a logo must spell the brand) |
+| 3. QUALITY | it isn't a clear real picture | big watermark, collage, website/search screenshot, meme text, blurry or tiny |
+| 4. MOMENT | it doesn't fit the line | only a warning: lowers the score |
+
+- **Videos:** 3 frames from the exact seconds that will be used are judged together.
+- **Failed file:** thrown out; the next best file is checked (up to 5). If all fail, no visual (your face stays), never a wrong one.
+- **Planner:** now also states the *category* per moment ("temple", "man", "logo", "train"), which rule 1 checks.
+- **Without the vision model:** CLIP still checks rule 1 (is it more "temple" than dog / person / text / map / cartoon…).
+- **Where you see it:**
+  - `report.html`: every visual has a green **Evaluator PASS** box with what it saw, and the thrown-out files with the reason (✗ Rejected … : TYPE: not temple; it shows a dog).
+  - `EVALUATION.json` in every result folder.
+- **Re-check a finished result** (from the rendered files):
+  `.venv\Scripts\python.exe -m hinglish_visuals.evaluator --project "output\visuals\<date>\001-<video>\visuals-project.json"`
+  → PASS/FAIL per visual; exit code 2 if anything fails.
+- App option: **Evaluator** (on). CLI: `--evaluator auto|vlm|clip|off`.
+- **Needs:** the Ollama app running; `ollama pull qwen2.5vl:7b` (already done on the laptop). On the CPU laptop each check takes some time (roughly half a minute to a minute, not measured yet); on the RTX 5070 Ti, seconds.
+- **Honest limit:** a vision model can still be wrong, especially on WHO a person is (it may say "unsure"; then the web proof decides). Brands are checked by reading the letters, places by their known look.
+
 ## v2 – whole-web agent (after "I want real images from any website, not just Wikipedia")
 - **Images from any website**, the way you would search:
   - "Zomato logo png" (transparent images first), "Mahatma Gandhi photo", "Meenakshi Amman Temple"
@@ -89,6 +116,7 @@ Works on any XML from the other features. Smart Zoom still zooms under pop-ups (
 | `brain.py` | Ollama qwen3 (thinking) or the built-in Qwen, JSON answers, cached |
 | `planner.py` | the agent's steps: plan with story memory, pick the Wikidata item, judge candidates |
 | `web.py` | Wikidata / Wikipedia / Commons clients (cached; transcoded videos; licences) |
+| `evaluator.py` | the Evaluator: vision model looks at every picture/video, fixed PASS/FAIL rules, CLIP fallback, re-check command |
 | `websearch.py` | the web agent: image search on the whole web, web + YouTube video search, browser-like image download, yt-dlp section download |
 | `gather.py` | collects media per moment, proof check, ranking |
 | `timing.py` | full-screen = spoken line; pop-up = on the name word, no repeats, before footage |
@@ -109,7 +137,7 @@ Other changes:
 ## Test log (26 Sep, cloud: Linux, no GPU, no models, no internet to Wikimedia)
 | Test | Result |
 |---|---|
-| Automated tests | 20 Smart Visuals tests (incl. the web agent and a whole-web end-to-end run) + 1 server test. All pass except 4 caption tests that need Windows fonts (missing in the cloud) |
+| Automated tests | 25 Smart Visuals tests (incl. the web agent, the Evaluator rules, and an end-to-end run where a wrong logo is thrown out) + 1 server test. All pass except 4 caption tests that need Windows fonts (missing in the cloud) |
 | Timing/render check on `input\final-demo\madurai_1.mp4` (1080×1920, 48.7 s). Transcript, AI answers and images were PLACEHOLDERS (no internet in the cloud); only timing, layout and XML were checked | 4/4 visuals placed in 136 s on CPU: Meenakshi temple photo full screen 4.1–7.6 s; Zomato logo pop-up on "Jomato" 10.7 s; Gandhi face card on "Gandhi" 17.4 s, ending before his footage; Gandhi 4:3 footage full screen 20.2–24.2 s |
 | Measured | Every clip file has exactly its timeline frame count (106/120 frames H.264, 66/77 frames alpha qtrle). V1 + both audio tracks untouched. Preview 1460/1460 frames |
 | Fixed during testing | Face card was dropped when footage followed → now shortened. Pop-ups covered the head in a wide shot → face-aware spots. Pexels echoes the query as the title → it no longer counts as proof. A brand article's photo was taken as the logo → only files named as logos. Tiny website icons → rejected |

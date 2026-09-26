@@ -209,7 +209,7 @@ class DashboardServerTests(unittest.TestCase):
         with patch('hinglish_app.server.subprocess.Popen', FakeProcess):
             status, job = self.request('/api/jobs', {'mode': 'visuals', 'timeline_xml': str(timeline),
                                                      'visuals_density': 'high', 'visuals_brain': 'local',
-                                                     'visuals_popups': False})
+                                                     'visuals_popups': False, 'visuals_check': False})
             for _ in range(50):
                 if self.state.snapshot(job['id'])['status'] in ('complete', 'failed'): break
                 threading.Event().wait(.05)
@@ -218,6 +218,7 @@ class DashboardServerTests(unittest.TestCase):
         self.assertEqual(command[command.index('--density') + 1], 'high')
         self.assertEqual(command[command.index('--brain') + 1], 'local')
         self.assertIn('--no-popups', command)
+        self.assertEqual(command[command.index('--evaluator') + 1], 'off')
         self.assertEqual(self.state.snapshot(job['id'])['status'], 'complete')
         outside = self.root / 'visuals-project.json'
         outside.write_text('{}')

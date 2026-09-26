@@ -32,7 +32,8 @@ One click puts the REAL thing you talk about on screen: the actual person (Gandh
 
 - A local AI agent (Ollama `qwen3:8b` when running, else the built-in Qwen) reads the whole speech with memory of the story, so a Gandhi story shows Gandhi only. It fixes speech-recognition spellings ("Jomato" → Zomato) and finds the exact Wikidata item.
 - The agent searches the whole web like you would ("Zomato logo png", "Meenakshi temple video"): images from any website, videos from YouTube and 1000+ sites (only the needed part is downloaded), plus Wikipedia/Wikimedia Commons and Pexels/Pixabay. No account or key needed. Every file must prove it is about that person or brand, and the AI checks the best one before it is used. Web files can be copyrighted: check before posting.
-- First time: `.venv\Scripts\python.exe -m pip install ddgs yt-dlp imageio-ffmpeg`.
+- **Evaluator:** a local vision model (Ollama `qwen2.5vl:7b`) looks at every picture and video before it is used and fails it if it is the wrong type (you said temple, it shows a dog), the wrong one (a random temple, a logo that doesn't read "Zomato") or poor quality (watermark, collage, screenshot). Results in `report.html` and `EVALUATION.json`; re-check any result with `python -m hinglish_visuals.evaluator --project <visuals-project.json>`.
+- First time: `.venv\Scripts\python.exe -m pip install ddgs yt-dlp imageio-ffmpeg` and `ollama pull qwen2.5vl:7b`.
 - Logos and faces pop up on the word that names them, never over your face. Stories, facts, places and footage go full screen for exactly the spoken line.
 - Output `output\visuals\<date>\...\VISUALS_SEQUENCE.xml` (new sequence `<name>_VISUALS`: V2 full screen, V3 transparent pop-ups), `preview.mp4`, `report.html` (swap or remove, **Save & rebuild**) and **`CREDITS.txt`**. Paste the credits into your video description.
 - Same button in the app, Premiere Pro (CEP and UXP) and DaVinci Resolve Studio. Details: `DEV NOTES\05 - Smart Visuals.md`.
