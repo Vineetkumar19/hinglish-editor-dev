@@ -1,0 +1,15 @@
+{
+  "sample_source": "https://huggingface.co/Oriserve/Whisper-Hindi2Hinglish-Swift/blob/main/audios/f89b6428-c58a-4355-ad63-0752b69f2d30.wav",
+  "reference": "Vah bas din mein kitni baar chalti hai?",
+  "duration": 3.96,
+  "vad_silence": [],
+  "speech_regions": [
+    [
+      0.93,
+      2.974
+    ]
+  ],
+  "transcript": "Vah bas din mein kitni baar chalti hai?",
+  "alignment_error": "Error while deserializing header: incomplete metadata, file not fully covered",
+  "judge_error": "Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, pass 'local_files_only=False' as input."
+}

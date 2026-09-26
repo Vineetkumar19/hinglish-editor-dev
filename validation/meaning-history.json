@@ -1,0 +1,1055 @@
+[
+  {
+    "case": "nightlife",
+    "rows": [
+      {
+        "index": 0,
+        "paragraph_index": 0,
+        "paragraph_text": "Toh agar tum yahaan enjoy karne aa rahe ho",
+        "idea": "Toh agar tum yahaan enjoy karne aa rahe ho",
+        "selected": {
+          "span": {
+            "id": "058593e9266b73a9:10:19",
+            "media_id": "058593e9266b73a9",
+            "first": 10,
+            "last": 19,
+            "start": 5.272,
+            "end": 7.192,
+            "text": "To agar tum yahaan enjoy karne aa rahe ho",
+            "context": "agar tum yahaan enjoy karne aa rahe ho, To agar tum yahaan enjoy karne aa rahe ho tab aai bhool jao.",
+            "aligned": true
+          },
+          "source_name": "058593e9266b73a9.mp4",
+          "source_order": 9,
+          "source_frame_rate": 30.0,
+          "similarity": 0.9936144351959229,
+          "score": 1.0352108263969422,
+          "evidence": {
+            "recall": 1.0,
+            "precision": 1.0,
+            "content": 1.0,
+            "score": 1.0,
+            "missing": []
+          },
+          "eligible": true,
+          "issues": [],
+          "verdict": {
+            "id": 0,
+            "status": "complete",
+            "repeated": false,
+            "reason": "Candidates 0 and 3 fully convey the intended message about enjoying being here, with minor variations in structure and\u8bed\u6c14"
+          }
+        },
+        "alternatives": [
+          {
+            "span": {
+              "id": "058593e9266b73a9:10:19",
+              "media_id": "058593e9266b73a9",
+              "first": 10,
+              "last": 19,
+              "start": 5.272,
+              "end": 7.192,
+              "text": "To agar tum yahaan enjoy karne aa rahe ho",
+              "context": "agar tum yahaan enjoy karne aa rahe ho, To agar tum yahaan enjoy karne aa rahe ho tab aai bhool jao.",
+              "aligned": true
+            },
+            "source_name": "058593e9266b73a9.mp4",
+            "source_order": 9,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9936144351959229,
+            "score": 1.0352108263969422,
+            "evidence": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "content": 1.0,
+              "score": 1.0,
+              "missing": []
+            },
+            "eligible": true,
+            "issues": [],
+            "verdict": {
+              "id": 0,
+              "status": "complete",
+              "repeated": false,
+              "reason": "Candidates 0 and 3 fully convey the intended message about enjoying being here, with minor variations in structure and\u8bed\u6c14"
+            }
+          },
+          {
+            "span": {
+              "id": "058593e9266b73a9:2:10",
+              "media_id": "058593e9266b73a9",
+              "first": 2,
+              "last": 10,
+              "start": 0.992,
+              "end": 2.492,
+              "text": "agar tum yahaan enjoy karne aa rahe ho,",
+              "context": "To bhaiya, agar tum yahaan enjoy karne aa rahe ho, To agar tum yahaan enjoy karne aa rahe",
+              "aligned": true
+            },
+            "source_name": "058593e9266b73a9.mp4",
+            "source_order": 9,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9851821064949036,
+            "score": 1.018592462224119,
+            "evidence": {
+              "recall": 0.9313725490196079,
+              "precision": 1.0,
+              "content": 1.0,
+              "score": 0.9588235294117647,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [
+              "earlier_take_replaced_by_complete_later_take"
+            ],
+            "verdict": {
+              "id": 0,
+              "status": "complete",
+              "repeated": false,
+              "reason": "The spoken text exactly matches the required idea in intent and content."
+            },
+            "superseded_by": "058593e9266b73a9:10:19"
+          },
+          {
+            "span": {
+              "id": "84cd1f7376389622:0:7",
+              "media_id": "84cd1f7376389622",
+              "first": 0,
+              "last": 7,
+              "start": 0.288,
+              "end": 2.3680000000000003,
+              "text": "Yahaan enjoy ki definition thodi alag hai.",
+              "context": "Yahaan enjoy ki definition thodi alag hai.",
+              "aligned": false
+            },
+            "source_name": "84cd1f7376389622.mp4",
+            "source_order": 10,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9085524082183838,
+            "score": 0.7610211786157389,
+            "evidence": {
+              "recall": 0.26470588235294124,
+              "precision": 0.26732673267326734,
+              "content": 0.3333333333333333,
+              "score": 0.2756552125800816,
+              "missing": [
+                "agar",
+                "aa"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 2,
+              "status": "different",
+              "repeated": false,
+              "reason": "Candidates 0 and 3 fully convey the intended message about enjoying being here, with minor variations in structure and\u8bed\u6c14"
+            }
+          },
+          {
+            "span": {
+              "id": "058593e9266b73a9:0:10",
+              "media_id": "058593e9266b73a9",
+              "first": 0,
+              "last": 10,
+              "start": 0.6320000000000001,
+              "end": 2.492,
+              "text": "To bhaiya, agar tum yahaan enjoy karne aa rahe ho,",
+              "context": "To bhaiya, agar tum yahaan enjoy karne aa rahe ho, To agar tum yahaan enjoy karne aa rahe",
+              "aligned": true
+            },
+            "source_name": "058593e9266b73a9.mp4",
+            "source_order": 9,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9740140438079834,
+            "score": 1.013927964048648,
+            "evidence": {
+              "recall": 1.0,
+              "precision": 0.9357798165137614,
+              "content": 1.0,
+              "score": 0.9839449541284403,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [
+              "earlier_take_replaced_by_complete_later_take"
+            ],
+            "verdict": {
+              "id": 3,
+              "status": "complete",
+              "repeated": false,
+              "reason": "Candidates 0 and 3 fully convey the intended message about enjoying being here, with minor variations in structure and\u8bed\u6c14"
+            },
+            "superseded_by": "058593e9266b73a9:10:19"
+          },
+          {
+            "span": {
+              "id": "058593e9266b73a9:10:23",
+              "media_id": "058593e9266b73a9",
+              "first": 10,
+              "last": 23,
+              "start": 5.272,
+              "end": 8.592,
+              "text": "To agar tum yahaan enjoy karne aa rahe ho tab aai bhool jao.",
+              "context": "agar tum yahaan enjoy karne aa rahe ho, To agar tum yahaan enjoy karne aa rahe ho tab aai bhool jao.",
+              "aligned": true
+            },
+            "source_name": "058593e9266b73a9.mp4",
+            "source_order": 9,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9680980443954468,
+            "score": 0.9754374386220289,
+            "evidence": {
+              "recall": 1.0,
+              "precision": 0.6035502958579881,
+              "content": 1.0,
+              "score": 0.900887573964497,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 4,
+              "status": "different",
+              "repeated": false,
+              "reason": "Candidates 0 and 3 fully convey the intended message about enjoying being here, with minor variations in structure and\u8bed\u6c14"
+            }
+          },
+          {
+            "span": {
+              "id": "850b17de0910593e:0:8",
+              "media_id": "850b17de0910593e",
+              "first": 0,
+              "last": 8,
+              "start": 1.344,
+              "end": 2.724,
+              "text": "Aur main mazaak nahin kar rahi hoon na.",
+              "context": "Aur main mazaak nahin kar rahi hoon na.",
+              "aligned": false
+            },
+            "source_name": "850b17de0910593e.mp4",
+            "source_order": 4,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8869310617446899,
+            "score": 0.7539777080732234,
+            "evidence": {
+              "recall": 0.30297385620915035,
+              "precision": 0.34146341463414637,
+              "content": 0.2222222222222222,
+              "score": 0.30048350071736013,
+              "missing": [
+                "agar",
+                "enjoy",
+                "aa"
+              ]
+            },
+            "eligible": false,
+            "issues": [
+              "negation_needs_review"
+            ],
+            "verdict": {
+              "id": 5,
+              "status": "different",
+              "repeated": false,
+              "reason": "Candidates 0 and 3 fully convey the intended message about enjoying being here, with minor variations in structure and\u8bed\u6c14"
+            }
+          }
+        ],
+        "issues": [],
+        "selection_status": "meaning_model_selected",
+        "cut_text": "To agar tum yahaan enjoy karne aa rahe ho",
+        "restored_ending": "",
+        "filler_removals": [],
+        "selected_id": "058593e9266b73a9:10:19"
+      },
+      {
+        "index": 1,
+        "paragraph_index": 1,
+        "paragraph_text": "Isliye toh main camera kholke Instagram pe reels bana raha hoon.",
+        "idea": "Isliye toh main camera kholke Instagram pe reels bana raha hoon.",
+        "selected": {
+          "span": {
+            "id": "f72ca270de06c63b:20:33",
+            "media_id": "f72ca270de06c63b",
+            "first": 20,
+            "last": 33,
+            "start": 13.472,
+            "end": 16.612000000000002,
+            "text": "Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+            "context": "raha hoon. Isilie to main yahaan par Instagram. Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+            "aligned": false
+          },
+          "source_name": "f72ca270de06c63b.mp4",
+          "source_order": 11,
+          "source_frame_rate": 30.0,
+          "similarity": 0.9402541518211365,
+          "score": 0.9851550084456315,
+          "evidence": {
+            "recall": 0.9711399711399711,
+            "precision": 0.9585798816568047,
+            "content": 0.961038961038961,
+            "score": 0.9664847972540279,
+            "missing": []
+          },
+          "eligible": true,
+          "issues": [],
+          "verdict": {
+            "id": 0,
+            "status": "complete",
+            "repeated": false,
+            "reason": "Candidate 0 fully conveys the intended action of using a camera to create reels on Instagram. Candidate 1 adds 'ek jagah"
+          }
+        },
+        "alternatives": [
+          {
+            "span": {
+              "id": "f72ca270de06c63b:20:33",
+              "media_id": "f72ca270de06c63b",
+              "first": 20,
+              "last": 33,
+              "start": 13.472,
+              "end": 16.612000000000002,
+              "text": "Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+              "context": "raha hoon. Isilie to main yahaan par Instagram. Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+              "aligned": false
+            },
+            "source_name": "f72ca270de06c63b.mp4",
+            "source_order": 11,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9402541518211365,
+            "score": 0.9851550084456315,
+            "evidence": {
+              "recall": 0.9711399711399711,
+              "precision": 0.9585798816568047,
+              "content": 0.961038961038961,
+              "score": 0.9664847972540279,
+              "missing": []
+            },
+            "eligible": true,
+            "issues": [],
+            "verdict": {
+              "id": 0,
+              "status": "complete",
+              "repeated": false,
+              "reason": "Candidate 0 fully conveys the intended action of using a camera to create reels on Instagram. Candidate 1 adds 'ek jagah"
+            }
+          },
+          {
+            "span": {
+              "id": "f72ca270de06c63b:0:14",
+              "media_id": "f72ca270de06c63b",
+              "first": 0,
+              "last": 14,
+              "start": 2.164,
+              "end": 5.144,
+              "text": "Isilie to main yahaan camera khol ke ek jagah par reel bana raha hoon.",
+              "context": "Isilie to main yahaan camera khol ke ek jagah par reel bana raha hoon. Isilie to main yahaan par Instagram. Islie to",
+              "aligned": false
+            },
+            "source_name": "f72ca270de06c63b.mp4",
+            "source_order": 11,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8995323181152344,
+            "score": 0.9067248558703764,
+            "evidence": {
+              "recall": 0.8383303938859494,
+              "precision": 0.7513227513227514,
+              "content": 0.7817460317460317,
+              "score": 0.8080908289241622,
+              "missing": [
+                "instagram"
+              ]
+            },
+            "eligible": false,
+            "issues": [
+              "numbers_need_review"
+            ],
+            "verdict": {
+              "id": 0,
+              "status": "complete",
+              "repeated": false,
+              "reason": "Both convey the core idea of creating a reel on Instagram after opening the camera."
+            }
+          },
+          {
+            "span": {
+              "id": "f72ca270de06c63b:14:20",
+              "media_id": "f72ca270de06c63b",
+              "first": 14,
+              "last": 20,
+              "start": 10.772,
+              "end": 12.132000000000001,
+              "text": "Isilie to main yahaan par Instagram.",
+              "context": "ke ek jagah par reel bana raha hoon. Isilie to main yahaan par Instagram. Islie to main yahaan camera khol ke Instagram",
+              "aligned": true
+            },
+            "source_name": "f72ca270de06c63b.mp4",
+            "source_order": 11,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9055476188659668,
+            "score": 0.8508350968655245,
+            "evidence": {
+              "recall": 0.38477366255144035,
+              "precision": 1.0,
+              "content": 0.3055555555555556,
+              "score": 0.5266975308641975,
+              "missing": [
+                "camera",
+                "khol",
+                "reels",
+                "bana"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 2,
+              "status": "different",
+              "repeated": false,
+              "reason": "Candidate 0 fully conveys the intended action of using a camera to create reels on Instagram. Candidate 1 adds 'ek jagah"
+            }
+          },
+          {
+            "span": {
+              "id": "f72ca270de06c63b:14:33",
+              "media_id": "f72ca270de06c63b",
+              "first": 14,
+              "last": 33,
+              "start": 10.772,
+              "end": 16.612000000000002,
+              "text": "Isilie to main yahaan par Instagram. Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+              "context": "ke ek jagah par reel bana raha hoon. Isilie to main yahaan par Instagram. Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+              "aligned": false
+            },
+            "source_name": "f72ca270de06c63b.mp4",
+            "source_order": 11,
+            "source_frame_rate": 30.0,
+            "similarity": 0.937820315361023,
+            "score": 0.9551384843699644,
+            "evidence": {
+              "recall": 0.9711399711399711,
+              "precision": 0.6835443037974683,
+              "content": 0.961038961038961,
+              "score": 0.8977259027891938,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 3,
+              "status": "partial",
+              "repeated": false,
+              "reason": "Candidate 0 fully conveys the intended action of using a camera to create reels on Instagram. Candidate 1 adds 'ek jagah"
+            }
+          },
+          {
+            "span": {
+              "id": "850b17de0910593e:0:8",
+              "media_id": "850b17de0910593e",
+              "first": 0,
+              "last": 8,
+              "start": 1.344,
+              "end": 2.724,
+              "text": "Aur main mazaak nahin kar rahi hoon na.",
+              "context": "Aur main mazaak nahin kar rahi hoon na.",
+              "aligned": false
+            },
+            "source_name": "850b17de0910593e.mp4",
+            "source_order": 4,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8555371761322021,
+            "score": 0.7110541166670529,
+            "evidence": {
+              "recall": 0.20156378600823044,
+              "precision": 0.34146341463414637,
+              "content": 0.1111111111111111,
+              "score": 0.22297079193014152,
+              "missing": [
+                "isliye",
+                "camera",
+                "khol",
+                "instagram",
+                "reels",
+                "bana"
+              ]
+            },
+            "eligible": false,
+            "issues": [
+              "negation_needs_review"
+            ],
+            "verdict": {
+              "id": 4,
+              "status": "different",
+              "repeated": false,
+              "reason": "Candidate 0 fully conveys the intended action of using a camera to create reels on Instagram. Candidate 1 adds 'ek jagah"
+            }
+          },
+          {
+            "span": {
+              "id": "642f1a65e66ebad7:18:34",
+              "media_id": "642f1a65e66ebad7",
+              "first": 18,
+              "last": 34,
+              "start": 24.76,
+              "end": 31.46,
+              "text": "Highway par niklata hoon das gyaarah baje. Streetlight of dukaanen band log so chuke hote hain.",
+              "context": "shor. High par niklate hain aur das gaya? Highway par niklata hoon das gyaarah baje. Streetlight of dukaanen band log so chuke hote hain.",
+              "aligned": true
+            },
+            "source_name": "642f1a65e66ebad7.mp4",
+            "source_order": 5,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8533990383148193,
+            "score": 0.6915905883915411,
+            "evidence": {
+              "recall": 0.20781893004115226,
+              "precision": 0.15298507462686564,
+              "content": 0.125,
+              "score": 0.18168762668140775,
+              "missing": [
+                "isliye",
+                "camera",
+                "khol",
+                "instagram",
+                "reels"
+              ]
+            },
+            "eligible": false,
+            "issues": [
+              "numbers_need_review"
+            ],
+            "verdict": {
+              "id": 5,
+              "status": "different",
+              "repeated": false,
+              "reason": "Candidate 0 fully conveys the intended action of using a camera to create reels on Instagram. Candidate 1 adds 'ek jagah"
+            }
+          }
+        ],
+        "issues": [
+          "timing_needs_listening_check"
+        ],
+        "selection_status": "meaning_model_selected",
+        "cut_text": "Islie to main yahaan camera khol ke Instagram par reel bana raha hoon.",
+        "restored_ending": "",
+        "filler_removals": [],
+        "selected_id": "f72ca270de06c63b:20:33"
+      }
+    ],
+    "cut_count": 2
+  },
+  {
+    "case": "pg",
+    "rows": [
+      {
+        "index": 0,
+        "paragraph_index": 0,
+        "paragraph_text": "Washing machine? Nahi. Fridge? Nahi.",
+        "idea": "Washing machine? Nahi",
+        "selected": {
+          "span": {
+            "id": "4aedfa59a56bfd76:3:6",
+            "media_id": "4aedfa59a56bfd76",
+            "first": 3,
+            "last": 6,
+            "start": 2.68,
+            "end": 4.2,
+            "text": "Pushing machine nahin.",
+            "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+            "aligned": true
+          },
+          "source_name": "4aedfa59a56bfd76.mp4",
+          "source_order": 3,
+          "source_frame_rate": 30.0,
+          "similarity": 0.8876185417175293,
+          "score": 0.9378567634310041,
+          "evidence": {
+            "recall": 0.9047619047619048,
+            "precision": 1.0,
+            "content": 0.9047619047619048,
+            "score": 0.9285714285714285,
+            "missing": []
+          },
+          "eligible": true,
+          "issues": [],
+          "verdict": {
+            "id": 0,
+            "status": "complete",
+            "repeated": false,
+            "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+          }
+        },
+        "alternatives": [
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:3:6",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 3,
+              "last": 6,
+              "start": 2.68,
+              "end": 4.2,
+              "text": "Pushing machine nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": true
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8876185417175293,
+            "score": 0.9378567634310041,
+            "evidence": {
+              "recall": 0.9047619047619048,
+              "precision": 1.0,
+              "content": 0.9047619047619048,
+              "score": 0.9285714285714285,
+              "missing": []
+            },
+            "eligible": true,
+            "issues": [],
+            "verdict": {
+              "id": 0,
+              "status": "complete",
+              "repeated": false,
+              "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:6:8",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 6,
+              "last": 8,
+              "start": 4.66,
+              "end": 6.0600000000000005,
+              "text": "Fringe nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": true
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8590174913406372,
+            "score": 0.7580131185054779,
+            "evidence": {
+              "recall": 0.3333333333333333,
+              "precision": 0.5,
+              "content": 0.3333333333333333,
+              "score": 0.37499999999999994,
+              "missing": [
+                "washing",
+                "machine"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 1,
+              "status": "partial",
+              "repeated": false,
+              "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:0:3",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 0,
+              "last": 3,
+              "start": 0.64,
+              "end": 1.96,
+              "text": "Python hai nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": false
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8588428497314453,
+            "score": 0.7502491585751797,
+            "evidence": {
+              "recall": 0.3333333333333333,
+              "precision": 0.425531914893617,
+              "content": 0.3333333333333333,
+              "score": 0.35638297872340424,
+              "missing": [
+                "washing",
+                "machine"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 2,
+              "status": "partial",
+              "repeated": false,
+              "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:0:6",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 0,
+              "last": 6,
+              "start": 0.64,
+              "end": 4.2,
+              "text": "Python hai nahin. Pushing machine nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": false
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.9000095129013062,
+            "score": 0.9021266273328554,
+            "evidence": {
+              "recall": 0.9047619047619048,
+              "precision": 0.5607476635514019,
+              "content": 0.9047619047619048,
+              "score": 0.818758344459279,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 3,
+              "status": "different",
+              "repeated": false,
+              "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+            }
+          },
+          {
+            "span": {
+              "id": "1cbdc520f4abd047:0:3",
+              "media_id": "1cbdc520f4abd047",
+              "first": 0,
+              "last": 3,
+              "start": 0.324,
+              "end": 1.044,
+              "text": "Bhai nahin thi.",
+              "context": "Bhai nahin thi.",
+              "aligned": true
+            },
+            "source_name": "1cbdc520f4abd047.mp4",
+            "source_order": 2,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8540544509887695,
+            "score": 0.7466578595181729,
+            "evidence": {
+              "recall": 0.3333333333333333,
+              "precision": 0.425531914893617,
+              "content": 0.3333333333333333,
+              "score": 0.35638297872340424,
+              "missing": [
+                "washing",
+                "machine"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 4,
+              "status": "partial",
+              "repeated": false,
+              "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+            }
+          },
+          {
+            "span": {
+              "id": "648be12273930870:4:13",
+              "media_id": "648be12273930870",
+              "first": 4,
+              "last": 13,
+              "start": 2.504,
+              "end": 4.724,
+              "text": "laptop bhi bol deta hai. Mujhe yahaan nahin rahna.",
+              "context": "Table itna chhota aaegi, laptop bhi bol deta hai. Mujhe yahaan nahin rahna.",
+              "aligned": true
+            },
+            "source_name": "648be12273930870.mp4",
+            "source_order": 5,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8728374242782593,
+            "score": 0.7304397565203827,
+            "evidence": {
+              "recall": 0.3333333333333333,
+              "precision": 0.12987012987012986,
+              "content": 0.3333333333333333,
+              "score": 0.2824675324675324,
+              "missing": [
+                "washing",
+                "machine"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 5,
+              "status": "partial",
+              "repeated": false,
+              "reason": "Only 'Pushing machine nahin' directly conveys 'Washing machine? Nahi' in intent"
+            }
+          }
+        ],
+        "issues": [],
+        "selection_status": "meaning_model_selected",
+        "cut_text": "Pushing machine nahin.",
+        "restored_ending": "",
+        "filler_removals": [],
+        "selected_id": "4aedfa59a56bfd76:3:6"
+      },
+      {
+        "index": 1,
+        "paragraph_index": 0,
+        "paragraph_text": "Washing machine? Nahi. Fridge? Nahi.",
+        "idea": "Fridge? Nahi.",
+        "selected": {
+          "span": {
+            "id": "4aedfa59a56bfd76:6:8",
+            "media_id": "4aedfa59a56bfd76",
+            "first": 6,
+            "last": 8,
+            "start": 4.66,
+            "end": 6.0600000000000005,
+            "text": "Fringe nahin.",
+            "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+            "aligned": true
+          },
+          "source_name": "4aedfa59a56bfd76.mp4",
+          "source_order": 3,
+          "source_frame_rate": 30.0,
+          "similarity": 0.8965892791748047,
+          "score": 0.9468169593811036,
+          "evidence": {
+            "recall": 0.9166666666666667,
+            "precision": 1.0,
+            "content": 0.9166666666666667,
+            "score": 0.9375,
+            "missing": []
+          },
+          "eligible": true,
+          "issues": [],
+          "verdict": {
+            "id": 0,
+            "status": "complete",
+            "repeated": false,
+            "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+          }
+        },
+        "alternatives": [
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:6:8",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 6,
+              "last": 8,
+              "start": 4.66,
+              "end": 6.0600000000000005,
+              "text": "Fringe nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": true
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8965892791748047,
+            "score": 0.9468169593811036,
+            "evidence": {
+              "recall": 0.9166666666666667,
+              "precision": 1.0,
+              "content": 0.9166666666666667,
+              "score": 0.9375,
+              "missing": []
+            },
+            "eligible": true,
+            "issues": [],
+            "verdict": {
+              "id": 0,
+              "status": "complete",
+              "repeated": false,
+              "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+            }
+          },
+          {
+            "span": {
+              "id": "1cbdc520f4abd047:0:3",
+              "media_id": "1cbdc520f4abd047",
+              "first": 0,
+              "last": 3,
+              "start": 0.324,
+              "end": 1.044,
+              "text": "Bhai nahin thi.",
+              "context": "Bhai nahin thi.",
+              "aligned": true
+            },
+            "source_name": "1cbdc520f4abd047.mp4",
+            "source_order": 2,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8744077682495117,
+            "score": 0.7931728474637295,
+            "evidence": {
+              "recall": 0.5,
+              "precision": 0.425531914893617,
+              "content": 0.5,
+              "score": 0.48138297872340424,
+              "missing": [
+                "fridge"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 1,
+              "status": "different",
+              "repeated": false,
+              "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:0:3",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 0,
+              "last": 3,
+              "start": 0.64,
+              "end": 1.96,
+              "text": "Python hai nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": false
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.86832594871521,
+            "score": 0.7886114828130032,
+            "evidence": {
+              "recall": 0.5,
+              "precision": 0.425531914893617,
+              "content": 0.5,
+              "score": 0.48138297872340424,
+              "missing": [
+                "fridge"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 2,
+              "status": "different",
+              "repeated": false,
+              "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:6:9",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 6,
+              "last": 9,
+              "start": 4.66,
+              "end": 7.04,
+              "text": "Fringe nahin. AC.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": true
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8847582340240479,
+            "score": 0.9037770088513692,
+            "evidence": {
+              "recall": 0.9166666666666667,
+              "precision": 0.6666666666666666,
+              "content": 0.9166666666666667,
+              "score": 0.8541666666666667,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 3,
+              "status": "different",
+              "repeated": false,
+              "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:3:8",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 3,
+              "last": 8,
+              "start": 2.68,
+              "end": 6.0600000000000005,
+              "text": "Pushing machine nahin. Fringe nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": true
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8806933760643005,
+            "score": 0.8733950320482254,
+            "evidence": {
+              "recall": 0.9166666666666667,
+              "precision": 0.4,
+              "content": 0.9166666666666667,
+              "score": 0.7875000000000001,
+              "missing": []
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 4,
+              "status": "different",
+              "repeated": false,
+              "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+            }
+          },
+          {
+            "span": {
+              "id": "4aedfa59a56bfd76:0:6",
+              "media_id": "4aedfa59a56bfd76",
+              "first": 0,
+              "last": 6,
+              "start": 0.64,
+              "end": 4.2,
+              "text": "Python hai nahin. Pushing machine nahin.",
+              "context": "Python hai nahin. Pushing machine nahin. Fringe nahin. AC.",
+              "aligned": false
+            },
+            "source_name": "4aedfa59a56bfd76.mp4",
+            "source_order": 3,
+            "source_frame_rate": 30.0,
+            "similarity": 0.8752748966217041,
+            "score": 0.769365050970951,
+            "evidence": {
+              "recall": 0.5,
+              "precision": 0.1869158878504673,
+              "content": 0.5,
+              "score": 0.4217289719626168,
+              "missing": [
+                "fridge"
+              ]
+            },
+            "eligible": false,
+            "issues": [],
+            "verdict": {
+              "id": 5,
+              "status": "different",
+              "repeated": false,
+              "reason": "Fringe nahin implies absence of fridge, matching 'Fridge? Nahi.'"
+            }
+          }
+        ],
+        "issues": [],
+        "selection_status": "meaning_model_selected",
+        "cut_text": "Fringe nahin.",
+        "restored_ending": "",
+        "filler_removals": [],
+        "selected_id": "4aedfa59a56bfd76:6:8"
+      }
+    ],
+    "cut_count": 2
+  }
+]

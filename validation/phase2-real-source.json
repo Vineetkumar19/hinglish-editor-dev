@@ -1,0 +1,108 @@
+{
+  "transcripts": [
+    {
+      "media": {
+        "id": "7c38546d32552172",
+        "path": "E:\\remove silence\\cache\\conformed\\VID20260808003844-25880c3392de2387ff03-oriented-v2-30fps.mp4",
+        "duration": 6.866666666666666,
+        "fps": "30",
+        "width": 1080,
+        "height": 1920,
+        "channels": 2,
+        "sample_rate": 48000,
+        "video_start": 0.0
+      },
+      "words": [
+        {
+          "text": "Log",
+          "start": 1.672,
+          "end": 1.8119999999999998,
+          "score": 0.9972049593925476,
+          "aligned": true
+        },
+        {
+          "text": "mujhe",
+          "start": 1.8519999999999999,
+          "end": 2.032,
+          "score": 0.9453432083129882,
+          "aligned": true
+        },
+        {
+          "text": "poochhate",
+          "start": 2.072,
+          "end": 2.412,
+          "score": 0.5874268554424715,
+          "aligned": true
+        },
+        {
+          "text": "hain.",
+          "start": 2.472,
+          "end": 2.592,
+          "score": 0.5598372926469892,
+          "aligned": true
+        },
+        {
+          "text": "Bhai,",
+          "start": 3.092,
+          "end": 3.2119999999999997,
+          "score": 0.3126138917868957,
+          "aligned": true
+        },
+        {
+          "text": "madhuni",
+          "start": 3.332,
+          "end": 3.652,
+          "score": 0.7371985678161893,
+          "aligned": true
+        },
+        {
+          "text": "mein",
+          "start": 3.692,
+          "end": 3.792,
+          "score": 0.4924035357616958,
+          "aligned": true
+        },
+        {
+          "text": "night",
+          "start": 3.872,
+          "end": 4.132,
+          "score": 0.5067097183804435,
+          "aligned": true
+        },
+        {
+          "text": "life",
+          "start": 4.172000000000001,
+          "end": 4.352,
+          "score": 0.343040372710675,
+          "aligned": true
+        },
+        {
+          "text": "kaise",
+          "start": 4.372,
+          "end": 4.632,
+          "score": 0.6444219860015437,
+          "aligned": true
+        },
+        {
+          "text": "hai?",
+          "start": 4.712,
+          "end": 4.792,
+          "score": 0.04978788271546364,
+          "aligned": false
+        }
+      ],
+      "speech": [
+        [
+          1.632,
+          2.656
+        ],
+        [
+          3.136,
+          4.896
+        ]
+      ],
+      "issues": []
+    }
+  ],
+  "errors": []
+}

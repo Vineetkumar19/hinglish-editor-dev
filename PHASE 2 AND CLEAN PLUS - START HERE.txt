@@ -1,0 +1,83 @@
+TWO NEW BUTTONS
+
+CLEAN+ (no script)
+1. Put one-speaker recordings in ONE input\phase1 video folder.
+2. Double-click Run Clean Plus.bat.
+3. Play cleaned.mp4 and review the suggested filler/retake removals.
+
+PHASE 2 (script paragraphs + cut timeline)
+1. Put your clips in ONE folder inside input\phase2:
+   videos, instagram-vertical, or youtube-horizontal.
+2. Write your script in input\phase2\script.txt. Your existing paragraph format
+   is fine. One paragraph can now use several clips, in script sentence order.
+3. Double-click Run Phase 2.bat. Wait for Results, then play preview.mp4.
+4. In Premiere, import EDITED_SEQUENCE.xml from the NEW result folder.
+   Double-click the sequence named EDITED_SEQUENCE. Export from that sequence.
+   Do not drag the uncut files from its media folder onto a different timeline.
+
+PACING
+Natural pacing is now the default: more breathing room around speech and
+longer breaks between paragraphs. Short natural pauses stay; long dead air
+is trimmed. Original speaking speed is preserved.
+In config.phase2.json, pacing can be natural, relaxed (more room), or tight.
+Pauses use available source footage; nearby discarded words are not restored
+just to create a gap. No black frames or fake silent holds are inserted.
+
+FIRST RUN
+The Phase 2 models are already downloaded on this computer.
+Run Download Phase 2 Models.bat only if you later delete the models folder.
+After download, normal runs use your CPU locally. No paid API or login needed.
+Models are several GB; the verifier takes longer on CPU than silence-only editing.
+
+REVIEW / CORRECT
+Phase 2: expand Sentences, source timings and alternative takes; listen and
+select another take if needed under Other takes.
+Clean+: checked removal = delete it; unchecked removal = keep the original.
+Click Save reviewed choices, then drag that downloaded JSON file onto
+Apply Reviewed Choices.bat. Phase 2 creates a fresh EDITED_SEQUENCE.xml and
+preview.mp4. Clean+ creates reviewed.xml and cleaned.mp4.
+Your previous result is preserved.
+Unaligned words cannot be safely deleted with this control; edit those in Premiere.
+
+WHAT PROTECTS MEANING
+- Each script paragraph is split into sentences/clauses and matched separately.
+  Complete spoken phrases are compared by meaning using a local Qwen3 model.
+  Different phrasing can match; the script does not need to be word-for-word.
+- A paragraph's general topic cannot supply words missing from an individual
+  sentence. Unmatched script-only ideas stay visibly missing.
+- A spoken amount that transcription cannot resolve stays flagged for listening.
+  Explicitly different recognized numbers and opposite meanings are blocked.
+- Repeated short answers such as "Nahi" stay attached to their questions.
+  Touching word timestamps share one video-frame boundary, avoiding overlap.
+- Number/negation concerns and protected terms can block automatic acceptance.
+- Exact source timestamps stay attached. One continuous source normally moves
+  forward; separate clips can change order. The same source frames cannot repeat.
+- Nearby complete later attempts replace earlier attempts of the same clause.
+  Ambiguous alternatives stay available with their exact source timestamps.
+- Phase 2 removes pauses within selected spans and recognized, timed um/uh/erm.
+  Edited paragraph audio is transcribed again and differences remain visible.
+  This check does not prove meaning is perfect and does not label it verified.
+- Retakes are compared nearby; clear complete later attempts are preferred.
+  Different facts, incomplete attempts, short emphasis and distant recaps are kept.
+- "oh" and "shh" can carry meaning, so they remain review-only by default.
+
+LIMITS TO KNOW
+The earlier one-clip-per-paragraph output was incomplete. Use the new sequence.
+This is not a guarantee of perfect meaning.
+The 40-50 minute workflow still needs testing on representative long recordings.
+The current repair was checked on the Rapido batch and selected earlier failures;
+this is not a claim that all future videos will edit correctly without review.
+Badly misheard names or words still need your listening review. Do not assume
+similarity/confidence scores are accuracy percentages. Put names/numbers in the
+script clearly. Optional protected_terms can be added in config.phase2.json.
+Whisper can omit fillers; omitted sounds cannot be reliably classified here.
+Clean+ currently targets a single talking-head speaker, not overlapping podcasts.
+Multi-camera synchronization and fully combined Phase 3 are not included.
+GPU options exist via --device cuda, but RTX 5070 performance needs hardware testing.
+
+FILES / STORAGE
+New results: output\phase2 or output\clean-plus.
+Keep the entire output folder, including media, while editing in Premiere.
+Move a completed input batch aside before adding the next batch. Keep backups.
+Cache is saved analysis, not model training. Original Phase 1 silence mode and
+the original script-based cutter are still available through their existing buttons.

@@ -1,0 +1,3 @@
+Put the videos for this script here. One idea per line in input/phase2/script.txt.
+Then double-click Run Phase 2.bat.
+Use only ONE Phase 2 video folder per batch. Default canvas follows the first source orientation.

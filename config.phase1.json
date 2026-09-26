@@ -1,0 +1,8 @@
+{
+  "threshold": 0.35,
+  "min_silence": 0.3,
+  "pre_padding": 0.08,
+  "post_padding": 0.12,
+  "block_seconds": 60,
+  "cpu_threads": 4
+}

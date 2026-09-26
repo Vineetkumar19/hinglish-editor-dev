@@ -1,0 +1,41 @@
+PHASE 1: REMOVE SILENCE, NO SCRIPT
+
+1. Put your video(s) in ONE folder:
+   input\phase1\videos                - original video shape
+   input\phase1\instagram-vertical    - Instagram 1080 x 1920
+   input\phase1\youtube-horizontal    - YouTube 1920 x 1080
+2. Double-click Run Phase 1.bat.
+3. The results page opens when finished. Play cleaned.mp4.
+   To edit further, import timeline.xml into Premiere.
+
+Results: output\phase1\[date-time]\[video-name]\
+Each input video gets its own edit. No script or cloud API is used.
+CPU works now, and also works on a laptop with an RTX 5070. GPU acceleration
+is not required or enabled in this silence-only build.
+
+WHAT IT DOES
+Removes leading/trailing dead air and detected pauses of about 0.3 seconds
+or longer. Leaves 80 ms before / 120 ms after speech, rounded outward to
+video frames, to protect word edges. Very short pauses remain.
+Keeps chronological order, audio/video sync and the whole picture.
+No speech detected: creates a review page, not a blank video.
+Speech detection is not perfect: listen to the joins, especially quiet speech.
+Filler-word and retake detection are later Phase 1 milestones, not active yet.
+
+NEXT VIDEO / STORAGE
+Move your finished batch out of the Phase 1 input folder before the next batch.
+Keep an original backup. Do not mix old and new footage in the active input.
+Keep the ENTIRE output folder while you may edit in Premiere again: its media
+subfolder holds the linked source. Do not modify media/source.mp4 in place.
+The standalone cleaned.mp4 can be kept separately after you finish editing.
+Cache saves processing time; it is not model learning. You may clear cache
+when nothing is running. Completed Phase 1 outputs retain their own media links.
+
+For a long job, Ctrl+C stops it. Rerun to reuse completed analysis blocks.
+Audio extraction, conforming and MP4 rendering restart if interrupted.
+
+OPTIONAL (technical)
+Premiere XML only, faster: .venv\Scripts\python.exe -m hinglish_clean --xml-only --open
+One file: .venv\Scripts\python.exe -m hinglish_clean --input "E:\path\video.mp4"
+Settings: config.phase1.json. Lower threshold to protect quieter speech;
+raise min_silence for fewer cuts. No changes to the existing script-based app.

@@ -1,0 +1,78 @@
+{
+  "status": "READY_FOR_REVIEW",
+  "source_name": "hindi-with-known-pauses.mp4",
+  "source_path": "E:\\remove silence\\validation\\phase1-speech-check\\hindi-with-known-pauses.mp4",
+  "source_sha256": "ef9bdb926c967543593295d71b00f6a306ecce497cc0f546deee684e5ef42541",
+  "media_file": "media/source.mp4",
+  "original_seconds": 75.0,
+  "edited_seconds": 11.32,
+  "removed_seconds": 63.68,
+  "cut_count": 5,
+  "mp4_created": true,
+  "output_format": "source",
+  "settings": {
+    "threshold": 0.35,
+    "min_silence": 0.3,
+    "pre_padding": 0.08,
+    "post_padding": 0.12,
+    "block_seconds": 60,
+    "cpu_threads": 4
+  },
+  "conform_note": null,
+  "removed": [
+    {
+      "start_frame": 0,
+      "end_frame": 71,
+      "start_seconds": 0.0,
+      "end_seconds": 2.84,
+      "reason": "no_speech_detected"
+    },
+    {
+      "start_frame": 128,
+      "end_frame": 322,
+      "start_seconds": 5.12,
+      "end_seconds": 12.88,
+      "reason": "no_speech_detected"
+    },
+    {
+      "start_frame": 379,
+      "end_frame": 822,
+      "start_seconds": 15.16,
+      "end_seconds": 32.88,
+      "reason": "no_speech_detected"
+    },
+    {
+      "start_frame": 879,
+      "end_frame": 1485,
+      "start_seconds": 35.16,
+      "end_seconds": 59.4,
+      "reason": "no_speech_detected"
+    },
+    {
+      "start_frame": 1541,
+      "end_frame": 1723,
+      "start_seconds": 61.64,
+      "end_seconds": 68.92,
+      "reason": "no_speech_detected"
+    },
+    {
+      "start_frame": 1779,
+      "end_frame": 1875,
+      "start_seconds": 71.16,
+      "end_seconds": 75.0,
+      "reason": "no_speech_detected"
+    }
+  ],
+  "checks": {
+    "detected_speech_preserved": true,
+    "source_order_preserved": true,
+    "frame_bounds_valid": true,
+    "human_review_required": true
+  },
+  "render": {
+    "video_frames": 283,
+    "audio_samples": 543360,
+    "sample_rate": 48000
+  },
+  "elapsed_seconds": 7.16
+}

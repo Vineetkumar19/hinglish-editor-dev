@@ -1,0 +1,25 @@
+{
+  "device": "cpu",
+  "asr_model": "Oriserve/Whisper-Hindi2Hinglish-Swift",
+  "align_model": "MahmoudAshraf/mms-300m-1130-forced-aligner",
+  "judge_model": null,
+  "offline": false,
+  "chunk_seconds": 25,
+  "vad_threshold": 0.5,
+  "min_silence": 0.45,
+  "pre_padding": 0.12,
+  "post_padding": 0.16,
+  "match_threshold": 0.72,
+  "coverage_threshold": 0.85,
+  "aliases": {
+    "nahin": "nahi", "hain": "hai", "mein": "me", "tumhen": "tumhe",
+    "madhu rahi": "madurai", "rapid": "rapido", "dikhaata": "dikhta", "saath": "60",
+    "right": "ride", "tryter": "rider", "bol": "bolta", "rahe": "hai", "ho": "hai",
+    "se": "me", "chala": "chalta", "chaalis": "40", "banna": "warna",
+    "her": "har", "par": "pe", "managardi": "mana kar diya",
+    "pig": "ek", "write": "ride", "tin": "3", "chaar": "4", "cancellation": "cancellations",
+    "ye": "yah", "vakt": "waqt", "vaapas": "wapas", "do": "2",
+    "ka mil": "tamil", "chalta": "chalti"
+  },
+  "important_terms": []
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "case": "user_paraphrase",
+    "expected": true,
+    "decision": true,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "Statement A uses 'editing' while Statement B uses 'video edit', both referring to the same concept."
+    },
+    "seconds": 0.55
+  },
+  {
+    "case": "negation",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "Both statements discuss learning video editing, though on different platforms."
+    },
+    "seconds": 0.02
+  },
+  {
+    "case": "numbers",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.98,
+      "reason": "Both statements convey the same core message about an increase in cost due to adding an extra rider."
+    },
+    "seconds": 0.01
+  },
+  {
+    "case": "roles",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.98,
+      "reason": "Both statements convey that a rider receives extra money from someone."
+    },
+    "seconds": 0.0
+  },
+  {
+    "case": "unrelated",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": false,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "Statement A describes 'video editing', which involves creating videos using software tools. Statement B describes 'chicken biryani', which is a dish made from cooked chicken and rice. These are entirely different activities."
+    },
+    "seconds": 0.02
+  },
+  {
+    "case": "question_paraphrase",
+    "expected": true,
+    "decision": true,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.98,
+      "reason": "Both statements convey that someone is being asked questions about themselves."
+    },
+    "seconds": 0.0
+  },
+  {
+    "case": "repeat_full",
+    "expected": true,
+    "decision": true,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 1.0,
+      "reason": "The earlier attempt cannot be removed as it does not add any new information or change the meaning."
+    },
+    "seconds": 0.02
+  },
+  {
+    "case": "incomplete_retake",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "The LATER attempt fully replaces the EARLIER attempt without adding new information."
+    },
+    "seconds": 0.01
+  },
+  {
+    "case": "new_detail",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "The LATER attempt fully replaces the EARLIER attempt without adding new information."
+    },
+    "seconds": 0.0
+  },
+  {
+    "case": "hesitation",
+    "expected": true,
+    "decision": true,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "The 'um' is used as a filler word to pause between thoughts."
+    },
+    "seconds": 0.02
+  },
+  {
+    "case": "surprise",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": true,
+      "confidence": 0.95,
+      "reason": "The 'oh' at the beginning does not convey any additional meaningful information beyond the overall message."
+    },
+    "seconds": 0.0
+  },
+  {
+    "case": "quiet_command",
+    "expected": false,
+    "decision": false,
+    "passed": true,
+    "result": {
+      "equivalent": true,
+      "complete": true,
+      "contradiction": false,
+      "safe_to_remove": false,
+      "confidence": 0.95,
+      "reason": "It's a direct command to silence others."
+    },
+    "seconds": 0.01
+  }
+]

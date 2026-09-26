@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+cache/
+models/
+output/
+input/videos/*
+!input/videos/.gitkeep
+input/script.txt
+input/phase1/**/*.mp4
+input/phase1/**/*.mov
+input/phase1/**/*.mkv
+input/phase2/**/*.mp4
+input/phase2/**/*.mov
+input/phase2/**/*.mkv
+input/phase2/script.txt
