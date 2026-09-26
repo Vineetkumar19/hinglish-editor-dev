@@ -53,11 +53,12 @@ def relevance(media, moment, entity):
 
 def score(media, moment, entity):
     text = _norm(f'{media.title} {media.text}')
-    value = 3.0 * media.official + 2.0 * relevance(media, moment, entity)
+    value = 2.0 * media.official + 2.0 * relevance(media, moment, entity)
     short = min(media.width, media.height) or 0
     value += min(1.0, short / (720 if media.kind == 'video' else 900))
     if moment.show == 'logo':
         value += 2.0 * (media.role == 'logo' or any(f' {w} ' in text for w in LOGO_WORDS))
+        value += .5 * media.url.lower().split('?')[0].endswith('.png')     # usually transparent
     if moment.show == 'video':
         value += 1.5 * (media.kind == 'video')
     visual = _norm(moment.visual)
@@ -87,8 +88,13 @@ def _safe(call, progress, what):
         return []
 
 
-def gather(web, moment, entity, need, orientation, canvas, stock=(), progress=print):
-    """Candidate media for one moment, best first. `need` = seconds of video the slot needs."""
+def _is_logo(media):
+    return any(f' {w} ' in _norm(f'{media.title} {media.text}') for w in LOGO_WORDS)
+
+
+def gather(web, moment, entity, need, orientation, canvas, stock=(), progress=print, finder=None):
+    """Candidate media for one moment, best first. `need` = seconds of video the slot needs.
+    `finder`: the web agent (WebSearch) that searches the whole internet; None = Wikimedia/stock only."""
     found = []
     label = entity.label or entity.name
     files = entity.files
@@ -101,12 +107,20 @@ def gather(web, moment, entity, need, orientation, canvas, stock=(), progress=pr
         found += [_role(m, 'logo', True) for m in lead if m and any(f' {w} ' in _norm(m.title) for w in LOGO_WORDS)]
         found += [m for m in _safe(lambda: web.commons_search(f'"{label}" logo', 'drawing', 12), progress, 'Commons')
                   if any(f' {w} ' in _norm(m.title) for w in LOGO_WORDS)]
+        if finder is not None:      # "Zomato logo png" on the whole web, transparent PNGs first
+            found += [m for m in _safe(lambda: finder.images(f'{label} logo png', 30, transparent=True),
+                                       progress, 'Web logo search') if _is_logo(m)]
+            found += [m for m in _safe(lambda: finder.images(f'{label} logo', 20), progress, 'Web logo search')
+                      if _is_logo(m)]
         if not found and entity.website:
             found.append(web.site_icon(entity.website))
         kinds = ['image']
     else:
         if moment.show == 'video':
             found += [_role(m, 'video', True) for m in _safe(lambda: web.files(files.get('video', [])), progress, 'Video')]
+            if finder is not None:  # web + YouTube: "Meenakshi Amman Temple", "Gandhi Salt March footage"
+                for query in list(dict.fromkeys([moment.queries[0], label] + moment.queries[1:2])):
+                    found += _safe(lambda: finder.videos(query, 12), progress, 'Web video search')
             found += _safe(lambda: web.commons_search(f'"{label}"', 'video', 20), progress, 'Commons video')
             for query in moment.queries:
                 if _norm(query) != _norm(label):
@@ -131,6 +145,9 @@ def gather(web, moment, entity, need, orientation, canvas, stock=(), progress=pr
             found += [_role(m, 'map', True) for m in _safe(lambda: web.files(files.get('map', [])), progress, 'Map')]
         lead = _safe(lambda: [web.lead_image(entity.wiki_title)], progress, 'Wikipedia image')
         found += [_role(m, 'lead', True) for m in lead if m and not m.nonfree]
+        if finder is not None:      # real photos from anywhere on the web
+            for query in list(dict.fromkeys([moment.queries[0], label]))[:2]:
+                found += _safe(lambda: finder.images(query, 30), progress, 'Web image search')
         found += _safe(lambda: web.commons_search(f'"{label}"', 'bitmap', 20), progress, 'Commons photos')
         for query in moment.queries[:2]:
             if _norm(query) != _norm(label):
@@ -143,7 +160,8 @@ def gather(web, moment, entity, need, orientation, canvas, stock=(), progress=pr
         short = min(m.width, m.height)
         if m.kind == 'image' and short and short < (96 if moment.show == 'logo' else 320):
             continue
-        if m.kind == 'video' and ((m.duration and m.duration < need + .3) or (short and short < 200)):
+        if m.kind == 'video' and ((m.duration and m.duration < need + .3) or (short and short < 200)
+                                  or m.duration > 3 * 3600):
             continue
         m.score = score(m, moment, entity)
         unique[m.id] = m

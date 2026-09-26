@@ -1,6 +1,26 @@
 # 05 – Smart Visuals (real people, logos, places, facts from the internet)
 
-**Status:** ✅ Built, whole pipeline rendered on madurai_1 in the cloud (stand-in transcript, AI answers and downloads) · ⏳ Real run on the laptop (internet + local AI)   **Date:** 26 Sep 2026
+**Status:** ✅ v2 built: the agent searches the WHOLE web · ⏳ First real run on the laptop (the cloud session has no internet access to image sites, YouTube or Wikipedia)   **Date:** 26 Sep 2026
+
+## v2 – whole-web agent (after "I want real images from any website, not just Wikipedia")
+- **Images from any website**, the way you would search:
+  - "Zomato logo png" (transparent images first), "Mahatma Gandhi photo", "Meenakshi Amman Temple"
+  - web image search (DuckDuckGo / Bing / Yahoo through the `ddgs` package, no key), then download of the real full-size file
+  - watermarked stock previews (Shutterstock, Getty, Alamy…) are skipped
+- **Videos from YouTube and 1000+ sites**:
+  - web video search + YouTube search, e.g. "Meenakshi Amman Temple Madurai drone", "Gandhi Salt March real footage"
+  - downloaded with `yt-dlp`, video only, up to 1080p; for long videos only a ~50 s part is downloaded, then the best seconds are picked
+  - `imageio-ffmpeg` brings its own ffmpeg, so nothing extra to install
+- Wikipedia / Commons / Pexels / Pixabay are still searched too; every result competes. The same rules apply to every file:
+  - its title or web address must name the person/brand/place (proof check)
+  - CLIP ranks how well it matches the moment
+  - the AI makes the final pick
+- App option: **Search the whole web** (on by default). CLI: `--no-web` to switch it off.
+- **Copyright:** web images and YouTube clips can be copyrighted and can get a Content ID claim. CREDITS.txt lists every source link: check before posting.
+- **Install once on the laptop:** `.venv\Scripts\python.exe -m pip install ddgs yt-dlp imageio-ffmpeg`
+  (or run Setup CPU.bat again). If YouTube downloads stop working one day, update yt-dlp with `.venv\Scripts\python.exe -m pip install -U yt-dlp`.
+
+**About the first cloud test images:** the brown boxes and the "TEST TEMPLE PHOTO" in the first preview were placeholders drawn by me, because the cloud computer cannot reach the internet. They are not what the feature downloads. That frame sheet has been deleted.
 
 ## What it does
 Click **Smart Visuals**. A local AI "agent" reads everything you say, like a researcher, and puts the REAL thing on screen:
@@ -69,6 +89,7 @@ Works on any XML from the other features. Smart Zoom still zooms under pop-ups (
 | `brain.py` | Ollama qwen3 (thinking) or the built-in Qwen, JSON answers, cached |
 | `planner.py` | the agent's steps: plan with story memory, pick the Wikidata item, judge candidates |
 | `web.py` | Wikidata / Wikipedia / Commons clients (cached; transcoded videos; licences) |
+| `websearch.py` | the web agent: image search on the whole web, web + YouTube video search, browser-like image download, yt-dlp section download |
 | `gather.py` | collects media per moment, proof check, ranking |
 | `timing.py` | full-screen = spoken line; pop-up = on the name word, no repeats, before footage |
 | `layout.py` | finds the face and a free spot for the card |
@@ -88,9 +109,9 @@ Other changes:
 ## Test log (26 Sep, cloud: Linux, no GPU, no models, no internet to Wikimedia)
 | Test | Result |
 |---|---|
-| Automated tests | 16 new Smart Visuals + 1 server test. All pass except 4 caption tests that need Windows fonts (missing in the cloud) |
-| Real render on `input\final-demo\madurai_1.mp4` (1080×1920, 48.7 s). Stand-ins: transcript, AI answers and downloads (clearly marked TEST images) | 4/4 visuals placed in 136 s on CPU: Meenakshi temple photo full screen 4.1–7.6 s; Zomato logo pop-up on "Jomato" 10.7 s; Gandhi face card on "Gandhi" 17.4 s, ending before his footage; Gandhi 4:3 footage full screen 20.2–24.2 s |
-| Measured | Every clip file has exactly its timeline frame count (106/120 frames H.264, 66/77 frames alpha qtrle). V1 + both audio tracks untouched. Preview 1460/1460 frames. Frames: `validation\smart-visuals\madurai-test-frames.jpg` |
+| Automated tests | 20 Smart Visuals tests (incl. the web agent and a whole-web end-to-end run) + 1 server test. All pass except 4 caption tests that need Windows fonts (missing in the cloud) |
+| Timing/render check on `input\final-demo\madurai_1.mp4` (1080×1920, 48.7 s). Transcript, AI answers and images were PLACEHOLDERS (no internet in the cloud); only timing, layout and XML were checked | 4/4 visuals placed in 136 s on CPU: Meenakshi temple photo full screen 4.1–7.6 s; Zomato logo pop-up on "Jomato" 10.7 s; Gandhi face card on "Gandhi" 17.4 s, ending before his footage; Gandhi 4:3 footage full screen 20.2–24.2 s |
+| Measured | Every clip file has exactly its timeline frame count (106/120 frames H.264, 66/77 frames alpha qtrle). V1 + both audio tracks untouched. Preview 1460/1460 frames |
 | Fixed during testing | Face card was dropped when footage followed → now shortened. Pop-ups covered the head in a wide shot → face-aware spots. Pexels echoes the query as the title → it no longer counts as proof. A brand article's photo was taken as the logo → only files named as logos. Tiny website icons → rejected |
 
 ## First real test on the laptop
@@ -108,9 +129,8 @@ Other changes:
 If Wikimedia refuses downloads (HTTP 403), tell me: the fix is the identification line (`USER_AGENT` in `web.py`).
 
 ## Known limits / next ideas
-- Commons has lots of footage of historical people, places and events, but little of modern celebrities. For them you get photos (push-in / face card), not video. YouTube is not used (copyright and its terms).
+- Web search results change and sites sometimes refuse downloads; the next best file is tried (up to 5).
 - Brand logos that exist only on English Wikipedia are "non-free" (fair use). They are allowed for logo pop-ups and marked in CREDITS.txt. Your channel, your call.
 - Next ideas:
   - background removal (cut-out person PNG instead of a card)
-  - Internet Archive newsreels as another video source
   - a bigger local model on the RTX 5070 Ti for better story reading

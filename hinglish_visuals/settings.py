@@ -40,6 +40,7 @@ class VisualsSettings:
     popups: bool = True                 # logo / face cards when a name is said
     vision_model: str = 'openai/clip-vit-base-patch32'
     use_stock: bool = True              # Pexels / Pixabay (keys from B-roll settings) for places and things
+    use_web: bool = True                # search the whole web: images from any site, YouTube/web videos
     pexels_key: str = ''
     pixabay_key: str = ''
     language: str = 'en'                # Wikipedia / Wikidata language for names and descriptions

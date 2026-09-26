@@ -375,7 +375,8 @@ class PipelineTests(unittest.TestCase):
         with patch('hinglish_visuals.pipeline.transcripts_for',
                    lambda root, sources, device, progress: ({path_key(s): words for s in sources}, [])):
             page = __import__('hinglish_visuals.pipeline', fromlist=['run']).run(
-                root, xml, web=FakeWeb(), brain=ScriptedBrain(), scorer=False, progress=lambda m: None)
+                root, xml, web=FakeWeb(), brain=ScriptedBrain(), scorer=False, progress=lambda m: None,
+                use_web=False)
         folder = page.parent
         project = json.loads((folder / 'visuals-project.json').read_text(encoding='utf-8'))
         placed = {s['label']: s for s in project['slots'] if s['clip']}
@@ -399,6 +400,124 @@ class PipelineTests(unittest.TestCase):
         self.assertIn('Save &amp; rebuild', (folder / 'report.html').read_text(encoding='utf-8'))
         timeline = parse_xmeml(folder / 'VISUALS_SEQUENCE.xml')
         self.assertTrue(Path(timeline.clips[0].path).samefile(source))              # talking head untouched
+
+        # Same video, nothing on Wikipedia: the web agent alone finds the logo PNG and the footage.
+        class EmptyWiki(FakeWeb):
+            def files(self, names, **_): return []
+            def commons_search(self, query, filetype, limit=20): return []
+        web_logo = root / 'web-logo.png'
+        Image.new('RGBA', (600, 240), (226, 55, 68, 255)).save(web_logo)
+        web_clip = write_video(root / 'web-clip.mp4', 8, 640, 360, 30, audio=False)
+
+        class WebFinder:
+            def images(self, query, limit=30, transparent=False):
+                return [Media('image', 'web', 'web:zlogo', 'Zomato Logo PNG', 'https://logos.test/zomato-logo.png',
+                              page_url='https://logos.test/zomato', width=600, height=240, license='from the web',
+                              text='Zomato Logo PNG zomato logo', role='web')] if 'Zomato' in query else []
+            def videos(self, query, limit=12):
+                return [Media('video', 'web', 'web:yt1', 'Mahatma Gandhi Salt March 1930 real footage',
+                              'https://www.youtube.com/watch?v=abcdefghijk', duration=300, author='History TV',
+                              text='Mahatma Gandhi Salt March 1930 real footage', role='web')] if 'Gandhi' in query else []
+            def download_image(self, m, target): return web_logo
+            def download_video(self, m, need): return web_clip, 36.0
+        with patch('hinglish_visuals.pipeline.transcripts_for',
+                   lambda root, sources, device, progress: ({path_key(s): words for s in sources}, [])):
+            page = __import__('hinglish_visuals.pipeline', fromlist=['run']).run(
+                root, xml, web=EmptyWiki(), brain=ScriptedBrain(), scorer=False, progress=lambda m: None,
+                finder=WebFinder())
+        project = json.loads((page.parent / 'visuals-project.json').read_text(encoding='utf-8'))
+        placed = {s['label']: s['chosen'] for s in project['slots'] if s['clip']}
+        self.assertEqual(placed['Zomato']['source'], 'web')
+        self.assertEqual(placed['Mahatma Gandhi']['url'], 'https://www.youtube.com/watch?v=abcdefghijk')
+        self.assertIn('History TV', (page.parent / 'CREDITS.txt').read_text(encoding='utf-8'))
+
+
+
+class WebAgentTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp.name)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def finder(self, images=(), videos=(), youtube=()):
+        from hinglish_visuals.websearch import WebSearch
+
+        class FakeDDGS:
+            def images(self, query, **options):
+                self.last = options
+                return list(images)
+            def videos(self, query, **options):
+                return list(videos)
+        return WebSearch(self.root, lambda m: None, ddgs=FakeDDGS(), youtube=lambda q, n: list(youtube))
+
+    def test_web_image_search_keeps_real_images_and_drops_watermarked_stock(self):
+        finder = self.finder(images=[
+            {'title': 'Zomato Logo PNG Transparent', 'image': 'https://logos.example/zomato-logo.png',
+             'thumbnail': 'https://tse.example/t.jpg', 'url': 'https://logos.example/zomato', 'width': '2000',
+             'height': '800', 'source': 'Bing'},
+            {'title': 'Zomato logo', 'image': 'https://image.shutterstock.com/zomato.jpg',
+             'url': 'https://www.shutterstock.com/x', 'width': '1000', 'height': '600'}])
+        found = finder.images('Zomato logo png', transparent=True)
+        self.assertEqual([m.url for m in found], ['https://logos.example/zomato-logo.png'])
+        self.assertEqual((found[0].source, found[0].width, found[0].height), ('web', 2000, 800))
+        self.assertEqual(finder.ddgs().last['type_image'], 'transparent')
+
+    def test_web_and_youtube_videos_are_merged_once(self):
+        finder = self.finder(
+            videos=[{'content': 'https://www.youtube.com/watch?v=abcdefghijk', 'title': 'Meenakshi Amman Temple 4K',
+                     'duration': '4:13', 'publisher': 'YouTube', 'images': {'large': 'https://i.example/l.jpg'}}],
+            youtube=[{'url': 'https://www.youtube.com/watch?v=abcdefghijk', 'title': 'same video', 'duration': 253},
+                     {'url': 'https://www.youtube.com/watch?v=zyxwvutsrqp', 'title': 'Madurai Meenakshi temple drone',
+                      'duration': 95, 'channel': 'Travel'}])
+        found = finder.videos('Meenakshi Amman Temple')
+        self.assertEqual(len(found), 2)
+        self.assertEqual(found[0].duration, 253.0)
+        self.assertEqual(found[1].author, 'Travel')
+
+    def test_gather_uses_the_whole_web_and_still_demands_proof(self):
+        temple = Entity('temple', 'Meenakshi Amman Temple', 'place', label='Meenakshi Amman Temple')
+        finder = self.finder(
+            images=[{'title': 'Meenakshi Amman Temple towers', 'image': 'https://a.example/meenakshi.jpg',
+                     'url': 'https://a.example/p', 'width': '1920', 'height': '1080'},
+                    {'title': 'Golden Temple Amritsar', 'image': 'https://b.example/golden.jpg',
+                     'url': 'https://b.example/p', 'width': '1920', 'height': '1080'}],
+            youtube=[{'url': 'https://www.youtube.com/watch?v=zyxwvutsrqp', 'title': 'Meenakshi Amman Temple Madurai 4K',
+                      'duration': 95},
+                     {'url': 'https://www.youtube.com/watch?v=aaaaaaaaaaa', 'title': 'Top 10 temples of India',
+                      'duration': 600}])
+
+        class NoWiki:
+            def files(self, names, **_): return []
+            def lead_image(self, title): return None
+            def commons_search(self, *a, **k): return []
+        moment = VisualMoment(0, 'Meenakshi temple towers', ['Meenakshi Amman Temple'], 3, 'q', '', 'temple', '',
+                              'video', 'fullscreen')
+        found = gather(NoWiki(), moment, temple, 3.0, 'portrait', (1080, 1920), finder=finder)
+        titles = [m.title for m in found]
+        self.assertEqual(titles[0], 'Meenakshi Amman Temple Madurai 4K')      # real footage first
+        self.assertIn('Meenakshi Amman Temple towers', titles)                 # real photo as fallback
+        self.assertNotIn('Golden Temple Amritsar', titles)
+        self.assertNotIn('Top 10 temples of India', titles)
+
+    def test_long_web_video_downloads_only_a_section(self):
+        from hinglish_visuals.websearch import WebSearch
+        calls = {}
+
+        class FakeYDL:
+            def __init__(self, options): calls['options'] = options
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+            def download(self, urls):
+                Path(calls['options']['outtmpl'].replace('%(ext)s', 'mp4')).write_bytes(b'video')
+        with patch('yt_dlp.YoutubeDL', FakeYDL):
+            finder = WebSearch(self.root, lambda m: None)
+            path, start = finder.download_video(media(kind='video', source='web', url='https://youtu.be/x', duration=1200), 3)
+        self.assertTrue(path.exists())
+        self.assertGreater(start, 100)
+        self.assertIn('download_ranges', calls['options'])
+        self.assertIn('ffmpeg_location', calls['options'])
 
 
 if __name__ == '__main__':

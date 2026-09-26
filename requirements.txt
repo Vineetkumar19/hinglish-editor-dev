@@ -11,3 +11,7 @@ Pillow>=10,<13
 opencv-python-headless>=4.9,<5
 requests>=2.31,<3
 regex>=2023.10
+# Smart Visuals web agent: image/video search without keys, video download, bundled ffmpeg
+ddgs>=9.5,<10
+yt-dlp>=2025.1
+imageio-ffmpeg>=0.5,<1

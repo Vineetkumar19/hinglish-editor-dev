@@ -134,7 +134,7 @@ function showSettings(s){
   const sources=[];if(s.use_library&&s.library_folders.length)sources.push(`My footage (${s.library_folders.length} folder${s.library_folders.length===1?'':'s'})`);
   if(s.use_pexels&&s.pexels_key)sources.push('Pexels');if(s.use_pixabay&&s.pixabay_key)sources.push('Pixabay');
   $('#sourceSummary').textContent=sources.length?sources.join(' + '):'None yet — open B-roll settings';
-  $('#visualsSources').textContent=['Wikipedia + Commons (free)'].concat(sources.filter(x=>x==='Pexels'||x==='Pixabay')).join(' + ');
+  $('#visualsSources').textContent=['Whole web + YouTube','Wikipedia'].concat(sources.filter(x=>x==='Pexels'||x==='Pixabay')).join(' + ');
 }
 async function loadBrollSettings(){try{showSettings(await api('/api/broll/settings'))}catch(e){$('#sourceSummary').textContent=e.message}}
 $('#openBrollSettings').onclick=()=>{$('#settingsError').textContent='';$('#brollSettings').showModal()};
@@ -174,7 +174,7 @@ $('#run').onclick=async()=>{
       eye_reach:$('#eyeReach').value,eye_size:$('#eyeSize').value,eye_look_away:$('#eyeLookAway').checked,
       sound_style:$('#soundStyle').value,sound_density:$('#soundDensity').value,sound_music:$('#soundMusic').checked,
       sound_effects:$('#soundEffects').checked,sound_transitions:$('#soundTransitions').checked,
-      visuals_density:$('#visualsDensity').value,visuals_brain:$('#visualsBrain').value,visuals_popups:$('#visualsPopups').checked,
+      visuals_density:$('#visualsDensity').value,visuals_brain:$('#visualsBrain').value,visuals_popups:$('#visualsPopups').checked,visuals_web:$('#visualsWeb').checked,
       zoom_style:$('#zoomStyle').value,zoom_strength:$('#zoomStrength').value,zoom_frequency:$('#zoomFrequency').value,
       zoom_face:$('#zoomFace').checked,zoom_jump_cuts:$('#zoomJumpCuts').checked,
       device:$('#device').value,pacing:$('#pacing').value,preview:true};

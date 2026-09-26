@@ -52,8 +52,9 @@ For each moment:
   (use for stories, facts, events, places, footage).
 - visual: exactly what the viewer should see, specific to THIS line, max 14 words
   ("Gandhi leading the Salt March crowd in 1930", "Zomato app logo").
-- search: 1-3 English search phrases that ALWAYS contain the entity name plus the specific idea
-  ("Gandhi Salt March", "Mahatma Gandhi spinning wheel"). No other brand names.
+- search: 1-3 English phrases you would type into Google Images or YouTube to find THIS visual. They
+  ALWAYS contain the entity name plus the specific idea ("Gandhi Salt March real footage",
+  "Mahatma Gandhi spinning wheel photo", "Meenakshi Amman Temple Madurai drone"). No other brand names.
 - priority: 3 = the viewer must see it, 2 = helpful, 1 = optional.
 Choose about {count} moments, spread over the phrases; the first time a brand or famous person is
 named is almost always priority 3. Never invent facts, names or numbers the speech does not say.

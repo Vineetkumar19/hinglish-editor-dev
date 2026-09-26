@@ -26,9 +26,10 @@ from .report import write_credits, write_index, write_report
 from .settings import load_settings, profiles_for
 from .timing import full_slots, popup_slots
 from .web import Entity, Media, Web
+from .websearch import WebSearch
 
 PREVIEW_LIMIT = 300.0       # seconds; longer timelines get the XML without a preview render
-RENDER_TRIES = 3            # alternatives tried when a download or decode fails
+RENDER_TRIES = 5            # alternatives tried when a download or decode fails (web sites often refuse)
 
 
 def _ext(url, kind):
@@ -37,10 +38,13 @@ def _ext(url, kind):
     return ext if ext in known else ('.png' if kind == 'image' else '.webm')
 
 
-def fetch(root, media, session):
-    """Download once into cache/visuals/media (shared between runs)."""
+def fetch(root, media, session, finder=None):
+    """Download an image or a Wikimedia/stock video once into cache/visuals/media (shared between runs)."""
     name = hashlib.sha1(media.url.encode()).hexdigest()[:20] + _ext(media.url, media.kind)
-    return download(media.url, Path(root) / 'cache' / 'visuals' / 'media' / name, session=session)
+    target = Path(root) / 'cache' / 'visuals' / 'media' / name
+    if media.source == 'web':
+        return (finder or WebSearch(root)).download_image(media, target)
+    return download(media.url, target, session=session)
 
 
 def blocked_ranges(xml_path):
@@ -83,9 +87,13 @@ def face_zone(locator, timeline, start, end):
         return None
 
 
-def render_slot(root, folder, timeline, slot, media, session, device, scorer=None):
+def render_slot(root, folder, timeline, slot, media, session, device, scorer=None, finder=None):
     """Download and render one chosen media into this slot's clip; returns the clip path (relative)."""
-    path = fetch(root, media, session)
+    if media.kind == 'video' and media.source == 'web':    # YouTube / any site: only the useful part
+        path, _ = (finder or WebSearch(root)).download_video(media, slot['end'] - slot['start'])
+        media.duration = 0.0                               # the downloaded part, not the whole video
+    else:
+        path = fetch(root, media, session, finder)
     safe = re.sub(r'[^A-Za-z0-9]+', '-', media.id)[-36:].strip('-')
     seconds = slot['end'] - slot['start']
     size = (timeline.width, timeline.height, timeline.fps)
@@ -166,9 +174,10 @@ class ClipScorer:
 
 
 def run(root, input_path, output_format=None, density=None, device=None, popups=None, brain_choice=None,
-        progress=print, web=None, brain=None, scorer=None):
+        progress=print, web=None, brain=None, scorer=None, use_web=None, finder=None):
     root = Path(root).resolve()
-    settings = load_settings(root, density=density, device=device, popups=popups, brain=brain_choice)
+    settings = load_settings(root, density=density, device=device, popups=popups, brain=brain_choice,
+                             use_web=use_web)
     stamp = datetime.now().strftime('%Y%m%d-%H%M%S-') + uuid.uuid4().hex[:6]
     output = root / 'output' / 'visuals' / stamp
     output.mkdir(parents=True)
@@ -180,6 +189,10 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
     for note in notes: progress('  ' + note)
 
     web = web or Web(root, settings.language)
+    if finder is None and settings.use_web:
+        finder = WebSearch(root, progress)
+    progress('Searching: ' + ('the whole web (images + YouTube/web videos) + ' if finder else '') +
+             'Wikipedia/Wikimedia Commons' + (' + Pexels/Pixabay' if settings.pexels_key or settings.pixabay_key else ''))
     stock = []
     if settings.use_stock and settings.pexels_key: stock.append(PexelsClient(settings.pexels_key, root))
     if settings.use_stock and settings.pixabay_key: stock.append(PixabayClient(settings.pixabay_key, root))
@@ -239,7 +252,7 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
                 need = min(full_p.max_len, (span[1] - span[0]) if span else full_p.ideal)
                 progress(f'Searching the internet {n}/{len(moments)}: {m.visual}')
                 m.candidates = gather(web, m, entity, need, timeline.orientation, (timeline.width, timeline.height),
-                                      stock, progress)
+                                      stock, progress, finder)
                 if m.show == 'video' and not any(c.kind == 'video' for c in m.candidates):
                     m.show = 'photo'        # no real footage exists: a full-screen photo tells it instead
                 if scorer and len(m.candidates) > 1:
@@ -301,7 +314,8 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
                          f'({"pop-up" if entry["display"] == "popup" else media.kind}, {media.source})')
                 try:
                     clip = render_slot(root, folder, timeline, entry, media, web.session, settings.device,
-                                       scorer.scorer(entry['visual']) if scorer and media.kind == 'video' else None)
+                                       scorer.scorer(entry['visual']) if scorer and media.kind == 'video' else None,
+                                       finder)
                 except Exception as error:
                     progress(f'  Could not use this file ({error}); trying the next one')
                     continue

@@ -18,10 +18,13 @@ def main():
     parser.add_argument('--brain', choices=['auto', 'ollama', 'local'],
                         help='auto: Ollama thinking model when running, else the built-in local model')
     parser.add_argument('--no-popups', action='store_true', help='Show logos and faces full screen instead of pop-ups')
+    parser.add_argument('--no-web', action='store_true',
+                        help='Only Wikipedia/Wikimedia Commons and stock sites (no search of the whole web)')
     args = parser.parse_args()
     try:
         result = run(Path(args.root), Path(args.input), args.format, args.density, args.device,
-                     False if args.no_popups else None, args.brain, progress=lambda m: print(m, flush=True))
+                     False if args.no_popups else None, args.brain, progress=lambda m: print(m, flush=True),
+                     use_web=False if args.no_web else None)
     except KeyboardInterrupt:
         return 130
     except Exception as error:
