@@ -146,6 +146,15 @@ $('#saveBrollSettings').onclick=async()=>{
     $('#pexelsKey').value='';$('#pixabayKey').value='';showSettings(s);$('#brollSettings').close();
   }catch(e){$('#settingsError').textContent=e.message}
 };
+// ---- Quality check ----
+function showQuality(result){
+  const q=result.quality_summary,box=$('#qualityMeta');
+  $('#openQuality').classList.toggle('hidden',!result.quality);
+  if(!q){box.textContent='';box.className='quality-meta';return}
+  const redo=q.attempts>1?` · redone ${q.attempts-1}x, using attempt ${q.used}`:'';
+  box.className='quality-meta '+(q.passed?'ok':'warn');
+  box.textContent=q.passed?`Quality check passed · ${q.score}/100${redo}`:`Quality ${q.score}/100${redo} · still failing: ${q.failed.join('; ')}`;
+}
 // ---- Eye contact ----
 async function loadEyeStatus(){
   const box=$('#eyeStatus');box.className='eye-status';box.textContent='Checking this PC…';
@@ -210,7 +219,8 @@ async function poll(){
     $('#logs').textContent=job.logs.join('\n');$('#logs').scrollTop=$('#logs').scrollHeight;
     if(job.status==='complete'){
       lastResult=job.result;$('#run').disabled=false;$('#progress').classList.add('hidden');
-      $('#result').classList.remove('hidden');$('#resultMeta').textContent=`${job.result.xml_files.length} editable XML timeline${job.result.xml_files.length===1?'':'s'} created`;return;
+      $('#result').classList.remove('hidden');$('#resultMeta').textContent=`${job.result.xml_files.length} editable XML timeline${job.result.xml_files.length===1?'':'s'} created`;
+      showQuality(job.result);return;
     }
     if(job.status==='failed')throw new Error(job.stage);
     timer=setTimeout(poll,900);
@@ -222,7 +232,7 @@ async function poll(){
 }
 
 async function open(path){if(path)await api('/api/open',{method:'POST',body:JSON.stringify({path})})}
-$('#openResult').onclick=()=>open(lastResult?.page);$('#openFolder').onclick=()=>open(lastResult?.folder);
+$('#openResult').onclick=()=>open(lastResult?.page);$('#openQuality').onclick=()=>open(lastResult?.quality);$('#openFolder').onclick=()=>open(lastResult?.folder);
 $('#importResolve').onclick=async()=>{
   try{
     const button=$('#importResolve');button.disabled=true;button.textContent='Importing…';

@@ -66,7 +66,9 @@ def build_cues(words, max_words=5, max_chars=34, max_seconds=2.8):
             current = []
     if current:
         cues.append(CaptionCue(tuple(current), current[0].start, current[-1].end + .08))
-    return cues
+    # the short hold after the last word must never run into the next caption (two captions at once)
+    return [CaptionCue(c.words, c.start, min(c.end, nxt.start)) if nxt is not None and c.end > nxt.start else c
+            for c, nxt in zip(cues, cues[1:] + [None])]
 
 
 def active_word(cue, seconds):

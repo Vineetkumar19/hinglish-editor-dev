@@ -17,6 +17,7 @@ from hinglish_broll.phrases import build_phrases
 from hinglish_broll.pipeline import timelines_for, transcripts_for
 from hinglish_broll.timeline import timeline_words
 from hinglish_clean.detection import write_json
+from hinglish_eval import guard, tune
 
 from .brain import Brain
 from . import learning
@@ -117,7 +118,11 @@ def finish(root, folder, plan, seq, voice, sections, cues, pull_backs, settings,
     """Mix, measure (mix QA), export the XML, render the preview and write the report."""
     from hinglish_zoom.preview import render_preview
     progress('Mixing with the sound-design brain rules')
-    mixed = mix(voice, sections, cues, folder, pull_backs, settings.music_level)
+    gain = tune.value('sound', 'effect_gain_db', 0.0)       # quality-check correction: louder effects
+    for c in cues:
+        c.offset_db += gain
+    mixed = mix(voice, sections, cues, folder, pull_backs,
+                settings.music_level + tune.value('sound', 'music_trim_db', 0.0))
     qa = mix_qa(voice, mixed['bed'], mixed['effects'], mixed['master'], mixed['speech'], cues,
                 plan['budget'], plan['gap'])
     failed = [r for r in qa if not r['passed']]
@@ -132,8 +137,10 @@ def finish(root, folder, plan, seq, voice, sections, cues, pull_backs, settings,
         preview = 'preview.mp4'
     plan.update(music=[{k: v for k, v in s.items()} for s in sections], cues=[c.to_dict() for c in cues],
                 pull_backs=pull_backs, voice_db=mixed['voice_db'], voice_peak=mixed['voice_peak'],
+                words_db=mixed['words_db'],
                 stems=mixed['stems'], mix_qa=qa, preview=preview)
     write_json(Path(folder) / 'sound-plan.json', plan)
+    guard.save(folder)
     write_report(Path(folder) / 'report.html', plan['name'], plan, preview)
     return xml
 
@@ -198,14 +205,14 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
         if settings.style != 'auto':
             events.append(f'The editor asked for a {settings.style} sound style.')
         every, gap = DENSITY[form][settings.density]
-        budget = max(2, math.ceil(seconds / every))
+        budget = max(2, math.ceil(seconds / every * tune.value('sound', 'count_scale', 1.0)))
         edit_limit = min(len(broll) + len(lands), int(budget * EDIT_SHARE)) if settings.transitions else 0
         ai_count = max(1, budget - edit_limit)
         progress(f'  Sound budget: {budget} sounds ({ai_count} on your words, up to {edit_limit} on cuts/zooms), '
                  f'at least {gap:.1f}s apart')
 
         analysis = analyse(brain, kind, lines, voice_notes, events, moods, families, ai_count,
-                           learning.taste(taste_data))
+                           learning.taste(taste_data), progress)
         palette = STYLE_PALETTE.get(settings.style, analysis.get('palette', 'informational'))
         feel = {l['id']: l for l in analysis.get('lines', []) if isinstance(l, dict)}
         progress(f'  Story: {analysis.get("story", "")[:140]}')
@@ -241,7 +248,7 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
                                      for a, _, _ in hits])
 
         picks = pick(brain, analysis.get('story', ''), palette, moments, effect_candidates, sections,
-                     music_candidates) if moments or sections else {'effects': [], 'music': []}
+                     music_candidates, progress) if moments or sections else {'effects': [], 'music': []}
 
         # The evaluator listens to the picked file; a failed one is replaced by the next candidate.
         cues, used = [], set()

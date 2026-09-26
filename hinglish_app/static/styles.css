@@ -35,3 +35,4 @@
 .eye-status{margin:10px 0 4px;padding:9px 12px;border-radius:10px;font-size:13px;background:rgba(255,255,255,.04);color:var(--muted,#9aa3af)}
 .eye-status.ok{color:#5ee08a;background:rgba(94,224,138,.08)}
 .eye-status.warn{color:#ffb020;background:rgba(255,176,32,.08)}
+.quality-meta{margin:4px 0 0;font-size:13px}.quality-meta.ok{color:#5ee08a}.quality-meta.warn{color:#ffb020}

@@ -292,7 +292,8 @@ class RenderTests(unittest.TestCase):
             stream = c.streams.video[0]
             frames = [f for f in c.decode(stream)]
         self.assertEqual(len(frames), 36)
-        self.assertEqual(len(av.open(str(clip)).streams.audio), 0)
+        with av.open(str(clip)) as c:                 # closed, so Windows can delete the temp folder
+            self.assertEqual(len(c.streams.audio), 0)
 
 
 class PipelineTests(unittest.TestCase):
@@ -376,7 +377,7 @@ class PipelineTests(unittest.TestCase):
                    lambda root, sources, device, progress: ({path_key(s): words for s in sources}, [])):
             page = __import__('hinglish_visuals.pipeline', fromlist=['run']).run(
                 root, xml, web=FakeWeb(), brain=ScriptedBrain(), scorer=False, progress=lambda m: None,
-                use_web=False)
+                use_web=False, evaluator=False)   # recorded fake files: the real vision check would (rightly) fail them
         folder = page.parent
         project = json.loads((folder / 'visuals-project.json').read_text(encoding='utf-8'))
         placed = {s['label']: s for s in project['slots'] if s['clip']}

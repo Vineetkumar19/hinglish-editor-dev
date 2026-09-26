@@ -82,6 +82,20 @@ def audible_span(path):
     return float((loud[-1] - loud[0]) / 16000) if len(loud) else 0.0
 
 
+@functools.lru_cache(maxsize=4096)
+def exact_peak_time(path, limit=12.0, window=.05):
+    """Centre of the loudest 50 ms of the file, to the millisecond (for sub-frame sync)."""
+    try:
+        audio = decode(path, 48000, mono=True, limit=limit)[0].astype(np.float64)
+    except Exception:
+        return None
+    n = int(window * 48000)
+    if len(audio) <= n:
+        return float(np.abs(audio).argmax() / 48000) if len(audio) else None
+    energy = np.concatenate([[0.0], np.cumsum(audio ** 2)])
+    return float((np.argmax(energy[n:] - energy[:-n]) + n / 2) / 48000)
+
+
 def peak_time(samples, rate, window=.05):
     samples = np.abs(np.asarray(samples, np.float32).reshape(-1))
     hop = max(1, int(window * rate))

@@ -11,6 +11,7 @@ from hinglish_cut.media import prepare_media
 from hinglish_cut.model import Cut
 from hinglish_cut.xml_export import export_xml
 from hinglish_clean.detection import write_json
+from hinglish_eval import guard
 
 from .conform import make_clip
 from .library import Library, VIDEO_EXTENSIONS, read_frames
@@ -211,6 +212,7 @@ def run(root, input_path, output_format=None, density=None, device=None, progres
             slots = place(moments, phrases, profile, timeline.duration, build_phrases(words, merge=False))
             progress(f'  {len(slots)} B-roll moments chosen')
             plans.append((timeline, folder, summary, profile, slots))
+            guard.save(folder)   # the model checks for this timeline (quality report)
     finally:
         llm.close()
     if not plans:

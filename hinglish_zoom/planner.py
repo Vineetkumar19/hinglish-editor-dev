@@ -1,4 +1,6 @@
 """Local AI plans ZOOMED-IN sections (important points) vs WIDE sections (normal talk)."""
+from hinglish_eval import guard, model_rules, tune
+
 from .events import ZoomMoment
 
 ZOOM_SYSTEM = '''You are a senior video editor cutting a talking-head {kind} like a two-camera edit.
@@ -62,9 +64,12 @@ def plan_zooms(llm, phrases, profile, orientation, progress=print, summary=None)
     for n, group in enumerate(groups, 1):
         progress(f'  Choosing zoom sections {n}/{len(groups)}')
         span = group[-1].end - group[0].start
-        count = max(1, min(len(group), round(span / profile.spacing * 1.2)))
+        count = max(1, min(len(group), round(span / profile.spacing * 1.2 * tune.value('zoom', 'count_scale', 1.0))))
         data = {'video_context': summary or {},
                 'phrases': [{'id': p.id, 'time': f'{p.start:.1f}-{p.end:.1f}s', 'text': p.text} for p in group]}
-        raw = llm.json(ZOOM_SYSTEM.format(kind=kind, count=count), data, ZOOM_SCHEMA, max_tokens=2000)
+        raw = guard.ask_checked(llm.json, ZOOM_SYSTEM.format(kind=kind, count=count), data, ZOOM_SCHEMA,
+                                model_rules.zoom_sections(group, count), label=f'zoom sections {n}/{len(groups)}',
+                                feature='zoom', progress=progress, repair=model_rules.zoom_repair(group),
+                                max_tokens=2000)
         moments += validate(raw, {p.id: p for p in group})
     return moments
