@@ -349,3 +349,101 @@ def sound_repair(lines, families, count=99, short=True):
             notes.append(f'{len(missing)} line(s) without an emotion set to neutral')
         return answer, notes
     return repair
+
+
+
+# ---- Smart Visuals: only things the speaker really names ---------------------------------------------------
+def _named_where(entity, phrases, mentions):
+    """Ids of the phrases that name this entity (its name, or a mention copied from that phrase)."""
+    words = [t for t in tokens(entity.get('name', '')) if len(t) > 3]
+    found = set()
+    for p in phrases:
+        have = tokens(p.text)
+        if any(w in have or any(len(h) >= 4 and (h.startswith(w[:5]) or w.startswith(h[:5])) for h in have)
+               for w in words):
+            found.add(p.id)
+    for pid, mention in mentions:
+        if mention and word_in(mention, next((p.text for p in phrases if p.id == pid), '')):
+            found.add(pid)
+    return found
+
+
+def visuals_plan(group, phrases, known):
+    """known: entities found in earlier parts of the video (key -> dict)."""
+    from hinglish_broll.planner import phrase_for_quote      # (local import: the planners import this module)
+    order = {p.id: n for n, p in enumerate(phrases)}
+
+    def line_of(m):
+        """Like the planner: the quote decides the line (the id is only a hint)."""
+        hint = m.get('id') if type(m.get('id')) is int else None
+        return phrase_for_quote(m.get('quote', ''), group, hint)
+
+    def check(answer):
+        out = []
+        entities = {**{k: v for k, v in known.items()}}
+        for e in _items(answer, 'entities'):
+            if e.get('key'):
+                entities.setdefault(str(e['key']).casefold(), e)
+        moments = _items(answer, 'moments')
+        mentions = {}
+        for m in moments:
+            line = line_of(m)
+            if line is not None and str(m.get('mention', '')).strip():
+                mentions.setdefault(str(m.get('entity', '')).casefold(), []).append((line.id, m['mention']))
+        named = {k: _named_where(e, phrases, mentions.get(k, [])) for k, e in entities.items()}
+        for key, e in entities.items():
+            if key not in known and not named[key]:
+                out.append(Problem('visuals.entity_not_said',
+                                   f'entity "{e.get("name")}" is never said in the speech; choose only people, '
+                                   'brands, places and events the speaker really names (never guess a place)'))
+        for n, m in enumerate(moments, 1):
+            ref = f'moment {n} (id {m.get("id")}, entity {m.get("entity")})'
+            line = line_of(m)
+            key = str(m.get('entity', '')).casefold()
+            if line is None:
+                out.append(Problem('visuals.quote', f'{ref}: quote "{m.get("quote")}" is not copied from any '
+                                                    'phrase; copy 2-5 words exactly from the line you mean'))
+                continue
+            if key not in entities:
+                out.append(Problem('visuals.entity', f'{ref}: entity key is not in your entities list'))
+                continue
+            mention = str(m.get('mention', '')).strip()
+            if mention and not word_in(mention, line.text):
+                out.append(Problem('visuals.mention', f'{ref}: mention "{mention}" is not in phrase {line.id} '
+                                                      f'("{line.text}"); copy the naming word exactly, or use ""'))
+            elif not mention and not any(order.get(pid, 1e9) <= order.get(line.id, -1) for pid in named.get(key, ())):
+                out.append(Problem('visuals.unnamed_line',
+                                   f'{ref}: this line does not name {entities[key].get("name")} and it was not '
+                                   'named before it; attach a line only to what it is really about'))
+        return out
+    return check
+
+
+def visuals_repair(group, phrases, known):
+    checker = visuals_plan(group, phrases, known)
+
+    def repair(answer):
+        answer = dict(answer or {})
+        notes = []
+        problems = checker(answer)
+        bad_names = {p.message.split('"')[1] for p in problems if p.rule == 'visuals.entity_not_said'}
+        keep_entities = []
+        for e in _items(answer, 'entities'):
+            if e.get('name') in bad_names:
+                notes.append(f'dropped "{e.get("name")}": never said in the speech')
+            else:
+                keep_entities.append(e)
+        dropped_keys = {str(e.get('key', '')).casefold() for e in _items(answer, 'entities') if e.get('name') in bad_names}
+        answer['entities'] = keep_entities
+        moments = [m for m in _items(answer, 'moments') if str(m.get('entity', '')).casefold() not in dropped_keys]
+        problems = [p for p in checker({**answer, 'moments': moments}) if p.hard and p.message.startswith('moment ')]
+        bad = {int(p.message.split()[1]): p.rule for p in problems}
+        kept = []
+        for n, m in enumerate(moments, 1):
+            if n in bad:
+                notes.append(f'dropped moment "{m.get("quote")}": {bad[n]}')
+            else:
+                kept.append(m)
+        answer['moments'] = kept
+        return answer, notes
+    return repair

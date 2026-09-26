@@ -2,7 +2,7 @@ from pathlib import Path
 import html
 import json
 
-from hinglish_app import BRIDGE_URL
+from hinglish_app import BRIDGE_URL, embed_token
 from .styles import FONT_CHOICES, TEMPLATES, template
 
 
@@ -62,7 +62,7 @@ $$('.template-card').forEach(x=>x.onclick=()=>{{currentStyle=x.dataset.style;dra
 $('#font').value=project.font||'template';$('#position').value=Math.round((project.position||.70)*100);$('#size').value=Math.round((project.size||1)*100);['input','change'].forEach(event=>{{$('#font').addEventListener(event,draw);$('#position').addEventListener(event,draw);$('#size').addEventListener(event,draw)}});$$('.cue-row textarea').forEach(x=>x.addEventListener('input',draw));video.addEventListener('timeupdate',()=>{{draw();$('#time').textContent=`${{video.currentTime.toFixed(1)}}s / ${{video.duration?video.duration.toFixed(1):'?'}}s`}});video.addEventListener('seeked',draw);$('#play').onclick=()=>video.paused?video.play():video.pause();
 async function save(){{const button=$('#save'),status=$('#status');button.disabled=true;status.textContent='Rebuilding caption layer…';try{{const bridge=await (await fetch('{BRIDGE_URL}/api/bridge')).json();const response=await fetch('{BRIDGE_URL}/api/captions/rebuild',{{method:'POST',headers:{{'Content-Type':'application/json','X-Hinglish-Token':bridge.token}},body:JSON.stringify({{project_path:project.project_path,texts:currentTexts(),style:currentStyle,font:$('#font').value,position:Number($('#position').value)/100,size:Number($('#size').value)/100,output_format:currentFormat}})}});const result=await response.json();if(!response.ok)throw new Error(result.error||'Could not rebuild captions');status.textContent='Saved — XML and caption layer updated';setTimeout(()=>location.reload(),900)}}catch(error){{status.textContent=error.message;button.disabled=false}}}}$('#save').onclick=save;const displayFormat=currentFormat==='source'?(project.width<project.height?'instagram_vertical':'youtube_horizontal'):currentFormat;setFormat(displayFormat,currentFormat==='source');applyStyle();draw();
 </script></body></html>'''
-    path.write_text(document, encoding='utf-8')
+    path.write_text(embed_token(document), encoding='utf-8')
 
 
 def write_index(path, results, errors):

@@ -18,7 +18,7 @@ from .specs import Check, Evaluation, check_xml, evaluate
 
 FEATURE_OF_MODULE = {'hinglish_clean': 'clean', 'hinglish_captions': 'captions', 'hinglish_broll': 'broll',
                      'hinglish_zoom': 'zoom', 'hinglish_sound': 'sound', 'hinglish_eyecontact': 'eyecontact',
-                     'hinglish_semantic': 'script'}
+                     'hinglish_semantic': 'script', 'hinglish_visuals': 'visuals'}
 LIMITS = {'count_scale': (.4, 2.5), 'effect_gain_db': (-6.0, 10.0), 'music_trim_db': (-10.0, 6.0)}
 
 

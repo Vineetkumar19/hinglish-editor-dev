@@ -5,7 +5,7 @@ from pathlib import Path
 import html
 import json
 
-from hinglish_app import BRIDGE_URL
+from hinglish_app import BRIDGE_URL, embed_token
 
 
 def _clock(seconds):
@@ -68,7 +68,7 @@ def write_report(path, name, plan, preview=None):
     data = dict(plan, plan_path=str((path.parent / 'sound-plan.json').resolve()))
     data = {k: data[k] for k in ('plan_path',)}
     listener = plan.get('listener') or 'not available (choices made by names/tags)'
-    script = SCRIPT.replace('__PLAN__', json.dumps(data).replace('<', '\\u003c')).replace('__BRIDGE__', BRIDGE_URL)
+    script = embed_token(SCRIPT.replace('__PLAN__', json.dumps(data).replace('<', '\\u003c')).replace('__BRIDGE__', BRIDGE_URL))
     path.write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Sound Design</title><style>
 body{{margin:0;background:#0d0f12;color:#f3f4f6;font:14px/1.45 "Segoe UI",system-ui,sans-serif}}

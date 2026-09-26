@@ -4,7 +4,7 @@ from pathlib import Path
 import html
 import json
 
-from hinglish_app import BRIDGE_URL
+from hinglish_app import BRIDGE_URL, embed_token
 from hinglish_broll.report import STYLE, _clock, write_index as _broll_index
 
 EXTRA_STYLE = '''
@@ -124,7 +124,7 @@ def write_report(path, project, has_preview=False):
 <footer>Import <b>VISUALS_SEQUENCE.xml</b> in Premiere Pro or DaVinci Resolve (full-screen visuals on V2, pop-ups on V3). Your original timeline is unchanged.
 <br>Media come from Wikimedia Commons, Wikipedia and stock sites; authors and licences are in <b>CREDITS.txt</b> — paste it into your video description.</footer></main>
 <script>{SCRIPT.replace('__PROJECT__', _safe_json(project)).replace('__BRIDGE__', BRIDGE_URL)}</script></body></html>'''
-    path.write_text(page, encoding='utf-8')
+    path.write_text(embed_token(page), encoding='utf-8')
 
 
 def write_credits(path, project):

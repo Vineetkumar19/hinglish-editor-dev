@@ -4,7 +4,7 @@ import html
 import json
 
 FEATURE_NAME = {'clean': 'Smart Clean', 'captions': 'Auto Captions', 'broll': 'B-roll', 'zoom': 'Smart Zoom',
-                'sound': 'Sound Design', 'eyecontact': 'Eye Contact', 'script': 'Script Edit'}
+                'sound': 'Sound Design', 'visuals': 'Smart Visuals', 'eyecontact': 'Eye Contact', 'script': 'Script Edit'}
 
 
 def _row(c):

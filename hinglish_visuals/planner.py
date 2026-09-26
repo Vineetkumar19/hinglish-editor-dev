@@ -9,6 +9,7 @@ import re
 
 from hinglish_broll.placement import Moment
 from hinglish_broll.planner import phrase_for_quote, windows
+from hinglish_eval import guard, model_rules
 
 KINDS = ('person', 'brand', 'place', 'event', 'thing')
 SHOWS = ('logo', 'photo', 'video')
@@ -178,7 +179,12 @@ def plan_visuals(brain, phrases, summary, profile, orientation, progress=print):
                 'story_so_far': ' '.join(stories[-3:]),
                 'known_entities': [{k: e[k] for k in ('key', 'name', 'kind', 'about')} for e in entities.values()],
                 'phrases': [{'id': p.id, 'time': f'{p.start:.1f}-{p.end:.1f}s', 'text': p.text} for p in group]}
-        raw = brain.json(PLAN_SYSTEM.format(kind=kind, count=count), data, PLAN_SCHEMA, max_tokens=3200, think=True)
+        known = {k: {'name': e['name']} for k, e in entities.items()}
+        raw = guard.ask_checked(brain.json, PLAN_SYSTEM.format(kind=kind, count=count), data, PLAN_SCHEMA,
+                                model_rules.visuals_plan(group, phrases, known), label=f'visual moments {n}/{len(groups)}',
+                                feature='visuals', progress=progress,
+                                repair=model_rules.visuals_repair(group, phrases, known),
+                                max_tokens=3200, think=True)
         if raw.get('story'):
             stories.append(_clean(raw['story'], 400))
         found = validate_plan(raw, group, entities)

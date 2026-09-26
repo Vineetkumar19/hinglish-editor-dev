@@ -3,7 +3,7 @@ from pathlib import Path
 import html
 import json
 
-from hinglish_app import BRIDGE_URL
+from hinglish_app import BRIDGE_URL, embed_token
 
 
 def _safe_json(value):
@@ -101,7 +101,7 @@ def write_report(path, project):
 <footer>Open <b>BROLL_SEQUENCE.xml</b> in Premiere Pro or DaVinci Resolve. Your original timeline is unchanged.
 {('<br>Stock footage by ' + html.escape(', '.join(credits)) + '. Pexels and Pixabay content is free to use.') if credits else ''}</footer></main>
 <script>{SCRIPT.replace('__PROJECT__', _safe_json(project)).replace('__BRIDGE__', BRIDGE_URL)}</script></body></html>'''
-    path.write_text(page, encoding='utf-8')
+    path.write_text(embed_token(page), encoding='utf-8')
 
 
 def write_index(path, results, notes):

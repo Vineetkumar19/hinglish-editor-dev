@@ -298,7 +298,8 @@ class ReportTests(unittest.TestCase):
             self.assertNotIn('</script>"', text)
             self.assertIn('1 of 2 moments have B-roll', text)
             # Save & rebuild talks to the DEV engine port, never the original app's 8765
-            self.assertIn("fetch('http://127.0.0.1:8766/api/bridge')", text)
+            self.assertIn('const bridge={token:', text)                 # token built in: /api/bridge refuses file pages
+            self.assertNotIn('/api/bridge', text)
             self.assertNotIn('8765', text)
 
 

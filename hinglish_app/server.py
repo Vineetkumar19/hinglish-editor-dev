@@ -14,7 +14,7 @@ import threading
 import time
 import uuid
 
-from . import DEFAULT_PORT
+from . import DEFAULT_PORT, app_token
 
 VIDEO_EXTENSIONS = {'.mp4', '.mov', '.mxf', '.mkv', '.avi', '.mts', '.m2ts', '.webm'}
 TIMELINE_MODES = ('broll', 'visuals', 'zoom', 'sound', 'eyecontact')   # work on a whole edited sequence (or XML)
@@ -59,7 +59,7 @@ class AppState:
         self.root = Path(root).resolve()
         self.static = Path(__file__).parent / 'static'
         self.port = port
-        self.token = secrets.token_urlsafe(32)
+        self.token = app_token(self.root / 'cache' / 'app' / 'bridge.json')
         self.jobs = {}
         self.lock = threading.Lock()
 
@@ -457,16 +457,33 @@ def make_handler(state):
         def _authorized(self):
             return secrets.compare_digest(self.headers.get('X-Hinglish-Token', ''), state.token)
 
+        def _host_ok(self):
+            # DNS-rebinding guard: a web page that points its own domain at 127.0.0.1 would otherwise count as
+            # "same site", read the token from / or /api/bridge and control the app. Only our own address is served.
+            host = (self.headers.get('Host') or '').strip().lower()
+            if host in (f'127.0.0.1:{state.port}', f'localhost:{state.port}', f'[::1]:{state.port}'):
+                return True
+            self.send_error(403, 'Unknown host')
+            return False
+
         def do_OPTIONS(self):
+            if not self._host_ok(): return
             self.send_response(204); self._cors()
             self.send_header('Access-Control-Allow-Headers', 'Content-Type, X-Hinglish-Token')
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); self.end_headers()
 
         def do_GET(self):
+            if not self._host_ok(): return
             parsed = urlparse(self.path)
             if parsed.path == '/api/health':
                 return self._json(200, {'ok': True, 'version': 7})
             if parsed.path == '/api/bridge':
+                # Only our own page, the Premiere UXP panel and local programs (no Origin) get the token. A "null"
+                # origin can be any website's sandboxed frame; local review pages and CEP read it from disk instead.
+                origin = self.headers.get('Origin')
+                own = (f'http://127.0.0.1:{state.port}', f'http://localhost:{state.port}')
+                if origin is not None and origin not in own and not origin.startswith('uxp://'):
+                    return self._json(403, {'error': 'Not allowed'})
                 return self._json(200, {'url': f'http://127.0.0.1:{state.port}', 'token': state.token})
             if parsed.path == '/api/pick':
                 if not self._authorized(): return self._json(403, {'error': 'Not connected'})
@@ -500,6 +517,7 @@ def make_handler(state):
             self.send_header('Content-Length', str(len(data))); self.end_headers(); self.wfile.write(data)
 
         def do_POST(self):
+            if not self._host_ok(): return
             if not self._authorized(): return self._json(403, {'error': 'Not connected'})
             try:
                 parsed = urlparse(self.path)
@@ -544,5 +562,6 @@ def make_handler(state):
 def serve(root, port=DEFAULT_PORT):
     state = AppState(root, port)
     server = LocalHTTPServer(('127.0.0.1', port), make_handler(state))
+    state.port = server.server_address[1]      # the real port (port 0 = any free port)
     state.publish_bridge()
     return server, state
