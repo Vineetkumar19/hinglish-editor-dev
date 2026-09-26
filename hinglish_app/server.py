@@ -55,14 +55,16 @@ class AppState:
                 powershell = Path(shutil.which('powershell.exe') or shutil.which('pwsh.exe') or '')
             if not powershell.is_file():
                 raise RuntimeError('Windows PowerShell is unavailable')
+            files = {'script': ('Choose your script', 'Text files (*.txt)|*.txt|All files (*.*)|*.*'),
+                     'xml': ('Choose a timeline XML', 'Timeline XML (*.xml)|*.xml|All files (*.*)|*.*')}
             chooser = (
                 "$dialog=New-Object System.Windows.Forms.OpenFileDialog;"
-                "$dialog.Title='Choose your script';"
-                "$dialog.Filter='Text files (*.txt)|*.txt|All files (*.*)|*.*';"
+                f"$dialog.Title='{files[kind][0]}';"
+                f"$dialog.Filter='{files[kind][1]}';"
                 "$dialog.Multiselect=$false;"
                 "$selected={ if($dialog.ShowDialog($owner) -eq [System.Windows.Forms.DialogResult]::OK)"
                 "{ $dialog.FileName } else { '' } };"
-            ) if kind == 'script' else (
+            ) if kind in files else (
                 "$dialog=New-Object System.Windows.Forms.FolderBrowserDialog;"
                 "$dialog.Description='Choose folder containing your videos';"
                 "$dialog.ShowNewFolderButton=$false;"
@@ -100,11 +102,21 @@ class AppState:
 
     def create_job(self, payload):
         mode = payload.get('mode')
-        if mode not in ('clean', 'script', 'captions'):
-            raise ValueError('Choose Smart Clean, Script Edit or Auto Captions')
+        if mode not in ('clean', 'script', 'captions', 'broll'):
+            raise ValueError('Choose Smart Clean, Script Edit, Auto Captions or B-roll')
         source_paths = [Path(p).resolve() for p in payload.get('source_paths', []) if p]
         input_path = Path(payload['input_path']).resolve() if payload.get('input_path') else None
-        if source_paths:
+        if mode == 'broll' and payload.get('timeline_xml'):
+            timeline = Path(payload['timeline_xml']).resolve()
+            if not timeline.is_file() or timeline.suffix.lower() != '.xml':
+                raise ValueError('The exported timeline XML is unavailable')
+            payload = {**payload, 'input_path': str(timeline)}
+            input_path, source_paths = timeline, []
+        elif mode == 'broll' and payload.get('use_resolve_timeline'):
+            input_path, source_paths = 'resolve', []
+        elif mode == 'broll' and input_path and input_path.is_file() and input_path.suffix.lower() == '.xml':
+            pass
+        elif source_paths:
             if any(not p.is_file() or p.suffix.lower() not in VIDEO_EXTENSIONS for p in source_paths):
                 raise ValueError('One or more selected timeline files are unavailable')
         elif not input_path or not input_path.exists():
@@ -198,7 +210,16 @@ class AppState:
             work.mkdir(parents=True, exist_ok=True)
             fmt = payload.get('format', 'source')
             command = [str(self.root / '.venv' / 'Scripts' / 'python.exe'), '-u']
-            if payload['mode'] == 'clean':
+            if supplied == 'resolve':
+                from .resolve_adapter import export_current_timeline
+                supplied = export_current_timeline(work / 'resolve-timeline.xml')
+                self._log(job_id, 'Exported the current Resolve timeline')
+            if payload['mode'] == 'broll':
+                command += ['-m', 'hinglish_broll', '--root', str(self.root), '--input', str(supplied),
+                            '--density', payload.get('density', 'medium'), '--device', payload.get('device', 'cpu')]
+                if Path(supplied).suffix.lower() == '.xml':
+                    fmt = 'source'   # an existing sequence keeps its own canvas
+            elif payload['mode'] == 'clean':
                 command += ['-m', 'hinglish_clean', '--root', str(self.root), '--input', str(supplied)]
                 if not payload.get('preview', True):
                     command.append('--xml-only')
@@ -237,7 +258,8 @@ class AppState:
             if code not in (0, 2) or not result_page or not result_page.exists():
                 raise RuntimeError(f'Editing engine stopped with code {code}. Check the activity log.')
             output = result_page.parent
-            xml = [str(p.resolve()) for p in output.rglob('*.xml')]
+            # source-timeline.xml is B-roll's internal copy of a single video, not a result.
+            xml = [str(p.resolve()) for p in output.rglob('*.xml') if p.name != 'source-timeline.xml']
             previews = [str(p.resolve()) for p in output.rglob('preview.mp4')]
             previews += [str(p.resolve()) for p in output.rglob('cleaned.mp4')]
             result = {'page': str(result_page.resolve()), 'folder': str(output.resolve()),
@@ -281,6 +303,21 @@ class AppState:
             raise ValueError('This caption project is unavailable')
         return rebuild_project(project, payload, lambda _: None)
 
+    def rebuild_broll(self, payload):
+        from hinglish_broll.pipeline import rebuild_project
+        project = Path(payload.get('project_path', '')).resolve()
+        allowed = (self.root / 'output' / 'broll').resolve()
+        if not project.is_relative_to(allowed) or project.name != 'broll-project.json' or not project.is_file():
+            raise ValueError('This B-roll project is unavailable')
+        choices = payload.get('choices') or {}
+        if not isinstance(choices, dict) or not all(isinstance(v, str) for v in choices.values()):
+            raise ValueError('Invalid B-roll choices')
+        return rebuild_project(project, choices)
+
+    def broll_settings(self, values=None):
+        from hinglish_broll.settings import public_settings, save_user_settings
+        return public_settings(self.root) if values is None else save_user_settings(self.root, values)
+
 
 def make_handler(state):
     class Handler(BaseHTTPRequestHandler):
@@ -313,7 +350,7 @@ def make_handler(state):
         def do_GET(self):
             parsed = urlparse(self.path)
             if parsed.path == '/api/health':
-                return self._json(200, {'ok': True, 'version': 6})
+                return self._json(200, {'ok': True, 'version': 7})
             if parsed.path == '/api/bridge':
                 return self._json(200, {'url': f'http://127.0.0.1:{state.port}', 'token': state.token})
             if parsed.path == '/api/pick':
@@ -323,6 +360,9 @@ def make_handler(state):
                     return self._json(200, {'path': chosen})
                 except Exception as error:
                     return self._json(400, {'error': str(error)})
+            if parsed.path == '/api/broll/settings':
+                if not self._authorized(): return self._json(403, {'error': 'Not connected'})
+                return self._json(200, state.broll_settings())
             if parsed.path.startswith('/api/jobs/'):
                 if not self._authorized(): return self._json(403, {'error': 'Not connected'})
                 try: return self._json(200, state.snapshot(parsed.path.rsplit('/', 1)[-1]))
@@ -364,6 +404,10 @@ def make_handler(state):
                     return self._json(200, {'ok': True, 'timelines': names})
                 if parsed.path == '/api/captions/rebuild':
                     return self._json(200, state.rebuild_captions(payload))
+                if parsed.path == '/api/broll/rebuild':
+                    return self._json(200, state.rebuild_broll(payload))
+                if parsed.path == '/api/broll/settings':
+                    return self._json(200, state.broll_settings(payload))
                 return self._json(404, {'error': 'Unknown action'})
             except Exception as error:
                 return self._json(400, {'error': str(error)})

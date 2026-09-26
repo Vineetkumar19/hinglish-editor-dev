@@ -29,7 +29,10 @@
         <button class="mode" data-mode="captions">
           <span class="mode-icon caption-icon">CC</span><span><b>Auto Captions</b><small>Premium Roman Hinglish</small></span><i>3</i>
         </button>
-        <div class="coming"><span>COMING NEXT</span><p>Smart zooms</p><p>B-roll</p><p>Music</p></div>
+        <button class="mode" data-mode="broll">
+          <span class="mode-icon broll-icon">▶</span><span><b>Add B-roll</b><small>Footage for what you say</small></span><i>4</i>
+        </button>
+        <div class="coming"><span>COMING NEXT</span><p>Smart zooms</p><p>Music</p></div>
       </nav>
 
       <div class="panel">
@@ -60,6 +63,33 @@
           <textarea id="captionReference" rows="5" placeholder="Paste your rough script. The app uses confident words and names for spelling without forcing every line to match."></textarea>
           <div class="script-actions"><button id="loadCaptionScript" class="text-button">Load reference .txt</button><span>Main names and English terms are enough</span></div>
         </div>
+
+        <section class="broll-field hidden">
+          <div class="broll-row">
+            <label class="broll-resolve hidden"><input type="checkbox" id="useResolve" checked> Use the timeline open in DaVinci Resolve</label>
+            <button id="pickXml" class="text-button">Or choose a timeline XML…</button>
+          </div>
+          <div class="broll-grid">
+            <label>How much B-roll<select id="density"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+            <div class="broll-sources"><span>Footage sources</span><b id="sourceSummary">Checking…</b><button id="openBrollSettings" class="text-button">B-roll settings</button></div>
+          </div>
+          <small class="broll-note">Reels (up to 3 min) get quick 1.5–3 s cutaways · long YouTube videos get 3–6 s cutaways every ~20–40 s. Your opening hook stays on your face.</small>
+        </section>
+
+        <dialog id="brollSettings" class="broll-dialog">
+          <form method="dialog">
+            <h3>B-roll settings</h3>
+            <p class="dialog-help">Keys are stored only on this computer and are never shown again after saving.</p>
+            <label>Pexels API key <small id="pexelsSaved"></small><input id="pexelsKey" type="password" autocomplete="off" placeholder="Paste your Pexels key"></label>
+            <label>Pixabay API key <small id="pixabaySaved"></small><input id="pixabayKey" type="password" autocomplete="off" placeholder="Paste your Pixabay key"></label>
+            <div class="toggles"><label><input type="checkbox" id="usePexels"> Use Pexels</label><label><input type="checkbox" id="usePixabay"> Use Pixabay</label><label><input type="checkbox" id="useLibrary"> Use my footage first</label></div>
+            <label>My footage library</label>
+            <ul id="libraryList" class="library-list"></ul>
+            <button type="button" id="addLibrary" class="text-button">+ Add footage folder</button>
+            <p id="settingsError" class="dialog-error"></p>
+            <div class="dialog-actions"><button value="cancel" class="secondary-btn">Close</button><button type="button" id="saveBrollSettings" class="save-btn">Save settings</button></div>
+          </form>
+        </dialog>
 
         <section class="caption-field hidden">
           <div class="caption-title"><div><label>Choose a caption style</label><small>Animated word timing · editable files included</small></div><span>15 PREMIUM TEMPLATES</span></div>

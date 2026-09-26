@@ -123,6 +123,45 @@ class DashboardServerTests(unittest.TestCase):
         self.assertEqual(result['cues'], 2)
         rebuild.assert_called_once()
 
+    def test_broll_settings_save_keys_but_never_return_them(self):
+        status, shown = self.request('/api/broll/settings', {'pexels_key': 'secret-key-1234', 'use_pixabay': False})
+        self.assertEqual(status, 200)
+        self.assertNotIn('secret-key-1234', json.dumps(shown))
+        status, again = self.request('/api/broll/settings')
+        self.assertEqual(again['pexels_key'], shown['pexels_key'])
+        self.assertFalse(again['use_pixabay'])
+        with self.assertRaises(HTTPError) as caught:
+            self.request('/api/broll/settings', token=False)
+        self.assertEqual(caught.exception.code, 403)
+
+    def test_broll_rebuild_only_accepts_generated_projects(self):
+        outside = self.root / 'broll-project.json'
+        outside.write_text('{}')
+        with self.assertRaises(HTTPError) as caught:
+            self.request('/api/broll/rebuild', {'project_path': str(outside), 'choices': {}})
+        self.assertEqual(caught.exception.code, 400)
+        project = self.root / 'output' / 'broll' / 'run' / '001-a' / 'broll-project.json'
+        project.parent.mkdir(parents=True)
+        project.write_text('{}')
+        with patch('hinglish_broll.pipeline.rebuild_project', return_value={'xml_files': [], 'filled': 3}) as rebuild:
+            status, result = self.request('/api/broll/rebuild', {'project_path': str(project), 'choices': {'0': ''}})
+        self.assertEqual((status, result['filled']), (200, 3))
+        rebuild.assert_called_once_with(project.resolve(), {'0': ''})
+
+    def test_broll_job_uses_exported_timeline_xml(self):
+        timeline = self.root / 'sequence.xml'
+        timeline.write_text('<xmeml/>')
+        started = threading.Event()
+        with patch.object(self.state, '_run_job', side_effect=lambda *a: started.set()) as runner:
+            status, job = self.request('/api/jobs', {'mode': 'broll', 'timeline_xml': str(timeline), 'density': 'high'})
+            self.assertTrue(started.wait(5))
+        self.assertEqual((status, job['mode']), (202, 'broll'))
+        args = runner.call_args.args
+        self.assertEqual(args[3], timeline.resolve())
+        self.assertEqual(args[1]['input_path'], str(timeline.resolve()))
+        with self.assertRaises(HTTPError):
+            self.request('/api/jobs', {'mode': 'broll', 'timeline_xml': str(self.root / 'missing.xml')})
+
 
 if __name__ == '__main__':
     unittest.main()

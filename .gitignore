@@ -14,3 +14,6 @@ input/phase2/**/*.mp4
 input/phase2/**/*.mov
 input/phase2/**/*.mkv
 input/phase2/script.txt
+
+# B-roll: API keys and footage folders stay on this computer
+config.broll.local.json

@@ -16,10 +16,13 @@ function setMode(next){
   $$('.script-field').forEach(x=>x.classList.toggle('hidden',mode!=='script'));
   $$('.caption-script-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
   $$('.caption-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
+  $$('.broll-field').forEach(x=>x.classList.toggle('hidden',mode!=='broll'));
+  if(mode==='broll')loadBrollSettings();
   const data={
     clean:['SMART CLEAN','Remove silence','Clean my videos','✂','Each selected video receives its own cleaned timeline.'],
     script:['SCRIPT EDIT','Build by meaning','Build my timeline','≋','Selected clips are arranged by the meaning of your script.'],
-    captions:['AUTO CAPTIONS','Premium Hinglish captions','Generate captions','CC','Selected videos receive timed Roman Hinglish captions.']
+    captions:['AUTO CAPTIONS','Premium Hinglish captions','Generate captions','CC','Selected videos receive timed Roman Hinglish captions.'],
+    broll:['ADD B-ROLL','B-roll for what you say','Add B-roll','▶','Choose a video, or a timeline XML from Smart Clean / Script Edit / Premiere.']
   }[mode];
   $('#stepLabel').textContent=data[0];$('#modeTitle').textContent=data[1];
   $('#runText').textContent=data[2];$('#runIcon').textContent=data[3];$('#inputHelp').textContent=data[4];
@@ -101,11 +104,44 @@ function countWords(){
 }
 $('#script').addEventListener('input',countWords);
 
+// ---- B-roll ----
+const inResolve=new URLSearchParams(location.search).get('host')==='resolve';
+let libraryFolders=[];
+if(inResolve)$('.broll-resolve').classList.remove('hidden');
+function renderLibrary(){
+  $('#libraryList').innerHTML='';
+  libraryFolders.forEach((folder,i)=>{const li=document.createElement('li');li.textContent=folder;
+    const remove=document.createElement('button');remove.type='button';remove.textContent='Remove';
+    remove.onclick=()=>{libraryFolders.splice(i,1);renderLibrary()};li.append(remove);$('#libraryList').append(li)});
+  if(!libraryFolders.length)$('#libraryList').innerHTML='<li>No folders yet — add folders with your own clips (travel, food, city shots…)</li>';
+}
+function showSettings(s){
+  $('#pexelsSaved').textContent=s.pexels_key;$('#pixabaySaved').textContent=s.pixabay_key;
+  $('#usePexels').checked=s.use_pexels;$('#usePixabay').checked=s.use_pixabay;$('#useLibrary').checked=s.use_library;
+  libraryFolders=[...s.library_folders];renderLibrary();
+  const sources=[];if(s.use_library&&s.library_folders.length)sources.push(`My footage (${s.library_folders.length} folder${s.library_folders.length===1?'':'s'})`);
+  if(s.use_pexels&&s.pexels_key)sources.push('Pexels');if(s.use_pixabay&&s.pixabay_key)sources.push('Pixabay');
+  $('#sourceSummary').textContent=sources.length?sources.join(' + '):'None yet — open B-roll settings';
+}
+async function loadBrollSettings(){try{showSettings(await api('/api/broll/settings'))}catch(e){$('#sourceSummary').textContent=e.message}}
+$('#openBrollSettings').onclick=()=>{$('#settingsError').textContent='';$('#brollSettings').showModal()};
+$('#addLibrary').onclick=async()=>{try{const r=await api('/api/pick?kind=folder');if(r.path&&!libraryFolders.includes(r.path)){libraryFolders.push(r.path);renderLibrary()}}catch(e){$('#settingsError').textContent=e.message}};
+$('#saveBrollSettings').onclick=async()=>{
+  try{const s=await api('/api/broll/settings',{method:'POST',body:JSON.stringify({pexels_key:$('#pexelsKey').value,
+      pixabay_key:$('#pixabayKey').value,use_pexels:$('#usePexels').checked,use_pixabay:$('#usePixabay').checked,
+      use_library:$('#useLibrary').checked,library_folders:libraryFolders})});
+    $('#pexelsKey').value='';$('#pixabayKey').value='';showSettings(s);$('#brollSettings').close();
+  }catch(e){$('#settingsError').textContent=e.message}
+};
+$('#pickXml').onclick=async()=>{try{const r=await api('/api/pick?kind=xml');if(r.path){sourcePaths=[];$('#inputPath').value=r.path;
+  $('#selectedFiles').classList.add('hidden');if(inResolve)$('#useResolve').checked=false}}catch(e){alert(e.message)}};
+
 $('#run').onclick=async()=>{
   try{
     const payload={mode,source_paths:sourcePaths,input_path:sourcePaths.length?'':$('#inputPath').value,
       script:mode==='captions'?$('#captionReference').value:$('#script').value,
-      caption_style:captionStyle,format:$('#format').value,
+      caption_style:captionStyle,format:$('#format').value,density:$('#density').value,
+      use_resolve_timeline:mode==='broll'&&inResolve&&$('#useResolve').checked,
       device:$('#device').value,pacing:$('#pacing').value,preview:true};
     const job=await api('/api/jobs',{method:'POST',body:JSON.stringify(payload)});
     jobId=job.id;lastResult=null;$('#run').disabled=true;$('#result').classList.add('hidden');

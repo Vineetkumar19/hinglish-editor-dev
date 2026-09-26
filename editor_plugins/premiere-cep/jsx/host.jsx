@@ -8,6 +8,16 @@ function hinglishSelectedMedia(){
   }catch(error){return '{"error":'+hinglishEscape(error.toString())+'}';}
   var result='{"paths":[';for(var k=0;k<paths.length;k++){if(k)result+=',';result+=hinglishEscape(paths[k]);}return result+']}';
 }
+function hinglishExportActiveSequence(outputPath){
+  try{
+    var sequence=app.project.activeSequence;
+    if(!sequence)return '{"error":"Open the sequence you want B-roll for first."}';
+    sequence.exportAsFinalCutProXML(outputPath,1);
+    var file=new File(outputPath);
+    if(!file.exists)return '{"error":"Premiere could not export the sequence XML."}';
+    return '{"path":'+hinglishEscape(outputPath)+',"name":'+hinglishEscape(sequence.name)+'}';
+  }catch(error){return '{"error":'+hinglishEscape(error.toString())+'}';}
+}
 function hinglishImportXML(pathsJson){
   try{var paths=eval('('+pathsJson+')');var ok=app.project.importFiles(paths,true,app.project.rootItem,false);return ok?'ok':'Premiere could not import the XML';}
   catch(error){return error.toString();}
