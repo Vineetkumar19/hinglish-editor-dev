@@ -11,7 +11,7 @@ function hinglishSelectedMedia(){
 function hinglishExportActiveSequence(outputPath){
   try{
     var sequence=app.project.activeSequence;
-    if(!sequence)return '{"error":"Open the sequence you want B-roll for first."}';
+    if(!sequence)return '{"error":"Open the sequence you want to edit first."}';
     sequence.exportAsFinalCutProXML(outputPath,1);
     var file=new File(outputPath);
     if(!file.exists)return '{"error":"Premiere could not export the sequence XML."}';

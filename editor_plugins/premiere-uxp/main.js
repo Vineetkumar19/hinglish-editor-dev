@@ -8,7 +8,7 @@ async function selectedPaths(){const project=await ppro.Project.getActiveProject
 async function exportSequence(){
   if(!ppro.ProjectConverter||!ppro.ProjectConverter.exportAsFinalCutProXML)throw new Error('Timeline features need Premiere Pro 26.2+ in this panel. Use the Window > Extensions panel instead.');
   const project=await ppro.Project.getActiveProject();const sequence=await project.getActiveSequence();
-  if(!sequence)throw new Error('Open the sequence you want B-roll for first.');
+  if(!sequence)throw new Error('Open the sequence you want to edit first.');
   const folder=await require('uxp').storage.localFileSystem.getDataFolder();
   const target=folder.nativePath.replace(/[\\/]$/,'')+`\\sequence-${Date.now()}.xml`;
   if(!await ppro.ProjectConverter.exportAsFinalCutProXML(sequence,target,true))throw new Error('Premiere could not export the sequence XML.');

@@ -121,8 +121,9 @@ class PixabayClient(StockClient):
         return results
 
 
-def download(url, target, session=None, timeout=120):
-    """Download once into the local cache; partial files are never left behind as complete."""
+def download(url, target, session=None, timeout=120, max_bytes=1_500_000_000):
+    """Download once into the local cache; partial files are never left behind as complete.
+    Stops at `max_bytes` so a wrong link can never fill the disk."""
     target = Path(target)
     if target.exists() and target.stat().st_size > 0:
         return target
@@ -132,8 +133,14 @@ def download(url, target, session=None, timeout=120):
     try:
         with getter.get(url, stream=True, timeout=timeout) as response:
             response.raise_for_status()
+            if int(response.headers.get('Content-Length') or 0) > max_bytes:
+                raise ValueError('the file is too large to download')
+            written = 0
             with partial.open('wb') as out:
                 for block in response.iter_content(1024 * 1024):
+                    written += len(block)
+                    if written > max_bytes:
+                        raise ValueError('the file is too large to download')
                     out.write(block)
         partial.replace(target)
         return target

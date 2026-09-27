@@ -363,9 +363,25 @@ def _named_where(entity, phrases, mentions):
                for w in words):
             found.add(p.id)
     for pid, mention in mentions:
-        if mention and word_in(mention, next((p.text for p in phrases if p.id == pid), '')):
+        # a naming word only counts when it sounds like THIS name ("Jomato" = Zomato, "Kamilnaadu" = Tamil
+        # Nadu, but "Kamilnaadu" is not Karnataka); nicknames still work when the real name is said somewhere
+        if mention and word_in(mention, next((p.text for p in phrases if p.id == pid), ''))                 and sounds_like(mention, entity.get('name', '')):
             found.add(pid)
     return found
+
+
+def sounds_like(mention, name, threshold=.72):
+    from difflib import SequenceMatcher
+    a, b = ''.join(tokens(mention)), ''.join(tokens(name))
+    if not a or not b:
+        return False
+    if a in b or b in a:
+        return True
+    said = set(tokens(mention))
+    if any(key in tokens(name) and said & set(aliases) for key, aliases in PLACE_ALIASES.items()):
+        return True                                    # Hindi / old names: "Dilli" = Delhi, "Bambai" = Mumbai
+    parts = [t for t in tokens(name) if len(t) > 3] + [b]
+    return any(SequenceMatcher(None, a, part).ratio() >= threshold for part in parts)
 
 
 def visuals_plan(group, phrases, known):

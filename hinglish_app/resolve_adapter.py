@@ -36,7 +36,7 @@ def export_current_timeline(path):
     resolve, project = _project()
     timeline = project.GetCurrentTimeline()
     if not timeline:
-        raise RuntimeError('Open the timeline you want B-roll for in Resolve first')
+        raise RuntimeError('Open the timeline you want to edit in Resolve first')
     path = Path(path).resolve()
     path.parent.mkdir(parents=True, exist_ok=True)
     if not timeline.Export(str(path), resolve.EXPORT_FCP_7_XML, resolve.EXPORT_NONE) or not path.is_file():

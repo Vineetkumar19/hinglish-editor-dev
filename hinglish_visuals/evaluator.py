@@ -95,6 +95,17 @@ AREA_WORDS = {'city', 'cityscape', 'town', 'village', 'state', 'country', 'regio
               'skyline', 'metropolis', 'capital', 'province', 'nation'}
 
 
+def wants_map(info):
+    return 'map' in _tokens(f"{info.get('category', '')} {info.get('visual', '')}")
+
+
+def wanted(info):
+    """What must be visible for this moment (a map when the plan asked for a map)."""
+    if wants_map(info):
+        return f"a map of {info['name']}"
+    return category_for(info['kind'], info['show'], info['name'], info.get('category', ''))
+
+
 def category_for(kind, show, name, category=''):
     """What must be visible, in plain words."""
     if show == 'logo' or kind == 'brand':
@@ -129,7 +140,7 @@ def decide(answer, info, judge=''):
     """The hard rules. `info`: name, about, kind, show, category, visual."""
     reasons, warnings = [], []
     kind, name = info['kind'], info['name']
-    category = category_for(kind, info['show'], name, info.get('category', ''))
+    category = wanted(info)
     seen_kind = answer.get('category_seen', '') or 'something else'
     if not answer.get('category_ok'):
         reasons.append(f'TYPE: not {category}; it shows {seen_kind}')
@@ -216,7 +227,7 @@ class ClipCheck:
         self.name = 'CLIP type check (no vision model)'
 
     def look(self, images, info):
-        category = category_for(info['kind'], info['show'], info['name'], info.get('category', ''))
+        category = wanted(info)
         target = f'a photo of {category}'
         others = [f'a photo of {d}' for d in DISTRACTORS if not set(_tokens(d)) & set(_tokens(category))]
         texts = self.vision.texts([target] + others)
@@ -247,9 +258,11 @@ class Evaluator:
             return Verdict(False, 0.0, ['the file could not be opened'])
         if self.vlm is not None:
             kind = info['kind']
+            if wants_map(info):
+                medium = 'map image'            # a clear map is the right picture here, not a failed photo
             system = CHECK_SYSTEM.format(
                 what=what, medium=medium, name=info['name'], about=info.get('about') or kind,
-                category=category_for(kind, info['show'], info['name'], info.get('category', '')),
+                category=wanted(info),
                 visual=info.get('visual', ''), identity_hint=IDENTITY_HINTS.get(kind, '').format(name=info['name']))
             try:
                 return decide(self.vlm.look(images, system), info, self.vlm.name)

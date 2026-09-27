@@ -24,6 +24,13 @@ WATERMARKED = ('shutterstock', 'alamy', 'gettyimages', 'istockphoto', 'dreamstim
                'stock.adobe', 'adobestock', 'bigstockphoto', 'vectorstock', 'freepik', 'agefotostock',
                'pond5', 'storyblocks', 'videoblocks', 'artlist', 'envato', 'canstockphoto')
 SECTION = 50.0          # seconds of a long web video to download around the useful part
+MAX_IMAGE_BYTES = 25 * 1024 * 1024    # a picture bigger than this is not a normal photo/logo
+MAX_VIDEO_BYTES = 400 * 1024 * 1024   # one downloaded web-video part
+
+
+def _not_live(info, *, incomplete=False):
+    """yt-dlp filter: never record a live stream (it would never end)."""
+    return 'live stream' if info.get('is_live') or info.get('live_status') in ('is_live', 'is_upcoming') else None
 
 
 def domain(url):
@@ -171,16 +178,29 @@ class WebSearch:
             return target
         target.parent.mkdir(parents=True, exist_ok=True)
         headers = {'Referer': media.page_url} if media.page_url else {}
-        response = self.session.get(media.url, headers=headers, timeout=40)
-        response.raise_for_status()
-        if len(response.content) < 1500:
+        # streamed with a size cap: a bad search result must never pull a huge file into memory
+        with self.session.get(media.url, headers=headers, timeout=40, stream=True) as response:
+            response.raise_for_status()
+            kind = response.headers.get('Content-Type', '').split(';')[0].strip().lower()
+            if kind and not kind.startswith('image/') and kind != 'application/octet-stream':
+                raise ValueError(f'the site sent {kind}, not a picture')
+            if int(response.headers.get('Content-Length') or 0) > MAX_IMAGE_BYTES:
+                raise ValueError('the picture is too large')
+            content = bytearray()
+            for chunk in response.iter_content(256 * 1024):
+                content += chunk
+                if len(content) > MAX_IMAGE_BYTES:
+                    raise ValueError('the picture is too large')
+        if len(content) < 1500:
             raise ValueError('the site did not send a real image')
         from io import BytesIO
         from PIL import Image
-        with Image.open(BytesIO(response.content)) as image:
+        with Image.open(BytesIO(content)) as image:
+            if image.width * image.height > 60_000_000:        # decompression-bomb guard (~ 8K x 7K)
+                raise ValueError('the picture is too large')
             image.verify()
         partial = target.with_suffix(target.suffix + '.partial')
-        partial.write_bytes(response.content)
+        partial.write_bytes(bytes(content))
         partial.replace(target)
         return target
 
@@ -192,6 +212,8 @@ class WebSearch:
         if duration > 150:
             start = max(3.0, min(duration * .12, duration - SECTION - 5))
             end = start + max(SECTION, need + 10)
+        elif duration <= 0:                     # length unknown (live streams, some sites): never the whole thing
+            end = max(SECTION, need + 10)
         key = hashlib.sha1(f'{media.url}|{start}|{end}'.encode()).hexdigest()[:20]
         folder = self.root / 'cache' / 'visuals' / 'web-video'
         folder.mkdir(parents=True, exist_ok=True)
@@ -202,7 +224,8 @@ class WebSearch:
         options = {'format': 'bv*[height<=1080][vcodec^=avc1]/bv*[height<=1080][ext=mp4]/bv*[height<=1080]/'
                              'b[height<=1080]/b',
                    'outtmpl': str(folder / (key + '.%(ext)s')), 'quiet': True, 'no_warnings': True,
-                   'noplaylist': True, 'retries': 3, 'socket_timeout': 30, 'overwrites': True}
+                   'noplaylist': True, 'retries': 3, 'socket_timeout': 30, 'overwrites': True, 'noprogress': True,
+                   'max_filesize': MAX_VIDEO_BYTES, 'match_filter': _not_live}
         try:
             import imageio_ffmpeg
             options['ffmpeg_location'] = imageio_ffmpeg.get_ffmpeg_exe()

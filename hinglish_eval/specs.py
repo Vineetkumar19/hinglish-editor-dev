@@ -469,8 +469,46 @@ def eye_checks(folder, plan):
     return checks
 
 
+# ---- Smart Visuals ---------------------------------------------------------------------------------------------
+def visuals_checks(folder, project):
+    folder = Path(folder)
+    slots = project.get('slots', [])
+    placed = [s for s in slots if s.get('clip')]
+    duration = project['timeline']['duration']
+    unchecked = [s['label'] for s in placed if (s.get('evaluation') or {}).get('passed') is None]
+    failed = [s['label'] for s in placed if (s.get('evaluation') or {}).get('passed') is False]
+    missing = [s['clip'] for s in placed if not (folder / s['clip']).is_file()]
+    overlaps = []
+    for display in ('fullscreen', 'popup'):
+        same = sorted((s for s in placed if s.get('display') == display), key=lambda s: s['start'])
+        overlaps += [f'{b["start"]:.1f}s' for a, b in zip(same, same[1:]) if b['start'] < a['end'] - 1e-3]
+    outside = [s['label'] for s in placed if s['start'] < 0 or s['end'] > duration + .05 or s['end'] <= s['start']]
+    lengths = [f'{s["label"]} {s["end"] - s["start"]:.1f}s' for s in placed if not .8 <= s['end'] - s['start'] <= 10]
+    credits = folder / 'CREDITS.txt'
+    text = credits.read_text(encoding='utf-8') if credits.is_file() else ''
+    uncredited = [s['label'] for s in placed if s['label'] not in text]
+    checks = [
+        Check('visuals.evaluated', 'Every placed picture/video passed the vision check', not failed,
+              value=_fmt(failed) or 'all passed'),
+        Check('visuals.checked', 'Every placed picture/video was really looked at (vision model running)',
+              not unchecked, hard=False, value=_fmt(unchecked) or 'all checked'),
+        Check('visuals.files', 'All visual files exist', not missing, value=_fmt(missing) or 'all found'),
+        Check('visuals.no_overlap', 'Visuals of the same kind never overlap', not overlaps, value=_fmt(overlaps) or 'none'),
+        Check('visuals.inside', 'Every visual is inside the video', not outside, value=_fmt(outside) or 'ok'),
+        Check('visuals.length', 'Each visual stays 0.8-10 s (readable, not stuck)', not lengths, hard=False,
+              value=_fmt(lengths) or 'ok'),
+        Check('visuals.credits', 'CREDITS.txt names every visual used (licence / attribution)', not uncredited,
+              value=_fmt(uncredited) or 'all credited'),
+        Check('visuals.found', 'Most planned moments got a real visual (>= 50%)',
+              not slots or len(placed) / len(slots) >= .5, hard=False, value=f'{len(placed)}/{len(slots)} placed'),
+    ]
+    for xml in folder.glob('VISUALS_SEQUENCE.xml'):
+        checks += check_xml(xml)
+    return checks
+
+
 # ---- Finding and running the right spec ------------------------------------------------------------------------
-PLANS = [('sound-plan.json', 'sound', sound_checks), ('zoom-plan.json', 'zoom', zoom_checks),
+PLANS = [('sound-plan.json', 'sound', sound_checks), ('visuals-project.json', 'visuals', visuals_checks), ('zoom-plan.json', 'zoom', zoom_checks),
          ('broll-project.json', 'broll', broll_checks), ('caption-project.json', 'captions', caption_checks),
          ('eyecontact-plan.json', 'eyecontact', eye_checks), ('report.json', 'clean', clean_checks)]
 
