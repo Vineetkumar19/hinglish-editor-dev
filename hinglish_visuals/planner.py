@@ -210,7 +210,9 @@ def fits_kind(result, kind):
     """A Wikidata item that is clearly another kind of thing (a river named like an app) is never used."""
     text = (result.get('description') or '').casefold()
     if kind == 'brand':
-        return not text or any(w in text for w in BRAND_WORDS) or not any(w in text for w in NOT_A_BRAND)
+        # only an entry that SAYS it is a company/app/service; otherwise the brand is searched by its name
+        # ("Rapido" matched a river, then "velocity" - Italian rapido = fast)
+        return any(w in text for w in BRAND_WORDS) and not any(f' {w}' in f' {text}' for w in ('river', 'village'))
     return True
 
 
