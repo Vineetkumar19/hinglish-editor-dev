@@ -199,16 +199,33 @@ def plan_visuals(brain, phrases, summary, profile, orientation, progress=print, 
     return moments, entities, stories
 
 
+BRAND_WORDS = ('company', 'app', 'application', 'service', 'brand', 'platform', 'startup', 'software',
+               'website', 'delivery', 'ride', 'taxi', 'bank', 'product', 'manufacturer', 'corporation', 'business',
+               'retailer', 'network', 'online', 'e-commerce', 'marketplace', 'conglomerate', 'firm')
+NOT_A_BRAND = ('river', 'mountain', 'lake', 'village', 'town', 'city', 'district', 'species', 'genus',
+               'family name', 'surname', 'given name', 'asteroid', 'album', 'song', 'film', 'painting', 'island')
+
+
+def fits_kind(result, kind):
+    """A Wikidata item that is clearly another kind of thing (a river named like an app) is never used."""
+    text = (result.get('description') or '').casefold()
+    if kind == 'brand':
+        return not text or any(w in text for w in BRAND_WORDS) or not any(w in text for w in NOT_A_BRAND)
+    return True
+
+
 def resolve_entity(brain, web, entity, summary):
     """Wikidata search + the brain's pick. Returns an Entity or None when the name is not clearly identified."""
     results = web.search_entities(entity['name'])
     if not results and entity.get('about'):
         results = web.search_entities(f"{entity['name']} {entity['about']}")
+    results = [r for r in results or [] if fits_kind(r, entity['kind'])]   # "Rapido" the river is not the app
     if not results:
         return None
     top_is_exact = results[0]['label'].casefold() == entity['name'].casefold()
-    if len(results) == 1 or (top_is_exact and entity['kind'] == 'brand'):
-        qid = results[0]['id']      # an app/company name is rarely ambiguous when it matches exactly
+    brand_like = any(w in (results[0].get('description') or '').casefold() for w in BRAND_WORDS)
+    if len(results) == 1 or (top_is_exact and entity['kind'] == 'brand' and brand_like):
+        qid = results[0]['id']      # an exact name whose description says company/app/service
     else:
         schema = {'type': 'object', 'properties': {
             'id': {'type': 'string', 'enum': [r['id'] for r in results] + ['']}},

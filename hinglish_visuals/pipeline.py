@@ -249,8 +249,11 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
                 except Exception as error:
                     progress(f'  {spec["name"]}: lookup failed ({error})')
                     entity = None
-                if entity is None and spec['kind'] in ('place', 'thing', 'event'):
-                    entity = Entity(key, spec['name'], spec['kind'], label=spec['name'])
+                if entity is None and (spec['kind'] in ('place', 'thing', 'event') or
+                                       (spec['kind'] == 'brand' and finder is not None)):
+                    # searched by its name; for a brand the vision check must read the name in the logo
+                    entity = Entity(key, spec['name'], spec['kind'], label=spec['name'],
+                                    description=spec.get('about', ''))
                 if entity is None:
                     progress(f'  {spec["name"]}: not clearly identified, skipped (wrong person/brand is worse than none)')
                     continue
@@ -287,28 +290,43 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
                         progress(f'  Visual ranking skipped: {error}')
                 progress(f'  {len(m.candidates)} verified files about {entity.label or entity.name}')
             usable = [m for m in moments if m.candidates]
-            full = full_slots([m for m in usable if m.display == 'fullscreen'], phrases, lines, full_p,
-                              timeline.duration, blocked_ranges(timeline.xml_path))
             names = {k: e.names() for k, e in entities.items()}
-            pops = popup_slots([m for m in usable if m.display == 'popup'], phrases, lines, words, pop_p,
-                               timeline.duration, [(s.start, s.end) for s in full], names)
-            slots = sorted(full + pops, key=lambda s: s.start)
-            progress(f'  {len(full)} full-screen visuals and {len(pops)} pop-ups fit the timing rules')
+            judged = {}
+            while True:
+                full = full_slots([m for m in usable if m.display == 'fullscreen'], phrases, lines, full_p,
+                                  timeline.duration, blocked_ranges(timeline.xml_path))
+                pops = popup_slots([m for m in usable if m.display == 'popup'], phrases, lines, words, pop_p,
+                                   timeline.duration, [(s.start, s.end) for s in full], names)
+                slots = sorted(full + pops, key=lambda s: s.start)
+                progress(f'  {len(full)} full-screen visuals and {len(pops)} pop-ups fit the timing rules')
+                empty = []
+                for i, slot in enumerate(slots):
+                    m = slot.moment
+                    if id(m) in judged:
+                        continue
+                    ordered = m.candidates
+                    official_pick = ordered[0].official and (m.show == 'logo' or m.display == 'popup')
+                    if not official_pick:
+                        progress(f'Checking the best match {i + 1}/{len(slots)}: {m.visual}')
+                        try:
+                            ordered = judge(brain, m, entities[m.entity], ordered)
+                        except Exception as error:
+                            progress(f'  Check skipped ({error}); using the best-ranked file')
+                    judged[id(m)] = ordered
+                    if not ordered:
+                        progress(f'  None of the files really shows "{m.visual}"')
+                        empty.append(m)
+                if not empty:
+                    break
+                # a moment with no fitting file gives its time back: moments it pushed aside get their turn
+                usable = [m for m in usable if m not in empty]
+                progress('  Choosing the timing again without the moments that had no fitting file')
             project = {'version': 1, 'timeline': timeline_to_dict(timeline), 'summary': summary, 'stories': stories,
                        'density': settings.density, 'device': settings.device, 'brain': brain.name,
                        'entities': {k: e.to_dict() for k, e in entities.items()}, 'slots': []}
             for i, slot in enumerate(slots):
                 m, entity = slot.moment, entities[slot.moment.entity]
-                ordered = m.candidates
-                official_pick = ordered[0].official and (m.show == 'logo' or m.display == 'popup')
-                if not official_pick:
-                    progress(f'Checking the best match {i + 1}/{len(slots)}: {m.visual}')
-                    try:
-                        ordered = judge(brain, m, entity, ordered)
-                    except Exception as error:
-                        progress(f'  Check skipped ({error}); using the best-ranked file')
-                if not ordered:
-                    progress('  None of the files really shows this moment; left on your face')
+                ordered = judged[id(m)]
                 entry = {'index': i, 'start': slot.start, 'end': slot.end, 'text': slot.text, 'quote': m.quote,
                          'meaning': m.meaning, 'visual': m.visual, 'queries': m.queries, 'priority': m.priority,
                          'entity': m.entity, 'label': entity.label or entity.name, 'show': m.show,
