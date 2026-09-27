@@ -8,7 +8,7 @@ import torchaudio.functional as AF
 
 from .library import SAMPLE_RATE, decode, loudness_db
 from .settings import (DUCK_ATTACK, DUCK_RELEASE, MUSIC_DUCK, MUSIC_EQ_DIP, MUSIC_IN_GAPS, PEAK_CEILING,
-                       NO_CREST_TRIM, PULL_BACK_DB, SFX_BEHAVIOUR, SFX_CREST_KEEP, SFX_CREST_MAX,
+                       NO_CREST_TRIM, PULL_BACK_DB, SFX_BEHAVIOUR, SFX_CREST_KEEP, SFX_CREST_MAX, SFX_MAX_OVER_WORDS,
                        SFX_CREST_RELEASE, SFX_CREST_TRIM, SFX_PEAK_ROOM, SFX_UNDER_VOICE,
                        TARGET_LOUDNESS, VOICE_HPF)
 
@@ -46,6 +46,17 @@ def body_db(x, window=.15):
     """How loud a sound is heard on a phone: its loudest 150 ms, phone-weighted (peaks ignore the body,
     and deep bass that small speakers cannot play is not counted)."""
     return 10 * np.log10(max(float(_window_power(phone_weight(x), window).max()), 1e-18))
+
+
+def full_body_db(x, window=.15):
+    """Loudest 150 ms with the bass included (how big headphones / speakers hear it)."""
+    return 10 * np.log10(max(float(_window_power(x, window).max()), 1e-18))
+
+
+def full_syllable_db(voice, window=.15):
+    power = _window_power(voice, window)[::HOP]
+    loud = power[power > power.max() * 1e-4]
+    return 10 * np.log10(max(float(np.percentile(loud if len(loud) else power, 90)), 1e-18))
 
 
 def syllable_db(voice, window=.15):
@@ -139,7 +150,7 @@ def music_bed(sections, voice_db, envelope, total, pull_backs=(), trim_db=0.0):
     return bed * db(gain_db)
 
 
-def effect(cue, words_db, voice_peak, envelope, total):
+def effect(cue, words_db, voice_peak, envelope, total, words_full=None):
     audio = decode(cue.path, limit=cue.length + .05)
     n = min(audio.shape[1], int(cue.length * SAMPLE_RATE))
     audio = _fade(audio[:, :n].copy(), .003, min(.08, cue.length / 4))
@@ -154,6 +165,8 @@ def effect(cue, words_db, voice_peak, envelope, total):
         audio = limiter(audio, ceiling_db=peak - trim, release=SFX_CREST_RELEASE)
     gain = words_db + cue.offset_db - body_db(audio)             # heard as loud as intended next to your words
     gain = min(gain, voice_peak + SFX_PEAK_ROOM - peak_db(audio))  # never a spike far above the voice
+    if words_full is not None:   # phone weighting ignores deep bass: never let a boom blast on headphones
+        gain = min(gain, words_full + SFX_MAX_OVER_WORDS - full_body_db(audio))
     start = int(cue.time * SAMPLE_RATE)
     n = max(0, min(audio.shape[1], total - start))
     duck = db(SFX_UNDER_VOICE * envelope[start:start + n])
@@ -192,6 +205,7 @@ def mix(voice, sections, cues, folder, pull_backs=(), trim_db=0.0):
     total = len(voice)
     voice_db, voice_peak = loudness_db(voice, SAMPLE_RATE), peak_db(voice)
     words_db = syllable_db(voice)
+    words_full = full_syllable_db(voice)
     envelope = speech_envelope(voice, voice_db)
     clean_voice = highpass(voice[None, :], VOICE_HPF)[0]
     master = np.stack([clean_voice, clean_voice]).astype(np.float32)
@@ -202,7 +216,7 @@ def mix(voice, sections, cues, folder, pull_backs=(), trim_db=0.0):
         master += bed
         stems['music'] = str(write_wav(folder / 'sound' / 'music-bed.wav', bed))
     for n, cue in enumerate(cues, 1):
-        start, audio = effect(cue, words_db, voice_peak, envelope, total)
+        start, audio = effect(cue, words_db, voice_peak, envelope, total, words_full)
         if audio.shape[1] == 0:
             continue
         master[:, start:start + audio.shape[1]] += audio

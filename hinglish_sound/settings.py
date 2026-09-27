@@ -44,7 +44,8 @@ SFX_CREST_TRIM = 4.0          # dB shaved off each effect's sharpest transient (
 SFX_CREST_KEEP = 12.0         # ...more if its spike stands over 12 dB above its body (tiny pops)
 SFX_CREST_MAX = 10.0          # ...but never more than this
 SFX_CREST_RELEASE = .03       # fast release: only the spike is shaved, the sound keeps its shape
-NO_CREST_TRIM = {'riser', 'whoosh', 'suspense', 'vanish'}   # their peak IS the climax: never flatten it
+NO_CREST_TRIM = {'riser', 'whoosh', 'suspense', 'vanish', 'impact'}   # their peak IS the climax / the punch
+SFX_MAX_OVER_WORDS = 2.0      # full-range (bass included) loudness of an effect never above your words + this
 TRANSITION_OFFSET = -4.0      # whoosh on each B-roll cut-in (sounding loudness vs your speech)
 ZOOM_OFFSET = -4.0            # low boom when a zoom lands on the key word
 
