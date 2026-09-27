@@ -14,9 +14,8 @@ class TurboSpeech(LocalSpeech):
         if len(audio) < 1600: return ''
         if self.turbo is None:
             from faster_whisper import WhisperModel
-            file = self.root / 'models/meaning-upgrade.json'
-            if not file.exists(): file = self.root / 'models/meaning-models.json'
-            manifest = json.loads(file.read_text(encoding='utf-8'))
+            from .setup_meaning import load_manifest
+            manifest = load_manifest(self.root) or load_manifest(self.root, 'meaning-models.json')
             self.turbo = WhisperModel(manifest['speech_path'], device=self.settings.device,
                                       compute_type='int8' if self.settings.device == 'cpu' else 'float16',
                                       cpu_threads=self.settings.cpu_threads, local_files_only=True)

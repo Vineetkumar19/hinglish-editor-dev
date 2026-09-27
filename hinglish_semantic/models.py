@@ -158,8 +158,8 @@ def require_models(root, settings):
     if settings.speech_backend == 'swift':
         names.insert(0, speech.asr_model)
     else:
-        manifest = Path(root) / 'models/meaning-upgrade.json'
-        data = json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else {}
+        from .setup_meaning import load_manifest
+        data = load_manifest(root)
         speech_path = Path(data.get('speech_path', ''))
         if not (speech_path / 'model.bin').is_file():
             raise ValueError('Experimental Turbo speech weights are missing; use the normal Swift speech setting.')

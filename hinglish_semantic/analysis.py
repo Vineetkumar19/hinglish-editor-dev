@@ -39,7 +39,8 @@ def analyze_sources(paths, root, settings, progress=print):
                     raise ValueError('Only mono/stereo talking-head audio is supported')
                 cache_spec = {'v': 2, 'source': digest, 'media': asdict(media), 'settings': asdict(config)}
                 if settings.speech_backend == 'turbo':
-                    manifest = json.loads((root / 'models/meaning-upgrade.json').read_text(encoding='utf-8'))
+                    from .setup_meaning import load_manifest
+                    manifest = load_manifest(root)
                     cache_spec.update(v=3, backend='turbo', revision=manifest['speech_revision'], beam=5, language='hi')
                 key = hashlib.sha256(json.dumps(cache_spec, sort_keys=True).encode()).hexdigest()
                 cache = root / 'cache' / 'semantic' / 'analysis' / key

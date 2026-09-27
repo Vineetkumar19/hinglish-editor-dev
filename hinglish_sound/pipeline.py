@@ -158,6 +158,9 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
     progress('Reading your sound library')
     music_assets = scan(settings.music_folder, 'music', root / 'cache' / 'sound', OLD_SCAN_CACHE, progress) \
         if settings.music else []
+    if settings.music and not music_assets:
+        progress(f'  No music found in {settings.music_folder}. Put instrumental tracks (mp3/wav) there, one '
+                 'folder per mood (e.g. reflective, upbeat, tense), or choose your music folder in the app')
     sfx_assets = []
     if settings.effects or settings.transitions:
         pro = Path(settings.pro_folder) if settings.pro_folder else root / 'library' / 'sfx-pro'

@@ -22,7 +22,7 @@ def prepare(root):
     judge = hf_hub_download(JUDGE_REPO, JUDGE_FILE, revision=JUDGE_REVISION, cache_dir=str(root / 'models'))
     data.update(judge_path=judge, judge_revision=JUDGE_REVISION, judge_repo=JUDGE_REPO)
     runtime = root / 'tools/llama/runtime.json'
-    installed = json.loads(runtime.read_text(encoding='utf-8')) if runtime.exists() else {}
+    installed = rerooted(json.loads(runtime.read_text(encoding='utf-8')), root) if runtime.exists() else {}
     if installed.get('runtime_version') != RUNTIME_TAG or not Path(installed.get('server_path', '')).is_file():
         response = requests.get('https://api.github.com/repos/ggml-org/llama.cpp/releases/tags/' + RUNTIME_TAG, timeout=60)
         response.raise_for_status()
@@ -49,11 +49,34 @@ def prepare(root):
     print('Local meaning model ready.', flush=True)
 
 
+def rerooted(data, root):
+    """Saved model/runtime paths still work after the project folder is moved or copied to another PC:
+    a missing E:\\old\\place\\models\\... path is looked up again inside this project's models/ or tools/."""
+    root = Path(root)
+    out = dict(data)
+    for key, value in data.items():
+        if not key.endswith('_path') or not isinstance(value, str) or not value or Path(value).exists():
+            continue
+        parts = Path(value.replace('\\', '/')).parts
+        for anchor in ('models', 'tools'):
+            if anchor in parts:
+                candidate = root.joinpath(*parts[parts.index(anchor):])
+                if candidate.exists():
+                    out[key] = str(candidate)
+                    break
+    return out
+
+
+def load_manifest(root, name='meaning-upgrade.json'):
+    file = Path(root) / 'models' / name
+    return rerooted(json.loads(file.read_text(encoding='utf-8')), root) if file.exists() else {}
+
+
 def require(root):
     root = Path(root)
     file = root / 'models/meaning-upgrade.json'
     if not file.exists(): raise ValueError('Run Download Phase 2 Models.bat once for the new meaning model.')
-    data = json.loads(file.read_text(encoding='utf-8'))
+    data = load_manifest(root)
     for key in ('judge_path', 'server_path'):
         if key not in data or not Path(data[key]).is_file():
             raise ValueError('Missing local meaning model/runtime. Run Download Phase 2 Models.bat once.')

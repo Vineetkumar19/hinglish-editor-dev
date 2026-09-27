@@ -90,7 +90,14 @@ def load_settings(root, **overrides):
     data = json.loads(file.read_text(encoding='utf-8-sig')) if file.exists() else {}
     data = {k: v for k, v in data.items() if k in USER_KEYS}
     data.update({k: v for k, v in overrides.items() if v is not None})
-    return SoundSettings(**data)
+    settings = SoundSettings(**data)
+    # On another PC the default / saved folders may not exist: use the project's own library folders
+    for key, name in (('music_folder', 'music'), ('sfx_folder', 'sfx')):
+        if not Path(getattr(settings, key)).is_dir():
+            fallback = Path(root) / 'library' / name
+            fallback.mkdir(parents=True, exist_ok=True)
+            setattr(settings, key, str(fallback))
+    return settings
 
 
 def save_user_settings(root, values):
