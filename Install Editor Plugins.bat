@@ -2,6 +2,12 @@
 setlocal
 cd /d "%~dp0"
 
+if not exist ".venv\Scripts\python.exe" (
+  echo Run Setup CPU.bat ^(or Setup RTX 5070.bat^) first, then run this again.
+  if /I not "%~1"=="--quiet" pause
+  exit /b 1
+)
+
 set "APP_CONFIG=%LOCALAPPDATA%\Hinglish Editor"
 if not exist "%APP_CONFIG%" mkdir "%APP_CONFIG%"
 ".venv\Scripts\python.exe" -c "import json,os; from pathlib import Path; Path(os.environ['APP_CONFIG']).joinpath('install.json').write_text(json.dumps({'root':os.getcwd()}),encoding='utf-8')"

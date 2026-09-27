@@ -202,7 +202,7 @@ class Listener:
         done = 0
         for s in range(0, len(todo), batch):
             chunk = todo[s:s + batch]
-            if done == 0 or done // 100 != (done + len(chunk)) // 100:
+            if done == 0 or done // 40 != (done + len(chunk)) // 40 or s + batch >= len(todo):
                 progress(f'  Listening to your {assets[chunk[0]].kind} library {done + len(chunk)}/{len(todo)} new files '
                          '(first time only)')
             done += len(chunk)

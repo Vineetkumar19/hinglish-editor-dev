@@ -12,7 +12,10 @@ def _color(value, alpha=255):
 
 
 def _font_path(name):
-    path = Path(r'C:\Windows\Fonts') / name
+    import os
+    folders = [Path(os.environ.get('WINDIR', r'C:\Windows')) / 'Fonts',          # Windows may not be on C:
+               Path(os.environ.get('LOCALAPPDATA', '')) / 'Microsoft' / 'Windows' / 'Fonts']   # per-user installs
+    path = next((f / name for f in folders if (f / name).is_file()), folders[0] / name)
     if not path.is_file():
         raise ValueError('Required Windows font is missing: ' + name)
     return path
