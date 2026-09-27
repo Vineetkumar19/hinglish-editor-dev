@@ -83,10 +83,16 @@ def audible_span(path):
 
 
 @functools.lru_cache(maxsize=4096)
-def exact_peak_time(path, limit=12.0, window=.05):
-    """Centre of the loudest 50 ms of the file, to the millisecond (for sub-frame sync)."""
+def exact_peak_time(path, limit=12.0, window=.05, hpf=None):
+    """Centre of the loudest 50 ms of the file, to the millisecond (for sub-frame sync). Measured after the
+    same low cut the mix applies (`hpf`): a whoosh's bass swell and its heard peak are not at the same time."""
     try:
         audio = decode(path, 48000, mono=True, limit=limit)[0].astype(np.float64)
+        if hpf:
+            import torch
+            import torchaudio.functional as AF
+            audio = AF.highpass_biquad(torch.from_numpy(audio.astype(np.float32))[None], 48000, hpf)[0].numpy()
+            audio = audio.astype(np.float64)
     except Exception:
         return None
     n = int(window * 48000)

@@ -276,6 +276,10 @@ class AppState:
                                   ('sound_transitions', '--no-transitions')):
                     if payload.get(key) is False:
                         command.append(flag)
+                if script:
+                    script_file = work / 'sound-script.txt'
+                    script_file.write_text(script, encoding='utf-8')
+                    command += ['--script', str(script_file)]
             elif payload['mode'] == 'eyecontact':
                 command += ['-m', 'hinglish_eyecontact', '--root', str(self.root), '--input', str(supplied)]
                 for key, flag in (('eye_reach', '--reach'), ('eye_size', '--eye-size')):

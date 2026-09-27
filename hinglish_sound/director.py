@@ -46,6 +46,8 @@ ANALYSIS_SYSTEM = RULES + '''
 
 You are the sound director for this {kind}. You get the lines of the video (with how each one is
 SAID), the editing events, and the music moods and effect types that exist in the library.
+creator_script (when given) is the creator's own script: use it to understand the meaning and the
+right names, but sounds must land on words of the spoken lines.
 Think carefully first (what is the story, how does the speaker feel line by line, where is the
 emotional turn, which few moments truly deserve sound), then answer:
 - story: what happens and the emotional arc, in English (max 60 words)
@@ -183,13 +185,17 @@ def validate_moments(analysis, lines, families, palette):
     return kept, dropped
 
 
-def analyse(brain, kind, lines, voice_notes, events, moods, families, count=8, preferences='', progress=print):
+def analyse(brain, kind, lines, voice_notes, events, moods, families, count=8, preferences='', progress=print,
+            script=''):
     voice = {n['id']: n['voice'] for n in voice_notes}
     data = {'lines': [{'id': l.id, 'time': f'{l.start:.1f}-{l.end:.1f}s', 'text': l.text,
                        'voice': voice.get(l.id, 'normal delivery')} for l in lines],
             'editing_events': events,
             'music_moods_in_library': {m: MOOD_MEANING.get(m, m) for m in moods},
             'effect_types_in_library': {f: FAMILY_MEANING.get(f, f) for f in families}}
+    if script.strip():
+        from hinglish_visuals.script import script_context
+        data['creator_script'] = script_context(script)     # what the creator means (the lines are what was said)
     ask = lambda system, payload, schema: brain.ask(system, payload, schema, think=True, max_tokens=7000,
                                                     label='Thinking about the story, emotions and sound')
     short = 'Reel' in kind or 'short' in kind

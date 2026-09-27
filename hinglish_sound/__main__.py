@@ -19,12 +19,14 @@ def main():
     parser.add_argument('--no-effects', action='store_true')
     parser.add_argument('--no-transitions', action='store_true')
     parser.add_argument('--device', choices=['cpu', 'cuda'])
+    parser.add_argument('--script', type=Path, help='Your script (.txt): fixes misheard names and gives the AI context')
     args = parser.parse_args()
     overrides = {'style': args.style, 'density': args.density, 'device': args.device,
                  'music': False if args.no_music else None, 'effects': False if args.no_effects else None,
                  'transitions': False if args.no_transitions else None}
     try:
-        result = run(Path(args.root), Path(args.input), args.format, overrides, progress=lambda m: print(m, flush=True))
+        result = run(Path(args.root), Path(args.input), args.format, overrides, progress=lambda m: print(m, flush=True),
+                     script=args.script.read_text(encoding='utf-8-sig') if args.script else '')
     except KeyboardInterrupt:
         return 130
     except Exception as error:

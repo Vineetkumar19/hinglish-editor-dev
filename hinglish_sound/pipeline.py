@@ -145,7 +145,7 @@ def finish(root, folder, plan, seq, voice, sections, cues, pull_backs, settings,
     return xml
 
 
-def run(root, input_path, output_format=None, overrides=None, progress=print):
+def run(root, input_path, output_format=None, overrides=None, progress=print, script=''):
     root = Path(root).resolve()
     settings = load_settings(root, **(overrides or {}))
     stamp = datetime.now().strftime('%Y%m%d-%H%M%S-') + uuid.uuid4().hex[:6]
@@ -189,6 +189,12 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
     results = []
     for timeline, folder in jobs:
         words = timeline_words(timeline, words_by_source)
+        if script.strip():                       # misheard names ("Madhu rahi", "rapid ho") get the script spelling
+            from hinglish_visuals.script import apply_script
+            words, fixed = apply_script(words, script)
+            if fixed:
+                progress('  Names fixed from your script: ' + ', '.join(
+                    f'"{c["heard"]}" -> {c["script_spelling"]}' for c in fixed[:12]))
         lines = build_phrases(words)
         if not lines:
             progress(f'  No speech found in {timeline.name}; skipped'); continue
@@ -215,7 +221,7 @@ def run(root, input_path, output_format=None, overrides=None, progress=print):
                  f'at least {gap:.1f}s apart')
 
         analysis = analyse(brain, kind, lines, voice_notes, events, moods, families, ai_count,
-                           learning.taste(taste_data), progress)
+                           learning.taste(taste_data), progress, script)
         palette = STYLE_PALETTE.get(settings.style, analysis.get('palette', 'informational'))
         feel = {l['id']: l for l in analysis.get('lines', []) if isinstance(l, dict)}
         progress(f'  Story: {analysis.get("story", "")[:140]}')

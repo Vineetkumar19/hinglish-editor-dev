@@ -53,7 +53,7 @@ def place_cue(asset, target, category, reason, word='', sound='', source='ai', o
               emotion=''):
     behaviour = SFX_BEHAVIOUR[category]
     length = min(asset.duration, behaviour['max_len'])
-    peak = exact_peak_time(asset.path, length + .05) if behaviour['align'] == 'peak' else None
+    peak = exact_peak_time(asset.path, length + .05, hpf=behaviour.get('hpf')) if behaviour['align'] == 'peak' else None
     peak = asset.peak_time if peak is None else peak   # the index rounds the peak down to 50 ms
     if behaviour['align'] == 'peak' and peak < length:
         start = target - peak                     # sub-frame sync: the loudest instant hits the word / cut
