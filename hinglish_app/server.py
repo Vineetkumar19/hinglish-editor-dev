@@ -260,6 +260,10 @@ class AppState:
                     command.append('--no-web')
                 if payload.get('visuals_check') is False:
                     command += ['--evaluator', 'off']
+                if script:
+                    script_file = work / 'visuals-script.txt'
+                    script_file.write_text(script, encoding='utf-8')
+                    command += ['--script', str(script_file)]
             elif payload['mode'] == 'sound':
                 command += ['-m', 'hinglish_sound', '--root', str(self.root), '--input', str(supplied),
                             '--device', payload.get('device', 'cpu')]

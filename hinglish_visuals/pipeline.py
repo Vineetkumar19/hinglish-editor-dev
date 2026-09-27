@@ -192,7 +192,7 @@ class ClipScorer:
 
 def run(root, input_path, output_format=None, density=None, device=None, popups=None, brain_choice=None,
         progress=print, web=None, brain=None, scorer=None, use_web=None, finder=None, evaluator=None,
-        evaluator_choice=None):
+        evaluator_choice=None, script=''):
     root = Path(root).resolve()
     settings = load_settings(root, density=density, device=device, popups=popups, brain=brain_choice,
                              use_web=use_web, evaluator=evaluator_choice)
@@ -222,6 +222,12 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
         for timeline, folder in jobs:
             for warning in timeline.warnings: progress('  ' + warning)
             words = timeline_words(timeline, words_by_source)
+            if script.strip():
+                from .script import apply_script
+                words, fixed = apply_script(words, script)
+                if fixed:
+                    progress('  Names fixed from your script: ' + ', '.join(
+                        f'"{c["heard"]}" -> {c["script_spelling"]}' for c in fixed[:12]))
             phrases, lines = build_phrases(words), build_phrases(words, merge=False)
             if not phrases:
                 progress(f'  No speech found in {timeline.name}; skipped')
@@ -230,7 +236,8 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
             progress(f'The agent is reading "{timeline.name}" ({len(phrases)} phrases)')
             summary = summarize(brain, phrases)
             progress(f'  Topic: {summary["topic"]}')
-            moments, specs, stories = plan_visuals(brain, phrases, summary, full_p, timeline.orientation, progress)
+            moments, specs, stories = plan_visuals(brain, phrases, summary, full_p, timeline.orientation, progress,
+                                                   script)
             if not settings.popups:
                 for m in moments: m.display = 'fullscreen'
             progress(f'Looking up {len(specs)} names on Wikipedia/Wikidata')

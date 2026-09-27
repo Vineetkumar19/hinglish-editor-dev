@@ -120,9 +120,17 @@ def correct_with_reference(words, reference_script):
             scored.sort(reverse=True)
             if scored:
                 combined, spelling, context, token = scored[0]
+                ref = next(r for r, (tok, _) in enumerate(indexed) if tok == token and
+                           SequenceMatcher(None, key, indexed[r][1]).ratio() == spelling)
+                sides = [SequenceMatcher(None, word_keys[word_index + o], indexed[ref + o][1]).ratio()
+                         for o in (-1, 1) if 0 <= word_index + o < len(word_keys) and 0 <= ref + o < len(indexed)]
+                both_sides = bool(sides) and min(sides) >= .6     # every existing neighbour matches the script too
                 threshold = .64 if len(key) <= 3 and context >= .80 else .74
                 runner_up = scored[1][0] if len(scored) > 1 else -1
-                if spelling >= threshold and combined - runner_up >= .045:
+                # a short everyday word ("kisi", "tak", "kiya") is only respelled when the words on BOTH sides match
+                # the script there too; otherwise a loose script would change what was said ("kisi" -> "aisi")
+                short_guess = len(key) <= 4 and normal(token) != key and not both_sides
+                if spelling >= threshold and combined - runner_up >= .045 and not short_guess:
                     replacement = token
         new_text = prefix + (replacement or body) + suffix
         corrected.append(CaptionWord(new_text, word.start, word.end))

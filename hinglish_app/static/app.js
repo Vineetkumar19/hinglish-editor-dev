@@ -15,7 +15,7 @@ function setMode(next){
   mode=next;
   $$('.mode').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));
   $$('.script-field').forEach(x=>x.classList.toggle('hidden',mode!=='script'));
-  $$('.caption-script-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
+  $$('.caption-script-field').forEach(x=>x.classList.toggle('hidden',!['captions','visuals'].includes(mode)));
   $$('.caption-field').forEach(x=>x.classList.toggle('hidden',mode!=='captions'));
   $$('.broll-field').forEach(x=>x.classList.toggle('hidden',mode!=='broll'));
   $$('.visuals-field').forEach(x=>x.classList.toggle('hidden',mode!=='visuals'));
@@ -177,7 +177,7 @@ $('#pickXml').onclick=async()=>{try{const r=await api('/api/pick?kind=xml');if(r
 $('#run').onclick=async()=>{
   try{
     const payload={mode,source_paths:sourcePaths,input_path:sourcePaths.length?'':$('#inputPath').value,
-      script:mode==='captions'?$('#captionReference').value:$('#script').value,
+      script:['captions','visuals'].includes(mode)?$('#captionReference').value:$('#script').value,
       caption_style:captionStyle,format:$('#format').value,density:$('#density').value,
       use_resolve_timeline:TIMELINE_MODES.includes(mode)&&inResolve&&$('#useResolve').checked,
       eye_reach:$('#eyeReach').value,eye_size:$('#eyeSize').value,eye_look_away:$('#eyeLookAway').checked,

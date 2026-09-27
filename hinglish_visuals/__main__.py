@@ -21,13 +21,15 @@ def main():
     parser.add_argument('--evaluator', choices=['auto', 'vlm', 'clip', 'off'],
                         help='Check every picture/video before use: auto = vision model (Ollama qwen2.5vl) '
                              'when available, else CLIP type check')
+    parser.add_argument('--script', type=Path, help='Your script (.txt): fixes misheard names and gives the AI context')
     parser.add_argument('--no-web', action='store_true',
                         help='Only Wikipedia/Wikimedia Commons and stock sites (no search of the whole web)')
     args = parser.parse_args()
     try:
         result = run(Path(args.root), Path(args.input), args.format, args.density, args.device,
                      False if args.no_popups else None, args.brain, progress=lambda m: print(m, flush=True),
-                     use_web=False if args.no_web else None, evaluator_choice=args.evaluator)
+                     use_web=False if args.no_web else None, evaluator_choice=args.evaluator,
+                     script=args.script.read_text(encoding='utf-8-sig') if args.script else '')
     except KeyboardInterrupt:
         return 130
     except Exception as error:

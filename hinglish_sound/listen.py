@@ -16,6 +16,7 @@ from .library import decode
 CLAP_MODEL = 'laion/larger_clap_general'
 RATE = 48000
 WINDOW = 7.0            # seconds of audio per embedding (CLAP hears up to 10 s)
+BATCH = 8               # files per model pass when listening to a library for the first time
 
 # What a sound can be. The top matches become the file's "sounds like" label for the AI.
 SFX_VOCAB = {
@@ -164,26 +165,70 @@ class Listener:
     def text_vectors(self, texts):
         return self.backend.texts(texts)
 
-    def file_vector(self, path, kind):
-        file = self.cache / f'{_key(path, self.model_name + kind)}.npy'
-        if file.exists():
-            return np.load(file)
+    def _cache_file(self, path, kind):
+        return self.cache / f'{_key(path, self.model_name + kind)}.npy'
+
+    @staticmethod
+    def _clips(path, kind):
         clips = [sfx_window(path)] if kind == 'sfx' else music_windows(path)
-        clips = [c for c in clips if len(c) >= RATE * .05] or [np.zeros(int(RATE * .1), np.float32)]
-        vector = self.backend.audio(clips).mean(axis=0)
+        return [c for c in clips if len(c) >= RATE * .05] or [np.zeros(int(RATE * .1), np.float32)]
+
+    def _save(self, path, kind, rows):
+        vector = np.asarray(rows).mean(axis=0)
         vector = vector / max(float(np.linalg.norm(vector)), 1e-8)
-        np.save(file, vector.astype(np.float32))
+        np.save(self._cache_file(path, kind), vector.astype(np.float32))
         return vector
 
-    def vectors(self, assets, progress=print):
-        out = []
-        for n, asset in enumerate(assets, 1):
-            if n == 1 or n % 100 == 0:
-                progress(f'  Listening to your {asset.kind} library {n}/{len(assets)} (first time only)')
+    def file_vector(self, path, kind):
+        file = self._cache_file(path, kind)
+        if file.exists():
+            return np.load(file)
+        return self._save(path, kind, self.backend.audio(self._clips(path, kind)))
+
+    def vectors(self, assets, progress=print, batch=BATCH):
+        """One vector per file. New files are listened to several at a time (one model pass per batch),
+        which is several times faster than one by one on a CPU; a file that fails is retried alone."""
+        out = [None] * len(assets)
+        todo = []
+        for i, asset in enumerate(assets):
             try:
-                out.append(self.file_vector(asset.path, asset.kind))
+                file = self._cache_file(asset.path, asset.kind)
+                if file.exists():
+                    out[i] = np.load(file)
+                    continue
             except Exception:
-                out.append(None)
+                continue
+            todo.append(i)
+        done = 0
+        for s in range(0, len(todo), batch):
+            chunk = todo[s:s + batch]
+            if done == 0 or done // 100 != (done + len(chunk)) // 100:
+                progress(f'  Listening to your {assets[chunk[0]].kind} library {done + len(chunk)}/{len(todo)} new files '
+                         '(first time only)')
+            done += len(chunk)
+            clips, owners = [], []
+            for i in chunk:
+                try:
+                    parts = self._clips(assets[i].path, assets[i].kind)
+                except Exception:
+                    continue
+                clips += parts
+                owners += [i] * len(parts)
+            if not clips:
+                continue
+            try:
+                rows = self.backend.audio(clips)
+            except Exception:
+                rows = None
+            for i in dict.fromkeys(owners):
+                try:
+                    if rows is None:
+                        out[i] = self.file_vector(assets[i].path, assets[i].kind)
+                    else:
+                        out[i] = self._save(assets[i].path, assets[i].kind,
+                                            [rows[k] for k, o in enumerate(owners) if o == i])
+                except Exception:
+                    out[i] = None
         dim = next((v.shape[0] for v in out if v is not None), 512)
         return np.stack([v if v is not None else np.zeros(dim, np.float32) for v in out]) if out else \
             np.zeros((0, dim), np.float32)
