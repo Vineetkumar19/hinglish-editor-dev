@@ -199,10 +199,12 @@ class TasteTests(unittest.TestCase):
                      'word': 'fail', 'trigger': 'failure_or_rejection', 'sound': 'cartoon boing', 'emotion': 'sad'},
                     {'path': 'boom.wav', 'category': 'impact', 'source': 'ai', 'line': 'Result? Zero.',
                      'word': 'Zero', 'trigger': 'reveal', 'sound': 'deep boom', 'emotion': 'shocked'}]
-            learning.record(root, cues, [1])
+            learning.record(root, cues, [1], video='reel-1')
+            learning.record(root, cues, [1], video='reel-1')        # saving the same video again: still one vote
             self.assertEqual(learning.banned(learning.load(root)), set())
-            data = learning.record(root, cues, [1])
+            data = learning.record(root, cues, [1], video='reel-2')  # removed in a second video: banned
             self.assertEqual(learning.banned(data), {'boing.wav'})
+            self.assertEqual(sum(e['word'] == 'fail' for e in data['examples']), 2)   # one example per video
             text = learning.taste(data)
             self.assertIn('KEPT', text)
             self.assertIn('REMOVED', text)

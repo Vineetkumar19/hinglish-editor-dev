@@ -18,10 +18,8 @@ class Brain:
         self.cache.mkdir(parents=True, exist_ok=True)
         self.session = requests.Session()
         self.session.trust_env = False
-        try:
-            names = {m['name'] for m in self.session.get(self.url + '/api/tags', timeout=5).json().get('models', [])}
-        except requests.RequestException as error:
-            raise RuntimeError('Ollama is not running. Start the Ollama app, then try again.') from error
+        from hinglish_visuals.brain import ollama_models
+        names = ollama_models(self.session, self.url)
         missing = [m for m in (model, embed_model) if m not in names and m + ':latest' not in names]
         if missing:
             raise RuntimeError('Ollama is missing ' + ', '.join(missing) + '. Run: ollama pull ' + missing[0])

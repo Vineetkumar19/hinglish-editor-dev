@@ -1,6 +1,7 @@
 """Your taste, learned locally: every Save & remix records which sounds you kept and which you removed.
 
-- a file you removed twice (and never kept) is not used again
+- a file you removed in two different videos (and never kept) is not used again; saving the same
+  video again only updates that video's choices (it is never counted twice)
 - your recent keeps/removals are given to the AI director as examples of your style
 Nothing is uploaded and no model weights change; delete cache/learning/sound-preferences.json to reset."""
 import json
@@ -26,23 +27,39 @@ def save(root, data):
     file.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
+def counts(data):
+    """{path: {'kept': videos, 'removed': videos}}: one vote per video (plus counts saved by older versions)."""
+    out = {p: dict(n) for p, n in data.get('files', {}).items()}
+    for choices in data.get('videos', {}).values():
+        for path, verdict in choices.items():
+            out.setdefault(path, {'kept': 0, 'removed': 0})[verdict] += 1
+    return out
+
+
 def banned(data):
-    return {path for path, n in data.get('files', {}).items() if n.get('removed', 0) >= 2 and not n.get('kept', 0)}
+    return {path for path, n in counts(data).items() if n.get('removed', 0) >= 2 and not n.get('kept', 0)}
 
 
-def record(root, cues, kept_indices):
-    """cues: plan cue dicts; kept_indices: the ones you kept. Only AI-chosen sounds teach taste."""
+def record(root, cues, kept_indices, video=''):
+    """cues: ALL the sounds proposed for one video; kept_indices: the ones you kept; video: which video
+    (its plan file). Saving the same video again replaces its earlier choices. Only AI-chosen sounds
+    teach taste."""
     data = load(root)
+    data.setdefault('videos', {})
     kept_indices = set(kept_indices)
+    video = str(video) or f'video-{len(data["videos"]) + 1}'
+    choices = {}
+    data['examples'] = [e for e in data.get('examples', []) if e.get('video') != video]
     for i, cue in enumerate(cues):
         verdict = 'kept' if i in kept_indices else 'removed'
-        stats = data['files'].setdefault(cue['path'], {'kept': 0, 'removed': 0})
-        stats[verdict] += 1
+        if choices.get(cue['path']) != 'kept':                 # the same file used twice: kept wins
+            choices[cue['path']] = verdict
         if cue.get('source') == 'ai':
             data['examples'].append({'line': cue.get('line', ''), 'word': cue.get('word', ''),
                                      'trigger': cue.get('trigger', ''), 'type': cue['category'],
                                      'sound': cue.get('sound', ''), 'emotion': cue.get('emotion', ''),
-                                     'verdict': verdict})
+                                     'verdict': verdict, 'video': video})
+    data['videos'][video] = choices
     data['examples'] = data['examples'][-MAX_EXAMPLES:]
     save(root, data)
     return data

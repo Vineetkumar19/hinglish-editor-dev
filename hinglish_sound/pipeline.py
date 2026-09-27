@@ -325,10 +325,13 @@ def remix(plan_file, keep, music=True, progress=print):
     plan_file = Path(plan_file)
     folder, root = plan_file.parent, plan_file.parents[4]
     plan = json.loads(plan_file.read_text(encoding='utf-8'))
-    keep = sorted({int(i) for i in keep if 0 <= int(i) < len(plan['cues'])})
-    learning.record(root, plan['cues'], keep)
+    # every sound ever proposed stays in the plan, so a sound you untick can be ticked back later
+    all_cues = plan.get('all_cues') or plan['cues']
+    keep = sorted({int(i) for i in keep if 0 <= int(i) < len(all_cues)})
+    learning.record(root, all_cues, keep, video=str(plan_file.resolve()))
     fields = Cue.__dataclass_fields__
-    cues = [Cue(**{k: v for k, v in plan['cues'][i].items() if k in fields}) for i in keep]
+    cues = [Cue(**{k: v for k, v in all_cues[i].items() if k in fields}) for i in keep]
+    plan.update(all_cues=all_cues, kept=keep)
     sections = [s for s in plan['music'] if s.get('path')] if music else []
     seq = Sequence(plan['timeline_xml'])
     voice = _audio_track(seq.path, plan['seconds'])[:int(plan['seconds'] * 48000)]

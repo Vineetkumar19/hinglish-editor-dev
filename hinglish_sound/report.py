@@ -54,12 +54,15 @@ def write_report(path, name, plan, preview=None):
         f'<td>{e(Path(s["path"]).name)}{_verdict(s.get("evaluation"))}</td>'
         f'<td class="muted">{e(s.get("why", ""))}<br>{e(s.get("pick_why", ""))}</td></tr>'
         for s in plan['music'])
+    listed = plan.get('all_cues') or plan['cues']            # after a remix: every proposed sound, ticked or not
+    kept = set(plan.get('kept', range(len(listed))))
     sounds = ''.join(
-        f'<tr><td><label><input type="checkbox" class="keep" data-i="{i}" checked> {_clock(c["target"])}</label></td>'
+        f'<tr class="{"" if i in kept else "off"}"><td><label><input type="checkbox" class="keep" data-i="{i}"'
+        f'{" checked" if i in kept else ""}> {_clock(c["target"])}</label></td>'
         f'<td><b>{e(c["category"])}</b><br><small>{e(c["source"])}{" · " + e(c["trigger"]) if c.get("trigger") else ""}</small></td>'
         f'<td>{e(c.get("word") or "")}<br><small>{e(c.get("emotion") or "")}</small></td>'
         f'<td><small>{e(c.get("sound") or "")}</small><br>{e(Path(c["path"]).name)}{_verdict(c.get("evaluation"))}</td>'
-        f'<td class="muted">{e(c["reason"])}</td></tr>' for i, c in enumerate(plan['cues']))
+        f'<td class="muted">{e(c["reason"])}</td></tr>' for i, c in enumerate(listed))
     dropped = ''.join(f'<li>“{e(d["word"])}” ({e(d["type"])}): {e(d["why"])}</li>' for d in plan.get('dropped', []))
     qa = ''.join(f'<tr class="{"" if r["passed"] else "bad"}"><td>{"✓" if r["passed"] else "✗"}</td>'
                  f'<td>{e(r["check"])}</td><td>{e(r["value"])}</td></tr>' for r in plan.get('mix_qa', []))

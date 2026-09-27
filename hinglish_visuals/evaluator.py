@@ -29,7 +29,7 @@ import numpy as np
 import requests
 from PIL import Image
 
-from .brain import OLLAMA_URL
+from .brain import OLLAMA_URL, ollama_models
 
 VISION_MODEL = 'qwen2.5vl:7b'
 VIDEO_FRAMES = 3
@@ -91,10 +91,18 @@ class Verdict:
         return 'NOT CHECKED' if self.passed is None else 'PASS' if self.passed else 'FAIL'
 
 
+AREA_WORDS = {'city', 'cityscape', 'town', 'village', 'state', 'country', 'region', 'district', 'area',
+              'skyline', 'metropolis', 'capital', 'province', 'nation'}
+
+
 def category_for(kind, show, name, category=''):
     """What must be visible, in plain words."""
     if show == 'logo' or kind == 'brand':
         return f'the {name} logo'
+    if kind == 'place' and (not category or set(_tokens(category)) & AREA_WORDS):
+        # a city / state / country is shown by any real view of it (its famous temple counts as Madurai);
+        # a landmark keeps its own category ("temple" must show the temple)
+        return f'a real view of {name}: its streets, skyline, landmark, temple, building or landscape'
     if category:
         return category
     return {'person': 'a person', 'place': f'{name} (a real place)', 'event': f'{name}',
@@ -128,7 +136,9 @@ def decide(answer, info, judge=''):
     identity = answer.get('identity', 'unsure')
     if identity == 'no':
         reasons.append(f'IDENTITY: not {name}. {answer.get("identity_reason", "")}'.strip())
-    if info['show'] == 'logo' or kind == 'brand':
+    if (info['show'] == 'logo' or kind == 'brand') and answer.get('_cannot_read'):
+        warnings.append(f'logo text not read (no vision model); trusted because the source names {name}')
+    elif info['show'] == 'logo' or kind == 'brand':
         if identity != 'yes' and not reads_as(answer.get('text_in_image', ''), name):
             reasons.append(f'IDENTITY: the logo does not read "{name}" '
                            f'(reads "{answer.get("text_in_image", "") or "nothing"}")')
@@ -175,10 +185,7 @@ class VisionModel:
         self.cache.mkdir(parents=True, exist_ok=True)
         self.session = session or requests.Session()
         self.session.trust_env = False
-        try:
-            names = {m['name'] for m in self.session.get(self.url + '/api/tags', timeout=4).json().get('models', [])}
-        except (requests.RequestException, ValueError) as error:
-            raise RuntimeError('Ollama is not running') from error
+        names = ollama_models(self.session, self.url)
         if model not in names and model + ':latest' not in names:
             raise RuntimeError(f'Ollama is missing {model} (run: ollama pull {model})')
 
@@ -224,7 +231,7 @@ class ClipCheck:
         return {'seen': f'most like {"the wanted thing" if rank == 0 else best_other} (match {share:.0%})',
                 'text_in_image': '', 'category_seen': category if ok else best_other, 'category_ok': ok,
                 'identity': 'unsure', 'identity_reason': 'CLIP cannot confirm identity',
-                'fits_moment': True, 'quality_ok': True, 'quality_issue': ''}
+                'fits_moment': True, 'quality_ok': True, 'quality_issue': '', '_cannot_read': True}
 
 
 class Evaluator:

@@ -11,6 +11,20 @@ import requests
 OLLAMA_URL = 'http://127.0.0.1:11434'
 
 
+def ollama_models(session, url, tries=3, timeout=20):
+    """Installed Ollama models. Patient on purpose: while a model is thinking on the CPU, Ollama can take
+    many seconds to answer, and a short timeout wrongly reported "not running"."""
+    import time
+    last = None
+    for n in range(tries):
+        try:
+            return {m['name'] for m in session.get(url + '/api/tags', timeout=timeout).json().get('models', [])}
+        except (requests.RequestException, ValueError) as error:
+            last = error
+            time.sleep(2 * (n + 1))
+    raise RuntimeError('Ollama is not running (start the Ollama app)') from last
+
+
 class OllamaBrain:
     def __init__(self, root, model, url=OLLAMA_URL, progress=print):
         self.model, self.url, self.progress = model, url.rstrip('/'), progress
@@ -19,10 +33,7 @@ class OllamaBrain:
         self.cache.mkdir(parents=True, exist_ok=True)
         self.session = requests.Session()
         self.session.trust_env = False
-        try:
-            names = {m['name'] for m in self.session.get(self.url + '/api/tags', timeout=4).json().get('models', [])}
-        except (requests.RequestException, ValueError) as error:
-            raise RuntimeError('Ollama is not running') from error
+        names = ollama_models(self.session, self.url)
         if model not in names and model + ':latest' not in names:
             raise RuntimeError(f'Ollama is missing {model} (run: ollama pull {model})')
 
