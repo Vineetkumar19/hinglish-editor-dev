@@ -75,6 +75,13 @@ def popup_slots(moments, phrases, lines, words, profile, duration, taken=(), nam
             continue
         spoken = ' '.join(l.text for l in lines if l.end > start and l.start < end)
         proposals.append(Slot(m, round(start, 3), round(end, 3), spoken or phrase.text, len(phrase.text.split())))
+    # a spoken list ("Rapido? Zomato? Swiggy?"): each card ends when the next item is said, so every item
+    # gets its own card instead of one card hiding the rest
+    proposals.sort(key=lambda s: s.start)
+    for n, slot in enumerate(proposals):
+        later = [p.start for p in proposals[n + 1:] if p.start > slot.start + 1e-3]
+        if later and later[0] < slot.end and later[0] - slot.start >= profile.min_len - 1e-6:
+            slot.end = round(later[0], 3)
     chosen = best_combination(proposals, profile)
     last_seen, kept = {}, []
     for slot in sorted(chosen, key=lambda s: s.start):

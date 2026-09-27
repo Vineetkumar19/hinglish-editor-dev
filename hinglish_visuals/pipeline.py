@@ -295,6 +295,10 @@ def run(root, input_path, output_format=None, density=None, device=None, popups=
             while True:
                 full = full_slots([m for m in usable if m.display == 'fullscreen'], phrases, lines, full_p,
                                   timeline.duration, blocked_ranges(timeline.xml_path))
+                placed = {id(s.moment) for s in full}
+                for m in usable:        # a full-screen idea that does not fit (e.g. in the opening seconds) pops up
+                    if m.display == 'fullscreen' and id(m) not in placed:
+                        m.display = 'popup'
                 pops = popup_slots([m for m in usable if m.display == 'popup'], phrases, lines, words, pop_p,
                                    timeline.duration, [(s.start, s.end) for s in full], names)
                 slots = sorted(full + pops, key=lambda s: s.start)

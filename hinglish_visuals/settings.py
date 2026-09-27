@@ -11,8 +11,11 @@ BRAINS = ('auto', 'ollama', 'local')
 # Full-screen visuals follow B-roll rules (they hide the face). Pop-ups (logo / face cards) keep the
 # face visible, so they may come sooner, also inside the opening hook, and more often.
 POPUP = {
-    'short': Profile('popup', 1.2, 3.0, .6, 2.2, .45, 0.0, .4, 2.2),
-    'long': Profile('popup', 1.5, 3.5, 2.0, 6.0, .20, 0.0, 1.0, 2.6),
+    # name, min_len, max_len, min_gap, min_spacing, max_coverage, hook, tail, ideal
+    # A card never hides the face, so cards may follow each other directly: a spoken list gets one card
+    # per item ("Flat? PG? Rapido? Zomato?"), each at least 0.6 s.
+    'short': Profile('popup', .6, 2.5, 0.0, .6, .75, 0.0, .3, 1.6),
+    'long': Profile('popup', 1.0, 3.5, .3, 1.5, .40, 0.0, 1.0, 2.4),
 }
 
 
