@@ -1,0 +1,13 @@
+test_actual_original_range_overrun_stays_rejected (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_actual_original_range_overrun_stays_rejected) ... ok
+test_actual_prepared_active_overrun_stays_rejected (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_actual_prepared_active_overrun_stays_rejected) ... ok
+test_declared_extra_frame_is_not_metadata_rounding (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_declared_extra_frame_is_not_metadata_rounding) ... ok
+test_eight_recorded_frame_extents_survive_muxed_duration_rounding (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_eight_recorded_frame_extents_survive_muxed_duration_rounding) ... ok
+test_mismatched_or_invalid_frame_rate_is_rejected (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_mismatched_or_invalid_frame_rate_is_rejected) ... ok
+test_one_additional_stream_tick_drift_is_not_the_recorded_edit_rounding (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_one_additional_stream_tick_drift_is_not_the_recorded_edit_rounding) ... ok
+test_unknown_frame_evidence_does_not_create_duration_slack (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_unknown_frame_evidence_does_not_create_duration_slack) ... ok
+test_vfr_or_missing_packet_evidence_cannot_justify_duration_extension (tests.test_broll_duration_metadata_regression.EncodedDurationRegressionTests.test_vfr_or_missing_packet_evidence_cannot_justify_duration_extension) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.284s
+
+OK

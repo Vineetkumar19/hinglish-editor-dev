@@ -1,0 +1,29 @@
+# Torch, torchaudio and optional upgrade torchvision are installed separately so CPU/CUDA builds stay matched.
+numpy>=1.26,<3
+av>=14,<19
+uroman>=1.3,<2
+transformers==4.57.6
+huggingface-hub>=0.34,<1
+hf-xet>=1.1,<2
+silero-vad==6.2.1
+faster-whisper==1.2.1
+Pillow>=10,<13
+fonttools>=4.67,<5
+opencv-python-headless>=4.9,<5
+requests>=2.31,<3
+urllib3>=2.8,<3
+defusedxml>=0.7.1,<1
+SQLAlchemy>=2.0.46,<2.1
+PyMySQL[rsa]>=1.1.2,<1.2
+regex>=2023.10
+# Smart Visuals web agent: image/video search without keys, video download, bundled ffmpeg
+ddgs>=9.5,<10
+yt-dlp>=2025.1
+imageio-ffmpeg>=0.5,<1
+# Motion Graphics: renders the HTML scene templates in Microsoft Edge / Chrome (already on Windows; no browser download)
+playwright>=1.47,<2
+# Motion Graphics removes backgrounds from downloaded people and objects locally.
+rembg>=2.0.85,<3
+# rembg leaves its ONNX execution provider optional; fresh installs need one.
+onnxruntime>=1.20,<2
+Unidecode==1.4.0

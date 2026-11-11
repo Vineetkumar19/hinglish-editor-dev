@@ -1,0 +1,30 @@
+<!doctype html><html lang="en" data-token="__APP_TOKEN__"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cricket Documentary Intro · Storylens</title><link rel="stylesheet" href="workbench.css"><script src="feedback.js"></script></head><body><main>
+<header><h1>Cricket Documentary Intro</h1><a href="intro-create.html">Intro Create</a></header>
+<p><a href="hook-drafts.html?draft=youtube">Open the updated YouTube intro draft</a></p>
+<p>Create one 40-second introduction from the real documentary. Keep each question connected to its answer in the body.</p>
+<label>Documentary video<input id="body-path"></label><label>Timed transcript<input id="transcript-path"></label><label>Script<input id="script-path"></label><button id="import">Inspect and import</button>
+<label>Saved documentary preview job ID<input id="saved-job"></label><button id="restore">Restore documentary preview</button><button id="resume" type="button" hidden>Resume saved render</button>
+<details><summary>Reference style review</summary>
+<p>Record observations from exact reference media. Use source times and label uncertainty. Keep reusable patterns abstract and exclude copied wording, footage and audio.</p>
+<form id="style-form">
+<label>Reference title<input id="style-title" required maxlength="120"></label>
+<label>Publication URL (if published)<input id="style-url" type="url"></label>
+<label>Local reference video<input id="style-path" required></label>
+<button id="style-inspect" type="button">Inspect reference video</button>
+<label>Opening events (JSON)<textarea id="style-events" required placeholder='[{"start":0,"end":2,"role":"setup","certainty":"observed","shot":"","narration":"","text":"","sound":"","transition":""}]'></textarea></label>
+<p>Narrative roles include setup, stakes, question, evidence, withheld payoff and handoff. Use “observed” or “uncertain”.</p>
+<label>Silence placement<input id="style-silence"></label>
+<label>Speech density<input id="style-speech"></label>
+<label>Music intensity<input id="style-music"></label>
+<label>Abstract patterns (JSON)<textarea id="style-patterns" required placeholder='[{"constraint":"","evidence":[1]}]'></textarea></label>
+<button>Save reference observations</button></form>
+<label>Reference reviewer<input id="style-reviewer" maxlength="80"></label><div id="style-cards"></div><p id="style-feedback" role="status"></p>
+</details>
+<p id="status" role="status"></p><section id="review" hidden><h2>Source review</h2><p id="source-note"></p><video id="source-video" controls width="640"></video><details><summary>Script and timed words</summary><pre id="script"></pre><pre id="words"></pre></details>
+<h2>Questions, evidence and answers</h2><p>Choose complete speech spans. Mark answers and revealing visuals as protected. Times are seconds in the source and unchanged body.</p><div id="nodes"></div><button id="add">Add source span</button>
+<details><summary>Protect scoreboard and other revealing visuals</summary>
+<p>Use exact source times even when the picture has no spoken words. These ranges are excluded from every intro.</p>
+<label>Protected visual ranges (JSON)<textarea id="protected-visuals" placeholder='[{"start":12.5,"end":14.0,"reason":"Shows the final score"}]'>[]</textarea></label></details>
+<label><input id="spoilers" type="checkbox">I reviewed the selected pictures, captions and speech for spoilers.</label><label>Reviewer<input id="reviewer" placeholder="Name or review identity"></label><button id="save">Save story review</button>
+<h2>Introduction</h2><p>Select the setup and question spans above in playback order. The selected spans must total exactly 1,200 frames at 30 fps; adjust boundaries within pauses while preserving complete words.</p><label>Approved reference patterns<select id="doc-style-card"><option value="">Use the documentary recipe</option></select></label><p id="approved-style-patterns"></p><p>Target beats at 0–5, 5–12, 12–21, 21–30, 30–36 and 36–40 seconds. Use complete source phrases at the boundaries.</p><ol id="actual-doc-clock" aria-label="Actual introduction clock"></ol><output id="duration"></output><button id="render" disabled>Render 40-second preview</button></section><div id="results"></div>
+</main><script src="documentary-intro.js"></script><script src="reference-style.js"></script></body></html>

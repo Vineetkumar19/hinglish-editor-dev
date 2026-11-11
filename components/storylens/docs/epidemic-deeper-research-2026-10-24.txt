@@ -1,0 +1,99 @@
+Epidemic deeper research: confirmed disclosures and Storylens implications
+24 October 2026
+
+Correction to earlier research
+The previous client-only investigation did not recover selection models. That
+does NOT mean all relevant weights and architecture are unavailable. Public
+research now establishes AuroLA as a production SFX retrieval component, with
+separate public research checkpoints. Exact production checkpoint identity and
+Studio's complete private video-to-timeline planner remain unverified.
+
+1. Confirmed production SFX search
+Epidemic explicitly identifies AuroLA, based on Qwen2.5-Omni-7B, as powering its
+sound-effects search, also called by Studio. Audio and metadata embeddings are
+computed offline. Online text encoding feeds Elasticsearch keyword and nearest-
+neighbour retrieval, whose scores are fused. SGLang serves the encoder. Exact
+fusion weights, candidate counts and current production checkpoint hashes are
+not disclosed. The article describes a research reranker; this alone does not
+establish that every live Studio request uses it.
+Source: https://www.epidemicsound.com/blog/state-of-the-art-audio-retrieval/
+
+2. Available implementation and weights
+The official research repository releases retrieval and reranking variants at
+3B and 7B, alongside training/inference code. These are specialized trained
+models, not a prompt that turns our existing generic Qwen into the same model.
+AudioVerse's release remains TODO. Public availability is not proof of identical
+production weights. No explicit license was found in the inspected repository
+root or checkpoint metadata; resolve this before deployment/distribution.
+Source: https://github.com/Jazzcharles/AuroLA
+Checkpoints: https://huggingface.co/Jazzcharles/AuroLA-3B
+https://huggingface.co/Jazzcharles/AuroLA-7B
+https://huggingface.co/Jazzcharles/AuroLA-rerank-3B
+https://huggingface.co/Jazzcharles/AuroLA-rerank-7B
+Detailed release/code evidence: docs/epidemic-public-model-research-2026-10-24.txt
+
+3. Music adaptation is a different subsystem
+Adapt's published architecture uses a VAE and latent diffusion transformer,
+trained with rectified flow, conditioned on text and time-varying audio stems.
+It changes an existing opted-in track; it is not the SFX search engine. The
+article's eight steps and CFG 1.0 describe its experiment, not verified current
+production defaults. No Adapt weights or complete training recipe were found.
+Source: https://www.epidemicsound.com/blog/conditioning-conflicts-in-adapt/
+
+4. Music selection and passage choice
+Official developer guidance describes vision-generated mood/tempo/instrument
+queries, iterative catalogue searches and returned track IDs. Its Highlights
+API selects a passage for a requested duration; the guide attributes the model
+to large-scale YouTube usage. This describes a supported developer workflow,
+not a disclosure of Studio's exact planner prompt/model or training records.
+Source: https://developers.epidemicsound.com/docs/soundtracking-with-llm/
+API details: https://developers.epidemicsound.com/docs/api-reference/
+
+5. Open infrastructure is not the missing planner
+Epidemic also publishes modal-workflows for resumable ML pipelines and training
+checkpoints. This is useful infrastructure evidence, but it neither supplies
+Studio's scene understanding nor its music ranking. Storylens does not need a
+cloud migration to apply resumable indexing locally.
+Source: https://www.epidemicsound.com/blog/ml-workflows-on-modal/
+Repository: https://github.com/epidemicsound/modal-workflows
+
+6. What our existing source already does
+hinglish_sound/vectors.py already fuses local text embeddings and CLAP audio
+retrieval, using reciprocal-rank fusion (K=20; audio weight 2, text weight 1),
+plus a small library-pack preference. Therefore 'add hybrid search' is not a new
+solution. The useful experiment is to compare a specialized AuroLA backend with
+this baseline using the same owned/licensed sounds and event descriptions.
+hinglish_sound/music.py selects measured energy passages and can align an energy
+peak to a requested climax. This does not model musical phrase endings/cadences
+or learned listener preference. Those remain separate improvement opportunities.
+
+7. Proposed implementation boundary, not an installed integration
+Keep existing Qwen/Vision planning, stable event IDs, exact timestamps and the
+working export path. Add an optional retrieval adapter only after model-license
+and resource checks. Index licensed local audio once, cache by asset hash plus
+model revision, and compare text/audio scores against CLAP. Rerank a small
+shortlist if resources permit. Retain the current backend and saved choices.
+Neither semantic retrieval nor a high similarity score establishes the precise
+frame for a footstep, impact, transition or graphic entrance: use measured edit
+events and a separate temporal alignment stage. Reject unsuitable candidates;
+do not hide failure by inserting an unrelated sound.
+
+For music, plan a sustained emotional arc, rank licensed instrumental candidates,
+select phrase-aware passages and mix under dialogue. Compare results by listening
+and checking cue timing, not similarity metrics alone. Epidemic's own evaluation
+research reports weaknesses in semantic/synchronization metrics:
+https://www.epidemicsound.com/blog/soundtracking-difficulties-with-ai/
+
+Still unknown
+- Complete Studio server code, planner model/prompt and decision policy.
+- Exact live ranking weights, personalization and production checkpoint identity.
+- Private catalogue embeddings, user interaction records and Adapt weights.
+- Full AudioVerse training-data release and rights for each underlying source.
+
+Work performed and validation limits
+Read primary engineering articles, official API docs and public research code,
+and inspected Storylens retrieval/passage source. Saved reference knowledge.
+No checkpoint download, inference, paid job, owner-video upload or runtime change
+was performed. No Storylens listening/export result is claimed. Unit/integration
+and live application tests are not evidence from this research-only pass. The
+proposed adapter, GPU feasibility and quality gain remain unimplemented/unverified.

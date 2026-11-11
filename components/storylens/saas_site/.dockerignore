@@ -1,0 +1,14 @@
+**/__pycache__
+**/*.pyc
+.env
+**/.env
+*.sqlite3
+.git
+.venv
+output
+cache
+models
+input
+library
+publishing
+*.local.json

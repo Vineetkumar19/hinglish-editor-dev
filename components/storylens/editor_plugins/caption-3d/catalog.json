@@ -1,0 +1,288 @@
+{
+ "colours": {
+  "yellow": [
+   1,
+   0.88,
+   0
+  ],
+  "blue": [
+   0.08,
+   0.38,
+   1
+  ],
+  "red": [
+   0.94,
+   0.06,
+   0.09
+  ],
+  "black": [
+   0,
+   0,
+   0
+  ]
+ },
+ "families": [
+  {
+   "id": "3d1",
+   "label": "3D1",
+   "variants": [
+    {
+     "id": "boost",
+     "label": "Boost",
+     "text": "BOOST\nPROPERTY LISTINGS",
+     "layout": "title",
+     "colour": "yellow"
+    },
+    {
+     "id": "look",
+     "label": "Professional look",
+     "text": "PROFESSIONAL\nLOOK",
+     "layout": "title",
+     "colour": "yellow"
+    },
+    {
+     "id": "clicks",
+     "label": "In a few clicks",
+     "text": "IN A FEW\nCLICKS",
+     "layout": "title",
+     "colour": "yellow"
+    },
+    {
+     "id": "standout",
+     "label": "Stand out",
+     "text": "STAND OUT\nON SOCIAL MEDIA",
+     "layout": "title",
+     "colour": "yellow"
+    }
+   ]
+  },
+  {
+   "id": "3d2",
+   "label": "3D2",
+   "variants": [
+    {
+     "id": "yellow",
+     "label": "1 word · Yellow",
+     "text": "FOCUS",
+     "words": 1,
+     "layout": "wall",
+     "colour": "yellow",
+     "orientation": [
+      0,
+      -22,
+      -2
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 220
+      }
+     ]
+    },
+    {
+     "id": "blue",
+     "label": "2 words · Blue",
+     "text": "Stay Focused",
+     "words": 2,
+     "layout": "wall",
+     "colour": "blue",
+     "orientation": [
+      0,
+      22,
+      2
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 165
+      },
+      {
+       "count": 1,
+       "size": 220
+      }
+     ]
+    },
+    {
+     "id": "red",
+     "label": "3 words · Red",
+     "text": "Make It Happen",
+     "words": 3,
+     "layout": "wall",
+     "colour": "red",
+     "orientation": [
+      0,
+      -22,
+      -2
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 175
+      },
+      {
+       "count": 1,
+       "size": 130
+      },
+      {
+       "count": 1,
+       "size": 220
+      }
+     ]
+    },
+    {
+     "id": "black",
+     "label": "4 words · Black",
+     "text": "Build Your Own Story",
+     "words": 4,
+     "layout": "wall",
+     "colour": "black",
+     "orientation": [
+      0,
+      22,
+      2
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 170
+      },
+      {
+       "count": 1,
+       "size": 130
+      },
+      {
+       "count": 1,
+       "size": 130
+      },
+      {
+       "count": 1,
+       "size": 210
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3d3",
+   "label": "3D3",
+   "variants": [
+    {
+     "id": "ground",
+     "label": "Ground",
+     "text": "And Change The Perspective",
+     "words": 4,
+     "layout": "ground",
+     "colour": "yellow",
+     "orientation": [
+      -58,
+      0,
+      -7
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 110
+      },
+      {
+       "count": 1,
+       "size": 165
+      },
+      {
+       "count": 1,
+       "size": 220
+      },
+      {
+       "count": 1,
+       "size": 165
+      }
+     ]
+    },
+    {
+     "id": "wall",
+     "label": "Wall",
+     "text": "To Fit Into Different",
+     "words": 4,
+     "layout": "wall",
+     "colour": "yellow",
+     "orientation": [
+      0,
+      -28,
+      -2
+     ],
+     "rows": [
+      {
+       "count": 2,
+       "size": 220
+      },
+      {
+       "count": 1,
+       "size": 220
+      },
+      {
+       "count": 1,
+       "size": 145
+      }
+     ]
+    },
+    {
+     "id": "corner",
+     "label": "Corner",
+     "text": "And Really It's Easy",
+     "words": 4,
+     "layout": "corner",
+     "colour": "yellow",
+     "orientation": [
+      0,
+      0,
+      0
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 150,
+       "side": "left"
+      },
+      {
+       "count": 1,
+       "size": 180,
+       "side": "left"
+      },
+      {
+       "count": 1,
+       "size": 200,
+       "side": "right"
+      },
+      {
+       "count": 1,
+       "size": 220,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "id": "column",
+     "label": "Column",
+     "text": "And Environments",
+     "words": 2,
+     "layout": "column",
+     "colour": "yellow",
+     "orientation": [
+      0,
+      -18,
+      0
+     ],
+     "rows": [
+      {
+       "count": 1,
+       "size": 110
+      },
+      {
+       "count": 1,
+       "size": 250
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

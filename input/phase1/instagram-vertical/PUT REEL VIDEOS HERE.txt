@@ -1,4 +1,0 @@
-Put Instagram Reel videos here for a 1080 x 1920 output.
-Double-click Run Phase 1.bat. No script needed.
-Use only ONE Phase 1 input folder per batch.
-The full picture is fitted without cropping. Other-shaped footage may have black borders.

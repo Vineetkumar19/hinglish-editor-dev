@@ -1,0 +1,3 @@
+(function(){var report={ok:false};try{var s=SLPastePanelTiming;if(!s||s.comp!==app.project.itemByID(24516)||s.layer.source!==s.source||String(s.layer.comment)!==s.comment)throw Error('Undo the test paste before repeating.');
+ var selected=app.project.selection||[];for(var i=0;i<selected.length;i++)selected[i].selected=false;s.created[s.created.length-1].selected=true;s.comp.openInViewer();s.layer.selected=true;
+report.ok=true;}catch(e){report.error=String(e);report.state=s?SLCopyPasteModel.state(s.layer.comment):null;}var f=new File('D:/Full Drive/remove silence/output/copy-paste-evidence/scroll-speed/panel-repeat-ready.json');f.encoding='UTF-8';f.open('w');f.write(JSON.stringify(report));f.close();})();

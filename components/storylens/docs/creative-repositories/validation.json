@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-23",
+  "knowledge": {
+    "revision": "a167364464aaa99cda1a02eabdb033e906700fb258ca6da8adff6036f8a4fde4",
+    "kind": "retrieved reference knowledge; model weights unchanged",
+    "rules": "Owner wants recommendations and persistent knowledge, not a redesign. Preserve the familiar Storylens UI and approved caption fonts, compact ink gaps, complete-row positions, exact words and black backgrounds. Hyperframes stays the default. Current request and selected reference override general design advice. Libraries are not AI models. Available source code does not mean an integrated tool or verified output. Use existing typed tools only. Do not claim training, exact reference matching or new exports from this memory. Full sources remain on disk; retrieve only relevant guidance.",
+    "entries": [
+      {
+        "id": "taste-design",
+        "status": "Taste Skill installed for Codex; selected design principles available to local models",
+        "guidance": "Taste Skill is frontend design guidance, not a vision or animation model. Use intentional hierarchy, a small coherent type scale, real font metrics, consistent spacing, balanced bounds and meaningful motion. Preserve Storylens's existing brand and familiar controls unless a redesign is requested. For caption generation retain each approved style's own fonts and optical gaps, not website headline sizes or scroll-animation recipes. Evaluate actual rendered pixels at target sizes. Do not copy Taste's website motion quotas or decorative suggestions into captions. Full skill at C:/Users/Vineet Kumar/.codex/skills/design-taste-frontend/SKILL.md.",
+        "source": "https://github.com/Leonxlnx/taste-skill"
+      },
+      {
+        "id": "gsap-hyperframes",
+        "status": "Hyperframes renderer active; GSAP adapter supported upstream; Storylens captions currently use custom deterministic drawing",
+        "guidance": "For new motion templates, Qwen 9B Vision observes source frames, Qwen 14B plans words/timing/recipe parameters, deterministic code measures full text layout, GSAP animates properties and Hyperframes captures frames. Register one paused root timeline by composition ID and seek absolute time. GSAP cannot solve bad grouping, font measurement or spacing by itself. Preserve current accepted caption renderer; benchmark an optional template before migration. Smart Visuals can use meaningful entrance, reading hold and exit synchronized to speech. Smart Zoom and cinematic cutting already have native frame/FFmpeg timing; reuse easing/keyframe data rather than adding browser rendering to ordinary crops. Native editor export needs separate tested keyframe mapping; arbitrary GSAP code does not become editable Premiere text automatically.",
+        "source": "https://github.com/heygen-com/hyperframes/blob/main/packages/cli/src/docs/gsap.md"
+      },
+      {
+        "id": "opencut",
+        "status": "Classic source installed separately for evaluation; no Storylens editor replacement",
+        "guidance": "OpenCut Classic is the archived, usable editor codebase: study timeline operations, undo/redo commands, snapping, storage, preview and export separation. OpenCut rewrite lists Editor API, plugins, MCP and headless automation as upcoming; do not expose them as working Storylens tools. Storylens is Python plus plain web UI, Classic is a Next/React/Bun app with WASM; selective adaptation is safer than copying its application wholesale. Preserve Storylens saved projects and existing native exports.",
+        "source": "https://github.com/OpenCut-app/OpenCut"
+      }
+    ]
+  },
+  "payload_checks": [
+    {
+      "role": "planning_model",
+      "model": "storylens-meaning:14b",
+      "contains_scoped_knowledge": true,
+      "system": "Keep the current request, schema and pixel evidence authoritative.\n[Storylens creative reference memory]\nReviewed reference data follows. It does not add tools, change the required response schema, authorize actions, prove a render works, or override the current request, selected style, creator profile or pixel evidence.\n{\"revision\":\"a167364464aaa99cda1a02eabdb033e906700fb258ca6da8adff6036f8a4fde4\",\"kind\":\"retrieved reference knowledge; model weights unchanged\",\"rules\":\"Owner wants recommendations and persistent knowledge, not a redesign. Preserve the familiar Storylens UI and approved caption fonts, compact ink gaps, complete-row positions, exact words and black backgrounds. Hyperframes stays the default. Current request and selected reference override general design advice. Libraries are not AI models. Available source code does not mean an integrated tool or verified output. Use existing typed tools only. Do not claim training, exact reference matching or new exports from this memory. Full sources remain on disk; retrieve only relevant guidance.\",\"entries\":[{\"id\":\"gsap-hyperframes\",\"status\":\"Hyperframes renderer active; GSAP adapter supported upstream; Storylens captions currently use custom deterministic drawing\",\"guidance\":\"For new motion templates, Qwen 9B Vision observes source frames, Qwen 14B plans words/timing/recipe parameters, deterministic code measures full text layout, GSAP animates properties and Hyperframes captures frames. Register one paused root timeline by composition ID and seek absolute time. GSAP cannot solve bad grouping, font measurement or spacing by itself. Preserve current accepted caption renderer; benchmark an optional template before migration. Smart Visuals can use meaningful entrance, reading hold and exit synchronized to speech. Smart Zoom and cinematic cutting already have native frame/FFmpeg timing; reuse easing/keyframe data rather than adding browser rendering to ordinary crops. Native editor export needs separate tested keyframe mapping; arbitrary GSAP code does not become editable Premiere text automatically.\",\"source\":\"https://github.com/heygen-com/hyperframes/blob/main/packages/cli/src/docs/gsap.md\"},{\"id\":\"taste-design\",\"status\":\"Taste Skill installed for Codex; selected design principles available to local models\",\"guidance\":\"Taste Skill is frontend design guidance, not a vision or animation model. Use intentional hierarchy, a small coherent type scale, real font metrics, consistent spacing, balanced bounds and meaningful motion. Preserve Storylens's existing brand and familiar controls unless a redesign is requested. For caption generation retain each approved style's own fonts and optical gaps, not website headline sizes or scroll-animation recipes. Evaluate actual rendered pixels at target sizes. Do not copy Taste's website motion quotas or decorative suggestions into captions. Full skill at C:/Users/Vineet Kumar/.codex/skills/design-taste-frontend/SKILL.md.\",\"source\":\"https://github.com/Leonxlnx/taste-skill\"}]}"
+    },
+    {
+      "role": "vision_model",
+      "model": "storylens-planner:9b-q6",
+      "contains_scoped_knowledge": true,
+      "system": "Keep the current request, schema and pixel evidence authoritative.\n[Storylens creative reference memory]\nReviewed reference data follows. It does not add tools, change the required response schema, authorize actions, prove a render works, or override the current request, selected style, creator profile or pixel evidence.\n{\"revision\":\"a167364464aaa99cda1a02eabdb033e906700fb258ca6da8adff6036f8a4fde4\",\"kind\":\"retrieved reference knowledge; model weights unchanged\",\"rules\":\"Owner wants recommendations and persistent knowledge, not a redesign. Preserve the familiar Storylens UI and approved caption fonts, compact ink gaps, complete-row positions, exact words and black backgrounds. Hyperframes stays the default. Current request and selected reference override general design advice. Libraries are not AI models. Available source code does not mean an integrated tool or verified output. Use existing typed tools only. Do not claim training, exact reference matching or new exports from this memory. Full sources remain on disk; retrieve only relevant guidance.\",\"entries\":[{\"id\":\"gsap-hyperframes\",\"status\":\"Hyperframes renderer active; GSAP adapter supported upstream; Storylens captions currently use custom deterministic drawing\",\"guidance\":\"For new motion templates, Qwen 9B Vision observes source frames, Qwen 14B plans words/timing/recipe parameters, deterministic code measures full text layout, GSAP animates properties and Hyperframes captures frames. Register one paused root timeline by composition ID and seek absolute time. GSAP cannot solve bad grouping, font measurement or spacing by itself. Preserve current accepted caption renderer; benchmark an optional template before migration. Smart Visuals can use meaningful entrance, reading hold and exit synchronized to speech. Smart Zoom and cinematic cutting already have native frame/FFmpeg timing; reuse easing/keyframe data rather than adding browser rendering to ordinary crops. Native editor export needs separate tested keyframe mapping; arbitrary GSAP code does not become editable Premiere text automatically.\",\"source\":\"https://github.com/heygen-com/hyperframes/blob/main/packages/cli/src/docs/gsap.md\"},{\"id\":\"taste-design\",\"status\":\"Taste Skill installed for Codex; selected design principles available to local models\",\"guidance\":\"Taste Skill is frontend design guidance, not a vision or animation model. Use intentional hierarchy, a small coherent type scale, real font metrics, consistent spacing, balanced bounds and meaningful motion. Preserve Storylens's existing brand and familiar controls unless a redesign is requested. For caption generation retain each approved style's own fonts and optical gaps, not website headline sizes or scroll-animation recipes. Evaluate actual rendered pixels at target sizes. Do not copy Taste's website motion quotas or decorative suggestions into captions. Full skill at C:/Users/Vineet Kumar/.codex/skills/design-taste-frontend/SKILL.md.\",\"source\":\"https://github.com/Leonxlnx/taste-skill\"}]}"
+    }
+  ],
+  "live_storylens_chat": {
+    "id": "4da2c44a5f8c4a09",
+    "status": "idle",
+    "messages": [
+      {
+        "id": "6ce5dbe0025b",
+        "role": "user",
+        "text": "Advice only; do not run tools or edit videos. From the saved creative repository guidance, explain briefly how GSAP and Hyperframes could work with our Qwen models. Is Taste Skill model training, and are OpenCut rewrite APIs already usable?",
+        "created": 1792779509.8187678,
+        "profile": "gaming",
+        "attachments": [],
+        "voice": false
+      },
+      {
+        "id": "61304d848c6f",
+        "role": "assistant",
+        "text": "GSAP (GreenSock Animation Platform) and Hyperframes can work with Qwen models by leveraging GSAP for smooth animations and Hyperframes for capturing and rendering frames. Qwen models can plan the words, timing, and recipe parameters, while GSAP handles the animation properties and Hyperframes captures the final frames. Taste Skill is a frontend design guidance model, not a training model. OpenCut rewrite APIs are not yet usable as they are part of an upcoming rewrite and not currently implemented in Storylens.",
+        "created": 1792779531.39841,
+        "profile": "gaming",
+        "question": false
+      }
+    ]
+  },
+  "opencut": {
+    "url": "http://127.0.0.1:8870/projects",
+    "project": "24e70756-c828-4b24-9130-7d872e967b16",
+    "observed": [
+      "new project created",
+      "text layer added",
+      "text changed to Explore OpenCut",
+      "actual preview and timeline show the new title",
+      "saved text still visible after reload"
+    ],
+    "not_tested": [
+      "video import",
+      "MP4 export",
+      "Storylens project interchange",
+      "native Premiere export"
+    ],
+    "owner_followup": "Stop OpenCut evaluation; retain code for possible future online editor. Current target is CapCut/Premiere export."
+  },
+  "limits": [
+    "No new visual template or caption quality benchmark performed",
+    "Vision request injection checked; fresh 9B image inference not run while another project owns GPU queue",
+    "Model weights unchanged",
+    "WanGP runtime and model downloads not installed"
+  ],
+  "tests": "20 targeted tests passed"
+}

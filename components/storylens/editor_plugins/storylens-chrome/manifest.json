@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Storylens Local Publisher",
+  "version": "0.4.44",
+  "description": "Connect your local Storylens editor to Instagram in this Chrome profile. No OpenAI service required.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "alarms", "debugger", "scripting"],
+  "host_permissions": ["https://www.instagram.com/*", "http://127.0.0.1/*"],
+  "optional_host_permissions": ["https://studio.youtube.com/*"],
+  "background": {"service_worker": "worker.js"},
+  "action": {"default_popup": "popup.html", "default_title": "Storylens Local Publisher"},
+  "content_scripts": [{"matches": ["https://www.instagram.com/*"], "js": ["dom-checks.js", "analytics-dom.js", "instagram.js"], "run_at": "document_idle"}]
+}

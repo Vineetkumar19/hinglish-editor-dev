@@ -1,0 +1,127 @@
+SoundCraft source review — 24 October 2026
+
+Target: https://github.com/storytold/soundcraft
+Pinned commit: ef646cf6263e0a381b84170ef1d655455ef669e9
+Workspace: tools/reference-repositories/soundcraft-ef646cf6263e
+Receipt: output/sound-layer-validation/soundcraft-source-receipt.json
+Official source ZIP: 5,488,780 bytes, 556 archive entries; SHA256
+92f1da7fdc99b8aa625f024f53f9f9b1d2266ffa3c83286660b279a4c7ea76c4.
+No application/binary was installed, built or launched. No models or credentials
+were downloaded. This is source inspection, not demonstrated audio quality.
+
+What SoundCraft actually supplies
+
+It is a Rust digital audio workstation and programmable audio executor. Its
+external agent executes commands; the repository does not itself supply the
+video-to-sound creative director requested for Storylens. Bounded scans of all
+Rust sources and crate manifests found no Ollama/OpenAI/Whisper/Freesound clients,
+semantic music catalogue, emotion model, or video/text-to-audio model integration.
+This is a bounded source finding at the pinned commit, not a claim about future
+releases or every possible external plugin.
+
+1. Actual multitrack layering and mixing
+   crates/mix/src/lib.rs:1-6 documents the actual implemented signal flow:
+   overlapping clip sources/gain/fades, track trim and inserts, pre/post sends,
+   fader/mute automation, pan, buses/aux returns, and master processing. The
+   implementation is MixEngine::render at line 641; overlapping clips enter
+   process_strip at 927 (clip loop at 963), and render_clip at 1448 adds source
+   samples to the destination with per-clip gain. Fades/gain changes are
+   interpolated at segment boundaries (gain_at at 1471). Sends are routed at 866
+   and receive automation at 1781. render_range at 2070 uses the same engine for
+   offline output. No model decides that five layers should be added at any time.
+
+2. Mixing processors, automation, and tails
+   crates/dsp/src/plugins/ contains actual EQ, dynamics, reverb, modulation,
+   harmonic and utility processors. crates/mix/src/lib.rs:318 and 1194 onward
+   implement per-clip EQ/compressor/gain, while track plugins can feed common
+   reverb/delay buses. automation lanes live in crates/model/src/automation.rs;
+   both volume and plugin/send parameters can be driven from timed points.
+   crates/dsp/src/offline.rs:615 exposes plugin-tail-aware processing.
+   These are useful ingredients for independent envelopes, designed tails,
+   frequency separation and spatial layers, beyond merely summing files.
+
+   Caution: the compressor's "sidechain high-pass" is an internal detector.
+   crates/dsp/src/plugins/dynamics.rs:159-184 reads the SAME io channels into
+   its detector; this is not evidence of a speech bus automatically ducking a
+   separate music bus. No automatic dialogue-keyed mixing policy was found.
+
+3. Actual programmable surface
+   docs/control-protocol.md:28 onward defines newline JSON over loopback TCP.
+   engine.execute invokes named commands; session.inspect returns tracks,
+   timed clips, inserts, sends, routing, automation and source availability.
+   Positions accept exact samples or seconds. docs/mcp.md:99 onward and
+   crates/automation/src/mcp.rs:24-76 expose command listing, execution,
+   batch execution, inspection, import, save and bounce. The adapter dispatch
+   at mcp.rs:174 maps bounce_mix to file.bounce_mix. Documentation describes
+   a maximum 1,000-command batch; failures remain visible in results.
+   crates/automation/tests/it/agent_tasks.rs:66-115 demonstrates sends,
+   plugin insertion, volume automation and headless bounce through the API.
+   These tests exist upstream; they were not run in this review.
+
+4. Actual timing and video support
+   crates/video/src/lib.rs:1-15 supplies movie decoding, video metadata,
+   thumbnails, keyframe-to-playhead frame access and supported-codec boundaries.
+   This synchronizes a picture track with a DAW timeline; it is not visual
+   understanding, object/action recognition or emotion analysis.
+   crates/engine/src/io.rs:151 imports audio at sample positions, and :194
+   imports a video reference. crates/dsp/src/offline.rs:398 detects acoustic
+   transients. Those are timing primitives, not proof a transient is a whoosh,
+   punchline, dialogue syllable, or the desired sound-design placement.
+
+5. Actual waveform generation and catalogue boundaries
+   crates/dsp/src/plugins/synth.rs:249 onward implements a polyphonic subtractive
+   synthesizer; drums.rs:1 and :122 implement a synthesized drum kit. sampler.rs
+   plays imported samples. These can make tones/percussion and designed accents,
+   but are not MMAudio/FoleyCrafter equivalents and do not create semantically
+   grounded Foley from a video. NOTICE:10 onward says demo audio is synthesized
+   in code. Downloading this repo does not add a cinematic sound-effect library.
+
+   CLAP in crates/clap-host/src/lib.rs:1-6 means loading .clap audio PLUGINS.
+   It is NOT the CLAP text/audio embedding model used by Storylens for retrieval.
+
+6. Actual output and quality measurement
+   crates/engine/src/io.rs:376 implements a streaming Bounce with the mix engine;
+   Bounced at :397 returns peak, integrated LUFS and true peak (:518-522).
+   Per-track stems are produced at :630 onward, with sends/aux included.
+   crates/dsp/src/meter.rs:2 and :239 onward implement gated integrated LUFS
+   and 4x oversampled true-peak metering. This is more specific metering than
+   Storylens's approximate gated RMS. These measurements do not decide whether
+   the selected sounds are relevant or creatively satisfying. Normalization
+   and limiter/plugin behavior must be configured; automatic mastering or
+   speech-driven ducking cannot be inferred merely from processor availability.
+
+7. Licensing and handoff
+   Cargo.toml:9 declares MIT OR Apache-2.0. NOTICE retains copyright and terms.
+   Fonts/dependencies/assets have separate listed notices. docs/brand/ logos
+   are trademark material with separate restrictions; do not import them into
+   a Storylens fork. README's status section calls this pre-alpha and lists
+   AAF/OMF interchange as missing. Its audio stems could feed existing Storylens
+   XML/CapCut handoffs, but a SoundCraft session is not automatically editable
+   in Premiere/CapCut. No new integration or native editor check was performed.
+
+Actionable differences for Storylens
+
+Highest priority remains a better sound director: identify narrative/cut/graphic
+beats, choose complementary acoustic roles, support offset entrances/contacts/
+tails, search multiple precise candidates and abstain from irrelevant sounds
+without collapsing the entire composition to isolated word clicks. SoundCraft
+does not supply this missing director or a sound library.
+
+Reusable mixer ideas: per-layer envelope and pan curves; shared reverb/delay
+returns instead of repeated full-size effects; dedicated dialogue/music/accent/
+ambience buses with explicit gain rules; processor-tail handling; integrated
+LUFS/true-peak measurements; inspectable render receipts. Keep dialogue ducking
+explicit and controlled in Storylens. Retain per-layer stems plus timeline data.
+
+An optional adapter could translate a Storylens typed sound plan into a sequence
+of track.new, file.import_audio, clip gain/fade, mix.insert/send, automation points
+and bounce calls. Keep it isolated until native execution/format compatibility
+is tested. Replacing the existing mixer with a DAW before fixing planning would
+not make the four-event output become a good layered soundtrack.
+
+Source links use this exact commit; append #L<line> from the references above:
+https://github.com/storytold/soundcraft/blob/ef646cf6263e0a381b84170ef1d655455ef669e9/crates/mix/src/lib.rs
+https://github.com/storytold/soundcraft/blob/ef646cf6263e0a381b84170ef1d655455ef669e9/crates/dsp/src/plugins/dynamics.rs
+https://github.com/storytold/soundcraft/blob/ef646cf6263e0a381b84170ef1d655455ef669e9/crates/engine/src/io.rs
+https://github.com/storytold/soundcraft/blob/ef646cf6263e0a381b84170ef1d655455ef669e9/docs/control-protocol.md
+https://github.com/storytold/soundcraft/blob/ef646cf6263e0a381b84170ef1d655455ef669e9/docs/mcp.md

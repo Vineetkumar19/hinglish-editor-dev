@@ -1,0 +1,53 @@
+{
+  "styles": [
+    {
+      "style": "caption_1",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 01 - Blue Keyword Stack.mp4",
+      "number": 1,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 1.mp4",
+      "display_name": "Caption 01 - Blue Keyword Stack"
+    },
+    {
+      "style": "caption_2",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 02 - Lime Keyword Zoom.mp4",
+      "number": 2,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 2.mp4",
+      "display_name": "Caption 02 - Lime Keyword Zoom"
+    },
+    {
+      "style": "caption_3",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 03 - Serif Soft Focus.mp4",
+      "number": 3,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 3.mp4",
+      "display_name": "Caption 03 - Serif Soft Focus"
+    },
+    {
+      "style": "caption_4",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 4.mp4",
+      "number": 4
+    },
+    {
+      "style": "caption_5",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 05 - Bold Red Word Clusters.mp4",
+      "number": 5,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 5.mp4",
+      "display_name": "Caption 05 - Bold Red Word Clusters"
+    },
+    {
+      "style": "kinetic_gold_draft",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 08 - Kinetic Gold.mp4",
+      "number": 8,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 8.mp4",
+      "display_name": "Caption 08 - Kinetic Gold"
+    },
+    {
+      "style": "serif_circle_draft",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 06 - Serif Circle.mp4",
+      "number": 6,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 6.mp4",
+      "display_name": "Caption 06 - Serif Circle"
+    }
+  ],
+  "reference_folder": "D:\\Full Drive\\Styles\\Videos",
+  "naming_note": "Stable original caption numbers and renderer IDs retained; 04 duplicate and absent 07 are not renumbered over existing projects."
+}

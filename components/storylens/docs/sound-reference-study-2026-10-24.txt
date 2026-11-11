@@ -1,0 +1,103 @@
+Owner's three-reference sound study — 24 October 2026
+
+The owner rejected repetitive pops/clicks/chimes and one copied ensemble used
+throughout unrelated moments. First study the new examples and save knowledge;
+the owner will name two REA targets afterward. No unspecified REA work started.
+
+WHAT WAS ACTUALLY STUDIED
+Sources: A:/Chrome Downloads/downloaded-video.mp4, downloaded-video (1).mp4,
+and downloaded-video (2).mp4. Originals remain intact. SHA256-addressed copies,
+profiles and evidence are under library/reelmimic/sound. Manifest:
+output/sound-reference-study-20261024/manifest.json.
+
+Every decoded frame was measured and placed on a timestamped contact sheet:
+388 + 219 + 720 = 1,327 frames. All 35 contact sheets were visually inspected.
+This is sheet inspection, not a claim of full-resolution analysis of each frame.
+Audio RMS/spectral change was measured at 10ms and aligned with actual frame PTS.
+208 overlapping 1.5-second windows (0.5-second step) were matched locally with
+CLAP on the original mix and a CPU Demucs non-vocal estimate. CPU Whisper found
+no reliable narration (one isolated low-context 'Huh?' estimate in reference 2
+is not treated as a script). Audio-change candidates are not effect counts.
+
+OBSERVATIONS AND THEIR LIMITS
+1. downloaded-video: the picture combines a creator montage and an editing
+timeline. The early silhouette/text shots lead into notebook/pencil details at
+about 2.5s, editing-app imagery around 4s, camera controls around 4.7–5.5s,
+desk/face shots around 5.5–8.6s and an overhead desk view after about 8.75s.
+The visible tracks use short clips and longer staggered beds. CLAP's mixed-audio
+similarities favor early air movement/low hits, a swell around 4s and low decays
+after 6s; camera-like transients are most prominent around 8s. These are sound
+descriptors, not verified exact sources. Measured full-mix median falls from
+roughly -16 dB in the opening to -42 dB at 8–10.5s, with isolated late activity.
+Lesson: rapid tactile edits and low transitions can coexist with quieter space;
+each new word or frame does not need the same bright three-clip gesture.
+
+2. downloaded-video (1): automotive montage with an exposed multitrack layout.
+Door/handle detail around 1.4–2s, departing car around 2.6–4.9s, rapid taillight/
+wheel/exhaust/mirror details around 5.1–6.5s and badge/outro around 6.5–7.6s.
+Many staggered short clips are visually distinct from longer audio textures.
+Composite similarities favor pulsing/rough rhythmic material, a sweep around
+5s and stronger low impacts at 6–8s. Full-mix median rises to about -11 dB at
+5.3–7.6s, then decays. Exact engine/door sources and simultaneous layer counts
+cannot be established from the flattened soundtrack or tiny track labels.
+Lesson: rhythm, anticipation and punctuation develop with the sequence. This
+does not justify inserting car sounds into a spoken joke that only names a van.
+
+3. downloaded-video (2): cinematic SFX showcase. Rapid opening cuts give way to
+city/silhouette shots, a car walk-by at about 6.55s, urban detail at 9.22s,
+subway ceiling at 11.35s, city at 13.5s, then waveform/title cards from about
+17.5s onward. The title cards are still part of the source and its soundtrack;
+they must not be misrepresented as continuing action footage.
+The full-mix median is about -34.5 dB at 3.8–6.55s versus -13.9 dB at 20.9–25s.
+That is relative quiet, not proven absolute silence or an isolated music mute.
+Composite similarities shift toward sustained strings/score-like textures around
+11–19s, low-impact/pulse clusters around 20–24s and 26–28s, then decay. Whether
+a tonal texture is music or designed SFX is uncertain without original stems.
+Lesson: subtle presence, sustained tonal space and large impacts have different
+jobs. Constant density would remove the contrast this sample demonstrates.
+
+These three are cinematic/editor-timeline/automotive references. They do not
+independently prove a catalogue of comic stings. Earlier owner E7/e2/e5 examples
+and the owner's direct funny/serious direction are preserved for that scope.
+
+WHY STORYLENS SOUNDED REPETITIVE
+The actual Zomato plan has 76 effect clips, of which 55 are in poke/cute families,
+and 21 groups repeat contact/detail/tail roles. Its only music section reuses
+Sneaky Snitch. SPEECH_MOTIFS expands names into fixed acoustic tuples. Therefore
+more filenames and more clips do not necessarily produce different composition.
+The music catalogue is also small. This study does not claim those engine
+constraints have been redesigned or the output is now creatively fixed.
+
+SAVED LOCAL KNOWLEDGE
+hinglish_app/knowledge/sound_reference_studies.json stores rules, three reviewed
+summaries, available tool boundaries and the unresolved generator status.
+hinglish_sound/reference_memory.py injects this data into scoped sound planning
+and model request configuration, including the configured local planning and
+Vision paths. composition.policy also carries it. Existing selected ReelMimic
+reference and all earlier examples remain; new examples were appended by hash.
+Full creator guidance is preserved. Actual model-consumption receipts, when
+available, are output/sound-reference-study-20261024/local-model-memory-receipts.json.
+These are real text inference receipts, not direct model listening or training.
+The concise sound-reference-variety-20261024 entry is also in the existing
+per-request creative knowledge catalogue, so running services can retrieve it
+without reload. Already-imported modules need a normal reload for the richer
+new injection code. The optional live model-read check reached the occupied
+shared GPU queue and was stopped without touching other jobs. No model-read
+receipt is claimed. Scoped retrieval checks and 24 existing regression checks
+passed. No new sound render was submitted.
+
+TOOL RESEARCH
+Qwen2.5-Omni-3B accepts audio/video and supports text-only answers with
+return_audio=False, optionally disable_talker(). It is not installed/callable;
+local hardware fit and licensing have not been validated. Official source:
+https://huggingface.co/Qwen/Qwen2.5-Omni-3B
+Audio Flamingo 3 understands speech, environmental sounds and music; its official
+card restricts it to non-commercial research. It is not installed/enabled:
+https://huggingface.co/nvidia/audio-flamingo-3-hf
+The existing CLAP/Demucs/Whisper tools were actually used. No new external
+model access, paid service, model-weight training or private-AI recovery is claimed.
+
+Do not describe mixed-audio CLAP results as exact per-frame human listening.
+No reliable direct general audio-language interpretation was available in this
+study. Exact individual sound identities, hidden layers and every-frame semantic
+matching remain unverified. New sound output and native playback were not tested.

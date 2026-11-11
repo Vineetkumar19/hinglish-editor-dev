@@ -1,0 +1,2 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs');
+test('native CEP header hides the legacy Chromium scrollbar and fixes every control to the Storylens baseline',()=>{const css=fs.readFileSync('hinglish_app/static/preset-library.css','utf8');assert.match(css,/#presetCategoryStrip::-webkit-scrollbar\s*\{[^}]*height:\s*0/);assert.match(css,/#presetCategoryStrip\s*\{[^}]*height:\s*36px/);assert.match(css,/\.preset-slider>button\s*\{[^}]*height:\s*36px/);});

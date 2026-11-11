@@ -1,0 +1,13 @@
+{
+  "cortana-local:14b-q4": {
+    "manifest_digest": "3e063cc851850dd66d654e180af6da339f1c603b6a11eb774a3bac69a57a8609",
+    "weight_sha256": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+    "source_repository": "Qwen/Qwen3-14B-GGUF",
+    "source_revision": "530227a7d994db8eca5ab5ced2fb692b614357fd",
+    "license": "Apache-2.0",
+    "license_source": "https://huggingface.co/Qwen/Qwen3-14B-GGUF",
+    "local_download_receipt": "C:/Ai Models/pending-model-selection.json",
+    "reviewed_at": "2026-11-04",
+    "scope": "Exact installed GGUF hash matched the saved download receipt; official model card identifies Apache-2.0. This is not behavioral acceptance."
+  }
+}

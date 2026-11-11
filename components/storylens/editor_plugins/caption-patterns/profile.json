@@ -1,0 +1,68 @@
+{
+  "id": "caption_1_ae_v1",
+  "name": "Caption 1 · AE",
+  "reference": "D:/Full Drive/Styles/Videos/Caption 1.mp4",
+  "reference_sha256": "fb208d98480935ccc000f6795c1b780a5045af89ef62654b2a0606335c77c615",
+  "cycle": [
+    "stack_blue",
+    "stack_blue",
+    "mixed",
+    "inline",
+    "inline",
+    "pair",
+    "stack_white"
+  ],
+  "max_words": 6,
+  "inline_max_words": 3,
+  "fonts": {
+    "bold": [
+      "Inter-Bold",
+      "StorylensCaptionOne-Bold"
+    ],
+    "support": [
+      "Inter-Medium",
+      "StorylensCaptionOne-Medium"
+    ]
+  },
+  "tracking": {
+    "bold": -81,
+    "support": -98
+  },
+  "gradient": [
+    [
+      0,
+      "#42C2F5"
+    ],
+    [
+      0.22,
+      "#57CFFF"
+    ],
+    [
+      1,
+      "#0C8DFF"
+    ]
+  ],
+  "main_size": 56,
+  "support_size": 32,
+  "ink_gap": 9,
+  "anchor": [
+    0.5,
+    0.5
+  ],
+  "motion": {
+    "support_seconds": 0.266933333,
+    "main_seconds": 0.233566667,
+    "support_x": -34,
+    "main_y": 30,
+    "fade_seconds": 0.166833333,
+    "main_rotation": 0
+  },
+  "notes": "Native fixed recipes derived from reference frames and the existing measured Inter profile. These motion curves are an editable approximation, not a certified pixel-exact reconstruction.",
+  "gradient_asset": {
+    "file": "caption-1-gradient-5b32d6f4dd79647830f5f163624f6a297b622db74d9097b904f2e0f08dfbd71c.png",
+    "sha256": "5b32d6f4dd79647830f5f163624f6a297b622db74d9097b904f2e0f08dfbd71c"
+  },
+  "word_gap_em": 0.26,
+  "layout_revision": 7,
+  "safe_width_fraction": 0.66
+}

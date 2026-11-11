@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=StoryLens Personal Development, O=Personal, C=IN
+Signer #1 certificate SHA-256 digest: c068bc0f3cdcee3e1ba0112f16f2054cb045e14523b8d1fab892eb5a372e72e8
+Signer #1 certificate SHA-1 digest: 31191d8c89a54283b34e4f7dde5127ab39116681
+Signer #1 certificate MD5 digest: 2fdaea8575e377625671f1491fffac36
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: e335f16956cf152d3202fbde154190365ea3ecc4727a3c30545b7a23b384becf
+Signer #1 public key SHA-1 digest: 8d0f3fb6501b09a5fc5d9094876d7dab757280bd
+Signer #1 public key MD5 digest: d929033deace1af00b3d33179d0aa654

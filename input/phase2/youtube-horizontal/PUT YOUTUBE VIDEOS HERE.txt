@@ -1,3 +1,0 @@
-Put YouTube clips here. Write one script idea per line in input/phase2/script.txt.
-Double-click Run Phase 2.bat. Output is 1920 x 1080, fitted without cropping.
-Use only ONE Phase 2 video folder per batch.

@@ -1,0 +1,703 @@
+{
+  "name": "Caption 2",
+  "layout_revision": 6,
+  "line_gap": 6,
+  "header_min_words": 2,
+  "main_max_words": 1,
+  "zoom_clock": "first_word",
+  "max_words_per_frame": 7,
+  "two_line_main_character_threshold": 8,
+  "support_alignment": "top_left_bottom_right",
+  "native_width": 720,
+  "source_fps": 30,
+  "position": 0.571875,
+  "main_size": 114,
+  "support_size": 44,
+  "tracking": -0.06,
+  "support_tracking": -0.06,
+  "green": "#E0FD56",
+  "white": "#FFFFFF",
+  "red": "#F51D3D",
+  "motion": {
+    "text_seconds": 0.42,
+    "fade_seconds": 0.24,
+    "text_rise": 16,
+    "main_slide": 0,
+    "main_entrance": "rise_pop_settle",
+    "all_rows_word_entrance": true,
+    "word_y": [[0,16],[0.26,-1.5],[0.42,0]],
+    "word_scale": [[0,1.08],[0.42,1]],
+    "blur": 7,
+    "scale_out": [
+      [
+        0,
+        1.24
+      ],
+      [
+        0.16,
+        1.17
+      ],
+      [
+        0.36,
+        1.08
+      ],
+      [
+        0.66,
+        1.015
+      ],
+      [
+        1.0,
+        1
+      ],
+      [
+        1.4,
+        1
+      ]
+    ],
+    "scale_in": [
+      [
+        0,
+        0.92
+      ],
+      [
+        0.2,
+        0.97
+      ],
+      [
+        0.45,
+        0.995
+      ],
+      [
+        0.65,
+        1
+      ]
+    ],
+    "card_y": [
+      [
+        0,
+        76
+      ],
+      [
+        0.12,
+        28
+      ],
+      [
+        0.24,
+        -7
+      ],
+      [
+        0.4,
+        2
+      ],
+      [
+        0.58,
+        0
+      ]
+    ],
+    "plane": [
+      [
+        0,
+        470,
+        315,
+        -50
+      ],
+      [
+        0.2,
+        310,
+        210,
+        -34
+      ],
+      [
+        0.4,
+        200,
+        130,
+        -12
+      ],
+      [
+        0.6,
+        135,
+        90,
+        10
+      ],
+      [
+        0.9,
+        130,
+        88,
+        0
+      ],
+      [
+        1.2,
+        130,
+        90,
+        0
+      ]
+    ],
+    "main_slide_seconds": 0.4
+  },
+  "recipes": [
+    {
+      "text": "If the Prospects have to meet you",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "role": "support",
+          "align": "top_right"
+        },
+        {
+          "words": [
+            5,
+            6
+          ],
+          "role": "support",
+          "align": "bottom",
+          "size": 48
+        }
+      ],
+      "motion": "out",
+      "main_size": 104,
+      "support_size": 42,
+      "starts": [
+        1,
+        3,
+        7,
+        15,
+        18,
+        29,
+        35
+      ],
+      "start": 0,
+      "end": 50,
+      "top_lift": 62,
+      "tracking": -0.025
+    },
+    {
+      "text": "to Understand your value",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left",
+          "size": 80
+        },
+        {
+          "words": [
+            1
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "role": "support",
+          "align": "bottom",
+          "size": 86,
+          "green": [
+            3
+          ]
+        }
+      ],
+      "motion": "out",
+      "main_size": 114,
+      "starts": [
+        50,
+        54,
+        67,
+        70
+      ],
+      "start": 50,
+      "end": 94,
+      "main_offset": -8,
+      "top_lift": 72
+    },
+    {
+      "text": "your Content is failing",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left",
+          "size": 68
+        },
+        {
+          "words": [
+            1
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "role": "support",
+          "align": "bottom",
+          "size": 44
+        }
+      ],
+      "motion": "out",
+      "main_size": 128,
+      "strike": true,
+      "starts": [
+        94,
+        97,
+        111,
+        115
+      ],
+      "start": 94,
+      "end": 139,
+      "main_offset": 12,
+      "tracking": -0.065,
+      "header_fraction": 0.2
+    },
+    {
+      "text": "even if You record you are unsure",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left",
+          "size": 60
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            4,
+            5,
+            6
+          ],
+          "role": "support",
+          "align": "bottom",
+          "size": 32
+        }
+      ],
+      "motion": "out",
+      "main_size": 98,
+      "record": true,
+      "starts": [
+        245,
+        249,
+        257,
+        261,
+        280,
+        284,
+        289
+      ],
+      "start": 245,
+      "end": 305,
+      "header_fraction": 0.2
+    },
+    {
+      "text": "what to say? how it turn to revenue?",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out",
+      "starts": [
+        307,
+        312,
+        316,
+        360,
+        367,
+        374,
+        382,
+        389
+      ],
+      "start": 305,
+      "end": 444
+    },
+    {
+      "text": "we take it off Your plate",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            4,
+            5
+          ],
+          "role": "main"
+        }
+      ],
+      "motion": "out",
+      "main_size": 114,
+      "starts": [
+        444,
+        448,
+        451,
+        455,
+        472,
+        476
+      ],
+      "start": 444,
+      "end": 507,
+      "main_offset": 4,
+      "top_lift": 72
+    }
+  ],
+  "demo_phrases": [
+    {
+      "text": "Imagine a monument that changes with the light.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out",
+      "main_size": 104
+    },
+    {
+      "text": "The Taj Mahal stands beside",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            1,
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "the Yamuna River in Agra.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            1
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "Its white marble glows softly at sunrise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "and shines beneath the moon.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            1
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "Look closer at the carved flowers,",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            1
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "the balanced gardens, and the reflections in the water.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "role": "support",
+          "align": "top_left",
+          "size": 34
+        },
+        {
+          "words": [
+            5
+          ],
+          "role": "main",
+          "size": 104
+        },
+        {
+          "words": [
+            6,
+            7,
+            8
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "Every detail invites you to slow down.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "Some places are more than buildings.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            1
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "They become stories that the world remembers.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "role": "support",
+          "align": "top_left"
+        },
+        {
+          "words": [
+            2
+          ],
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "role": "support",
+          "align": "bottom"
+        }
+      ],
+      "motion": "out",
+      "record": true
+    }
+  ],
+  "footer_overlap": 0.1
+}

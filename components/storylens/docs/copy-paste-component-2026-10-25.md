@@ -1,0 +1,13 @@
+# Copy Paste implementation handoff — 25 October 2026
+
+Owner requested sequential media replacement into selected assembled AE template instances, without opening their nested precomps. Explicit authorization was given to exchange implementation information with “Uploading Ai editor”. Shared panel owner accepted feature 13 and retains grid/bridge/installer ownership. This work does not resume paused cinematic/Beat development.
+
+Component files: `editor_plugins/copy-paste/model.js`, `host.jsx`, `ui.js`; developer-only `Copy Paste.jsx`. Entry point, payloads, isolation policy and honest scope are documented in that directory's README. Tests: `tests/copy-paste.test.cjs`. Read-only native inventory helper: `tools/copy_paste_inventory.jsx` (not executed).
+
+No separate extension manifest, menu, security setting or plugin installer was added. Preserve the one-host RAM constraint: AE only; Premiere stays closed. The open unsaved owner project is `A:/AE mere edited files/2.aep`; screenshots show `rcb final - 12 Templates Review` and nested `Scene_02/Image_02`. The older rejected original-timeline change was not retried.
+
+Read-only live observation succeeded. Native input failed at AE's Run Script File chooser: both sky and the supported CUA controller rejected the observed filename index 153132 as absent from cached app state; coordinate actions and Alt+N did not focus the intended field. Further native input stopped. The script chooser may still be open. No script, template replacement, project save, render or model job was executed. This is an application-validation blocker, not a successful paste demonstration.
+
+The shared panel owner completed feature 13, named host bridge action `copyPaste`, model-before-host include order, static UI adapter, shared catalog codes and installed AE panel files. Backup: `output/copy-paste-evidence/installed-panel-before`; hash receipt: `shared-integration-hashes.json`; served-asset receipt: `shared-live-assets.json`. No second extension was installed. The open panel may need to be reopened to load the new JSX includes; the current service already serves the UI assets.
+
+Final focused run in this chat: 35 Node checks passed (21 native mocks, five UI behavior, two static integration, two shared panel mount, five existing/shared bridge). The suite owner separately reported 72 focused checks. These do not prove native behavior or all-template compatibility. Post-integration native acceptance needs one real template copy, two assets, next-slot increment, unchanged source/other instance, actual visible frames and Undo. Owner project save/restart/close is not authorized for validation.

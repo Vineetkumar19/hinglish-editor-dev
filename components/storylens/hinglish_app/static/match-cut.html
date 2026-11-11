@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Match Cut Finder · Storylens</title>
+  <link rel="stylesheet" href="workbench.css"><link rel="stylesheet" href="tool-layout.css?v=2">
+  <link rel="stylesheet" href="match-cut.css?v=20261107-handoff">
+  <script src="feedback.js" defer></script>
+  <script src="match-cut.js?v=20261107-handoff" defer></script>
+</head>
+<body>
+<main>
+  <header><h1>Match Cut Finder</h1><a href="/">Storylens</a></header>
+  <form id="scan">
+    <label for="folders">Footage folders</label>
+    <div class="input-row footage-row">
+      <textarea id="folders" rows="1" aria-label="Footage folders" placeholder="Paste folder path"></textarea>
+      <button id="pick" type="button">Add folder</button>
+      <button id="pickFiles" type="button">Choose videos</button>
+      <input id="files" type="file" multiple accept="video/*,.mxf,.mts,.m2ts,.mkv,.webm" hidden>
+    </div>
+    <p id="fileSummary" class="muted"></p>
+    <div class="input-row scan-settings">
+      <label class="count-label">Max clips per sequence <input id="maximum" type="number" min="2" max="24" value="4" required></label>
+      <label class="count-label">Results per clip count <input title="Maximum number of matches to show at each sequence length." id="limit" type="number" min="1" max="20" value="5" required></label>
+      <button id="run" type="submit">Find matches</button>
+      <button id="cancel" type="button" hidden>Stop scan</button>
+      <button id="resume" type="button" hidden>Retry saved scan</button>
+    </div>
+  </form>
+  <p id="status" role="status"></p>
+  <progress id="progress" max="100" value="0" aria-label="Scan progress" hidden></progress>
+  <div id="toolError" role="alert" hidden></div>
+  <section id="results" aria-label="Match previews" hidden>
+    <video id="video" controls preload="metadata" playsinline aria-label="Match preview"></video>
+    <div class="preview-actions">
+      <span id="clipCount"></span>
+      <select id="choices" aria-label="Preview"></select>
+      <button id="export" type="button" class="tool-primary">Export</button>
+    </div>
+  </section>
+  <dialog id="exportDialog" aria-labelledby="exportTitle">
+    <h2 id="exportTitle">Export</h2>
+    <div class="input-row">
+      <a id="download" class="button">Video MP4</a>
+      <button id="exportXml" type="button">Editable XML</button>
+      <button id="closeExport" type="button">Close</button>
+    </div>
+    <p id="exportError" role="alert"></p>
+  </dialog>
+</main>
+</body>
+</html>

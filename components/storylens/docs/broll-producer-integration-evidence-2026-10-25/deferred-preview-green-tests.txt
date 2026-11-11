@@ -1,0 +1,12 @@
+test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries (tests.test_broll_deferred_preview.DeferredPreviewTests.test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries) ... ok
+test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate (tests.test_broll_deferred_preview.DeferredPreviewTests.test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate) ... ok
+test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate (tests.test_broll_deferred_preview.DeferredPreviewTests.test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate) ... ok
+test_no_accessible_source_audio_retains_the_existing_preview_path (tests.test_broll_deferred_preview.DeferredPreviewTests.test_no_accessible_source_audio_retains_the_existing_preview_path) ... ok
+test_nonreview_output_keeps_aggregate_even_when_defer_is_requested (tests.test_broll_deferred_preview.DeferredPreviewTests.test_nonreview_output_keeps_aggregate_even_when_defer_is_requested) ... ok
+test_saved_explicit_owner_selection_does_not_get_deferred (tests.test_broll_deferred_preview.DeferredPreviewTests.test_saved_explicit_owner_selection_does_not_get_deferred) ... ok
+test_stale_aggregate_file_is_preserved_but_not_shown_as_current (tests.test_broll_deferred_preview.DeferredPreviewTests.test_stale_aggregate_file_is_preserved_but_not_shown_as_current) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.628s
+
+OK

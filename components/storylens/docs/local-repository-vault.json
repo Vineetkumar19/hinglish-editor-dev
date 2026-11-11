@@ -1,0 +1,18 @@
+{
+  "archive_folder": "A:\\Repository Vault\\2026-10-23",
+  "verified_at_utc": "2026-10-23T17:22:02.099942+00:00",
+  "repositories": 16,
+  "repositories_without_archive_errors": 16,
+  "total_bytes": 11548222988,
+  "total_gib": 10.76,
+  "all_source_restores_verified": true,
+  "large_file_objects_verified": 563,
+  "release_files": 32,
+  "installation_or_app_functionality_tested": false,
+  "errors": 0,
+  "checksummed_files": 133,
+  "source_preservation_complete": true,
+  "retention": "Owner requests long-term preservation. Keep this dated archive; do not auto-delete it.",
+  "applications_installed_or_run": false,
+  "separate_requirements": "External model weights, package dependencies and online services are not all archived."
+}

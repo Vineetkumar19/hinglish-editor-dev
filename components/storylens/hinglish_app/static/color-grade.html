@@ -1,0 +1,162 @@
+<!doctype html><html lang="en" data-token="__APP_TOKEN__"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Color Grade · Storylens</title><link rel="stylesheet" href="workbench.css"><link rel="stylesheet" href="color-grade.css"><script src="feedback.js"></script><script src="icons.js"></script></head><body data-workbench="color-grade"><main>
+<header><h1>Color Grade</h1><a href="/">Storylens</a></header><p class="muted">Resolve · editable native nodes · duplicate timeline</p>
+<div class="grade-choices" role="group" aria-label="Color grade">
+  <button type="button" data-grade-mode="realfilm" aria-pressed="false"><strong>Color Grade 1</strong><span>RealFilm V2 · Rec.709</span></button>
+  <button type="button" data-grade-mode="nodes" aria-pressed="true"><strong>Color Grade 2</strong><span>Original 19-node structure</span></button>
+</div>
+<p id="gradeModeNote" class="muted">Build the original editable node structure and set a starting balance, contrast and saturation.</p>
+<div id="realfilmNodeGraph" class="resolve-graph" tabindex="0" aria-label="RealFilm V2 node graph. Scroll horizontally to see all nodes." hidden>
+  <img src="realfilm-node-graph.svg" alt="RealFilm V2 Rec.709: MID, LOW and HI feed a mixer, followed by WB, CST in, PUSHPULL, SAT, LOOK, DENSITY, CURVES, CYAN, FADE, CST out, HALATION, SOFT-HI, DIRT, GRAIN and CLEAN." width="1160" height="270">
+</div>
+<div id="gradeNodeGraph" class="resolve-graph" tabindex="0" aria-label="Resolve node graph. Scroll horizontally to see all nodes.">
+<svg viewBox="0 0 1230 304" role="img" aria-labelledby="gradeGraphTitle gradeGraphDescription">
+  <title id="gradeGraphTitle">Approved Resolve grade · 19 nodes</title>
+  <desc id="gradeGraphDescription">Input flows through CAM-DWG, BAL/EXP, CONTRAST and SAT. TEMP, HDR, WARPER and CURVES feed parallel mixer 09, then TRIM. PW1, PW2 and PW3 feed parallel mixer 14, then Texture, SPARE, DWG-709, disabled CINEON and disabled KODAK2383, then output.</desc>
+  <defs>
+    <pattern id="gradeGrid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#2b3037"/></pattern>
+    <g id="gradeCard">
+      <rect x="-28" y="-19" width="56" height="41" rx="4" fill="#131619" stroke="#0d0f11"/>
+      <image href="resolve-node-preview.webp" x="-25" y="-16" width="50" height="24" preserveAspectRatio="xMidYMid slice"/>
+      <path d="M-25 9H25V19H-25Z" fill="#353b45"/>
+      <path d="M-33 -3l5 3-5 3zM28 -3h5v6h-5z" fill="#a1bf43"/>
+      <path d="M-33 13l5 3-5 3zM28 13h5v6h-5z" fill="#55b2d1"/>
+    </g>
+  </defs>
+  <rect width="1230" height="304" fill="#202328"/>
+  <rect width="1230" height="304" fill="url(#gradeGrid)"/>
+  <g class="resolve-wires">
+    <path data-from="0" data-to="1" d="M27 157 C39 157 39 157 52 157"/>
+    <path data-from="1" data-to="2" d="M118 157 C125 157 125 157 133 157"/>
+    <path data-from="2" data-to="3" d="M199 157 C206 157 206 157 214 157"/>
+    <path data-from="3" data-to="4" d="M280 157 C287 157 287 157 295 157"/>
+    <path data-from="4" data-to="5" d="M361 157 C374 157 374 49 387 49"/>
+    <path data-from="4" data-to="6" d="M361 157 C374 157 374 120 387 120"/>
+    <path data-from="4" data-to="7" d="M361 157 C374 157 374 191 387 191"/>
+    <path data-from="4" data-to="8" d="M361 157 C374 157 374 262 387 262"/>
+    <path data-from="5" data-to="9" d="M453 49 C478 49 478 143.5 503 143.5"/>
+    <path data-from="6" data-to="9" d="M453 120 C478 120 478 152.5 503 152.5"/>
+    <path data-from="7" data-to="9" d="M453 191 C478 191 478 161.5 503 161.5"/>
+    <path data-from="8" data-to="9" d="M453 262 C478 262 478 170.5 503 170.5"/>
+    <path data-from="9" data-to="10" d="M535 157 C553 157 553 157 571 157"/>
+    <path data-from="10" data-to="11" d="M637 157 C650 157 650 84 664 84"/>
+    <path data-from="10" data-to="12" d="M637 157 C650 157 650 157 664 157"/>
+    <path data-from="10" data-to="13" d="M637 157 C650 157 650 230 664 230"/>
+    <path data-from="11" data-to="14" d="M730 84 C754 84 754 148 779 148"/>
+    <path data-from="12" data-to="14" d="M730 157 C754 157 754 157 779 157"/>
+    <path data-from="13" data-to="14" d="M730 230 C754 230 754 166 779 166"/>
+    <path data-from="14" data-to="15" d="M811 157 C828 157 828 157 846 157"/>
+    <path data-from="15" data-to="16" d="M912 157 C919 157 919 157 927 157"/>
+    <path data-from="16" data-to="17" d="M993 157 C1000 157 1000 157 1008 157"/>
+    <path data-from="17" data-to="18" class="resolve-wire-bypass" d="M1074 157 C1125 157 1125 106 1055 106 Q1022 106 1022 58"/>
+    <path data-from="18" data-to="19" class="resolve-wire-bypass" d="M1088 58 C1099 58 1099 58 1111 58"/>
+    <path data-from="19" data-to="20" class="resolve-wire-bypass" d="M1177 58 C1188 58 1188 157 1200 157"/>
+  </g>
+  <g transform="translate(20 157)"><rect x="-7" y="-10" width="14" height="20" rx="4" fill="#15181b" stroke="#525860"/><circle r="3" fill="#a1bf43"/><text y="29" class="resolve-endpoint">Input</text></g>
+  <g transform="translate(1207 157)"><rect x="-7" y="-10" width="14" height="20" rx="4" fill="#15181b" stroke="#525860"/><circle r="3" fill="#a1bf43"/><text y="29" class="resolve-endpoint">Output</text></g>
+  <g data-node="1" transform="translate(85 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">CAM-DWG</text><text y="18" class="resolve-number">01</text>
+  </g>
+  <g data-node="2" transform="translate(166 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">BAL/EXP</text><text y="18" class="resolve-number">02</text>
+  </g>
+  <g data-node="3" transform="translate(247 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">CONTRAST</text><text y="18" class="resolve-number">03</text>
+  </g>
+  <g data-node="4" transform="translate(328 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">SAT</text><text y="18" class="resolve-number">04</text>
+  </g>
+  <g data-node="5" transform="translate(420 49)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">TEMP</text><text y="18" class="resolve-number">05</text>
+  </g>
+  <g data-node="6" transform="translate(420 120)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">HDR</text><text y="18" class="resolve-number">06</text>
+  </g>
+  <g data-node="7" transform="translate(420 191)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">WARPER</text><text y="18" class="resolve-number">07</text>
+  </g>
+  <g data-node="8" transform="translate(420 262)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">CURVES</text><text y="18" class="resolve-number">08</text>
+  </g>
+  <g data-node="9" transform="translate(519 157)">
+    <rect x="-16" y="-22" width="32" height="44" rx="4" fill="#171a1f" stroke="#505760"/><circle cx="-16" cy="-13.5" r="2.4" fill="#a1bf43"/><circle cx="-16" cy="-4.5" r="2.4" fill="#a1bf43"/><circle cx="-16" cy="4.5" r="2.4" fill="#a1bf43"/><circle cx="-16" cy="13.5" r="2.4" fill="#a1bf43"/><circle cx="16" r="2.4" fill="#a1bf43"/>
+    <path d="m-7 -4 7-4 7 4-7 4zM-7 0l7 4 7-4M-7 4l7 4 7-4" fill="none" stroke="#9ba5b0" stroke-width="1.2" stroke-linejoin="round"/>
+    <text y="-29" class="resolve-label">Parallel mixer</text><text y="18" class="resolve-number">09</text>
+  </g>
+  <g data-node="10" transform="translate(604 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">TRIM</text><text y="18" class="resolve-number">10</text>
+  </g>
+  <g data-node="11" transform="translate(697 84)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">PW1</text><text y="18" class="resolve-number">11</text>
+  </g>
+  <g data-node="12" transform="translate(697 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">PW2</text><text y="18" class="resolve-number">12</text>
+  </g>
+  <g data-node="13" transform="translate(697 230)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">PW3</text><text y="18" class="resolve-number">13</text>
+  </g>
+  <g data-node="14" transform="translate(795 157)">
+    <rect x="-16" y="-22" width="32" height="44" rx="4" fill="#171a1f" stroke="#505760"/><circle cx="-16" cy="-9.0" r="2.4" fill="#a1bf43"/><circle cx="-16" cy="0.0" r="2.4" fill="#a1bf43"/><circle cx="-16" cy="9.0" r="2.4" fill="#a1bf43"/><circle cx="16" r="2.4" fill="#a1bf43"/>
+    <path d="m-7 -4 7-4 7 4-7 4zM-7 0l7 4 7-4M-7 4l7 4 7-4" fill="none" stroke="#9ba5b0" stroke-width="1.2" stroke-linejoin="round"/>
+    <text y="-29" class="resolve-label">Parallel mixer</text><text y="18" class="resolve-number">14</text>
+  </g>
+  <g data-node="15" transform="translate(879 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">Texture</text><text y="18" class="resolve-number">15</text>
+  </g>
+  <g data-node="16" transform="translate(960 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">SPARE</text><text y="18" class="resolve-number">16</text>
+  </g>
+  <g data-node="17" transform="translate(1041 157)">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">DWG-709</text><text y="18" class="resolve-number">17</text>
+  </g>
+  <g data-node="18" transform="translate(1055 58)" class="resolve-bypassed">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">CINEON</text><text y="18" class="resolve-number">18</text>
+    <text y="36" class="resolve-off">Off</text>
+  </g>
+  <g data-node="19" transform="translate(1144 58)" class="resolve-bypassed">
+    <use href="#gradeCard"/>
+    <text y="-25" class="resolve-label">KODAK2383</text><text y="18" class="resolve-number">19</text>
+    <text y="36" class="resolve-off">Off</text>
+  </g>
+</svg>
+</div>
+<form id="toolForm"><label>Input<select id="inputProfile"><option value="rec709">SDR Rec.709 / Rec.709</option><option value="other">HDR / Log / other</option></select></label><div id="gradeNodeControls" class="grade-controls"><label>Balance<input id="gradeBalance" type="number" min="-0.03" max="0.03" step="0.001" value="0"></label><label>Contrast<input id="gradeContrast" type="number" min="0.9" max="1.15" step="0.01" value="1"></label><label>Saturation<input id="gradeSaturation" type="number" min="0.8" max="1.2" step="0.01" value="1"></label></div><div class="input-row"><button id="runTool" type="submit">Apply to duplicate timeline</button><a id="downloadGrade" class="button" href="/api/workbench/grade-template" download>Download DRX</a></div></form>
+<section class="resolve-luts" aria-labelledby="resolveLutsTitle">
+  <h2 id="resolveLutsTitle">Presets &amp; LUTs</h2>
+  <div class="input-row">
+    <label for="resolveLut">Sony looks</label>
+    <select id="resolveLut"><option value="">No LUT selected</option></select>
+    <button id="resolveLutDownload" type="button" disabled>Download LUT</button>
+  </div>
+  <p id="resolveLutNote" class="muted" role="status"></p>
+  <div id="resolveLutPreview" hidden>
+    <div><small>Original test swatches</small><div id="resolveLutNeutral" class="resolve-swatches"></div></div>
+    <div><small>With selected LUT</small><div id="resolveLutApplied" class="resolve-swatches"></div></div>
+  </div>
+  <div class="builtin-luts">
+    <div class="input-row">
+      <label for="resolveBuiltinLut">DaVinci Built-in LUTs</label>
+      <select id="resolveBuiltinLut" aria-describedby="resolveBuiltinHelp"><option value="">Choose a LUT to preview in Resolve</option></select>
+      <button id="restoreResolveGrade" type="button">Restore previous grade</button>
+    </div>
+    <p id="resolveBuiltinHelp" class="muted">Park the playhead on a clip in Resolve. Selecting a LUT previews it in a separate color version. Choose a LUT that matches the footage's input color space.</p>
+    <p id="resolveBuiltinStatus" class="muted" role="status"></p>
+  </div>
+</section>
+<p id="toolStatus" role="status"></p><progress id="toolProgress" hidden max="100"></progress><div id="toolError" role="alert" hidden></div><details><summary>Project setup</summary><p>Open a footage-only V1 timeline in Resolve Studio with manual DaVinci YRGB. Color Grade 1 uses <b>RealFilmV2_Rec709</b> from the current library's PowerGrade albums. Color Grade 2 also requires a DaVinci Wide Gamut / Intermediate timeline. Both grades open as editable nodes in Resolve. For Log or HDR footage, match the input transform and grade manually in Resolve.</p></details>
+</main><script src="workbench.js"></script><script src="resolve-luts.js"></script></body></html>

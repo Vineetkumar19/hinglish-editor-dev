@@ -1,0 +1,167 @@
+EPIDEMIC STUDIO: SELECTION, LAYERING AND MIX-DECISION RESEARCH
+Date: 24 October 2026
+Scope: Official product, help, developer and teaching sources. No private API calls,
+uploads, paid jobs, audio downloads, model downloads or product changes performed.
+
+EVIDENCE LABELS
+PRODUCT = documented externally observable capability, not recovered implementation.
+API = current documented public API contract, not automatically Studio's private API.
+TEACHING = Epidemic-published human craft advice, not proof of its AI's rules.
+PROPOSAL = our reconstruction recommendation, not a claim about Epidemic internals.
+
+1. PRODUCT: THE DRAFT IS DESIGNED IN DISTINCT ROLES
+Source: https://www.epidemicsound.com/tools/studio/tutorial/
+Checked: tutorial sections 2-6, web and plugin workflows.
+Bounded source summary: Studio accepts project type, mood and narrative beats in
+free text. Its analysis covers pacing, actions and mood. The described draft has
+music, environmental layers and effects tied to visible cues. Wind plus birds and
+office hum plus typing illustrate multiple contextual ingredients. Each placed
+clip can expose nine alternate suggestions. Per-clip volume, fades, trim and
+placement are editable; lanes can be soloed or muted. XML export preserves placement.
+What this establishes: a contextual multitrack draft with replaceable assets.
+What it does not establish: fixed effects-per-second, exact object detections,
+event-confidence thresholds, automatic EQ, or a universal number of layers.
+
+2. PRODUCT: CONTEXT AND SYNCHRONIZATION ARE SEPARATE QUALITY DIMENSIONS
+Source: https://corporate.epidemicsound.com/press-and-media/press-releases/2026/epidemic-sound-updates-ai-powered-studio-to-further-streamline-soundtracking/
+Published: 7 April 2026.
+Bounded source summary: The release identifies music, background ambience and
+Foley as coordinated ingredients. It attributes improved suggestions to added
+free-text context and a proprietary model's improved understanding of video vibe,
+sound relevance and action synchronization. It also adds volume/fade controls and
+single-file soundscape/video downloads. It does not disclose the model identity,
+prompts, planner schema, layer-selection objective or synchronization method.
+
+3. API: MATCH RELEVANCE NEEDS A REJECTION GATE
+Source: https://developers.epidemicsound.com/docs/sound-effects/
+Bounded source summary: Search is semantic and accepts descriptive natural language.
+The guide recommends retaining the full description instead of reducing it to
+keywords. Even nonsense queries generally return candidates; a populated result
+page must not be treated as a successful match. Public SFX responses contain basic
+identity/title/duration metadata, not music-style BPM, mood, genre or tags. Titles
+encode recording details and variants. UCS categories form a parent-child hierarchy;
+84 of 788 names are ambiguous alone, so parent context matters. Search and category
+browsing are separate operations. Best-match sorting uses descending order.
+Practical implication: retrieve with action, material, setting, distance and intent;
+then assess candidate suitability before adding it. A nearest neighbor can still
+be wrong. Do not invent tags absent from this API contract.
+
+4. API: PUBLIC AUTOMATION IS NARROWER THAN STUDIO
+Sources:
+https://developers.epidemicsound.com/docs/soundtracking/
+https://developers.epidemicsound.com/docs/api-reference/
+Bounded summary (soundtracking guide): The beta automated job currently adds MUSIC
+only, returns an output file and library IDs, and takes an optional creative brief.
+The brief is guidance, not a guaranteed filter. sourceAudio defaults to MUTED;
+UNMUTED retains the uploaded audio. The job state combines analysis, selection and
+rendering into IN_PROGRESS rather than exposing internal planner stages.
+Bounded summary (API reference): sourceAudio UNMUTED explicitly places its soundtrack
+under existing audio at a fixed level. This does not establish a speech-aware
+ducking algorithm in this public endpoint. This contract is not evidence of the
+private Studio multieffect planner or its mix settings.
+Important: An API marketing page describes broad studio-style possibilities. The
+current endpoint contract takes precedence when deciding what can be integrated.
+
+5. API: VIDEO RECOMMENDATION IS NOT CONTACT-TIME DETECTION
+Source: https://developers.epidemicsound.com/docs/search-by-video/
+Bounded source summary: This endpoint workflow uploads a JPEG frame (up to 2 MB),
+obtains an imageId and requests music recommendations for that image. It is a
+visual-context recommendation interface, not a documented temporal event detector.
+Inference: one scene frame can suggest a forest mood; it cannot establish the exact
+instant a foot contacts gravel. Do not conflate this endpoint with Studio analysis.
+
+6. TEACHING: REUSABLE MULTILAYER RECIPES ARE EXPLICITLY PUBLISHED
+Source: https://www.epidemicsound.com/how-it-works/video-guides/
+Bounded source summary: The official masterclass page presents SeeMin's four roles:
+atmosphere, emotion, movement and attention-grabbing detail. Kyle Lexter teaches
+stacking a whoosh with a riser and a hit. Joseph Martin describes hook, mood and
+scene-transition functions. Desire LaCapture's brand kit includes sonic logo, UI
+sounds, transitions and ambience. These are creator teaching frameworks hosted
+by Epidemic; they are not a disclosure of Studio's planner code or learned policy.
+Practical implication: reusable layer recipes should contain separate time roles
+and sound functions, rather than retrieving five similar effects for one keyword.
+
+7. TEACHING: THE MIX HIERARCHY CHANGES WITH CONTENT
+Source: https://www.epidemicsound.com/filmmaking/documentary-sound-effects/
+Bounded source summary: For documentaries, Epidemic recommends narration/interviews
+as the clearest foreground, music below them, and subtle ambience/Foley beneath
+that. Room tone helps maintain continuity through dialogue edits. It distinguishes
+setting ambience from action Foley, and curates different palettes for true crime,
+nature, historical and biographical work. These are editorial guidelines, not
+verified automatic Studio gain values or a universal action-trailer hierarchy.
+Practical implication: narration-heavy documentary and music-driven montage need
+different mix priorities even if they contain identical visible objects.
+
+8. TEACHING: MORE LAYERS ALONE ARE NOT THE OBJECTIVE
+Source: https://www.epidemicsound.com/blog/sound-design-tips-and-tricks/
+Published: 13 February 2024.
+Bounded source summary: Epidemic recommends layered sound construction, added
+transients for impact, saved effect chains, careful effect ordering, EQ, panning,
+sidechaining, and silence. It also warns against too many effects and excessive
+bass. These are general sound-design techniques, not evidence all are automatically
+enabled in Studio. Do not infer a five-layer minimum or one-effect-every-second
+rule from the presence of dense timelines.
+
+9. RESEARCH: A RANKER SCORE DOES NOT VALIDATE A SOUNDTRACK
+Source: https://www.epidemicsound.com/blog/soundtracking-difficulties-with-ai/
+Bounded source summary: The ML team separates semantic fit, synchronization and
+creative coherence. It discusses foreground sounds, transitions and background
+music, not only literal Foley. Their comparisons found missing expected ambience,
+poor synchronization, and misleading ImageBind/Synchformer scores. Studio's
+evaluation therefore combines automated signals with expert listening and user
+feedback. This is evidence for evaluation practice; it does not prove those
+evaluation models are Studio's deployed event detectors or layer planners.
+
+PROPOSED STORYLENS RECONSTRUCTION: DISTINCT DECISIONS
+The following is our design proposal, not a recovered Epidemic algorithm.
+
+A. Make an event ledger before search. Every event needs scene range, observed
+action/material, narrative purpose, event time/range, confidence and evidence.
+Vision scene samples establish setting; measured motion/contact/word timestamps
+establish placement. Unknown timing remains unknown rather than invented.
+
+B. Plan simultaneous roles on different time scales:
+   - Music: emotional arc and longer musical passages.
+   - Ambience: persistent scene/world continuity with overlapping scene tails.
+   - Foley: short local actions, with surface/material and distance specificity.
+   - Transition/design: deliberate anticipation, motion, impact and decay.
+   - Detail: quiet secondary texture where it adds information.
+   - Original audio/dialogue: retained evidence and the primary clarity constraint.
+
+C. A five-layer two-second example (illustrative, NOT an observed Studio result):
+   continuous music + continuous room tone + riser leading into a reveal + whoosh
+   across the movement + impact at the landing. These are five active clips, but
+   only three newly scheduled events; they are not five identical sounds launched
+   each second. A quieter speaking scene may need only a bed and one subtle detail.
+
+D. Retrieve for each role, keep candidate alternatives, reject unfit results, and
+avoid picking multiple near-duplicates for one purpose. Candidate scoring should
+include semantic suitability, duration/envelope suitability, original-audio
+redundancy, and compatibility with neighboring layers. These additional ranking
+terms are proposed; no Epidemic weights have been recovered.
+
+E. Place each asset by its useful sound event rather than file start alone.
+Maintain source offset, leading silence, onset/peak and decay. Risers may finish
+at a reveal, impacts align their transient, ambience spans a scene. Do not claim
+an RMS peak is necessarily a contact transient or that sparse video samples
+identify frame-accurate footfalls.
+
+F. Mix around narrative priority: role/clip gain, fades, speech ducking, headroom,
+frequency/space conflicts and continuity. Keep per-layer editability and source
+credits into Premiere/CapCut exports. Measure overlap and audibility, not merely
+whether the project contains many tracks. Listening remains required.
+
+SPECIFIC UNANSWERED QUESTIONS
+- Studio's video/action model, frame sampling, action segmentation and onset model.
+- Whether it jointly optimizes whole layer sets or selects independent candidates.
+- The category-specific timing, salience and confidence thresholds.
+- Whether there is learned layer density, explicit event budgets or a rerank loop.
+- Whether it detects already-present source Foley to avoid duplicate sounds.
+- Whether automatic EQ/pan/reverb/phase handling exists beyond observed client DSP.
+- Exact per-role gain, target loudness, limiting and ducking settings used per job.
+- Whether implicit layer construction uses compound catalogue recordings, multiple
+  clips, or both for particular results. Clip metadata plus listening must verify.
+
+Research result: stronger practical specification and evidence boundaries, not
+complete recovery of private planning code. No Storylens implementation or live
+quality validation was carried out in this research subtask.

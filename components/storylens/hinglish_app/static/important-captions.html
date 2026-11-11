@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Important Words · Storylens</title>
+  <link rel="stylesheet" href="workbench.css">
+  <link rel="stylesheet" href="tool-layout.css?v=2">
+  <style>
+    main { max-width:none }
+    label { display:block }
+    #script { width:100%; min-height:64px; resize:vertical; border:1px solid #3a4048; border-radius:8px; padding:9px; margin:5px 0 }
+    .cue-row { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:8px; margin:6px 0 }
+    .cue-row time { color:#aeb6bc; font-variant-numeric:tabular-nums }
+    #word-list { flex:1 1 180px; min-width:0 }
+    #word-search { flex:1 1 120px; min-width:0 }
+    #output { overflow-wrap:anywhere }
+  </style>
+</head>
+<body><main>
+  <header><h1>Important words</h1><a href="/">Storylens</a></header>
+  <form id="input-form">
+    <label for="source">Video path</label><input id="source" required placeholder="Paste video path">
+    <label for="script">Script <span class="muted">optional</span></label><textarea id="script" maxlength="20000" rows="2"></textarea>
+    <button id="transcribe" type="submit">Transcribe video</button>
+  </form>
+  <p id="status" role="status"></p>
+  <div id="review" hidden>
+    <h2>Important words</h2>
+    <div id="highlights"></div>
+    <details id="add-cue"><summary>Add word or phrase</summary>
+      <div class="input-row"><input id="word-search" type="search" aria-label="Search timed words" placeholder="Find a spoken word">
+      <select id="word-list" aria-label="Spoken word"></select>
+      <select id="word-count" aria-label="Words in phrase" style="width:auto">
+        <option value="1">1 word</option><option value="2">2 words</option><option value="3">3 words</option><option value="4">4 words</option>
+        <option value="5">5 words</option><option value="6">6 words</option><option value="7">7 words</option><option value="8">8 words</option>
+      </select><button id="add" type="button">Add</button></div>
+    </details>
+    <button id="build" class="tool-primary" type="button" disabled>Start caption</button>
+    <p id="output" hidden></p>
+  </div>
+</main>
+<script>window.storylensImportantToken="__APP_TOKEN__";</script>
+<script src="embedded-tool.js"></script>
+<script src="important-captions.js?v=20261107-review"></script>
+</body></html>

@@ -1,0 +1,16 @@
+{
+  "mode": "broll",
+  "profile": "general",
+  "input_path": "A:\\Full Drive\\thisis.vineet\\e2\\e2(1).mp4",
+  "source_paths": [],
+  "script": "",
+  "format": "source",
+  "device": "cuda",
+  "density": "medium",
+  "preview": true,
+  "broll_review_options": true,
+  "broll_options_per_moment": 5,
+  "broll_count": 10,
+  "broll_black_background": true,
+  "broll_brief": "Collect relevant video-only choices for the important spoken moments. Preserve the spoken meaning. Leave insertion to my explicit selection; do not substitute images or text."
+}

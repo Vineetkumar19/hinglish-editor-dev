@@ -1,0 +1,14 @@
+{
+  "scope": "isolated component/regression checks only; not local-agent acceptance",
+  "command": ".venv/Scripts/python.exe -m unittest tests.test_sound_recommendations tests.test_sound_natural_duration tests.test_sound_website_context",
+  "workspace_temp": true,
+  "passed": 37,
+  "new_recommendation_tests": 20,
+  "existing_regressions": 17,
+  "seconds": 2.903,
+  "real_llm_or_vision_calls": 0,
+  "renders": 0,
+  "native_actions": 0,
+  "full_sound_suite_rerun": false,
+  "final_review_findings": 3
+}

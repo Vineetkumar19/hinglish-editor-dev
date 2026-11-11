@@ -1,0 +1,17 @@
+ORIGINAL ELEMENT ANIMATION — 24 October 2026
+
+Owner clarified that the quoted 28-word statement is normal script content, not a request to repair or copy another video. Motion Graphics should move graphic elements; typography alone is insufficient.
+
+Implemented an opt-in Element animation style (theme:elements). Local Qwen partitions exact source words, chooses procedural objects, parent/clip relationships and independent normalized motion tracks. Supported primitives: rectangle, frame, ellipse, line, arrow and star. Text is a supporting caption. At least two non-text objects must independently travel/rotate/scale. The renderer executes model data with GSAP and Hyperframes; no model JS/HTML or manually authored composition is substituted. Existing caption renderers, original Motion Graphics styles and references remain intact.
+
+A full general assistant planner initially failed context budgeting before any job started. Explicit script-only Element animation requests now dispatch the exact SCRIPT block directly to the ordinary queued motion worker; the local creative calls retain the full creator profile. Words such as fails, clipped and mistakes are treated as caption data. Normal style selection/CLI also route to this path. This avoids unrelated tool schemas without deleting saved guidance.
+
+Actual Storylens session c72ec0fbe4fd40c0, job e8bd3632e56d:
+output/motion/elements-20261024-212240-7e5e51/MOTION_GRAPHICS.mp4
+4 scenes, 17 seconds, 510 frames, 360x640, stereo local soundtrack (11 sound/music placements). Exact source statement preserved across beats. Local author: Ollama storylens-meaning:14b. Source measurements/reference video/local Vision were not used; procedural vector-like objects need no PNG retrieval. All four scene payloads match actual local-model replies. No manual creative edits or weight updates.
+
+62 focused checks pass. Actual existing in-app Storylens player reached 17 seconds ended=true, ready=4, no media error. The result stays visible. Four decoded graphic-region comparisons show pixel motion independently of the supporting caption. Audio peak .93994 and RMS .05616 are nonzero technical evidence, not listening approval. No native editors or visible Chrome windows were launched. Other GPU jobs were left alone. Only the verified idle demonstration service on 8881 was reloaded for code changes.
+
+Creative assessment: this is a BASIC GEOMETRIC PROTOTYPE. The motion is real, but the model's panel-and-shapes imagery, object labels and metaphor choices are weak and repetitive. A phrase breaks awkwardly between wrong and crops. Optional small labels can have poor contrast. Existing 100/100 Script Edit rules do not establish storytelling/design quality. Per the final-review rule, record these findings without further repairs after verification. No claim of production quality, arbitrary-script reliability, true 3D or native editable graphic export.
+
+Evidence: element-motion-project.json, story-*.json, elements-*.json, per-scene composition scene.json/render.log, authorship-audit.json, file-checks.json, live-playback.json, final-review.json, review.jpg and sound-events.json in the output folder. Future work should address meaningful visual metaphors and label/phrase quality, rather than equating any two moving objects with successful storytelling. The demonstrated scope is one 28-word script; larger scripts remain unverified.

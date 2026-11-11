@@ -1,0 +1,18 @@
+.workflow-page{background:#0d0f10;color:#f1f1f1}.workflow-page main{width:calc(100% - 40px);max-width:1200px;margin:24px auto}.workflow-heading{margin-bottom:24px}.workflow-heading h1{font-size:26px;margin:0 0 8px}.workflow-heading p{font-size:13px;color:#b4b4b4}.workflow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.workflow-grid section,.workflow-status{background:#171717;border-radius:8px;padding:20px;margin-bottom:16px;overflow-wrap:anywhere}.workflow-grid h2,.workflow-status h2{font-size:17px;margin:0 0 12px}.workflow-grid p,.workflow-status p,.workflow-status li{color:#b4b4b4;font-size:13px;line-height:1.6}.workflow-page a{color:#d2d2d2;font-size:13px}.workflow-page summary{cursor:pointer;font-size:13px}.workflow-page details ul{padding-left:18px}.workflow-page #channelExtras{display:none}.workflow-page .channel-profiles{padding:16px 20px}.workflow-page .channel-title h2{font-size:20px}.workflow-page .channel-note{margin-bottom:0}@media(max-width:700px){.workflow-grid{grid-template-columns:minmax(0,1fr)}.workflow-page main{width:calc(100% - 24px)}.workflow-page .topbar{padding:12px;gap:12px;flex-wrap:wrap;height:auto}}
+
+/* Equal channel columns share five content rows, including the bottom action. */
+.workflow-page{--workflow-ink:#f1f1f1;--workflow-muted:#bfc0c1;--workflow-control:#505050}
+.workflow-grid{align-items:stretch;row-gap:16px}
+.workflow-grid .channel-workflow-card{display:grid;grid-row:span 5;grid-template-rows:subgrid;gap:16px;min-width:0;margin-bottom:16px}
+.workflow-grid .channel-workflow-card h2{font-size:20px;line-height:1.3;margin:0;color:var(--workflow-ink)}
+.workflow-grid .workflow-step,.workflow-grid .workflow-account p{font-size:14px;line-height:1.55;margin:0;color:var(--workflow-muted)}
+.workflow-grid :is(.workflow-step,.workflow-account) strong{display:block;font-size:13px;font-weight:600;color:var(--workflow-ink);margin-bottom:5px}
+.workflow-step span{display:block}
+.workflow-page .workflow-prepare{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:40px;padding:9px 12px;border:1px solid var(--workflow-control);border-radius:6px;font-size:14px;line-height:1.4;text-decoration:none;color:var(--workflow-ink);align-self:end}
+.workflow-page .workflow-prepare:hover{background:#242424;border-color:#777}
+.workflow-page .workflow-prepare:focus-visible{outline:2px solid #ddd;outline-offset:3px}
+.workflow-heading p,.workflow-status p,.workflow-status li{font-size:14px;color:var(--workflow-muted)}
+@supports not (grid-template-rows:subgrid){.workflow-grid .channel-workflow-card{grid-row:auto;grid-template-rows:auto minmax(65px,auto) minmax(65px,auto) minmax(85px,auto) auto}}
+@media(max-width:700px){.workflow-grid .channel-workflow-card{grid-row:auto;grid-template-rows:auto minmax(58px,auto) minmax(58px,auto) minmax(80px,auto) auto}.workflow-page .workflow-prepare{min-height:44px}}
+
+@media(max-width:900px){.workflow-page .topbar{height:auto;min-height:60px;flex-wrap:wrap;gap:8px;padding:8px 12px;box-sizing:border-box}.workflow-page .topbar .header-actions{width:100%;max-width:100%;flex:1 0 100%;flex-wrap:wrap;overflow:visible;padding:0}.workflow-page .topbar .header-actions>button{width:auto;min-width:0;max-width:none;flex:1 1 144px;min-height:44px}}

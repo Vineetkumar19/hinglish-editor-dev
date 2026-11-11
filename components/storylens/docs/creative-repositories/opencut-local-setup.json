@@ -1,0 +1,11 @@
+{
+  "upstream_commit": "cf5e79e919144200294fb9fed22a222592a0aeea",
+  "port": 8870,
+  "changes": [
+    "local evaluation .env with fresh secret",
+    "local Inter font avoids Google font build dependency",
+    "disabled remote analytics and development scanning scripts in this evaluation copy",
+    "enabled webpack asyncWebAssembly for the published opencut-wasm package"
+  ],
+  "scope": "frontend editor evaluation; database, login and external sound services not configured"
+}

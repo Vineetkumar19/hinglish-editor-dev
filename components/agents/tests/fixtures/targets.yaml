@@ -1,0 +1,25 @@
+targets:
+  - name: Example Fantasy
+    url: http://fantasy.example/
+    category: fantasy_sports
+    note: fantasy cricket platform india creator partnership
+  - name: Example Cricket Gear
+    url: http://gear.example/
+    category: sports_equipment
+    note: cricket equipment brand sponsorship india
+  - name: Example Sports Analytics
+    url: http://analytics.example/
+    category: analytics
+    note: sports analytics platform media partnership cricket
+  - name: No Email Co
+    url: http://noemail.example/
+    category: fantasy_sports
+    note: cricket brand collaboration india phone only
+  - name: Rohit's Cricket Channel
+    url: http://creatorstudio.example/
+    category: creator
+    note: youtube cricket creator hire video editor editing help india
+  - name: Example SaaS
+    url: http://saas.example/
+    category: software_prospect
+    note: saas startup outdated website needs web developer redesign

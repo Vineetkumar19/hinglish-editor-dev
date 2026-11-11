@@ -1,0 +1,34 @@
+{
+  "component": "Independent Sound recommendation contract",
+  "static_dependency_result": "No OpenAI/Codex/ChatGPT SDK, API, active conversation or subscription-session dependency in the two new modules.",
+  "actual_local_model_acceptance": "Not performed; this stage is restricted to cached/fake/synthetic component tests. No genuine fresh local-agent choice/tool-call/native flow is accepted.",
+  "new_model_calls": 0,
+  "external_network_calls": 0,
+  "native_actions": 0,
+  "local_route": {
+    "sound_brain": "hinglish_sound.brain.Brain -> loopback Ollama /api/chat",
+    "vision": "hinglish_aigen.judge.Judge -> loopback Ollama /api/chat",
+    "embeddings": "configured local Ollama embedding adapter",
+    "configured_roles": [
+      "storylens-meaning:14b",
+      "storylens-planner:9b-q6",
+      "storylens-embedding:8b-q6"
+    ],
+    "startup": "hinglish_cut/local_runtime.py sets OLLAMA_NO_CLOUD=1 for runtimes it starts; installed weights/runtime and cache must remain available"
+  },
+  "legitimate_other_dependencies": [
+    "Local Python/PyAV; optional typed processing uses installed Torch/Torchaudio",
+    "Optional Freesound acquisition uses external asset API keys and licences, not a cloud LLM",
+    "Initial open-source model/library downloads may need network if not already cached",
+    "Commercial app/plugin licensing gates can be separate product-runtime dependencies; not a ChatGPT subscription"
+  ],
+  "specific_acceptance_gaps": [
+    "Independent candidate entry point is not registered in normal shared panel/server/local-agent tools yet",
+    "Fresh actual configured local models must produce timed scene/script evidence, source queries and real selections without synthetic answers or Codex replacements",
+    "Provider/model revision, exact redacted requests/tool executions, retries, cache lineage and intervention flags need normal-route receipt integration",
+    "No real 30\u201340s cold/warm per-stage/RAM/VRAM baseline; no 10\u201315min acceptance or SLA",
+    "Telemetry caller metadata currently has no redaction boundary; do not log credentials or raw headers",
+    "Explicit non-legacy model override skips shared locality validation; current production defaults examined remain loopback/local",
+    "Protected older automatic-picker and creative-quality findings remain unresolved; checkpoint semantic-field finding remains unresolved"
+  ]
+}

@@ -1,0 +1,648 @@
+{
+  "schema": "storylens.sound-recommendations",
+  "version": 1,
+  "id": "soundrec-c7e7e3ca5ee4b7e7a24a2063",
+  "fingerprint": "c7e7e3ca5ee4b7e7a24a206321b6b03ce60d8f14476679a1a0e741bef912f92f",
+  "status": "ready",
+  "timeline": {
+    "duration": 12.0,
+    "fps": "30",
+    "id": "golden-synthetic-sequence"
+  },
+  "script": "Synthetic contract fixture only — no real video was analysed.",
+  "creator_context": {
+    "brief": "Preserve this complete synthetic creator profile. Do not describe these tones as real water, a real horse or accepted music.",
+    "references": [
+      {
+        "text": "No model, inference, rendering, native import or creative acceptance occurred."
+      }
+    ]
+  },
+  "library_revision": "golden-synthetic-v1",
+  "capabilities": {
+    "mixed": false,
+    "rendered_auditions": false,
+    "host_imported": false,
+    "automatic_selection": false
+  },
+  "groups": [
+    {
+      "id": "music:opening",
+      "kind": "music",
+      "timeline": {
+        "start": 0.0,
+        "end": 2.0
+      },
+      "intent": "playful instrumental",
+      "role": "bed",
+      "evidence": {
+        "confidence": 0.8,
+        "description": "Synthetic playful-opening evidence for integration only",
+        "kind": "script",
+        "precision": "phrase"
+      },
+      "decision": null,
+      "status": "candidates",
+      "reason_code": "ranked_local_sources",
+      "candidates": [
+        {
+          "id": "candidate-58d4ae23f89e4762b17e9292",
+          "group_id": "music:opening",
+          "kind": "music",
+          "rank": 1,
+          "rank_score": 0.9,
+          "name": "Synthetic warm instrumental fixture",
+          "source": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+            "sha256": "cf2b92df97995a198d62f0c6e82ba5480ff55f2416320ffc7cea7ac270b74225",
+            "bytes": 48044,
+            "modified_ns": 1792881760259267100,
+            "available_start": 0.0,
+            "available_end": 3.0,
+            "bounds_basis": "minimum of cached index and demux duration",
+            "in": 0.0,
+            "out": 2.0,
+            "selection_basis": "source head; not acoustically auditioned",
+            "credit_sha256": "2c74b51b9035ba7fb0ccb56cbfb779eabe8da9c08843375854c9c50098452ed3"
+          },
+          "credits": {
+            "status": "provided_not_independently_verified",
+            "license": "Synthetic component-test tones; no third-party recording",
+            "source_url": null,
+            "author": "Storylens test fixture",
+            "attribution": null,
+            "license_url": null,
+            "metadata_sha256": "2c74b51b9035ba7fb0ccb56cbfb779eabe8da9c08843375854c9c50098452ed3"
+          },
+          "timeline": {
+            "start": 0.0,
+            "end": 2.0
+          },
+          "role": "bed",
+          "sound_type": null,
+          "mood": "upbeat",
+          "proposed_level_db": -16.0,
+          "reason": "playful instrumental",
+          "confidence": {
+            "value": 0.8,
+            "basis": "provided evidence; ranking score is not a probability"
+          },
+          "evidence": {
+            "confidence": 0.8,
+            "description": "Synthetic playful-opening evidence for integration only",
+            "kind": "script",
+            "precision": "phrase"
+          },
+          "listening": {
+            "vocals": false,
+            "fixture": true,
+            "sounds_like": [
+              "synthetic sine tone; not a semantic audio match"
+            ]
+          },
+          "review_required": true,
+          "coverage": "complete",
+          "loop": false,
+          "audition": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+            "in": 0.0,
+            "out": 2.0,
+            "rendered": false
+          },
+          "processing": {}
+        },
+        {
+          "id": "candidate-3c517e9c7d4518a9bacec679",
+          "group_id": "music:opening",
+          "kind": "music",
+          "rank": 2,
+          "rank_score": 0.8,
+          "name": "Synthetic playful instrumental fixture",
+          "source": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+            "sha256": "ed6eaccebc44b3e9728c202414561a5a801b8b7e3cf4ecb0f4861c6ab0a24602",
+            "bytes": 48044,
+            "modified_ns": 1792881760265306100,
+            "available_start": 0.0,
+            "available_end": 3.0,
+            "bounds_basis": "minimum of cached index and demux duration",
+            "in": 0.0,
+            "out": 2.0,
+            "selection_basis": "source head; not acoustically auditioned",
+            "credit_sha256": "1ced306b8840380d62247597b80765ae20240271dd463541fc4777ed737ce3ee"
+          },
+          "credits": {
+            "status": "provided_not_independently_verified",
+            "license": "Synthetic component-test tones; no third-party recording",
+            "source_url": null,
+            "author": "Storylens test fixture",
+            "attribution": null,
+            "license_url": null,
+            "metadata_sha256": "1ced306b8840380d62247597b80765ae20240271dd463541fc4777ed737ce3ee"
+          },
+          "timeline": {
+            "start": 0.0,
+            "end": 2.0
+          },
+          "role": "bed",
+          "sound_type": null,
+          "mood": "upbeat",
+          "proposed_level_db": -16.0,
+          "reason": "playful instrumental",
+          "confidence": {
+            "value": 0.8,
+            "basis": "provided evidence; ranking score is not a probability"
+          },
+          "evidence": {
+            "confidence": 0.8,
+            "description": "Synthetic playful-opening evidence for integration only",
+            "kind": "script",
+            "precision": "phrase"
+          },
+          "listening": {
+            "vocals": false,
+            "fixture": true,
+            "sounds_like": [
+              "synthetic sine tone; not a semantic audio match"
+            ]
+          },
+          "review_required": true,
+          "coverage": "complete",
+          "loop": false,
+          "audition": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+            "in": 0.0,
+            "out": 2.0,
+            "rendered": false
+          },
+          "processing": {}
+        }
+      ],
+      "rejections": []
+    },
+    {
+      "id": "music:rejected",
+      "kind": "music",
+      "timeline": {
+        "start": 5.0,
+        "end": 7.0
+      },
+      "intent": "playful instrumental",
+      "role": "bed",
+      "evidence": {
+        "confidence": 0.8,
+        "description": "Fixture rejection must stay rejected",
+        "kind": "script",
+        "precision": "phrase"
+      },
+      "decision": -1,
+      "status": "rejected",
+      "reason_code": "owner_or_saved_rejection",
+      "candidates": [],
+      "rejections": []
+    },
+    {
+      "id": "music:partial",
+      "kind": "music",
+      "timeline": {
+        "start": 8.0,
+        "end": 12.0
+      },
+      "intent": "playful instrumental",
+      "role": "bed",
+      "evidence": {
+        "confidence": 0.8,
+        "description": "Four-second request, three-second available source; never silently loop",
+        "kind": "script",
+        "precision": "phrase"
+      },
+      "decision": null,
+      "status": "candidates",
+      "reason_code": "ranked_local_sources",
+      "candidates": [
+        {
+          "id": "candidate-e4cbda66fb83c3f8827fe200",
+          "group_id": "music:partial",
+          "kind": "music",
+          "rank": 1,
+          "rank_score": 0.9,
+          "name": "Synthetic warm instrumental fixture",
+          "source": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+            "sha256": "cf2b92df97995a198d62f0c6e82ba5480ff55f2416320ffc7cea7ac270b74225",
+            "bytes": 48044,
+            "modified_ns": 1792881760259267100,
+            "available_start": 0.0,
+            "available_end": 3.0,
+            "bounds_basis": "minimum of cached index and demux duration",
+            "in": 0.0,
+            "out": 3.0,
+            "selection_basis": "source head; not acoustically auditioned",
+            "credit_sha256": "2c74b51b9035ba7fb0ccb56cbfb779eabe8da9c08843375854c9c50098452ed3"
+          },
+          "credits": {
+            "status": "provided_not_independently_verified",
+            "license": "Synthetic component-test tones; no third-party recording",
+            "source_url": null,
+            "author": "Storylens test fixture",
+            "attribution": null,
+            "license_url": null,
+            "metadata_sha256": "2c74b51b9035ba7fb0ccb56cbfb779eabe8da9c08843375854c9c50098452ed3"
+          },
+          "timeline": {
+            "start": 8.0,
+            "end": 11.0
+          },
+          "role": "bed",
+          "sound_type": null,
+          "mood": "upbeat",
+          "proposed_level_db": -16.0,
+          "reason": "playful instrumental",
+          "confidence": {
+            "value": 0.8,
+            "basis": "provided evidence; ranking score is not a probability"
+          },
+          "evidence": {
+            "confidence": 0.8,
+            "description": "Four-second request, three-second available source; never silently loop",
+            "kind": "script",
+            "precision": "phrase"
+          },
+          "listening": {
+            "vocals": false,
+            "fixture": true,
+            "sounds_like": [
+              "synthetic sine tone; not a semantic audio match"
+            ]
+          },
+          "review_required": true,
+          "coverage": "partial",
+          "loop": false,
+          "audition": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+            "in": 0.0,
+            "out": 3.0,
+            "rendered": false
+          },
+          "processing": {}
+        },
+        {
+          "id": "candidate-63bcd7e1bfd19b52fa7f1c47",
+          "group_id": "music:partial",
+          "kind": "music",
+          "rank": 2,
+          "rank_score": 0.8,
+          "name": "Synthetic playful instrumental fixture",
+          "source": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+            "sha256": "ed6eaccebc44b3e9728c202414561a5a801b8b7e3cf4ecb0f4861c6ab0a24602",
+            "bytes": 48044,
+            "modified_ns": 1792881760265306100,
+            "available_start": 0.0,
+            "available_end": 3.0,
+            "bounds_basis": "minimum of cached index and demux duration",
+            "in": 0.0,
+            "out": 3.0,
+            "selection_basis": "source head; not acoustically auditioned",
+            "credit_sha256": "1ced306b8840380d62247597b80765ae20240271dd463541fc4777ed737ce3ee"
+          },
+          "credits": {
+            "status": "provided_not_independently_verified",
+            "license": "Synthetic component-test tones; no third-party recording",
+            "source_url": null,
+            "author": "Storylens test fixture",
+            "attribution": null,
+            "license_url": null,
+            "metadata_sha256": "1ced306b8840380d62247597b80765ae20240271dd463541fc4777ed737ce3ee"
+          },
+          "timeline": {
+            "start": 8.0,
+            "end": 11.0
+          },
+          "role": "bed",
+          "sound_type": null,
+          "mood": "upbeat",
+          "proposed_level_db": -16.0,
+          "reason": "playful instrumental",
+          "confidence": {
+            "value": 0.8,
+            "basis": "provided evidence; ranking score is not a probability"
+          },
+          "evidence": {
+            "confidence": 0.8,
+            "description": "Four-second request, three-second available source; never silently loop",
+            "kind": "script",
+            "precision": "phrase"
+          },
+          "listening": {
+            "vocals": false,
+            "fixture": true,
+            "sounds_like": [
+              "synthetic sine tone; not a semantic audio match"
+            ]
+          },
+          "review_required": true,
+          "coverage": "partial",
+          "loop": false,
+          "audition": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+            "in": 0.0,
+            "out": 3.0,
+            "rendered": false
+          },
+          "processing": {}
+        }
+      ],
+      "rejections": []
+    },
+    {
+      "id": "sfx:water",
+      "kind": "sfx",
+      "timeline": {
+        "start": 3.0,
+        "end": 5.0
+      },
+      "intent": "pool water lapping",
+      "role": "detail",
+      "evidence": {
+        "confidence": 0.95,
+        "description": "SYNTHETIC fixture evidence says visible moving pool water; no Vision inference occurred",
+        "kind": "vision",
+        "precision": "visual_interval"
+      },
+      "decision": null,
+      "status": "candidates",
+      "reason_code": "ranked_local_sources",
+      "candidates": [
+        {
+          "id": "candidate-813cfa5a66115e2cad4bbd84",
+          "group_id": "sfx:water",
+          "kind": "sfx",
+          "rank": 1,
+          "rank_score": 0.8,
+          "name": "Pool water lapping — SYNTHETIC TONE fixture",
+          "source": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\2-sfx.wav",
+            "sha256": "677bcb3c6cee8220c3a940375a9f16d2342f423e54777e1d49d9e3a494842471",
+            "bytes": 48044,
+            "modified_ns": 1792881760271322500,
+            "available_start": 0.0,
+            "available_end": 3.0,
+            "bounds_basis": "minimum of cached index and demux duration",
+            "in": 0.0,
+            "out": 2.0,
+            "selection_basis": "source head; not acoustically auditioned",
+            "credit_sha256": "75c90e77c3252645050ee5b9bebbc71d85bfd40824e2ef84f9e75a2e6d61f72e"
+          },
+          "credits": {
+            "status": "provided_not_independently_verified",
+            "license": "Synthetic component-test tones; no third-party recording",
+            "source_url": null,
+            "author": "Storylens test fixture",
+            "attribution": null,
+            "license_url": null,
+            "metadata_sha256": "75c90e77c3252645050ee5b9bebbc71d85bfd40824e2ef84f9e75a2e6d61f72e"
+          },
+          "timeline": {
+            "start": 3.0,
+            "end": 5.0
+          },
+          "role": "detail",
+          "sound_type": "foley",
+          "mood": null,
+          "proposed_level_db": -14.0,
+          "reason": "pool water lapping",
+          "confidence": {
+            "value": 0.95,
+            "basis": "provided evidence; ranking score is not a probability"
+          },
+          "evidence": {
+            "confidence": 0.95,
+            "description": "SYNTHETIC fixture evidence says visible moving pool water; no Vision inference occurred",
+            "kind": "vision",
+            "precision": "visual_interval"
+          },
+          "listening": {
+            "vocals": false,
+            "fixture": true,
+            "sounds_like": [
+              "synthetic sine tone; not a semantic audio match"
+            ]
+          },
+          "review_required": true,
+          "coverage": "complete",
+          "loop": false,
+          "audition": {
+            "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\2-sfx.wav",
+            "in": 0.0,
+            "out": 2.0,
+            "rendered": false
+          },
+          "processing": {}
+        }
+      ],
+      "rejections": [
+        {
+          "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\3-sfx.wav",
+          "reason": "Source title/tags identify horse; requested physical subject(s): water. No matching source subject; reject this recording",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "id": "sfx:cache-miss",
+      "kind": "sfx",
+      "timeline": {
+        "start": 6.0,
+        "end": 7.0
+      },
+      "intent": "uncached water movement",
+      "role": "detail",
+      "evidence": {
+        "confidence": 0.95,
+        "description": "Synthetic pool water; cache miss must not start a model",
+        "kind": "vision",
+        "precision": "visual_interval"
+      },
+      "decision": null,
+      "status": "no_match",
+      "reason_code": "ranking_cache_missing",
+      "candidates": [],
+      "rejections": []
+    }
+  ],
+  "telemetry": [
+    {
+      "name": "rank.music",
+      "kind": "call",
+      "start": 15044.0624798,
+      "end": 15044.0634248,
+      "seconds": 0.0009449999997741543,
+      "status": "complete",
+      "cache": "hit",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "source.identity",
+      "kind": "call",
+      "start": 15044.0644385,
+      "end": 15044.0826134,
+      "seconds": 0.01817490000030375,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "source.identity",
+      "kind": "call",
+      "start": 15044.0832866,
+      "end": 15044.0943882,
+      "seconds": 0.011101599999165046,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "recommendation.group",
+      "kind": "stage",
+      "start": 15044.0624557,
+      "end": 15044.0944724,
+      "seconds": 0.03201670000089507,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {
+        "kind": "music",
+        "id": "music:opening"
+      }
+    },
+    {
+      "name": "recommendation.group",
+      "kind": "stage",
+      "start": 15044.0944914,
+      "end": 15044.0945026,
+      "seconds": 1.1200001608813182e-05,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {
+        "kind": "music",
+        "id": "music:rejected"
+      }
+    },
+    {
+      "name": "rank.music",
+      "kind": "call",
+      "start": 15044.0945292,
+      "end": 15044.0953678,
+      "seconds": 0.0008386000008613337,
+      "status": "complete",
+      "cache": "hit",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "source.identity",
+      "kind": "call",
+      "start": 15044.0963124,
+      "end": 15044.0963234,
+      "seconds": 1.0999998266925104e-05,
+      "status": "complete",
+      "cache": "hit",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "source.identity",
+      "kind": "call",
+      "start": 15044.0967737,
+      "end": 15044.0967843,
+      "seconds": 1.0600000678095967e-05,
+      "status": "complete",
+      "cache": "hit",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "recommendation.group",
+      "kind": "stage",
+      "start": 15044.0945144,
+      "end": 15044.0968177,
+      "seconds": 0.0023032999997667503,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {
+        "kind": "music",
+        "id": "music:partial"
+      }
+    },
+    {
+      "name": "rank.sfx",
+      "kind": "call",
+      "start": 15044.0971135,
+      "end": 15044.0978813,
+      "seconds": 0.0007678000001760665,
+      "status": "complete",
+      "cache": "hit",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "source.identity",
+      "kind": "call",
+      "start": 15044.0991426,
+      "end": 15044.1112335,
+      "seconds": 0.012090899999748217,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {}
+    },
+    {
+      "name": "recommendation.group",
+      "kind": "stage",
+      "start": 15044.0968257,
+      "end": 15044.1113129,
+      "seconds": 0.014487200000075973,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {
+        "kind": "sfx",
+        "id": "sfx:water"
+      }
+    },
+    {
+      "name": "rank.sfx",
+      "kind": "call",
+      "start": 15044.1114841,
+      "end": 15044.1114975,
+      "seconds": 1.340000017080456e-05,
+      "status": "failed",
+      "cache": "hit",
+      "retry": 0,
+      "metadata": {},
+      "error_type": "RankingCacheMiss"
+    },
+    {
+      "name": "recommendation.group",
+      "kind": "stage",
+      "start": 15044.1113306,
+      "end": 15044.111514,
+      "seconds": 0.00018339999951422215,
+      "status": "complete",
+      "cache": "miss",
+      "retry": 0,
+      "metadata": {
+        "kind": "sfx",
+        "id": "sfx:cache-miss"
+      }
+    }
+  ],
+  "fixture": true,
+  "fixture_notice": "Integration fixture with small real playable sine WAVs and intentionally synthetic rankings/evidence. NOT creative quality, real music/Foley, model or native acceptance evidence."
+}

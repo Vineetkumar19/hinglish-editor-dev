@@ -1,0 +1,237 @@
+{
+  "scope": "CPU/file checks only. No model/network/GPU/render/host/retry calls; failed outputs not rewritten.",
+  "tests": {
+    "count": 82,
+    "passed": 82,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 3.026,
+    "log": "duration-integration-green-tests.txt"
+  },
+  "tdd_red": {
+    "count": 8,
+    "failed_subcases": 8,
+    "log": "duration-metadata-red-tests.txt"
+  },
+  "actual_read_only_verification": {
+    "saved_options": 9,
+    "typed_selectable": 9,
+    "typed_rejected": 0,
+    "owner_choices": {
+      "0": "unselected",
+      "1": "unselected",
+      "2": "unselected",
+      "3": "unselected",
+      "4": "unselected",
+      "5": "unselected",
+      "6": "unselected",
+      "7": "unselected",
+      "8": "unselected",
+      "9": "unselected"
+    },
+    "eight_real_byte_and_packet_header_matches": [
+      {
+        "candidate_id": "pixabay:176609",
+        "duration": 6.0330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 181,
+          "packet_count": 181,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 92160,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 6033,
+          "stream_duration_ticks": 92667
+        }
+      },
+      {
+        "candidate_id": "pixabay:1643",
+        "duration": 6.0330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 181,
+          "packet_count": 181,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 92160,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 6033,
+          "stream_duration_ticks": 92667
+        }
+      },
+      {
+        "candidate_id": "pixabay:3175",
+        "duration": 6.0330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 181,
+          "packet_count": 181,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 92160,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 6033,
+          "stream_duration_ticks": 92667
+        }
+      },
+      {
+        "candidate_id": "web:d0a44bfbb6bc918d",
+        "duration": 8.0330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 241,
+          "packet_count": 241,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 122880,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 8033,
+          "stream_duration_ticks": 123387
+        }
+      },
+      {
+        "candidate_id": "pixabay:2067",
+        "duration": 4.3330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 130,
+          "packet_count": 130,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 66048,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 4333,
+          "stream_duration_ticks": 66555
+        }
+      },
+      {
+        "candidate_id": "pixabay:1495",
+        "duration": 4.3330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 130,
+          "packet_count": 130,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 66048,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 4333,
+          "stream_duration_ticks": 66555
+        }
+      },
+      {
+        "candidate_id": "pixabay:72930",
+        "duration": 4.3330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 130,
+          "packet_count": 130,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 66048,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 4333,
+          "stream_duration_ticks": 66555
+        }
+      },
+      {
+        "candidate_id": "pixabay:267",
+        "duration": 4.3330078125,
+        "frame_timing": {
+          "basis": "mp4_cfr_packet_grid_and_edit_list",
+          "frame_count": 130,
+          "packet_count": 130,
+          "base_rate": "30",
+          "ticks_per_frame": 512,
+          "first_pts": 0,
+          "last_pts": 66048,
+          "min_pts_step": 512,
+          "max_pts_step": 512,
+          "packet_durations_match": true,
+          "movie_time_base": "1/1000",
+          "edit_duration_ticks": 4333,
+          "stream_duration_ticks": 66555
+        }
+      }
+    ]
+  },
+  "bounded_final_probes": [
+    {
+      "case": "Valid edit header version 0",
+      "passed": true
+    },
+    {
+      "case": "Valid edit header version 1",
+      "passed": true
+    },
+    {
+      "case": "truncated_header",
+      "passed": true
+    },
+    {
+      "case": "atom_out_of_file",
+      "passed": true
+    },
+    {
+      "case": "duplicate_tracks",
+      "passed": true
+    },
+    {
+      "case": "zero_clock",
+      "passed": true
+    },
+    {
+      "case": "multi_edit",
+      "passed": true
+    },
+    {
+      "case": "nonunit_edit_rate",
+      "passed": true
+    }
+  ],
+  "new_breaking_points_found_in_these_probes": [],
+  "failed_artifacts_unchanged_since_prior_repair_snapshot": {
+    "cache\\app\\broll-jobs\\8765\\7c03db6fbd88.json": true,
+    "output\\broll\\20261025-044757-2498b9\\recovery.json": true,
+    "output\\broll\\20261025-044757-2498b9\\001-audio-only-source\\broll-project.json": true,
+    "cache\\app\\jobs\\7c03db6fbd88\\broll-checkpoint.json": true
+  },
+  "product_file": "hinglish_broll/candidate_manifest.py",
+  "product_sha256": "a084b4d527f0f597deffb74712d24c679a9c94532a898253aeb030b45ae097eb",
+  "old_manifest_goldens": "Existing35 contract tests passed; no golden fixture changes.",
+  "limits": [
+    "No new local-model plan or inference provenance validation",
+    "Seven keyword slots still have no saved qualified footage; selectable count is nine clips in three slots, not five choices per subject",
+    "No actual app retry or final native insertion here",
+    "Original protected final-review findings unchanged"
+  ]
+}

@@ -1,0 +1,1182 @@
+{
+  "requested": "2026-10-30",
+  "scope": "All 96 tools approved; implement category by category with editable native results.",
+  "status": "installed_owner_validation_pending",
+  "acceptance": "Code, integration, and real AE results are tracked separately. Do not count planned cards as working tools.",
+  "native_drag": "Not implemented: native card-to-AE timeline drop remains unresolved. Selected-layer click and panel-internal drop are implemented.",
+  "live_validation": "Owner explicitly chose to test AE themselves on 2026-10-30. Do not operate Adobe or request access again for this build.",
+  "categories": [
+    {
+      "id": "keyframes",
+      "name": "Keyframes & Easing",
+      "features": [
+        [
+          1,
+          "Easing presets"
+        ],
+        [
+          2,
+          "Copy and paste easing"
+        ],
+        [
+          3,
+          "Retime keyframes"
+        ],
+        [
+          4,
+          "Reverse animation"
+        ],
+        [
+          5,
+          "Bounce and overshoot"
+        ],
+        [
+          6,
+          "Stagger layers"
+        ]
+      ]
+    },
+    {
+      "id": "motion",
+      "name": "Element Motion",
+      "features": [
+        [
+          7,
+          "Impact shake"
+        ],
+        [
+          8,
+          "Handheld drift"
+        ],
+        [
+          9,
+          "Float"
+        ],
+        [
+          10,
+          "Arc entrance"
+        ],
+        [
+          11,
+          "Follow path"
+        ],
+        [
+          12,
+          "Pulse"
+        ]
+      ]
+    },
+    {
+      "id": "text",
+      "name": "Text Animation",
+      "features": [
+        [
+          13,
+          "Masked reveal"
+        ],
+        [
+          14,
+          "Tracking expansion"
+        ],
+        [
+          15,
+          "Word emphasis"
+        ],
+        [
+          16,
+          "Text flip"
+        ],
+        [
+          17,
+          "Text scramble"
+        ],
+        [
+          18,
+          "Line reveal"
+        ]
+      ]
+    },
+    {
+      "id": "typography",
+      "name": "Typography & Layout",
+      "features": [
+        [
+          19,
+          "Responsive text box"
+        ],
+        [
+          20,
+          "Auto-fit text"
+        ],
+        [
+          21,
+          "Smart line breaks"
+        ],
+        [
+          22,
+          "Split text layers"
+        ],
+        [
+          23,
+          "Copy text style"
+        ],
+        [
+          24,
+          "Lower-third builder"
+        ]
+      ]
+    },
+    {
+      "id": "styling",
+      "name": "Layer Styling",
+      "features": [
+        [
+          25,
+          "Shadow"
+        ],
+        [
+          26,
+          "Outline"
+        ],
+        [
+          27,
+          "Light sweep"
+        ],
+        [
+          28,
+          "Glow"
+        ],
+        [
+          29,
+          "RGB split"
+        ],
+        [
+          30,
+          "Copy effect stack"
+        ]
+      ]
+    },
+    {
+      "id": "transitions",
+      "name": "Transitions",
+      "features": [
+        [
+          31,
+          "Whip transition"
+        ],
+        [
+          32,
+          "Zoom transition"
+        ],
+        [
+          33,
+          "Flash transition"
+        ],
+        [
+          34,
+          "Directional blur transition"
+        ],
+        [
+          35,
+          "Glitch transition"
+        ],
+        [
+          36,
+          "Shape reveal"
+        ]
+      ]
+    },
+    {
+      "id": "annotations",
+      "name": "Shapes & Annotations",
+      "features": [
+        [
+          37,
+          "Animated arrows"
+        ],
+        [
+          38,
+          "Callouts"
+        ],
+        [
+          39,
+          "Highlights"
+        ],
+        [
+          40,
+          "Progress indicators"
+        ],
+        [
+          41,
+          "Timer"
+        ],
+        [
+          42,
+          "Charts"
+        ]
+      ]
+    },
+    {
+      "id": "documentary",
+      "name": "Documentary Tools",
+      "features": [
+        [
+          43,
+          "Document highlighter"
+        ],
+        [
+          44,
+          "Focus zoom"
+        ],
+        [
+          45,
+          "Photo pan and zoom"
+        ],
+        [
+          46,
+          "Archival look"
+        ],
+        [
+          47,
+          "Historical timeline"
+        ],
+        [
+          48,
+          "Map route"
+        ]
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Cricket & Sports",
+      "features": [
+        [
+          49,
+          "Player stats"
+        ],
+        [
+          50,
+          "Scorecard"
+        ],
+        [
+          51,
+          "Player comparison"
+        ],
+        [
+          52,
+          "Team lineup"
+        ],
+        [
+          53,
+          "Points table"
+        ],
+        [
+          54,
+          "Four, six and wicket graphics"
+        ]
+      ]
+    },
+    {
+      "id": "colour",
+      "name": "Colour",
+      "features": [
+        [
+          55,
+          "Exposure and contrast"
+        ],
+        [
+          56,
+          "White balance"
+        ],
+        [
+          57,
+          "Saturation"
+        ],
+        [
+          58,
+          "Duotone"
+        ],
+        [
+          59,
+          "Black and white with spot colour"
+        ],
+        [
+          60,
+          "Colour looks"
+        ]
+      ]
+    },
+    {
+      "id": "masks",
+      "name": "Masks & Tracking",
+      "features": [
+        [
+          61,
+          "Track matte helper"
+        ],
+        [
+          62,
+          "Rounded crop"
+        ],
+        [
+          63,
+          "Green screen"
+        ],
+        [
+          64,
+          "Roto assistant"
+        ],
+        [
+          65,
+          "Tracked blur"
+        ],
+        [
+          66,
+          "Screen replacement"
+        ]
+      ]
+    },
+    {
+      "id": "camera",
+      "name": "Camera & 3D",
+      "features": [
+        [
+          67,
+          "Camera and null rig"
+        ],
+        [
+          68,
+          "Camera orbit"
+        ],
+        [
+          69,
+          "Parallax"
+        ],
+        [
+          70,
+          "3D title extensions"
+        ],
+        [
+          71,
+          "Ground and shadow"
+        ],
+        [
+          72,
+          "Focus pull"
+        ]
+      ]
+    },
+    {
+      "id": "layers",
+      "name": "Layer Utilities",
+      "features": [
+        [
+          73,
+          "Anchor grid"
+        ],
+        [
+          74,
+          "Align and distribute"
+        ],
+        [
+          75,
+          "Fit and fill"
+        ],
+        [
+          76,
+          "Smart precompose"
+        ],
+        [
+          77,
+          "Parent to null"
+        ],
+        [
+          78,
+          "Resize to content"
+        ]
+      ]
+    },
+    {
+      "id": "timing",
+      "name": "Timing & Audio",
+      "features": [
+        [
+          79,
+          "Sequence layers"
+        ],
+        [
+          80,
+          "Trim layers"
+        ],
+        [
+          81,
+          "Freeze frame"
+        ],
+        [
+          82,
+          "Footage speed ramp"
+        ],
+        [
+          83,
+          "Beat-linked animation"
+        ],
+        [
+          84,
+          "Audio fades and ducking"
+        ]
+      ]
+    },
+    {
+      "id": "library",
+      "name": "Library & Templates",
+      "features": [
+        [
+          85,
+          "Favourites and recent"
+        ],
+        [
+          86,
+          "Search and tags"
+        ],
+        [
+          87,
+          "Cached motion previews"
+        ],
+        [
+          88,
+          "Save My Preset"
+        ],
+        [
+          89,
+          "Replace and reset"
+        ],
+        [
+          90,
+          "Batch variations"
+        ]
+      ]
+    },
+    {
+      "id": "delivery",
+      "name": "Project & Delivery",
+      "features": [
+        [
+          91,
+          "Organize project"
+        ],
+        [
+          92,
+          "Relink assistant"
+        ],
+        [
+          93,
+          "Dependency report on request"
+        ],
+        [
+          94,
+          "Collect assets"
+        ],
+        [
+          95,
+          "Render profiles"
+        ],
+        [
+          96,
+          "Proof export"
+        ]
+      ]
+    }
+  ],
+  "features": {
+    "1": {
+      "name": "Easing presets",
+      "category": "keyframes",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "2": {
+      "name": "Copy and paste easing",
+      "category": "keyframes",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "3": {
+      "name": "Retime keyframes",
+      "category": "keyframes",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "4": {
+      "name": "Reverse animation",
+      "category": "keyframes",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "5": {
+      "name": "Bounce and overshoot",
+      "category": "keyframes",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "6": {
+      "name": "Stagger layers",
+      "category": "keyframes",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "7": {
+      "name": "Impact shake",
+      "category": "motion",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "8": {
+      "name": "Handheld drift",
+      "category": "motion",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "9": {
+      "name": "Float",
+      "category": "motion",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "10": {
+      "name": "Arc entrance",
+      "category": "motion",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "11": {
+      "name": "Follow path",
+      "category": "motion",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "12": {
+      "name": "Pulse",
+      "category": "motion",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "13": {
+      "name": "Masked reveal",
+      "category": "text",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "14": {
+      "name": "Tracking expansion",
+      "category": "text",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "15": {
+      "name": "Word emphasis",
+      "category": "text",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "16": {
+      "name": "Text flip",
+      "category": "text",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "17": {
+      "name": "Text scramble",
+      "category": "text",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "18": {
+      "name": "Line reveal",
+      "category": "text",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "19": {
+      "name": "Responsive text box",
+      "category": "typography",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "20": {
+      "name": "Auto-fit text",
+      "category": "typography",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "21": {
+      "name": "Smart line breaks",
+      "category": "typography",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "22": {
+      "name": "Split text layers",
+      "category": "typography",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "23": {
+      "name": "Copy text style",
+      "category": "typography",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "24": {
+      "name": "Lower-third builder",
+      "category": "typography",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "25": {
+      "name": "Shadow",
+      "category": "styling",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "26": {
+      "name": "Outline",
+      "category": "styling",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "27": {
+      "name": "Light sweep",
+      "category": "styling",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "28": {
+      "name": "Glow",
+      "category": "styling",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "29": {
+      "name": "RGB split",
+      "category": "styling",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "30": {
+      "name": "Copy effect stack",
+      "category": "styling",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "31": {
+      "name": "Whip transition",
+      "category": "transitions",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "32": {
+      "name": "Zoom transition",
+      "category": "transitions",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "33": {
+      "name": "Flash transition",
+      "category": "transitions",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "34": {
+      "name": "Directional blur transition",
+      "category": "transitions",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "35": {
+      "name": "Glitch transition",
+      "category": "transitions",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "36": {
+      "name": "Shape reveal",
+      "category": "transitions",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "37": {
+      "name": "Animated arrows",
+      "category": "annotations",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "38": {
+      "name": "Callouts",
+      "category": "annotations",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "39": {
+      "name": "Highlights",
+      "category": "annotations",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "40": {
+      "name": "Progress indicators",
+      "category": "annotations",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "41": {
+      "name": "Timer",
+      "category": "annotations",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "42": {
+      "name": "Charts",
+      "category": "annotations",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "43": {
+      "name": "Document highlighter",
+      "category": "documentary",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "44": {
+      "name": "Focus zoom",
+      "category": "documentary",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "45": {
+      "name": "Photo pan and zoom",
+      "category": "documentary",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "46": {
+      "name": "Archival look",
+      "category": "documentary",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "47": {
+      "name": "Historical timeline",
+      "category": "documentary",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "48": {
+      "name": "Map route",
+      "category": "documentary",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "49": {
+      "name": "Player stats",
+      "category": "sports",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "50": {
+      "name": "Scorecard",
+      "category": "sports",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "51": {
+      "name": "Player comparison",
+      "category": "sports",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "52": {
+      "name": "Team lineup",
+      "category": "sports",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "53": {
+      "name": "Points table",
+      "category": "sports",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "54": {
+      "name": "Four, six and wicket graphics",
+      "category": "sports",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "55": {
+      "name": "Exposure and contrast",
+      "category": "colour",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "56": {
+      "name": "White balance",
+      "category": "colour",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "57": {
+      "name": "Saturation",
+      "category": "colour",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "58": {
+      "name": "Duotone",
+      "category": "colour",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "59": {
+      "name": "Black and white with spot colour",
+      "category": "colour",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "60": {
+      "name": "Colour looks",
+      "category": "colour",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "61": {
+      "name": "Track matte helper",
+      "category": "masks",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "62": {
+      "name": "Rounded crop",
+      "category": "masks",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "63": {
+      "name": "Green screen",
+      "category": "masks",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "64": {
+      "name": "Roto assistant",
+      "category": "masks",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "65": {
+      "name": "Tracked blur",
+      "category": "masks",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "66": {
+      "name": "Screen replacement",
+      "category": "masks",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "67": {
+      "name": "Camera and null rig",
+      "category": "camera",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "68": {
+      "name": "Camera orbit",
+      "category": "camera",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "69": {
+      "name": "Parallax",
+      "category": "camera",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "70": {
+      "name": "3D title extensions",
+      "category": "camera",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "71": {
+      "name": "Ground and shadow",
+      "category": "camera",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "72": {
+      "name": "Focus pull",
+      "category": "camera",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "73": {
+      "name": "Anchor grid",
+      "category": "layers",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "74": {
+      "name": "Align and distribute",
+      "category": "layers",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "75": {
+      "name": "Fit and fill",
+      "category": "layers",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "76": {
+      "name": "Smart precompose",
+      "category": "layers",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "77": {
+      "name": "Parent to null",
+      "category": "layers",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "78": {
+      "name": "Resize to content",
+      "category": "layers",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "79": {
+      "name": "Sequence layers",
+      "category": "timing",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "80": {
+      "name": "Trim layers",
+      "category": "timing",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "81": {
+      "name": "Freeze frame",
+      "category": "timing",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "82": {
+      "name": "Footage speed ramp",
+      "category": "timing",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "83": {
+      "name": "Beat-linked animation",
+      "category": "timing",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "84": {
+      "name": "Audio fades and ducking",
+      "category": "timing",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "85": {
+      "name": "Favourites and recent",
+      "category": "library",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "86": {
+      "name": "Search and tags",
+      "category": "library",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "87": {
+      "name": "Cached motion previews",
+      "category": "library",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "88": {
+      "name": "Save My Preset",
+      "category": "library",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "89": {
+      "name": "Replace and reset",
+      "category": "library",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "90": {
+      "name": "Batch variations",
+      "category": "library",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "91": {
+      "name": "Organize project",
+      "category": "delivery",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "92": {
+      "name": "Relink assistant",
+      "category": "delivery",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "93": {
+      "name": "Dependency report on request",
+      "category": "delivery",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "94": {
+      "name": "Collect assets",
+      "category": "delivery",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "95": {
+      "name": "Render profiles",
+      "category": "delivery",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    },
+    "96": {
+      "name": "Proof export",
+      "category": "delivery",
+      "code": "implemented_source_connected",
+      "native_validation": "owner_testing_pending",
+      "installed": true
+    }
+  },
+  "constraints": [
+    "Preserve existing presets, captions and owner projects",
+    "One undo group per native mutation",
+    "Validate selection and settings before mutation",
+    "Keep original diagnostics separately",
+    "Do not restart services or other jobs",
+    "Do not show missing-font notices automatically",
+    "Export and tracking need explicit inputs and truthful readiness"
+  ],
+  "last_checkpoint": "All 96 numbered entries connected in 16 categories and the selective CEP route installed. 676 affected Node checks plus 2 installer checks pass. Native AE playback/behavior remains owner-tested, and direct native timeline drag is unresolved.",
+  "limitations": [
+    "No native timeline drag/drop handoff",
+    "Native AE behavior and visuals not verified in this build",
+    "Roto/tracking/beat tools require explicit prepared inputs or human review",
+    "Motion preview capture exists; 96 native sample previews are not pre-rendered",
+    "Collection copies media only; it does not save unsaved project edits",
+    "Reset covers owned expressions/animators/styling; layout/keyframe operations use native Undo"
+  ]
+}

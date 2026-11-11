@@ -1,0 +1,65 @@
+/* Native editor density: a fixed Storylens button and one horizontal section strip. */
+header .preset-slider{display:flex;align-items:center;gap:3px;flex:1 1 0;min-width:0;overflow:hidden}
+#presetCategoryStrip{height:36px;align-items:center;display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;overflow-y:hidden;min-width:0;flex:1 1 auto;scrollbar-width:none;scrollbar-color:#505964 transparent;touch-action:pan-x;overscroll-behavior-x:contain}
+#presetCategoryStrip .workspace-tab{box-sizing:border-box;flex:0 0 auto;width:auto;min-width:72px;height:36px;min-height:36px;margin:0;padding:6px 10px;border:1px solid #46515d;border-radius:4px;background:#252c34;color:#edf1f6;font:500 13px/1.2 "Segoe UI",sans-serif;white-space:nowrap}
+#presetCategoryStrip .workspace-tab[aria-pressed=true]{background:#3a444f;border-color:#8796a3;color:#fff}
+#presetCategoryStrip .workspace-tab:hover{background:#303840}
+.preset-slider>button{flex:0 0 21px;width:21px;min-width:21px;height:36px;min-height:36px;padding:0;font-size:16px;line-height:1}
+header #connection{flex:0 0 auto}header.preset-header #hostLabel{display:none}
+#presetSection{padding:12px 16px}.preset-heading{display:flex;align-items:center;gap:6px;margin:0 0 8px;min-width:0}.preset-heading h2{font-size:13px;margin:0;flex:1;white-space:nowrap}.preset-heading .compact-actions{display:flex;flex-wrap:nowrap;gap:4px}.preset-heading button{font-size:12px;min-height:28px;padding:3px 6px;white-space:nowrap}
+#presetPacks,#presetProjects{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}#presetPacks button,#presetProjects button{font-size:12px;padding:5px 8px;min-height:32px;flex:0 1 auto}#presetPacks button[aria-pressed=true]{background:#3a444f;border-color:#8796a3}
+#presetProjects:empty,#presetPacks:empty,#presetStatus:empty{display:none}#presetStatus{font-size:12px;margin:8px 0;overflow-wrap:anywhere}#presetError{font-size:12px;color:#f0bd9a;margin:8px 0;overflow-wrap:anywhere}#presetError details{color:#c5cdd6}#presetScenes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+#presetScenes .effect-preview img{max-height:140px}#presetScenes .effect-preview span{font-size:12px;padding:6px 8px}#presetScenes .effect-font-warning{font-size:11px}#presetScenes .effect-font-warning[hidden]{display:none}#presetScenes .effect-scene-actions{padding:4px 6px}
+@media(max-width:540px){#presetScenes{grid-template-columns:repeat(2,minmax(0,1fr))}.preset-heading #presetRefresh,.preset-heading #presetUndo{display:none}}
+@media(max-width:380px){#presetSection{padding:10px}.preset-heading h2{font-size:12px}.preset-heading .compact-actions{gap:3px}.preset-heading button{font-size:11px;padding:3px 4px}#presetCategoryStrip .workspace-tab{min-width:68px;padding:6px 8px}}
+
+.preset-slider[hidden]{display:none}
+
+header.preset-header{padding-right:16px;flex-wrap:nowrap}header.preset-header h1{flex:0 0 auto}
+
+/* CEP uses a classic scrollbar that otherwise raises section buttons above Storylens. */
+#presetCategoryStrip::-webkit-scrollbar{height:0;width:0;display:none}
+
+/* Documentary cards retain a real cover area above the template title. */
+#presetScenes .effect-cover-frame{position:relative;width:100%;aspect-ratio:16/9;min-height:110px;display:grid;place-items:center;background:#08090b}
+#presetScenes .effect-cover-frame img{position:absolute;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:contain}
+#presetScenes .effect-cover-placeholder{color:#9aa5b1;text-align:center;font-size:12px;padding:12px}
+#presetScenes .effect-cover-placeholder[hidden],#presetScenes .documentary-card>.effect-preview-retry[hidden]{display:none}
+
+/* Two columns at narrow panel widths; the existing gallery supplies three above 540px. */
+.quick-motion-controls{display:flex;align-items:center;flex-wrap:wrap;gap:6px;width:100%;font-size:12px}
+.quick-motion-controls label{display:flex;align-items:center;gap:4px;margin:0}
+.quick-motion-controls input[type=number]{width:58px;padding:4px;min-height:28px;box-sizing:border-box}
+.quick-motion-controls input[type=checkbox]{width:14px;height:14px;margin:0}
+.quick-motion-scopes{display:flex;gap:6px;flex-basis:100%;margin-bottom:2px}
+#presetProjects .quick-motion-scopes button[aria-pressed=true]{background:#3a444f;border-color:#8796a3}
+.quick-motion-drop{flex-basis:100%;padding:8px;border:1px dashed #606a75;color:#c6cdd5;line-height:1.4}
+#presetScenes .quick-motion-sample{position:relative;width:100%;height:132px;min-height:132px;flex:0 0 132px;align-self:stretch;overflow:hidden;background:#000;color:#edf1f6;font:600 11px/1.2 "Segoe UI",sans-serif;text-align:center}
+#presetScenes .quick-motion-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px}
+#presetScenes .quick-motion-line{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:3px;white-space:nowrap;min-width:0}
+#presetScenes .quick-motion-sample .quick-motion-glyph{padding:0;font:inherit;display:inline-block;white-space:pre;overflow-wrap:normal;flex:0 0 auto;--dx:0px;--dy:0px;--zoom:1}
+#presetScenes .quick-motion-sample .quick-motion-object{width:40px;height:40px;background:#edf1f6;border-radius:5px}
+#presetScenes .quick-motion-letters{gap:0}
+#presetScenes .quick-motion-card .effect-preview{width:100%;align-items:stretch;background:#000}
+#presetScenes .quick-motion-card .effect-preview>span{width:100%;background:#111214}
+#presetScenes .quick-motion-replay{margin:4px 6px 6px;font-size:12px;min-height:28px;padding:3px 6px}
+#presetScenes .quick-motion-sample.motion-left .quick-motion-glyph{--dx:32px}
+#presetScenes .quick-motion-sample.motion-right .quick-motion-glyph{--dx:-32px}
+#presetScenes .quick-motion-sample.motion-up .quick-motion-glyph,#presetScenes .quick-motion-sample.motion-words .quick-motion-glyph{--dy:24px}
+#presetScenes .quick-motion-sample.motion-down .quick-motion-glyph{--dy:-24px}
+#presetScenes .quick-motion-sample.motion-pop .quick-motion-glyph{--zoom:.75}
+#presetScenes .quick-motion-sample.motion-zoom-in .quick-motion-glyph{--zoom:.85}
+#presetScenes .quick-motion-sample.motion-zoom-out .quick-motion-glyph{--zoom:1.15}
+#presetScenes .motion-playing .quick-motion-glyph{animation:sl-quick-motion var(--motion-duration,2s) cubic-bezier(.22,.8,.25,1) both;animation-delay:calc(var(--order,0) * .09s)}
+#presetScenes .motion-typewriter.motion-playing .quick-motion-glyph{animation:sl-quick-type .05s steps(1,end) both;animation-delay:calc(var(--order,0) * var(--motion-duration,2s) / var(--letter-count,11))}
+#presetScenes .motion-out.motion-playing .quick-motion-glyph{animation-name:sl-quick-out}
+@keyframes sl-quick-motion{0%{opacity:0;filter:blur(4px);transform:translate(var(--dx),var(--dy)) scale(var(--zoom))}75%,100%{opacity:1;filter:blur(0);transform:translate(0,0) scale(1)}}
+@keyframes sl-quick-type{from{opacity:0}to{opacity:1}}
+@keyframes sl-quick-out{from{opacity:1;filter:blur(0)}to{opacity:0;filter:blur(4px)}}
+@media(prefers-reduced-motion:reduce){#presetScenes .motion-playing .quick-motion-glyph{animation:none}}
+
+.preset-external-list { grid-column:1/-1; display:grid; gap:6px; max-height:520px; overflow:auto; }
+.preset-external-row { display:flex; gap:12px; justify-content:space-between; align-items:center; padding:8px 10px; border:1px solid #3a424d; border-radius:7px; }
+.preset-external-row strong { display:block; overflow-wrap:anywhere; font-size:13px; }
+.preset-external-row small { display:block; margin-top:3px; color:#aab5c2; }
+.preset-external-row button { flex:none; }

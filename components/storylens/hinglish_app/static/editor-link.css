@@ -1,0 +1,20 @@
+.handoff{max-width:730px}.handoff header{margin-bottom:8px}.handoff .intro{margin:0 0 22px;color:#b8c0c8}
+.handoff form{display:grid;gap:12px}.handoff form button{justify-self:start}
+.handoff .route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:end}
+.handoff .arrow{align-self:end;padding:8px 0;color:#a1aab5}
+.handoff .route-label{display:flex;align-items:center;gap:8px;margin:0;color:#b4d3e8}
+.handoff .route-label svg{width:20px;height:20px}
+.handoff #source-help{margin:0}.handoff #result{margin-top:18px;padding-top:14px;border-top:1px solid #3b424a}
+.handoff h2{font-size:16px;margin:0}.handoff #artifact{font-size:12px}
+.handoff .export-picker{margin:0;padding:10px;border:1px solid #3b424a;border-radius:8px}
+.handoff .export-buttons:not([hidden]){display:flex;gap:8px;flex-wrap:wrap}
+.handoff #export-targets:not([hidden]){margin-top:10px}
+.handoff .export-buttons button[aria-expanded=true]{outline:2px solid #8fcaf2}
+@media(max-width:420px){.handoff .route{gap:6px}.handoff .route select{padding-inline:6px}.handoff header{align-items:baseline}}
+
+.handoff-form { display:grid; gap:12px; max-width:620px; }
+.handoff-form > label { margin:0; }
+.handoff-form .tool-history { margin:0; }
+.handoff-form .editor-exports { margin-top:4px; }
+.handoff-form .input-row { align-items:center; }
+.handoff #result { max-width:620px; }

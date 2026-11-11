@@ -1,0 +1,11 @@
+test_actual_negative_answer_remains_rejected_without_manual_relabeling (tests.test_broll_residential_verdict_replay.ResidentialVerdictReplayTests.test_actual_negative_answer_remains_rejected_without_manual_relabeling) ... ok
+test_current_request_retains_source_context_and_all_frame_requirements (tests.test_broll_residential_verdict_replay.ResidentialVerdictReplayTests.test_current_request_retains_source_context_and_all_frame_requirements) ... ok
+test_explicit_named_identity_is_still_sent_to_local_checker (tests.test_broll_residential_verdict_replay.ResidentialVerdictReplayTests.test_explicit_named_identity_is_still_sent_to_local_checker) ... ok
+test_raw_negative_verdict_bytes_match_captured_cache (tests.test_broll_residential_verdict_replay.ResidentialVerdictReplayTests.test_raw_negative_verdict_bytes_match_captured_cache) ... ok
+test_top_level_positives_cannot_override_negative_per_frame_evidence (tests.test_broll_residential_verdict_replay.ResidentialVerdictReplayTests.test_top_level_positives_cannot_override_negative_per_frame_evidence) ... ok
+test_unavailable_model_remains_an_error_not_an_approved_option (tests.test_broll_residential_verdict_replay.ResidentialVerdictReplayTests.test_unavailable_model_remains_an_error_not_an_approved_option) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.371s
+
+OK

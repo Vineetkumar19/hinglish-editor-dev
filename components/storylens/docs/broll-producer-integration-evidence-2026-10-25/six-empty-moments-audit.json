@@ -1,0 +1,3482 @@
+{
+  "scope": "READ-ONLY saved normal run analysis. No source, logs, media, model, network, GPU, restart or host actions. Only scoped docs/evidence written.",
+  "observed_utc": "2026-10-25T01:09:08.912208+00:00",
+  "job_id": "a87c39c6a791",
+  "source_project_sha256": "2870804b1811ceacdf2c61c14ee137942a67075fcc4c90941ed344f199a82e47",
+  "source_events_sha256": "5ade4044bc3c73ac836fcb33ad262f06502216add7f4611c638b68314a1abde4",
+  "normal_result": {
+    "options": 7,
+    "moments": 10,
+    "empty": 6,
+    "original_check_records": 63,
+    "prepared_check_records": 13
+  },
+  "settings_limit": "Pool replay uses current saved min_similarity0.22/default limits and frozen code, not an archived per-call settings receipt. All six queue orders match actual attempts when reported true. No threshold is changed.",
+  "empty_moments": [
+    {
+      "slot": 1,
+      "keyword": "North Indian",
+      "speech": "North Indian ho,",
+      "start": 5.0,
+      "end": 6.0,
+      "meaning": "Person from North India",
+      "queries": [
+        "North Indian",
+        "North Indian man",
+        "North Indian person"
+      ],
+      "classification": "unsupported regional-person search and visual quality vetoes",
+      "established_limits": "No nationality, ethnicity or regional origin established by face/attire. Five attempts; two locate-window failures, three original checks (obscured view or dominant person/presenter). No qualified identity is proven.",
+      "genuine_stock_absence_proven": false,
+      "retrieved": 47,
+      "providers": {
+        "pixabay": 23,
+        "commons": 8,
+        "website": 3,
+        "web": 13
+      },
+      "acceptable": 23,
+      "scored_pool": 14,
+      "direct_nonextraction_queue": 3,
+      "extraction_queue": 2,
+      "attempted": 5,
+      "original_checks": 3,
+      "prepared_checks": 0,
+      "queue_order_matches_saved_attempts": true,
+      "candidate_queue": [
+        {
+          "id": "pixabay:42439",
+          "title": "indian, sari, woman, female, model, portrait, young, lady, ethnic, culture, attractive, clothing, person",
+          "score": 0.4004831314086914,
+          "specific": 0.08928483724594116,
+          "adjusted": 0.3704831314086914
+        },
+        {
+          "id": "pixabay:365243",
+          "title": "india, portrait, traditional, culture, groom, indian, punjab, north indian, marriage india, shiva, bengali, indian couple, kerala, wedding, indian king look",
+          "score": 0.34258168935775757,
+          "specific": 0.037932753562927246,
+          "adjusted": 0.31258168935775754
+        },
+        {
+          "id": "website:9fee25440e336fb37398",
+          "title": "Man wearing a headdress with his thumb pressed to his forehead",
+          "score": 0.3057291507720947,
+          "specific": 0.10610577464103699,
+          "adjusted": 0.3057291507720947
+        },
+        {
+          "id": "web:289b3dfbb5c1a2f6",
+          "title": "South Indian vs North Indian \ud83c\udf34\ud83d\uded5 | Ft.Archana | @AraathiOfficial  | Tamada Media",
+          "score": 0.4550063908100128,
+          "specific": 0.23804457485675812,
+          "adjusted": 0.4550063908100128
+        },
+        {
+          "id": "web:eade5af3f99117cc",
+          "title": "How North Indian Curry Is Made \ud83c\udf5b",
+          "score": 0.43711939454078674,
+          "specific": 0.013183563947677612,
+          "adjusted": 0.43711939454078674
+        }
+      ],
+      "checks": [
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a person's head and hand in the foreground, obscuring the view of the background buildings.",
+          "related": false,
+          "seen": "A person's head and hand are visible in the foreground, partially blocking the view of a building complex in the background.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:42439",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-42439-960x540.mp4",
+          "checked_media_sha256": "c7ea226097300c145226ab2f5274906fd1e903367576049eb27ff9982e69080f",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.0
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": true,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: A man in traditional North Indian wedding attire is clearly visible.",
+          "related": true,
+          "seen": "A man wearing a pink turban and a gold sherwani is shown in a close-up shot.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": true,
+          "matches_setting": true,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:365243",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-365243-960x540.mp4",
+          "checked_media_sha256": "9e2376c78ec8b9ddd546a87c84baa3ad12e10210b14d3e88490aebf03384e0e8",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.0
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a male presenter speaking directly to the camera, which violates the 'no_dominant_presenter' rule for illustrative footage.",
+          "related": false,
+          "seen": "A man in a striped shirt speaks directly to the camera while gesturing with his hands.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "web:eade5af3f99117cc",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\7cc40f71f36c296c0b76.mp4",
+          "checked_media_sha256": "ab951d4f62101eb4ccb9bb6f91595180e7518d4fc16f47bdbbe551b086d1d66c",
+          "checked_interval": {
+            "start": 49.0,
+            "end": 50.0
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        }
+      ],
+      "attempts": [
+        {
+          "id": "pixabay:42439",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show a person's head and hand in the foreground, obscuring the view of the background buildings. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show a person's head and hand in the foreground, obscuring the view of the background buildings."
+        },
+        {
+          "id": "pixabay:365243",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: A man in traditional North Indian wedding attire is clearly visible. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: A man in traditional North Indian wedding attire is clearly visible."
+        },
+        {
+          "id": "website:9fee25440e336fb37398",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "No relevant shot was visible in this candidate: The frames show a man in traditional attire, unrelated to the keyword 'North Indian'. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: No relevant shot was visible in this candidate: The frames show a man in traditional attire, unrelated to the keyword 'North Indian'."
+        },
+        {
+          "id": "web:289b3dfbb5c1a2f6",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "No relevant shot was visible in this candidate: The frames show two women eating ice cream, which does not illustrate the keyword 'North Indian'. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: No relevant shot was visible in this candidate: The frames show two women eating ice cream, which does not illustrate the keyword 'North Indian'."
+        },
+        {
+          "id": "web:eade5af3f99117cc",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show a male presenter speaking directly to the camera, which violates the 'no_dominant_presenter' rule for illustrative footage. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show a male presenter speaking directly to the camera, which violates the 'no_dominant_presenter' rule for illustrative footage."
+        }
+      ],
+      "mixed_candidate_event_windows": [
+        {
+          "keyword": "North Indian",
+          "ordinal": 1,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 21793329801100,
+          "wall_time_ns": 1792888509548347400,
+          "mixed_seconds_to_next_candidate_or_quality": 8.869947,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:42439"
+        },
+        {
+          "keyword": "North Indian",
+          "ordinal": 2,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 21802199748100,
+          "wall_time_ns": 1792888518418295000,
+          "mixed_seconds_to_next_candidate_or_quality": 8.848381,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:365243"
+        },
+        {
+          "keyword": "North Indian",
+          "ordinal": 3,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 21811048129500,
+          "wall_time_ns": 1792888527266676500,
+          "mixed_seconds_to_next_candidate_or_quality": 4.999834,
+          "candidate_id_inferred_from_matching_queue_order": "website:9fee25440e336fb37398"
+        },
+        {
+          "keyword": "North Indian",
+          "ordinal": 4,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 21816047963500,
+          "wall_time_ns": 1792888532266510600,
+          "mixed_seconds_to_next_candidate_or_quality": 30.559666,
+          "candidate_id_inferred_from_matching_queue_order": "web:289b3dfbb5c1a2f6"
+        },
+        {
+          "keyword": "North Indian",
+          "ordinal": 5,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 21846607629800,
+          "wall_time_ns": 1792888562826176900,
+          "mixed_seconds_to_next_candidate_or_quality": 15.40187,
+          "candidate_id_inferred_from_matching_queue_order": "web:eade5af3f99117cc"
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "keyword": "room interior",
+      "speech": "bachelor ho, party mein",
+      "start": 6.0,
+      "end": 7.26,
+      "meaning": "A single man living alone",
+      "queries": [
+        "room interior",
+        "small bedroom",
+        "shared room"
+      ],
+      "classification": "generic-room criteria uncertainty, commercial/CGI stock, source/prepared disagreement and one download failure",
+      "established_limits": "Original residential-unpacking window passed; prepared rejected single-man/occupant narrative and per-frame subject/presenter flags. Same revision propagated. Other visible-commercial/CGI/dark candidates failed. No genuine worldwide stock absence established.",
+      "genuine_stock_absence_proven": false,
+      "retrieved": 57,
+      "providers": {
+        "web": 11,
+        "pixabay": 33,
+        "website": 1,
+        "commons": 12
+      },
+      "acceptable": 24,
+      "scored_pool": 12,
+      "direct_nonextraction_queue": 8,
+      "extraction_queue": 2,
+      "attempted": 10,
+      "original_checks": 10,
+      "prepared_checks": 1,
+      "queue_order_matches_saved_attempts": true,
+      "candidate_queue": [
+        {
+          "id": "pixabay:16399",
+          "title": "abandoned, room, empty, building, pan, interior, house, structure, industrial, city, abandon, decay, inside, indoor",
+          "score": 0.3910388648509979,
+          "specific": 0.1473262459039688,
+          "adjusted": 0.3610388648509979
+        },
+        {
+          "id": "pixabay:1651",
+          "title": "guitarist, music, playing, guitar player, room, studio, musician, life performance, guitar, musical, instrument, play, electric, person, man, young, acoustic, entertainment, musical instrument, player, acoustic guitar, rock music",
+          "score": 0.37115898728370667,
+          "specific": 0.04015365242958069,
+          "adjusted": 0.34115898728370664
+        },
+        {
+          "id": "pixabay:20267",
+          "title": "ruins, house, burnt, burned, building, living room, structure",
+          "score": 0.3630424737930298,
+          "specific": 0.11529451608657837,
+          "adjusted": 0.33304247379302976
+        },
+        {
+          "id": "pixabay:29917",
+          "title": "hair salon, mode, room, chairs, indoors, design, modern, furniture, fish, interior, building",
+          "score": 0.3421618342399597,
+          "specific": 0.04727509617805481,
+          "adjusted": 0.3121618342399597
+        },
+        {
+          "id": "pixabay:126924",
+          "title": "crescent, moon, winter, snow, room, window, interior, home, pine, mountains, cozy",
+          "score": 0.31130924820899963,
+          "specific": 0.020055502653121948,
+          "adjusted": 0.31130924820899963
+        },
+        {
+          "id": "pixabay:846",
+          "title": "library, books, the corridor, window, rack, the culture, reading, classic, new items, reading room, society, shelves, education, studies, school",
+          "score": 0.3253509998321533,
+          "specific": 0.08403822779655457,
+          "adjusted": 0.2953509998321533
+        },
+        {
+          "id": "pixabay:20269",
+          "title": "ruins, house, burnt, burned, building, living room",
+          "score": 0.2994406819343567,
+          "specific": 0.14112427830696106,
+          "adjusted": 0.26944068193435666
+        },
+        {
+          "id": "pixabay:1191",
+          "title": "conference room, furniture, modern, equipment, conference, business, chair, table, interior, boardroom, workplace, board, contemporary, elegant, meetings, place, room, empty, 133411649",
+          "score": 0.2662360966205597,
+          "specific": 0.09406760334968567,
+          "adjusted": 0.2362360966205597
+        },
+        {
+          "id": "web:3c206d9faa4963ed",
+          "title": "Rented Apartment Makeover \ud83c\udfe1|| Budget friendly aesthetic room decor || Sanika Singh\u2764\ufe0f",
+          "score": 0.5410583019256592,
+          "specific": 0.09706777334213257,
+          "adjusted": 0.5410583019256592
+        },
+        {
+          "id": "web:3477026ff7eb3589",
+          "title": "10' \u00d7 10' Bedroom Interior Design Ideas | Small Bedroom Makeover | Interior Jagat Kolkata",
+          "score": 0.4356713891029358,
+          "specific": 0.01503106951713562,
+          "adjusted": 0.4356713891029358
+        }
+      ],
+      "checks": [
+        {
+          "context_compatible": true,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room with a window and radiator, but lack any visible furniture or personal items to confirm it is a residential space.",
+          "related": false,
+          "seen": "An empty room with a window and radiator is shown.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:16399",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-16399-1920x1080.mp4",
+          "checked_media_sha256": "d6ab0476ef036ab678f5e35d60e9983bb04e97acc88dc56ad6fdcdf787aa6d63",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is an office or commercial workspace, not a residential living/sleeping/kitchen area.",
+          "related": false,
+          "seen": "A black and white shot of a room with desks, office chairs, and computer monitors.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:1651",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1651-1920x1080.mp4",
+          "checked_media_sha256": "33b978b1ba16abb7b7990de34a3a906293c317ee0d2b41353a08b0c8e4d19f24",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames are unreadable, blurry, and dark, failing to show a residential interior.",
+          "related": false,
+          "seen": "Blurry, dark, and unreadable footage that does not depict a room interior.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:20267",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-20267-960x540.mp4",
+          "checked_media_sha256": "74a25b1231f89681b79e9fa382247e2e59df2ceac714e9991612a070dfccbade",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible interior is a commercial salon with salon chairs and a mirror, not a residential living, sleeping, or kitchen area.",
+          "related": false,
+          "seen": "A commercial salon interior with a large mirror, a black cabinet with flowers, and salon chairs.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:29917",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-29917-960x540.mp4",
+          "checked_media_sha256": "6da894ed44f7fe10761a7c1be7b76059ed28cc26d820d093d63e591713309cf2",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly CGI/animation, not live-action, and depicts a fantasy scene rather than a residential interior.",
+          "related": false,
+          "seen": "A blue-tinted room with a large arched window showing a crescent moon and snowy mountains.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:126924",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-126924-360x640.mp4",
+          "checked_media_sha256": "b808913d050007942198e508614c97b460f792c24e5dd01bd1fdada58103f9cc",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 640
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a commercial library or archive, not a residential room interior.",
+          "related": false,
+          "seen": "A long hallway with bookshelves and track lighting.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:846",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-846-1280x720.mp4",
+          "checked_media_sha256": "6827fd333571a4d9ee3bd2f2b2c11c96775e0f6099ce79de74f8ed2c37c226e3",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 437,
+            "y": 0,
+            "width": 405,
+            "height": 720
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a ruined, abandoned structure with debris and overgrowth, not a functional residential interior.",
+          "related": false,
+          "seen": "A dilapidated room interior with broken walls, debris, and vegetation growing inside.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:20269",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-20269-960x540.mp4",
+          "checked_media_sha256": "686409ce5f6410e156791369026d56e0603222579b0b96f144253ef4a23a6614",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage is too dark and blurry to identify a residential interior, failing the visual criteria.",
+          "related": false,
+          "seen": "Dark, blurry footage of a ceiling light and a white curved object.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:1191",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1191-1280x497.mp4",
+          "checked_media_sha256": "2cebb1268534e87b8a598cb6da6175848c165f1a1dcb320467e7eb0938e2e1f3",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 2.2666666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 500,
+            "y": 0,
+            "width": 280,
+            "height": 498
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible space is a commercial bar or lounge, not a residential room interior.",
+          "related": false,
+          "seen": "A commercial bar counter with stools and bottles is visible.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:1191",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1191-1280x497.mp4",
+          "checked_media_sha256": "2cebb1268534e87b8a598cb6da6175848c165f1a1dcb320467e7eb0938e2e1f3",
+          "checked_interval": {
+            "start": 15.966666666666667,
+            "end": 17.233333333333334
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 500,
+            "y": 0,
+            "width": 280,
+            "height": 498
+          }
+        },
+        {
+          "context_compatible": true,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "The frames show a residential room interior with a woman unpacking, fitting the generic apartment context.",
+          "related": true,
+          "seen": "A residential room interior with a woman unpacking clothes and a ceiling fan.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": true,
+          "matches_setting": true,
+          "passed": true,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "web:3c206d9faa4963ed",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\e2d2da6898635dfd557c.mp4",
+          "checked_media_sha256": "b9a920dede624953dbd818a3970980d882e92bb0202168f87d0f22b4cc748b49",
+          "checked_interval": {
+            "start": 36.56666666666667,
+            "end": 37.833333333333336
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is a woman, not a single man, and the room is cluttered with bedding, not a clear residential interior.",
+          "related": false,
+          "seen": "A woman stands in a room with a fan and a pile of bedding on the floor.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "web:3c206d9faa4963ed",
+          "producer_stage": "prepared",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\output\\broll\\20261025-060011-4048d8\\001-audio-only-source\\media\\broll-03-web-3c206d9faa4963ed-d7710346.mp4",
+          "checked_media_sha256": "442bdcd7197eab9f7afecffd0b51a3d5ccdff1f8a6c10fdb2b351f3355cf8af7",
+          "checked_interval": {
+            "start": 3.0,
+            "end": 4.266666666666667
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 270,
+            "height": 480
+          }
+        }
+      ],
+      "attempts": [
+        {
+          "id": "pixabay:16399",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room with a window and radiator, but lack any visible furniture or personal items to confirm it is a residential space. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room with a window and radiator, but lack any visible furniture or personal items to confirm it is a residential space."
+        },
+        {
+          "id": "pixabay:1651",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is an office or commercial workspace, not a residential living/sleeping/kitchen area. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is an office or commercial workspace, not a residential living/sleeping/kitchen area."
+        },
+        {
+          "id": "pixabay:20267",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "No relevant shot was visible in this candidate: The frames show a dilapidated, overgrown interior, not a usable room interior for an editor. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: No relevant shot was visible in this candidate: The frames show a dilapidated, overgrown interior, not a usable room interior for an editor."
+        },
+        {
+          "id": "pixabay:29917",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible interior is a commercial salon with salon chairs and a mirror, not a residential living, sleeping, or kitchen area. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible interior is a commercial salon with salon chairs and a mirror, not a residential living, sleeping, or kitchen area."
+        },
+        {
+          "id": "pixabay:126924",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly CGI/animation, not live-action, and depicts a fantasy scene rather than a residential interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly CGI/animation, not live-action, and depicts a fantasy scene rather than a residential interior."
+        },
+        {
+          "id": "pixabay:846",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a commercial library or archive, not a residential room interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a commercial library or archive, not a residential room interior."
+        },
+        {
+          "id": "pixabay:20269",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a ruined, abandoned structure with debris and overgrowth, not a functional residential interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a ruined, abandoned structure with debris and overgrowth, not a functional residential interior."
+        },
+        {
+          "id": "pixabay:1191",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible space is a commercial bar or lounge, not a residential room interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible space is a commercial bar or lounge, not a residential room interior."
+        },
+        {
+          "id": "web:3c206d9faa4963ed",
+          "temporary": false,
+          "code": "broll_quality_rejected",
+          "message": "B-roll stopped. Choose another video; the actual three-frame footage check did not pass.",
+          "details": "CandidateContractError: Choose another video; the actual three-frame footage check did not pass."
+        },
+        {
+          "id": "web:3477026ff7eb3589",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "This web clip could not be downloaded. Choose another suggested clip.",
+          "details": "ValueError: This web clip could not be downloaded. Choose another suggested clip."
+        }
+      ],
+      "mixed_candidate_event_windows": [
+        {
+          "keyword": "room interior",
+          "ordinal": 1,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21862009500300,
+          "wall_time_ns": 1792888578228046800,
+          "mixed_seconds_to_next_candidate_or_quality": 8.293976,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:16399"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 2,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21870303476100,
+          "wall_time_ns": 1792888586522023200,
+          "mixed_seconds_to_next_candidate_or_quality": 7.371083,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:1651"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 3,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21877674559200,
+          "wall_time_ns": 1792888593893106200,
+          "mixed_seconds_to_next_candidate_or_quality": 9.760202,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:20267"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 4,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21887434761400,
+          "wall_time_ns": 1792888603653308200,
+          "mixed_seconds_to_next_candidate_or_quality": 7.026794,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:29917"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 5,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21894461555800,
+          "wall_time_ns": 1792888610680102900,
+          "mixed_seconds_to_next_candidate_or_quality": 9.936674,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:126924"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 6,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21904398229500,
+          "wall_time_ns": 1792888620616775900,
+          "mixed_seconds_to_next_candidate_or_quality": 6.47706,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:846"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 7,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21910875289900,
+          "wall_time_ns": 1792888627093837000,
+          "mixed_seconds_to_next_candidate_or_quality": 6.573532,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:20269"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 8,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21917448822200,
+          "wall_time_ns": 1792888633667369000,
+          "mixed_seconds_to_next_candidate_or_quality": 13.728619,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:1191"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 9,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21931177441300,
+          "wall_time_ns": 1792888647395988300,
+          "mixed_seconds_to_next_candidate_or_quality": 35.258909,
+          "candidate_id_inferred_from_matching_queue_order": "web:3c206d9faa4963ed"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 10,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 21966436350100,
+          "wall_time_ns": 1792888682654896100,
+          "mixed_seconds_to_next_candidate_or_quality": 31.639992,
+          "candidate_id_inferred_from_matching_queue_order": "web:3477026ff7eb3589"
+        }
+      ]
+    },
+    {
+      "slot": 4,
+      "keyword": "bed",
+      "speech": "bed,",
+      "start": 16.24,
+      "end": 16.54,
+      "meaning": "Furniture for sleeping",
+      "queries": [
+        "bed",
+        "bed mattress",
+        "bedroom bed"
+      ],
+      "classification": "wrong/obscured object, watermarked source, crop/object-grounding uncertainty and inconsistent model aggregates",
+      "established_limits": "Two source checks passed then prepared checks failed; duvet-only description fails strict visible-object grounding, person-dominant bed failed per-frame. Two other original answers have all frame/quality/identity checks true yet related=false and positive reasons. Do not flip related or treat bedding alone as proven bed.",
+      "genuine_stock_absence_proven": false,
+      "retrieved": 36,
+      "providers": {
+        "pixabay": 15,
+        "web": 11,
+        "website": 2,
+        "commons": 8
+      },
+      "acceptable": 23,
+      "scored_pool": 15,
+      "direct_nonextraction_queue": 7,
+      "extraction_queue": 2,
+      "attempted": 9,
+      "original_checks": 8,
+      "prepared_checks": 2,
+      "queue_order_matches_saved_attempts": true,
+      "candidate_queue": [
+        {
+          "id": "pixabay:363408",
+          "title": "bed, bedroom, sleep, room, home, cozy, mattress, rest, hotel, baby, moss, furniture, coffee, candle",
+          "score": 0.46783119440078735,
+          "specific": 0.07852202653884888,
+          "adjusted": 0.4378311944007873
+        },
+        {
+          "id": "website:7acdb4ce7110a5c33d5a",
+          "title": "A close-up shot of a made bed with white pillows and a comforter gently rocking in a dimly lit room",
+          "score": 0.41733407974243164,
+          "specific": 0.09122878313064575,
+          "adjusted": 0.41733407974243164
+        },
+        {
+          "id": "pixabay:151297",
+          "title": "woman, wake-up, morning, bed, smile, cute",
+          "score": 0.375521719455719,
+          "specific": 0.030042380094528198,
+          "adjusted": 0.34552171945571897
+        },
+        {
+          "id": "pixabay:233390",
+          "title": "woman, female, room, phone, candle, pose, modeling, bed, tired, relax, resting, night",
+          "score": 0.32081475853919983,
+          "specific": 0.015599429607391357,
+          "adjusted": 0.32081475853919983
+        },
+        {
+          "id": "pixabay:34473",
+          "title": "stay at home, reading, bed, quarantine, covid-19, book, isolation, social distancing",
+          "score": 0.31459102034568787,
+          "specific": 0.009733051061630249,
+          "adjusted": 0.28459102034568784
+        },
+        {
+          "id": "pixabay:34474",
+          "title": "stay at home, reading, bed, book, isolation, quarantine, covid-19, social distancing",
+          "score": 0.30925947427749634,
+          "specific": 0.01437145471572876,
+          "adjusted": 0.2792594742774963
+        },
+        {
+          "id": "pixabay:151295",
+          "title": "woman, wake up, bed, sleep, pose, morning",
+          "score": 0.30841994285583496,
+          "specific": 0.010826289653778076,
+          "adjusted": 0.27841994285583493
+        },
+        {
+          "id": "web:bd157b757318d6fd",
+          "title": "Latest Top 80 Wooden Bed Designs 2026 || Modern & Luxury king size wooden bed designs",
+          "score": 0.4283423125743866,
+          "specific": 0.061369866132736206,
+          "adjusted": 0.4283423125743866
+        },
+        {
+          "id": "web:2f93674897753674",
+          "title": "Latest Modern Wooden Bed Designs 2026 || Beautiful Wooden Bed Designs Ideas 2026 #woodenbed ",
+          "score": 0.4266320466995239,
+          "specific": 0.0728265643119812,
+          "adjusted": 0.4266320466995239
+        }
+      ],
+      "checks": [
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "All three frames are identical, showing a clear, live-action close-up of a white, rumpled bed sheet with pillows in the background, with no text, watermarks, or presenters visible.",
+          "related": true,
+          "seen": "A close-up shot of a white, rumpled bed sheet with dark pillows in the background.",
+          "context_compatible": true,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": true,
+          "matches_setting": true,
+          "passed": true,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:363408",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-363408-1920x1080.mp4",
+          "checked_media_sha256": "04b2e0f7ad58402c95617ca272511c0e5e5f22801a350099ed4b87e6256a398d",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "The observed frames do not establish the requested bed.",
+          "related": true,
+          "seen": "A close-up shot of a rumpled white duvet cover with a stitched grid pattern, with dark grey pillows visible in the out-of-focus background.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": false,
+          "matches_setting": true,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:363408",
+          "producer_stage": "prepared",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\output\\broll\\20261025-060011-4048d8\\001-audio-only-source\\media\\broll-05-pixabay-363408-41785cdd.mp4",
+          "checked_media_sha256": "4251521e289ce99801cd8bfdaf89fe80e6e0c02555018cd4c7b1177a2374d879",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 270,
+            "height": 480
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": false,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The requested object is visible, but the 'FILMSUPPLY' watermark overlay disqualifies the clip.",
+          "related": false,
+          "seen": "A close-up shot of a made bed with white linens and pillows.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "website:7acdb4ce7110a5c33d5a",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\website-7acdb4ce7110a5c33d5a-0x0.mp4",
+          "checked_media_sha256": "6c5951ba073838fec4d153736510d7285169deeceeabf781769d4e194e8d6286",
+          "checked_interval": {
+            "start": 3.2666666666666666,
+            "end": 3.5666666666666664
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 294,
+            "y": 0,
+            "width": 272,
+            "height": 484
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The requested object 'bed' is not visible; the subject is a woman lying on a couch or sofa in a living room setting.",
+          "related": true,
+          "seen": "A woman is lying on a couch in a living room, not on a bed.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:151297",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-151297-960x540.mp4",
+          "checked_media_sha256": "e9d5e2b1539d6dfa811e2dfcff447bd149c554411e320e95a43d859fb4c78ad9",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "All three frames are identical, showing a woman in bed with the bed clearly visible, and contain no overlays or dominant presenters.",
+          "related": true,
+          "seen": "A woman is sitting up in a bed, looking at her phone.",
+          "context_compatible": true,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": true,
+          "matches_setting": true,
+          "passed": true,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:233390",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-233390-1080x1920.mp4",
+          "checked_media_sha256": "0291076a3a265fb3ded8c0aeaf648b7ef261ee302c92da31e30feada0e8c309d",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The requested object 'bed' is not clearly visible; the shot is dominated by a person sitting in a bed, which does not meet the criteria for the object itself being the subject.",
+          "related": false,
+          "seen": "A woman is sitting in a bed, looking at her phone.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:233390",
+          "producer_stage": "prepared",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\output\\broll\\20261025-060011-4048d8\\001-audio-only-source\\media\\broll-05-pixabay-233390-a19c33de.mp4",
+          "checked_media_sha256": "07fe6f70a12cb773746b4462f4dc8fb724456dade93948c3a3af50cdf077cc37",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 270,
+            "height": 480
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested bed.",
+          "related": true,
+          "seen": "A person is reading a book on a white surface.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:34473",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-34473-960x540.mp4",
+          "checked_media_sha256": "36c8d6c50c4fd74bf04455f12d2c6d127faf5f814ee43129f093def20d9697c5",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "The requested object, a bed, is clearly visible in all three frames as a live-action filmed cutaway, with no dominant presenter or intrusive overlays.",
+          "related": false,
+          "seen": "A girl is lying on a bed with white sheets and a dark blue pillow.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": true,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:34474",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-34474-960x540.mp4",
+          "checked_media_sha256": "0796b7e7e86d658387ba234e032f3455812eb2a80de8db1e4b206f3591da59d5",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested bed.",
+          "related": true,
+          "seen": "A close-up shot of a woman sleeping on a pillow.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:151295",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-151295-1280x720.mp4",
+          "checked_media_sha256": "5b437118a4c94c3d6322254632200f3c5eae79222aebe59653889e92da7afb93",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.3
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 437,
+            "y": 0,
+            "width": 405,
+            "height": 720
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "All three frames are identical, showing a clear, live-action shot of a wooden bed frame with bedding, and no overlays or presenters are visible.",
+          "related": false,
+          "seen": "A wooden bed frame with a carved headboard, white pillows, and a brown throw blanket is clearly visible in all three frames.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": true,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "web:2f93674897753674",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\1d0fe1f87650b7e09eb0.mp4",
+          "checked_media_sha256": "922b7a73b028a512e64111649b4fa33783c18ce60999bd283ae4d3fd87f4dc4c",
+          "checked_interval": {
+            "start": 12.433333333333334,
+            "end": 12.733333333333334
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 506,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        }
+      ],
+      "attempts": [
+        {
+          "id": "pixabay:363408",
+          "temporary": false,
+          "code": "broll_quality_rejected",
+          "message": "B-roll stopped. Choose another video; the actual three-frame footage check did not pass.",
+          "details": "CandidateContractError: Choose another video; the actual three-frame footage check did not pass."
+        },
+        {
+          "id": "website:7acdb4ce7110a5c33d5a",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object is visible, but the 'FILMSUPPLY' watermark overlay disqualifies the clip. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object is visible, but the 'FILMSUPPLY' watermark overlay disqualifies the clip."
+        },
+        {
+          "id": "pixabay:151297",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object 'bed' is not visible; the subject is a woman lying on a couch or sofa in a living room setting. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object 'bed' is not visible; the subject is a woman lying on a couch or sofa in a living room setting."
+        },
+        {
+          "id": "pixabay:233390",
+          "temporary": false,
+          "code": "broll_quality_rejected",
+          "message": "B-roll stopped. Choose another video; the actual three-frame footage check did not pass.",
+          "details": "CandidateContractError: Choose another video; the actual three-frame footage check did not pass."
+        },
+        {
+          "id": "pixabay:34473",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested bed. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested bed."
+        },
+        {
+          "id": "pixabay:34474",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: The requested object, a bed, is clearly visible in all three frames as a live-action filmed cutaway, with no dominant presenter or intrusive overlays. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: The requested object, a bed, is clearly visible in all three frames as a live-action filmed cutaway, with no dominant presenter or intrusive overlays."
+        },
+        {
+          "id": "pixabay:151295",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested bed. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested bed."
+        },
+        {
+          "id": "web:bd157b757318d6fd",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "This web clip could not be downloaded. Choose another suggested clip.",
+          "details": "ValueError: This web clip could not be downloaded. Choose another suggested clip."
+        },
+        {
+          "id": "web:2f93674897753674",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: All three frames are identical, showing a clear, live-action shot of a wooden bed frame with bedding, and no overlays or presenters are visible. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: All three frames are identical, showing a clear, live-action shot of a wooden bed frame with bedding, and no overlays or presenters are visible."
+        }
+      ],
+      "mixed_candidate_event_windows": [
+        {
+          "keyword": "bed",
+          "ordinal": 1,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22136067552900,
+          "wall_time_ns": 1792888852286097200,
+          "mixed_seconds_to_next_candidate_or_quality": 4.505441,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:363408"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 2,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22140572993700,
+          "wall_time_ns": 1792888856791540800,
+          "mixed_seconds_to_next_candidate_or_quality": 12.848997,
+          "candidate_id_inferred_from_matching_queue_order": "website:7acdb4ce7110a5c33d5a"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 3,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22153421990200,
+          "wall_time_ns": 1792888869640537200,
+          "mixed_seconds_to_next_candidate_or_quality": 0.378276,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:151297"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 4,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22153800266300,
+          "wall_time_ns": 1792888870018812400,
+          "mixed_seconds_to_next_candidate_or_quality": 6.116102,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:233390"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 5,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22159916368200,
+          "wall_time_ns": 1792888876134915400,
+          "mixed_seconds_to_next_candidate_or_quality": 0.298054,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:34473"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 6,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22160214422500,
+          "wall_time_ns": 1792888876432969600,
+          "mixed_seconds_to_next_candidate_or_quality": 0.310549,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:34474"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 7,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22160524971700,
+          "wall_time_ns": 1792888876743518600,
+          "mixed_seconds_to_next_candidate_or_quality": 0.450675,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:151295"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 8,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22160975646800,
+          "wall_time_ns": 1792888877194193700,
+          "mixed_seconds_to_next_candidate_or_quality": 12.27316,
+          "candidate_id_inferred_from_matching_queue_order": "web:bd157b757318d6fd"
+        },
+        {
+          "keyword": "bed",
+          "ordinal": 9,
+          "denominator": 9,
+          "options_before": 0,
+          "monotonic_ns": 22173248806900,
+          "wall_time_ns": 1792888889467353900,
+          "mixed_seconds_to_next_candidate_or_quality": 3.708197,
+          "candidate_id_inferred_from_matching_queue_order": "web:2f93674897753674"
+        }
+      ]
+    },
+    {
+      "slot": 6,
+      "keyword": "water heater",
+      "speech": "geyser,",
+      "start": 18.28,
+      "end": 18.72,
+      "meaning": "Water heating device",
+      "queries": [
+        "water heater"
+      ],
+      "classification": "provider unavailable, candidate filtering and insufficient qualified attempted leads",
+      "established_limits": "24 retrieved; only two queued web leads, one static product graphic and one unavailable download. No direct lead passed current filters; untested pixabay3802 names water heater/boiler ignition but its negative specificity and adjusted score excluded it. Metadata is not proof of footage suitability. Stock absence is not established.",
+      "genuine_stock_absence_proven": false,
+      "retrieved": 24,
+      "providers": {
+        "pixabay": 12,
+        "commons": 6,
+        "website": 1,
+        "web": 5
+      },
+      "acceptable": 11,
+      "scored_pool": 5,
+      "direct_nonextraction_queue": 0,
+      "extraction_queue": 2,
+      "attempted": 2,
+      "original_checks": 1,
+      "prepared_checks": 0,
+      "queue_order_matches_saved_attempts": true,
+      "candidate_queue": [
+        {
+          "id": "web:044bfb51cbd7da7b",
+          "title": "Best Water Heater in India 2026: V Guard vs Venus vs Crompton Which Geyser Is Best?",
+          "score": 0.4948243200778961,
+          "specific": 0.1566244661808014,
+          "adjusted": 0.4948243200778961
+        },
+        {
+          "id": "web:b9d62c4be8631710",
+          "title": "Instant Water Heater \u0baa\u0bbe\u0ba4\u0bc1\u0b95\u0bbe\u0baa\u0bcd\u0baa\u0bbe\u0ba9\u0ba4\u0bbe? 3L Havells vs V guard heater review..\u2620\ufe0f\ud83d\ude01",
+          "score": 0.4657406210899353,
+          "specific": 0.15165284276008606,
+          "adjusted": 0.4657406210899353
+        }
+      ],
+      "checks": [
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": false,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames are static product graphics with text overlays, not filmed footage of a physical object.",
+          "related": false,
+          "seen": "A static graphic displaying a water heater and text, not filmed footage.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "web:044bfb51cbd7da7b",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\37b1897e77fe34d5e071.mp4",
+          "checked_media_sha256": "1c52bee5c6f5bcc8594e0a866bff896cb8fce48f483d0b3f53fb577a232b2fa0",
+          "checked_interval": {
+            "start": 0.0,
+            "end": 0.4666666666666667
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        }
+      ],
+      "attempts": [
+        {
+          "id": "web:044bfb51cbd7da7b",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames are static product graphics with text overlays, not filmed footage of a physical object. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames are static product graphics with text overlays, not filmed footage of a physical object."
+        },
+        {
+          "id": "web:b9d62c4be8631710",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "This web clip could not be downloaded. Choose another suggested clip.",
+          "details": "ValueError: This web clip could not be downloaded. Choose another suggested clip."
+        }
+      ],
+      "mixed_candidate_event_windows": [
+        {
+          "keyword": "water heater",
+          "ordinal": 1,
+          "denominator": 2,
+          "options_before": 0,
+          "monotonic_ns": 22194815905100,
+          "wall_time_ns": 1792888911034451500,
+          "mixed_seconds_to_next_candidate_or_quality": 5.888393,
+          "candidate_id_inferred_from_matching_queue_order": "web:044bfb51cbd7da7b"
+        },
+        {
+          "keyword": "water heater",
+          "ordinal": 2,
+          "denominator": 2,
+          "options_before": 0,
+          "monotonic_ns": 22200704297700,
+          "wall_time_ns": 1792888916922844800,
+          "mixed_seconds_to_next_candidate_or_quality": 54.930967,
+          "candidate_id_inferred_from_matching_queue_order": "web:b9d62c4be8631710"
+        }
+      ]
+    },
+    {
+      "slot": 7,
+      "keyword": "refrigerator",
+      "speech": "fridge,",
+      "start": 20.34,
+      "end": 20.78,
+      "meaning": "Refrigerator",
+      "queries": [
+        "refrigerator",
+        "fridge interior",
+        "open refrigerator"
+      ],
+      "classification": "watermark/overlay/unrelated windows plus original/prepared aggregate disagreement",
+      "established_limits": "One source refrigerator interior passed; prepared answer describes same object with every per-frame/quality/identity flag true but related=false. Other leads failed watermark/overlay/wrong scene or window location. Must preserve negative answer; not proof that no stock exists.",
+      "genuine_stock_absence_proven": false,
+      "retrieved": 42,
+      "providers": {
+        "pixabay": 26,
+        "website": 1,
+        "commons": 6,
+        "web": 9
+      },
+      "acceptable": 17,
+      "scored_pool": 11,
+      "direct_nonextraction_queue": 3,
+      "extraction_queue": 2,
+      "attempted": 5,
+      "original_checks": 4,
+      "prepared_checks": 1,
+      "queue_order_matches_saved_attempts": true,
+      "candidate_queue": [
+        {
+          "id": "pixabay:79666",
+          "title": "man, blanket, lazy, refrigerator, fridge, kitchen",
+          "score": 0.4728788137435913,
+          "specific": 0.12644463777542114,
+          "adjusted": 0.4428788137435913
+        },
+        {
+          "id": "website:ea6f374b59968f14ede2",
+          "title": "Point of view woman reaching into refrigerator grabbing two tomatos from glass shelf",
+          "score": 0.38195231556892395,
+          "specific": 0.15456190705299377,
+          "adjusted": 0.38195231556892395
+        },
+        {
+          "id": "pixabay:79665",
+          "title": "refrigerator, kitchen, home, cold, man, young",
+          "score": 0.38464173674583435,
+          "specific": 0.16474296152591705,
+          "adjusted": 0.3546417367458343
+        },
+        {
+          "id": "web:f4cdb33eb4c8044c",
+          "title": "How Does A Refrigerator Work? | Refrigeration Explained",
+          "score": 0.5510298609733582,
+          "specific": 0.1584407091140747,
+          "adjusted": 0.5510298609733582
+        },
+        {
+          "id": "web:46969a4d6a78503d",
+          "title": "Best Refrigerator 2026 | Best Double Door Refrigerator | Fridge Buying Guide + Top Picks in India",
+          "score": 0.443267822265625,
+          "specific": 0.0991525650024414,
+          "adjusted": 0.443267822265625
+        }
+      ],
+      "checks": [
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested refrigerator.",
+          "related": false,
+          "seen": "A brick wall with a fire alarm and a wooden door.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:79666",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-79666-960x506.mp4",
+          "checked_media_sha256": "e20f7f816d4b1455a5c8f110764e6f5a0bec015835a04c6863ad770413d5fbde",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.4333333333333333
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 337,
+            "y": 0,
+            "width": 285,
+            "height": 506
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": false,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The requested object is not visible; the frames show tomatoes inside a refrigerator, and a watermark is present.",
+          "related": true,
+          "seen": "Three identical frames show a close-up of two red tomatoes inside a refrigerator, with a watermark overlay.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "website:ea6f374b59968f14ede2",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\website-ea6f374b59968f14ede2-0x0.mp4",
+          "checked_media_sha256": "6166203e9afccbda55a1e2da6c6769ba7d32758d8ef8850e661f344421880076",
+          "checked_interval": {
+            "start": 0.0,
+            "end": 0.43333333333333335
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 294,
+            "y": 0,
+            "width": 272,
+            "height": 484
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "The video clip shows a clear, live-action view of the interior of a refrigerator, which is the requested subject. All three frames are consistent, showing the same scene without any dominant presenters, watermarks, or text overlays.",
+          "related": true,
+          "seen": "A refrigerator interior with shelves stocked with yogurt and milk.",
+          "context_compatible": true,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": true,
+          "matches_setting": true,
+          "passed": true,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:79665",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-79665-1920x1080.mp4",
+          "checked_media_sha256": "1f68274b761bd3abecc85bc6c2529caa3258faa75ce957b844015c61d038c16f",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.4333333333333333
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "The video clip shows a clear, live-action view of the interior of a refrigerator, with the door handle visible in the first frame and the shelves stocked with food items clearly seen in all three frames.",
+          "related": false,
+          "seen": "A refrigerator interior with shelves stocked with jars of hummus and bottles of milk.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": true,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "pixabay:79665",
+          "producer_stage": "prepared",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\output\\broll\\20261025-060011-4048d8\\001-audio-only-source\\media\\broll-08-pixabay-79665-a961045c.mp4",
+          "checked_media_sha256": "a8c2b8c2f0765288287ae223d04b701ff549e99b34f66d5d79906294323c31d8",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.4333333333333333
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 270,
+            "height": 480
+          }
+        },
+        {
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": false,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The requested object is visible, but the footage is disqualified due to the presence of a large, non-physical graphic overlay (the circular vegetable image) which violates the 'no_intrusive_overlay' rule.",
+          "related": false,
+          "seen": "A hand places a bag of green vegetables into the bottom drawer of an open refrigerator, which is filled with other food items.",
+          "context_compatible": false,
+          "context_basis": "Canonical physical object observed in all three sampled frames; no ownership or rental claim.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "id": "web:46969a4d6a78503d",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\8a16674512286f08e907.mp4",
+          "checked_media_sha256": "82e4904dc61752bc9482ba151f549bc6cb3cae5bb4c38af1ac00da31d7eedca1",
+          "checked_interval": {
+            "start": 49.56666666666667,
+            "end": 50.0
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        }
+      ],
+      "attempts": [
+        {
+          "id": "pixabay:79666",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested refrigerator. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The observed frames do not establish the requested refrigerator."
+        },
+        {
+          "id": "website:ea6f374b59968f14ede2",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object is not visible; the frames show tomatoes inside a refrigerator, and a watermark is present. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object is not visible; the frames show tomatoes inside a refrigerator, and a watermark is present."
+        },
+        {
+          "id": "pixabay:79665",
+          "temporary": false,
+          "code": "broll_quality_rejected",
+          "message": "B-roll stopped. Choose another video; the actual three-frame footage check did not pass.",
+          "details": "CandidateContractError: Choose another video; the actual three-frame footage check did not pass."
+        },
+        {
+          "id": "web:f4cdb33eb4c8044c",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "No relevant shot was visible in this candidate: No frame shows a refrigerator; the images display a logo, a cartoon character, and a beer bottle. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: No relevant shot was visible in this candidate: No frame shows a refrigerator; the images display a logo, a cartoon character, and a beer bottle."
+        },
+        {
+          "id": "web:46969a4d6a78503d",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object is visible, but the footage is disqualified due to the presence of a large, non-physical graphic overlay (the circular vegetable image) which violates the 'no_intrusive_overlay' rule. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The requested object is visible, but the footage is disqualified due to the presence of a large, non-physical graphic overlay (the circular vegetable image) which violates the 'no_intrusive_overlay' rule."
+        }
+      ],
+      "mixed_candidate_event_windows": [
+        {
+          "keyword": "refrigerator",
+          "ordinal": 1,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 22255635264500,
+          "wall_time_ns": 1792888971853810900,
+          "mixed_seconds_to_next_candidate_or_quality": 0.240129,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:79666"
+        },
+        {
+          "keyword": "refrigerator",
+          "ordinal": 2,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 22255875393400,
+          "wall_time_ns": 1792888972093940400,
+          "mixed_seconds_to_next_candidate_or_quality": 11.183244,
+          "candidate_id_inferred_from_matching_queue_order": "website:ea6f374b59968f14ede2"
+        },
+        {
+          "keyword": "refrigerator",
+          "ordinal": 3,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 22267058637700,
+          "wall_time_ns": 1792888983277184500,
+          "mixed_seconds_to_next_candidate_or_quality": 4.116756,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:79665"
+        },
+        {
+          "keyword": "refrigerator",
+          "ordinal": 4,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 22271175393400,
+          "wall_time_ns": 1792888987393939900,
+          "mixed_seconds_to_next_candidate_or_quality": 2.675473,
+          "candidate_id_inferred_from_matching_queue_order": "web:f4cdb33eb4c8044c"
+        },
+        {
+          "keyword": "refrigerator",
+          "ordinal": 5,
+          "denominator": 5,
+          "options_before": 0,
+          "monotonic_ns": 22273850866200,
+          "wall_time_ns": 1792888990069413300,
+          "mixed_seconds_to_next_candidate_or_quality": 4.811172,
+          "candidate_id_inferred_from_matching_queue_order": "web:46969a4d6a78503d"
+        }
+      ]
+    },
+    {
+      "slot": 9,
+      "keyword": "room interior",
+      "speech": "PG mein.",
+      "start": 28.36,
+      "end": 28.88,
+      "meaning": "Private guest room in a shared accommodation",
+      "queries": [
+        "room interior",
+        "small bedroom",
+        "shared room"
+      ],
+      "classification": "repeated residential candidate classes, valid overlay/presenter vetoes, ambiguity and cached download failure",
+      "established_limits": "Same57-lead and ranked bank as bachelor room; all10 candidate IDs attempted again with different intervals/context. The residential web source here has related/context/identity true but text-overlay false and per-frame overlay/presenter/subject vetoes: this is not the earlier single-man rejection. One failed URL was short-circuited as recently failed. No global cross-keyword used suppression in review mode.",
+      "genuine_stock_absence_proven": false,
+      "retrieved": 57,
+      "providers": {
+        "web": 11,
+        "pixabay": 33,
+        "website": 1,
+        "commons": 12
+      },
+      "acceptable": 24,
+      "scored_pool": 12,
+      "direct_nonextraction_queue": 8,
+      "extraction_queue": 2,
+      "attempted": 10,
+      "original_checks": 10,
+      "prepared_checks": 0,
+      "queue_order_matches_saved_attempts": true,
+      "candidate_queue": [
+        {
+          "id": "pixabay:16399",
+          "title": "abandoned, room, empty, building, pan, interior, house, structure, industrial, city, abandon, decay, inside, indoor",
+          "score": 0.3910388648509979,
+          "specific": 0.1473262459039688,
+          "adjusted": 0.3610388648509979
+        },
+        {
+          "id": "pixabay:1651",
+          "title": "guitarist, music, playing, guitar player, room, studio, musician, life performance, guitar, musical, instrument, play, electric, person, man, young, acoustic, entertainment, musical instrument, player, acoustic guitar, rock music",
+          "score": 0.37115898728370667,
+          "specific": 0.04015365242958069,
+          "adjusted": 0.34115898728370664
+        },
+        {
+          "id": "pixabay:20267",
+          "title": "ruins, house, burnt, burned, building, living room, structure",
+          "score": 0.3630424737930298,
+          "specific": 0.11529451608657837,
+          "adjusted": 0.33304247379302976
+        },
+        {
+          "id": "pixabay:29917",
+          "title": "hair salon, mode, room, chairs, indoors, design, modern, furniture, fish, interior, building",
+          "score": 0.3421618342399597,
+          "specific": 0.04727509617805481,
+          "adjusted": 0.3121618342399597
+        },
+        {
+          "id": "pixabay:126924",
+          "title": "crescent, moon, winter, snow, room, window, interior, home, pine, mountains, cozy",
+          "score": 0.31130924820899963,
+          "specific": 0.020055502653121948,
+          "adjusted": 0.31130924820899963
+        },
+        {
+          "id": "pixabay:846",
+          "title": "library, books, the corridor, window, rack, the culture, reading, classic, new items, reading room, society, shelves, education, studies, school",
+          "score": 0.3253509998321533,
+          "specific": 0.08403822779655457,
+          "adjusted": 0.2953509998321533
+        },
+        {
+          "id": "pixabay:20269",
+          "title": "ruins, house, burnt, burned, building, living room",
+          "score": 0.2994406819343567,
+          "specific": 0.14112427830696106,
+          "adjusted": 0.26944068193435666
+        },
+        {
+          "id": "pixabay:1191",
+          "title": "conference room, furniture, modern, equipment, conference, business, chair, table, interior, boardroom, workplace, board, contemporary, elegant, meetings, place, room, empty, 133411649",
+          "score": 0.2662360966205597,
+          "specific": 0.09406760334968567,
+          "adjusted": 0.2362360966205597
+        },
+        {
+          "id": "web:3c206d9faa4963ed",
+          "title": "Rented Apartment Makeover \ud83c\udfe1|| Budget friendly aesthetic room decor || Sanika Singh\u2764\ufe0f",
+          "score": 0.5410583019256592,
+          "specific": 0.09706777334213257,
+          "adjusted": 0.5410583019256592
+        },
+        {
+          "id": "web:3477026ff7eb3589",
+          "title": "10' \u00d7 10' Bedroom Interior Design Ideas | Small Bedroom Makeover | Interior Jagat Kolkata",
+          "score": 0.4356713891029358,
+          "specific": 0.01503106951713562,
+          "adjusted": 0.4356713891029358
+        }
+      ],
+      "checks": [
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room with no furniture or personal items, failing to illustrate a residential living or sleeping area.",
+          "related": false,
+          "seen": "An empty room with white walls, a window, and a radiator.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:16399",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-16399-1920x1080.mp4",
+          "checked_media_sha256": "d6ab0476ef036ab678f5e35d60e9983bb04e97acc88dc56ad6fdcdf787aa6d63",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is an office or commercial workspace, not a residential room interior.",
+          "related": false,
+          "seen": "A black and white shot of a room with desks, office chairs, and computer monitors.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:1651",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1651-1920x1080.mp4",
+          "checked_media_sha256": "33b978b1ba16abb7b7990de34a3a906293c317ee0d2b41353a08b0c8e4d19f24",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames are unreadable, blurry, and dark, failing to show any recognizable residential interior or subject.",
+          "related": false,
+          "seen": "Three frames of dark, blurry, and unreadable footage with no visible subject.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:20267",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-20267-960x540.mp4",
+          "checked_media_sha256": "74a25b1231f89681b79e9fa382247e2e59df2ceac714e9991612a070dfccbade",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible interior is a commercial salon, not a residential room.",
+          "related": false,
+          "seen": "A commercial salon interior with styling chairs and a large mirror.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:29917",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-29917-960x540.mp4",
+          "checked_media_sha256": "6da894ed44f7fe10761a7c1be7b76059ed28cc26d820d093d63e591713309cf2",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly CGI or animation, not real live-action filmed footage.",
+          "related": false,
+          "seen": "A blue-tinted room interior with a large arched window showing a snowy night scene with a crescent moon.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:126924",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-126924-360x640.mp4",
+          "checked_media_sha256": "b808913d050007942198e508614c97b460f792c24e5dd01bd1fdada58103f9cc",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 640
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a commercial library or archive corridor, not a residential room interior.",
+          "related": false,
+          "seen": "A long, brightly lit corridor with white pillars and tall bookshelves on the right side.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:846",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-846-1280x720.mp4",
+          "checked_media_sha256": "6827fd333571a4d9ee3bd2f2b2c11c96775e0f6099ce79de74f8ed2c37c226e3",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 437,
+            "y": 0,
+            "width": 405,
+            "height": 720
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a derelict, ruined building with debris and vegetation, not a residential interior.",
+          "related": false,
+          "seen": "A dilapidated room with broken windows, rubble on the floor, and plants growing inside.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:20269",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-20269-960x540.mp4",
+          "checked_media_sha256": "686409ce5f6410e156791369026d56e0603222579b0b96f144253ef4a23a6614",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 328,
+            "y": 0,
+            "width": 304,
+            "height": 540
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": false,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": false,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: Frames show a blurry, unreadable interior with a bright light flare, failing to clearly depict a residential room.",
+          "related": false,
+          "seen": "Blurry, unreadable footage of a dark interior with a bright light source.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:1191",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1191-1280x497.mp4",
+          "checked_media_sha256": "2cebb1268534e87b8a598cb6da6175848c165f1a1dcb320467e7eb0938e2e1f3",
+          "checked_interval": {
+            "start": 1.0,
+            "end": 1.5
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 500,
+            "y": 0,
+            "width": 280,
+            "height": 498
+          }
+        },
+        {
+          "context_compatible": false,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": true,
+              "real_clear_footage": true,
+              "subject_visible": false
+            }
+          ],
+          "identity_compatible": false,
+          "no_intrusive_text": true,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible space is a commercial bar or lounge, not a residential room interior.",
+          "related": false,
+          "seen": "A commercial bar counter with stools and bottles is visible.",
+          "matches_scene": false,
+          "matches_action": false,
+          "fits_spoken_meaning": false,
+          "matches_setting": false,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "pixabay:1191",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1191-1280x497.mp4",
+          "checked_media_sha256": "2cebb1268534e87b8a598cb6da6175848c165f1a1dcb320467e7eb0938e2e1f3",
+          "checked_interval": {
+            "start": 16.733333333333334,
+            "end": 17.233333333333334
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 500,
+            "y": 0,
+            "width": 280,
+            "height": 498
+          }
+        },
+        {
+          "context_compatible": true,
+          "frame_checks": [
+            {
+              "no_dominant_presenter": false,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": false
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            },
+            {
+              "no_dominant_presenter": true,
+              "no_intrusive_overlay": false,
+              "real_clear_footage": true,
+              "subject_visible": true
+            }
+          ],
+          "identity_compatible": true,
+          "no_intrusive_text": false,
+          "real_clear_footage": true,
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The clip shows a residential room interior with a person, matching the context of a PG room.",
+          "related": true,
+          "seen": "A woman stands in a residential room with a bed, chair, and ceiling fan.",
+          "matches_scene": true,
+          "matches_action": true,
+          "fits_spoken_meaning": true,
+          "matches_setting": true,
+          "passed": false,
+          "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+          "physical_criteria_revision": "broll-residential-v1",
+          "id": "web:3c206d9faa4963ed",
+          "producer_stage": "original",
+          "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\e2d2da6898635dfd557c.mp4",
+          "checked_media_sha256": "b9a920dede624953dbd818a3970980d882e92bb0202168f87d0f22b4cc748b49",
+          "checked_interval": {
+            "start": 24.766666666666666,
+            "end": 25.266666666666666
+          },
+          "checked_crop": {
+            "space": "upright_source_pixels",
+            "x": 656,
+            "y": 0,
+            "width": 608,
+            "height": 1080
+          }
+        }
+      ],
+      "attempts": [
+        {
+          "id": "pixabay:16399",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room with no furniture or personal items, failing to illustrate a residential living or sleeping area. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room with no furniture or personal items, failing to illustrate a residential living or sleeping area."
+        },
+        {
+          "id": "pixabay:1651",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is an office or commercial workspace, not a residential room interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is an office or commercial workspace, not a residential room interior."
+        },
+        {
+          "id": "pixabay:20267",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "No relevant shot was visible in this candidate: The images show a dilapidated, overgrown interior, not a usable room interior for a human editor. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: No relevant shot was visible in this candidate: The images show a dilapidated, overgrown interior, not a usable room interior for a human editor."
+        },
+        {
+          "id": "pixabay:29917",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible interior is a commercial salon, not a residential room. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible interior is a commercial salon, not a residential room."
+        },
+        {
+          "id": "pixabay:126924",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly CGI or animation, not real live-action filmed footage. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly CGI or animation, not real live-action filmed footage."
+        },
+        {
+          "id": "pixabay:846",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a commercial library or archive corridor, not a residential room interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a commercial library or archive corridor, not a residential room interior."
+        },
+        {
+          "id": "pixabay:20269",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a derelict, ruined building with debris and vegetation, not a residential interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a derelict, ruined building with debris and vegetation, not a residential interior."
+        },
+        {
+          "id": "pixabay:1191",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible space is a commercial bar or lounge, not a residential room interior. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The visible space is a commercial bar or lounge, not a residential room interior."
+        },
+        {
+          "id": "web:3c206d9faa4963ed",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The clip shows a residential room interior with a person, matching the context of a PG room. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: B-roll rejected: Not every sampled frame shows clean, relevant filmed B-roll: The clip shows a residential room interior with a person, matching the context of a PG room."
+        },
+        {
+          "id": "web:3477026ff7eb3589",
+          "temporary": false,
+          "code": "request_failed",
+          "message": "This video source recently failed. Continuing with other candidates. Check this feature\u2019s selected files and settings, then retry the unfinished step. For uploads, check saved receipts first.",
+          "details": "ValueError: This video source recently failed. Continuing with other candidates."
+        }
+      ],
+      "mixed_candidate_event_windows": [
+        {
+          "keyword": "room interior",
+          "ordinal": 1,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22350550416300,
+          "wall_time_ns": 1792889066768962600,
+          "mixed_seconds_to_next_candidate_or_quality": 15.729438,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:16399"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 2,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22366279854500,
+          "wall_time_ns": 1792889082498401700,
+          "mixed_seconds_to_next_candidate_or_quality": 5.947369,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:1651"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 3,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22372227223100,
+          "wall_time_ns": 1792889088445770100,
+          "mixed_seconds_to_next_candidate_or_quality": 7.201058,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:20267"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 4,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22379428280900,
+          "wall_time_ns": 1792889095646827900,
+          "mixed_seconds_to_next_candidate_or_quality": 5.335552,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:29917"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 5,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22384763833100,
+          "wall_time_ns": 1792889100982380200,
+          "mixed_seconds_to_next_candidate_or_quality": 4.243033,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:126924"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 6,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22389006866200,
+          "wall_time_ns": 1792889105225412900,
+          "mixed_seconds_to_next_candidate_or_quality": 5.504712,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:846"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 7,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22394511578000,
+          "wall_time_ns": 1792889110730124900,
+          "mixed_seconds_to_next_candidate_or_quality": 5.509288,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:20269"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 8,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22400020866100,
+          "wall_time_ns": 1792889116239413300,
+          "mixed_seconds_to_next_candidate_or_quality": 11.564943,
+          "candidate_id_inferred_from_matching_queue_order": "pixabay:1191"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 9,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22411585809100,
+          "wall_time_ns": 1792889127804355300,
+          "mixed_seconds_to_next_candidate_or_quality": 9.452502,
+          "candidate_id_inferred_from_matching_queue_order": "web:3c206d9faa4963ed"
+        },
+        {
+          "keyword": "room interior",
+          "ordinal": 10,
+          "denominator": 10,
+          "options_before": 0,
+          "monotonic_ns": 22421038311200,
+          "wall_time_ns": 1792889137256857800,
+          "mixed_seconds_to_next_candidate_or_quality": 28.138548,
+          "candidate_id_inferred_from_matching_queue_order": "web:3477026ff7eb3589"
+        }
+      ]
+    }
+  ],
+  "provider": {
+    "pexels_saved_denial_marker_for_current_key": {
+      "source": "pexels",
+      "rejected_at": 1792786421.1967514
+    },
+    "new_401_403_in_this_run_proven": false,
+    "actual_event": "Pexels rejected the saved API key...Skipping Pexels for this run.",
+    "source_behavior": "_get checks saved key-denial marker before network;401 or403 create it. This audit does not clear or repair it.",
+    "key_not_recorded": true
+  },
+  "repeat_work": {
+    "room_retrieved_banks_identical": true,
+    "room_ranked_banks_identical": true,
+    "same_ten_attempted_ids": true,
+    "bounds": "Do not reuse verdicts: intervals, source60-to-prepared30fps samples and original speech differ. Cache hit/miss not logged. Source unavailability cache already avoided repeat download of web3477026ff7eb3589 for PG. Review mode already allows reused candidate IDs; no suppression bug claimed."
+  },
+  "timing": {
+    "job_id": "a87c39c6a791",
+    "source_events": "cache\\app\\progress-events\\job-a87c39c6a791.jsonl",
+    "source_sha256": "5ade4044bc3c73ac836fcb33ad262f06502216add7f4611c638b68314a1abde4",
+    "event_count": 431,
+    "event_emitter_pids": [
+      31736
+    ],
+    "boundaries": {
+      "first_job_event": {
+        "utc": "2026-10-25T00:30:10.149926+00:00",
+        "monotonic_ns": 21493931379000,
+        "stage": "Waiting",
+        "status": "queued"
+      },
+      "first_footage_retrieval": {
+        "utc": "2026-10-25T00:31:59.276863+00:00",
+        "monotonic_ns": 21603058316400,
+        "stage": "Finding footage 1/10: apartment interior",
+        "status": null
+      },
+      "first_video_candidate_check": {
+        "utc": "2026-10-25T00:34:07.410777+00:00",
+        "monotonic_ns": 21731192231500,
+        "stage": "Checking apartment interior: 1/2 candidates, 0 choices saved",
+        "status": null
+      },
+      "first_quality_report": {
+        "utc": "2026-10-25T00:46:05.395406+00:00",
+        "monotonic_ns": 22449176859300,
+        "stage": "Quality check: B-roll 89/100 - 2 rule(s) failed: Enough B-roll (at least 10 clips) (4 clips, 11% of the video); Each clip follows its spoken",
+        "status": null
+      },
+      "complete": {
+        "utc": "2026-10-25T00:46:05.512299+00:00",
+        "monotonic_ns": 22449293753000,
+        "stage": "Ready to review",
+        "status": "complete"
+      }
+    },
+    "segments": [
+      {
+        "phase": "startup_speech_and_planning",
+        "seconds": 109.127
+      },
+      {
+        "phase": "retrieval_and_candidate_picture_checks",
+        "seconds": 128.134
+      },
+      {
+        "phase": "video_download_preparation_checks_and_preview",
+        "seconds": 717.985
+      },
+      {
+        "phase": "quality_and_finalization",
+        "seconds": 0.117
+      }
+    ],
+    "total_event_elapsed_seconds": 955.362,
+    "limits": [
+      "Application progress event arrival boundaries, not direct GPU/kernel/model-call timers.",
+      "Video phase includes downloads, hashing, encoding, original/prepared model checks and preview work.",
+      "No separate model-load/token/VRAM/RAM timing is established.",
+      "No per-call fresh/cache/digest assertion is added."
+    ]
+  },
+  "timing_interpretation": "717.985s/11m58 is mixed download/preparation/hash/check/preview interval, not model duration. Candidate-to-next-stage arrival windows are mixed work too; last PG candidate includes final packaging/preview. No separate model, download or encode call clocks.",
+  "slowest_mixed_windows": [
+    {
+      "keyword": "water heater",
+      "ordinal": 2,
+      "denominator": 2,
+      "options_before": 0,
+      "monotonic_ns": 22200704297700,
+      "wall_time_ns": 1792888916922844800,
+      "mixed_seconds_to_next_candidate_or_quality": 54.930967,
+      "candidate_id_inferred_from_matching_queue_order": "web:b9d62c4be8631710"
+    },
+    {
+      "keyword": "washing machine",
+      "ordinal": 11,
+      "denominator": 11,
+      "options_before": 1,
+      "monotonic_ns": 22307768075700,
+      "wall_time_ns": 1792889023986622800,
+      "mixed_seconds_to_next_candidate_or_quality": 42.782341
+    },
+    {
+      "keyword": "room interior",
+      "ordinal": 9,
+      "denominator": 10,
+      "options_before": 0,
+      "monotonic_ns": 21931177441300,
+      "wall_time_ns": 1792888647395988300,
+      "mixed_seconds_to_next_candidate_or_quality": 35.258909,
+      "candidate_id_inferred_from_matching_queue_order": "web:3c206d9faa4963ed"
+    },
+    {
+      "keyword": "apartment interior",
+      "ordinal": 1,
+      "denominator": 2,
+      "options_before": 0,
+      "monotonic_ns": 21731192231500,
+      "wall_time_ns": 1792888447410776600,
+      "mixed_seconds_to_next_candidate_or_quality": 32.822404
+    },
+    {
+      "keyword": "room interior",
+      "ordinal": 10,
+      "denominator": 10,
+      "options_before": 0,
+      "monotonic_ns": 21966436350100,
+      "wall_time_ns": 1792888682654896100,
+      "mixed_seconds_to_next_candidate_or_quality": 31.639992,
+      "candidate_id_inferred_from_matching_queue_order": "web:3477026ff7eb3589"
+    },
+    {
+      "keyword": "North Indian",
+      "ordinal": 4,
+      "denominator": 5,
+      "options_before": 0,
+      "monotonic_ns": 21816047963500,
+      "wall_time_ns": 1792888532266510600,
+      "mixed_seconds_to_next_candidate_or_quality": 30.559666,
+      "candidate_id_inferred_from_matching_queue_order": "web:289b3dfbb5c1a2f6"
+    },
+    {
+      "keyword": "apartment interior",
+      "ordinal": 2,
+      "denominator": 2,
+      "options_before": 1,
+      "monotonic_ns": 21764014635500,
+      "wall_time_ns": 1792888480233182100,
+      "mixed_seconds_to_next_candidate_or_quality": 29.315166
+    },
+    {
+      "keyword": "room interior",
+      "ordinal": 10,
+      "denominator": 10,
+      "options_before": 0,
+      "monotonic_ns": 22421038311200,
+      "wall_time_ns": 1792889137256857800,
+      "mixed_seconds_to_next_candidate_or_quality": 28.138548,
+      "candidate_id_inferred_from_matching_queue_order": "web:3477026ff7eb3589"
+    },
+    {
+      "keyword": "empty room",
+      "ordinal": 1,
+      "denominator": 12,
+      "options_before": 0,
+      "monotonic_ns": 21998076341800,
+      "wall_time_ns": 1792888714294888300,
+      "mixed_seconds_to_next_candidate_or_quality": 25.078093
+    },
+    {
+      "keyword": "empty room",
+      "ordinal": 11,
+      "denominator": 12,
+      "options_before": 3,
+      "monotonic_ns": 22105765347400,
+      "wall_time_ns": 1792888821983894500,
+      "mixed_seconds_to_next_candidate_or_quality": 18.386892
+    }
+  ],
+  "proposals_require_new_lease": {
+    "smallest_safe_ordinary_optimization": {
+      "files": [
+        "hinglish_broll/pipeline.py",
+        "hinglish_broll/report.py"
+      ],
+      "proposal": "Defer the unselected whole-sequence review preview until explicit Save & rebuild/preview; keep original audio-over-black and every independently checked option available. Keep original/prepared quality checks, file/window hashes and native selection/export contracts unchanged. Add preview start/end existing-progress boundaries to measure actual cost.",
+      "limit": "Last PG candidate-to-quality window28.139s includes this preview and other work; it is not a measured28.139s saving and does not explain the717.985s whole mixed phase.",
+      "regressions": [
+        "Unselected review does not call full-sequence render; shows honest deferred/source-audio state while option videos remain playable.",
+        "Explicit Save & rebuild renders one actual preview; ordinary nonreview behavior preserved.",
+        "Previously selected preview cannot be displayed as current for unselected/revised choices; preserve prior files without false freshness.",
+        "No candidate gains acceptance and no source/prepared check is skipped."
+      ]
+    },
+    "secondary_duplicate_retrieval_optimization": {
+      "files": [
+        "hinglish_broll/pipeline.py",
+        "hinglish_broll/ranker.py"
+      ],
+      "proposal": "Optional per-run reuse/deep-copy of completed identical retrieval/ranking inputs, not shared inference cache or any source/prepared verdict. Expose effective embedding-text inputs for a complete key; preserve exact queries, country, orientation, providers/policy/guidance and diversification logic; record reuse lineage.",
+      "limit": "Providers/picture vectors already cache; actual saved time is unknown. Cannot promise reducing the717.985s mixed phase. Do not reuse incomplete/error retrieval or contexts/QA."
+    },
+    "semantic_followup": {
+      "files": [
+        "hinglish_broll/verify.py"
+      ],
+      "proposal": "Diagnostic classification of inconsistent related=false plus all-positive physical/quality/frame facts; controlled fresh local comparison of exact saved bed/fridge/room windows only when suite releases it. Clarify generic-room nonclaims while retaining all vetoes. No automatic boolean override, synonym broadening that accepts pillows as bed, pressure re-ask or full-run retry.",
+      "limit": "No fresh inference now; unsupported regional-person query remains unresolved identity, not proven ancestry/origin."
+    }
+  },
+  "protected": "All12 protected shared findings/cache/locality unchanged. No product source modified."
+}

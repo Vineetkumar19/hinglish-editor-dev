@@ -1,0 +1,60 @@
+{
+  "permissions": {
+    "approved_app_allowlist": {
+      "chrome": [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      ],
+      "edge": [
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      ],
+      "vs code": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+      ],
+      "vscode": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+      ],
+      "explorer": [
+        "C:\\Windows\\explorer.exe"
+      ],
+      "file explorer": [
+        "C:\\Windows\\explorer.exe"
+      ],
+      "notepad": [
+        "C:\\Windows\\System32\\notepad.exe"
+      ],
+      "calculator": [
+        "C:\\Windows\\System32\\calc.exe"
+      ],
+      "paint": [
+        "C:\\Windows\\System32\\mspaint.exe"
+      ],
+      "task manager": [
+        "C:\\Windows\\System32\\taskmgr.exe"
+      ],
+      "settings": {
+        "uri": "ms-settings:"
+      },
+      "snipping tool": {
+        "uri": "ms-screenclip:"
+      }
+    },
+    "approved_folder_aliases": {
+      "Downloads": "C:\\Users\\Vineet Kumar\\Downloads",
+      "Documents": "C:\\Users\\Vineet Kumar\\Documents",
+      "Desktop": "C:\\Users\\Vineet Kumar\\Desktop",
+      "Pictures": "C:\\Users\\Vineet Kumar\\Pictures",
+      "Videos": "C:\\Users\\Vineet Kumar\\Videos",
+      "Music": "C:\\Users\\Vineet Kumar\\Music",
+      "Cortana": "D:\\Cortana",
+      "A Drive": "D:/",
+      "C Drive": "C:/",
+      "E Drive": "E:/"
+    },
+    "approved_search_roots": [
+      "D:/",
+      "C:/",
+      "E:/"
+    ],
+    "_comment": "User authorized all laptop files on 2026-10-20. Read/search roots are installed fixed drives under the current Windows account. File changes and sensitive computer actions require approval; credentials and system/security modifications remain protected."
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "code": "template_inspection_required",
+    "pattern": "template_inspection_required",
+    "message": "Read these projects once in the After Effects Template Assembler, then close After Effects and open Premiere. Premiere reuses the saved composition details without automatically opening the AE interface. Read again in AE if a source project changes."
+  },
+  {
+    "code": "template_empty",
+    "pattern": "template_empty",
+    "message": "Add After Effects projects, read their compositions, and choose the main composition for each template before building."
+  },
+  {
+    "code": "template_choice",
+    "pattern": "template_choice",
+    "message": "A template needs a clear composition choice. Select its Main or Render composition. Premiere requires a unique composition name within each source project; check Technical details for the affected template."
+  },
+  {
+    "code": "template_short",
+    "pattern": "template_short",
+    "message": "The selected templates do not cover the target duration. Add more templates or enable Repeat in order. Your ordered list and imported compositions are kept."
+  },
+  {
+    "code": "template_stale",
+    "pattern": "template_stale",
+    "message": "The open After Effects project changed. Read the templates\u00e2\u20ac\u2122 compositions again before building. Existing projects and compositions are kept."
+  },
+  {
+    "code": "template_settings",
+    "pattern": "template_settings",
+    "message": "Check the target duration, frame rate and selected composition durations. Use a target from one second to three hours and compositions at least one output frame long."
+  },
+  {
+    "code": "template_native",
+    "pattern": "template_native",
+    "message": "Adobe has not confirmed the complete template assembly. Keep the current project open and close any dialogs. Inspect any new assembly before retrying; Technical details identifies the unfinished step. Source projects are not overwritten."
+  }
+]

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__" data-download-queue="1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Downloader · Storylens</title><link rel="stylesheet" href="downloader.css?v=20261103-queue-1"><link rel="stylesheet" href="editor-handoff.css?v=20261030-responsive-1">
+<script src="feedback.js"></script><script src="icons.js?v=20261024-downloader-1"></script></head>
+<body><header><a href="/?tool=downloader">Storylens</a><a href="/">Back to editor</a></header><main>
+<h1>Downloader</h1>
+<section class="download-setup" aria-label="Download settings">
+<form id="downloadForm" novalidate>
+<label for="downloadDestination">Save to</label><div class="destination-row"><input id="downloadDestination" placeholder="Choose a download folder" autocomplete="off"><button id="browseDownloadFolder" type="button">Browse</button></div>
+<label for="downloadUrl">Video links <span class="muted">· one per line</span></label><textarea id="downloadUrl" rows="2" autocomplete="off" placeholder="YouTube, Instagram, Pinterest or Facebook" required></textarea>
+<div class="download-grid">
+<div><label for="downloadMode">Save as</label><select id="downloadMode"><option value="video">Video</option><option value="both">Video + separate audio</option><option value="audio">Audio only</option></select></div>
+<div id="qualityField"><label for="downloadQuality">YouTube quality</label><select id="downloadQuality"><option value="best">Highest available</option><option value="2160">4K · 2160p</option><option value="1440">2K · 1440p</option><option value="1080" selected>1080p</option><option value="720">720p</option></select></div>
+<div id="audioField" hidden><label for="audioFormat">Audio format</label><select id="audioFormat"><option value="wav">WAV</option><option value="mp3">MP3</option></select></div>
+<button id="startDownload" type="submit" class="primary">Add to queue</button>
+</div>
+<details id="youtubeSection"><summary>YouTube clip <span class="muted">· optional</span></summary><div class="section-times"><div><label for="sectionStart">Start</label><input id="sectionStart" placeholder="2:50" inputmode="decimal"></div><div><label for="sectionEnd">End</label><input id="sectionEnd" placeholder="3:10" inputmode="decimal"></div></div></details>
+</form>
+<div id="downloadStatus" role="status" aria-live="polite"></div><div id="downloadError" role="alert" hidden></div>
+</section>
+<section class="download-queue" aria-label="Download queue"><div class="queue-heading"><h2>Queue</h2><span id="queueSummary" class="muted" role="status"></span></div><div id="downloadQueue"><p class="queue-empty muted">Add links to start your queue.</p></div></section>
+<section id="downloadResult" hidden aria-label="Download preview"><div class="queue-heading"><h2 id="downloadTitle"></h2><button id="closeDownloadPreview" type="button">Close</button></div><video id="videoPreview" controls preload="none" playsinline hidden></video><audio id="audioPreview" controls preload="none" hidden></audio></section>
+</main><script src="editor-handoff.js?v=20261024-downloader-1"></script><script src="downloader-model.js?v=20261109-progress-1"></script><script src="downloader.js?v=20261109-progress-1"></script><script src="embedded-tool.js?v=20261025-compact"></script></body></html>

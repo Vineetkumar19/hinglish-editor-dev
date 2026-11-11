@@ -1,0 +1,17 @@
+{
+  "news": {
+    "status": 200,
+    "type": "application/xml; charset=utf-8",
+    "bytes": 163057
+  },
+  "reddit": {
+    "status": 200,
+    "type": "application/atom+xml; charset=UTF-8",
+    "bytes": 41877
+  },
+  "bing": {
+    "status": 200,
+    "type": "text/xml; charset=utf-8",
+    "bytes": 3481
+  }
+}

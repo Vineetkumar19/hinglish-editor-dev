@@ -1,0 +1,33 @@
+# Node / Electron
+desktop/node_modules/
+desktop/dist/
+desktop/release/
+
+# Python
+agent/.venv/
+agent/.venv-*/
+.runtime/
+tmp/
+tests/__pycache__/
+tests/.runtime-fixture/
+tools/__pycache__/
+*.pyc
+.pytest_cache/
+agent/__pycache__/
+agent/**/__pycache__/
+agent/.env
+
+# Runtime data (Phase 2+): models, embeddings, indexes, logs, secrets
+models/*
+!models/.gitkeep
+memory/*
+!memory/.gitkeep
+documents/*
+!documents/.gitkeep
+logs/*
+!logs/.gitkeep
+config/secrets*
+config/*.local.json
+
+.DS_Store
+Thumbs.db

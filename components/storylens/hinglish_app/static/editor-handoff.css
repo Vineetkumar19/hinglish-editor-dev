@@ -1,0 +1,45 @@
+.ui-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.mode-icon{display:grid!important;place-items:center;overflow:hidden;line-height:1}.mode-icon .ui-icon{width:25px;height:25px}.check .ui-icon{width:23px;height:23px}.profile-trigger{display:flex;align-items:center;gap:7px;background:#20262c;color:#e8edf2;border:1px solid #3b4651;border-radius:9px;padding:9px 12px;white-space:nowrap;cursor:pointer}.profile-trigger .ui-icon{width:19px;height:19px}.profile-dialog,.editor-dialog{color:#edf1f6;background:#161c23;border:1px solid #46515d;border-radius:16px;padding:24px;max-width:min(860px,94vw);max-height:88vh;overflow:auto;box-shadow:0 20px 80px #0009}.profile-dialog::backdrop,.editor-dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}.profile-dialog .channel-profiles{margin:8px 0 0;border:0;padding:12px;background:none}.profile-close,.editor-close{float:right;display:grid;place-items:center;width:34px;height:34px;background:#29333e;border:0;border-radius:7px;color:white;cursor:pointer}.editor-exports{display:inline-flex;gap:7px;flex-wrap:wrap}.editor-logo-button{display:inline-flex;align-items:center;gap:7px!important;padding:9px 11px!important;background:#252e37!important;border:1px solid #44515c!important;border-radius:9px;color:#edf1f6!important;cursor:pointer;font-size:12px!important}.editor-logo-button svg{width:25px;height:25px;flex-shrink:0}.editor-dialog{width:min(720px,94vw)}.editor-dialog h2{margin:5px 40px 12px 0}.editor-dialog p{line-height:1.6;color:#c1cad4}.editor-dialog .editor-action{padding:10px 15px;background:#ff7b36;color:#180c05;border:0;border-radius:8px;font-weight:700;cursor:pointer;margin:8px 6px 8px 0}.editor-dialog .editor-action:disabled{opacity:.55}.editor-dialog .file-row{border:1px solid #354351;border-radius:9px;padding:12px;margin:8px 0;overflow-wrap:anywhere}.editor-dialog a{color:#89cefc}.editor-dialog .editor-status{white-space:pre-wrap}.editor-dialog details{margin-top:14px;overflow-wrap:anywhere}.editor-dialog pre{white-space:pre-wrap}.capcut-source-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px;border-bottom:1px solid #354351}.capcut-source-row span{flex:1;min-width:180px}.capcut-source-row small{display:block;color:#aab7c4;overflow-wrap:anywhere}.editor-source-button{margin:8px 0;background:#26333e;color:#e6eff8;border:1px solid #526473;border-radius:8px;padding:9px 12px;cursor:pointer}@media(max-width:800px){.topbar{flex-wrap:wrap}.privacy{display:none}.profile-trigger{font-size:12px}.editor-dialog,.profile-dialog{padding:15px}.editor-logo-button span{font-size:11px}}
+
+/* Shared completion bar: status has room to read; actions stay on one line. */
+.storylens-result.result{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px 9px;padding:12px 14px;border-radius:10px;align-items:center}
+.storylens-result .check{width:26px;height:26px;margin:0;font-size:14px}
+.storylens-result .check .ui-icon{width:16px;height:16px}
+.storylens-result .result-summary{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 12px;min-width:0}
+.storylens-result .result-summary b{font-size:14px;line-height:1.4}
+.storylens-result .result-summary p{margin:0;font-size:12px;line-height:1.5;overflow-wrap:break-word}
+.storylens-result .result-summary p:empty{display:none}
+.storylens-result .result-actions{grid-column:1/-1;margin:0}
+.completed-result-actions{display:flex;align-items:center;flex-wrap:wrap;gap:7px;min-width:0;max-width:100%;padding-bottom:2px}
+.completed-result-actions .editor-exports{display:inline-flex;align-items:center;flex-wrap:wrap;gap:7px;flex:0 1 auto;min-width:0;max-width:100%}
+.completed-result-actions button,.storylens-result .completed-result-actions button{display:inline-flex;align-items:center;justify-content:center;gap:6px!important;flex:0 0 auto;min-height:36px;height:36px;padding:7px 11px!important;white-space:nowrap;font-size:12px!important;line-height:1.2;font-weight:600;border-radius:7px}
+.completed-result-actions .editor-logo-button svg{width:20px;height:20px}
+.completed-result-actions .editor-logo-button span{font-size:12px}
+.completed-result-actions button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.assistant-results.completed-result-actions{padding:2px 0 5px}
+.assistant-results.completed-result-actions>button:first-child{background:var(--good);border-color:var(--good);color:#092414}
+
+/* Compact Smart Visuals controls and editor destinations. */
+.panel[data-mode="visuals"] .panel-head{margin-bottom:20px}
+.panel[data-mode="visuals"] .caption-script-field{margin:16px 0}
+.panel[data-mode="visuals"] .caption-script-field textarea{height:90px;min-height:80px}
+.panel[data-mode="visuals"] .visuals-field .zoom-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.visuals-toggles{gap:18px;align-items:center;margin-top:14px;padding:10px 12px;border:1px solid var(--line);border-radius:8px}
+.visuals-toggles label{display:inline-flex;align-items:center;gap:6px;margin:0;font-size:12px;white-space:nowrap}
+.visuals-toggles input{margin:0}
+.completed-result-actions button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:600px){.panel[data-mode="visuals"] .visuals-field .zoom-grid{grid-template-columns:1fr}}
+
+/* Persistent tool footer, including standalone tools without styles.css. */
+.storylens-result.result{margin-top:20px;border:1px solid #28543c;background:#102218;color:#edf1f6;box-sizing:border-box}
+.storylens-result .check{display:grid;place-items:center;border-radius:50%;background:#60cd91;color:#092414;font-weight:800}
+.storylens-result .result-summary p{color:#9db0a4}
+.storylens-result .result-actions>button{border:0;background:#60cd91;color:#092414;cursor:pointer;width:auto;margin:0}
+.storylens-result .result-actions>button.secondary{background:#27362d;color:#dce8e0}
+.storylens-result.is-pending{border-color:#343d46;background:#13181e}
+.storylens-result.is-pending .check{background:#29343e;color:#a9b6c2}
+.storylens-result.is-pending .result-summary p{color:#97a7b6}
+.storylens-result.is-pending .result-actions>button{background:#26313b;color:#d0d9e2}
+.editor-exports .editor-logo-button{width:36px!important;height:36px!important;min-width:36px;padding:6px!important;justify-content:center;gap:0!important}.editor-exports .editor-logo-button span{display:none!important}.editor-exports .editor-logo-button svg{width:22px;height:22px}.completed-result-actions .editor-exports{flex-wrap:nowrap;gap:5px}
+
+.editor-exports { display:inline-flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.editor-export-label { color:#aeb8c4; font-size:13px; margin-inline-end:3px; }

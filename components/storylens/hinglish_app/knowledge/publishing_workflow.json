@@ -1,0 +1,614 @@
+{
+  "id": "creator-publishing-workflow",
+  "version": 44,
+  "authority": "Owner-approved reusable procedure. The current request and verified tool state take priority.",
+  "chunks": [
+    {
+      "id": "smartvisuals-web-options-owner-request-2026-10-29",
+      "title": "Smart Visuals public image/PNG options with human review",
+      "topics": [
+        "smart visuals",
+        "visuals",
+        "images",
+        "png",
+        "web search",
+        "gpu",
+        "workflow"
+      ],
+      "text": "Latest owner request: use the B-roll website/manual-review approach for new Smart Visuals jobs. The configured local LLM chooses relevant image/PNG queries and original speech timestamps. Search public image websites directly, without stock API keys, canonical-identity substitution or local Vision/CLIP/judge rejection. Download actual valid images, preserve source links, original bytes/hash/transparency and checkpoints, then let the human select. Keep these unreviewed until explicit human selection; never invent a positive Vision verdict. Default app requests use visuals_search_method=website, visuals_check=false, visuals_web=true; explicit verified retains old strict behavior and saved results. Offer five options per short/vertical keyword or two for YouTube/horizontal. Use supported GPU inference with signed parent/child reservation handoff; require full-model GPU residency before sending the prompt. Preserve full scripts, creator guidance, model identity and speech timings. Do not remove saved historical instructions. E5 live trial completed25options for5keywords via local14B, with fullGPU and cachedtranscript/warmmodel; this followed repairs to GPUhandoff and automaticoffload, not an untouched first-run pass. Review at output/visuals/20261029-052522-3b719a/001-e5-zomato_chf3_prob3. Owner semantic acceptance and native imports remain pending; main8765 was not restarted. Two manual-producer final edge findings remain recorded and unfixed under the owner rule: numeric-address predicate and stale count after external file corruption. This is saved procedure, not weight training."
+    },
+    {
+      "id": "broll-gpu-first-owner-preference-2026-10-29",
+      "title": "GPU-first B-roll processing preference",
+      "topics": [
+        "broll",
+        "b-roll",
+        "gpu",
+        "cuda",
+        "RTX",
+        "workflow"
+      ],
+      "text": "Latest owner preference: use the RTX 5070 Ti Laptop GPU for every supported B-roll inference stage. Retain CUDA speech recognition, speech detection/alignment and GPU-offloaded local language planning. Do not silently replace these with CPU-only inference. Existing selected meaning model is storylens-meaning:14b, model parameters num_gpu=41 (40 transformer blocks plus output layer); CUDA/runtime settings were already enabled before this request. Preserve the model and full creator guidance, sequential heavy-job queue and caption priority. Website navigation, HTTP searches/downloads and original-video integrity checks still require CPU/network work; do not claim those have been moved to GPU. Retain the five-source website-only manual-review workflow; no stock API or Vision gate is re-enabled. A CUDA arithmetic probe proves runtime availability, not full E5 or full-model GPU residency."
+    },
+    {
+      "id": "broll-approved-parallel-manual-bank-2026-10-29",
+      "title": "Approved five-source B-roll search and platform limits",
+      "topics": [
+        "broll",
+        "b-roll",
+        "stock footage",
+        "videos",
+        "website",
+        "instagram",
+        "youtube",
+        "workflow",
+        "pexels",
+        "pixabay",
+        "mixkit",
+        "coverr",
+        "videezy"
+      ],
+      "text": "LATEST OWNER-APPROVED B-ROLL WORKFLOW, 29 October 2026. This supersedes older B-roll API/Vision and six-option guidance, which remains preserved historically. Use videos only and direct website search, no stock API calls and no local Vision gate. The configured local language model interprets speech and produces relevant keywords with original word/phrase timestamps. Search all five connected sources: Pexels and Pixabay through the opt-in Stock Chrome connector, plus Mixkit, Coverr and Videezy through supported public website adapters. Search independent providers concurrently with bounded metadata workers and at most two Chrome tabs; download/decode sequentially for low RAM. Continue with available sources if one fails; do not bypass verification or treat availability as guaranteed relevance. Ask Vertical / Horizontal before a new run. Offer at most FIVE videos per highlight for Instagram/vertical and TWO for YouTube/horizontal, fewer if fewer usable matches exist. Keep native requested orientation; do not disguise cropped horizontal footage as portrait. Human reviews and selects the final footage; preserve source links, licence metadata, original media, speech timings, saved decisions and resumable checkpoints. Do not truncate already approved old banks. Accepted E3 review: output/broll/20261029-023717-82cf91/001-e3; accepted E2 review: output/broll/20261029-021804-52d2ed/001-e2-1-. Those videos came from Pexels and Mixkit; the other connected sites remain eligible. Production runs use local models and tools, not a required ChatGPT subscription. This is saved procedural memory, not weight training. Native editor handoff needs its own actual validation; do not claim untested imports work."
+    },
+    {
+      "id": "overview",
+      "title": "The repeated long-video to daily publishing workflow",
+      "topics": [
+        "workflow",
+        "pipeline",
+        "usual",
+        "repeated",
+        "long video",
+        "shorts",
+        "youtube",
+        "instagram"
+      ],
+      "text": "The owner gives Storylens one request with a local source location, a particular long video, a requested number of Shorts, a destination profile and release dates. The local model plans the whole workflow and selects standalone moments from the actual video. Storylens tools extract and render the Shorts, prepare publishing metadata, upload to YouTube and save future Instagram jobs. Include the original full video on YouTube when the current request asks for it. Continue automatically from extraction to publishing for an authorized execution request; do not stop at extraction. Report actual receipts. Retrieved procedure is not permission to start or repeat a task."
+    },
+    {
+      "id": "source-and-scope",
+      "title": "Choose the current source and requested clip count",
+      "topics": [
+        "path",
+        "folder",
+        "file",
+        "source",
+        "count",
+        "extract",
+        "selection"
+      ],
+      "text": "Resolve the particular filename from the current prompt or attachment within the supplied folder. Do not substitute an old export or a similarly named file. A filename selects a file; it does not establish cricket facts or the spoken topic. Read the actual speech and footage to choose worthwhile standalone moments. Respect the requested count and explain if there are too few suitable moments. Seven is an example, not a fixed count. Reuse finished outputs only when continuing the same chat's authorized workflow. Keep the original full source intact. Never publish a long landscape video as an Instagram Reel. For a fresh/new Short, exclude source ranges belonging to previously uploaded exports before selecting a new moment. Operational publication history is structured tool evidence, not another chat context."
+    },
+    {
+      "id": "content-defaults",
+      "title": "Saved caption and publishing choices",
+      "topics": [
+        "captions",
+        "subtitles",
+        "title",
+        "description",
+        "hashtags",
+        "SEO",
+        "kids",
+        "synthetic"
+      ],
+      "text": "Permanent owner defaults: no burned-in captions or subtitles on newly extracted Shorts. This does not disable publishing text. Every new Instagram upload must have a natural source-grounded English title and 3-5 relevant hashtags by default, without the owner asking. Every YouTube upload, including Shorts, must have an accurate searchable English title, a useful source-grounded description and 3-5 relevant hashtags. Use actual game/gameplay terms for gaming clips and supported cricket names/teams/competition for cricket clips; never stuff unrelated keywords or relabel a source because of the destination account. Numbered export names such as Shorts 28 are storage labels, not public titles. Read the actual transcript and retained original topic context. Already-rendered files may contain old burned-in text; switching the default off cannot remove those pixels without a new edit. Keep previously posted or queued metadata unchanged unless explicitly editing it. SEO means relevant readable topic terms, not guaranteed reach or invented facts. Saved YouTube declarations are not made for kids and no realistic altered/synthetic media. Apply defaults without asking again."
+    },
+    {
+      "id": "names-and-grounding",
+      "title": "Cricket spelling and factual grounding",
+      "topics": [
+        "cricket",
+        "players",
+        "teams",
+        "names",
+        "spelling",
+        "Hinglish",
+        "numbers",
+        "scores"
+      ],
+      "text": "Cricket team and player names must use canonical reference spellings supported by the speech. Use the installed cricket reference lexicon to check the local model's names, including publishing titles and hashtags. Hinglish speech may contain phonetic substitutions; retry with specific spelling feedback rather than repeating the rejected output. If identity or a score is uncertain, use a neutral source-supported topic instead of inventing a fact. Format spoken quantities as digits. Do not merge separate score digits or guess statistics from remembered match history. A well-formed model answer is not proof that its names or facts are correct. For difficult transcripts, first make a short topic brief with exact supporting speech quotations, then write searchable copy from those supported topics and audit it separately. Relevant keywords and hashtags must describe the actual competition: T20I means international cricket and is not a synonym for IPL. Accuracy takes priority over description length or extra keywords."
+    },
+    {
+      "id": "destinations",
+      "title": "Publishing destinations versus temporary switching accounts",
+      "topics": [
+        "cricket",
+        "gaming",
+        "destination",
+        "account",
+        "profile",
+        "channel",
+        "switch"
+      ],
+      "text": "Use current saved destination mappings and verified channel IDs or Instagram handles supplied by the application. The explicit publishing destination wins over the active editor profile and over the source topic. A gaming account mentioned only as a temporary account-switch test is not an additional publishing destination. For a cricket-only request all uploads and posts must stay on the cricket accounts. Do not retrieve another chat's destinations or hardcode a channel ID from a past run. If the user changes the destination, create a new exact review rather than silently moving an old queue."
+    },
+    {
+      "id": "account-switching",
+      "title": "Switch accounts and verify identity before publishing",
+      "topics": [
+        "switch",
+        "profile",
+        "channel",
+        "wrong account",
+        "Studio",
+        "verification",
+        "round trip"
+      ],
+      "text": "Storylens Local Publisher switches configured accounts; the owner should not have to switch them manually for a normal workflow. After switching, wait for stable confirmation of the actual Instagram account or exact YouTube channel ID before selecting media or changing visibility. For an explicitly requested test, if already at the destination, switch to the saved alternate account and back. On Studio, load the current accessible session before navigating to the target channel's content list. Duplicate channel names can appear under multiple signed-in accounts; a tentative matching selection must be followed by exact channel-ID verification. A dashboard path without a trailing slash is valid. Authentication challenges need the owner."
+    },
+    {
+      "id": "calendar",
+      "title": "Variable dates, daily cadence and time zones",
+      "topics": [
+        "dates",
+        "calendar",
+        "schedule",
+        "consecutive",
+        "daily",
+        "time",
+        "IST",
+        "tomorrow"
+      ],
+      "text": "Release dates and the number of daily slots come from the current request. Parse complete lists and ranges, including month and year transitions; do not keep only the final pair of dates. Use the saved Asia/Kolkata timezone and 19:00 daily time when the request omits a time. Preserve an explicit different time. One Short per consecutive day means one release slot per clip. A separately requested full video can share the first Short's day and time. Do not hardcode dates from examples or past chats. Do not move a past slot to now automatically; request a new future start. Store exact timezone-aware instants in structured job records. An explicit publish now request makes the first Short immediate on the requested platforms; the daily default applies only to later clips. Never substitute tomorrow for now."
+    },
+    {
+      "id": "youtube",
+      "title": "Upload and remotely verify YouTube schedules",
+      "topics": [
+        "youtube",
+        "upload",
+        "long video",
+        "shorts",
+        "schedule",
+        "quota",
+        "receipt"
+      ],
+      "text": "Use the saved direct YouTube connection bound to the requested channel for uploads. Upload the original full video only if requested, plus the selected Shorts. Preserve returned video IDs immediately. The current publisher uploads YouTube files sequentially, while independent Instagram queue work can proceed. Use the Videos list for long uploads and Shorts list for portrait Shorts. Apply reviewed future releases through the supported scheduler. Independently read back each exact video ID, channel, title, description and release instant from YouTube. A private upload receipt is not a scheduled release. Quota or upload limits must not cancel an independently authorized Instagram queue. When the full video is explicitly private, keep it private with no release date while scheduling the Shorts separately. A new private copy must never reuse or change an older scheduled release. Verify privacy and absence of publishAt as the terminal success for that private delivery."
+    },
+    {
+      "id": "instagram-queue",
+      "title": "Instagram buffer survives chat changes and restarts",
+      "topics": [
+        "instagram",
+        "buffer",
+        "memory",
+        "tomorrow",
+        "queue",
+        "future",
+        "daily",
+        "reminder"
+      ],
+      "text": "Future Instagram releases use Storylens's durable local Chrome queue, not an Instagram cloud schedule and not a language model remembering to wake up. Persist one job per Reel with file identity, destination handle, due instant, authorization and eventual receipt. Add an account-readiness check five minutes before each slot, or immediately when the release is closer. The job survives chat changes and normal application restarts, so no new daily prompt is required. Posting requires Storylens, Chrome, internet and the signed-in destination account. If the laptop sleeps or is offline at release time, an already authorized, unstarted Reel remains due and posts automatically in release order after reconnection. Actual posting may lag. Explicit first/second clip times override the daily default and may be on the same day; preserve every supplied clip_slots instant rather than copying one clock to later days. A schedule-and-verify request is publishing work, not an account-check-only command and not a new extraction. Reuse the current finished files and same queue identities. Keep the original job identity and release slot during catch-up; do not create replacement jobs. Never automatically replay a job whose Share already started or whose publication outcome is uncertain. A readiness check or queue entry is not a publication receipt."
+    },
+    {
+      "id": "recovery",
+      "title": "Continue from checkpoints without duplicate uploads",
+      "topics": [
+        "stuck",
+        "failure",
+        "retry",
+        "resume",
+        "continue",
+        "checkpoint",
+        "duplicate",
+        "error"
+      ],
+      "text": "Keep extraction outputs, per-video metadata, upload IDs and task receipts as separate durable checkpoints. A failed schedule must reuse the existing upload instead of extracting or uploading again. Retry only failures proven to precede Share or Schedule. After a possibly submitted action, verify the existing remote result; do not replay an uncertain publication. A new explicit resume can replace a stopped pre-submission scheduling attempt while reusing its remote video ID. On a temporary Chrome reconnect, retain the workflow and wait rather than misreporting missing permissions. Fix tool failures in the software; RAG instructions cannot repair browser controls by themselves."
+    },
+    {
+      "id": "near-term-checks",
+      "title": "Short Instagram timer tests and safe account recovery",
+      "topics": [
+        "60 seconds",
+        "one minute",
+        "buffer",
+        "timer",
+        "near term",
+        "retry",
+        "readiness",
+        "title",
+        "hashtags"
+      ],
+      "text": "A requested Instagram release in 60 seconds uses a persisted relative delay anchored when the validated review is prepared, after model planning. Preserve exact seconds and use the normal local due-time executor; never publish early or replace the delay with the evening daily default. Existing rendered Instagram files may use short lead times. Readiness checks run immediately for a near-term slot. Uploading starts at or after the slot and platform processing adds time, so report requested time, submission time and verified completion separately. If a pre-upload account-switch confirmation times out, bounded safe recovery may recheck that account and resume the same Reel; never bypass destination identity or replay Share after an uncertain submission. A date-only change preserves saved title and hashtag text. Keep/preserve/retain titles and hashtags is an explicit short-copy choice, not a request to erase the caption. Test cleanup is a separate owner-authorized action; retain publication receipts as historical evidence after intentional deletion."
+    },
+    {
+      "id": "rescheduling",
+      "title": "Change dates while preserving the same deliveries",
+      "topics": [
+        "reschedule",
+        "change dates",
+        "same Shorts",
+        "both platforms",
+        "existing schedules",
+        "private video"
+      ],
+      "text": "For a request to change dates for these or the same Shorts, use the current chat's finished batch and existing per-video receipts. Both YouTube and Instagram means two platforms, not both cricket and gaming accounts. Keep saved destination accounts unless the current request explicitly changes them. Parse the new daily date range and time independently of past examples. Reuse the exact YouTube video IDs and Instagram job identities, updating only the selected deliveries. Leave a separately uploaded private full video private with no release date and preserve unrelated batches. A direct schedule or reschedule command authorizes continuation through the normal validated executor; do not stop at a draft or ask the same permission again when batch, destination and future dates are resolved. Verify YouTube release instants remotely and verify the saved Instagram queue dates, media, caption and account separately. Keep earlier receipts in history. Existing queue entries are not published posts. For an Instagram-only current review, a follow-up such as I do not want to schedule, post now means all still-unposted Reels in that review become immediate. Keep their exact media, titles, hashtags, accounts and queue IDs. Do not ask for the source again or select another batch. Preserve published receipts and stop on an already-started or uncertain Share. Review-first wording previews this change without changing the queue."
+    },
+    {
+      "id": "reporting",
+      "title": "Plain progress and honest completion",
+      "topics": [
+        "status",
+        "result",
+        "success",
+        "error",
+        "verified",
+        "completed",
+        "live test"
+      ],
+      "text": "Tell the creator what finished, what remains, why it stopped and what action is needed. Use plain counts such as three Shorts extracted, four YouTube videos scheduled and three Instagram Reels queued. Keep technical details separate. Claim a YouTube schedule only after remote verification and an Instagram publication only after a verified post link. Never claim future queued Reels are already posted, or that a run worked in one go after repairs. Live application evidence is required; isolated tests supplement it. Explain remaining content-quality problems honestly. An informational question or retrieved procedure must never start publishing."
+    },
+    {
+      "id": "terminology-and-clarification",
+      "title": "Reels, Shorts, long videos and missing inputs",
+      "topics": [
+        "reels",
+        "shorts",
+        "video",
+        "folder",
+        "channel",
+        "clarification",
+        "step by step"
+      ],
+      "text": "The owner normally works step by step: select/upload the source, extract clips, publish on YouTube, then publish on Instagram. Continue only the requested stage; save real outputs so later steps can use them. Reels mean Instagram Reels, Shorts mean YouTube Shorts, and videos mean normal long-form videos including 10-15 minute highlights. Explicit platform instructions override noun defaults, for example saved Shorts on Instagram means Instagram. A path named All Shorts does not establish a platform. For upload 2 reel on cricket channel without a source, retain count 2 and cricket Instagram and ask for the full folder path or video attachments. Ask only for information genuinely missing, such as source and destination account; never describe missing files as context overflow or start an upload while asking. A clarification answer retains this chat's count, account and platform. A new unrelated request does not inherit posting authorization."
+    },
+    {
+      "id": "random-daily-release-window",
+      "title": "Default random evening release times",
+      "topics": [
+        "schedule",
+        "random",
+        "time",
+        "reels",
+        "shorts",
+        "evening",
+        "5 pm",
+        "9 pm"
+      ],
+      "text": "The latest owner preference overrides the earlier fixed 19:00 default for scheduled YouTube Shorts and Instagram Reels: choose a separate random minute between 17:00 and 21:00 Asia/Kolkata for each post. Storylens calculates and saves exact dates and times before review or queueing, so retries and restarts retain the same choices. Show the actual chosen time per platform in the review. YouTube and Instagram times may differ on the same release day. An explicit clock, post now, trial interval, or match existing schedule instruction takes priority. Do not move already authorized saved jobs when changing this default. Long-form videos retain their separately requested schedule. A queued Instagram job is not a remote scheduled or published receipt."
+    },
+    {
+      "id": "instagram-only-metadata",
+      "title": "Reel titles do not require a YouTube description",
+      "topics": [
+        "instagram",
+        "reels",
+        "title",
+        "hashtags",
+        "unsupported statistics",
+        "speech recognition"
+      ],
+      "text": "An Instagram-only Reel request needs a short accurate title and 3-5 relevant hashtags, without a YouTube description or in-video captions. The local Instagram writer identifies the clear subject/theme and links it to exact spoken sentences. It omits garbled names, uncertain scores, dates and numerical claims instead of inventing them. Validate the public title and hashtags, not unused speech-recognition errors elsewhere in the transcript. If a draft contains a questionable claim, ask the local writer to simplify it automatically. Preserve accuracy checks, finished media and existing queue/receipt identities. If the user later requests YouTube, prepare a separate source-grounded title, description and hashtags for YouTube before presenting or sending that upload."
+    },
+    {
+      "id": "upload-now-versus-schedule",
+      "title": "Upload now is immediate; schedule is future delivery",
+      "topics": [
+        "upload now",
+        "post now",
+        "publish now",
+        "schedule",
+        "immediate",
+        "timing"
+      ],
+      "text": "Permanent owner instruction: upload now, post now and publish now mean immediate delivery of ALL requested videos, without scheduling them for later. Do not apply the random 17:00-21:00 window to immediate uploads. The executor may process uploads sequentially while Chrome is ready, but there is no future release-time wait. Explicit schedule means create future release slots. Schedule now means create the schedule now, not publish now. Preserve explicitly requested dates/clocks, one now and the others later, and trial intervals. A post-now follow-up reuses this chat's current unposted files and queue IDs. Preserve completed receipts and uncertain submissions. Review-only wording remains a preview. Say ready/uploading while executing, scheduled only for future releases, and posted only after verification."
+    },
+    {
+      "id": "smartzoom-hook-and-main-points",
+      "title": "SmartZoom: cut-based short-video framing and long-video key points",
+      "topics": [
+        "smartzoom",
+        "smart zoom",
+        "zoom",
+        "hook",
+        "short video",
+        "main points",
+        "script",
+        "long video",
+        "cut",
+        "clip",
+        "shot",
+        "smooth",
+        "hold",
+        "zoom in",
+        "zoom out"
+      ],
+      "text": "Permanent owner SmartZoom preference, updated 22 October 2026. For SHORT videos, follow the actual clip/shot cuts. Begin a smooth zoom IN at the opening shot entrance, reach the close view with the earlier slower easing, and HOLD that exact close framing until the next cut. At that new shot entrance, smoothly zoom OUT and HOLD wide framing until its next cut. Continue alternating in/out at successive cuts. Never zoom in and out within the same clip. If the next cut is eight seconds away, hold the current framing for the full eight-second shot; do not reverse because 3-5 seconds or ten seconds elapsed. Restore the earlier slower speed: about 0.8 seconds IN and 0.7 seconds OUT, with gentle eased starts and landings. The owner rejected the fast 0.4-second motion. Lock ONE verified source focal point for the whole shot. Zoom around that point without pulling the face to an ideal screen position, retargeting, a secondary pan, up/down drift, overshoot or bounce. Smoothness is mandatory. Use verified speaker framing for each shot. Preserve the final shot hold through the end; do not force a closing return. This latest explicit owner correction supersedes previous SHORT-video main-word timers, ten-second cadence and fixed 3-5-second close/wide holds. For LONG videos keep genuine major script points only without periodic zoom quotas. Preserve original speech, audio, cut order and duration; no new captions. Render only ONE demo for review when requested. Report unsafe or missing shot framing honestly. Saving or recalling preferences does not itself authorise rendering or publishing. The latest explicit request wins. SmartZoom sounds must follow the owner-approved basic collection in smartzoom-basic-sounds. Cut transitions remain optional. Preserve approved overlays unless the current request asks for a new transition comparison; plain zoom stays unchanged. Adding effects to an existing approved SmartZoom output must reuse its exact camera plan, never stack another zoom. No background music is added automatically."
+    },
+    {
+      "id": "smartzoom-basic-sounds",
+      "title": "Owner-approved basic whoosh collection for SmartZoom",
+      "topics": [
+        "smartzoom",
+        "zoom",
+        "whoosh",
+        "swoosh",
+        "swish",
+        "woosh",
+        "sound effects",
+        "swipe",
+        "paper slide",
+        "sound collection"
+      ],
+      "text": "Owner update 22 October 2026: SmartZoom may use ONLY basic Whoosh, Swoosh, Swish, Woosh and Zoom sounds. Use the restricted allowlist in config.zoom-sounds.local.json, including the supplied whoosh, swipe and Paper Slide files from D:\\Editing\\editing assets\\main voice and the selected basic online files in library/zoom-approved/whoosh. Do not use impacts, risers, hits, karate, lasers, sci-fi, musical or other general-library sounds. Never fall back to the old 134-file collection if an approved file is missing; explain which file needs restoring. These are optional sounds below the original speech. Latest owner comparison request: provide a whoosh-only version and a second with the identical audio plus restrained cut transitions when explicitly requested. Default overlays remain optional. Adding assets or recalling these preferences does not authorise a render or an upload. Each sound begins at the exact camera movement start and ends at its landing, stretched to the actual movement duration without changing pitch. A 0.4-second movement needs 0.4 seconds of whoosh, and 0.6 needs 0.6. Keep the approved camera speed unchanged. Mix quietly using nearby dialogue, targeting 22 dB below speech with peak protection; no loud effects masking the voice."
+    },
+    {
+      "id": "editor-handoffs",
+      "title": "Continue feature results in Premiere Pro, CapCut or DaVinci Resolve",
+      "topics": [
+        "CapCut",
+        "Premiere",
+        "Resolve",
+        "import",
+        "editor",
+        "footage"
+      ],
+      "text": "Completed Storylens feature cards and Caption Studio have three editor logo buttons. The Profile button opens creator settings without removing saved creator guidance. Premiere uses editable XML; open Premiere and use File > Import. Resolve uses its existing scripting import into an open project. CapCut has a local native-project handoff for each finished video or image, validated on Desktop 9.6. Captions, zooms, transitions and sound are kept in the finished render, not separate editable CapCut text/effect layers. Do not claim a full CapCut panel/plugin or editable timeline conversion exists. Choose footage from CapCut reads original local media references from saved CapCut projects, not their edited timeline. For an already edited CapCut sequence, ask the owner to export MP4, then use that MP4 in Storylens. A handoff is ready only when its tool preparation completes; opening it in the target editor verifies the actual import. Never upload media externally or start a new edit just because this procedure was retrieved. Updated capabilities: Premiere CEP/UXP Smart Clean and Script Edit now export the active sequence and return an editable copy, using the local editing tools. CapCut saved straight-cut timelines with linked camera audio can be selected using Use saved timeline; results return as separate native cuts in a new project. Unsupported layers, transitions, effects, speed or framing changes must stop clearly rather than be dropped. No in-memory CapCut panel/plugin is installed. Its saved project is read as a snapshot; save in CapCut before selecting again. Caption Studio has an Editable words option for CapCut and Premiere Pro. CapCut receives clean video plus native text blocks; Premiere receives clean-video XML and one-word SRT for a caption track. This native word option does not yet reproduce the complex saved caption design/animation exactly. The owner requires the same caption design in CapCut: preserve the exact finished render, do not claim simplified word text matches the design, and retain this requirement until native template matching is implemented and verified. Do not change Resolve caption exports for the editable-word request. Do not claim Premiere in-host completion until its real panel and imported result are verified. Live retry verification: Premiere Pro imported the clean-video XML and 65 separate word captions, plus the 44.1-second source-linked Smart Clean sequence with separate video/audio cuts; picture playback and audio meters worked. This verifies manual XML/SRT handoff, not the uninstalled Premiere panel. For SRT import keep Source timecode selected if the original leading gap must remain; Timeline start shifts the first cue to zero."
+    },
+    {
+      "id": "editable-caption-designs",
+      "title": "Editable caption designs and permanent Caption 1 spacing preference",
+      "topics": [
+        "captions",
+        "Caption 1",
+        "Premiere Pro",
+        "font",
+        "alignment",
+        "editable words",
+        "line spacing"
+      ],
+      "text": "Owner update 22 October 2026: Premiere Pro is the first priority for editable caption designs. Each word must remain separate editable text with its saved font, alignment and smooth animation; a baked text image or basic SRT is not equivalent. Preserve the CapCut and Resolve logo buttons with honest descriptions of their limitations. Do not render an export video when the owner will export it. Keep one small project open and use quarter playback resolution to limit RAM. Caption 1 permanently requires equal clear visible-ink spacing above and below the main word. The top support row must never touch the main word. Use the shared caption_one_reference.json alignment.ink_gap rule at the design scale, for browser previews, rendered captions and native editor graphics. Preserve approved fonts and main-word motion. Correct the synthetic graphic canvas to match the sequence dimensions so long support lines cannot be compressed or clipped by a smaller template canvas. Saving this knowledge does not authorize a new render or publishing."
+    },
+    {
+      "id": "caption-approved-repeat-validation",
+      "title": "Approved caption designs and repeated live Premiere validation",
+      "topics": [
+        "captions",
+        "Caption 3",
+        "Caption 4",
+        "Caption 5",
+        "Typography 5",
+        "Documentary Echo",
+        "Premiere",
+        "font",
+        "alignment",
+        "spacing",
+        "motion",
+        "repeat",
+        "validation"
+      ],
+      "text": "Owner approval, 23 October 2026: preserve approved Caption 1, 2 and 3. Caption 3 uses enlarged readable support text (minimum 40 at design scale), neutral support tracking, clean lettering without inherited black shadow, and compact equal 8-pixel visible-ink gaps at 720-pixel design width, scaled with chosen caption size. Do not widen gaps when increasing text size. Repeat the same real workflow for remaining styles, prioritizing Caption 4, Caption 5, Typography 5 and Documentary Echo: select the style in Storylens, render one 10-second sample (15 seconds maximum), press Premiere Pro, and verify the actual native editable word graphics, exact installed fonts, size, alignment, readable spacing and smooth motion/keyframes. Preserve each style's own design rather than copying Caption 3 to all styles. Storylens text size and position changes must carry to Premiere. Use one sample/project at a time and low playback resolution; request quarter, use half for 720p where Premiere disables quarter. The owner exports from Premiere; do not require native export or sign-in for validation. Repair and retry failed checks; record evidence and pending work honestly. A ready project is not proof of visual parity. CapCut and Resolve remain secondary with honest limitations. Saving this procedure alone does not authorize publishing or unrelated renders."
+    },
+    {
+      "id": "caption-style-removal-and-echo-entrance",
+      "title": "Retired caption styles and Documentary Echo entrance",
+      "topics": [
+        "caption",
+        "style",
+        "typography",
+        "documentary echo",
+        "zoom",
+        "motion"
+      ],
+      "text": "Owner request, 23 October 2026: remove Typography 1, Typography 2 and Quiet Minimal from new caption choices, including old Caption Studio pickers. Use Caption 1 as the default for new captions. Preserve existing saved projects. Documentary Echo keeps its approved type layout and echo design, adding the smooth close-up entrance that settles back to normal scale, matching the approved Caption 1/2/3 feel. Keep this movement shared by all text and outline layers, without shifting individual words independently. Validate the short sample in Storylens and Premiere before claiming parity. The owner also requests the same smooth entrance zoom for Kinetic Documentary, Documentary Outline, Typography 3 and Typography 4, each retaining its own layout and word reveals. Test all four through the actual Premiere button after finishing Echo, one ten-second sample at a time. The owner approved the live Documentary Outline result with this zoom and requested the next style; preserve that approved design. The owner also approved the live Typography 3 result with the shared zoom; preserve its left-aligned composition and word reveals. The owner approved Typography 4 live in Premiere as well and requested full closure after the last test. All four requested additional styles now have the group zoom. Preserve the approved layouts; use the saved per-style live validation record for evidence and limitations."
+    },
+    {
+      "id": "caption-two-fade-and-caption-three-frame",
+      "title": "Caption 2 fade entrance and Caption 3 dotted frame",
+      "topics": [
+        "caption",
+        "caption 2",
+        "caption 3",
+        "premiere",
+        "motion",
+        "fade",
+        "selection frame"
+      ],
+      "text": "Owner request, 23 October 2026: Caption 2 main keywords must fade in at their composed position, without the lateral slide or individual keyword blur. Preserve its approved typography, layout and shared settling zoom. Caption 3 must retain its original smoothly animated dotted selection frame in Premiere imports, together with the approved readable support text and compact equal 8-pixel visible-ink gaps at 720-pixel design width. Keep every caption word independently editable. The frame may live on a separate transparent decoration layer; do not flatten the words. Demonstrate Caption 2 in Storylens and Caption 3 in Premiere, using one ten-second sample at a time. Live check completed: Caption 2 rendered and played in Storylens; Caption 3 imported using the Storylens Premiere button and its dotted support-line frame was visible during native playback at half resolution for the 720p ten-second sample. The decorative frame is a transparent video layer, not a native editable shape; words remain native editable graphics. Preserve original sources and regenerate from Storylens after changing caption geometry."
+    },
+    {
+      "id": "caption-two-approved-alignment-and-frame-smoothing",
+      "title": "Caption 2 exact alignment and Caption 3 frame smoothing",
+      "topics": [
+        "caption",
+        "caption 2",
+        "caption 3",
+        "alignment",
+        "size",
+        "dotted frame"
+      ],
+      "text": "Owner correction on 23 October 2026 supersedes the earlier upper-left header interpretation: Caption 2 support text must align to the RIGHT edge of the main text. Maximum SEVEN words per frame; overflow moves into a new frame with original word timings and no dropped words. If any main word has MORE THAN EIGHT alphanumeric characters, use only a top support line and the main line, never a footer; following words move to the next frame. Keep the approved fonts, lime main text, smooth keyword fade and shared settling zoom. Preserve chosen size and placement in native Premiere. Caption 3 rounded, smoother dotted frame was approved by the owner, who said Caption 3 is done. Preserve its compact text spacing. Do not infer approval of the corrected Caption 2 until the owner reviews it. Corrected Caption 2 review rendered and played live in Storylens: output/captions/caption2-right-aligned-review, 10.17 seconds. Reflections has two right-aligned lines; in the water starts the next frame. Evidence: tmp/caption2-right-aligned-review-proof.png. Native Premiere revalidation of this latest correction is not claimed."
+    },
+    {
+      "id": "caption-two-clear-gaps-and-cinematic-review",
+      "title": "Latest Caption 2 spacing and two cinematic reference drafts",
+      "topics": [
+        "caption 2",
+        "alignment",
+        "cinematic",
+        "reference",
+        "draft",
+        "word limits"
+      ],
+      "text": "Owner correction 23 October 2026 supersedes previous overlap/right-header instructions: Caption 2 top line starts at the LEFT edge of the centered main word, the main word stays CENTERED, and the third line is RIGHT aligned. Clear equal visible-ink gaps above and below; no overlapping lines. Preserve keyword fade and shared zoom, max 7 words and long main word two-line rule. Owner supplied two Instagram MP4 references ending 3937279375509968188 and 3935300291866422391. Build two separate cinematic draft designs, show in Storylens only, retain export features, do not finalize or put in normal library until owner approval. New cinematic styles: vertical at most FOUR words per frame, horizontal at most SEVEN; overflow carries to new frames with timings intact, for short and long videos. Current prototypes are drafts; exact font identity and native-frame timing match remain unverified. Do not call them exact replicas or approved."
+    },
+    {
+      "id": "caption-two-six-pixel-gap-first-word-clock-and-format-links",
+      "title": "Caption 2 compact spacing and first-word camera; cinematic format choices",
+      "topics": [
+        "caption 2",
+        "spacing",
+        "header",
+        "zoom",
+        "horizontal",
+        "vertical",
+        "song captions"
+      ],
+      "text": "Latest owner correction 23 October 2026: halve Caption 2 previous clear line gaps from 12 to 6 design pixels. Top line starts left and contains at least TWO words whenever the source phrase has enough words, middle line contains exactly ONE main word centered, footer remains sentence-dependent and right-aligned. Preserve source word order and timings, never invent words for a very short tail. Keep max seven words per frame and the existing long-main two-line rule. The SHARED zoom starts with the FIRST word of each page and never restarts when the main word appears. Main word still fades at its fixed place. Implemented in both Python export and browser engine, with live Storylens ten-second render/playback and focused timing/composition tests. Two new cinematic song styles stay drafts pending owner approval. Their review page must show obvious Horizontal 16:9 max SEVEN words and Vertical 9:16 max FOUR words options for EACH style; show clear labels inside Caption Studio too. Each format link opens the requested aspect even if a previous browser draft used the other aspect. Current review URL: /caption-output/cinematic-reference-review/review.html. Exact font and frame timing replication of the new drafts remains unverified."
+    },
+    {
+      "id": "caption-two-every-word-rise-pop-settle",
+      "title": "Caption 2 animation on every word in every row",
+      "topics": [
+        "caption 2",
+        "motion",
+        "word animation",
+        "main word",
+        "footer"
+      ],
+      "text": "Latest owner request 23 October 2026 applies to Caption 2 ONLY. EVERY word in top, main and bottom rows gets the same gentle pop, upward entrance and downward settle at its own word time. Main words must no longer be excluded from word motion. The shared page zoom still begins with the FIRST word and does not restart for the hero. Current shared browser/Python profile: per-word scale 1.08 to 1, vertical offset +16 to -1.5 to 0 over 0.42 seconds with smooth quintic easing, fade 0.24 seconds. Keep the compact six-pixel gaps, top-left header with at least two source words when available, centered single main word, right footer, original word timings and pagination. This supersedes the old main-word fade-only exception. Other styles and cinematic drafts are unchanged. Twenty focused tests passed including main/footer animation after the group camera settles and browser/export motion parity. Live check completed: 10.17-second preview rendered via Storylens Save & export MP4 and the three-line phrase played in Storylens. Exported frame checkpoints confirm the main word and footer each enter and settle at their own word onsets. Evidence: tmp/caption2-all-words-storylens-proof.png and tmp/caption2-all-rows-export-motion-check.png. Owner review remains pending."
+    },
+    {
+      "id": "broll-video-first-editable-talking-head-20261023",
+      "title": "Owner B-roll requirements and audio-only relevance validation",
+      "topics": [
+        "broll",
+        "b-roll",
+        "cutaway",
+        "footage",
+        "premiere",
+        "black background"
+      ],
+      "text": "Owner request, 23 October 2026: Add relevant B-roll to talking-head speech at the actual matching spoken moment. Prefer video. Use images only for a specific thing when suitable footage is difficult to find. Search beyond Pexels/Pixabay, including the creator library, Commons and web sources; preserve source provenance. Keep original speech and a separate editable cutaway track, with timing/source trim and extra footage handles for later Premiere edits. Premiere Pro is the priority. For initial tests use E7 final.mp4 in D:/Full Drive/thisis.vineet/e7 and cricket videos in All Shorts; these are already edited, so replace their pictures with black and use only their original audio for selection and placement. Do not recycle their existing visuals as evidence of successful search. This records requirements, not a claim of completed live validation. No publishing is requested."
+    },
+    {
+      "id": "broll-videos-only-context-correction-20261023",
+      "title": "Latest owner correction: videos only and full sentence context",
+      "topics": [
+        "broll",
+        "b-roll",
+        "video only",
+        "context",
+        "cutaway"
+      ],
+      "text": "Latest owner correction, 23 October 2026, supersedes the earlier still-image fallback permission for Add B-roll: use VIDEOS ONLY, including specific named subjects. The owner rejected every cutaway in the E7 baseline as contextually wrong. Understand the complete spoken sentence, surrounding Hinglish speech and negation. No vocabulary lessons for idioms, starry sky for quiet city streets, open cafes for closed cafes, or another talking person as a cutaway. A moment with no relevant verified video remains empty. Preserve original audio over black for the authorized relevance tests. This is a requirement and failure record, not a claim of accepted output."
+    },
+    {
+      "id": "broll-illustrative-venues-and-coverage-20261023",
+      "title": "Later clarification: illustrate mentioned venues and use four to five cutaways",
+      "topics": [
+        "broll",
+        "b-roll",
+        "nightlife",
+        "club",
+        "cafe",
+        "bar",
+        "coverage",
+        "illustrative"
+      ],
+      "text": "Later owner clarification, 23 October 2026: the E7 preview should contain four to five relevant video cutaways, not one three-second clip. When explicitly asked whether to show mentioned venues or only empty/closed venues for lines such as no clubs or forget late-night cafes, the owner chose Show the mentioned venues. Normal bar, club and cafe footage may illustrate those mentioned concepts even when their local availability is negated. The prior empty/closed-only interpretation was too restrictive for these venue references. This is illustrative stock, not proof of an actual establishment in the speaker's city. Keep original negative speech accurate, exact named identities correct, and physical details such as shut shutters suitable. Videos only and original speech over black remain required. This records direction, not completed live acceptance."
+    },
+    {
+      "id": "broll-local-workflow-ownership-20261023",
+      "title": "Local B-roll workflow ownership and per-shot verification",
+      "topics": [
+        "broll",
+        "b-roll",
+        "local model",
+        "workflow",
+        "verification",
+        "recovery"
+      ],
+      "text": "Owner instruction, 23 October 2026: the local Storylens LLM and tools must perform every B-roll step: understand the full speech, plan timed shots, search, select footage, inspect actual downloaded video, edit and verify. Codex must repair code and retry actual Storylens when it fails, never manually choose footage to disguise a local-model failure. Whole-edit requests for several venues apply across the edit, not all within each single shot. Judge each timed shot against its own spoken thought and intended illustrative purpose. Keep saved owner guidance intact and record incomplete results honestly. This is reusable workflow guidance, not a claim of retrained model weights or accepted output."
+    },
+    {
+      "id": "broll-clause-actions-and-placement-20261023",
+      "title": "B-roll must match the current spoken action, not a later venue",
+      "topics": [
+        "broll",
+        "b-roll",
+        "timing",
+        "sleeping",
+        "closed shops",
+        "bar",
+        "cafe",
+        "enjoyment"
+      ],
+      "text": "Later owner correction, 23 October 2026: the bar clip in the E7 review was wrongly placed during log so chuke hote hain (people have gone to sleep). Use a person sleeping for that clause, closed-shop footage during dukaanen band, bar/lounge footage only on the lounge/bar mention, and cafe footage on the cafe mention. The owner explicitly allows an enjoyment activity shot for enjoy karne aa rahe ho; do not reduce that to a vocabulary lesson or automatically skip it as an abstract reaction. Illustrative venues remain allowed despite negative availability. A neighbouring venue must never justify showing it during a sleeping or closed-shop clause. Segment speech by meaningful subject/action using original ASR word timestamps, rather than arbitrary seven-word chunks. The local LLM and Storylens tools must select and edit, and fixes need live review. This records requirements, not acceptance."
+    },
+    {
+      "id": "broll-human-options-first-20261023",
+      "title": "Latest owner priority: plenty of B-roll choices, human final selection",
+      "topics": [
+        "broll",
+        "b-roll",
+        "options",
+        "keywords",
+        "human review",
+        "premiere",
+        "capcut"
+      ],
+      "text": "Latest owner clarification, 23 October 2026, supersedes the earlier four-to-five final-shot target: search visualizable keywords/actions throughout the speech and supply plenty of related VIDEO options. Around ten useful B-roll moments in a fifty-second video is reasonable. The number of retrieved choices may be ten, fifty, one hundred or two hundred; do not reduce the deliverable to a few automatic final picks. The human will choose what to keep/remove after import into Premiere Pro or CapCut. Group multiple playable clips by keyword and original speech time, preserve alternatives as separate editable media, keep provenance, and distinguish suggestions from a finished approved edit. Exact word/meaning timing still matters, especially sleeping versus lounge/bar. Local LLM/tools must perform discovery and preparation. This saves requirements, not live acceptance or verified native editor behavior."
+    },
+    {
+      "id": "broll-selected-handoff-20261023",
+      "title": "Selected B-roll goes to Premiere Pro or CapCut at its saved speech time",
+      "topics": [
+        "broll",
+        "b-roll",
+        "selection",
+        "premiere",
+        "capcut",
+        "timing",
+        "local model",
+        "training"
+      ],
+      "text": "Latest owner follow-up, 23 October 2026: the plentiful human-review B-roll bank is approved. The human chooses options per keyword/line in Storylens, saves them, then directly sends the selected clips to Premiere Pro or CapCut at their saved speech timestamps. Default export must include selected clips only, not append the unused choices. Offer the full alternatives bank separately as an option. Keep the original video/audio separate and every selected cutaway independently editable, movable, resizable and trimmable, with extension limited by available source footage/handles. Save & rebuild is required before handoff and must preserve pending choices on failure. These are the requested editors; After Effects was an assistant misreading corrected by the owner and is not requested. Local models and Storylens tools must discover, search, check and prepare footage. Codex may repair software and validate separate test copies, without manually curating the owner bank or overwriting their pending selections. Saved code, prompt and workflow improvements are not model-weight training; no fine-tuning has been run."
+    },
+    {
+      "id": "broll-five-options-cap-20261023",
+      "title": "Maximum five playable B-roll choices per highlighted word or sentence",
+      "topics": [
+        "broll",
+        "b-roll",
+        "options",
+        "keywords",
+        "local model"
+      ],
+      "text": "Latest owner instruction, 23 October 2026: cap each highlighted word or sentence at five playable VIDEO choices. Default to five, allow fewer, never deliver more than five in a new keyword group. Search and check additional candidates only as needed to find up to five suitable playable choices; do not treat five as a requirement to accept irrelevant footage. Preserve all earlier saved banks and pending owner selections. Apply this limit to Storylens forms, local chat plans and the B-roll worker. The E3 local-model test was already configured for five per keyword. This instruction supplements the plentiful options/human selection workflow and limits each group's size; it does not limit coverage to five groups for the whole video."
+    },
+    {
+      "id": "broll-durable-recovery-20261024",
+      "title": "B-roll must save progress and recover without GPT repairs",
+      "topics": [
+        "broll",
+        "b-roll",
+        "reliability",
+        "recovery",
+        "local model",
+        "retry"
+      ],
+      "text": "Owner request, 24 October 2026: make the local B-roll workflow dependable without repeatedly relying on a GPT subscription for repairs. Save timed plans, retrieval results and each accepted/rejected clip; resume unfinished work instead of restarting. Preserve human selections and original speech timing. Retry only temporary transport failures, skip inaccessible sources, and never pass unrelated footage to fill a quota. Rejected provider keys wait for a credential change. App jobs persist across service restarts, with one bounded automatic worker continuation; repeated failure keeps progress and asks for the same Run request. Completed-bank finalization needs no GPU/model reload and must not unload another feature’s models. Caption work keeps priority. Windows atomic saves tolerate brief reader locks. This is workflow/code reliability, not model-weight training or a guarantee of zero errors or complete footage coverage. Live isolated worker-interruption recovery passed using a saved local-model bank; choices/timestamps were retained. This was not a fresh relevance search or native-editor check. Evidence: output/broll/recovery-evidence/validation.json."
+    },
+    {
+      "id": "broll-context-and-bounded-review",
+      "title": "B-roll contextual subjects and bounded local checking",
+      "topics": [
+        "broll",
+        "B-roll",
+        "footage",
+        "relevance",
+        "reliable",
+        "options"
+      ],
+      "text": "Add B-roll is a videos-only human options bank, with at most five playable choices for each timed keyword. Resolve the physical word sense from its sentence before searching; translate Hinglish nouns into concise English video queries. Household geyser means water heater, while geothermal travel can mean a natural geyser. Keep fridge as refrigerator, washing machine as washing machine and wardrobe as wardrobe; do not broaden an object into a room/category. Reject ambiguous unsupported ASR concepts instead of inventing an occupation or event. The local checker must establish the subject in each sampled active-window frame and independently approve its contextual sense; a literal same-word match is insufficient. Ordinary provider/model caches and saved progress are allowed, but no cached approval establishes a different subject. Direct downloadable videos precede at most two web leads per keyword. Do not loop on dead links, invalid credentials or unsuitable footage. A model outage must stop clearly with saved choices retained. The B-roll runtime uses configured local models and Storylens tools; development repairs are not model-weight training or proof of zero future errors. Report missing groups honestly, never fill them with unrelated footage. Reset each shared web client search budget for every keyword; never let early subjects exhaust the whole video search allowance. Keep each keyword bounded to 45 seconds of source search. For a source-grounded canonical physical noun, derive its word sense from the locally observed object and all three frame checks; do not ask an isolated object inspection to prove absent rental/ownership narrative. Generic ambiguous concepts still require the separate local context check. Quality, watermark and named-identity vetoes remain mandatory."
+    },
+    {
+      "id": "publishing-weekly-seven-thumbnail-owner-2026-10-30",
+      "title": "Weekly publishing batches and exact supplied thumbnails",
+      "topics": [
+        "publishing",
+        "youtube",
+        "schedule",
+        "shorts",
+        "reels",
+        "thumbnail",
+        "gaming",
+        "highlights",
+        "cricket"
+      ],
+      "text": "Owner trains and reviews before any new live test. Normal weekly requests may contain 3,5 or7 paired Shorts/Reels, with a maximum requested weekly batch of7; preserve the exact requested count, never fill an unrequested quota. Each unique clip goes to YouTube and Instagram with separate platform copy and receipts. Use saved per-clip stages and next-stage input only; no whole-batch transcript must stay in assistant context. Include and validate the exact owner-supplied thumbnail file for a cricket long documentary or gaming highlights; upload it with that exact output. Preserve optional absence when omitted. Do not attach a long/highlight cover to Shorts or Reels. Invalid, missing, changed or mismatched explicitly supplied covers require a clear validation failure, not silent omission. A private processed YouTube ID is a completed upload, not a confirmed schedule. Reuse that ID for authorized bounded release recovery; never duplicate upload. Require exact channel, approved copy and future publishAt readback before claiming scheduled. Unknown submission outcome requires reconciliation; exhausted retries require a connector failure report. Owner deleted Punjab trial Instagram posts after checking them; preserve those deletions. Training examples and saved knowledge do not prove connector execution or live publishing success."
+    }
+  ]
+}

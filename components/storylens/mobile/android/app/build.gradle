@@ -1,0 +1,26 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'app.storylens.phone'
+    compileSdk 35
+    defaultConfig { applicationId 'app.storylens.phone'; minSdk 26; targetSdk 35; versionCode 1; versionName '0.1.0' }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
+    signingConfigs {
+        personal {
+            storeFile rootProject.file('.private/storylens-personal.p12')
+            storePassword System.getenv('STORYLENS_SIGN_PASSWORD')
+            keyAlias 'storylens-personal'
+            keyPassword System.getenv('STORYLENS_SIGN_PASSWORD')
+        }
+    }
+    buildTypes { release { minifyEnabled false; signingConfig signingConfigs.personal } }
+    lint { abortOnError true; checkReleaseBuilds true }
+}
+dependencies {
+    implementation project(':core')
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+    implementation 'androidx.core:core:1.15.0'
+}

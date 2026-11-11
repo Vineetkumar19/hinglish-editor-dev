@@ -1,0 +1,551 @@
+:root{
+  color-scheme:dark;
+  --ground:#0f1113;
+  --surface:#181a1c;
+  --raised:#252729;
+  --rule:#2b2d2f;
+  --text:#f6f6f5;
+  --muted:#aaa9a7;
+  --accent:#ff884a;
+  --positive:#80c49e;
+  --negative:#f29291;
+  font:15px/1.5 system-ui,sans-serif}
+  *{
+    box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--ground);
+      color:var(--text)}
+      [hidden]{
+        display:none!important}
+        a{
+          color:inherit;
+          text-decoration:none}
+          button,input,select{
+            font:inherit}
+            button{
+              cursor:pointer}
+              button:disabled{
+                cursor:wait;
+                opacity:.58}
+                a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+                  outline:2px solid #ddd;
+                  outline-offset:3px}
+                  .shell{
+                    min-height:100vh;
+                    display:grid;
+                    grid-template-columns:218px minmax(0,1fr)}
+                    .rail{
+                      display:flex;
+                      flex-direction:column;
+                      border-right:1px solid var(--rule);
+                      padding:16px;
+                      gap:34px}
+                      .brand{
+                        display:flex;
+                        align-items:center;
+                        gap:9px;
+                        font-weight:720;
+                        font-size:17px;
+                        min-height:32px}
+                        .rail nav{
+                          display:grid;
+                          gap:4px}
+                          .rail nav span,.back{
+                            color:var(--muted);
+                            font-size:13px;
+                            padding:0 8px}
+                            .rail nav button{
+                              padding:6px 8px;
+                              min-height:34px;
+                              text-align:left;
+                              border:0;
+                              background:transparent;
+                              color:var(--muted);
+                              border-radius:5px}
+                              .rail nav button:hover,.rail nav button[aria-current]{
+                                color:var(--text);
+                                background:var(--surface)}
+                                .back{
+                                  margin-top:auto}
+                                  .top{
+                                    min-height:64px;
+                                    display:flex;
+                                    align-items:center;
+                                    justify-content:space-between;
+                                    gap:16px;
+                                    padding:0 28px;
+                                    border-bottom:1px solid var(--rule)}
+                                    .top>span:first-child{
+                                      font-weight:630}
+                                      main{
+                                        max-width:1450px;
+                                        margin:auto;
+                                        padding:28px}
+                                        h1,h2,h3,p{
+                                          margin:0}
+                                          h1{
+                                            font-size:25px;
+                                            line-height:1.3}
+                                            h2{
+                                              font-size:17px}
+                                              h3{
+                                                font-size:15px}
+                                                .heading{
+                                                  display:flex;
+                                                  gap:16px;
+                                                  justify-content:space-between;
+                                                  align-items:center;
+                                                  margin-bottom:19px}
+                                                  .heading p{
+                                                    margin-top:5px}
+                                                    .hint{
+                                                      color:var(--muted);
+                                                      font-size:13px}
+                                                      .primary{
+                                                        background:#f4f4f3;
+                                                        color:#151515;
+                                                        border-color:#f4f4f3;
+                                                        border-radius:20px;
+                                                        font-weight:640}
+                                                        button,input,select{
+                                                          min-height:36px;
+                                                          padding:5px 12px;
+                                                          border:1px solid #484a4c;
+                                                          border-radius:6px;
+                                                          background:var(--surface);
+                                                          color:var(--text)}
+                                                          button:hover{
+                                                            filter:brightness(1.15)}
+                                                            .controls,.actions{
+                                                              display:flex;
+                                                              align-items:end;
+                                                              flex-wrap:wrap;
+                                                              gap:12px}
+                                                              .controls{
+                                                                margin-bottom:18px}
+                                                                .controls label,.controls button{
+                                                                  font-size:13px}
+                                                                  .controls label{
+                                                                    display:grid;
+                                                                    gap:4px;
+                                                                    color:var(--muted)}
+                                                                    .controls label input{
+                                                                      max-width:155px}
+                                                                      #notice{
+                                                                        margin:-8px 0 14px}
+                                                                        .overview{
+                                                                          display:grid;
+                                                                          grid-template-columns:minmax(0,1fr) minmax(260px,32%);
+                                                                          gap:16px}
+                                                                          .stack{
+                                                                            display:grid;
+                                                                            gap:16px;
+                                                                            align-content:start}
+                                                                            .panel{
+                                                                              background:var(--surface);
+                                                                              border-radius:7px;
+                                                                              min-width:0;
+                                                                              padding:16px}
+                                                                              .section-head{
+                                                                                display:flex;
+                                                                                align-items:center;
+                                                                                justify-content:space-between;
+                                                                                gap:10px;
+                                                                                margin-bottom:12px}
+                                                                                .table-wrap{
+                                                                                  overflow:auto}
+                                                                                  .panel.table{
+                                                                                    padding:16px 0 0}
+                                                                                    .panel.table .section-head{
+                                                                                      padding:0 16px}
+                                                                                      table{
+                                                                                        border-collapse:collapse;
+                                                                                        width:100%;
+                                                                                        font-variant-numeric:tabular-nums}
+                                                                                        th,td{
+                                                                                          text-align:right;
+                                                                                          padding:9px 10px;
+                                                                                          border-top:1px solid var(--rule);
+                                                                                          white-space:nowrap;
+                                                                                          vertical-align:middle}
+                                                                                          th{
+                                                                                            font-weight:540;
+                                                                                            font-size:12px;
+                                                                                            color:var(--muted)}
+                                                                                            th:first-child,td:first-child{
+                                                                                              text-align:left;
+                                                                                              padding-left:16px}
+                                                                                              th:last-child,td:last-child{
+                                                                                                padding-right:16px}
+                                                                                                .metric{
+                                                                                                  font-weight:630}
+                                                                                                  .blank{
+                                                                                                    color:var(--muted)}
+                                                                                                    .up{
+                                                                                                      color:var(--positive)}
+                                                                                                      .down{
+                                                                                                        color:var(--negative)}
+                                                                                                        .account-name{
+                                                                                                          font-weight:630;
+                                                                                                          display:block}
+                                                                                                          .small{
+                                                                                                            font-size:12px;
+                                                                                                            display:block;
+                                                                                                            color:var(--muted);
+                                                                                                            line-height:1.4}
+                                                                                                            .media-name{
+                                                                                                              white-space:normal;
+                                                                                                              min-width:200px;
+                                                                                                              max-width:420px;
+                                                                                                              overflow-wrap:anywhere}
+                                                                                                              .account-action{
+                                                                                                                border:0;
+                                                                                                                background:none;
+                                                                                                                text-align:left;
+                                                                                                                padding:0;
+                                                                                                                min-height:0}
+                                                                                                                .account-action:hover{
+                                                                                                                  text-decoration:underline}
+                                                                                                                  .chart{
+                                                                                                                    display:grid;
+                                                                                                                    gap:10px}
+                                                                                                                    .plot{
+                                                                                                                      height:176px;
+                                                                                                                      display:flex;
+                                                                                                                      gap:3px;
+                                                                                                                      align-items:end;
+                                                                                                                      border-bottom:1px solid #656565;
+                                                                                                                      position:relative}
+                                                                                                                      .chart-empty{
+                                                                                                                        align-self:center;
+                                                                                                                        margin:auto;
+                                                                                                                        color:var(--muted);
+                                                                                                                        font-size:13px}
+                                                                                                                        .bar-slot{
+                                                                                                                          flex:1;
+                                                                                                                          height:100%;
+                                                                                                                          display:flex;
+                                                                                                                          align-items:flex-end;
+                                                                                                                          position:relative;
+                                                                                                                          min-width:0}
+                                                                                                                          .bar{
+                                                                                                                            width:100%;
+                                                                                                                            min-height:1px;
+                                                                                                                            background:var(--accent);
+                                                                                                                            border-radius:2px 2px 0 0;
+                                                                                                                            opacity:.88}
+                                                                                                                            .bar.missing{
+                                                                                                                              height:0!important;
+                                                                                                                              min-height:0}
+                                                                                                                              .bar-slot:focus-visible .bar,.bar-slot:hover .bar{
+                                                                                                                                opacity:1}
+                                                                                                                                .plot-labels{
+                                                                                                                                  display:flex;
+                                                                                                                                  justify-content:space-between;
+                                                                                                                                  font-variant-numeric:tabular-nums}
+                                                                                                                                  .plot-labels span{
+                                                                                                                                    min-width:0}
+                                                                                                                                    .chart-note{
+                                                                                                                                      font-size:12px;
+                                                                                                                                      color:var(--muted)}
+                                                                                                                                      .totals{
+                                                                                                                                        display:grid;
+                                                                                                                                        grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+                                                                                                                                        gap:1px;
+                                                                                                                                        padding:0;
+                                                                                                                                        background:var(--rule);
+                                                                                                                                        overflow:hidden}
+                                                                                                                                        .totals div{
+                                                                                                                                          padding:10px 12px;
+                                                                                                                                          background:var(--surface)}
+                                                                                                                                          .totals b{
+                                                                                                                                            display:block;
+                                                                                                                                            font-size:21px;
+                                                                                                                                            font-weight:560;
+                                                                                                                                            font-variant-numeric:tabular-nums}
+                                                                                                                                            .account-detail{
+                                                                                                                                              padding:10px 0;
+                                                                                                                                              border-top:1px solid var(--rule)}
+                                                                                                                                              .account-detail:first-of-type{
+                                                                                                                                                border-top:0}
+                                                                                                                                                .account-detail .actions{
+                                                                                                                                                  margin-top:10px}
+                                                                                                                                                  .details-grid{
+                                                                                                                                                    display:grid;
+                                                                                                                                                    grid-template-columns:repeat(2,minmax(0,1fr));
+                                                                                                                                                    gap:16px}
+                                                                                                                                                    .settings-row{
+                                                                                                                                                      display:flex;
+                                                                                                                                                      justify-content:space-between;
+                                                                                                                                                      align-items:start;
+                                                                                                                                                      gap:12px}
+                                                                                                                                                      .settings-row+.settings-row{
+                                                                                                                                                        border-top:1px solid var(--rule);
+                                                                                                                                                        padding-top:13px;
+                                                                                                                                                        margin-top:13px}
+                                                                                                                                                        .settings-row button{
+                                                                                                                                                          white-space:nowrap}
+                                                                                                                                                          .settings-row p{
+                                                                                                                                                            margin-top:3px}
+                                                                                                                                                            .settings-row .actions{
+                                                                                                                                                              justify-content:flex-end}
+                                                                                                                                                              .section-note{
+                                                                                                                                                                padding:8px 16px 12px}
+                                                                                                                                                                .data-state{
+                                                                                                                                                                  text-transform:none;
+                                                                                                                                                                  font-size:12px;
+                                                                                                                                                                  color:var(--muted)}
+                                                                                                                                                                  .summary-note{
+                                                                                                                                                                    margin:10px 0 0}
+                                                                                                                                                                    .content-tools{
+                                                                                                                                                                      padding:0 16px 10px}
+                                                                                                                                                                      footer{
+                                                                                                                                                                        margin:18px 0 0}
+                                                                                                                                                                        dialog{
+                                                                                                                                                                          background:var(--surface);
+                                                                                                                                                                          border:1px solid var(--rule);
+                                                                                                                                                                          color:var(--text);
+                                                                                                                                                                          border-radius:7px;
+                                                                                                                                                                          max-width:min(92vw,480px);
+                                                                                                                                                                          padding:20px}
+                                                                                                                                                                          dialog::backdrop{
+                                                                                                                                                                            background:#000a}
+                                                                                                                                                                            dialog form{
+                                                                                                                                                                              display:grid;
+                                                                                                                                                                              gap:14px}
+                                                                                                                                                                              dialog label{
+                                                                                                                                                                                display:block}
+                                                                                                                                                                                dialog label input[type=password]{
+                                                                                                                                                                                  width:100%;
+                                                                                                                                                                                  margin-top:6px}
+                                                                                                                                                                                  dialog .actions{
+                                                                                                                                                                                    justify-content:flex-end}
+                                                                                                                                                                                    @media(max-width:1020px){
+                                                                                                                                                                                      .shell{
+                                                                                                                                                                                        grid-template-columns:174px minmax(0,1fr)}
+                                                                                                                                                                                        .overview{
+                                                                                                                                                                                          grid-template-columns:minmax(0,1fr)}
+                                                                                                                                                                                          main,.top{
+                                                                                                                                                                                            padding-left:20px;
+                                                                                                                                                                                            padding-right:20px}
+                                                                                                                                                                                          }
+.plot-empty{
+  height:106px;
+}
+#instagram-help{
+  text-decoration:underline;
+}
+                                                                                                                                                                                          @media(max-width:680px){
+                                                                                                                                                                                            .shell{
+                                                                                                                                                                                              display:block}
+                                                                                                                                                                                              .rail{
+                                                                                                                                                                                                padding:10px 15px 6px;
+                                                                                                                                                                                                gap:5px;
+                                                                                                                                                                                                border-right:0;
+                                                                                                                                                                                                border-bottom:1px solid var(--rule)}
+                                                                                                                                                                                                .rail nav{
+                                                                                                                                                                                                  display:flex;
+                                                                                                                                                                                                  overflow:auto}
+                                                                                                                                                                                                  .rail nav span,.back,.top{
+                                                                                                                                                                                                    display:none}
+                                                                                                                                                                                                    .rail nav button{
+                                                                                                                                                                                                      white-space:nowrap;
+                                                                                                                                                                                                      min-height:44px;
+                                                                                                                                                                                                      font-size:13px}
+                                                                                                                                                                                                      .brand{
+                                                                                                                                                                                                        min-height:40px}
+                                                                                                                                                                                                        .heading{
+                                                                                                                                                                                                          align-items:flex-start}
+                                                                                                                                                                                                          .heading .primary{
+                                                                                                                                                                                                            white-space:nowrap;
+                                                                                                                                                                                                            padding-inline:10px}
+                                                                                                                                                                                                            main{
+                                                                                                                                                                                                              padding:17px 14px}
+                                                                                                                                                                                                              h1{
+                                                                                                                                                                                                                font-size:21px}
+                                                                                                                                                                                                                .details-grid{
+                                                                                                                                                                                                                  grid-template-columns:minmax(0,1fr)}
+                                                                                                                                                                                                                  .settings-row{
+                                                                                                                                                                                                                    display:grid}
+                                                                                                                                                                                                                    .settings-row .actions{
+                                                                                                                                                                                                                      justify-content:flex-start}
+                                                                                                                                                                                                                      .table-wrap table{
+                                                                                                                                                                                                                        font-size:13px}
+                                                                                                                                                                                                                        .controls label{
+                                                                                                                                                                                                                          min-width:0}
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                        @media(max-width:680px){
+                                                                                                                                                                                                                          .pulse table,.pulse tbody{
+                                                                                                                                                                                                                            display:block}
+                                                                                                                                                                                                                            .pulse thead{
+                                                                                                                                                                                                                              position:absolute;
+                                                                                                                                                                                                                              width:1px;
+                                                                                                                                                                                                                              height:1px;
+                                                                                                                                                                                                                              clip-path:inset(50%);
+                                                                                                                                                                                                                              overflow:hidden}
+                                                                                                                                                                                                                              .pulse tr{
+                                                                                                                                                                                                                                display:grid;
+                                                                                                                                                                                                                                grid-template-columns:repeat(3,minmax(0,1fr));
+                                                                                                                                                                                                                                border-top:1px solid var(--rule);
+                                                                                                                                                                                                                                padding:8px 8px 8px 16px}
+                                                                                                                                                                                                                                .pulse td{
+                                                                                                                                                                                                                                  padding:4px 6px 4px 0;
+                                                                                                                                                                                                                                  border-top:0;
+                                                                                                                                                                                                                                  text-align:left;
+                                                                                                                                                                                                                                  white-space:normal}
+                                                                                                                                                                                                                                  .pulse td:first-child{
+                                                                                                                                                                                                                                    grid-column:1/-1;
+                                                                                                                                                                                                                                    padding-left:0}
+                                                                                                                                                                                                                                    .pulse td:last-child{
+                                                                                                                                                                                                                                      padding-right:6px}
+                                                                                                                                                                                                                                      .pulse td:not(:first-child)::before{
+                                                                                                                                                                                                                                        content:attr(data-label);
+                                                                                                                                                                                                                                        display:block;
+                                                                                                                                                                                                                                        font-size:11px;
+                                                                                                                                                                                                                                        color:var(--muted)}
+                                                                                                                                                                                                                                        .trend .section-head{
+                                                                                                                                                                                                                                          display:grid;
+                                                                                                                                                                                                                                          grid-template-columns:1fr auto;
+                                                                                                                                                                                                                                          gap:3px 8px}
+                                                                                                                                                                                                                                          .trend .section-head .hint{
+                                                                                                                                                                                                                                            grid-row:2;
+                                                                                                                                                                                                                                            grid-column:1}
+                                                                                                                                                                                                                                            .trend .section-head select{
+                                                                                                                                                                                                                                              grid-row:1/span 2;
+                                                                                                                                                                                                                                              grid-column:2;
+                                                                                                                                                                                                                                              max-width:160px}
+                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                            .video-dialog{
+                                                                                                                                                                                                                                              width:min(92vw,680px);
+                                                                                                                                                                                                                                              max-width:none}
+                                                                                                                                                                                                                                              .video-dialog .panel{
+                                                                                                                                                                                                                                                background:var(--raised)}
+
+.scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.scope button {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+}
+.scope button[aria-pressed="true"] {
+  border-color: var(--rule);
+  background: var(--raised);
+  color: var(--text);
+}
+@media (min-width: 681px) {
+  .pulse table { min-width: 690px; table-layout: fixed; }
+  .pulse th:first-child { width: 24%; }
+}
+.analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 14px;
+}
+.analytics-surface { display: grid; gap: 14px; }
+.analytics-surface .panel {
+  background: #17191b;
+  border: 1px solid #2c2f31;
+  border-radius: 10px;
+}
+.analytics-surface .section-head { align-items: flex-start; }
+.analytics-surface .section-head .hint { text-align: right; }
+.analytics-trend .plot:not(.plot-empty) { height: 150px; }
+.analytics-snapshot {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #2c2f31;
+  border-radius: 10px;
+  background: #17191b;
+  font-variant-numeric: tabular-nums;
+}
+.analytics-snapshot > div { display: grid; gap: 2px; padding: 14px 17px; }
+.analytics-snapshot > div + div { border-left: 1px solid #2c2f31; }
+.analytics-snapshot strong { font-size: 27px; font-weight: 620; letter-spacing: -.03em; }
+.trend-state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 16px;
+  padding: 9px 0 3px;
+  border-top: 1px solid var(--rule);
+}
+.trend-state strong { font-size: 22px; font-variant-numeric: tabular-nums; }
+.plot:not(.plot-empty)::before {
+  position: absolute;
+  inset: auto 0 var(--baseline, 0%);
+  border-bottom: 1px solid #656565;
+  content: '';
+}
+.plot-guides { position: absolute; inset: 0; pointer-events: none; }
+.plot-guides::before, .plot-guides::after {
+  position: absolute;
+  inset: 33.33% 0 auto;
+  border-top: 1px solid var(--rule);
+  content: '';
+}
+.plot-guides::after { top: 66.67%; }
+.bar { position: absolute; }
+.bar-negative { background: var(--negative); }
+.bar-slot:focus-visible { outline: 1px solid var(--muted); }
+.chart-readout { min-height: 1.5em; font-variant-numeric: tabular-nums; }
+.comparison {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.comparison-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.comparison-label b { flex-shrink: 0; font-weight: 600; }
+.comparison-track {
+  height: 5px;
+  margin-top: 5px;
+  background: var(--raised);
+  border-radius: 2px;
+}
+.comparison-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: inherit;
+}
+.instagram-series .comparison-fill { background: #82b6ac; }
+.ranking { gap: 0; }
+.ranking li { padding: 7px 0; }
+.ranking li:first-child { padding-top: 0; }
+.ranking li:last-child { padding-bottom: 0; }
+.ranking li + li { border-top: 1px solid var(--rule); }
+.ranking .comparison-label {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) max-content;
+}
+.ranking .rank { color: var(--muted); font-size: 12px; }
+.ranking .comparison-track { margin-inline-start: 36px; }
+.ranking .comparison-fill { background: #b0b9be; }
+.ranking li:first-child .comparison-fill { background: var(--accent); }
+@media (max-width: 960px) {
+  .analytics-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) {
+  main, .rail { padding-inline: 16px; }
+  #controls:has(#metric-control:not([hidden])) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #controls:has(#metric-control:not([hidden])) select { width: 100%; min-width: 0; }
+  .analytics-snapshot > div { padding: 10px 8px; }
+  .analytics-snapshot .hint { font-size: 11px; }
+  .analytics-snapshot strong { font-size: 19px; }
+  .analytics-surface .section-head { flex-wrap: wrap; gap: 3px; }
+  .analytics-surface .section-head .hint { text-align: left; }
+}

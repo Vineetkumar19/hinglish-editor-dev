@@ -1,0 +1,9 @@
+{
+  "greeting_seconds": 5.85,
+  "avatar_warm_seconds": 10.85,
+  "first_frame_ms": 207,
+  "frames": 73,
+  "animation_span_seconds": 5.76,
+  "stream_seconds": 3.08,
+  "untrusted_origin_rejected": true
+}

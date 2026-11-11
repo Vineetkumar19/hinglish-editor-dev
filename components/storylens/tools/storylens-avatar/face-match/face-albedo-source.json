@@ -1,0 +1,248 @@
+{
+  "method": "Soft reference-derived skin albedo. Source samples restricted to bare skin; brows, eyes, nostrils, lips and scanlines are evaluated by the animated 3D renderer.",
+  "source_images": [
+    {
+      "basename": "codex-clipboard-31cbc657-de4b-419c-814b-6037bffc954e.png",
+      "sha256": "ed82d06aff89bdf4279bd24d43ef80d749c1d1fd401737b4c84c9b041afe3c2a"
+    },
+    {
+      "basename": "codex-clipboard-0142191c-5899-4805-9fa1-82be0e0f6818.png",
+      "sha256": "8e5b3de0fa9f1605aba533b6bd3b5a6339579f108b4da99f364117d3e724a7f9"
+    },
+    {
+      "basename": "codex-clipboard-bd672970-f6f7-4b9b-9b03-3cfbbd235227.png",
+      "sha256": "6465274242df3c4c3d9955ac74ac66414656ed9dc92c07859e781f0a88289b89"
+    }
+  ],
+  "raster_origin_xy": [
+    487,
+    134
+  ],
+  "raster_size": [
+    267,
+    433
+  ],
+  "rest_projection": "x = 610.5 + physical X * 1807 / 1.068; y = 266 - (physical Z - 1.474) * 1750",
+  "landmarks_global_atlas": {
+    "left_iris": [
+      561,
+      266
+    ],
+    "right_iris": [
+      660,
+      266
+    ],
+    "nose_base": [
+      610.5,
+      322
+    ],
+    "lip_seam": [
+      610.5,
+      352
+    ],
+    "brow_y_interval": [
+      214,
+      226
+    ]
+  },
+  "samples": [
+    {
+      "area": "forehead",
+      "rest_atlas_center": [
+        0,
+        192
+      ],
+      "measured_rgb_tv": [
+        97.5,
+        128.0,
+        160.5
+      ],
+      "measured_rgb_frontal_hologram": [
+        118.5,
+        202.0,
+        249.5
+      ],
+      "atlas_rgb": [
+        129.53,
+        156.12,
+        183.1
+      ]
+    },
+    {
+      "area": "temple",
+      "rest_atlas_center": [
+        89,
+        246
+      ],
+      "measured_rgb_tv": [
+        103.0,
+        131.0,
+        166.75
+      ],
+      "measured_rgb_frontal_hologram": [
+        73.5,
+        152.0,
+        200.5
+      ],
+      "atlas_rgb": [
+        123.02,
+        147.73,
+        176.1
+      ]
+    },
+    {
+      "area": "nose_bridge",
+      "rest_atlas_center": [
+        0,
+        282
+      ],
+      "measured_rgb_tv": [
+        113.75,
+        134.0,
+        167.5
+      ],
+      "measured_rgb_frontal_hologram": [
+        94.0,
+        177.5,
+        229.0
+      ],
+      "atlas_rgb": [
+        130.89,
+        153.68,
+        181.8
+      ]
+    },
+    {
+      "area": "cheekbone",
+      "rest_atlas_center": [
+        57,
+        292
+      ],
+      "measured_rgb_tv": [
+        107.75,
+        135.0,
+        171.5
+      ],
+      "measured_rgb_frontal_hologram": [
+        108.5,
+        191.0,
+        241.0
+      ],
+      "atlas_rgb": [
+        131.42,
+        156.62,
+        185.55
+      ]
+    },
+    {
+      "area": "lower_cheek",
+      "rest_atlas_center": [
+        67,
+        334
+      ],
+      "measured_rgb_tv": [
+        101.5,
+        126.0,
+        161.5
+      ],
+      "measured_rgb_frontal_hologram": [
+        80.0,
+        159.5,
+        208.0
+      ],
+      "atlas_rgb": [
+        123.7,
+        147.3,
+        175.58
+      ]
+    },
+    {
+      "area": "upper_lip_skin",
+      "rest_atlas_center": [
+        0,
+        339
+      ],
+      "measured_rgb_tv": [
+        101.0,
+        123.25,
+        155.25
+      ],
+      "measured_rgb_frontal_hologram": [
+        93.0,
+        173.0,
+        221.0
+      ],
+      "atlas_rgb": [
+        125.98,
+        148.85,
+        175.74
+      ]
+    },
+    {
+      "area": "chin",
+      "rest_atlas_center": [
+        0,
+        389
+      ],
+      "measured_rgb_tv": [
+        107.5,
+        133.75,
+        165.75
+      ],
+      "measured_rgb_frontal_hologram": [
+        96.0,
+        176.0,
+        226.5
+      ],
+      "atlas_rgb": [
+        128.96,
+        153.31,
+        180.67
+      ]
+    },
+    {
+      "area": "jaw",
+      "rest_atlas_center": [
+        55,
+        381
+      ],
+      "measured_rgb_tv": [
+        88.0,
+        113.75,
+        144.25
+      ],
+      "measured_rgb_frontal_hologram": [
+        79.0,
+        164.0,
+        214.5
+      ],
+      "atlas_rgb": [
+        118.51,
+        143.63,
+        170.44
+      ]
+    },
+    {
+      "area": "neck",
+      "rest_atlas_center": [
+        0,
+        463
+      ],
+      "measured_rgb_tv": [
+        83.25,
+        115.75,
+        149.25
+      ],
+      "measured_rgb_frontal_hologram": [
+        87.5,
+        175.0,
+        226.0
+      ],
+      "atlas_rgb": [
+        118.37,
+        146.46,
+        174.47
+      ]
+    }
+  ]
+}

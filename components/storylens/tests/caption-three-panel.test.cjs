@@ -1,0 +1,7 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+test('Caption 3 uses the saved speech worker and passes its style through insertion',async()=>{
+ const nodes={},el=()=>({value:'',append(){},addEventListener(){},querySelector(s){return nodes[s]||(nodes[s]=el());},querySelectorAll(){return [];}}),calls=[];
+ const c={window:{},document:{createElement:el},localStorage:{getItem:()=>null,setItem(){}},crypto:{getRandomValues:a=>a.fill(6)},Uint8Array,Option:function(n,v){this.text=n;this.value=v;},setTimeout:f=>f()};vm.createContext(c);vm.runInContext(fs.readFileSync('hinglish_app/static/caption-patterns.js','utf8'),c);
+ const view=c.window.storylensCaptionPatterns({root:el(),style:Object.assign(el(),{value:'caption_3'}),button:el(),readScript:()=> 'Your useful ideas help people',onStatus(){},showError:e=>{throw e;},native:async(a,p)=>{calls.push(p);if(p.action==='patternContext')return {project_id:'p',comp_id:'2'};if(p.action==='patternTimingContext')return {project_id:'p',sequence_id:'2'};if(p.action==='patternSpeechStart')return {status:'complete',folder:'saved'};return {ok:true,groups:2};}});
+ assert(view.isSelected());await view.generateSpeech();assert.equal(calls.find(p=>p.action==='patternSpeechStart').style,'caption_4');assert.equal(calls.find(p=>p.action==='patternInsert').style,'caption_4');assert.equal(view.option('caption_3').text,'Caption 4');
+});

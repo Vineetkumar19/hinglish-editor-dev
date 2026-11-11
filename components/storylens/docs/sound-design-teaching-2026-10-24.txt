@@ -1,0 +1,140 @@
+Sound design teaching playbook — 24 October 2026
+
+The owner's five longer tutorials were studied for the creators' explanations,
+not merely sound counts or the appearance of stacked timelines. They cover
+49 minutes 40 seconds. The familiar downloaded-video filenames now contain
+different files from the earlier short references; both sets are preserved
+separately by source hash. Original downloads were not renamed or modified.
+
+WHAT WAS LEARNED
+
+Start with the intended feeling and story arc. Choose this video's sonic
+identity before searching for individual files. A wedding, a streetwear promo,
+a documentary and a dry comic monologue should not inherit the same generic
+UI/bell palette. Consistency means a coherent palette with purposeful variation,
+not one sound repeated everywhere. Random variety is also not composition.
+
+Build the emotional foundation. Music, tonal material and voiceover can carry
+the narrative together. Melodies can answer gaps in the voice; compatible drones,
+chords and textures can prepare a musical arrival. Camera reactions and physical
+details support the story where useful. Five categories are not five compulsory
+tracks, and neither sparse nor dense effects should become a fixed quota.
+
+Use contrast. Negative space can create anticipation and make a return feel
+stronger. Sometimes a music dropout is right; sometimes it is too abrupt and a
+filtered reduction preserves momentum better. A volume dip and a frequency
+sweep are different choices. Quiet does not always mean digital silence.
+
+Give layers complementary roles. Low weight, mid definition and high detail can
+combine into one full gesture. Stacking similar bright sounds does not achieve
+that. Keep speech readable by making spectral room in the supporting music,
+instead of only turning everything down or making every layer louder.
+
+Treat tonal compatibility as a real choice. Pitched effects can clash with music;
+choose compatible material or audition a suitable pitch shift. Higher and lower
+registers can change the feeling. Do not copy one fixed semitone direction from
+an example or pretend noise-only material has a confidently measured key.
+
+Arrange music. Select useful sections, and use authorized stems to control
+instrumentation and avoid competition with the voice. A reversed fragment of an
+incoming song can prepare its entry; a controlled last beat/reverb tail can let
+the outgoing section settle. Swells or hits can reinforce a specific transition,
+but should not become another automatic template on every cut.
+
+Distinguish physical realism from emotional expression. Ambient detail and Foley
+need scene context. Creative sounds may intentionally express a subjective
+feeling instead of literal reality, but that choice needs a coherent purpose.
+One creator's coffee/nature metaphor is deliberate; unrelated birds or horses
+on the owner's ordinary speaking video are not justified by that example.
+Vision must keep observed physical evidence separate from proposed metaphors.
+
+Shape space and continuity. Panning can support source position and motion.
+Reverb can support environment, distance, memory or a purposeful tail. J-cuts
+introduce next-scene audio before its picture; L-cuts let previous audio linger.
+Filters can suggest a phone, muffling or an underwater perspective when supported
+by the story. None of these are universal presets to apply everywhere.
+
+Review the complete sum. Relative balance, speech clarity, clipping/headroom,
+the final loudness and playback on different speakers matter. Editable exports
+must reconstruct the approved mix. A meter pass is not creative listening approval.
+
+SOURCE MAP (times are approximate source/ASR ranges)
+
+downloaded-video.mp4 — 7:02
+  0:30–1:46: adding more effects versus intentional negative space.
+  1:46–2:46: filtered reductions instead of a jarring full dropout.
+  3:30–5:21: tonal key matching, pitch and semitone/cents controls.
+  5:21–7:02: stems, instrumentation and building the music arrangement.
+
+downloaded-video (1).mp4 — 16:18
+  4:24–5:24: emotional foundation and five functional audio categories.
+  5:24–6:48: restructuring the song to fit the editorial arc.
+  6:48–8:14: a personally meaningful voice line as the narrative spine.
+  8:14–11:22: compatible tonal layers, melodic responses and transitions.
+  12:18–13:58: relevant regular effects versus the emotional foundation.
+  13:58–15:49: camera reactions and nostalgic reverb tails.
+
+downloaded-video (2).mp4 — 8:22
+  1:13–3:59: key compatibility and reshaping the register/feeling.
+  3:59–5:45: song-derived reverse entrances and deliberate releases.
+  5:45–7:57: quiet environmental detail and the mute-comparison test.
+
+downloaded-video (3).mp4 — 10:36
+  0:35–2:46: speech/music priorities, ambience, physical/creative effects.
+  3:09–4:31: contrast and intentional nonliteral sound design.
+  5:50–7:00: panning and J/L cuts.
+  7:01–8:51: reverb, spectral space and perspective filtering.
+  8:49–10:28: summed mix, clipping, playback review and variable density.
+
+downloaded-video (4).mp4 — 7:22
+  0:33–2:05: complementary frequency layers and a speech pocket in music.
+  2:05–3:51: choosing a coherent project palette instead of a generic set.
+  3:51–4:44: emotional realism and the deliberate coffee/nature metaphor.
+  4:44–7:17: prepared song entrances, reverb endings and optional accent layers.
+
+PERSISTENT KNOWLEDGE AND MODEL CONNECTION
+
+Thirty cards are saved in hinglish_app/knowledge/sound_design_teaching.json.
+Each records principle, when, how, avoid and source timestamps. Full archived
+videos, complete automatic transcripts, measurements and review frames remain
+under library/reelmimic/sound/<source-hash>/tutorial. Earlier short references,
+the selected E7 sample and owner preferences are preserved.
+
+The local assistant's existing per-request creative knowledge catalogue contains
+a concise teaching entry. Detailed card retrieval is shared by Sound Brain,
+the sound scene Vision requests and composition policy. Context-relevant cards
+are selected instead of inserting all 50 minutes into every model prompt; the
+complete knowledge remains saved. Full creator guidance is kept.
+
+Sound generation launches a fresh Python worker (hinglish_app/server.py), so
+the next new Sound Design job reads the updated Brain/Vision code. No running
+generation is restarted, no browser/editor is opened and no service restart is
+required for that next job. Already-running worker prompts stay unchanged.
+
+Text embedding and CLAP models receive the creative planner's contextual queries
+and actual audio-matching inputs; their weights are unchanged. Speech recognition,
+prosody, separation and the deterministic mix continue their factual jobs. Teaching
+prose is not used to invent words or alter measured sound facts. Saved knowledge
+is not fine-tuning and does not grant arbitrary shell/browser or advertised tools.
+
+LIMITS AND VALIDATION
+
+All five original-audio transcripts were completed locally and read. All 18
+10-second-sample sheets (301 images) and five selected full-resolution frames
+were reviewed. Every source frame was decoded for change measurements (72,101),
+but this is not every-frame human audiovisual listening or exact identification
+of hidden source layers. ASR wording and segment times can be imperfect.
+
+Twenty-eight checks cover retrieval, source ranges, planner/Vision request
+configuration, creator/schema/image preservation and existing memory/composition
+behavior. They do not claim a new real-app sound output or local-model learning
+inference receipt. No new render or native editor validation was requested here.
+
+Learning these concepts does not implement missing automatic key detection,
+pitch/filter automation, music-stem arrangement or other unsupported processing.
+The current repeated SPEECH_MOTIFS and limited music catalogue still need their
+separate implementation work. Do not claim that the generator is creatively
+fixed merely because its reference knowledge improved. Tutorial advertisements
+were treated as source material, not instructions to buy or install products.
+
+Machine evidence: output/sound-tutorial-study-20261024/completion.json.

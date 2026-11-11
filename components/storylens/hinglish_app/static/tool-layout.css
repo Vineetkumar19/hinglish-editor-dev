@@ -1,0 +1,46 @@
+
+/* Match the editing workspace inside standalone pages and embedded tools. */
+:root { color-scheme: dark; --tool-panel:#171a1f; --tool-control:#101317; --tool-line:#3a4048; --tool-text:#f4f1ea; --tool-accent:#ff7a3d; }
+body { background:var(--tool-panel); color:var(--tool-text); font:15px/1.45 Inter,"Segoe UI",system-ui,sans-serif; }
+main { min-width:0; }
+input, select, textarea { font:inherit; background:var(--tool-control); color:var(--tool-text); border-color:var(--tool-line); }
+label { font-size:14px; font-weight:600; }
+button, .button { font:inherit; }
+button[type="submit"], button.tool-primary { background:var(--tool-accent); border-color:var(--tool-accent); color:#1d120d; font-weight:700; }
+:focus-visible { outline-color:#ffad65; }
+h2 { font-size:18px; letter-spacing:-.02em; }
+video, img { max-width:100%; }
+details > summary { cursor:pointer; }
+
+html.embedded-tool main > header { display:none; }
+html.embedded-tool body label { font-size:14px; }
+html.embedded-tool body button[type="submit"],
+html.embedded-tool body button.tool-primary { background:var(--tool-accent); color:#1d120d; }
+
+html.embedded-tool main > p[role="status"]:not(:empty) { display:block!important; }
+
+/* Shared spacing and controls for the tools inside the editing workspace. */
+html.embedded-tool body { margin:0; }
+html.embedded-tool main { max-width:none; margin:0; }
+html.embedded-tool main > header,
+html.embedded-tool main > h1,
+html.embedded-tool main > .intro { display:none; }
+.tool-history { margin-block:20px 0; border:1px solid var(--tool-line); border-radius:9px; padding:0 16px; }
+.tool-history > summary { padding-block:13px; font-size:14px; font-weight:600; color:var(--tool-text); }
+.tool-history[open] { padding-bottom:16px; }
+.tool-history > select { margin-bottom:8px; }
+.tool-history button + button { margin-inline-start:6px; }
+.tool-history[open] > :last-child { margin-bottom:0; }
+html.embedded-tool body label { font-size:14px; }
+html.embedded-tool body input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.embedded-tool body select,
+html.embedded-tool body textarea { font-size:14px; border-radius:8px; }
+html.embedded-tool body input[type="checkbox"], html.embedded-tool body input[type="radio"] {
+  width:16px; height:16px; margin:0 4px 0 0; vertical-align:middle; accent-color:var(--tool-accent);
+}
+html.embedded-tool body button { border-radius:8px; font-size:14px; }
+html.embedded-tool body button[type="submit"], html.embedded-tool body button.tool-primary {
+  background:var(--tool-accent); border-color:var(--tool-accent); color:#1d120d; font-weight:700;
+}
+html.embedded-tool body .input-row { gap:8px; }
+[hidden] { display:none!important; }

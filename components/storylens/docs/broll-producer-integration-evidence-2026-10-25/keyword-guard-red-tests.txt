@@ -1,0 +1,33 @@
+test_actual_negative_keyword_is_returned_to_model_before_acceptance (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_actual_negative_keyword_is_returned_to_model_before_acceptance) ... ok
+test_actual_negative_query_is_checked_even_when_keyword_is_physical (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_actual_negative_query_is_checked_even_when_keyword_is_physical) ... ok
+test_closed_shops_physical_state_remains_allowed (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_closed_shops_physical_state_remains_allowed) ... ok
+test_final_receipt_validates_repaired_search_not_three_stale_explanations (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_final_receipt_validates_repaired_search_not_three_stale_explanations) ... FAIL
+test_observed_raw_model_fixture_is_preserved_verbatim (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_observed_raw_model_fixture_is_preserved_verbatim) ... ok
+test_physical_search_with_observed_absence_explanation_needs_no_retry (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_physical_search_with_observed_absence_explanation_needs_no_retry) ... FAIL
+
+======================================================================
+FAIL: test_final_receipt_validates_repaired_search_not_three_stale_explanations (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_final_receipt_validates_repaired_search_not_three_stale_explanations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_keyword_guard_regression.py", line 103, in test_final_receipt_validates_repaired_search_not_three_stale_explanations
+    self.assertEqual(report['final_hard'], 0,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+                     'Historical failures remain in tries, not as duplicate final errors.')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 0 : Historical failures remain in tries, not as duplicate final errors.
+
+======================================================================
+FAIL: test_physical_search_with_observed_absence_explanation_needs_no_retry (tests.test_broll_keyword_guard_regression.KeywordGuardRegressionTests.test_physical_search_with_observed_absence_explanation_needs_no_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_keyword_guard_regression.py", line 71, in test_physical_search_with_observed_absence_explanation_needs_no_retry
+    self.assertEqual(llm.json.call_count, 1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+                     'A valid physical query must not be retried for its explanation.')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 1 : A valid physical query must not be retried for its explanation.
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.267s
+
+FAILED (failures=2)

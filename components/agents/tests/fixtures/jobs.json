@@ -1,0 +1,82 @@
+[
+  {
+    "id": "j1",
+    "title": "Backend Engineer (Python)",
+    "company": "Zerodha",
+    "location": "Bengaluru, hybrid",
+    "url": "https://zerodha.example/careers/1",
+    "apply_url": "https://zerodha.example/careers/1/apply",
+    "salary_min": 2800000,
+    "salary_max": 4200000,
+    "salary_currency": "INR",
+    "contact_email": "careers@zerodha.example",
+    "description": "We are hiring a backend engineer to work on our order management system. You will design Python and Go services handling high throughput trading flows, improve our PostgreSQL schemas, write unit tests and take part in code review. Requirements: 0-2 years building production backend systems, strong SQL, experience with Docker and CI/CD pipelines. Benefits include health insurance and provident fund. We are an equal opportunity employer. Apply through our careers portal."
+  },
+  {
+    "id": "j2",
+    "title": "Full Stack Developer",
+    "company": "Freshworks",
+    "location": "Chennai",
+    "url": "https://freshworks.example/jobs/2",
+    "apply_url": "https://freshworks.example/jobs/2/apply",
+    "salary_min": 1800000,
+    "salary_max": 3000000,
+    "salary_currency": "INR",
+    "contact_email": "talent@freshworks.example",
+    "description": "Join our product team building customer-facing web applications. Stack is React and TypeScript on the front end with Node.js and PostgreSQL behind it. You will own features end to end, write tests, review code and help improve our CI/CD pipeline. We expect 0-2 years of professional experience. Hybrid working from Chennai. Benefits include health insurance and gratuity. Apply via our careers website. Freshers welcome to apply."
+  },
+  {
+    "id": "j3",
+    "title": "Data Entry Executive - Work From Home",
+    "company": "Reputed MNC Company",
+    "location": "Remote",
+    "url": "https://scam.example/1",
+    "contact_email": "hr.recruitment2026@gmail.com",
+    "description": "Urgent requirement! Work from home, anyone can apply, no experience needed. Earn Rs 3000 per day guaranteed. Pay a registration fee of Rs 750 to confirm your seat. Limited seats left, apply within 24 hours. Contact us on WhatsApp 9876543210 and the interview will be conducted on Telegram chat immediately."
+  },
+  {
+    "id": "j4",
+    "title": "Software Engineering Intern",
+    "company": "GrowthCo",
+    "location": "Remote",
+    "url": "https://growthco.example/3",
+    "salary_min": 9000000,
+    "salary_currency": "INR",
+    "contact_email": "jobs@growthco.example",
+    "description": "Great opportunity for the right candidate. We need an intern with 12 years of experience. Apply now to join our team. This is a great opportunity. Apply now."
+  },
+  {
+    "id": "j5",
+    "title": "Senior Python Engineer",
+    "company": "Razorpay",
+    "location": "Bengaluru",
+    "url": "https://razorpay.example/careers/9",
+    "apply_url": "https://razorpay.example/careers/9/apply",
+    "salary_min": 3500000,
+    "salary_max": 5500000,
+    "salary_currency": "INR",
+    "contact_email": "careers@razorpay.example",
+    "description": "Own the payments reconciliation platform. You will build Python services, model data in PostgreSQL, use Redis for caching, run services in Docker on Kubernetes, and mentor engineers. Requirements: 6+ years of backend experience, strong debugging skills, familiarity with REST API design. Benefits: health insurance, ESOPs, provident fund. We are an equal opportunity employer. Apply through our careers portal."
+  },
+  {
+    "id": "j6",
+    "title": "Accounts Officer",
+    "company": "Global Finance Ltd",
+    "location": "Mumbai",
+    "url": "https://scam2.example/2",
+    "contact_email": "globalfinancehr@yahoo.com",
+    "description": "Send your Aadhaar and PAN card to confirm your application. Assured placement guaranteed. Selection process will be conducted on WhatsApp chat only. Immediate joining bonus available. Pay a processing fee to secure the position today."
+  },
+  {
+    "id": "j7",
+    "title": "Junior Python Developer",
+    "company": "Nexa Tech Solutions",
+    "location": "Remote",
+    "url": "https://nexatech.example/careers/7",
+    "salary_min": 1800000,
+    "salary_max": 2400000,
+    "salary_currency": "INR",
+    "contact_email": "hr.nexatech@gmail.com",
+    "description": "Freshers welcome. We are hiring Junior Python Developers to work on Django and REST APIs for our client projects. Work from home. Selected candidates must pay a refundable registration and training fee of Rs 4500 before onboarding. All interviews are conducted only on WhatsApp or Telegram. Please share your Aadhaar card and PAN card along with a cancelled cheque to confirm your seat. Immediate joining, limited seats available, earn up to 80000 per month from day one."
+  }
+]

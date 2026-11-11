@@ -1,0 +1,14 @@
+# Owner sound-pack refresh — 7 November 2026
+
+Source: D:\Editing\Sound Packs. The ten top-level folders contain 1,892 real supported audio files, excluding AppleDouble resource forks. SHA256 comparison with the prior owner-pack import found 605 recordings missing from Storylens: 50 Cinetools Cinematic Tension Horror, 327 W. A. Production What About Cinematic FX, and 228 Transition Sound Effects. All 605 were copied into library/owner-sound-packs/sfx with source and hash provenance. The previous manifest is retained as import-manifest.before-2026-11-07.json.
+
+The transition pack has 114 cue names, each supplied at 48 kHz and 96 kHz. Each decoded pair was compared at 16 kHz: minimum correlation 0.99999989 and maximum difference of one sample in length. Both source/imported files are retained, while the 96 kHz alternate is excluded from Sound Design suggestions. This adds 491 distinct selectable cue designs, rather than 605 near-duplicate choices.
+
+Pack folders and cue names drive initial sound-family labels. Of the 605 imported files, 169 are labelled impact, 210 riser, 132 whoosh, 80 suspense, 12 glitch, and 2 cute. These are retrieval hints, not an acoustic judgment of every full recording. The receipt new-packs-2026-11-07-curation.json lists each source, hash, category and alternate-format decision.
+
+The newest folder, 640CinematicSoundPack, has 102 WAVs. All 102 SHA256 hashes match recordings already imported from an earlier archive, so no duplicate audio bytes were added. Its sidecars now provide better search categories. Twenty-three clearly named instrumental cues or stems have same-volume hardlinks under library/owner-sound-packs/music/general; the originals and provenance remain. The other roles are 32 suspense, 23 impact, 12 riser, 5 glitch, 5 whoosh, 1 ambience, and 1 Foley. Earshot analysed the first eight seconds of three recordings, with results in 640-cinematic-acoustics.json; this is not a full acoustic audit of the pack.
+
+Storylens's actual hinglish_sound.library.scan() index now reads 1,773 selectable owner-pack sound effects and 23 new music candidates. It preserves both audio formats on disk, reads curated categories and tags even from cached scans, and decodes the transition WAVs whose metadata uses invalid UTF-8. The 84 pre-existing unreadable AppleDouble resource forks remain skipped. The focused curation and relevance suite passed 25 tests. Source/import receipts are in library/owner-sound-packs.
+
+This is catalogue integration for the next sound job, not model-weight training, full listening approval, or a completed video mix. The main Storylens service was not listening on port 8765, so the browser workflow was not validated in this session. Pack-specific publishing rights remain subject to the source licences; the importer does not invent licences.
+

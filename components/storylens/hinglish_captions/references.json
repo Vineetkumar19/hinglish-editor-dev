@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "source": "Creator-confirmed spellings from Storylens feedback; reference names are not claims that someone appears in a clip.",
+  "cricket_entities": ["Mumbai Indians", "Kieron Pollard", "Michael Hussey"],
+  "recognition_examples": [
+    {"heard": "Mumbai Indies", "canonical": "Mumbai Indians"},
+    {"heard": "Karen Pollard", "canonical": "Kieron Pollard"},
+    {"heard": "Michael Kessy", "canonical": "Michael Hussey"},
+    {"heard": "Michael Heslip", "canonical": "Michael Hussey"}
+  ],
+  "roman_spellings": ["kaafi"]
+}

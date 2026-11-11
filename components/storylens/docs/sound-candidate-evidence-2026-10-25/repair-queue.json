@@ -1,0 +1,31 @@
+{
+  "state": "proposed_not_authorized",
+  "feature_code_changed": false,
+  "tests_changed": false,
+  "tests_rerun": false,
+  "delivered_isolated_checks": 37,
+  "repairs": [
+    {
+      "id": "checkpoint-semantic-fields",
+      "owner": "Sound feature after explicit follow-up",
+      "status": "queued_proposal_only"
+    },
+    {
+      "id": "telemetry-metadata-redaction",
+      "owner": "Sound/suite sanitizer ownership after explicit follow-up",
+      "status": "queued_proposal_only"
+    },
+    {
+      "id": "explicit-model-locality-validation",
+      "owner": "suite/shared runtime",
+      "status": "queued_proposal_only"
+    }
+  ],
+  "fresh_integration_workaround": {
+    "checkpoint": null,
+    "allow_live_ranking": false,
+    "telemetry_metadata": "scalar timing/cache/attempt/status and opaque non-secret IDs only"
+  },
+  "model_or_native_acceptance": "pending suite resource reservation",
+  "details": "proposed-repair-cycle.md"
+}

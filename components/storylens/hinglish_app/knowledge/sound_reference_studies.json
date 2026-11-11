@@ -1,0 +1,90 @@
+{
+  "enabled": true,
+  "version": 1,
+  "date": "2026-10-24",
+  "kind": "Persistent reviewed reference knowledge, not weight training",
+  "rules": [
+    "Plan the current script/delivery emotional arc first: funny, mock-serious, genuinely serious, reflective, energetic. Do not choose the same music merely because two scripts are both comedic.",
+    "Choose a timed section state before individual assets: voice only, music only, effects only, voice+music, voice+effects, full layered mix, intentional quiet. States may change within one video; no mandatory sound every second.",
+    "Assign each layer a distinct audible purpose: low weight, transient definition, tonal/emotional response, motion texture, space/decay or music. A pop+bell+tail trio is not a default for every word.",
+    "Vary timbre, rhythm, duration, register, intensity and layer roles, not just filenames. Repetition is justified only for a recurring story motif with development. Do not swap random sounds merely for novelty.",
+    "Use humorous stings/reactions only at actual punchlines; reserve serious tonal tension/low impacts for motivated moments. Never replace unavailable comic/serious material with an unrelated UI click, bird, horse or leaves.",
+    "Music entry, exit, passage, ducking, pause and return are compositional choices. A continuous bed is not compulsory. A music dropout is distinct from full digital silence.",
+    "Dense clusters belong around meaningful reveals/cuts/actions with complementary layers and offset starts; five starts in two seconds is not a per-window quota or proof of five simultaneous layers.",
+    "Anchor precise transients to a measured word/edit/action time. Sparse Vision observations describe setting only. Keep intentional tails across cuts where coherent; do not restart all layers on every cut.",
+    "References teach decisions, not a new rigid timestamp template. Apply their principles to new words, not their source timestamps, script, logo, watermarks or incidental objects.",
+    "The supplied three references are cinematic/automotive/editor-timeline examples, not verified comedy examples. Preserve the earlier E7/e2/e5 and owner comedy direction; do not invent humorous sounds as observations from these new samples.",
+    "CLAP similarity labels and Demucs residuals are approximate; do not call them exact isolated SFX, probabilities, layer counts or human listening. Automatic ASR found no reliable narration here. Local Qwen Vision cannot hear a video from its images alone.",
+    "Owner correction 25 October 2026: infer the actual subject, source activity and environment for each new video without waiting for owner sound-by-sound instructions. Prioritize supported scene sound layers before optional word ticks. A bike, water park, kitchen and indoor dialogue require different sound worlds.",
+    "Owner correction 25 October 2026: natural sound development controls duration, not spoken word length. Actual clicks can remain brief; joyful tonal stings, swells, sliding or resonant tails can last 1–3 seconds or longer. Sustain supported engines, surfaces and water ambience through the scene; do not stretch a short click or invent an unseen action.",
+    "Owner correction 25 October 2026: inspect across library folder labels when matching physical sound sources. A water recording may live in Foley or another folder; preserve subject checks and audio evaluation. Do not substitute a camera click, horse, bird or synthetic drone when a matching physical sound is unavailable."
+  ],
+  "reference_summaries": [
+    {
+      "name": "downloaded-video",
+      "sha256": "e9edb0c1f275e051641bf996dd560730e4b80dab1e37dcff06bcad287e17e0e9",
+      "frames": 388,
+      "seconds": 12.9333,
+      "summary": "Editor timeline under a creator montage. Distinct short clips above longer staggered beds. Measured full-mix median drops from about -16 dB in the opening to -42 dB at 8–10.5s; late isolated activity returns. Composite audio resembles opening whooshes/low hits, a reverse swell around 4s, low decays and camera-like transients later. Identity unverified."
+    },
+    {
+      "name": "downloaded-video (1)",
+      "sha256": "7f35cb73152ae3559a41e543ebfba0be69105817e33343a228e9da3531965315",
+      "frames": 219,
+      "seconds": 8.76,
+      "summary": "Automotive montage with a visible multitrack layout: door/handle, departing car, taillight/wheel/exhaust/mirror/badge details. Dense staggered short clips sit over longer textures; timings do not reuse one ensemble at every shot. Approximate audio shifts from pulsing/rough rhythmic texture to a stronger low-impact ending at 6–8s. No verified separate engine/door source files."
+    },
+    {
+      "name": "downloaded-video (2)",
+      "sha256": "18743eb32bf7598868300400bff69422f624cd5d645584ef5212b673d4aef9d0",
+      "frames": 720,
+      "seconds": 30.03,
+      "summary": "Cinematic SFX showcase with city/car/silhouette/subway shots, then waveform/title cards from about 17.5s. Relative quiet at 3.8–6.55s (-34.5 dB median), sustained string/score-like composite near 11–19s, stronger low-impact/pulse clusters around 20–24s and 26–28s, then decay. Exact layers and whether a tonal texture is music or designed SFX remain uncertain."
+    }
+  ],
+  "available_analysis": [
+    {
+      "tool": "Frame/audio timeline measurement",
+      "status": "installed and used",
+      "entry": "python -m hinglish_sound.reference_study --source VIDEO --output FOLDER --separate",
+      "limits": "Read-only analysis; no arbitrary shell tool is exposed to the assistant."
+    },
+    {
+      "tool": "CLAP + Demucs + Whisper",
+      "status": "installed and used",
+      "limits": "Approximate sound matching, vocal estimate and transcription; not a general audio-language model."
+    },
+    {
+      "tool": "Qwen2.5-Omni-3B",
+      "status": "researched, not installed or callable",
+      "source": "https://huggingface.co/Qwen/Qwen2.5-Omni-3B",
+      "limits": "Supports audio/video reasoning and text-only return_audio=False; disable_talker saves output memory. Local fit/licence not validated; do not promise availability."
+    },
+    {
+      "tool": "Audio Flamingo 3",
+      "status": "researched, not installed or callable",
+      "source": "https://huggingface.co/nvidia/audio-flamingo-3-hf",
+      "limits": "Official model covers speech/sounds/music but states non-commercial research only. Not enabled as a production tool."
+    },
+    {
+      "tool": "Clipwing Real SFX",
+      "status": "installed locally; measured picture-motion anchors offered before Qwen sound planning",
+      "source": "https://github.com/Clipwing/skills/tree/edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e/skills/real-sfx",
+      "limits": "A picture change is only a timing candidate. Qwen decides whether it needs sound and what physical or editorial source is justified; no fixed cue pattern or automatic click on every cut."
+    },
+    {
+      "tool": "Earshot",
+      "status": "installed locally; bounded acoustic descriptions supplied to Qwen before it selects files",
+      "source": "https://github.com/Leonxlnx/earshot",
+      "limits": "Acoustic rankings are estimates, not a second-model veto or proof of scene relevance. Qwen owns the first timeline and alternatives; owner reviews."
+    },
+    {
+      "tool": "Openverse",
+      "status": "bounded public API fallback for missing local sounds",
+      "source": "https://api.openverse.org/v1/",
+      "limits": "Only licensed direct files from approved media hosts are imported with attribution. A search result alone is not a usable sound or permission to ignore per-file terms."
+    }
+  ],
+  "generator_status": "Study and scoped knowledge connection only. Existing fixed SPEECH_MOTIFS, asset ranking and small music catalogue have not yet been redesigned or validated with a new output. Do not tell the owner repetition is fixed.",
+  "evidence": "output/sound-reference-study-20261024"
+}

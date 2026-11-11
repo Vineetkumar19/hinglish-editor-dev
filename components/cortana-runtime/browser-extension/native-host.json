@@ -1,0 +1,9 @@
+{
+  "name": "com.cortana.workspace",
+  "description": "Cortana local workspace broker",
+  "path": "D:\\Cortana\\browser-extension\\native-host.cmd",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://dhoipjbmkaifapkmfegihklloeodlooh/"
+  ]
+}

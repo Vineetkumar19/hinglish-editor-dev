@@ -1,0 +1,672 @@
+{
+  "script": "Log mujhe poochte hain, bhai Madurai mein nightlife kaisi hai? Nightlife? Bhai... tumhe kuch nahi pata.\n\nYahaan raat ke 10 baje ke baad zindagi ruk jaati hai. Aur main mazaak nahi kar raha.\n\nHighway pe nikal jao 10–11 baje. Street light off. Dukanein band. Log so chuke hote hain.\n\nKoi club nahi. Koi lounge nahi. Late-night cafe bhool jao. Bar? Ek dhoondh loge shayad... lekin 10 baje ke baad woh bhi nahi.\n\nToh agar tum yahaan enjoy karne aa rahe ho... toh bhai bhool jao. Yahaan enjoy ki definition thodi alag hai.\n\nIsliye toh main camera kholke Instagram pe reels bana raha hoon. Aur kya karun?",
+  "duration": 33.6333333333333,
+  "observed": [
+    {
+      "text": "लोग",
+      "start": 0,
+      "end": 0.16,
+      "probability": 0.9572490572929382
+    },
+    {
+      "text": "मुझे",
+      "start": 0.16,
+      "end": 0.34,
+      "probability": 0.9891302784283956
+    },
+    {
+      "text": "पूछते",
+      "start": 0.34,
+      "end": 0.78,
+      "probability": 0.9886278882622719
+    },
+    {
+      "text": "हैं,",
+      "start": 0.78,
+      "end": 0.94,
+      "probability": 0.9713905453681946
+    },
+    {
+      "text": "भाई",
+      "start": 0.96,
+      "end": 1.14,
+      "probability": 0.8448604941368103
+    },
+    {
+      "text": "मदुराई",
+      "start": 1.14,
+      "end": 1.52,
+      "probability": 0.8920611474249098
+    },
+    {
+      "text": "में",
+      "start": 1.52,
+      "end": 1.66,
+      "probability": 0.9985609650611877
+    },
+    {
+      "text": "night",
+      "start": 1.66,
+      "end": 1.9,
+      "probability": 0.6192340850830078
+    },
+    {
+      "text": "life",
+      "start": 1.9,
+      "end": 2.14,
+      "probability": 0.9173074960708618
+    },
+    {
+      "text": "कैसी",
+      "start": 2.14,
+      "end": 2.48,
+      "probability": 0.9962733685970306
+    },
+    {
+      "text": "है,",
+      "start": 2.48,
+      "end": 2.66,
+      "probability": 0.998906284570694
+    },
+    {
+      "text": "night",
+      "start": 2.72,
+      "end": 2.96,
+      "probability": 0.9233317375183105
+    },
+    {
+      "text": "life,",
+      "start": 2.96,
+      "end": 3.2,
+      "probability": 0.9955978989601135
+    },
+    {
+      "text": "भाई",
+      "start": 3.4,
+      "end": 3.66,
+      "probability": 0.997750186920166
+    },
+    {
+      "text": "तुम्हें",
+      "start": 3.66,
+      "end": 3.9,
+      "probability": 0.9458044370015463
+    },
+    {
+      "text": "कुछ",
+      "start": 3.9,
+      "end": 4.06,
+      "probability": 0.9988632798194885
+    },
+    {
+      "text": "नहीं",
+      "start": 4.06,
+      "end": 4.28,
+      "probability": 0.9993860840797424
+    },
+    {
+      "text": "पता,",
+      "start": 4.28,
+      "end": 4.62,
+      "probability": 0.9975404292345047
+    },
+    {
+      "text": "यहां",
+      "start": 4.76,
+      "end": 5.04,
+      "probability": 0.8815550744533539
+    },
+    {
+      "text": "10",
+      "start": 5.04,
+      "end": 5.16,
+      "probability": 0.8463653326034546
+    },
+    {
+      "text": "बजे",
+      "start": 5.16,
+      "end": 5.42,
+      "probability": 0.9588992953300476
+    },
+    {
+      "text": "के",
+      "start": 5.42,
+      "end": 5.62,
+      "probability": 0.9982101321220398
+    },
+    {
+      "text": "बाद",
+      "start": 5.62,
+      "end": 5.78,
+      "probability": 0.9967615723609924
+    },
+    {
+      "text": "सिंदगी",
+      "start": 5.78,
+      "end": 6.14,
+      "probability": 0.9522865116596222
+    },
+    {
+      "text": "रुक",
+      "start": 6.14,
+      "end": 6.3,
+      "probability": 0.8849549412727356
+    },
+    {
+      "text": "जाती",
+      "start": 6.3,
+      "end": 6.64,
+      "probability": 0.9988238096237183
+    },
+    {
+      "text": "है,",
+      "start": 6.64,
+      "end": 6.84,
+      "probability": 0.9995967745780945
+    },
+    {
+      "text": "और",
+      "start": 6.92,
+      "end": 7.2,
+      "probability": 0.9950223763783773
+    },
+    {
+      "text": "मैं",
+      "start": 7.2,
+      "end": 7.36,
+      "probability": 0.9987466931343079
+    },
+    {
+      "text": "मजाक",
+      "start": 7.36,
+      "end": 7.76,
+      "probability": 0.9168760895729064
+    },
+    {
+      "text": "नहीं",
+      "start": 7.76,
+      "end": 7.94,
+      "probability": 0.9994979858398437
+    },
+    {
+      "text": "कर",
+      "start": 7.94,
+      "end": 8.1,
+      "probability": 0.9976214170455933
+    },
+    {
+      "text": "रहा,",
+      "start": 8.1,
+      "end": 8.28,
+      "probability": 0.994026392698288
+    },
+    {
+      "text": "हाइवे",
+      "start": 8.44,
+      "end": 8.94,
+      "probability": 0.8933153918811253
+    },
+    {
+      "text": "पे",
+      "start": 8.94,
+      "end": 9.12,
+      "probability": 0.9299335479736328
+    },
+    {
+      "text": "निकल",
+      "start": 9.12,
+      "end": 9.34,
+      "probability": 0.9973463892936707
+    },
+    {
+      "text": "जाओं",
+      "start": 9.34,
+      "end": 9.58,
+      "probability": 0.9724641839663187
+    },
+    {
+      "text": "10",
+      "start": 9.58,
+      "end": 9.68,
+      "probability": 0.8750569224357605
+    },
+    {
+      "text": "-11",
+      "start": 9.68,
+      "end": 9.98,
+      "probability": 0.970856636762619
+    },
+    {
+      "text": "बजे,",
+      "start": 9.98,
+      "end": 10.18,
+      "probability": 0.9985042333602905
+    },
+    {
+      "text": "street",
+      "start": 10.34,
+      "end": 10.62,
+      "probability": 0.9648615717887878
+    },
+    {
+      "text": "light",
+      "start": 10.62,
+      "end": 10.9,
+      "probability": 0.9787246584892273
+    },
+    {
+      "text": "off,",
+      "start": 10.9,
+      "end": 11.34,
+      "probability": 0.7777985334396362
+    },
+    {
+      "text": "दुकाने",
+      "start": 11.58,
+      "end": 12.02,
+      "probability": 0.9930470585823059
+    },
+    {
+      "text": "बंद,",
+      "start": 12.02,
+      "end": 12.56,
+      "probability": 0.9020987987518311
+    },
+    {
+      "text": "लोग",
+      "start": 12.64,
+      "end": 13.12,
+      "probability": 0.9990043759346008
+    },
+    {
+      "text": "सोच",
+      "start": 13.12,
+      "end": 13.5,
+      "probability": 0.9102305024862289
+    },
+    {
+      "text": "चुके",
+      "start": 13.5,
+      "end": 13.7,
+      "probability": 0.9944299459457397
+    },
+    {
+      "text": "होते",
+      "start": 13.7,
+      "end": 13.98,
+      "probability": 0.9980929791927338
+    },
+    {
+      "text": "हैं,",
+      "start": 13.98,
+      "end": 14.28,
+      "probability": 0.9967314799626669
+    },
+    {
+      "text": "कोई",
+      "start": 14.32,
+      "end": 14.64,
+      "probability": 0.9976647347211838
+    },
+    {
+      "text": "launch",
+      "start": 14.64,
+      "end": 14.9,
+      "probability": 0.9511763453483582
+    },
+    {
+      "text": "नही",
+      "start": 14.9,
+      "end": 15.18,
+      "probability": 0.9993696957826614
+    },
+    {
+      "text": "कोई",
+      "start": 15.18,
+      "end": 15.52,
+      "probability": 0.8443221598863602
+    },
+    {
+      "text": "क्लब",
+      "start": 15.52,
+      "end": 15.84,
+      "probability": 0.827066856622696
+    },
+    {
+      "text": "नहीं",
+      "start": 15.84,
+      "end": 16.14,
+      "probability": 0.9766599416732789
+    },
+    {
+      "text": "लेट",
+      "start": 16.14,
+      "end": 16.74,
+      "probability": 0.8739291906356812
+    },
+    {
+      "text": "नाइट",
+      "start": 16.74,
+      "end": 16.94,
+      "probability": 0.9874543973377773
+    },
+    {
+      "text": "कैसे",
+      "start": 16.94,
+      "end": 17.34,
+      "probability": 0.9793368577957153
+    },
+    {
+      "text": "भूल",
+      "start": 17.34,
+      "end": 18.04,
+      "probability": 0.9580490708351135
+    },
+    {
+      "text": "जाओ",
+      "start": 18.04,
+      "end": 18.26,
+      "probability": 0.9969064593315125
+    },
+    {
+      "text": "बार",
+      "start": 18.26,
+      "end": 18.96,
+      "probability": 0.9611859917640686
+    },
+    {
+      "text": "एक",
+      "start": 18.96,
+      "end": 19.4,
+      "probability": 0.993228534857432
+    },
+    {
+      "text": "ढून",
+      "start": 19.4,
+      "end": 19.64,
+      "probability": 0.9322427749633789
+    },
+    {
+      "text": "लोगे",
+      "start": 19.64,
+      "end": 19.92,
+      "probability": 0.9813556869824728
+    },
+    {
+      "text": "शायद",
+      "start": 19.92,
+      "end": 20.3,
+      "probability": 0.9827666083971659
+    },
+    {
+      "text": "लेकिन",
+      "start": 20.3,
+      "end": 20.92,
+      "probability": 0.9965254167715708
+    },
+    {
+      "text": "10",
+      "start": 20.92,
+      "end": 21.16,
+      "probability": 0.3588238060474396
+    },
+    {
+      "text": "बजे",
+      "start": 21.16,
+      "end": 21.34,
+      "probability": 0.8581128120422363
+    },
+    {
+      "text": "के",
+      "start": 21.34,
+      "end": 21.58,
+      "probability": 0.9888449311256409
+    },
+    {
+      "text": "बाद",
+      "start": 21.58,
+      "end": 21.78,
+      "probability": 0.9860965132713317
+    },
+    {
+      "text": "वो",
+      "start": 21.78,
+      "end": 22.32,
+      "probability": 0.9772825439771017
+    },
+    {
+      "text": "भी",
+      "start": 22.32,
+      "end": 22.46,
+      "probability": 0.9942782322565714
+    },
+    {
+      "text": "नहीं",
+      "start": 22.46,
+      "end": 22.72,
+      "probability": 0.9989210486412048
+    },
+    {
+      "text": "तो",
+      "start": 22.72,
+      "end": 22.92,
+      "probability": 0.9899803797403971
+    },
+    {
+      "text": "अगर",
+      "start": 22.92,
+      "end": 23.12,
+      "probability": 0.9994900226593018
+    },
+    {
+      "text": "तुम",
+      "start": 23.12,
+      "end": 23.26,
+      "probability": 0.9990725636482238
+    },
+    {
+      "text": "यहाँ",
+      "start": 23.26,
+      "end": 23.48,
+      "probability": 0.9805686275164286
+    },
+    {
+      "text": "इंजॉय",
+      "start": 23.48,
+      "end": 24.0,
+      "probability": 0.910360798239708
+    },
+    {
+      "text": "करने",
+      "start": 24.0,
+      "end": 24.34,
+      "probability": 0.9993072003126144
+    },
+    {
+      "text": "आ",
+      "start": 24.34,
+      "end": 24.46,
+      "probability": 0.9994503855705261
+    },
+    {
+      "text": "रहे",
+      "start": 24.46,
+      "end": 24.68,
+      "probability": 0.9838454276323318
+    },
+    {
+      "text": "हो",
+      "start": 24.68,
+      "end": 24.76,
+      "probability": 0.9936207830905914
+    },
+    {
+      "text": "तो",
+      "start": 24.76,
+      "end": 25.5,
+      "probability": 0.9933576385180155
+    },
+    {
+      "text": "भाई",
+      "start": 25.5,
+      "end": 25.56,
+      "probability": 0.904990804195404
+    },
+    {
+      "text": "भूल",
+      "start": 25.56,
+      "end": 25.92,
+      "probability": 0.9997359395027161
+    },
+    {
+      "text": "जाओ",
+      "start": 25.92,
+      "end": 26.1,
+      "probability": 0.9987239599227905
+    },
+    {
+      "text": "यहाँ",
+      "start": 26.1,
+      "end": 26.64,
+      "probability": 0.9960351983706156
+    },
+    {
+      "text": "इंजॉय",
+      "start": 26.64,
+      "end": 27.04,
+      "probability": 0.9981740340590477
+    },
+    {
+      "text": "की",
+      "start": 27.04,
+      "end": 27.22,
+      "probability": 0.8980194330215454
+    },
+    {
+      "text": "डेफिनिशन",
+      "start": 27.22,
+      "end": 27.66,
+      "probability": 0.9399146166714755
+    },
+    {
+      "text": "थोड़ी",
+      "start": 27.66,
+      "end": 28.04,
+      "probability": 0.9984192401170731
+    },
+    {
+      "text": "अलग",
+      "start": 28.04,
+      "end": 28.4,
+      "probability": 0.9983582615852356
+    },
+    {
+      "text": "है",
+      "start": 28.4,
+      "end": 28.48,
+      "probability": 0.9937054216861725
+    },
+    {
+      "text": "इसलिए",
+      "start": 28.48,
+      "end": 29.1,
+      "probability": 0.9837039368493217
+    },
+    {
+      "text": "तो",
+      "start": 29.1,
+      "end": 29.24,
+      "probability": 0.9930318792661031
+    },
+    {
+      "text": "मैं",
+      "start": 29.24,
+      "end": 29.36,
+      "probability": 0.9959404269854227
+    },
+    {
+      "text": "यहाँ",
+      "start": 29.36,
+      "end": 29.56,
+      "probability": 0.9361043175061544
+    },
+    {
+      "text": "कैमरा",
+      "start": 29.56,
+      "end": 29.92,
+      "probability": 0.95804443359375
+    },
+    {
+      "text": "खोल",
+      "start": 29.92,
+      "end": 30.12,
+      "probability": 0.9920188784599304
+    },
+    {
+      "text": "कर",
+      "start": 30.12,
+      "end": 30.28,
+      "probability": 0.6323527991771698
+    },
+    {
+      "text": "इंस्ट्राम",
+      "start": 30.28,
+      "end": 30.66,
+      "probability": 0.7888069342483174
+    },
+    {
+      "text": "बे",
+      "start": 30.66,
+      "end": 30.9,
+      "probability": 0.7106934587160746
+    },
+    {
+      "text": "रील",
+      "start": 30.9,
+      "end": 31.22,
+      "probability": 0.8712442368268967
+    },
+    {
+      "text": "बना",
+      "start": 31.22,
+      "end": 31.5,
+      "probability": 0.9993465840816498
+    },
+    {
+      "text": "रहा",
+      "start": 31.5,
+      "end": 31.62,
+      "probability": 0.9984130710363388
+    },
+    {
+      "text": "हूँ",
+      "start": 31.62,
+      "end": 31.82,
+      "probability": 0.9662269234657288
+    },
+    {
+      "text": "और",
+      "start": 31.82,
+      "end": 32.28,
+      "probability": 0.9735947052637736
+    },
+    {
+      "text": "क्या",
+      "start": 32.28,
+      "end": 32.48,
+      "probability": 0.9343318194150925
+    },
+    {
+      "text": "ही",
+      "start": 32.48,
+      "end": 32.68,
+      "probability": 0.999281108379364
+    },
+    {
+      "text": "करूँ",
+      "start": 32.68,
+      "end": 33.04,
+      "probability": 0.9899778068065643
+    }
+  ]
+}

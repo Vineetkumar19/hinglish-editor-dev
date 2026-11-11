@@ -1,0 +1,100 @@
+REA installation and Epidemic inspection — 24 October 2026
+
+Requested scope
+The owner requested morluto/rea downloaded, registered with Codex, then used
+to inspect Epidemic. After the earlier browser restriction caused an automatic
+approval rejection, the owner explicitly authorized opening Epidemic for this
+inspection. This does not restart the older Storylens render/validation work.
+
+Installed
+- Source: tools/rea, commit af3b039d31d56017169608bb85ab65fde6a0aa0d.
+- Runtime: tools/rea-runtime/node_modules/rea-agents, pinned version 6.7.0.
+- Isolated official Node runtime: tools/rea-runtime/node-v24.22.1-win-x64.
+- Codex registration: C:/Users/Vineet Kumar/.codex/config.toml, mcp_servers.rea.
+- Existing configuration preserved; backup: config.toml.rea.backup.
+- Skill: C:/Users/Vineet Kumar/.codex/skills/reverse-engineer-anything.
+  Installed from release tag rea-agents-6.7.0 using the Codex skill installer.
+- No native decompiler provider or optional Frida was installed. Website
+  observation does not require those providers.
+
+Verified
+The production stdio MCP doctor initialized REA 6.7.0, enumerated all 207 tools
+and 6 prompts, and successfully executed its target-free binary_session call.
+Evidence: tools/rea-runtime/mcp-doctor.json. The current chat did not acquire
+the newly registered tools dynamically; refresh/restart Codex to load the MCP
+registration. REA's CLI is usable now and was used for the capture below.
+
+Live observation
+The in-app browser opened https://www.epidemicsound.com/studio/ and was
+redirected to login.epidemicsound.com. No credentials were entered. The owner's
+subsequently supplied https://www.epidemicsound.com/music/featured/ redirected
+to https://www.epidemicsound.com/music/ and showed Create free account.
+The inspected browser session therefore has not reached the authenticated editor.
+
+REA captured https://www.epidemicsound.com/tools/studio/ in a temporary,
+headless browser. Its DOM/accessibility and selected network metadata capture
+completed in 6.7 seconds: 78 requests, 78 responses, 78 request-finished events,
+zero dropped events. Its owned browser process was terminated during cleanup.
+No cookies/storage, response bodies or header values were requested. This is
+public-page observation, not recovery of the private matching implementation.
+Evidence: output/sound-research/rea-public-scenario.json and
+output/sound-research/rea-public-capture.json.
+
+Public architecture findings and Storylens implications
+1. Studio describes video analysis followed by music/effects selection and an
+   editable draft. Alternatives, trims, movement and fades remain user controls.
+   Source: https://www.epidemicsound.com/tools/studio/
+2. The official custom soundtracking guide describes LLM analysis feeding
+   semantic search, previews, length adaptation or highlight passage selection.
+   This supports Storylens's separate planning, retrieval and measured placement.
+   Source: https://developers.epidemicsound.com/docs/soundtracking-with-llm/
+3. The current public Soundtracking Beta API supports MUSIC only, requires API
+   authentication and workspace AI credits, and uses create/upload/poll/result
+   jobs. Its documented result is mixed media, not evidence of editable SFX
+   placement or access to Studio's internal matching model. Keep local effects
+   planning separate; do not advertise the public API as full Studio integration.
+   Source: https://developers.epidemicsound.com/docs/soundtracking/
+4. The API's free plan is described as prototyping access. This does not establish
+   free production use or free soundtracking credits. No account, subscription,
+   API job, catalogue download or video upload was performed.
+   Source: https://developers.epidemicsound.com/docs/getting-started/
+
+Remaining boundary
+Authenticated Studio interaction is pending sign-in in the inspected browser.
+No private server code, matching weights or catalogue were extracted. Storylens
+application code, running jobs and accepted caption renderers were not changed
+for this installation. Sound Design's earlier live-quality limitations remain.
+
+Chrome follow-up — owner explicitly requested their existing Chrome session
+The Chrome extension exposed an already signed-in Epidemic tab. Opened Studio
+through its observed link and reached /studio/sample-starter?view=new-video.
+The login blocker above applied only to the separate in-app browser and is now
+resolved by using Chrome. Do not request the owner's Gmail password or another
+in-app sign-in for this inspection.
+
+The live Studio page shows a free account with 2,500 credits, a video upload
+panel, optional project description, and a disabled Create soundtrack action
+until a video is supplied. Its displayed launch offer is 2,500 credits per new
+soundtracked video. No credits were spent and no file was uploaded. The loaded
+Studio Welcome sample exposes an 18-second multi-track timeline with music,
+whooshes, clicks, ambience and Foley, plus clip start/duration labels, track
+mute/solo controls and export. This confirms editor access and observable sample
+structure, not new-generation quality or the private selection algorithm.
+
+This authenticated access used the Chrome browser extension; REA's previous
+capture was the separate public-page capture. Do not claim REA attached to
+Chrome's authenticated debugging session or copied its cookies.
+
+Authenticated client-code investigation completed — 24 October 2026
+REA subsequently analyzed 26 observed/referenced Studio client scripts; 25 were
+parsed and one hit the worker heap limit. Recovered evidence covers suggestion
+sections/candidates, source offsets/hitpoints, layered timeline placement,
+music/SFX/dialogue buses, dialogue-keyed ducking and export orchestration.
+This supersedes only the earlier pending-inspection status, not the private
+model boundary or application-validation limits. The private matching model
+remains unknown. See docs/epidemic-studio-client-findings-2026-10-24.txt and
+output/sound-research/epidemic-studio/research-index.json. Research guidance was
+added to the existing local-model reference memory with prior guidance retained.
+No new soundtrack generation, live mixing/export validation or product feature
+implementation was performed. Interactive clip selection was blocked by
+automatic approval review; the analysis continued through read-only evidence.

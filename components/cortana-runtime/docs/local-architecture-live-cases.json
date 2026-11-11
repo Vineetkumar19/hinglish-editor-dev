@@ -1,0 +1,666 @@
+{
+  "version": 1,
+  "status": "not_live_verified",
+  "cases": [
+    {
+      "id": "R01",
+      "group": "routine",
+      "command": "Open Chrome",
+      "expected": "Chrome visible; existing profile preserved",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R02",
+      "group": "routine",
+      "command": "Open Brave",
+      "expected": "Brave visible; independent route verified",
+      "status": "partial",
+      "observed": "A prior typed Cortana command opened the installed Brave window. The current spoken replay did not provide an exact transcript and receiving-window pair.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md"]
+    },
+    {
+      "id": "R03",
+      "group": "routine",
+      "command": "Open Calculator",
+      "expected": "Calculator visible",
+      "status": "passed",
+      "observed": "Cortana captured the spoken command through the Realtek microphone, reported Opening calculator, and the Windows Calculator window was visible.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "R04",
+      "group": "routine",
+      "command": "Open Notepad",
+      "expected": "Notepad visible; unsaved work preserved",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R05",
+      "group": "routine",
+      "command": "Open VS Code",
+      "expected": "VS Code visible; existing projects preserved",
+      "status": "partial",
+      "observed": "VS Code opened the exact Terraform workspace during restore. The separate spoken launch was misheard as Open Business Studio Code.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md"]
+    },
+    {
+      "id": "R06",
+      "group": "routine",
+      "command": "Chrome kholo",
+      "expected": "Correct browser opens from Hinglish",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R07",
+      "group": "routine",
+      "command": "कैलकुलेटर खोलो",
+      "expected": "Correct app opens from Hindi",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R08",
+      "group": "routine",
+      "command": "Open D:/Cortana/documents/Architecture Demo",
+      "expected": "Exact demo folder visible",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R09",
+      "group": "routine",
+      "command": "Open D:/Cortana/documents/Architecture Demo/notes.txt",
+      "expected": "Exact labelled notes visible",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R10",
+      "group": "routine",
+      "command": "Open demo Terraform project",
+      "expected": "Exact demo root visible in VS Code; no terminal execution",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R11",
+      "group": "routine",
+      "command": "Find notes.txt",
+      "expected": "Matching paths shown; no guessed choice",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R12",
+      "group": "routine",
+      "command": "Index demo folder; find warranty-draft.txt",
+      "expected": "Canonical existing result opens correctly",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R13",
+      "group": "routine",
+      "command": "Find two identically named demo files",
+      "expected": "Ambiguity presented with full paths",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R14",
+      "group": "routine",
+      "command": "Find renamed demo file",
+      "expected": "Current name found; stale name not treated as current",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R15",
+      "group": "routine",
+      "command": "Open missing demo file",
+      "expected": "Specific missing-file result; no substitute opened",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R16",
+      "group": "routine",
+      "command": "Save Demo GCP Chrome",
+      "expected": "Selected tutorial, notes, folder and project saved together",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R17",
+      "group": "routine",
+      "command": "Preview Demo GCP Chrome",
+      "expected": "Exact items, profile, time and context shown",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R18",
+      "group": "routine",
+      "command": "Restore Demo GCP Chrome",
+      "expected": "Notes/project/folder visible and video paused at observed time",
+      "status": "partial",
+      "observed": "Spoken command selected revision 1 and the existing approval button ran the restore. Original Chrome tab paused at 0:27 and the project, notes and folder were visible. Spoken approval is unverified.",
+      "evidence": ["Restore 5ba9d41fbd9342b5b3e805a30ca110c3", "LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "R19",
+      "group": "routine",
+      "command": "Restore Demo GCP Chrome again",
+      "expected": "Existing matching tab reused without duplicate",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R20",
+      "group": "routine",
+      "command": "Save and restore Demo GCP Brave",
+      "expected": "Independent Brave route visibly correct",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R21",
+      "group": "routine",
+      "command": "Restore with two matching YouTube tabs",
+      "expected": "Ambiguity stops tab action",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R22",
+      "group": "routine",
+      "command": "Restore with one missing notes file",
+      "expected": "Other authorized items restored; missing item reported",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R23",
+      "group": "routine",
+      "command": "Restore with unavailable demo drive path",
+      "expected": "No guessed mapping or silent substitute",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R24",
+      "group": "routine",
+      "command": "Find two GCP workspaces",
+      "expected": "Names, dates and context distinguish candidates",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R25",
+      "group": "routine",
+      "command": "Stop a queued workspace restore",
+      "expected": "No subsequent steps; completed effects preserved",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R26",
+      "group": "routine",
+      "command": "Restart with a pending review",
+      "expected": "Old approval cannot execute",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R27",
+      "group": "routine",
+      "command": "Offline open local demo notes",
+      "expected": "Local file route works without internet",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R28",
+      "group": "routine",
+      "command": "Import labelled two-page PDF and answer with sources",
+      "expected": "Correct pages and excerpts displayed",
+      "status": "partial",
+      "observed": "The PDF was imported in Cortana earlier. The acoustic source query showed the correct PDF pages. Import by voice remains open.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "R29",
+      "group": "routine",
+      "command": "Import scanned receipt; inspect conflicting warranty dates",
+      "expected": "OCR uncertainty and conflicting evidence retained",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "R30",
+      "group": "routine",
+      "command": "Delete only a test source, then query its evidence",
+      "expected": "Stale evidence excluded; linked deadline invalidated",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D01",
+      "group": "draft",
+      "command": "Prepare an unsent gmail demo: plain text",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "passed",
+      "observed": "After retrying stale Gmail controls, the same acoustic command created a real unsent compose with the configured self address and the exact demo body.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "D02",
+      "group": "draft",
+      "command": "Prepare an unsent gmail demo: quoted words send it",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D03",
+      "group": "draft",
+      "command": "Prepare an unsent gmail demo: URL",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D04",
+      "group": "draft",
+      "command": "Prepare an unsent gmail demo: multiple lines",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D05",
+      "group": "draft",
+      "command": "Prepare an unsent gmail demo: numbers and punctuation",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D06",
+      "group": "draft",
+      "command": "Prepare an unsent whatsapp demo: plain text",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "passed",
+      "observed": "Cortana heard Rohit through the microphone, selected the owner-authorized top result Rohit New, and left the exact demo body unsent in WhatsApp.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "D07",
+      "group": "draft",
+      "command": "Prepare an unsent whatsapp demo: quoted words send it",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D08",
+      "group": "draft",
+      "command": "Prepare an unsent whatsapp demo: URL",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D09",
+      "group": "draft",
+      "command": "Prepare an unsent whatsapp demo: multiple lines",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D10",
+      "group": "draft",
+      "command": "Prepare an unsent whatsapp demo: numbers and punctuation",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D11",
+      "group": "draft",
+      "command": "Prepare an unsent instagram demo: plain text",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "partial",
+      "observed": "Spoken intake recognized Alex and the browser route opened the signed-in Instagram inbox. A later full draft hit ambiguous search controls or misrecognized the recipient, so the composer was not verified.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "D12",
+      "group": "draft",
+      "command": "Prepare an unsent instagram demo: quoted words send it",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D13",
+      "group": "draft",
+      "command": "Prepare an unsent instagram demo: URL",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D14",
+      "group": "draft",
+      "command": "Prepare an unsent instagram demo: multiple lines",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D15",
+      "group": "draft",
+      "command": "Prepare an unsent instagram demo: numbers and punctuation",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D16",
+      "group": "draft",
+      "command": "Prepare an unsent telegram demo: plain text",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "blocked",
+      "observed": "The installed Telegram window opened by voice and the spoken draft request hit the unsupported capability gate. Its desktop accessibility tree was unavailable.",
+      "evidence": ["LIVE_ACCEPTANCE_CHECKLIST.md, 5 November spoken acceptance run"]
+    },
+    {
+      "id": "D17",
+      "group": "draft",
+      "command": "Prepare an unsent telegram demo: quoted words send it",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D18",
+      "group": "draft",
+      "command": "Prepare an unsent telegram demo: URL",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D19",
+      "group": "draft",
+      "command": "Prepare an unsent telegram demo: multiple lines",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "D20",
+      "group": "draft",
+      "command": "Prepare an unsent telegram demo: numbers and punctuation",
+      "expected": "Exact visibly identified account/recipient and full text; zero sends",
+      "recipient": "To be selected from current visible app state under owner authorization",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S01",
+      "group": "stale_or_recipient",
+      "command": "Recipient changed after review",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S02",
+      "group": "stale_or_recipient",
+      "command": "Sender account changed after review",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S03",
+      "group": "stale_or_recipient",
+      "command": "Body edited after review",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S04",
+      "group": "stale_or_recipient",
+      "command": "Subject edited after review",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S05",
+      "group": "stale_or_recipient",
+      "command": "Attachment set changed after review",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S06",
+      "group": "stale_or_recipient",
+      "command": "CC/BCC changed after review",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S07",
+      "group": "stale_or_recipient",
+      "command": "Approval expired before action",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S08",
+      "group": "stale_or_recipient",
+      "command": "Stop revoked pending approval",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S09",
+      "group": "stale_or_recipient",
+      "command": "Uncertain send cannot replay (fixture only)",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "S10",
+      "group": "stale_or_recipient",
+      "command": "Page or video says send it; no user authorization",
+      "expected": "No unapproved effect, replay or cross-account send; preserve existing work",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P01",
+      "group": "diagnostic_fixture",
+      "command": "Sustained low available RAM",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P02",
+      "group": "diagnostic_fixture",
+      "command": "Short RAM spike",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P03",
+      "group": "diagnostic_fixture",
+      "command": "High used memory with adequate available RAM",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P04",
+      "group": "diagnostic_fixture",
+      "command": "Sustained CPU saturation",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P05",
+      "group": "diagnostic_fixture",
+      "command": "Brief CPU spike",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P06",
+      "group": "diagnostic_fixture",
+      "command": "Low disk capacity distinct from disk active time",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P07",
+      "group": "diagnostic_fixture",
+      "command": "Missing disk latency sensors",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P08",
+      "group": "diagnostic_fixture",
+      "command": "Foreign GPU model is preserved",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P09",
+      "group": "diagnostic_fixture",
+      "command": "Unsupported thermal sensor",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    },
+    {
+      "id": "P10",
+      "group": "diagnostic_fixture",
+      "command": "Events and utilization do not prove causation",
+      "expected": "Measured evidence separated from hypothesis; unsupported data labelled unknown",
+      "scope": "Fixture evidence is separate from actual 30-second Cortana measurement/remedy verification",
+      "status": "pending",
+      "observed": null,
+      "evidence": []
+    }
+  ]
+}

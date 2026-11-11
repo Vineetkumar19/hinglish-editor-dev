@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Finance · StoryLens</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { display: flex; flex-direction: column; height: 100dvh; margin: 0; background: #e8eff5; color: #192a3b; font: 14px/1.5 system-ui, sans-serif; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 16px; padding: 8px clamp(14px, 3vw, 34px); border-bottom: 1px solid #cfdae5; background: #f9fbfd; }
+    a { display: inline-flex; min-height: 38px; align-items: center; color: #233d55; font-weight: 600; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid #315b7a; outline-offset: 2px; }
+    nav a:first-child { margin-right: auto; }
+    iframe { display: block; flex: 1; width: 100%; min-height: 0; border: 0; }
+    @media (max-width: 480px) { nav { gap: 0 12px; } a { min-height: 44px; } nav a:first-child { flex-basis: 100%; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Finance workspace">
+    <a href="/">← StoryLens</a>
+    <a href="http://127.0.0.1:43820/">Open Pocket Tracker</a>
+    <a href="http://127.0.0.1:4310/">Open Finance Tracker</a>
+  </nav>
+  <iframe title="Freelancer Finance" src="http://127.0.0.1:43822/" referrerpolicy="no-referrer"
+    sandbox="allow-scripts allow-same-origin"></iframe>
+</body>
+</html>
+

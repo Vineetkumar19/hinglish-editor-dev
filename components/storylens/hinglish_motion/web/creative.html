@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Storylens creative motion</title>
+<style>
+@font-face{font-family:MotionInter;src:url(fonts/Inter-Regular.ttf);font-weight:400}
+@font-face{font-family:MotionInter;src:url(fonts/Inter-Bold.ttf);font-weight:700}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent}
+body{font-family:MotionInter,Arial,sans-serif;color:#f7f7f5}#stage{position:absolute;inset:0;overflow:hidden}
+#stage.full{background:var(--bg,#111113)}.composition{position:absolute;inset:0;perspective:1800px}
+.content{position:absolute;left:9%;right:9%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:26px}
+.title{font-size:132px;line-height:1.06;font-weight:700;letter-spacing:-.045em;margin:0;overflow-wrap:normal}
+.title span{display:inline-block;white-space:pre}.support{font-size:38px;line-height:1.3;color:#c8c8cc;margin:0;max-width:100%;overflow-wrap:anywhere}
+.accent{color:var(--accent,#dbfb56)}.rule{width:100px;height:6px;background:var(--accent,#dbfb56);transform-origin:left}
+.value{font-size:210px;line-height:1;font-weight:700;letter-spacing:-.055em;white-space:nowrap}
+.steps{display:flex;gap:26px;margin-top:28px}.step{flex:1;min-width:0;border-top:2px solid #666;padding-top:22px;font-size:34px;line-height:1.2}
+.step-index{display:block;font-size:20px;color:var(--accent,#dbfb56);margin-bottom:20px}.orbital{position:absolute;inset:0;width:100%;height:100%}
+.orbit .content{right:48%}.orbit .title{font-size:102px}.orbit .support{font-size:30px}
+.has-assets .content{right:53%;z-index:3}.has-assets .orbital{opacity:.35}
+.asset-visuals{position:absolute;left:53%;right:8%;top:12%;bottom:12%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:2}
+.asset-layer{min-height:0;max-height:100%;width:100%;flex:1;display:flex;align-items:center;justify-content:center}
+.asset-picture{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 20px 24px #0005)}
+body.portrait .has-assets .content{top:22%;left:9%;right:9%}
+body.portrait .asset-visuals{left:12%;right:12%;top:43%;bottom:10%}
+.product .content{inset:13% 12%;transform:none;justify-content:center;padding:7%;background:var(--panel,#202024);border:1px solid #414147;transform-origin:center}
+.product .title{font-size:112px}.product .support{font-size:36px}.product-image{max-width:42%;max-height:280px;object-fit:contain;align-self:flex-start}
+body.portrait .title{font-size:106px}body.portrait .support{font-size:38px}body.portrait .content{left:9%;right:9%;gap:22px}
+body.portrait .orbit .content{top:25%;transform:translateY(-50%)}body.portrait .steps{flex-direction:column;gap:24px}
+body.portrait .step{font-size:38px}body.portrait .product .content{inset:18% 9%;transform:none}
+body.portrait .value{font-size:190px}
+</style>
+<script src="vendor/gsap.min.js"></script><script src="vendor/three.min.js"></script><script src="vendor/threeui-orbit.js"></script>
+</head><body><main id="stage"></main><script src="creative.js"></script></body></html>

@@ -1,0 +1,867 @@
+[
+  {
+    "code": "phone_pair_required",
+    "pattern": "Pair this phone with the laptop first",
+    "message": "Pair this phone using a new one-use code from the laptop, then reopen your conversation."
+  },
+  {
+    "code": "phone_engine_unavailable",
+    "pattern": "StoryLens is not responding on the laptop|StoryLens returned an unexpected result",
+    "message": "The phone cannot reach the laptop's editor. Keep the laptop awake, open StoryLens, and read the saved conversation before retrying a command."
+  },
+  {
+    "code": "phone_uncertain_submission",
+    "pattern": "The laptop did not confirm this request|The laptop did not confirm this step",
+    "message": "The laptop did not confirm the command. Read this conversation's progress before retrying; the same request will not be sent twice."
+  },
+  {
+    "code": "voice_model_timeout",
+    "pattern": "The local Qwen voice model took too long to load or answer\\.",
+    "message": "The local voice model took too long to load or answer. Wait for other GPU work to finish, then try the call again."
+  },
+  {
+    "code": "voice_runtime_start",
+    "pattern": "The local Ollama service could not start\\.",
+    "message": "The local voice engine could not start Ollama. Check that the model drive is available, then try the call again."
+  },
+  {
+    "code": "voice_model_missing",
+    "pattern": "The installed Qwen 9B Q4 model is missing from this Ollama server\\.",
+    "message": "The local voice engine is running, but its Qwen 9B Q4 model is missing from the configured model folder."
+  },
+  {
+    "code": "download_destination",
+    "pattern": "(?:Downloader.*)?(?:download folder is unavailable|folder for your downloads|full folder path for your downloads|existing folder|PermissionError.*(?:download|storylens-))",
+    "message": "Choose an existing writable download folder, or reconnect its drive, then retry this queue item. Finished downloads are kept."
+  },
+  {
+    "code": "download_section",
+    "pattern": "(?:Downloader.*)?(?:clip is outside this video|clip end must be after|Enter both the start and end|clip times|Start and end times are available for YouTube)",
+    "message": "Check the YouTube clip start and end times. Use seconds, MM:SS or HH:MM:SS, with the end after the start and within the video."
+  },
+  {
+    "code": "feature_context_full",
+    "pattern": "Feature context:.*needs.*tokens",
+    "message": "This step contains more information than its model can safely process at once. Your source, saved progress and creator instructions are kept. Split the remaining work into sections and retry the unfinished step."
+  },
+  {
+    "code": "feature_context_setup",
+    "pattern": "Feature context:",
+    "message": "This feature's model and context settings could not be verified. Keep your saved input and restore the matching local model settings before retrying. Technical details explain which setting needs attention."
+  },
+  {
+    "code": "gpu_only_memory",
+    "pattern": "model could not be confirmed fully in GPU memory|CPU offload is blocked",
+    "message": "Your model does not currently fit entirely in GPU memory. Wait for other GPU work to finish or close another demanding GPU app, then retry. Saved input is kept; this job will not run on CPU."
+  },
+  {
+    "code": "gpu_model_metadata",
+    "pattern": "model GPU layer count could not be verified",
+    "message": "The local model GPU setup could not be verified. Restore its installed model metadata, then retry. Your input is kept; no CPU or model substitution was started."
+  },
+  {
+    "code": "gpu_reservation",
+    "pattern": "parent GPU reservation expired|cannot delegate the GPU reservation|worker cannot delegate the GPU reservation",
+    "message": "The worker could not use its parent GPU reservation. Saved progress is kept. Let the current job finish, reload Storylens, then retry the unfinished job."
+  },
+  {
+    "code": "gpu_policy_reload",
+    "pattern": "activate the GPU policy safely",
+    "message": "Let the current job finish, then restart the local Storylens service to activate the GPU changes. Your saved work is kept; this job will not switch to CPU."
+  },
+  {
+    "code": "gpu_only_export",
+    "pattern": "[Tt]ransparent[^\\r\\n]*(?:no GPU encoder|GPU-only|GPU encoder[^\\r\\n]*unavailable)|GPU-only transparent export|has no GPU implementation in this export path",
+    "message": "This export path cannot produce a transparent MOV on GPU. CPU fallback is disabled. Use a GPU MP4 preview or native editable Adobe export; your saved design and source are kept."
+  },
+  {
+    "code": "gpu_browser_required",
+    "pattern": "Hardware browser GPU[^\\r\\n]*|GPU encoder unavailable[^\\r\\n]*CPU fallback",
+    "message": "The hardware GPU renderer is unavailable. Check the NVIDIA driver and browser GPU setup, then retry. Your saved project is kept; software rendering is disabled."
+  },
+  {
+    "code": "broll_editor_connection",
+    "pattern": "Open Storylens in this editor|Several timelines are connected|timeline is already connected in another panel|Reconnect the B-roll panel",
+    "message": "Open Storylens inside your editing application, connect the intended timeline and open its saved B-roll collection. Keep one B-roll panel connected, then choose the same video again. Your choices are saved."
+  },
+  {
+    "code": "voiceover_gpu",
+    "pattern": "Voiceover GPU:",
+    "message": "Voice cloning needs your NVIDIA GPU. Check that the NVIDIA driver and CUDA runtime are available, then retry. Your script and saved voice are kept; generation will not switch to CPU."
+  },
+  {
+    "code": "voiceover_setup",
+    "pattern": "Voiceover setup:",
+    "message": "The local voice engine needs setup. Install the VoiceStudio runtime and OmniVoice model, then restart Storylens when your work is safe. Your script and saved voice are kept."
+  },
+  {
+    "code": "voice_sample",
+    "pattern": "Voice sample:",
+    "message": "The voice recording could not be saved. Choose clear speech lasting 3–20 seconds, paste its exact spoken words, name the voice and confirm permission."
+  },
+  {
+    "code": "voiceover_generation",
+    "pattern": "Voiceover generation:|Voiceover output:",
+    "message": "The local voice engine could not finish this recording. Your script and voice are saved. Check Technical details and retry the unfinished generation."
+  },
+  {
+    "code": "effects_toolkit",
+    "pattern": "Effects tools could not load|Effects toolkit:",
+    "message": "This editing tool could not finish. Check the selected layers or keyframes and the tool settings. If a partial change remains, use After Effects Undo before retrying."
+  },
+  {
+    "code": "quick_motion",
+    "pattern": "Quick motion:|Motion presets could not load",
+    "message": "The animation could not be applied. Select unlocked text or visual layers, choose a duration that fits, then retry. Check the timeline first; After Effects Undo can remove a partial change."
+  },
+  {
+    "code": "animation_presets",
+    "pattern": "Animation presets:",
+    "message": "The preset step could not finish. Check the selected layers and preset file. Check the timeline before retrying; use After Effects Undo if anything was partially applied."
+  },
+  {
+    "code": "preset_library",
+    "pattern": "Preset library:",
+    "message": "This preset could not finish. Check its project files and fonts, then retry the unfinished step."
+  },
+  {
+    "code": "effects_library",
+    "pattern": "Effects library:",
+    "message": "The effect could not be added. Check the selected template, its files and fonts, then retry the unfinished step."
+  },
+  {
+    "code": "cinematic_text",
+    "pattern": "Cinematic Text|Effects library|title preview",
+    "message": "Effects could not finish this title. Reopen the pack, check its fonts and source files, then retry the unfinished step. Your saved template files are kept."
+  },
+  {
+    "code": "template_text_alignment",
+    "pattern": "Template Text alignment:",
+    "message": "The script does not match enough of the narration. Paste the final spoken script and check the selected narration in Settings; your project is unchanged."
+  },
+  {
+    "code": "template_text_audio",
+    "pattern": "Template Text audio:",
+    "message": "Storylens could not read the final narration accurately. Choose the matching final narrated video or audio in Template Text Settings, then retry."
+  },
+  {
+    "code": "template_text_busy",
+    "pattern": "Template Text busy:",
+    "message": "A template text pass is already running. Wait for it to finish, or press Stop before starting another."
+  },
+  {
+    "code": "template_text_speech",
+    "pattern": "Template Text (?:speech|runtime):",
+    "message": "A required local model or runtime is unavailable. Check local model settings, then run Template Text again; your project is unchanged."
+  },
+  {
+    "code": "download_delivery",
+    "pattern": "Download delivery:",
+    "message": "The download is saved. Check the intended editor project, then select Video or Audio to retry."
+  },
+  {
+    "code": "image_clipboard_empty",
+    "pattern": "Image download:.*(?:no image|clipboard)",
+    "message": "No image on the clipboard."
+  },
+  {
+    "code": "image_download_native",
+    "pattern": "Image import:",
+    "message": "The image is saved, but After Effects has not confirmed it in Downloads. Check the intended project and retry adding it."
+  },
+  {
+    "code": "image_download",
+    "pattern": "Image download:",
+    "message": "The image could not be downloaded. Use the photo’s direct image address and try again. Saved images are kept."
+  },
+  {
+    "code": "photo_collection_busy",
+    "pattern": "Photo collection busy:",
+    "message": "The previous screenshot is still stopping. Your saved photos are kept; wait for it to stop before submitting another screenshot."
+  },
+  {
+    "code": "template_import_source",
+    "pattern": "template_import_source",
+    "message": "The template folder is unavailable. Reconnect drive A: and check LatestTemplete."
+  },
+  {
+    "code": "template_import_target",
+    "pattern": "template_import_target",
+    "message": "Open the intended After Effects project and check that it has only one All Project Files folder."
+  },
+  {
+    "code": "template_import_native",
+    "pattern": "template_import_native",
+    "message": "Template import could not finish. Inspect the imported folders and Technical details before retrying."
+  },
+  {
+    "code": "copy_paste_media",
+    "pattern": "copy_paste_media",
+    "message": "Select one available image or video in the Project panel, then press Copy media. Relink missing footage in After Effects before copying it."
+  },
+  {
+    "code": "copy_paste_target",
+    "pattern": "copy_paste_target",
+    "message": "Select one unlocked template layer on the main After Effects timeline, then press Read slots or Paste next."
+  },
+  {
+    "code": "copy_paste_template",
+    "pattern": "copy_paste_template",
+    "message": "No usable media slots could be confirmed in this template. Select an image or video holder, or use a supported template. Existing media is kept."
+  },
+  {
+    "code": "copy_paste_stale",
+    "pattern": "copy_paste_stale",
+    "message": "The selected template or its slots changed. Read slots again and check the next position before pasting. Existing pictures are kept."
+  },
+  {
+    "code": "copy_paste_full",
+    "pattern": "copy_paste_full",
+    "message": "Every detected slot is filled. Choose another template, or select a slot under Slots & next position before replacing a picture."
+  },
+  {
+    "code": "copy_paste_host",
+    "pattern": "copy_paste_host",
+    "message": "Use Copy Paste inside After Effects. Premiere cannot replace media inside an After Effects Dynamic Link composition."
+  },
+  {
+    "code": "copy_paste_native",
+    "pattern": "copy_paste_native",
+    "message": "After Effects could not confirm the complete paste. Inspect the selected template and Technical details before retrying; check whether the picture was placed."
+  },
+  {
+    "code": "template_inspection_required",
+    "pattern": "template_inspection_required",
+    "message": "Read these projects once in the After Effects Template Assembler, then close After Effects and open Premiere. Premiere reuses the saved composition details without automatically opening the AE interface. Read again in AE if a source project changes."
+  },
+  {
+    "code": "template_empty",
+    "pattern": "template_empty",
+    "message": "Add After Effects projects, read their compositions, and choose the main composition for each template before building."
+  },
+  {
+    "code": "template_choice",
+    "pattern": "template_choice",
+    "message": "A template needs a clear composition choice. Select its Main or Render composition. Premiere requires a unique composition name within each source project; check Technical details for the affected template."
+  },
+  {
+    "code": "template_short",
+    "pattern": "template_short",
+    "message": "The selected templates do not cover the target duration. Add more templates or enable Repeat in order. Your ordered list and imported compositions are kept."
+  },
+  {
+    "code": "template_stale",
+    "pattern": "template_stale",
+    "message": "The open After Effects project changed. Read the templates’ compositions again before building. Existing projects and compositions are kept."
+  },
+  {
+    "code": "template_settings",
+    "pattern": "template_settings",
+    "message": "Check the target duration, frame rate and selected composition durations. Use a target from one second to three hours and compositions at least one output frame long."
+  },
+  {
+    "code": "template_native",
+    "pattern": "template_native",
+    "message": "Adobe has not confirmed the complete template assembly. Keep the current project open and close any dialogs. Inspect any new assembly before retrying; Technical details identifies the unfinished step. Source projects are not overwritten."
+  },
+  {
+    "code": "photo_quality_unavailable",
+    "pattern": "Photo quality unavailable|Photo file missing: no confirmed photos meet your size limit",
+    "message": "No confirmed source photos meet the selected image size. Nothing new was imported or downloaded. Continue the saved search for larger originals; existing files are kept."
+  },
+  {
+    "code": "photo_aftereffects",
+    "pattern": "Photo After Effects",
+    "message": "After Effects has not confirmed the photo import. Open the intended AE project and close any dialogs. Check Technical details for its connection or scripting-file-access message, then retry Import into After Effects. Your downloaded photos are kept; existing project items are checked to prevent duplicate imports."
+  },
+  {
+    "code": "photo_screenshot",
+    "pattern": "Photo screenshot (?:invalid|too large|missing)|Photo tiles missing",
+    "message": "Choose a clear PNG, JPEG or WebP screenshot with the main image results visible. Use up to 80 photos and 25 MB per screenshot. Your saved collections are kept."
+  },
+  {
+    "code": "photo_reading",
+    "pattern": "Photo reading|Photo vision|Photo model|Photo analysis",
+    "message": "The local model could not read every photo in this screenshot reliably. Your screenshot and completed photos are saved. Check Technical details, then try a clearer screenshot or continue this collection."
+  },
+  {
+    "code": "photo_collection",
+    "pattern": "Photo collection (?:invalid|missing|archived|busy)|Photo file|Photo action|Photo settings",
+    "message": "This photo collection cannot perform that action right now. Check its saved status and choose an available collection action. Restore collections from Trash before opening them; let active work stop before retrying."
+  },
+  {
+    "code": "object_motion_invalid",
+    "pattern": "Object motion invalid",
+    "message": "The local model’s object-animation plan could not finish. Your script, model reply and completed assets are saved. Check Technical details for the specific unfinished part; no text-only substitute was rendered."
+  },
+  {
+    "code": "motion_comparison",
+    "pattern": "Motion comparison (?:invalid|stopped)",
+    "message": "The engine comparison stopped before both videos were ready. Your source script, local-model plan and any completed video are saved. Check Technical details for the unfinished engine and continue that saved comparison."
+  },
+  {
+    "code": "motion_engine_settings",
+    "pattern": "Motion engine (?:unavailable|style unavailable|input unavailable|format unavailable|asset unavailable)",
+    "message": "The selected motion engine cannot use these settings or a required file is missing. Your script and saved projects are kept. Check Technical details, select a supported style and format, or choose Hyperframes for the existing reference and overlay workflows."
+  },
+  {
+    "code": "motion_engine_render",
+    "pattern": "Motion engine (?:render stopped|layout invalid)",
+    "message": "The selected engine stopped before a complete animation was ready. Your script, scene plan and completed files are saved. Check Technical details for the unfinished scene, correct it, and retry."
+  },
+  {
+    "code": "sound_processing_invalid",
+    "pattern": "Sound processing|Explain how the sound processing",
+    "message": "A saved sound layer has unsupported processing settings. Your video and sound choices are kept. Regenerate that layer with supported settings, then retry the mix."
+  },
+  {
+    "code": "sound_context_full",
+    "pattern": "Sound planning contains too much required information",
+    "message": "The sound planner could not fit the required information. Your video, saved analysis and full creator instructions are kept. Use a shorter video or a local model with a larger context, then retry this step."
+  },
+  {
+    "code": "sound_spotting_invalid",
+    "pattern": "Sound sections|Sound section|Music section mood|Choose music, effects_only",
+    "message": "The sound plan has overlapping, missing or invalid sections. Your video and saved analysis are kept. Retry planning so the local model can correct the section boundaries before mixing."
+  },
+  {
+    "code": "motion_elements",
+    "pattern": "Element motion (?:plan invalid|render stopped|layout invalid)",
+    "message": "The element animation stopped before a complete result was ready. Your statement, model plans and completed scene files are saved. Check Technical details for the unfinished scene so it can be corrected."
+  },
+  {
+    "code": "thumbnail_local_layout",
+    "pattern": "local image layout still has invalid settings|local model’s thumbnail did not pass its visual review",
+    "message": "The local model could not finish a usable thumbnail layout. Its plans, completed images and review notes are saved. The layout needs correction before this can be called a finished result."
+  },
+  {
+    "code": "thumbnail_local_sources",
+    "pattern": "Real source photos could not be verified for this thumbnail",
+    "message": "The local tools could not verify the real photos needed for this thumbnail. The plan and search checks are saved. Repair or retry source retrieval; no substitute faces were generated."
+  },
+  {
+    "code": "motion_reference_analysis",
+    "pattern": "Local reference analysis invalid",
+    "message": "The local video model could not turn this reference into a complete, valid scene description. Its observations and prepared assets are saved. Retry the same reference to continue from saved progress; Technical details identifies the unfinished part."
+  },
+  {
+    "code": "motion_student_plan",
+    "pattern": "Local Qwen scene invalid|Local Qwen could not create a valid scene",
+    "message": "Qwen returned scene settings that could not be rendered safely or completely. Its answers and any completed scenes are saved. Continue the saved student project so Qwen can correct the unfinished scene."
+  },
+  {
+    "code": "motion_student_knowledge",
+    "pattern": "Local student (?:knowledge|assets|resume) unavailable",
+    "message": "The saved lesson, its images or this student's checkpoint is missing or belongs to another reference. Keep the existing results and select the matching saved lesson before retrying."
+  },
+  {
+    "code": "motion_reference_export",
+    "pattern": "Motion reference export stopped|Invalid source bounds: Cut",
+    "message": "The finished video could not be packaged for your editor because its frame count or timing needs correction. Your render is saved. Retry finalizing the saved project; sign-in is not needed for this local export."
+  },
+  {
+    "code": "motion_reference_assets",
+    "pattern": "Motion reference asset missing",
+    "message": "A required independent image could not be found or placed. Your reference analysis and model plan are saved. Try another image query or add a suitable image before retrying."
+  },
+  {
+    "code": "motion_reference_layout",
+    "pattern": "Motion reference layout invalid",
+    "message": "The local model could not fit all selected text and image layers into this scene. The saved plan is kept. Retry this reference with fewer layers or shorter copy."
+  },
+  {
+    "code": "motion_reference_sound",
+    "pattern": "Motion reference sound (?:unavailable|invalid)",
+    "message": "A suitable audible sound could not be placed at this animation cue. Your scene plan is saved. Choose another effect or excerpt from your sound library, then retry."
+  },
+  {
+    "code": "motion_reference_missing",
+    "pattern": "Motion reference unavailable",
+    "message": "This reference video is missing or unsupported. Select one existing MP4, MOV, MKV or WebM file, then try again."
+  },
+  {
+    "code": "sound_source_separation",
+    "pattern": "Source music removal (?:unavailable|stopped)",
+    "message": "The existing music could not be separated from your voice. Your source video is kept. Retry with a shorter clip, or turn off Remove existing music to retain its original audio."
+  },
+  {
+    "code": "sound_no_suitable_layers",
+    "pattern": "Sound no suitable layers",
+    "message": "No suitable sounds matched this video. Your video and analysis are kept. Add relevant effects or instrumental music to the Sound Design library, then try again."
+  },
+  {
+    "code": "download_signin",
+    "pattern": "Downloader.*?(?:Sign in to confirm|login.required|LoginRequired|private video|private account|members.only|age.restrict|authentication.required)",
+    "message": "This video needs sign-in or is private. Choose a public video you can access; this downloader does not use your browser login."
+  },
+  {
+    "code": "download_format",
+    "pattern": "Downloader.*?(?:Requested format is not available|No video formats found)",
+    "message": "The site did not provide a downloadable format at this quality. Try a lower quality or another public video link."
+  },
+  {
+    "code": "download_removed",
+    "pattern": "Downloader.*?(?:Video unavailable|has been removed|not available in your country|content is not available)",
+    "message": "This video is unavailable or restricted. Check that its public link plays, or choose another video."
+  },
+  {
+    "code": "download_site_blocked",
+    "pattern": "Downloader.*?(?:HTTP Error (403|429)|Too Many Requests|rate.limit|bot detection)",
+    "message": "The site refused this download or is limiting requests. Wait before trying again, or choose another public link."
+  },
+  {
+    "pattern": "B-roll vision check unavailable",
+    "code": "broll_vision_unavailable",
+    "message": "The local video checker is unavailable or returned an incomplete check. Prepared B-roll choices are saved. Start the configured local model, then press Find B-roll again with the same source and settings to continue."
+  },
+  {
+    "code": "thumbnail_composition_failed",
+    "pattern": "local thumbnail composition could not render|local thumbnail has the wrong dimensions|local headline font is unavailable",
+    "message": "The thumbnail could not render correctly. Your source photos and editable design are saved. Check Technical details, then retry Create images."
+  },
+  {
+    "code": "thumbnail_photo_missing",
+    "pattern": "saved thumbnail source photo is missing|saved source photo is unavailable",
+    "message": "A source photograph is missing. Restore the saved photo and retry. Storylens will keep the other photos and your headline."
+  },
+  {
+    "code": "thumbnail_photo_layout_size",
+    "pattern": "Choose Landscape 16:9 for this saved match-photo layout",
+    "message": "This saved match-photo layout uses Landscape 16:9. Choose that size and create the thumbnail again. Your brief and photos are kept."
+  },
+  {
+    "code": "image_plan_incomplete",
+    "pattern": "local image plan was cut short twice",
+    "message": "The local model could not finish a valid image plan. Your brief and settings are kept. Press Create images again, or shorten the description."
+  },
+  {
+    "code": "sound_vision_unavailable",
+    "pattern": "Sound vision unavailable",
+    "message": "The local vision model could not read this video. Your input is saved. Check that the configured vision model is available, then retry. Technical details contain the original error."
+  },
+  {
+    "code": "sound_music_empty",
+    "pattern": "Sound music library empty",
+    "message": "Your music folder has no supported tracks. Choose a folder with instrumental music, or turn Music off to create effects only."
+  },
+  {
+    "code": "sound_silent_music",
+    "pattern": "Sound music file is silent",
+    "message": "The selected music file has no usable audio. Choose another track and try again."
+  },
+  {
+    "code": "sound_scene_required",
+    "pattern": "Sound needs scene evidence for silent video",
+    "message": "This video has no recognized speech. Enable local scene reading so Sound Design can work from its visible actions."
+  },
+  {
+    "code": "sound_generator_unavailable",
+    "pattern": "Sound generator unavailable",
+    "message": "This optional sound generator is not installed or configured. Use the local sound library, or configure its separate runtime first."
+  },
+  {
+    "pattern": "B-roll recovery paused",
+    "code": "broll_recovery_stopped",
+    "message": "Automatic recovery could not finish B-roll. Completed searches and choices are saved. Press Run again with the same video and settings to continue; check Technical details if it stops again."
+  },
+  {
+    "code": "image_idea_required",
+    "pattern": "Describe the image you want to create first",
+    "message": "Describe the image you want, then press Create images. Your other settings are kept."
+  },
+  {
+    "code": "image_headline_required",
+    "pattern": "Enter your exact headline|Enter your exact headline, or choose",
+    "message": "Enter your headline, or choose automatic / no headline. Your description and settings are kept."
+  },
+  {
+    "code": "image_source_required",
+    "pattern": "A thumbnail needs imagery",
+    "message": "Add a subject or background photo, enable local AI backgrounds, or use a matching saved reference."
+  },
+  {
+    "code": "thumbnail_engine_outdated",
+    "pattern": "Restart Storylens after the current job finishes to enable the merged Thumbnail tool",
+    "message": "Your settings are saved. Let the current job finish, then restart Storylens to enable the merged Thumbnail tool."
+  },
+  {
+    "pattern": "AI Video reference vision unavailable",
+    "code": "aivideo_reference_vision",
+    "message": "The reference frames could not be read by the local vision model. Your script and measurements are saved. Check the vision model, then retry."
+  },
+  {
+    "pattern": "AI Video reference read failed|AI Video reference reader unavailable",
+    "code": "aivideo_reference_reader",
+    "message": "The reference video could not be read. Try a local video file or check that the public YouTube link is accessible. Your script is kept; diagnostics are saved with this job."
+  },
+  {
+    "pattern": "AI Video reference missing|AI Video reference unsupported",
+    "code": "aivideo_reference_input",
+    "message": "Choose an existing local reference video or a public YouTube link, then run Reference guided again."
+  },
+  {
+    "pattern": "AI Video settings invalid|AI Video method unavailable",
+    "code": "aivideo_settings",
+    "message": "Choose one of the available AI Video methods, motion designs and quality settings, then try again."
+  },
+  {
+    "pattern": "AI Video service outdated",
+    "code": "aivideo_service_outdated",
+    "message": "Your script is kept. Let current jobs finish, then restart Storylens to enable the new AI Video methods."
+  },
+  {
+    "pattern": "Motion vision unavailable",
+    "code": "motion_vision_unavailable",
+    "message": "The local Vision model is unavailable, so these pictures could not be checked. Your script is kept. Start the configured local model and retry."
+  },
+  {
+    "pattern": "Motion assets unavailable",
+    "code": "motion_assets_unavailable",
+    "message": "No suitable picture passed the checks for this scene. Your script and saved sources are kept. Try a clearer subject, another source or a different scene template."
+  },
+  {
+    "pattern": "ReelMimic reference unavailable",
+    "code": "reference_sample_missing",
+    "message": "The selected reference sample is unavailable. Select an existing sample or learn it again. Your saved styles are kept."
+  },
+  {
+    "pattern": "ReelMimic analysis stopped",
+    "code": "reference_analysis_stopped",
+    "message": "The reference analysis did not finish. Your sample and previous styles are kept. Try a shorter sample; technical details are saved with the analysis."
+  },
+  {
+    "pattern": "Creative motion layout needs adjustment",
+    "code": "creative_layout_needs_space",
+    "message": "This scene has more text than its layout can show clearly. Your words are kept. Shorten its title or steps, then save and rebuild."
+  },
+  {
+    "pattern": "Creative motion plan incomplete",
+    "code": "creative_plan_incomplete",
+    "message": "The local model could not make a complete scene plan from your words. Your script is kept. Try again, or split it into shorter lines."
+  },
+  {
+    "pattern": "Creative motion tools missing",
+    "code": "creative_tools_missing",
+    "message": "A local motion tool is missing. Restore the creative runtime, then retry your saved project. Existing caption styles are still available."
+  },
+  {
+    "pattern": "Creative depth unavailable",
+    "code": "creative_depth_unavailable",
+    "message": "The 3D effect could not start on this browser. Try the GSAP Clean motion style, or enable browser graphics support and retry. Your script is kept."
+  },
+  {
+    "pattern": "Creative motion render stopped",
+    "code": "creative_render_stopped",
+    "message": "The motion render did not finish. Your script and composition are kept. Try Quick preview or fewer scenes, then retry."
+  },
+  {
+    "pattern": "Caption reference needs a new renderer",
+    "code": "caption_reference_renderer_needed",
+    "message": "This video is listed, but its caption motion needs a new renderer. Keep the reference and choose a prepared style for now. Your script is saved."
+  },
+  {
+    "pattern": "Caption reference folder unavailable|Caption reference is still copying",
+    "code": "caption_reference_folder_unavailable",
+    "message": "The caption folder is unavailable or a video is still copying. Check the folder and let copying finish, then try again. Your script is saved."
+  },
+  {
+    "pattern": "Hyperframes could not render|Hyperframes returned an incomplete|Hyperframes preview tools are missing",
+    "code": "caption_hyperframes_failed",
+    "message": "Hyperframes could not finish this preview. Your script and editable project are kept. Retry Hyperframes or choose Local LLM + Vision. The technical details contain the render failure."
+  },
+  {
+    "pattern": "Auto Caption 2 reference missing",
+    "code": "auto_caption_reference_missing",
+    "message": "The selected caption reference video is missing. Restore its named video in the Styles/Videos folder, then retry. Your pasted script is kept."
+  },
+  {
+    "pattern": "Auto Caption 2 plan validation failed|Auto Caption 2 vision analysis is incomplete",
+    "code": "auto_caption_plan_incomplete",
+    "message": "The local model could not produce a complete caption plan. Your words and previous projects are safe. Try the preview again, or split a long script into shorter parts."
+  },
+  {
+    "pattern": "local vision model (?:could not finish|is unavailable|returned an incomplete)",
+    "code": "visuals_model_interrupted",
+    "message": "The local vision check did not finish. Check that the configured model is running, then use Find more. Saved choices and downloads are kept."
+  },
+  {
+    "pattern": "Smart Visuals source unavailable",
+    "code": "visuals_source_unavailable",
+    "message": "Some sources could not be used. Saved choices are kept. Use Find more to retry missing options."
+  },
+  {
+    "pattern": "Save your visual choices first|Choose visual options and Save",
+    "code": "visuals_selection_required",
+    "message": "Choose the visuals you like and press Save & rebuild, then choose your editor. Your selections are kept."
+  },
+  {
+    "pattern": "Smart Visuals needs the local vision model|This visual has not passed the local identity",
+    "code": "visuals_verification_required",
+    "message": "The local vision check has not approved this visual. Check that the configured vision model is running, then retry or choose an approved option. Your source and saved choices are kept."
+  },
+  {
+    "pattern": "Save the B-roll timing and clip changes first|Save your chosen clips and timing first",
+    "code": "broll_unsaved_selection",
+    "message": "Save your clip choices and timing with Save & rebuild first, then choose Premiere Pro or CapCut. Your unsaved selections are still on this page."
+  },
+  {
+    "pattern": "Caption preview service needs an update",
+    "code": "caption_preview_service_outdated",
+    "message": "Restart Storylens to load the pasted-caption feature, then press Create preview again. Your pasted text and settings are kept."
+  },
+  {
+    "pattern": "Paste captions to preview",
+    "code": "caption_preview_text_required",
+    "message": "Paste your captions first, choose a template, then press Create preview. Your other settings are kept."
+  },
+  {
+    "pattern": "Caption preview text is too long",
+    "code": "caption_preview_text_too_long",
+    "message": "Keep each preview under 6,000 characters. Split the script into smaller previews and try again. Your text is kept."
+  },
+  {
+    "pattern": "Caption preview needs more time|Choose a caption preview duration",
+    "code": "caption_preview_duration_invalid",
+    "message": "Choose a preview duration from 3 to 180 seconds. For a long script, increase the duration or preview fewer words. Your text is kept."
+  },
+  {
+    "pattern": "Choose a caption preview (?:template|format)",
+    "code": "caption_preview_selection_invalid",
+    "message": "Choose an available caption template and format, then create the preview again. Your pasted text is kept."
+  },
+  {
+    "pattern": "between 1 and (?:5|20) video options|Invalid broll_options_per_moment setting",
+    "code": "broll_option_count_invalid",
+    "message": "Choose between 1 and 5 video options per highlighted word or sentence, then retry. Your source and saved progress are kept."
+  },
+  {
+    "pattern": "YouTube video download requires sign-in|youtube.{0,400}not a bot",
+    "code": "broll_youtube_signin_required",
+    "message": "YouTube asked for sign-in before these videos could be downloaded. Storylens skipped those clips and continued with direct video sources. Use another source for any moments still missing."
+  },
+  {
+    "pattern": "B-roll count between|B-roll direction to 1200",
+    "code": "broll_coverage_invalid",
+    "message": "Choose between 1 and 30 cutaways, or leave the count blank for automatic coverage. Keep the B-roll direction under 1200 characters, then retry. Your source and saved edit are kept."
+  },
+  {
+    "pattern": "B-roll footage folder not found",
+    "code": "broll_folder_unavailable",
+    "message": "Storylens cannot find the new footage folder. Reconnect its drive or choose an existing folder, then save again. Your previous settings are kept."
+  },
+  {
+    "pattern": "could not resolve every spoken sentence",
+    "code": "broll_speech_context_unclear",
+    "message": "Storylens could not interpret the complete sentences reliably enough to choose B-roll. Your source is kept. Retry the B-roll analysis; it will not fill unclear moments with unrelated footage."
+  },
+  {
+    "pattern": "Add B-roll uses videos only|saved B-roll draft contains an image",
+    "code": "broll_video_required",
+    "message": "Add B-roll accepts videos only. Remove the image or choose a video cutaway, then save again. Your source and saved edit are kept."
+  },
+  {
+    "pattern": "B-roll timing|B-roll timings|B-roll trim exceeds|B-roll size must|B-roll timing controls|Choose a B-roll moment",
+    "code": "broll_timing_invalid",
+    "message": "This cutaway is outside the video, overlaps another cutaway, or exceeds its available footage. Your saved edit is kept. Check its Start, End and Source trim controls, then save again."
+  },
+  {
+    "pattern": "Smart Visuals foreground unavailable|Behind the speaker needs",
+    "code": "visuals_foreground_unavailable",
+    "message": "Storylens could not separate the speaker from this shot. Choose a shot with a clearly visible person, or use Full screen or Moving pop-up. Your original video is kept."
+  },
+  {
+    "pattern": "Smart Visuals cutout (?:unavailable|has no|needs)",
+    "code": "visuals_cutout_unavailable",
+    "message": "Storylens could not prepare a clean cutout from this picture. Choose another photo or transparent PNG, or use Full screen or Moving pop-up. Your source and saved selections are kept."
+  },
+  {
+    "pattern": "(?:word|caption) (?:start|end) must be between|Caption timings overlap|Words in caption .* overlap|Word timing count does not match|Invalid (?:word|caption) timing",
+    "code": "caption_timing_invalid",
+    "message": "A word is outside its caption or overlaps another word. Your draft is kept. Open Text & words, adjust the affected caption or word timing, then retry importing. Technical details identify the timing to check."
+  },
+  {
+    "pattern": "Open DaVinci Resolve Studio|Open a Resolve project|DaVinci Resolve scripting module was not found",
+    "code": "editor_connection_required",
+    "message": "Open DaVinci Resolve and a project, then retry Import timelines. If the scripting connection is unavailable, download the XML and use File > Import Timeline in Resolve. Your finished edit is kept."
+  },
+  {
+    "pattern": "Caption exporter needs a restart",
+    "code": "caption_restart_required",
+    "message": "Storylens needs one restart to use the updated caption motion and backgrounds. Finish any active task, restart Storylens, then retry Save & export. Your caption draft is kept."
+  },
+  {
+    "pattern": "approved SmartZoom sound|approved SmartZoom sound collection",
+    "code": "zoom_approved_sound_unavailable",
+    "message": "An approved basic SmartZoom sound is missing or unreadable. Your video is kept. Restore the file named in Technical details in the approved collection, then retry. Storylens will not substitute sounds from another library."
+  },
+  {
+    "pattern": "SmartZoom could not prepare a varied effects plan",
+    "code": "zoom_effects_plan",
+    "message": "The local AI could not choose effects within the timing and sound limits. Your video and approved zoom edit are kept. Retry adding the effects; no new source video is needed. If it repeats, keep the technical details for repair."
+  },
+  {
+    "pattern": "SmartZoom effects need|SmartZoom could not find enough suitable",
+    "code": "zoom_effects_unavailable",
+    "message": "SmartZoom could not prepare suitable sound effects. Your video and zoom edit are kept. Add clean whooshes, short impacts or risers in the Sound Design effects folder, then retry adding the effects."
+  },
+  {
+    "pattern": "Add effects to one approved SmartZoom video at a time",
+    "code": "zoom_effects_single_source",
+    "message": "Choose one approved SmartZoom video for this effects step so its exact camera motion can be kept. Your existing videos are unchanged."
+  },
+  {
+    "pattern": "3221225477|0xc0000005",
+    "code": "editing_worker_crashed",
+    "message": "The local editing worker crashed before completing this step. Saved analysis is kept. Check saved progress, then retry this editing step; keep the technical details if it happens again."
+  },
+  {
+    "pattern": "too much required planning information|planning context is still too large",
+    "code": "planning_context_full",
+    "message": "The local planner could not fit the information for this request. No work started; your request, files and saved guidance are kept. The planner needs a smaller task-specific context before this request can run."
+  },
+  {
+    "pattern": "exceeds? (?:the )?(?:available )?context|context (?:length|window|size)|input.{0,30}too long",
+    "code": "model_context_full",
+    "message": "The local model received more information than it can read at once. Give this task in smaller steps. Saved files and publishing receipts do not need to be recreated."
+  },
+  {
+    "pattern": "Publishing copy needs review|Source-grounding review|Instagram caption needs review",
+    "code": "publishing_text_unverified",
+    "message": "The publishing text contains names, statistics or claims that Storylens could not verify against the video. Check the uncertain wording in Technical details, then retry preparing the title and hashtags. Your finished videos are kept."
+  },
+  {
+    "pattern": "uploadLimitExceeded|upload limit|daily.{0,20}quota|quotaExceeded",
+    "code": "youtube_limit",
+    "message": "YouTubeÃ¢â‚¬â„¢s upload limit has been reached. Wait for the limit to reset, then resume the unfinished YouTube uploads using their saved status."
+  },
+  {
+    "pattern": "Account changed|requested account after switching|confirm the alternate account",
+    "code": "instagram_account",
+    "message": "Instagram could not confirm the selected account. Keep the required accounts signed in to Chrome, then resume the saved task. Check its receipt before repeating an upload."
+  },
+  {
+    "pattern": "No tab with id|tab (?:was )?closed|frame was removed",
+    "code": "browser_tab_closed",
+    "message": "The browserÃ¢â‚¬â„¢s working tab closed or changed. Posting could not be verified. Open the intended account in Chrome and check the saved result before retrying."
+  },
+  {
+    "pattern": "login_required|login or verification|sign.?in.{0,30}required|Sign in to @|authentication required|invalid_grant|token has been expired",
+    "code": "sign_in_required",
+    "message": "The selected account needs you to sign in again. Complete sign-in or verification in its browser window, then resume the saved task."
+  },
+  {
+    "pattern": "Cannot access contents|host access|adapter could not attach|receiving end does not exist|message port closed|Chrome extension first|Local Publisher.{0,30}(?:connect|unavailable)|Chrome is not connected",
+    "code": "browser_access",
+    "message": "Storylens could not connect to the browser page. Open Chrome and check the Storylens Local Publisher connection, then resume the saved task."
+  },
+  {
+    "pattern": "has not opened the destination profile|Instagram.{0,30}not finished loading|Studio did not finish loading",
+    "code": "page_loading",
+    "message": "The publishing page did not finish loading. Keep its working tab open and check your connection, then resume the saved task."
+  },
+  {
+    "pattern": "CUDA out of memory|out of (?:GPU |device )?memory|not enough.{0,15}(?:VRAM|GPU memory)|paging file is too small|(?:os error|WinError)\\s*1455|not enough(?: available)?(?: RAM| system| virtual)? memory",
+    "code": "memory_full",
+    "message": "There is not enough memory to finish this step. Close other demanding apps or choose a smaller local model, then retry the unfinished step."
+  },
+  {
+    "pattern": "CUDA.{0,40}(?:not available|unavailable|not found)|Torch not compiled with CUDA|NVIDIA.{0,30}(?:driver|not found)|no CUDA GPUs",
+    "code": "gpu_unavailable",
+    "message": "The local AI engine cannot use the NVIDIA GPU. Check the GPU driver and StorylensÃ¢â‚¬â„¢s GPU setup, then retry this step."
+  },
+  {
+    "pattern": "Ollama is missing|model.{0,50}(?:not found|not installed)|Missing.{0,25}(?:model|checkpoint)|checkpoint.{0,30}missing",
+    "code": "model_missing",
+    "message": "A model required for this feature is not installed or cannot be found. Check this featureÃ¢â‚¬â„¢s local model setup, then retry."
+  },
+  {
+    "pattern": "Ollama is not running|Connection refused|Failed to establish.{0,30}connection|HTTPConnectionPool|WinError 10061|ECONNREFUSED",
+    "code": "local_service_offline",
+    "message": "A required local service is not responding. Keep Storylens open and start the local AI service, then retry the unfinished step."
+  },
+  {
+    "pattern": "No space left on device|disk (?:is )?full|WinError 112|Errno 28",
+    "code": "disk_full",
+    "message": "The drive does not have enough free space to save this output. Free space on the output drive, then retry the unfinished step."
+  },
+  {
+    "pattern": "used by another process|sharing violation|WinError 32",
+    "code": "file_locked",
+    "message": "Another application is using a file needed for this step. Close that file in the other application, then retry."
+  },
+  {
+    "pattern": "No such file|FileNotFoundError|WinError [23]\\b|file.{0,40}not found|path.{0,30}does not exist",
+    "code": "file_missing",
+    "message": "The selected file or folder is no longer available. Check the drive and file location, then select it again."
+  },
+  {
+    "pattern": "PermissionError|Access is denied|Permission denied|WinError 5\\b",
+    "code": "file_access",
+    "message": "Storylens cannot access the selected file or folder. Choose an accessible location or check its permissions, then retry."
+  },
+  {
+    "pattern": "FFmpeg.{0,30}(?:not found|missing)|ffmpeg.{0,30}not recognized|ffprobe.{0,30}(?:not found|missing)",
+    "code": "media_tool_missing",
+    "message": "A video-processing component is missing. Repair the local FFmpeg setup, then reopen Storylens and retry this feature."
+  },
+  {
+    "pattern": "Invalid data found when processing input|moov atom not found|could not.{0,20}(?:decode|read).{0,20}(?:video|audio)|Unsupported codec|Unknown decoder|corrupt.{0,15}(?:video|audio|media)",
+    "code": "media_unreadable",
+    "message": "Storylens could not read this video or audio file. Check that it plays correctly; if needed, export a fresh MP4 video or WAV audio file and select that copy."
+  },
+  {
+    "pattern": "(?:ffmpeg|ffprobe).{0,500}(?:returned non-zero|failed)|Error opening input|Error initializing output|Error while decoding",
+    "code": "media_processing_failed",
+    "message": "The video-processing tool could not read or create this media. Check that the source plays correctly and the output drive has free space; try a fresh MP4 copy if the source is damaged. Technical details identify the processing failure."
+  },
+  {
+    "pattern": "no (?:usable |recognizable )?(?:speech|audio)|does not (?:have|contain).{0,15}audio|no audio (?:stream|track)",
+    "code": "audio_missing",
+    "message": "No usable speech or audio was found for this step. Choose a file with a clear audio track, or supply the script when the feature supports it."
+  },
+  {
+    "pattern": "invalid placeholder text|hallucinat.{0,25}(?:transcript|speech)|transcription.{0,30}(?:invalid|empty)",
+    "code": "transcript_unreliable",
+    "message": "Speech recognition did not produce a reliable transcript. Check that the speech is clear and the correct language is selected; supply the exact script or lyrics if available."
+  },
+  {
+    "pattern": "timed out|timeout|ETIMEDOUT",
+    "code": "timeout",
+    "message": "This step did not respond in time. Check its saved progress before retrying; a render or upload may still be processing."
+  },
+  {
+    "pattern": "HTTP.{0,15}429|429 (?:Client|Server) Error|rate limit|too many requests",
+    "code": "service_busy",
+    "message": "The service is limiting requests. Wait a little, then resume the unfinished step. Check existing upload receipts before sending another upload."
+  },
+  {
+    "pattern": "HTTP.{0,15}(?:400|500|502|503|504)|(?:400|500|502|503|504) (?:Client|Server) Error",
+    "code": "local_service_error",
+    "message": "A service could not process this request. Check that the required service is running, then retry the unfinished step. Technical details identify the service that failed."
+  },
+  {
+    "pattern": "returned invalid workflow arguments|invalid tool (?:plan|arguments)|did not return the required structured answer",
+    "code": "invalid_model_plan",
+    "message": "The local model could not produce a valid plan for this request. Give one editing or publishing step at a time. Check existing results before repeating a completed step."
+  },
+  {
+    "pattern": "could not select a ready saved batch|could not resolve the saved batches",
+    "code": "saved_batch_unresolved",
+    "message": "Storylens could not match this request to a ready saved batch. Select the finished videos or give their folder and destination for one publishing step. No new upload was started by this request."
+  },
+  {
+    "pattern": "release time has passed|slot has passed|schedule.{0,30}(?:past|too close)|future start",
+    "code": "schedule_time_invalid",
+    "message": "The requested release time has passed or is too close to prepare safely. Choose a future date and time; reuse the saved videos instead of extracting them again."
+  },
+  {
+    "pattern": "Failed to fetch|NetworkError|Load failed|ERR_CONNECTION",
+    "code": "local_connection",
+    "message": "Cannot reach Storylens. Keep the local editor running and check the connection. Your task may still be processing; reconnect before starting it again."
+  },
+  {
+    "pattern": "Unexpected token|Unexpected end.{0,20}JSON|JSON.parse|JSONDecodeError|Expecting (?:value|property name)|Extra data: line",
+    "code": "unreadable_response",
+    "message": "The local service returned an unreadable response. Refresh Storylens and try the unfinished step again. Check saved publishing results before repeating an upload."
+  }
+]

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Editor Handoff · Storylens</title>
+  <link rel="stylesheet" href="workbench.css">
+  <link rel="stylesheet" href="editor-link.css">
+  <link rel="stylesheet" href="editor-handoff.css">
+  <link rel="stylesheet" href="tool-layout.css?v=4">
+  <script defer src="feedback.js"></script>
+  <script defer src="icons.js"></script>
+  <script defer src="editor-handoff.js?v=export-row"></script>
+  <script defer src="editor-link.js?v=direct-export"></script>
+</head>
+<body>
+<main class="handoff">
+  <header><h1>Editor Handoff</h1><a href="/">Storylens</a></header>
+  <form id="handoff-form" class="handoff-form">
+    <label for="source">From</label><select name="source" id="source"></select>
+    <label id="draft-row" hidden>Saved project<select id="draft"></select></label>
+    <label id="composition-row" hidden>Composition<input name="composition" id="composition" autocomplete="off"></label>
+    <div id="pick-row" class="input-row" hidden><button type="button" id="pick-source">Choose file</button><span id="source-name" class="muted"></span></div>
+    <details class="tool-history"><summary>Transfer format</summary>
+      <label for="kind">Send</label><select name="kind" id="kind"></select>
+    </details>
+    <div id="export-targets" class="editor-exports"></div>
+  </form>
+  <p id="status" role="status"></p>
+  <div id="toolError" role="alert" hidden></div>
+  <section id="result" aria-labelledby="result-title" hidden>
+    <h2 id="result-title">Prepared transfer</h2>
+    <p id="instruction"></p>
+    <div class="input-row">
+      <button id="apply" type="button"></button>
+      <button id="copy" type="button">Copy transfer location</button>
+    </div>
+  </section>
+</main>
+<script src="embedded-tool.js"></script>
+</body>
+</html>

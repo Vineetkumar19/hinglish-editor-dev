@@ -1,0 +1,89 @@
+{
+  "scope": "Actual persisted source-check input fields. Canvas is reconstructed from timeline because render_choice adds it to its temporary candidate entry before calling Checker. No actual image pixels are included in replay tests.",
+  "job_id": "7c03db6fbd88",
+  "candidate_id": "web:57aeab2eb3fb2b2f",
+  "slot": {
+    "review_options": true,
+    "text": "flat to mil hi jaega.",
+    "visual": "apartment interior",
+    "meaning": "The lack of available flats for a bachelor in North India.",
+    "queries": [
+      "apartment interior",
+      "small apartment",
+      "room interior"
+    ],
+    "subject": "",
+    "setting": "Indian city street, small flats, PG accommodation",
+    "country": "India",
+    "direction": "Collect relevant video-only choices for the important spoken moments. Preserve the spoken meaning. Leave insertion to my explicit selection; do not substitute images or text.",
+    "context": "0.10-2.14s: Aane ke pahle mujhe laga sir, abhi\n2.14-3.10s: flat to mil hi jaega.\n3.56-4.56s: Bhai main galat tha.\n5.00-7.26s: North Indian ho, bachelor ho, party mein\n7.26-7.78s: kaam karte ho.\n8.16-11.02s: Congratulations 99 percent flat tumhaare lie band\n11.04-12.74s: hai aur jo ek percent flat milega",
+    "canvas_width": 270,
+    "canvas_height": 480
+  },
+  "media_path": "D:\\Full Drive\\remove silence\\cache\\broll\\web-video\\e8ef0817c2264e4362d3.mp4",
+  "media_sha256": "aa715d5e3b34e62d13a8e196c47340954f262aa0f721d97f19b5371e3388e8f5",
+  "interval": {
+    "start": 12.266666666666667,
+    "end": 13.233333333333334
+  },
+  "crop": {
+    "space": "upright_source_pixels",
+    "x": 656,
+    "y": 0,
+    "width": 608,
+    "height": 1080
+  },
+  "stored_postprocessed_verdict": {
+    "context_compatible": false,
+    "frame_checks": [
+      {
+        "no_dominant_presenter": true,
+        "no_intrusive_overlay": true,
+        "real_clear_footage": true,
+        "subject_visible": false
+      },
+      {
+        "no_dominant_presenter": true,
+        "no_intrusive_overlay": true,
+        "real_clear_footage": true,
+        "subject_visible": false
+      },
+      {
+        "no_dominant_presenter": true,
+        "no_intrusive_overlay": true,
+        "real_clear_footage": true,
+        "subject_visible": false
+      }
+    ],
+    "identity_compatible": false,
+    "no_intrusive_text": true,
+    "real_clear_footage": true,
+    "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a living room interior, but the specific subject of 'apartment interior' is not clearly visible or identifiable.",
+    "related": false,
+    "seen": "A living room interior with a sofa, coffee table, and wall art.",
+    "matches_scene": false,
+    "matches_action": false,
+    "fits_spoken_meaning": false,
+    "matches_setting": false,
+    "passed": false,
+    "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+    "id": "web:57aeab2eb3fb2b2f",
+    "producer_stage": "original",
+    "checked_media_path": "D:\\Full Drive\\remove silence\\cache\\broll\\web-video\\e8ef0817c2264e4362d3.mp4",
+    "checked_media_sha256": "aa715d5e3b34e62d13a8e196c47340954f262aa0f721d97f19b5371e3388e8f5",
+    "checked_interval": {
+      "start": 12.266666666666667,
+      "end": 13.233333333333334
+    },
+    "checked_crop": {
+      "space": "upright_source_pixels",
+      "x": 656,
+      "y": 0,
+      "width": 608,
+      "height": 1080
+    }
+  },
+  "raw_cache_path": "cache\\visuals\\evaluator\\a50cebe3e64ac612bb23a6b3d7b07b0e61dae0fd864c770946302e0a1c1cce76.json",
+  "raw_cache_sha256": "d6930a38a68eca457ab5e4e339ac84e4ce2e30ce5724061220cd83014a3cead3",
+  "lineage_limits": "Exact raw field/reason match does not prove which model call/cache read produced this check or bind its active model digest. No cloud/local inference was run for capture."
+}

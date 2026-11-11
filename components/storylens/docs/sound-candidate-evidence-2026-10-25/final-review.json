@@ -1,0 +1,45 @@
+{
+  "phase": "Final adversarial review; no feature fixes performed after these probes",
+  "passed": [
+    "five golden candidate source bytes, credits and playable bounds verified",
+    "all golden audio is 3s/8kHz mono synthetic WAV",
+    "request and full creator context unchanged",
+    "pre-cancelled request produces no candidate groups",
+    "out-of-source windows produce explicit no-match"
+  ],
+  "findings": [
+    {
+      "id": "checkpoint-semantic-fields",
+      "trigger": "After creating a checkpoint, change groups[0].intent while leaving its input fingerprint, source hashes and candidate IDs unchanged; resume the same request.",
+      "expected": "Reject the changed cached semantic description, or rebuild it from the original timed request.",
+      "actual": "The checkpoint source identity/timing checks pass and the changed intent text is returned.",
+      "impact": "A corrupted/edited local checkpoint can misdescribe verified source-backed alternatives. Source bytes, allowed paths, timing/level checks and full creator context remain independently checked. Checkpoints are not authenticated semantic receipts.",
+      "status": "Confirmed; left unfixed under final-review rule. Do not accept externally supplied checkpoints; suite should defer semantic checkpoint trust pending owner-approved follow-up."
+    },
+    {
+      "id": "telemetry-metadata-redaction",
+      "trigger": "Supply metadata.authorization=\"Bearer SYNTHETIC_FIXTURE_NOT_A_SECRET\" to Telemetry.stage.",
+      "expected": "A log boundary used for provider/tool requests should redact authentication fields.",
+      "actual": "Caller-supplied metadata is copied to receipts/sink unchanged. No real secret was used in this probe.",
+      "impact": "Raw provider headers/tool payloads must not be passed to this hook until a redaction boundary is implemented. Current fixture calls contain no credentials.",
+      "status": "Confirmed during final runtime audit; recorded, not fixed after final review."
+    },
+    {
+      "id": "explicit-model-locality-validation",
+      "trigger": "Call resolve_model(root,\"planning_model\",\"synthetic-audit:cloud\",\"qwen3:8b\") without constructing a runtime.",
+      "expected": "A strict local-only configuration validator rejects cloud model suffixes on all input paths.",
+      "actual": "The explicit non-legacy model name returns before the locality check. No model or network request was started.",
+      "impact": "Configured defaults examined are local and no automatic cloud fallback was found, but explicit override validation is not a complete local-only enforcement boundary. Shared helper is outside this feature reservation.",
+      "status": "Confirmed validation-path issue; not evidence of an actual cloud call. Recorded, not repaired."
+    }
+  ],
+  "scope_limits": [
+    "No real model/ranker inference",
+    "No mixes or renders",
+    "No downloads",
+    "No Adobe interaction",
+    "No live panel/native acceptance",
+    "No long-form or RAM/VRAM benchmark",
+    "Protected older duplicate-picker and creative-quality findings were not modified"
+  ]
+}

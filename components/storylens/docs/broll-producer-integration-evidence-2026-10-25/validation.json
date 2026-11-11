@@ -1,0 +1,44 @@
+{
+  "client_date": "2026-10-25",
+  "scope": "CPU/component only. Model and media render boundaries are explicit mocks; no live acceptance.",
+  "tests_run": 52,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "elapsed_seconds": 2.919,
+  "test_modules": [
+    "tests.test_broll_producer_manifest",
+    "tests.test_broll_candidate_manifest",
+    "tests.test_broll_editable.EditableBrollTests.test_conform_retains_leading_and_trailing_handles"
+  ],
+  "original_35_tests_and_three_goldens_unchanged": true,
+  "legacy_artifacts_before": {
+    "cache\\app\\broll-jobs\\8767\\c1145994598a.json": "877de107e3b1c7a2ab484911fd43ca7b27e770e6390e36c4d63c65b29a7b25c7",
+    "cache\\app\\jobs\\c1145994598a\\broll-checkpoint.json": "14f0725c24dc5dd607bc364409e953c20ce442cb76753bb285226b0cf5b612b4",
+    "output\\broll\\20261024-031225-b90409\\recovery.json": "309170bae7a9c9f7be2fb0843dd07c0fd244e8cce0e8edf8d6ce1b26c40194bf",
+    "output\\broll\\20261024-031225-b90409\\001-e2-1-\\broll-project.json": "b0d3d245f17cd16ee535d18d5bf9371d5b3e9c1782d54c230916b1feb1ac85d4"
+  },
+  "legacy_artifacts_after": {
+    "cache\\app\\broll-jobs\\8767\\c1145994598a.json": "877de107e3b1c7a2ab484911fd43ca7b27e770e6390e36c4d63c65b29a7b25c7",
+    "cache\\app\\jobs\\c1145994598a\\broll-checkpoint.json": "14f0725c24dc5dd607bc364409e953c20ce442cb76753bb285226b0cf5b612b4",
+    "output\\broll\\20261024-031225-b90409\\recovery.json": "309170bae7a9c9f7be2fb0843dd07c0fd244e8cce0e8edf8d6ce1b26c40194bf",
+    "output\\broll\\20261024-031225-b90409\\001-e2-1-\\broll-project.json": "b0d3d245f17cd16ee535d18d5bf9371d5b3e9c1782d54c230916b1feb1ac85d4"
+  },
+  "legacy_artifacts_unchanged": true,
+  "source_sha256": {
+    "hinglish_broll/pipeline.py": "759c7314f06e231da5842ea9707afa216afc2ce13e510524c0f9940ba7bb8619",
+    "hinglish_broll/producer_contract.py": "749d57adae18c2f1cf4e5582106e36703e816f21e126e7dac60467e8446eeeb3",
+    "hinglish_broll/candidate_manifest.py": "57e80956198b31e9df3e519b55cc9258d5bd961bee2a1145e385685e668fc261",
+    "hinglish_broll/candidate_selection.py": "9f1a928ca2471ce7c934a2662cfb4fc3a8b66f970757657d3dedb4153c5dc4e8",
+    "tests/test_broll_producer_manifest.py": "f48f9b683c839d0401d39a0fddc63995c5c6788769b770028a9691c16fcbd452"
+  },
+  "actual_calls_not_performed": [
+    "stock/search/download",
+    "local LLM/Vision inference",
+    "GPU/CPU media render or encoding",
+    "old job restart",
+    "Adobe/native host",
+    "publishing"
+  ],
+  "live_acceptance": "Pending suite release of serialized heavy resources and actual configured-local-model short workflow."
+}

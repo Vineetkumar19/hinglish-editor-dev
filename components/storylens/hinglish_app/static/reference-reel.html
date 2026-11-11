@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Reference Reel · Storylens</title>
+  <link rel="stylesheet" href="workbench.css">
+  <link rel="stylesheet" href="tool-layout.css?v=2">
+  <link rel="stylesheet" href="reference-reel.css?v=20261107-compact">
+</head>
+<body>
+<main>
+  <header><h1>Reference Reel</h1><a href="/">Storylens</a></header>
+  <form id="analyze">
+    <label>Reference video<input id="reference" type="file" accept="video/*,.mkv,.m4v" required></label>
+    <div class="reference-folder">
+      <label for="footage-folder">Footage folder</label>
+      <div class="folder-picker"><input id="footage-folder" placeholder="Paste folder path" required><button id="pick-folder" type="button">Choose folder</button></div>
+    </div>
+    <button type="submit">Build reel</button>
+  </form>
+  <p id="status" role="status"></p>
+  <p id="error" role="alert"></p>
+  <section class="comparison" aria-label="Reel comparison">
+    <figure><figcaption>Reference</figcaption><video id="reference-player" controls playsinline preload="metadata" hidden></video><div id="reference-empty" class="viewer-empty">Choose a reference video</div></figure>
+    <figure><figcaption>Your reel</figcaption><video id="draft-player" controls playsinline preload="metadata" hidden></video><div id="draft-empty" class="viewer-empty">Preview appears here</div></figure>
+  </section>
+  <div class="input-row" id="exports" hidden></div>
+</main>
+<script src="embedded-tool.js"></script>
+<script src="reference-reel.js?v=20261107-folder"></script>
+</body>
+</html>

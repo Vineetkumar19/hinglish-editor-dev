@@ -1,0 +1,80 @@
+Genuine guided Qwen sound-design result — 24 October 2026
+
+Owner liked ChatGPT's physical bike take (8/10), asked to coach Qwen and let
+Qwen author its own result without ChatGPT substituting its creative decisions.
+Owner then objected to the lengthy experiment: an hour per normal sound job
+would not be practical. Do not confuse this development/retry process with a
+measured normal generation time or promise fresh-project speed from this run.
+
+Final delivered clip:
+output/sound/20261024-qwen-chatgpt-comparison/QWEN-GUIDED-BIKE.mp4
+Editable report:
+http://127.0.0.1:8876/sound-output/20261024-qwen-guided-bike/004-qwen-shot-anchors/report.html
+
+Real author: local storylens-meaning:14b via Storylens Sound Brain. Qwen selected
+22 physical sound layers across separate motor, surface, environment and
+contact tracks. It selected numbered scene anchors, source files and normalized
+source positions, relative levels, movement endpoints, filters and fades. The
+renderer used the measured boundaries of Qwen-selected shots, normalized source
+excerpt positions, and linear curves from its chosen endpoints. Short continuous
+recordings may crossfade-loop as disclosed in the tool prompt. This is bounded
+tool execution, not ChatGPT copying its own score or inventing replacement cues.
+Zero-Hz filter values from Qwen mean bypass; no alternative cutoff was chosen.
+Lane labels/unique IDs are mechanical metadata. Every raw request/reply and
+original lane plan is retained. Raw saved lane data equals the actual model
+reply, with only model-call metadata excluded from the comparison.
+
+The guided authoring runner is tmp/qwen_guided_bike_sound.py. This trial used
+the real existing Brain, source audio, mix, XML/report and native handoff tools,
+with prior local Vision evidence and checked shot facts. It is NOT a replacement
+for the default production Sound Design director or proof of arbitrary-video
+one-shot quality. Shared physical-sound coaching is saved for future local calls;
+model weights were not trained. Source song remains once; no added music.
+
+Why earlier attempts were slow/weak:
+001: first model plan used 14 consecutive single sounds. Repeated IDs needed a
+local-model repair. It missed some moving-shot engines and revved on static
+images. 17/19 mix checks passed. Draft preserved.
+002: self-review reproduced the same score exactly instead of improving it.
+003: independent free-timestamp tracks made 35 proposed layers, 31 of them
+zero-length. Qwen copied those invalid values on repair. No render was made.
+Two oversized requests were retried without optional reference prose for those
+calls only; explicit coaching/data and saved knowledge remained.
+004: numbered measured shot anchors removed unnecessary clock arithmetic from
+Qwen. It produced 22 layers in one model call. A renderer adapter initially
+rejected its zero-Hz filter defaults; interpreted those as bypass, then resumed
+the saved plan without another inference. No creative sound changes were made.
+
+Measured final planning call: 82.9882964 seconds, 8,255 prompt tokens and 3,245
+output tokens. Earlier call durations were 85.74, 69.60, 81.43, 141.29, 130.53
+and 129.94 seconds, plus queue/development time. Receipts are in each trial and
+output/sound-comparison-20261024/retry2-sources/qwen-generation-timing.json.
+This final call reused video analysis and a prepared/indexed library. Fresh
+video analysis, first-time indexing, queue waits and full-project wall time
+have NOT been benchmarked. Do not advertise 83 seconds as end-to-end speed.
+
+Validation: 27/27 mix checks. Original picture packets unchanged (613 frames,
+1280x720, stereo, 20.433333s). Separate mastered stems reconstruct the mix within
+.000091553 PCM. Native CapCut spec has 23 audio segments (original song/base once
+plus 22 effects), source video audio muted once. The actual report opens and
+plays, with no browser media error; it was observed paused at 3.802421s, so full
+uninterrupted playback is NOT verified. CapCut preparation requested through
+the real report. Native playback/listening acceptance is unverified. Five
+shared creative-memory checks passed earlier; no production planner/renderer
+source changes or new production feature claims are made by this experiment.
+
+Final review findings — preserved, not creatively repaired:
+- At 2.9–4.166667s and 5.466667–6.766667s, moving POV shots have Qwen-selected
+  wind/surface but no engine. Expected subject continuity remains incomplete.
+- At 18.5–20.433333s, Qwen reused a motocross engine at -22dB on a static bike
+  instead of an explicit idle. This is an action/timbre approximation.
+- Qwen selected zero optional filters/fades. Possible abrupt boundaries and
+  simplistic shaping remain; no human smoothing was added to hide this.
+- Existing duplicate default CapCut project names remain. Native playback and
+  fresh-video performance remain untested.
+Evidence: 004-qwen-shot-anchors/final-review.json, authorship-audit.json,
+qwen-raw-lane-plan.json, sound-plan.json and live-playback.json.
+
+Other jobs were left running; GPU serialization respected. No Premiere/CapCut
+application was launched, no external private video upload, no paid provider,
+no weight training, and no private Epidemic model recovery occurred.

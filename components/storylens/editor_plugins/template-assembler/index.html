@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Storylens Template Assembler</title><link rel="stylesheet" href="panel.css"></head>
+<body><main>
+ <header><strong>Storylens</strong><span id="host">Adobe template tools</span></header>
+ <h1>Template Assembler</h1><p class="muted">Arrange Main / Render compositions in your order.</p>
+ <div class="toolbar"><button id="add">Add projects…</button><button id="library">Browse library</button><button id="read">Read compositions</button></div>
+ <section id="libraryPanel" hidden aria-label="Template library"><div class="toolbar"><input id="folder" aria-label="Library folder" value="D:\Editing\AE documentry style editing templates"><button id="browse">Choose folder</button><button id="scan">Scan</button></div><input id="search" placeholder="Find a project…" aria-label="Find a project"><div id="libraryFiles"></div><div class="toolbar"><button id="addChecked">Add selected in this order</button><button id="closeLibrary">Close</button></div></section>
+ <div id="empty">Add projects, then read their compositions.<br>Use ↑ / ↓ to set the order before building.</div>
+ <ol id="rows" aria-label="Ordered templates"></ol>
+ <section class="settings"><label>Assembly name<input id="name" value="Storylens — 10 minute assembly"></label><div class="fields"><label>Target (minutes:seconds)<input id="target" value="10:00" inputmode="decimal"></label><label>Frame rate<select id="fps"><option value="">Match first composition</option><option>24</option><option>25</option><option>29.97</option><option>30</option><option>50</option><option>59.94</option><option>60</option></select></label></div><label class="check"><input type="checkbox" id="workArea">Use each composition’s work area</label><label class="check"><input type="checkbox" id="repeat">Repeat the list in the same order if it runs short</label></section>
+ <div id="timeline" aria-label="Planned timeline"></div><p id="summary" aria-live="polite">0 templates selected.</p>
+ <button id="build" class="primary">Build new timeline</button><div class="toolbar"><button id="save">Save ordered list…</button><button id="load">Load ordered list…</button></div>
+ <p id="status" role="status">Source AEP files stay unchanged. The final composition is trimmed to fit; animations are not stretched.</p><details id="details" hidden><summary>Technical details</summary><pre id="diagnostics"></pre></details>
+ <p class="muted small">After Effects · native compositions / Premiere Pro · Dynamic Link</p>
+</main><script src="model.js"></script><script src="panel.js"></script></body></html>

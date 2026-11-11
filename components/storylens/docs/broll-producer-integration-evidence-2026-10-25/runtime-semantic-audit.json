@@ -1,0 +1,797 @@
+{
+  "observed_utc": "2026-10-24T23:27:33.710437+00:00",
+  "scope": "READ-ONLY existing job/code/cache audit. Only this evidence and appended handoff are written; no job/model/network/render/host/status changes.",
+  "job": {
+    "id": "7c03db6fbd88",
+    "status": "running",
+    "progress": 70,
+    "stage": "Checking bed: 2/9 candidates, 0 choices saved",
+    "created": 1792883876.5330203,
+    "recovery_attempts": 1
+  },
+  "collecting": true,
+  "elapsed_since_submit_observation_seconds": 577.177,
+  "model_guard": [
+    {
+      "label": "video summary",
+      "feature": "broll",
+      "tries": [
+        {
+          "attempt": 1,
+          "hard": 0,
+          "soft": 0,
+          "problems": []
+        }
+      ],
+      "repaired": [],
+      "final_hard": 0,
+      "final_soft": 0,
+      "final_problems": []
+    },
+    {
+      "label": "B-roll keyword discovery",
+      "feature": "broll",
+      "tries": [
+        {
+          "attempt": 1,
+          "hard": 5,
+          "soft": 0,
+          "problems": [
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            }
+          ]
+        },
+        {
+          "attempt": 2,
+          "hard": 5,
+          "soft": 0,
+          "problems": [
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "hard": 5,
+          "soft": 0,
+          "problems": [
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            },
+            {
+              "rule": "broll.keyword.negative",
+              "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+              "hard": true
+            }
+          ]
+        }
+      ],
+      "repaired": [
+        "Converted illustrative searches to physical subjects; retained valid word-anchored discoveries."
+      ],
+      "final_hard": 15,
+      "final_soft": 0,
+      "final_problems": [
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        },
+        {
+          "rule": "broll.keyword.negative",
+          "message": "Search the mentioned physical concept itself: bar, club, nightlife, people having fun. Do not search its absence.",
+          "hard": true
+        }
+      ]
+    }
+  ],
+  "surviving_plan": [
+    {
+      "start": 0.1,
+      "end": 2.14,
+      "quote": "Aane ke pahle mujhe laga sir, abhi",
+      "visual": "Indian city street",
+      "queries": [
+        "Indian city street",
+        "North Indian street",
+        "urban Indian street"
+      ],
+      "meaning": "A typical urban street in India, often used to depict the setting of the struggle for housing.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": false
+    },
+    {
+      "start": 2.14,
+      "end": 3.1,
+      "quote": "flat to mil hi jaega.",
+      "visual": "apartment interior",
+      "queries": [
+        "apartment interior",
+        "small apartment",
+        "room interior"
+      ],
+      "meaning": "The lack of available flats for a bachelor in North India.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": true
+    },
+    {
+      "start": 6.0,
+      "end": 7.26,
+      "quote": "bachelor ho, party mein",
+      "visual": "room interior",
+      "queries": [
+        "room interior",
+        "small bedroom",
+        "shared room"
+      ],
+      "meaning": "Accommodation specifically for single men, often in PGs or small flats.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": false
+    },
+    {
+      "start": 16.24,
+      "end": 16.54,
+      "quote": "bed,",
+      "visual": "bed",
+      "queries": [
+        "bed",
+        "bed mattress",
+        "bedroom bed"
+      ],
+      "meaning": "A room that lacks a bed, a common issue in small flats.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": false
+    },
+    {
+      "start": 17.22,
+      "end": 18.28,
+      "quote": "almaari, na",
+      "visual": "wardrobe",
+      "queries": [
+        "wardrobe"
+      ],
+      "meaning": "A room without a wardrobe, indicating lack of storage space.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": true
+    },
+    {
+      "start": 18.28,
+      "end": 18.72,
+      "quote": "geyser,",
+      "visual": "water heater",
+      "queries": [
+        "water heater"
+      ],
+      "meaning": "A room without a geyser, indicating lack of hot water facility.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": true
+    },
+    {
+      "start": 19.36,
+      "end": 19.7,
+      "quote": "pan,",
+      "visual": "kitchen pan",
+      "queries": [
+        "kitchen pan",
+        "cooking tools",
+        "empty kitchen"
+      ],
+      "meaning": "A kitchen that lacks basic cooking equipment like a pan.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": false
+    },
+    {
+      "start": 20.34,
+      "end": 20.78,
+      "quote": "fridge,",
+      "visual": "refrigerator",
+      "queries": [
+        "refrigerator",
+        "fridge interior",
+        "open refrigerator"
+      ],
+      "meaning": "A room without a refrigerator, indicating lack of storage for food.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": true
+    },
+    {
+      "start": 21.2,
+      "end": 22.6,
+      "quote": "washing machine, bol jao",
+      "visual": "washing machine",
+      "queries": [
+        "washing machine",
+        "laundry washing machine",
+        "washer drum"
+      ],
+      "meaning": "A room without a washing machine, indicating lack of laundry facilities.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": true
+    },
+    {
+      "start": 28.36,
+      "end": 28.88,
+      "quote": "PG mein.",
+      "visual": "room interior",
+      "queries": [
+        "room interior",
+        "small bedroom",
+        "shared room"
+      ],
+      "meaning": "A common type of housing for bachelors, often with shared facilities.",
+      "search_fields_match_negative_guard": false,
+      "meaning_matches_negative_guard": false
+    }
+  ],
+  "saved_slots": [
+    {
+      "index": 0,
+      "start": 0.1,
+      "end": 2.14,
+      "text": "Aane ke pahle mujhe laga sir, abhi",
+      "visual": "Indian city street",
+      "collection_complete": true,
+      "options": [
+        {
+          "id": "pixabay:176609",
+          "provider": "pixabay",
+          "note": "Aerial view of a busy Indian street with vehicles and pedestrians, matching the urban setting context.",
+          "raw_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-176609-960x540.mp4",
+          "prepared_path": "output\\broll\\20261025-044757-2498b9\\001-audio-only-source\\media\\broll-01-pixabay-176609-931a5af0.mp4",
+          "raw_mtime_utc": "2026-10-24T23:22:15.771177+00:00",
+          "source_in": 1.0,
+          "original_offset": 0.0,
+          "prepared_duration": 6.033333333333333,
+          "raw_hash_matches": true,
+          "prepared_hash_matches": true,
+          "paired_verdict_hashes_match": true,
+          "judge_tags": [
+            "storylens-planner:9b-q6 (looks at the pixels)"
+          ]
+        },
+        {
+          "id": "pixabay:1643",
+          "provider": "pixabay",
+          "note": "The frames show a busy Indian street with pedestrians, a cycle rickshaw, and storefronts, matching the urban setting.",
+          "raw_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-1643-1280x720.mp4",
+          "prepared_path": "output\\broll\\20261025-044757-2498b9\\001-audio-only-source\\media\\broll-01-pixabay-1643-c8c78ebe.mp4",
+          "raw_mtime_utc": "2026-10-23T08:33:05.247084+00:00",
+          "source_in": 1.0,
+          "original_offset": 0.0,
+          "prepared_duration": 6.033333333333333,
+          "raw_hash_matches": true,
+          "prepared_hash_matches": true,
+          "paired_verdict_hashes_match": true,
+          "judge_tags": [
+            "storylens-planner:9b-q6 (looks at the pixels)"
+          ]
+        },
+        {
+          "id": "pixabay:3175",
+          "provider": "pixabay",
+          "note": "The frames show a busy Indian street with pedestrians, a cycle rickshaw, and shops, matching the urban setting.",
+          "raw_path": "A:\\Full Drive\\remove silence\\cache\\broll\\stock\\pixabay-3175-960x540.mp4",
+          "prepared_path": "output\\broll\\20261025-044757-2498b9\\001-audio-only-source\\media\\broll-01-pixabay-3175-faa8a428.mp4",
+          "raw_mtime_utc": "2026-10-23T13:21:29.559225+00:00",
+          "source_in": 1.0,
+          "original_offset": 0.0,
+          "prepared_duration": 6.033333333333333,
+          "raw_hash_matches": true,
+          "prepared_hash_matches": true,
+          "paired_verdict_hashes_match": true,
+          "judge_tags": [
+            "storylens-planner:9b-q6 (looks at the pixels)"
+          ]
+        },
+        {
+          "id": "web:d0a44bfbb6bc918d",
+          "provider": "web",
+          "note": "The frames show a crowded public square with buildings in the background, fitting the 'Indian city street' keyword.",
+          "raw_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\e3135bf2ce60fa65eea1.mp4",
+          "prepared_path": "output\\broll\\20261025-044757-2498b9\\001-audio-only-source\\media\\broll-01-web-d0a44bfbb6bc918d-ae26823a.mp4",
+          "raw_mtime_utc": "2026-10-24T23:24:34.781391+00:00",
+          "source_in": 3.0,
+          "original_offset": 9.0,
+          "prepared_duration": 8.033333333333335,
+          "raw_hash_matches": true,
+          "prepared_hash_matches": true,
+          "paired_verdict_hashes_match": true,
+          "judge_tags": [
+            "storylens-planner:9b-q6 (looks at the pixels)"
+          ]
+        }
+      ],
+      "rejection_count": 8,
+      "check_counts": {
+        "original:True": 4,
+        "prepared:True": 4,
+        "original:False": 8
+      },
+      "rejections": [
+        {
+          "id": "pixabay:63973",
+          "seen": "A wet, empty street at night with snow falling and illuminated trees.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage depicts a snowy European street at night, not an Indian city street."
+        },
+        {
+          "id": "pixabay:63970",
+          "seen": "A snowy, decorated street at night with cobblestone pavement and lit trees.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage depicts a snowy, decorated street at night, which is inconsistent with the intended setting of an Indian city street."
+        },
+        {
+          "id": "pixabay:87884",
+          "seen": "Aerial night view of a highway overpass with light trails and city lights.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a generic city highway at night, not a specific Indian street scene."
+        },
+        {
+          "id": "pixabay:426",
+          "seen": "A woman holding an umbrella in a generic urban setting.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a woman with an umbrella and a storefront, but lack the specific Indian city street context required."
+        },
+        {
+          "id": "pixabay:53902",
+          "seen": "A high-angle shot of a busy street with cars and trains in a European city.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a European city street with trains and cars, not an Indian city street."
+        },
+        {
+          "id": "pixabay:21782",
+          "seen": "A low-angle shot of a person's feet walking on a paved surface.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a close-up of a person's feet walking on pavement, lacking any visible street signs, buildings, or context to identify the location as an Indian city."
+        },
+        {
+          "id": "pixabay:326677",
+          "seen": "Nighttime aerial view of a city with fireworks exploding in the sky.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show fireworks over a generic city at night, lacking specific Indian street details like traffic or signage."
+        },
+        {
+          "id": "web:3240eebda0ddc55c",
+          "seen": "A street food vendor selling fried snacks to a customer.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a street food vendor selling fried snacks, not a generic Indian city street scene."
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "start": 2.14,
+      "end": 3.1,
+      "text": "flat to mil hi jaega.",
+      "visual": "apartment interior",
+      "collection_complete": true,
+      "options": [],
+      "rejection_count": 6,
+      "check_counts": {
+        "original:False": 6
+      },
+      "rejections": [
+        {
+          "id": "pixabay:16399",
+          "seen": "An empty room interior with a window and radiator.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room interior, but the keyword 'apartment interior' is not explicitly supported by the context of 'flat availability' or 'bachelor life' in North India."
+        },
+        {
+          "id": "pixabay:126924",
+          "seen": "A blue-tinted room interior with a large arched window showing a snowy landscape and a crescent moon.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly AI-generated or CGI, not real live-action, failing the 'real_clear_footage' requirement."
+        },
+        {
+          "id": "pixabay:258301",
+          "seen": "A digital rendering of a cozy apartment interior with a sofa, coffee table, and bookshelves.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage is AI-generated or CGI, not real live-action video, violating the requirement for real clear footage."
+        },
+        {
+          "id": "pixabay:29917",
+          "seen": "A salon interior with chairs and a flower arrangement.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is a salon interior, not an apartment interior."
+        },
+        {
+          "id": "web:57aeab2eb3fb2b2f",
+          "seen": "A living room interior with a sofa, coffee table, and wall art.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a living room interior, but the specific subject of 'apartment interior' is not clearly visible or identifiable."
+        },
+        {
+          "id": "web:6fae583c1519ba0d",
+          "seen": "A modern, furnished living room interior with sofas, a coffee table, and a swing chair.",
+          "reason": "The frames show a furnished living room interior, which matches the keyword 'apartment interior'."
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "start": 6.0,
+      "end": 7.26,
+      "text": "bachelor ho, party mein",
+      "visual": "room interior",
+      "collection_complete": true,
+      "options": [],
+      "rejection_count": 10,
+      "check_counts": {
+        "original:False": 12
+      },
+      "rejections": [
+        {
+          "id": "pixabay:16399",
+          "seen": "An empty room interior with a window and radiator.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show an empty room interior, but the keyword 'room interior' is too generic to be useful for the specific spoken context of 'bachelor flats' or 'party'."
+        },
+        {
+          "id": "pixabay:1651",
+          "seen": "A generic office room with desks and chairs.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a generic office room, not a bachelor flat or bedroom, failing the specific accommodation requirement."
+        },
+        {
+          "id": "pixabay:20267",
+          "seen": "Blurry, dark, and unreadable footage that does not depict a room interior.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames are blurry, dark, and unreadable, failing to show a room interior or any clear subject."
+        },
+        {
+          "id": "pixabay:20267",
+          "seen": "A dark, abandoned room interior with debris and overgrown plants.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a dilapidated, overgrown room interior, which contradicts the context of a functional bachelor flat."
+        },
+        {
+          "id": "pixabay:126924",
+          "seen": "A blue-tinted room interior with a large arched window showing a snowy night scene with a crescent moon.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage is clearly AI-generated or CGI, not real live-action, failing the 'real_clear_footage' requirement."
+        },
+        {
+          "id": "pixabay:846",
+          "seen": "A long, empty corridor with bookshelves on the right and pillars on the left.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a library or archive aisle, which does not match the 'room interior' keyword in the context of bachelor accommodation."
+        },
+        {
+          "id": "pixabay:29917",
+          "seen": "A salon interior with chairs, a mirror, and a flower arrangement.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a salon interior, which is unrelated to the keyword 'room interior' in the context of bachelor accommodation."
+        },
+        {
+          "id": "pixabay:20269",
+          "seen": "A dilapidated room interior with debris and overgrown plants.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The footage shows a ruined, abandoned interior, which contradicts the keyword 'room interior' in the context of a bachelor flat."
+        },
+        {
+          "id": "pixabay:1191",
+          "seen": "A dark, blurry interior shot with a bright light source, possibly a projector or lamp.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a blurry, dark interior with a bright light source, failing to clearly depict a room interior or any related subject."
+        },
+        {
+          "id": "pixabay:1191",
+          "seen": "A cafe counter with chairs and a window.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a generic cafe counter, not a room interior for single men or a bachelor flat."
+        },
+        {
+          "id": "web:3c206d9faa4963ed",
+          "seen": "A generic room interior with a woman organizing laundry and a ceiling fan.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The frames show a generic room interior, but the subject is not visible as the scene is cluttered with laundry and lacks clear definition."
+        },
+        {
+          "id": "web:cbe5ca0684ce09a7",
+          "seen": "A bedroom interior with a bed and wall art, overlaid with large text graphics and a black screen.",
+          "reason": "Not every sampled frame shows clean, relevant filmed B-roll: Frames contain large text overlays and a black screen, failing the no_intrusive_overlay and real_clear_footage requirements."
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "start": 16.24,
+      "end": 16.54,
+      "text": "bed,",
+      "visual": "bed",
+      "collection_complete": null,
+      "options": [],
+      "rejection_count": 1,
+      "check_counts": {
+        "original:True": 1,
+        "prepared:False": 1
+      },
+      "rejections": [
+        {
+          "id": "pixabay:363408",
+          "seen": "A close-up shot of a rumpled white duvet cover with a stitched grid pattern, with dark grey pillows visible in the out-of-focus background.",
+          "reason": "The observed frames do not establish the requested bed."
+        }
+      ]
+    }
+  ],
+  "retrieval": [
+    {
+      "keyword": "Indian city street",
+      "start": 0.1,
+      "candidates": 41,
+      "providers": {
+        "web": 8,
+        "pixabay": 21,
+        "commons": 11,
+        "website": 1
+      }
+    },
+    {
+      "keyword": "apartment interior",
+      "start": 2.14,
+      "candidates": 64,
+      "providers": {
+        "web": 14,
+        "pixabay": 37,
+        "website": 1,
+        "commons": 12
+      }
+    },
+    {
+      "keyword": "room interior",
+      "start": 6.0,
+      "candidates": 57,
+      "providers": {
+        "web": 11,
+        "pixabay": 33,
+        "website": 1,
+        "commons": 12
+      }
+    },
+    {
+      "keyword": "bed",
+      "start": 16.24,
+      "candidates": 36,
+      "providers": {
+        "pixabay": 15,
+        "web": 11,
+        "website": 2,
+        "commons": 8
+      }
+    },
+    {
+      "keyword": "wardrobe",
+      "start": 17.22,
+      "candidates": 12,
+      "providers": {
+        "web": 5,
+        "pixabay": 1,
+        "commons": 6
+      }
+    },
+    {
+      "keyword": "water heater",
+      "start": 18.28,
+      "candidates": 23,
+      "providers": {
+        "pixabay": 12,
+        "commons": 6,
+        "web": 5
+      }
+    },
+    {
+      "keyword": "kitchen pan",
+      "start": 19.36,
+      "candidates": 56,
+      "providers": {
+        "pixabay": 34,
+        "commons": 12,
+        "web": 10
+      }
+    },
+    {
+      "keyword": "refrigerator",
+      "start": 20.34,
+      "candidates": 42,
+      "providers": {
+        "pixabay": 26,
+        "website": 1,
+        "commons": 6,
+        "web": 9
+      }
+    },
+    {
+      "keyword": "washing machine",
+      "start": 21.2,
+      "candidates": 43,
+      "providers": {
+        "pixabay": 25,
+        "web": 9,
+        "commons": 9
+      }
+    },
+    {
+      "keyword": "room interior",
+      "start": 28.36,
+      "candidates": 57,
+      "providers": {
+        "web": 11,
+        "pixabay": 33,
+        "website": 1,
+        "commons": 12
+      }
+    }
+  ],
+  "provenance": {
+    "configured_models": {
+      "planning_model": "storylens-meaning:14b",
+      "vision_model": "storylens-planner:9b-q6",
+      "meaning_model": "storylens-meaning:14b",
+      "embedding_model": "storylens-embedding:8b-q6"
+    },
+    "provider_inventory_receipt": "output/plugin-validation/broll-local-runtime-request.json",
+    "provider_version": {
+      "version": "0.40.5"
+    },
+    "installed_digest_inventory_not_per_call_execution": {
+      "storylens-meaning:14b": "3e063cc851850dd66d654e180af6da339f1c603b6a11eb774a3bac69a57a8609",
+      "storylens-planner:9b-q6": "f5f3d8d3783e2b26dcf00eaf7f252e7b557657ea5f7a132992b742df9d750f2e"
+    },
+    "actual_primary_planning_route": "pipeline.run -> hinglish_visuals.brain.open_brain -> OllamaBrain; LocalBrain/hinglish_broll.llm.LocalLLM is a local fallback, not established as used.",
+    "planning_cache_directory": "cache/visuals/brain",
+    "planning_cache_key_limits": "Includes model tag/full injected request/schema/think; lacks active model weight digest/provider version. Cache_hit exists transiently on last_usage but no per-call persisted receipt found in this job.",
+    "vision_cache_directory": "cache/visuals/evaluator",
+    "vision_cache_key_limits": "Includes model tag/injected system/pictures/schema/prompt; lacks active weight digest/provider version. Source/prepared receipts bind bytes and verdict, not inference freshness.",
+    "transcript": "Job log explicitly says Reusing completed transcript. No new ASR inference established.",
+    "retrieval": "Log explicitly reuses 40 previously verified internet videos as leads and 19 previously checked candidate pictures. Current checks still run through configured checker, potentially its cache.",
+    "pexels": "Current job log reports saved key rejected; disabled for this run. No new credential probe performed by auditor.",
+    "interventions": [
+      "Codex submitted normal workflow constraints; no creative model answers supplied"
+    ],
+    "fresh_inference_per_call": "Unknown from persisted job data. Two new keyword cache files dated within this job have identical answer hashes, supporting fresh writes but not an exact call/digest lineage."
+  },
+  "findings": [
+    {
+      "id": "negative-meaning-retry",
+      "evidence": "All three attempts report five negative violations. Checker regex inspects str(row), including meaning. Repair concatenates all three ten-row answers and retains negative meanings; final_hard=15 is current post-repair checker count over duplicate rows, not 15 separate surviving queries. All ten saved visual/query sets avoid that regex. Five saved meanings still match. Guard return ignored; slots rebuilt from attempted answers.",
+      "status": "Unfixed; do not treat guard report as semantic pass."
+    },
+    {
+      "id": "illustrative-interior-veto",
+      "evidence": "Rejected web:57aeab2eb3fb2b2f describes a living room with sofa/coffee table/wall art but says apartment interior not visible. Generic interior check still receives absence/rental narrative unlike canonical object checks. This is an observed inconsistent veto; audit did not inspect its video.",
+      "status": "Unfixed; six apartment candidates rejected, zero options in snapshot."
+    },
+    {
+      "id": "plan-relevance",
+      "evidence": "Opening Indian street is an establishing interpretation, not a noun spoken in its 0.10-2.14 quote. Bachelor maps to generic room at 6.00; phrase includes unclear party mein. Pan may be ASR ambiguity; no audio correction established. Clear chaar divaaren phrase has no saved empty-room slot.",
+      "status": "Needs live semantic acceptance; no hand-authored replacements supplied."
+    },
+    {
+      "id": "not-one-go-proof",
+      "evidence": "Job records recovery_attempts=1; reason cannot be inferred from count alone. Existing source transcript and candidate-picture reuse are explicit. One run still active, no final bank/playback/native receipt.",
+      "status": "Reliability and assistant orchestration acceptance pending."
+    }
+  ],
+  "visible_evidence": {
+    "inspected_existing_thumbs": [
+      "thumbs/checked-0-pixabay-176609.jpg",
+      "thumbs/checked-0-web-d0a44bfbb6bc918d.jpg"
+    ],
+    "observation": "First shows an aerial road with buildings/traffic; second crowded outdoor square with people and some foreground obstruction. Single prepared thumbnails do not establish all-frame subject correctness, identity/location, motion or native playback."
+  },
+  "final_artifacts_present": {
+    "BROLL_CANDIDATES.v1.json": false,
+    "BROLL_OWNER_SELECTIONS.v1.json": false,
+    "preview.mp4": false,
+    "BROLL_SEQUENCE.xml": false,
+    "BROLL_OPTIONS.xml": false,
+    "quality-check.json": false
+  },
+  "timing_limits": "Only submit-to-observation elapsed and coordinator sampled stages. No exact planning/load/search/candidate-check phase durations; no per-call model timing. See output/plugin-validation/broll-runtime-observations.json. Last audit is a partial snapshot, not terminal status."
+}

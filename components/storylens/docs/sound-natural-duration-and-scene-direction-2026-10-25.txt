@@ -1,0 +1,76 @@
+Natural duration and autonomous scene sound direction — 25 October 2026
+
+Owner rejected the previous 30-second local score: 28 effects, all .10–.30s,
+21 poke and seven whoosh. Longer meaningful effects, environmental sound,
+subject/action Foley and musical reactions must be inferred for each video.
+
+Implemented through the shared production Sound Design path:
+- Replace the micro-accent-heavy model examples with natural-envelope guidance.
+  Real clicks can remain brief; developing stings, decays and movement can run
+  1–3 seconds or longer when motivated, with sustained sources following scenes.
+  Model requests require duration_reason and expose the sound-family meanings.
+- Authored excerpts may outlast old category default caps, up to eight seconds
+  for effects or 30 for ambience, while respecting actual source length. Legacy
+  callers retain their defaults. No source stretching or blanket minimum.
+- New observed scene layers get budget before optional new word accents. Keep
+  already authored base accents, evidence timing, no invented precise contacts.
+- Local Vision identifies subject/location/action/mood before text; camera moves
+  alone do not establish Foley, and a static slide does not establish a rider.
+- Physical retrieval searches across folder labels, uses the physical query,
+  and includes explicit source metadata matches when vector ranking misses them.
+  Preserve owner bans, tone exclusions, source guards, duration fit and listening.
+- Reject generic role-only search intents. Reject named physical subjects or
+  materials absent from the supplied event evidence; do not play copied fabric
+  or wood examples over a water scene. Unknown-source identification is still
+  limited by the detector vocabulary and imperfect Vision.
+- File-choice arrays now require a reply for every supplied moment/section,
+  including explicit -1, and bound candidate numbers. This prevents a single
+  selected row silently leaving all other proposed layers unanswered.
+- The listener no longer rejects a dominant heard physical source that matches
+  the requested subject solely because a verbose location phrase scores below
+  its generic audio label. Wrong physical subjects and tone checks remain active.
+  Broad source matching does not prove exact location, material or contact identity.
+
+TDD: observed the intended failures before each implementation. 154 sound
+checks pass (3.121s). The existing single-transient, source/PCM/native export,
+creator preservation, report and context regressions remain covered.
+
+Real checks: one ten-second source sequence from the owner's saved upload,
+normal pipeline and actual configured local Qwen/Vision. First run proposed
+5-second scene layers and 1–3-second reactions but exposed wrong family labels,
+missing library coverage, incomplete picker output and false listener rejection.
+Intermediate outputs and failed trial 20261025-003654-5e0403 remain saved.
+Specific fixes were made in this initial live-validation loop, not silently
+substituting a ChatGPT score. No native editor or remote service generation.
+
+Added Mixkit originals (normal public download, credited sidecars): Water flowing
+ambience loop (51s) and Water splash (1.48s). Sources: https://mixkit.co/free-sound-effects/water/
+and https://mixkit.co/license/#sfxFree. Acquisition hashes/URLs are in
+output/sound-natural-direction-20261025/water-source-acquisition.json.
+This makes 2,216 indexed effects. It is a local editing library, not a licence
+to redistribute those recordings as a sound pack. Firecrawl required a missing
+connection ID; public catalogue evidence was retrieved directly instead.
+
+Latest continuation blocks new /api/chat requests and uses saved actual Qwen
+choices. Its receipt/result will be output/sound-natural-direction-20261025/
+result.json. Do not confuse cache reuse with fresh-video latency or full
+production-quality acceptance. The 30-second previous result remains unchanged.
+Persistent guidance was appended to the shared sound reference memory read by
+local planning and Vision; no saved instructions removed, no weights trained.
+
+Final result: http://127.0.0.1:8876/sound-output/20261025-005000-b148bf/001-ten-second-source/report.html
+Cache-only rebuild: 59.81 seconds; no new Qwen chat generation was permitted.
+Six effects include a 5-second actual water-flow recording. 11/11 mix checks.
+Existing IAB report opened and video reached ended=true at 10/10s, readyState4,
+no media error. This verifies playback, not subjective sound approval or native
+CapCut/Premiere playback. Prior 30-second result is preserved.
+
+Final-review breaking points, left unchanged:
+- Duplicate moment IDs: two returned moment-0 choices omit moment1. Expected
+  one unique selection per ID; actual checker marks the omission soft. This
+  can still cause missing selections/repair calls. Reproduction and output in
+  delivery-review.json. Current real result has no picker rule failures.
+- Creative coverage: the output has contextual water for five seconds, but
+  retains three short pops and lacks exact sliding Foley. Expected richer
+  context-led variety; actual local judgment remains incomplete. Do not claim
+  lifetime autonomous quality, exact location/audio identity or weight training.

@@ -1,0 +1,58 @@
+# Sponsorship targets used by the tests. Mirrors the shape of the real
+# profiles/sponsors.yaml, against the fake web server's domains.
+targets:
+  - name: Example Fantasy
+    url: http://fantasy.example/
+    category: sponsor
+    segment: nutrition
+    tier: 1
+    deal_type: cash
+    note: brand with a published partnerships address
+    fit: Their customers are the same young male audience the channel reaches
+    tags: [india]
+    hints: [/partnerships]
+
+  - name: Example Cricket Gear
+    url: http://gear.example/
+    category: sponsor
+    segment: cricket_gear
+    tier: 1
+    deal_type: barter
+    note: cricket equipment brand sponsorship india
+    fit: The audience already plays, so gear content is the video not the ad
+    tags: [cricket, india]
+    hints: []
+
+  - name: Example Sports Analytics
+    url: http://analytics.example/
+    category: sponsor
+    segment: cricket_tech
+    tier: 2
+    deal_type: affiliate
+    note: sports analytics platform media partnership cricket
+    fit: Their users and the channel's viewers are the same people
+    tags: [cricket]
+    hints: []
+
+  - name: No Email Co
+    url: http://noemail.example/
+    category: sponsor
+    segment: grooming
+    tier: 1
+    deal_type: barter
+    note: publishes a phone number but no address
+    fit: Young male audience watching long-form content
+    tags: [india]
+    hints: []
+
+  # Must never be pitched: real-money gaming is not legal to promote in India.
+  - name: Example Betting App
+    url: http://fantasy.example/
+    category: sponsor
+    segment: betting
+    tier: 1
+    deal_type: cash
+    note: real money cricket betting odds
+    fit: should never be used
+    tags: [excluded]
+    hints: []

@@ -1,0 +1,59 @@
+STORYLENS: CREATIVE REPOSITORY REVIEW
+Reviewed 23 October 2026 against the running project and official repository sources.
+
+Recommendation
+Adopt selected capabilities around the existing pipeline. The highest-value first experiment is a small GSAP motion-template library rendered by the existing Hyperframes worker for Smart Visuals and Motion Graphics. Do not replace accepted captions or the whole editor merely to add a library.
+
+Current architecture inspected
+- Captions: hinglish_captions/hyperframes_preview.py adapts the saved report's actual drawing functions to Hyperframes hf-seek. It deliberately uses data-no-timeline. GSAP is supported by Hyperframes, but the current caption animation is custom deterministic code.
+- Motion Graphics: hinglish_motion/render.py loads HTML, measures layout, seeks mgSeek(seconds), captures browser frames, and creates video/transparent overlays.
+- Smart Zoom: subject selection plus shot/frame-based transforms and FFmpeg/native export. Existing crop/easing execution need not become a browser job.
+- Cinematic Reels: shot and beat planning, FFmpeg assembly, editable XML. Render additional motion layers separately and assemble them at explicit times.
+- AI Images/Video: tools/aigen/worker.py runs Z-Image Turbo and Wan 2.2 TI2V 5B in a separate environment, with GPU offload and a 12 GB laptop GPU configuration.
+- Planning: storylens-meaning:14b. Vision: storylens-planner:9b-q6. Creator guidance, model caches and existing shared memory are preserved.
+
+Proposed flow
+Reference frames + exact script + word times -> Qwen Vision observations -> Qwen 14B chooses a validated recipe and parameters -> code measures complete text layout -> GSAP timeline / optional Three.js scene -> Hyperframes frames -> existing assembly and export.
+For approved templates, reuse saved analysis and code. The local model should not re-invent every font, coordinate and animation for every script. Measure text widths, reserve complete-row slots, keep exact words and validate bounds before animation.
+
+Repository decisions
+1. GSAP + Hyperframes: first priority for new animation recipes. Use a paused timeline with absolute seek time, shared by preview and export. More flexible motion control is useful; automatic improvement in layout or reference fidelity is not established. Native Premiere editability needs an explicit mapping from supported timeline properties to native text/keyframes. A browser animation alone does not provide that mapping.
+2. Taste Skill: installed for Codex. Local models receive a short relevant selection of typography, spacing and review principles. This is reference context, not fine-tuning. Its website spacing, decorative recipes and motion quotas must not override existing caption designs. No Storylens UI redesign requested or performed.
+3. ThreeUI / Three.js: selective reuse for optional 3D titles, product scenes, depth and animated visual layers. ThreeUI is a component catalogue, distinct from the Three.js renderer. Replace pointer/scroll/wall-clock effects with deterministic time, seed randomness, preload assets and release GPU resources. Keep ordinary captions lightweight. No performance or 3D-export benchmark performed.
+4. OpenCut: Classic copied and installed under tools/opencut-classic; opened on http://127.0.0.1:8870/projects. Best areas to study: command-based undo/redo, snapping, timeline handles, text/keyframe controls, project storage and renderer/export separation. It is a different Next/React/Bun/WASM stack, so selective adaptation is preferable to replacing Storylens. Classic is archived upstream. The newer rewrite's actual apps/web/src/routes/editor.tsx currently renders only 'Editor' and 'Coming soon.' Its desktop README calls it only a window. Do not assume its future API/plugins/MCP are ready.
+5. Awesome Opus 5.5 Videos: saved catalogue and creator prompts are reference material, not an Opus model. Curate a few examples into local, parameterized templates with fonts/assets/timing and review evidence. Qwen output will not necessarily match showcase results from another model. Remote linked videos are not all stored with the repository.
+6. Brag: installed as a Codex skill and source reference. Strong candidate for a separate Create product promo feature using an accurate brief, screenshots, logo, duration, soundtrack and optional narration. Prefer its classic Hyperframes workflow for this architecture; brag-slim specifically targets Opus 5.5. No promo feature or video was produced in this review.
+7. WanGP: source downloaded for evaluation; no new runtime or large model weights installed. Compare one model/settings combination against the current Z-Image/Wan worker before changing providers. Keep dependencies isolated, serialize heavy GPU jobs, and measure VRAM, speed and actual output quality. It supplies generated media, not precise editable caption text.
+
+Why combining everything can make things worse
+Several render clocks, duplicated model processes, incompatible project formats and free-form generated layouts can create drift, memory pressure and inconsistent results. One scene specification, explicit timing, a bounded recipe catalogue and a shared GPU queue are the useful combination. Libraries improve available tools; they do not replace reference analysis or visual review.
+
+Completed in this task
+- Read the repository integration PDF from A:/Repository Vault/2026-10-23 and inspected current official READMEs and relevant source.
+- Saved local source/skill locations in catalogue.json and source READMEs alongside this report.
+- Installed Taste Skill and Brag for Codex; available on the next turn.
+- Connected scoped creative_repositories.json guidance to planning and direct vision requests, with prompt/cache revision identity and full creator-profile preservation.
+- Restarted only the verified idle main Storylens service. Actual Storylens chat 4da2c44a5f8c4a09 answered the GSAP/Hyperframes/Taste/OpenCut question using the 14B model. Its phrase 'frontend design guidance model' for Taste is imprecise; Taste is instructions, not a model.
+- Verified knowledge injection for both configured models, unrelated requests stay unaffected, and 20 targeted tests passed.
+- Opened OpenCut Classic, created a local text project, changed the title, and observed the real preview and timeline.
+
+Validation limits
+No new animation quality comparison, WanGP generation, OpenCut video export or Storylens-to-OpenCut/native-editor interchange was tested. Fresh 9B image inference was not run while another project owned the GPU queue; request injection was checked. Source download and retrieved memory do not change model weights or guarantee better output.
+
+Official sources
+https://github.com/greensock/GSAP
+https://github.com/heygen-com/hyperframes/blob/main/packages/cli/src/docs/gsap.md
+https://github.com/Leonxlnx/taste-skill
+https://github.com/MengTo/threeui
+https://github.com/OpenCut-app/opencut-classic
+https://github.com/OpenCut-app/OpenCut/blob/main/apps/web/src/routes/editor.tsx
+https://github.com/OpenCut-app/OpenCut/blob/main/apps/desktop/README.md
+https://github.com/yihui-dev/awesome-opus5-5-videos
+https://github.com/latent-spaces/brag
+https://github.com/deepbeepmeep/WanGP
+
+Local setup
+OpenCut is an isolated frontend evaluation: no database/login or external sound service was configured. Upstream originals are preserved in the repository vault. Local setup uses a local Inter font, disables remote analytics/development scanner scripts, and enables webpack async WebAssembly for the published WASM package. See opencut-local-setup.json and validation.json for evidence and limits. This installation has not replaced Storylens.
+
+LATEST OWNER DECISION
+OpenCut evaluation is stopped. Keep its source for a possible future online editor. Current Storylens work remains centered on CapCut and Premiere Pro exports. Do not continue building or evaluating an OpenCut integration now.

@@ -1,4 +1,0 @@
-Phase 1 - silence removal. No script needed.
-Put your recording(s) here. Double-click Run Phase 1.bat in the main folder.
-Each video is cleaned separately. This folder keeps the original video shape.
-Use only ONE Phase 1 input folder per batch.

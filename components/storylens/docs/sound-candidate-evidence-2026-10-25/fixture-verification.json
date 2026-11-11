@@ -1,0 +1,48 @@
+{
+  "fixture": true,
+  "sources": [
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+      "sha256": "cf2b92df97995a198d62f0c6e82ba5480ff55f2416320ffc7cea7ac270b74225",
+      "source_in": 0.0,
+      "source_out": 2.0,
+      "verified": true,
+      "imported": false
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+      "sha256": "ed6eaccebc44b3e9728c202414561a5a801b8b7e3cf4ecb0f4861c6ab0a24602",
+      "source_in": 0.0,
+      "source_out": 2.0,
+      "verified": true,
+      "imported": false
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+      "sha256": "cf2b92df97995a198d62f0c6e82ba5480ff55f2416320ffc7cea7ac270b74225",
+      "source_in": 0.0,
+      "source_out": 3.0,
+      "verified": true,
+      "imported": false
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+      "sha256": "ed6eaccebc44b3e9728c202414561a5a801b8b7e3cf4ecb0f4861c6ab0a24602",
+      "source_in": 0.0,
+      "source_out": 3.0,
+      "verified": true,
+      "imported": false
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\2-sfx.wav",
+      "sha256": "677bcb3c6cee8220c3a940375a9f16d2342f423e54777e1d49d9e3a494842471",
+      "source_in": 0.0,
+      "source_out": 2.0,
+      "verified": true,
+      "imported": false
+    }
+  ],
+  "new_model_calls": 0,
+  "renders": 0,
+  "native_imports": 0
+}

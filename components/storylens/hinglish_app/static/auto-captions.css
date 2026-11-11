@@ -1,0 +1,24 @@
+/* The primary caption generator shares the original tools panel and cards. */
+#autoCaptionPanel{display:none}
+.captions-page .intro{display:none}
+.panel[data-mode="captions"]>:not(.panel-head):not(#autoCaptionPanel){display:none!important}
+.panel[data-mode="captions"]>#autoCaptionPanel{display:block!important}
+#autoCaptionPanel label{display:block;font-weight:650;margin:16px 0 8px}
+#autoCaptionPanel input,#autoCaptionPanel select,#autoCaptionPanel textarea{width:100%;box-sizing:border-box;background:#101317;color:var(--text);border:1px solid #3a4048;border-radius:10px;padding:12px;font:inherit}
+#autoCaptionPanel textarea{min-height:175px;resize:vertical}
+#autoCaptionPanel .ac-options{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+#autoCaptionPanel .ac-options label{margin:0}
+#autoCaptionPanel .ac-options input,#autoCaptionPanel .ac-options select{display:block;margin-top:8px}
+#autoCaptionPanel .muted{color:var(--muted);font-size:13px}
+#autoCaptionPanel #ac-generate{display:block;text-align:center}
+#autoCaptionPanel video{display:block;max-height:510px;width:100%;background:black;border-radius:10px}
+#autoCaptionPanel .ac-preview{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+#autoCaptionPanel .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
+#autoCaptionPanel a{color:var(--accent2)}
+#autoCaptionPanel #ac-status{line-height:1.5;min-height:24px}
+#autoCaptionPanel .caption-card img{width:100%;height:95px;object-fit:contain}
+#autoCaptionPanel .caption-card .ac-text-preview{display:grid;place-items:center;height:95px;color:#fff;font-size:19px;font-weight:750;text-align:center;padding:8px}
+#autoCaptionPanel .caption-card{padding:12px;min-height:150px}
+#autoCaptionPanel .caption-card[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+#autoCaptionPanel #ac-featureResultBar{margin-top:20px}
+@media(max-width:600px){#autoCaptionPanel .ac-options{grid-template-columns:1fr}}

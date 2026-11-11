@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Call QA for Small Teams · Storylens</title>
+  <link rel="stylesheet" href="call-qa.css">
+  <script src="feedback.js"></script>
+  <script src="call-qa.js" defer></script>
+<link rel="stylesheet" href="support-call.css?v=20261109-call-window"><script src="support-call-actions.js?v=20261109-toolbar" defer></script><script src="support-call.js?v=20261109-toolbar" defer></script>
+</head>
+<body>
+  <header class="shell">
+    <div class="brand">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M2 12h3l2-5 3 10 4-13 3 13 2-5h3"/>
+      </svg>
+      <span>Storylens <span class="separator">/</span> Call QA</span>
+    </div>
+    <span class="scope">Local test workspace</span>
+  </header>
+  <main id="workspace">
+    <div class="page-title">
+      <div>
+        <h1>Call QA for Small Teams</h1>
+        <p>Review test calls and save the audio behind each decision.</p>
+      </div>
+      <div class="support-call-actions"><button type="button" class="support-call-trigger" data-support-call><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H5a2 2 0 0 0-2 2 16 16 0 0 0 16 16 2 2 0 0 0 2-2v-2l-5-2-2 2a12 12 0 0 1-7-7l2-2z"/></svg>Voice assistant</button><button id="import-open" class="primary" disabled>Import test recording</button></div>
+    </div>
+    <p id="gateway" class="gateway">Checking test-call gateway…</p>
+    <div class="inbox">
+      <aside aria-labelledby="inbox-heading">
+        <div class="inbox-heading">
+          <h2 id="inbox-heading">Test calls</h2>
+          <button id="refresh" type="button" disabled>Refresh</button>
+        </div>
+        <div class="filter">
+          <label for="language-filter">Language</label>
+          <select id="language-filter"><option value="">All languages</option></select>
+        </div>
+        <p id="list-state" class="muted" role="status">Loading test calls…</p>
+        <ul id="calls" aria-label="Test calls"></ul>
+        <button id="older" hidden>Load older calls</button>
+      </aside>
+      <section class="detail" aria-label="Call review">
+        <p id="empty" class="empty">Select a call to start a review.</p>
+        <article id="call" hidden>
+          <button type="button" id="back" class="back">← Test calls</button>
+          <header class="call-header">
+            <h2 id="call-title" tabindex="-1"></h2>
+            <p id="call-meta" class="muted"></p>
+          </header>
+          <section class="recording" aria-labelledby="recording-heading">
+            <div class="row"><h3 id="recording-heading">Recording</h3><span id="recording-time" class="clock">00:00.000</span></div>
+            <audio id="audio" preload="metadata" controls aria-label="Test call recording"></audio>
+            <div id="evidence-track" class="evidence-track" aria-label="Saved evidence on the recording"></div>
+            <p id="audio-status" class="muted" role="status">Loading recording…</p>
+            <details id="timing" hidden>
+              <summary>Gateway timing</summary>
+              <p class="muted">Server measurements from speech-stop detection to the first output chunk and playback acknowledgment.</p>
+              <ol id="timing-samples"></ol>
+            </details>
+          </section>
+          <section id="report" class="report" aria-labelledby="report-heading">
+            <div class="row">
+              <h3 id="report-heading">Post-call report</h3>
+              <div class="report-actions">
+                <button type="button" id="export-report">Export anonymized</button>
+                <button type="button" id="save-report">Save anonymized JSON locally</button>
+              </div>
+            </div>
+            <p><a id="download-report" download="storylens-call-qa-anonymized.json" hidden>Download anonymized JSON</a></p>
+            <p id="report-state" class="muted" role="status"></p>
+            <p id="report-summary"></p>
+            <dl id="facts"></dl>
+          </section>
+          <div class="review-layout">
+            <section aria-labelledby="transcript-heading">
+              <h3 id="transcript-heading">Timed transcript</h3>
+              <p id="transcript-empty" class="muted" hidden>No timed transcript was supplied. Review using the recording.</p>
+              <ul id="transcript" aria-label="Transcript segments"></ul>
+            </section>
+            <form id="review" aria-labelledby="review-heading">
+              <h3 id="review-heading">QA checklist</h3>
+              <p class="muted">Mark the evidence start and end from the player, or use a transcript segment.</p>
+              <div id="criteria"></div>
+              <div class="review-actions">
+                <button id="save-review" class="primary" type="submit" disabled>Save review</button>
+                <button id="reload-call" type="button" hidden>Reload saved review</button>
+              </div>
+              <p id="review-status" class="muted" role="status"></p>
+            </form>
+          </div>
+          <details class="retention">
+            <summary>Recording retention</summary>
+            <p id="retention-label" class="muted"></p>
+            <button id="delete-call" type="button">Remove recording and review</button>
+          </details>
+        </article>
+        <p id="detail-error" class="notice" role="alert" hidden></p>
+      </section>
+    </div>
+    <p id="workspace-error" class="notice" role="alert" hidden></p>
+  </main>
+  <dialog id="import-dialog" aria-labelledby="import-heading">
+    <form id="import-form">
+      <div class="row"><h2 id="import-heading">Import test recording</h2><button id="import-close" type="button" aria-label="Close import">Close</button></div>
+      <p class="muted">Add a completed, consented test call for local review.</p>
+      <label>Call label <input name="title" maxlength="100" placeholder="Delivery reschedule test" required></label>
+      <label for="import-language">Call language</label>
+      <select id="import-language" name="language" required></select>
+      <label>PCM WAV recording <input name="recording" type="file" accept=".wav,audio/wav,audio/x-wav" required>
+        <span class="muted">Mono or stereo, 8–48 kHz, up to 24 MiB and 15 minutes.</span>
+      </label>
+      <label>Timed transcript <span class="muted">(optional JSON)</span> <input name="transcript" type="file" accept=".json,application/json"></label>
+      <details>
+        <summary>Transcript format</summary>
+        <pre>[{"speaker":"agent","start_ms":0,
+  "end_ms":2300,"text":"Welcome to the test line."}]</pre>
+        <p class="muted">Use milliseconds from the start of the WAV. Speakers are agent, caller, or unknown. Hindi script is preserved. Each segment can include a separate romanized field.</p>
+      </details>
+      <label class="check"><input name="consent" type="checkbox" required> All participants agreed to recording and QA review of this test call.</label>
+      <p id="import-status" class="muted" role="status"></p>
+      <button id="import-submit" class="primary" type="submit">Add to test calls</button>
+    </form>
+  </dialog>
+</body>
+</html>

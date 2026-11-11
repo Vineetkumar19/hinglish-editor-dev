@@ -1,0 +1,2645 @@
+{
+  "root_id": 16189,
+  "graph": {
+    "16189": {
+      "id": 16189,
+      "name": "Color_Edit",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Color Correction",
+          "sourceName": "Null 3",
+          "source": 17447,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "//Final Output",
+          "sourceName": "//Final Output",
+          "source": 12264,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "12264": {
+      "id": 12264,
+      "name": "//Final Output",
+      "layers": [
+        {
+          "index": 1,
+          "name": "color correct",
+          "sourceName": "color correct",
+          "source": 17465,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "vinage",
+          "sourceName": "vinage",
+          "source": 17467,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 3,
+          "name": "Film Scop",
+          "sourceName": "Film Scop",
+          "source": 17466,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Blur",
+          "sourceName": "Adjustment Layer 1",
+          "source": 17445,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Audio",
+          "sourceName": "Audio",
+          "source": 16893,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Over Layer Texture",
+          "sourceName": "Over Layer Texture",
+          "source": 17431,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 60.76,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Outro",
+          "sourceName": "Outro",
+          "source": 16938,
+          "kind": "comp",
+          "start": 60.92,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 56.44,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Scene_11",
+          "sourceName": "Scene_11",
+          "source": 17211,
+          "kind": "comp",
+          "start": 56.72,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 50.88,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Scene_10",
+          "sourceName": "Scene_10",
+          "source": 17188,
+          "kind": "comp",
+          "start": 51.12,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 45.56,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Scene_09",
+          "sourceName": "Scene_09",
+          "source": 17162,
+          "kind": "comp",
+          "start": 45.84,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 15,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 40.12,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 16,
+          "name": "Scene_08",
+          "sourceName": "Scene_08",
+          "source": 17138,
+          "kind": "comp",
+          "start": 40.4,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 17,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 34.92,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 18,
+          "name": "Scene_07",
+          "sourceName": "Scene_07",
+          "source": 17111,
+          "kind": "comp",
+          "start": 35.16,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 19,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 29.6,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 20,
+          "name": "Scene_06",
+          "sourceName": "Scene_06",
+          "source": 17089,
+          "kind": "comp",
+          "start": 29.88,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 21,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 24.36,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 22,
+          "name": "Scene_05",
+          "sourceName": "Scene_05",
+          "source": 17064,
+          "kind": "comp",
+          "start": 24.6,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 23,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 19.04,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 24,
+          "name": "Scene_04",
+          "sourceName": "Scene_04",
+          "source": 17037,
+          "kind": "comp",
+          "start": 19.28,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 25,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 13.72,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 26,
+          "name": "Scene_03",
+          "sourceName": "Scene_03",
+          "source": 17011,
+          "kind": "comp",
+          "start": 14,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 27,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 8.24,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 28,
+          "name": "Scene_02",
+          "sourceName": "Scene_02",
+          "source": 16984,
+          "kind": "comp",
+          "start": 8.48,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 29,
+          "name": "Adjustment Layer 2",
+          "sourceName": "Adjustment Layer 2",
+          "source": 17463,
+          "kind": "media",
+          "start": 2.76,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 30,
+          "name": "Scene_01",
+          "sourceName": "Scene_01",
+          "source": 16957,
+          "kind": "comp",
+          "start": 3,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 31,
+          "name": "Intro",
+          "sourceName": "Intro",
+          "source": 16921,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16938": {
+      "id": 16938,
+      "name": "Outro",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 3,
+          "name": "envato_black_1",
+          "sourceName": "envato_black_1",
+          "source": 16906,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Outro",
+          "sourceName": "Outro",
+          "source": 16222,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Outro_Image",
+          "sourceName": "Outro_Image",
+          "source": 16569,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16906": {
+      "id": 16906,
+      "name": "envato_black_1",
+      "layers": [
+        {
+          "index": 1,
+          "name": "envato_black_1.eps",
+          "sourceName": "envato_black_1.eps",
+          "source": 16919,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": true
+    },
+    "16222": {
+      "id": 16222,
+      "name": "Outro",
+      "layers": [
+        {
+          "index": 2,
+          "name": "Under Line",
+          "sourceName": "Under Line",
+          "source": 17448,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17448": {
+      "id": 17448,
+      "name": "Under Line",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16569": {
+      "id": 16569,
+      "name": "Outro_Image",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17211": {
+      "id": 17211,
+      "name": "Scene_11",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16539,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Image_11",
+          "sourceName": "Image_11",
+          "source": 16880,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Image_10",
+          "sourceName": "Image_10",
+          "source": 16868,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17416": {
+      "id": 17416,
+      "name": "Mask 03",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Mask 10.png",
+          "sourceName": "Mask 10.png",
+          "source": 17430,
+          "kind": "media",
+          "start": 0.76743410076743,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Mask 10.png",
+          "sourceName": "Mask 10.png",
+          "source": 17430,
+          "kind": "media",
+          "start": 0.76743410076743,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": true
+    },
+    "16880": {
+      "id": 16880,
+      "name": "Image_11",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16868": {
+      "id": 16868,
+      "name": "Image_10",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17188": {
+      "id": 17188,
+      "name": "Scene_10",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16509,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16525,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.56,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Image_10",
+          "sourceName": "Image_10",
+          "source": 16855,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16855": {
+      "id": 16855,
+      "name": "Image_10",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17162": {
+      "id": 17162,
+      "name": "Scene_09",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16478,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Small_Image_PreComp_09-1",
+          "sourceName": "Small_Image_PreComp_09-1",
+          "source": 17398,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16495,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.92,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.6,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.28,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Image_09",
+          "sourceName": "Image_09",
+          "source": 16830,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17398": {
+      "id": 17398,
+      "name": "Small_Image_PreComp_09-1",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_09-1",
+          "sourceName": "Image_small_09-1",
+          "source": 16842,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16842": {
+      "id": 16842,
+      "name": "Image_small_09-1",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16830": {
+      "id": 16830,
+      "name": "Image_09",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17138": {
+      "id": 17138,
+      "name": "Scene_08",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16449,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16464,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.68,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.68,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Image_08",
+          "sourceName": "Image_08",
+          "source": 16817,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16817": {
+      "id": 16817,
+      "name": "Image_08",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17111": {
+      "id": 17111,
+      "name": "Scene_07",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16419,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16435,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Small_Image_PreComp_07-2",
+          "sourceName": "Small_Image_PreComp_07-2",
+          "source": 17383,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Small_Image_PreComp_07-1",
+          "sourceName": "Small_Image_PreComp_07-1",
+          "source": 17368,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.6,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.12,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.48,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Image_07",
+          "sourceName": "Image_07",
+          "source": 16780,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 15,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17383": {
+      "id": 17383,
+      "name": "Small_Image_PreComp_07-2",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_07-2",
+          "sourceName": "Image_small_07-2",
+          "source": 16804,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16804": {
+      "id": 16804,
+      "name": "Image_small_07-2",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17368": {
+      "id": 17368,
+      "name": "Small_Image_PreComp_07-1",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_07-1",
+          "sourceName": "Image_small_07-1",
+          "source": 16792,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16792": {
+      "id": 16792,
+      "name": "Image_small_07-1",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16780": {
+      "id": 16780,
+      "name": "Image_07",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17089": {
+      "id": 17089,
+      "name": "Scene_06",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16388,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16405,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Image_06",
+          "sourceName": "Image_06",
+          "source": 16743,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16743": {
+      "id": 16743,
+      "name": "Image_06",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17064": {
+      "id": 17064,
+      "name": "Scene_05",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16358,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16374,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Small_Image_PreComp_05-2",
+          "sourceName": "Small_Image_PreComp_05-2",
+          "source": 17353,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.48,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.48,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Image_05",
+          "sourceName": "Image_05",
+          "source": 16718,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17353": {
+      "id": 17353,
+      "name": "Small_Image_PreComp_05-2",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_05-2",
+          "sourceName": "Image_small_05-2",
+          "source": 16730,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16730": {
+      "id": 16730,
+      "name": "Image_small_05-2",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16718": {
+      "id": 16718,
+      "name": "Image_05",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17037": {
+      "id": 17037,
+      "name": "Scene_04",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16328,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Small_Image_PreComp_04-2",
+          "sourceName": "Small_Image_PreComp_04-2",
+          "source": 17338,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Small_Image_PreComp_04-1",
+          "sourceName": "Small_Image_PreComp_04-1",
+          "source": 17323,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16344,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.6,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.12,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.6,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Image_04",
+          "sourceName": "Image_04",
+          "source": 16681,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 15,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17338": {
+      "id": 17338,
+      "name": "Small_Image_PreComp_04-2",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_04-2",
+          "sourceName": "Image_small_04-2",
+          "source": 16705,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16705": {
+      "id": 16705,
+      "name": "Image_small_04-2",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17323": {
+      "id": 17323,
+      "name": "Small_Image_PreComp_04-1",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_04-1",
+          "sourceName": "Image_small_04-1",
+          "source": 16693,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16693": {
+      "id": 16693,
+      "name": "Image_small_04-1",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16681": {
+      "id": 16681,
+      "name": "Image_04",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17011": {
+      "id": 17011,
+      "name": "Scene_03",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16298,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16314,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Small_Image_PreComp_03-1",
+          "sourceName": "Small_Image_PreComp_03-1",
+          "source": 17308,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.36,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.36,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Image_03",
+          "sourceName": "Image_03",
+          "source": 16656,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17308": {
+      "id": 17308,
+      "name": "Small_Image_PreComp_03-1",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_03-1",
+          "sourceName": "Image_small_03-1",
+          "source": 16668,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16668": {
+      "id": 16668,
+      "name": "Image_small_03-1",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16656": {
+      "id": 16656,
+      "name": "Image_03",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16984": {
+      "id": 16984,
+      "name": "Scene_02",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16268,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Small_Image_PreComp_02-2",
+          "sourceName": "Small_Image_PreComp_02-2",
+          "source": 17293,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Small_Image_PreComp_02-1",
+          "sourceName": "Small_Image_PreComp_02-1",
+          "source": 17278,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16284,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.64,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.08,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.52,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Image_02",
+          "sourceName": "Image_02",
+          "source": 16619,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 15,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17293": {
+      "id": 17293,
+      "name": "Small_Image_PreComp_02-2",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_02-2",
+          "sourceName": "Image_small_02-2",
+          "source": 16643,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16643": {
+      "id": 16643,
+      "name": "Image_small_02-2",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17278": {
+      "id": 17278,
+      "name": "Small_Image_PreComp_02-1",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_02-1",
+          "sourceName": "Image_small_02-1",
+          "source": 16631,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16631": {
+      "id": 16631,
+      "name": "Image_small_02-1",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16619": {
+      "id": 16619,
+      "name": "Image_02",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16957": {
+      "id": 16957,
+      "name": "Scene_01",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Text_3",
+          "sourceName": "Text_3",
+          "source": 16254,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Text_1",
+          "sourceName": "Text_1",
+          "source": 16238,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 6,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 7,
+          "name": "Particles.mp4",
+          "sourceName": "Particles.mp4",
+          "source": 17415,
+          "kind": "media",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 8,
+          "name": "Small_Image_PreComp_01-2",
+          "sourceName": "Small_Image_PreComp_01-2",
+          "source": 17263,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 9,
+          "name": "Small_Image_PreComp_01-1",
+          "sourceName": "Small_Image_PreComp_01-1",
+          "source": 17248,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 10,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 1.28,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 11,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.8,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 12,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0.44,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 13,
+          "name": "Mask 03",
+          "sourceName": "Mask 03",
+          "source": 17416,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 14,
+          "name": "Image_01",
+          "sourceName": "Image_01",
+          "source": 16582,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 15,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "17263": {
+      "id": 17263,
+      "name": "Small_Image_PreComp_01-2",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_01-2",
+          "sourceName": "Image_small_01-2",
+          "source": 16606,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16606": {
+      "id": 16606,
+      "name": "Image_small_01-2",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "17248": {
+      "id": 17248,
+      "name": "Small_Image_PreComp_01-1",
+      "layers": [
+        {
+          "index": 3,
+          "name": "Image_small_01-1",
+          "sourceName": "Image_small_01-1",
+          "source": 16594,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16594": {
+      "id": 16594,
+      "name": "Image_small_01-1",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16582": {
+      "id": 16582,
+      "name": "Image_01",
+      "layers": [],
+      "structuralHolder": false
+    },
+    "16921": {
+      "id": 16921,
+      "name": "Intro",
+      "layers": [
+        {
+          "index": 1,
+          "name": "Position 2",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 2,
+          "name": "Position",
+          "sourceName": "Null 1",
+          "source": 17446,
+          "kind": "media",
+          "start": 0,
+          "solid": true,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 4,
+          "name": "Intro",
+          "sourceName": "Intro",
+          "source": 16205,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        },
+        {
+          "index": 5,
+          "name": "Texture Background",
+          "sourceName": "Texture Background",
+          "source": 17231,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    },
+    "16205": {
+      "id": 16205,
+      "name": "Intro",
+      "layers": [
+        {
+          "index": 2,
+          "name": "Under Line",
+          "sourceName": "Under Line",
+          "source": 17448,
+          "kind": "comp",
+          "start": 0,
+          "solid": false,
+          "wrapped": false,
+          "hasVideo": true,
+          "placeholder": false
+        }
+      ],
+      "structuralHolder": false
+    }
+  }
+}

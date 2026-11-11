@@ -1,0 +1,6 @@
+{
+  "official_digest": "sha256:6d8c5a1cf7dc9e6f4e8b24adf01df4fd6fe53cff65202d214fecd39f9a8ab9c2",
+  "sha256": "6d8c5a1cf7dc9e6f4e8b24adf01df4fd6fe53cff65202d214fecd39f9a8ab9c2",
+  "release": "b11011",
+  "asset": "llama-b11011-bin-win-cuda-12.4-x64.zip"
+}

@@ -1,0 +1,13 @@
+torch==2.9.1+cu128
+torchaudio==2.9.1+cu128
+torchvision==0.24.1+cu128
+transformers==4.57.6
+numpy==2.5.4
+pillow==12.3.0
+av==18.1.0
+fastapi==0.143.3
+pydantic==2.14.1
+rembg==2.0.85
+gradio==6.9.0
+librosa==0.11.0
+soundfile==0.13.1

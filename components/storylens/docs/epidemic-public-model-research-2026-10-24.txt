@@ -1,0 +1,192 @@
+Epidemic Sound: public model and research evidence
+Inspected: 24 October 2026. Primary sources only; read-only research.
+
+RESULT
+Publicly released audio retrieval and reranking weights DO exist from the
+Oxford/Epidemic collaboration: AuroLA. Epidemic explicitly discloses production
+use for sound-effects search, which Studio calls. This is a concrete reusable
+research lead, not recovery of Studio's complete private video planner.
+No model weights, datasets or software were installed or executed in this work.
+
+1. Production disclosure: AuroLA retrieval
+Source: https://www.epidemicsound.com/blog/state-of-the-art-audio-retrieval/
+Date displayed: 16 September 2026; authors ML Team and Jilan Xu.
+Observed: AuroLA uses Qwen2.5-Omni-7B's language model, audio encoder and
+projector. The post explicitly says it powers production sound-effects search.
+Audio and tag embeddings are computed offline and stored as
+aurola_audio_embedding and aurola_tags_embedding in Elasticsearch. Online
+queries use the text encoder; lexical matching and semantic KNN are combined
+through score fusion. SGLang serves the encoder. Studio analyzes video and
+calls this search to obtain appropriate sound effects.
+The post describes NLI contrastive warmup, AudioVerse training with HybridNCE,
+and a separate LoRA Yes/No reranker. It does not establish that every Studio
+request invokes that reranker, nor identify a production checkpoint hash,
+video-understanding model, planner prompt, hitpoint model or exact fusion weights.
+Deployment statement is the company's disclosure, not our independent runtime
+verification. The public research checkpoint is not proven identical to the
+currently deployed internal model.
+
+2. Research paper and training data boundary
+Source: https://arxiv.org/abs/2602.18010
+PDF: https://arxiv.org/pdf/2602.18010
+Authors: Jilan Xu, Carl Thome, Danijela Horak, Weidi Xie, Andrew Zisserman.
+Affiliations include Oxford VGG, Epidemic Sound and Shanghai Jiao Tong.
+Initial submission: 20 February 2026. Current v2: 5 October 2026, titled
+Re-purposing Multimodal Large Language Models for Audio-Text Retrieval.
+The repository still uses the earlier Scaling Audio-Text Retrieval title.
+The paper describes an MLLM shared audio/text embedding space, contrastive
+training and AudioVerse: roughly 1.4 million clips collected from 11 sources.
+Qwen3-Omni-30B-A3B supplies long, short and tag descriptions; the data spans
+AudioSet, Freesound, BBC effects, commercial-source collections and academic
+benchmarks. This is not a single permissively licensed stock library.
+Paper, blog and release documentation are different revisions; do not assume
+their training-objective descriptions or summary-token notation are identical.
+Availability of the assembled AudioVerse audio/annotations was NOT established.
+
+3. Public code, training scripts and checkpoint releases
+Repository: https://github.com/Jazzcharles/AuroLA
+This is the paper authors' implementation. It includes retrieval/rerank demos,
+training and evaluation code. The AudioVerse section remains TODO. Its PT
+checkpoints exclude AudioCaps, Clotho, VGGSound and EPIC-Sounds; Full uses the
+full training mixture. Published benchmark scores are authors' reports.
+
+Fine-tuning instructions:
+https://github.com/Jazzcharles/AuroLA/blob/main/docs/finetune.md
+These accept user audio files and caption metadata, then train a separate LoRA
+adapter using finetune_retrieval.sh and evaluate with test_retrieval.sh. This
+documents a genuine weight-training route; merely passing Storylens reference
+memory to the existing Qwen planner is not that route.
+
+Public full-setting weights and file listings:
+https://huggingface.co/Jazzcharles/AuroLA-3B
+https://huggingface.co/Jazzcharles/AuroLA-3B/tree/main
+  9.42 GB repository; two model shards, 4.99 GB and 4.41 GB.
+https://huggingface.co/Jazzcharles/AuroLA-7B
+https://huggingface.co/Jazzcharles/AuroLA-7B/tree/main
+  17.9 GB repository; four model shards, 4.98, 4.99, 4.99 and 2.89 GB.
+https://huggingface.co/Jazzcharles/AuroLA-rerank-3B
+https://huggingface.co/Jazzcharles/AuroLA-rerank-3B/tree/main
+  9.42 GB repository; two model shards, 4.99 GB and 4.41 GB.
+https://huggingface.co/Jazzcharles/AuroLA-rerank-7B
+https://huggingface.co/Jazzcharles/AuroLA-rerank-7B/tree/main
+  17.9 GB repository; four model shards, 4.98, 4.99, 4.99 and 2.89 GB.
+Sizes are rounded Hub listings, not measured downloads or VRAM requirements.
+These are full safetensors Qwen2.5-Omni thinker model releases with configuration
+and tokenizer, not small adapter-only downloads. Cards/loaders use
+Qwen2_5OmniThinkerForConditionalGeneration and AutoProcessor. The 7B card reports
+9B total parameters/BF16, so the product name is not a memory-budget estimate.
+
+Licence observation: the inspected GitHub root and model roots have no LICENSE
+file; model cards warn of missing YAML metadata and do not state a model licence.
+Therefore commercial/reuse scope for the released fine-tunes remains unresolved
+in these inspected sources. A paper licence or the upstream Qwen licence alone
+does not establish the release author's licence for every derived artifact.
+
+4. Exact public inference contract (static code; not executed)
+Retrieval demo:
+https://github.com/Jazzcharles/AuroLA/blob/main/demo/demo_retrieval.py
+Input is a batch of audio paths or text queries represented as Qwen chat
+messages. Both modalities request a one-word summary; an assistant message
+contains the special marker <emb>. Audio preprocessing passes through
+qwen_omni_utils.process_mm_info and AutoProcessor, padding tensor batches.
+The loader requests final-layer hidden states. get_embed_feature selects the
+position immediately BEFORE <emb>, not mean pooling or a generated caption.
+Each resulting vector is L2-normalized. Matrix multiplication of text vectors
+by transposed audio vectors produces [N_text, N_audio] similarity scores.
+This requires indexing and querying with the same trained checkpoint and
+preprocessing; generic Qwen text embeddings cannot simply replace one side.
+
+3B config:
+https://huggingface.co/Jazzcharles/AuroLA-3B/blob/main/config.json
+text_config.hidden_size=2048 and audio_config.output_dim=2048. Combined with
+the demo's selected final text hidden state, the expected retrieval dimension
+is 2048 (static inference, not a measured run). This config records BF16 and
+Transformers 4.57.1. The 7B dimension was not verified in this inspection.
+
+Reranking demo:
+https://github.com/Jazzcharles/AuroLA/blob/main/demo/demo_rerank.py
+Input is a batch of joint (audio path, candidate text) pairs. The model receives
+an audio query and candidate description, then generates exactly one token with
+sampling disabled. rerank_yes_prob softmaxes only the Yes and No token logits
+and returns the Yes probability. This is pairwise reranking, not an embedding
+index or a timestamp predictor. Apply only after candidate retrieval if adopted.
+An audio/video flag in a generic processor does not prove this release has been
+trained or validated for video-to-soundtracking or precise hitpoint detection.
+
+5. Public Soundly benchmark: evaluation data, restricted scope
+Source: https://huggingface.co/datasets/epidemicsound/soundly
+Publisher: official Epidemic Sound organization.
+The card specifies 1,297 sound-effect records, 6,153 audio files, 82 categories,
+human captions/tags/taxonomy and a test split. Multiple files may belong to one
+effect record. The advertised size is 8.27 GB. The stated licence is
+CC-BY-NC-ND-4.0. This is a released retrieval/Foley evaluation benchmark;
+it should not be relabeled an unrestricted commercial sound library or the
+AudioVerse training dataset. No data was downloaded here.
+
+6. Official video/audio evaluation research: no deployment inference
+Source: https://www.epidemicsound.com/blog/soundtracking-difficulties-with-ai/
+The current page header shows 5 July 2026; its footer says research first
+published 4 May 2026. A 29 April date was not confirmed by this page.
+The ML team compares open, internal and commercial soundtracking systems with
+silence and randomly swapped audio baselines. Public ImageBind evaluates
+semantic audio/video similarity; an AudioSet-trained Synchformer checkpoint
+estimates temporal offsets. MMAudio is cited as related generative work.
+The post finds these automatic metrics can reward inappropriate soundtracks
+and stresses listening/user feedback. It does NOT establish ImageBind,
+Synchformer or MMAudio as current Studio production selectors or generators.
+Application: measure semantic fit, exact event timing and perceived mix quality
+separately. Do not treat a single embedding similarity as acceptance evidence.
+
+7. Adapt: publicly described proprietary music model
+Source: https://www.epidemicsound.com/blog/conditioning-conflicts-in-adapt/
+Date shown: 5 July 2026; author Mauro Luzzatto.
+Explicit product link: a proprietary latent diffusion model powers Adapt,
+using a VAE/latent DiT and rectified flow, with global text plus time-varying
+drums, bass, melody, vocals or instrument stem conditioning. It modifies
+artist-opted-in catalogue music. This is distinct from locating library music
+or planning Studio's full video soundtrack.
+The research studies conflicts between requested style and source stems.
+CLAP is used for evaluation; this is not evidence that CLAP is its generator.
+The inspected article provides no downloadable Adapt weights or complete
+training data. Experimental step/CFG choices must not be presented as universal
+production settings. Applicability is conditioning discipline, not local Adapt
+installation or a recovered internal model.
+
+8. Historical music similarity research
+Source: https://archives.ismir.net/ismir2021/latebreaking/000012.pdf
+Title: Musical Audio Similarity with Self-supervised Convolutional Neural
+Networks (ISMIR 2021 late-breaking demo).
+Authors Carl Thome, Sebastian Piwell and Oscar Utterback list Epidemic Sound.
+They describe audio-example music search using 128-dimensional normalized
+ConvNet embeddings, triplet objectives, musical augmentations, and genre/mood
+metadata. Training used 40,000 catalogue tracks with track-level splits and
+ten sampled ten-second excerpts per track. Five professional video producers
+evaluated the search interface. This supports passage-level music similarity
+as a long-standing design direction, not proof of today's Studio architecture.
+The inspected paper does not link a reusable checkpoint or its proprietary
+40,000-track training corpus. Its CC-BY-4.0 paper licence is not a music licence.
+
+9. Practical next steps for Storylens (our recommendations)
+1) Keep current working sound retrieval and exports. Evaluate optional AuroLA
+   after clarifying release licences and scheduling a realistic hardware check;
+   do not download both model sizes and both rerankers merely to connect a tool.
+2) Candidate integration: offline same-model sound embeddings plus searchable
+   descriptions/tags; query with scene/action/emotion text and combine lexical
+   and vector ranks. Preserve chosen source, attribution and rejection state.
+3) A pairwise reranker can shortlist plausible effects. Exact timestamps must
+   still come from measured editing events, onset/contact evidence and retained
+   source offsets. Retrieval relevance is not synchronization.
+4) For music, index passages and musical descriptors, not only whole tracks.
+   Respect dialogue density and emotional progression, then verify transitions
+   and ducking through listening. The 2021 paper motivates this design but does
+   not supply a modern production music selector.
+5) Evaluate against owner-rated Storylens examples, including a silence option,
+   wrong-but-semantically-related sounds, and audible timing/mixing failures.
+   Record any result as local evaluation, not equivalence to Epidemic Studio.
+
+UNRESOLVED
+Private video model and orchestration; prompt/tool policy; deployed checkpoint
+revision; hitpoint detection weights; recommendation fusion coefficients;
+catalogue-scale human preference data; complete AudioVerse release rights;
+explicit AuroLA release licence; and real performance on this user's GPU.
+Those are not recoverable merely by seeing a public client or reading papers.

@@ -1,0 +1,33 @@
+Storylens ReelMimic adapter — 24 October 2026
+
+Upstream: https://github.com/edenfunf/reelmimic
+Saved source: D:/Repository Vault/2026-10-23/reelmimic/source
+Copied analysis scripts retain their upstream license and notices. Only the
+analysis cache location is adapted to stay inside the Storylens workspace.
+No upstream agent launcher, cloud generation, publishing or browser UI is run.
+
+Settings: config.reelmimic.local.json
+Samples and measured profiles: library/reelmimic/<feature>/<source-hash>/
+Features: thumbnail, aiimage, aivideo, cinematic, sound, captions.
+
+When the owner supplies a sample, ingest it explicitly:
+.venv/Scripts/python.exe -m hinglish_cut.reelmimic FEATURE "ABSOLUTE SAMPLE PATH" --root . --name "Style name" --select
+
+The analyzer retains shot/pacing/audio measurements, full reports, contact sheets
+and source fingerprints. Images use Storylens's existing palette/local Vision
+reader. Videos use ReelMimic analysis plus that reader. Audio uses measured
+rhythm; sound effects and narration are not copied from an inferred transcript.
+The original source file is never renamed or removed.
+
+The selected profile feeds shared local model planning and direct Vision context.
+AI Images/Video also consume its visual reading in their generation style prompt.
+Cinematic Reels uses measured shot-length defaults only where explicit values
+were not supplied. Local captions receive reference context. Approved Hyperframes
+caption templates remain untouched; this adapter does not compile new caption
+renderers automatically. Future samples may require template/renderer adaptation.
+
+This is reference learning, not neural-weight fine-tuning or the full upstream
+multi-agent video production workflow. No samples or live renders were run for
+this integration, following the owner's request. Syntax compilation only.
+Services need their next normal reload to pick up already-imported modules;
+no active service was interrupted for this connection.

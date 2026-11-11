@@ -1,0 +1,609 @@
+# Storylens control purposes. Each section is an app tool key.
+[common]
+Choose videos | Opens the picker for input video files.
+Choose folder | Opens the input folder picker for this tool.
+Choose file | Opens the source file picker for the current format.
+Load .txt file | Loads the selected plain-text script into the script field.
+Load reference .txt | Loads a plain-text script or lyric reference into the reference field.
+Load script .txt | Loads the selected text into the Shorts script field.
+Output settings | Expands format, device and other output options available for the current tool.
+Activity | Expands the current job log.
+Dismiss | Closes the displayed notice.
+Technical details | Expands the diagnostic details for the current feature or result.
+Close | Dismisses the current dialog.
+View Result | Opens the current completed result for inspection.
+Open Folder | Opens the folder containing the selected result.
+Export to CapCut | Prepares the selected result for CapCut and opens its transfer options.
+Export to DaVinci Resolve | Prepares the selected result for the connected Resolve editor.
+Export to Premiere Pro | Prepares the selected result for the connected Premiere editor.
+Export to After Effects | Prepares the selected result for the connected After Effects editor.
+Close editor handoff | Dismisses the current editor transfer dialog.
+Optional downloads | Expands the files produced by the current transfer.
+Check transfer | Checks whether the prepared handoff has reached the receiving editor.
+Finished video | Transfers the rendered picture and audio with its appearance baked in.
+Editable words | Transfers caption timings as editable basic CapCut text.
+History | Expands this feature's saved runs or drafts for review.
+Open chat history | Opens or closes the saved editor chat list.
+[clean]
+Clean my videos | Starts silence removal on the selected sources using the current output settings.
+[script]
+Edit by script | Matches the script to the footage and prepares a cut in script order.
+[captions]
+Generate captions | Starts the caption generation method selected for the current script or footage.
+Check saved progress | Reconnects to the saved caption generation job.
+Open editable captions | Opens the result in the editable caption view.
+Generation record | Opens the saved evidence about how the current captions were generated.
+Local vision review · not a guarantee of an exact match | Expands the visual review notes attached to the generated captions.
+Standard | Switches the caption picker to its standard caption styles.
+From video | Uses video as the input to the standard caption workflow.
+From text | Shows the text entry workflow for generating a caption preview.
+Important words | Opens the workflow for manually reviewed keyword caption highlights.
+Cinematic captions | Opens the cinematic text caption controls.
+[soundLibrary]
+Source and usage details | Shows source attribution and usage information for the recording.
+Import for review | Adds a source sound to the local review library.
+Prepare an ambience loop | Opens settings for preparing a loop from the selected recording.
+Create loop for audition | Renders a local listening preview of the selected ambience loop.
+Timing and levels | Expands the recipe's sound timing and mix level controls.
+Render recipe preview | Renders an audition mix from the current recipe.
+[matchCut]
+Add folder | Adds an input folder to the footage list.
+Find matches | Scans the selected footage for candidate match cuts.
+Stop scan | Requests cancellation of the active match-cut scan.
+Retry saved scan | Restarts the saved match-cut scan with its stored inputs.
+Export | Opens the MP4 and editable timeline export choices for the selected match.
+Video MP4 | Exports the selected match as a rendered MP4.
+Editable XML | Exports the selected match as an editable timeline interchange file.
+[introCreate]
+Intro type | Switches between Instagram Reel, YouTube and the 30-second Gaming YouTube opener.
+Gaming YouTube | Shows the tools for making a 30-second comedy opener from a gaming replay.
+Choose video | Opens the file picker for one downloaded gaming replay with commentary.
+Create gaming intro | Finds complete funny commentary and creates a 30-second opener from 3–5-second clips.
+Resume render | Retries the saved unfinished gaming intro using the same replay.
+Gaming intro history | Shows previously submitted gaming intro jobs and opens the one you select.
+Selected commentary | Shows the selected lines and the planner's reason for each choice.
+Download intro | Saves the rendered gaming intro MP4.
+Download editable intro + replay timeline | Saves an XML timeline with editable intro clips and the original replay starting after them.
+Apply custom timing | Loads the intro matching the chosen format and duration into the preview.
+Play intro | Starts playback of the selected draft with its current picture cuts and sound layers.
+Stop | Stops playback and resets the intro clock.
+Picture cuts | Expands the draft's shot timing controls.
+Sound layers | Expands the draft's audio layer controls.
+Save draft changes | Saves the current draft's edited cut and sound settings.
+Load candidates | Loads footage candidates for building intro previews.
+Restore saved preview | Reopens the saved intro preview.
+Resume saved render | Resumes an unfinished intro render from the saved job.
+Render three previews | Renders the three configured intro preview variants for review.
+[reelRecreate]
+Prepare reel | Saves the chosen MP4 locally and starts reel preparation with the selected caption style and timing options.
+Retry connection | Rechecks whether the running local service supports the current reel styles.
+Update captions and style | Saves a new revision of the reviewed caption text and style and uses the connected editor to create that version when available.
+Add to After Effects | Imports this prepared revision through the Storylens panel in After Effects.
+Add to Premiere Pro | Imports this prepared revision through the Storylens panel in Premiere Pro.
+[referenceReel]
+Build reel | Starts reconstruction using the selected reference and input footage.
+[broll]
+B-roll settings | Opens the settings dialog for footage folders and tool options.
+Add footage folder | Opens the folder picker and adds its selection to the dialog's list.
+Remove | Removes the corresponding footage folder from the settings list.
+Save settings | Stores the edited B-roll library settings.
+No B-roll | Records that the corresponding keyword should have no B-roll choice.
+Use at keyword | Chooses the candidate at the matching keyword in the editable result.
+Use in new project | Sends the selected candidate into the supported editor's new project.
+[sound]
+Change music folder | Opens the folder picker for the background music library.
+Change effects folder | Opens the folder picker for the sound effects library.
+Review sound alternatives | Opens the saved sound choices for listening and selection.
+Import folders + draft timeline | Transfers the editable sound draft and source folders.
+Listen | Auditions the corresponding sound choice.
+At playhead | Places the selected original sound at the Premiere Pro playhead on a spare audio track.
+Get sound | Prepares the chosen sound for the CapCut workflow.
+[motion]
+Learn from pictures / videos | Selects reference files to save a motion style based on their visible design.
+Learn from a folder | Selects a folder of motion references for style learning.
+Make motion graphics | Generates motion graphics from the current script or footage and selected engine.
+[aivideo]
+Save the prompt as my style | Saves the named prompt as a reusable AI Video style.
+Make AI clips | Generates AI clips using the chosen mode, script and optional reference.
+[visuals]
+No visual | Records that the corresponding moment should have no visual.
+Import source image | Imports the chosen visual candidate into the connected editor.
+[cinematic]
+Folder | Opens the footage folder picker.
+Videos | Opens the picker for individual footage files.
+Extract shots | Scans the chosen footage and saves ranked shot candidates.
+Stop | Cancels the current extraction.
+Best Shots | Shows the ranked selection of best shots.
+Extras | Shows additional candidate shots.
+Selection details | Expands the reasons and metrics for the selected shot.
+Review saved candidates | Reopens the selected saved extraction for story review.
+Resume interrupted extraction | Resumes the selected incomplete extraction.
+Open last extraction | Reopens the most recently saved footage bank.
+Search footage | Searches the current footage bank.
+Find visual matches | Runs a visual similarity search for the selected reference.
+Restore visual search | Restores the saved visual search and its results.
+Propose story | Builds a draft sequence using the current story and footage candidates.
+Save description | Saves the edited description for the selected shot.
+Save label | Saves the edited label for the selected shot.
+Approve candidate | Marks this candidate accepted in the local review.
+Reject candidate | Marks this candidate rejected in the local review.
+Preview original source | Plays the source footage at this candidate's location.
+Pin to chosen phase | Assigns the selected candidate to the chosen story phase.
+Use and lock | Keeps the chosen candidate fixed in its assigned phase.
+Unlock | Allows the locked story selection to change again.
+Move phase earlier | Moves the selected story phase earlier in the draft order.
+Approve body plan | Saves the reviewed body arrangement as approved.
+Render body-only preview | Renders a review video of the body plan.
+[slowMotion]
+Browse folder | Adds a source footage folder.
+Add videos | Adds selected video files to the footage input.
+Find moments | Scans the selected sources for movement that may suit slow motion.
+Stop | Requests cancellation of the current scan or render.
+Resume job | Restarts the saved interrupted slow-motion job.
+Render recommended speeds | Renders the suggested variants for review.
+Scan details | Expands the scan findings and any skipped or failed sources.
+Add point | Adds a speed key point to the current variant.
+Ramp from 1× | Creates a speed curve that transitions from normal speed.
+Reset variant | Restores the selected variant's original speed points.
+Remove | Removes the corresponding speed point.
+Render selected previews | Renders the selected variants for visual review.
+Open Slow Motion folder | Opens the output directory for this slow-motion job.
+Download speed points | Downloads the editable timing recipe.
+Download export index | Downloads the manifest of the selected job's output files.
+Open last review | Restores the last saved slow-motion review.
+Approve export | Marks the selected preview approved for export.
+Reject preview | Records rejection of the selected preview.
+Adobe comparison | Expands the native Adobe render comparison workflow.
+Prepare native request | Writes a native comparison request for the selected variant.
+Check and attach native render | Checks for and attaches the native output to this review.
+Approve native export | Marks the attached Adobe comparison approved.
+Reject native render | Records rejection of the attached native render.
+[beats]
+Timing and trimmed music | Expands timing and music trim settings for beat detection.
+Detect beats | Analyzes the selected music and creates a timed beat marker plan.
+Download marker JSON | Downloads the beat plan as structured JSON.
+Download marker CSV | Downloads marker names, times, frames and strengths in CSV.
+Prepare effect plan | Uses detected beats and the chosen style to create an effects cue plan.
+[downloader]
+Browse | Opens the download destination folder picker.
+Add to queue | Submits the current URLs and download options to the local download queue.
+YouTube clip · optional | Expands the start and end trim controls for a YouTube clip.
+Remove | Cancels an item still waiting in the queue.
+Cancel | Requests cancellation for the current download row.
+Resume | Resumes the corresponding interrupted queue item.
+Retry | Retries the corresponding failed or cancelled item.
+Preview video | Plays the video saved for that queue item.
+Preview audio | Plays the audio saved for that queue item.
+[photos]
+Submit | Searches for images matching the supplied screenshot and collection settings.
+Download | Downloads the chosen candidate image from the current results.
+[callQA]
+Start a call | Opens the separate Cortana AI voice panel.
+Import test recording | Opens the importer for a consented test call.
+Refresh | Reloads the saved test calls.
+Load older calls | Fetches the next page of older calls.
+Test calls | Returns to the saved-call list.
+Gateway timing | Expands the inbound test call timing record when available.
+Export anonymized | Starts anonymized report export for the selected call.
+Save anonymized JSON locally | Saves the anonymized report as a local JSON file.
+Download anonymized JSON | Downloads the anonymized report.
+Save review | Saves the current evaluator notes and cited evidence for this call.
+Reload saved review | Restores the last saved review for the selected call.
+Recording retention | Shows the recording and report retention controls.
+Remove recording and review | Removes the selected recording and associated review through the retention flow.
+Close import | Closes the recording importer.
+Transcript format | Expands the instructions for the imported transcript.
+Add to test calls | Submits the recording, transcript and consent details for local review.
+Mark start | Sets the evidence start to the current playback position.
+Mark end | Sets the evidence end to the current playback position.
+Use transcript selection | Copies the selected transcript text into the evidence entry.
+Play evidence | Plays the selected evidence range in the recording.
+[editorLink]
+Transfer format | Expands the media, XML, native project or active-project transfer choices.
+Copy transfer location | Copies the saved transfer artifact path.
+Retry in After Effects | Retries the prepared transfer in After Effects.
+Retry in Premiere Pro | Retries the prepared transfer in Premiere Pro.
+Retry in DaVinci Resolve | Retries the prepared transfer in DaVinci Resolve.
+Retry in CapCut | Retries the prepared transfer in CapCut.
+[voiceover]
+Generate voice clone | Synthesizes the current script using the selected saved voice and speed.
+Download MP3 | Downloads the current finished voiceover as MP3.
+Download WAV | Downloads the current finished voiceover as WAV.
+Save voice | Saves the uploaded sample and its name as a selectable voice.
+Refresh | Reloads local voice readiness, saved voices and the current job.
+Listen / download | Reopens the completed voiceover with its audio player and downloads.
+Check progress | Rechecks the saved voice generation job.
+Use script | Restores the saved text to the editor.
+Restore script | Restores the saved text to the editor.
+[colorGrade]
+Color Grade 1 | Selects the RealFilm V2 Rec.709 grade workflow.
+Color Grade 2 | Selects the original editable 19-node Resolve workflow.
+Apply to duplicate timeline | Applies the selected grade to a duplicate timeline in the connected Resolve project.
+Download DRX | Downloads the native grade file for Resolve.
+Download LUT | Downloads the selected Sony LUT from the local catalogue.
+Restore previous grade | Restores the grade saved before the current Resolve LUT preview.
+Project setup | Expands instructions for the Resolve project and connection.
+[templateImport]
+Run Import Template | Imports the chosen template library packages into the connected editor.
+Stop | Requests cancellation of the current template import.
+Template fonts | Expands font information and checking controls.
+Check fonts | Checks the template font dependencies.
+Collapse folders | Collapses the template folders in the connected editor.
+[templateAligner]
+Run Template Aliner | Aligns eligible imported templates to the current editing context in the connected editor.
+Read folders again | Refreshes the template folder inventory used by the aligner.
+[templateText]
+Run Template Text | Fills eligible template text layers from the selected narration or current timeline.
+Stop | Requests cancellation of the current template text operation.
+Choose narration | Opens the narration file picker.
+Use timeline audio | Uses the active editor timeline as the narration source.
+[copyPaste]
+Copy | Captures the selected editor item as the current copy source.
+Paste | Pastes the captured item into the selected template target.
+Undo | Reverts the last tracked paste.
+Reset | Clears the current Copy Paste source and progress state.
+[presetLibrary]
+Scroll sections left | Scrolls the category strip to reveal earlier sections.
+Scroll sections right | Scrolls the category strip to reveal later sections.
+Editing Tools | Returns from the library to the editing tools.
+Preview motion | Plays the selected template's motion sample.
+Retry cover | Requests another attempt to load this template's cover.
+Show in folder | Opens the selected library source in File Explorer.
+Back to templates | Returns from a template view to its catalogue.
+Preview pages | Opens the page previews for the selected template.
+Remove BG | Removes the background from the selected title through the editor bridge.
+Restore BG | Restores the background to the selected title.
+Refresh | Reloads the installed template catalogue.
+[animationPresets]
+CC | Switches the animation library to the CC section.
+Effects | Switches to the animation effects section.
+Create adjustment layer | Adds an adjustment layer in the connected editor.
+Refresh | Reloads the available animation preset inventory.
+[imageDownload]
+Paste image | Reads the current clipboard image for download or editor import.
+Download | Saves the selected image through the panel's normal image flow.
+Retry | Retries delivery of the current image without reselecting it.
+[importantCaptions]
+Transcribe video | Transcribes the selected input so its words can be reviewed.
+Add word or phrase | Expands the control for entering a caption highlight manually.
+Add | Adds the entered word or phrase to the highlight list.
+Remove | Removes the corresponding highlight from the list.
+Start caption | Builds the captions using the reviewed word and phrase selections.
+[nativeCaptions]
+Perspective | Expands the pose controls for the selected 3D title.
+Listen | Auditions the selected title sound.
+Apply sound | Adds the selected sound to the title through the editor panel.
+Edit selected | Reads the selected native title into the panel.
+Update selected | Applies the edited title settings to that selected native layer.
+Enable solid 3D | Enables the native solid 3D mode for the selected title.
+New title | Leaves edit mode and prepares a separate title.
+Add new title | Creates a new title using the current style settings.
+[preparePost]
+Cricket | Sets the publishing workspace to the Cricket creator profile.
+Gaming | Sets the publishing workspace to the Gaming creator profile.
+Long | Opens the long-video preparation workflow.
+Shorts | Opens the Shorts preparation workflow.
+Highlights | Opens the gaming highlight preparation workflow.
+Choose video | Opens the source video picker.
+Choose thumbnail | Opens the picker for a thumbnail image.
+Save thumbnail selection | Stores the reviewed thumbnail selection with this draft.
+Run | Prepares the selected source and its review material for the chosen format.
+Cancel Long video | Requests cancellation of the active long-video preparation.
+Cancel preparation | Requests cancellation of the active clip preparation.
+Start | Starts preparing clips from the selected saved video or highlight.
+Clear | Clears the current workspace or review fields while preserving saved uploads and schedules.
+Refresh review | Rechecks publishing discovery suggestions for the current item.
+Use title | Copies the selected suggested title into the review fields.
+Use description & tags | Copies the selected suggested description and tags into the review fields.
+Save reviewed text | Saves the reviewed copy for this item.
+Generate weekly packages · V8 | Generates the requested metadata packages for review.
+Pause future weekly changes | Pauses the future steps of the selected weekly plan.
+[scheduledPosts]
+Cricket | Filters the queue to the Cricket creator channel.
+Gaming | Filters the queue to the Gaming creator channel.
+Other | Filters the queue to entries outside the two creator channels.
+Delete | Removes the selected failed attempt from the queue history.
+[assistant]
+Ask the editor | Opens or closes the editor conversation panel.
+Attach | Opens the editor's attachment file picker.
+Speak your editing request | Records speech for the editor prompt.
+Send | Submits the current prompt and attachments to the editor workflow.
+Start a new chat | Opens a separate editor conversation.
+Close editing assistant | Closes the editor conversation panel.
+Stop after this step | Requests the editor stop at the next safe step boundary.
+[chatHistory]
+Chats | Opens or closes the saved editor chat list.
+New chat | Starts a separate editor conversation.
+Close chat history | Closes the saved chat list.
+Read full conversation | Opens the complete transcript of the selected chat.
+Close transcript | Closes the transcript dialog.
+Load earlier messages | Loads the preceding page of transcript turns.
+[profiles]
+Profile | Opens the creator profile chooser.
+General | Switches the workspace to the General profile.
+Cricket | Switches the workspace to the Cricket profile.
+Gaming | Switches the workspace to the Gaming profile.
+[activation]
+Activate this computer | Submits the entered activation details for this computer.
+Open my account | Opens the account page for the current activation.
+Open the editor | Opens the main Storylens editing workspace.
+[aiAgents]
+Refresh | Reloads the agent suite and its connection statuses.
+Developer tools | Shows or hides the developer agents.
+All agents | Returns to the full agent list.
+Open in new tab | Opens the selected suite workspace separately.
+Open replies | Opens comment-reply accounts and inbox.
+Demand research | Opens the demand research agent workspace.
+Open workflows | Opens the agent workflows workspace.
+Check | Checks the corresponding account's current connection.
+Run replies now | Starts a reply agent pass for the selected account.
+Enable Chrome replies | Enables the selected account's Chrome reply workflow.
+Draft reply | Generates a draft response for the selected comment.
+Copy reply | Copies the current reply text.
+Send reply | Submits the reviewed reply to the selected comment.
+[chromePublisher]
+Open extension folder | Opens the local Storylens Chrome extension folder in File Explorer.
+Show connection code | Shows the pairing code for the Chrome extension.
+Copy code | Copies the pairing code to the clipboard.
+Check Instagram account | Queues a Chrome bridge check for the currently signed-in Instagram account.
+Revoke Chrome connection | Revokes the paired Chrome extension connection.
+Save destination | Binds the selected account to the selected creator profile.
+Resume prepared upload | Resumes the selected prepared Chrome upload when its saved state supports retry.
+Stop this task | Requests cancellation of the selected Chrome publishing task.
+[stockBrowser]
+Connect Chrome | Starts pairing for the dedicated stock-site Chrome connection.
+Check connection | Rechecks the stock browser connection status.
+Disconnect | Revokes the stock browser pairing.
+Access details | Expands the current stock browser connection details.
+[storylensCall]
+Pause | Pauses the voice session until Resume is selected.
+Resume | Resumes microphone input in the current voice session.
+Pause call | Pauses the voice session until Resume is selected.
+Resume call | Resumes microphone input in the current voice session.
+[cricketDesk]
+Settings | Opens the desk's research settings.
+Schedule & sources | Opens the desk's research schedule and source settings.
+Details | Opens the desk's collection-health details inside its settings.
+Prepare selected for editing | Creates a local editor handoff from the chosen items.
+Close settings | Dismisses the research settings dialog.
+Connect collection browser | Opens the dedicated collection browser for sign-in or verification.
+Finish browser setup | Checks whether the dedicated collection browser completed setup.
+Refresh Instagram + X | Requests the desk's browser-based refresh of the configured Instagram and X sources.
+Source coverage & research status | Expands source diagnostics and recent research status.
+Add a post I found | Expands the form for an individual social post URL and short context.
+Add source | Adds the entered source to the current collection.
+Post details | Expands the item's author, event and verification details.
+View source | Opens the original post.
+Reload inbox | Reloads the embedded desk inbox.
+Inbox not available? | Expands the instructions for reconnecting to the desk service.
+
+IPL / World Cup preset ·30min,18:00–00:00 | Fills a 30-minute GPT interval, 18:00 to 00:00 IST and a 12-run daily cap. Save the settings to apply them.
+[gamingDesk]
+Launch / event preset ·30min,18:00–00:00 | Fills a 30-minute GPT interval, 18:00 to 00:00 IST and a 12-run daily cap. Save the settings to apply them.
+[script]
+Build my timeline | Matches the written script to source clips and assembles the editable timeline in script order.
+[broll]
+Find B-roll | Searches for supporting footage using narration and the chosen discovery method.
+Horizontal | Sets the B-roll handoff orientation to landscape.
+Vertical | Sets the B-roll handoff orientation to portrait.
+[visuals]
+Add smart visuals | Finds relevant people, logos and other assets for the selected footage or timeline.
+[zoom]
+Add smart zooms | Finds zoom moments and prepares zoom keyframes with the chosen strength and options.
+[sound]
+Design the sound | Analyzes the current source and prepares an editable music and sound effects draft.
+[eyecontact]
+Fix eye contact | Processes the eligible camera clips to adjust their gaze.
+[shorts]
+Make my shorts | Extracts short clips from the chosen long video using the selected count and framing.
+[gaming]
+Create highlights | Finds and assembles highlight moments from the selected gaming stream.
+[thumbnail]
+Create images | Runs the selected thumbnail or image generation workflow with the current prompt and options.
+[textEffects]
+Cinematic Text | Shows or hides the cinematic text library.
+Refresh | Reloads the cinematic text catalogue.
+Remove BG | Removes the selected native title's background.
+Restore BG | Restores the selected native title's background.
+Preview | Opens the sample for the selected cinematic text treatment.
+[workflow]
+Saved batches | Expands the saved workflow batches and their recorded progress.
+Scheduling & recovery | Expands the scheduling and interrupted-work recovery information.
+[documentaryIntro]
+Inspect and import | Inspects and saves the selected media for this documentary project.
+Restore documentary preview | Restores the most recent saved documentary preview.
+Resume saved render | Resumes the saved unfinished preview render.
+Reference style review | Expands the documentary reference inspection and notes.
+Inspect reference video | Analyzes the chosen reference video for style review.
+Save reference observations | Saves the reviewed notes about the reference.
+Script and timed words | Expands narration text and word timing for review.
+Add source span | Adds a source range to the story review.
+Protect scoreboard and other revealing visuals | Expands exclusions for source visuals that reveal results too early.
+Save story review | Saves the reviewed story spans and reviewer details.
+Render 40-second preview | Renders a forty-second draft using the saved story review.
+[nativeCuration]
+Read open After Effects project | Reads the current open After Effects project through the native connection.
+Inspect template | Inspects the selected template and reports its editable slots.
+Restore saved native work | Reopens the saved native curation state.
+Load reviewed footage | Loads reviewed footage candidates to use in template slots.
+Propose slots from story | Proposes footage placement based on the chosen story.
+Download slot map JSON | Downloads the mapping of source footage to the template slots.
+Save separate populated project | Creates a separate native project with the chosen slots populated.
+Render native preview | Requests a preview from the connected After Effects host.
+Create native intro comparisons | Builds comparison projects for reviewing different intro treatments.
+Render selected comparison | Renders the selected comparison project through the connected host.
+[cinematicReels]
+Open latest completed reel | Restores the most recent completed assembly.
+Detect music beats | Detects beat timings in the chosen music.
+Choose best sections & assemble | Selects source sections and assembles them to the current beat plan.
+Cancel processing | Requests cancellation of the active reel job.
+Why these sections? | Shows the selection reasoning for the assembled sections.
+Apply selected effects to beats | Applies the chosen effects using the current reel's beat timing.
+
+[common]
+AI Agents | Opens the AI Agents workspace.
+Open Google | Opens the pending Google authorization flow in a browser tab.
+Storylens | Returns to the main Storylens tools.
+Presets | Opens the animation preset controls.
+Text | Opens the native text effects workspace.
+Script & timeline | Expands the script input and current editor timeline controls.
+Use current timeline | Captures the open timeline as this tool's source context.
+Refresh projects | Reloads the available CapCut projects.
+Settings | Expands settings for this editor tool.
+Run Smart Clean | Starts silence removal on the selected clips in the current editor context.
+Add result to editor | Imports the saved result into the connected editor.
+Use selected clips | Reads the currently selected editor clips into this workflow.
+Use selected music | Reads the currently selected editor music into this workflow.
+[presetLibrary]
+Copy media | Copies the currently selected editor media into the template copy buffer.
+Paste next | Pastes the copied media into the next eligible template slot.
+Undo paste | Reverts the last tracked paste into a template slot.
+[sound]
+Refresh reviews | Reloads saved sound review results for this project.
+[broll]
+Refresh results | Reloads saved B-roll results for this project.
+Open | Opens the selected B-roll result for candidate review.
+[visuals]
+Refresh reviews | Reloads saved visual review results for this project.
+Open | Opens the selected visual review.
+[dynamic]
+caption-style | Chooses this named caption style for the current caption workflow.
+caption-family | Switches the style picker to this caption family.
+caption-variant | Chooses this visual variant of the current title family.
+intro-draft | Loads this saved intro and its editable picture and sound layers.
+saved-chat | Opens this saved editing conversation.
+scheduled-item | Selects this queued item and opens its details for review.
+call-qa-entry | Opens this saved test call and its review.
+call-evidence | Seeks the recording to the timestamp for this evidence entry.
+attachment-remove | Removes the named file from the editor's pending attachments.
+preset-category | Shows templates in this catalogue section.
+motion-preset | Applies this named motion preset to the selected native layers.
+template-pack | Opens the selected template pack and its available scenes.
+template-scene | Runs the selected scene's normal import or application flow in the connected editor.
+template-file | Opens the folder containing this named template file.
+
+[common]
+Copy | Copies the displayed content to the clipboard.
+Copied | Indicates the previous copy finished. Press it to copy the displayed content again when available.
+[assistant]
+Close assistant | Closes the editor conversation panel.
+[captions]
+Paste captions | Switches to the text entry route for creating captions from pasted text.
+[profiles]
+Cricket Stories, match reactions & news | Activates the Cricket creator profile and its editing preferences.
+Gaming Streams, highlights & Shorts | Activates the Gaming creator profile and its editing preferences.
+My channel preferences & references | Opens the active creator's preferences and source references.
+Save & refresh sources | Saves source settings and refreshes the active creator's sources.
+Save this channel's preferences | Saves the current profile's preferences separately from the other profiles.
+[preparePost]
+Resume preparation | Continues the selected interrupted preparation from its saved progress.
+Review generated clip | Opens the corresponding generated clip for review.
+Save as draft | Saves the current prepared copy for later review.
+Cancel unstarted post | Cancels the selected post that has not started uploading.
+[sound]
+Import | Imports the selected original sound into the connected editor.
+Review sound alternatives | Opens the saved sound review in the panel.
+
+[common]
+Open output folder | Opens the files produced by the current operation.
+[results]
+Import timelines | Sends the prepared editable timelines to the connected Resolve project.
+Open After Effects | Opens the prepared result in After Effects through the handoff.
+Open Premiere Pro | Opens the prepared result in Premiere Pro through the handoff.
+Open CapCut | Opens the prepared result in CapCut through the handoff.
+[beats]
+Add beat markers to After Effects | Imports the current beat plan into the After Effects timeline as markers.
+Add beat markers to Premiere Pro | Imports the current beat plan into the Premiere Pro timeline as markers.
+[downloader]
+Import video in After Effects | Imports the selected downloaded video into After Effects.
+Import audio in After Effects | Imports the selected downloaded audio into After Effects.
+Import video in Premiere | Imports the selected downloaded video into Premiere.
+Import audio in Premiere | Imports the selected downloaded audio into Premiere.
+
+[finance]
+Open Pocket Tracker | Opens the local Pocket Tracker companion for the paired phone ledger, reports, and pairing.
+Open Finance Tracker | Opens the local Finance Tracker ledger for investments, cash, deposits, assets, and debts.
+
+[analytics]
+Overview | Compares performance across the saved creator accounts.
+Analytics | Opens the selected account's trends, recent content, and available metrics.
+Reports | Opens the selected account's monthly, quarterly, or annual reports.
+Connections | Shows which YouTube and Instagram accounts can supply analytics.
+Refresh accounts | Refreshes analytics for the connected creator accounts.
+All accounts | Includes all four creator accounts in Overview.
+Cricket | Limits Overview to the cricket YouTube and Instagram accounts.
+Gaming | Limits Overview to the gaming YouTube and Instagram accounts.
+Account | Chooses which account the Analytics and Reports views show.
+Report period | Changes Reports between Monthly, Quarterly, and Annual.
+Month | Chooses the month shown in the monthly analytics report.
+Quarter | Chooses Q1, Q2, Q3, or Q4 for a quarterly report.
+Year | Chooses the calendar year for the quarterly or annual report.
+Trend metric | Chooses which available metric the trend chart plots.
+Download annual CSV | Downloads the selected account's annual report as a CSV file.
+Show all | Expands the current content list to show all loaded entries.
+Show fewer | Collapses the content list back to its shorter view.
+Connect YouTube Analytics | Opens the Google permissions flow for the selected analytics account.
+Connect | Starts the reviewed account’s analytics permission or read flow.
+Include estimated revenue | Requests the additional YouTube analytics permission for estimated revenue.
+Read Instagram in Chrome | Requests an analytics read through the paired Chrome session for the selected Instagram account.
+Remove local data | Opens confirmation to remove this account's local analytics data and pause its collection.
+Open StoryLens Chrome connection | Opens the Chrome Publisher pairing page for Instagram access.
+Close | Closes the current video analytics dialog.
+Cancel | Closes the current analytics connection dialog.
+Back to editor | Returns to the main StoryLens editor.
+
+[finance]
+Refresh | Requests updated Pocket Tracker cash flow and Finance Tracker net worth for the Finance summary.
+Month | Chooses the YYYY-MM month for the Pocket Tracker cash-flow summary.
+Monthly cash flow | Shows money in, money out, and available recurring and budget information from Pocket Tracker.
+Net worth | Shows the latest recorded net worth and the available asset and liability totals from Finance Tracker.
+StoryLens | Returns to the main editor.
+
+[support]
+Support | Opens a Gmail draft addressed to StoryLens support for you to review and send.
+
+[aiAgents]
+Editing clients | Opens the Editing clients card for gigs, quotes, and proposal work.
+Sponsorships | Opens the Sponsorships card for pitches and reply tracking.
+SaaS sales | Opens the SaaS sales card for lead and demand research.
+Community | Opens the Community agent under Developer tools.
+Jobs | Opens the Jobs agent under Developer tools.
+Development clients | Opens the Development clients agent under Developer tools.
+Connections | Shows current agent and account connection status.
+Back to editor | Returns to the main StoryLens editor.
+View comment | Opens the original comment on its platform.
+Reply mode | Chooses Paused, Draft for review, or Automatic replies where the account supports it.
+Daily reply limit | Sets the maximum number of replies per day for the named account.
+
+[profiles]
+Close creator profile settings | Closes the creator profile panel.
+My channel preferences & references | Expands saved preferences and sources for the selected creator profile.
+Create thumbnail | Fills the editor prompt with a thumbnail request for the selected profile.
+Prepare and Post | Opens Publishing Studio for the selected creator profile.
+15-minute highlights | Fills the editor prompt with the gaming highlight request.
+Highlights + 5 Shorts | Fills the editor prompt with the gaming highlight and five Shorts request.
+Video + 5 Shorts | Fills the editor prompt with the cricket video and five Shorts request.
+Save this channel's preferences | Saves the selected profile's editing preferences and references.
+Save & refresh sources | Saves the Cricket profile's source information and requests updated evidence.
+
+[chatHistory]
+Search all chats | Filters the saved chat list using the entered search text.
+
+[assistant]
+Close assistant | Closes the editor conversation panel.
+Tell the assistant what to edit | Sets the draft editing request to review before using Send.
+
+[storylensCall]
+Expand call to fill screen | Expands the voice assistant panel.
+Restore call size | Returns the maximized panel to its previous size.
+Close voice assistant | Ends the call and releases the microphone.
+Close-up | Shows a closer view of the Cortana avatar.
+Full body | Returns the avatar to its full-body view.
+Voice language | Selects Auto, English, or Hindi for speech recognition and voice.
+
+[preparePost]
+SEO & thumbnail review | Includes the SEO and thumbnail review in a new preparation.
+Live YouTube search suggestions | Includes live YouTube search suggestions in a new preparation.
+Audience | Records whether the reviewed video is made for kids.
+Altered / synthetic content | Records the declaration for the reviewed video's altered or synthetic content.
+Visibility | Chooses the publishing visibility for the reviewed item.

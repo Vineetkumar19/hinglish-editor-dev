@@ -1,0 +1,3507 @@
+{
+  "revision": 4,
+  "status": "correction_pending_owner_review",
+  "reference_file": "D:\\Full Drive\\Styles\\Videos\\Caption 06 - Serif Circle.mp4",
+  "reference_fps": 30,
+  "fonts": {
+    "sans": "Inter-SemiBold.ttf",
+    "serif": "PlayfairDisplay-BoldItalic.ttf",
+    "italic": "InterDisplay-SemiBoldItalic.ttf"
+  },
+  "size": 56,
+  "tracking": -0.05,
+  "recipes": [
+    {
+      "text": "Por que um Ãºnico post",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "x": 330,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 45,
+          "x": 404,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 95,
+          "x": 343,
+          "face": "serif",
+          "size": 88,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            4
+          ],
+          "y": 155,
+          "x": 404,
+          "face": "serif",
+          "size": 88,
+          "source_row": 3,
+          "band": 3,
+          "reveal": "row",
+          "role": "emphasis"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 3,
+          "path": [
+            [
+              [
+                203,
+                123
+              ],
+              [
+                300,
+                174
+              ],
+              [
+                520,
+                174
+              ],
+              [
+                552,
+                125
+              ]
+            ],
+            [
+              [
+                552,
+                125
+              ],
+              [
+                584,
+                79
+              ],
+              [
+                447,
+                41
+              ],
+              [
+                313,
+                37
+              ]
+            ],
+            [
+              [
+                313,
+                37
+              ],
+              [
+                188,
+                29
+              ],
+              [
+                152,
+                64
+              ],
+              [
+                200,
+                92
+              ]
+            ],
+            [
+              [
+                200,
+                92
+              ],
+              [
+                238,
+                119
+              ],
+              [
+                340,
+                142
+              ],
+              [
+                426,
+                142
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#21E890",
+          "stroke": 4,
+          "duration": 0.45,
+          "linear": true,
+          "target_rows": [
+            2,
+            3
+          ],
+          "delay": 0
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "nÃ£o vai fazer com que",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 45,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "y": 90,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "seu cliente venda mais?",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "x": 400,
+          "face": "italic",
+          "size": 56,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 45,
+          "x": 357,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 95,
+          "x": 355,
+          "face": "serif",
+          "size": 90,
+          "color": "#58F69D",
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 155,
+          "x": 389,
+          "face": "serif",
+          "size": 86,
+          "source_row": 3,
+          "band": 3,
+          "reveal": "row",
+          "role": "emphasis"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "scribble",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                205,
+                166
+              ],
+              [
+                310,
+                160
+              ],
+              [
+                520,
+                158
+              ],
+              [
+                520,
+                166
+              ]
+            ],
+            [
+              [
+                520,
+                166
+              ],
+              [
+                512,
+                178
+              ],
+              [
+                265,
+                190
+              ],
+              [
+                250,
+                198
+              ]
+            ],
+            [
+              [
+                250,
+                198
+              ],
+              [
+                240,
+                207
+              ],
+              [
+                433,
+                211
+              ],
+              [
+                427,
+                224
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#FFFFFF",
+          "stroke": 2.5,
+          "duration": 0.6,
+          "linear": true,
+          "glow": true,
+          "taper": true,
+          "delay": 0.1,
+          "target_rows": [
+            2,
+            3
+          ]
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "NÃƒO VÃƒO ADIANTAR NADA",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support",
+          "case": "upper"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 54,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support",
+          "case": "upper"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 108,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support",
+          "case": "upper"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 0,
+          "path": [
+            [
+              [
+                200,
+                205
+              ],
+              [
+                310,
+                258
+              ],
+              [
+                565,
+                219
+              ],
+              [
+                590,
+                118
+              ]
+            ],
+            [
+              [
+                590,
+                118
+              ],
+              [
+                625,
+                5
+              ],
+              [
+                445,
+                -15
+              ],
+              [
+                265,
+                21
+              ]
+            ],
+            [
+              [
+                265,
+                21
+              ],
+              [
+                125,
+                45
+              ],
+              [
+                100,
+                108
+              ],
+              [
+                160,
+                152
+              ]
+            ],
+            [
+              [
+                160,
+                152
+              ],
+              [
+                200,
+                189
+              ],
+              [
+                320,
+                211
+              ],
+              [
+                450,
+                184
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#F00031",
+          "stroke": 6,
+          "duration": 0.6,
+          "linear": true,
+          "target_rows": [
+            0,
+            1,
+            2
+          ],
+          "delay": 0.2
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "insta flopado",
+      "motion": "cut",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 0,
+          "source_row": 1,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "replace_words": true,
+      "reference_pattern": true
+    },
+    {
+      "text": "meio e fundo de funil.",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "serif",
+          "size": 88,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": -20,
+          "x": 460,
+          "source_row": 1,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 65,
+          "face": "serif",
+          "size": 88,
+          "source_row": 2,
+          "band": 1,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "y": 118,
+          "source_row": 3,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "scribble",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                205,
+                151
+              ],
+              [
+                310,
+                145
+              ],
+              [
+                520,
+                143
+              ],
+              [
+                520,
+                151
+              ]
+            ],
+            [
+              [
+                520,
+                151
+              ],
+              [
+                512,
+                163
+              ],
+              [
+                265,
+                175
+              ],
+              [
+                250,
+                183
+              ]
+            ],
+            [
+              [
+                250,
+                183
+              ],
+              [
+                240,
+                192
+              ],
+              [
+                433,
+                196
+              ],
+              [
+                427,
+                209
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#21E890",
+          "stroke": 2.5,
+          "duration": 0.6,
+          "linear": true,
+          "glow": true,
+          "taper": true,
+          "target_rows": [
+            2,
+            3
+          ],
+          "delay": 0.1
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "ele vai montar em vocÃª.",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "x": 320,
+          "face": "italic",
+          "size": 56,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 0,
+          "x": 399,
+          "source_row": 1,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 54,
+          "source_row": 2,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "y": 108,
+          "source_row": 3,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                228.8,
+                213
+              ],
+              [
+                319.0,
+                266
+              ],
+              [
+                528.1,
+                227
+              ],
+              [
+                548.6,
+                126
+              ]
+            ],
+            [
+              [
+                548.6,
+                126
+              ],
+              [
+                577.3,
+                13
+              ],
+              [
+                429.7,
+                -7
+              ],
+              [
+                282.1,
+                29
+              ]
+            ],
+            [
+              [
+                282.1,
+                29
+              ],
+              [
+                167.3,
+                53
+              ],
+              [
+                146.8,
+                116
+              ],
+              [
+                196.0,
+                160
+              ]
+            ],
+            [
+              [
+                196.0,
+                160
+              ],
+              [
+                228.8,
+                197
+              ],
+              [
+                327.2,
+                219
+              ],
+              [
+                433.8,
+                192
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#F00031",
+          "stroke": 5,
+          "duration": 0.6,
+          "linear": true,
+          "target_rows": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "delay": 0.2
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "por nÃ£o ter o resultado que imaginou",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 45,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "y": 100,
+          "face": "serif",
+          "size": 86,
+          "color": "#58F69D",
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            5,
+            6
+          ],
+          "y": 160,
+          "source_row": 3,
+          "band": 3,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "por ter perdido um cliente",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 60,
+          "face": "serif",
+          "size": 88,
+          "color": "#E9003F",
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "y": 120,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "alterar",
+      "motion": "cut",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "italic",
+          "size": 56,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "explicaÃ§Ãµes",
+      "motion": "cut",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "italic",
+          "size": 56,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "reels que explodiu",
+      "motion": "cut",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "italic",
+          "x": 224,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1,
+            2
+          ],
+          "y": 0,
+          "x": 418,
+          "source_row": 1,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": true
+    },
+    {
+      "text": "Why one single post",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "x": 330,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 35,
+          "x": 404,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 77,
+          "x": 343,
+          "face": "serif",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 137,
+          "x": 404,
+          "face": "serif",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 3,
+          "band": 3,
+          "reveal": "row",
+          "role": "emphasis"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                203,
+                123
+              ],
+              [
+                300,
+                174
+              ],
+              [
+                520,
+                174
+              ],
+              [
+                552,
+                125
+              ]
+            ],
+            [
+              [
+                552,
+                125
+              ],
+              [
+                584,
+                79
+              ],
+              [
+                447,
+                41
+              ],
+              [
+                313,
+                37
+              ]
+            ],
+            [
+              [
+                313,
+                37
+              ],
+              [
+                188,
+                29
+              ],
+              [
+                152,
+                64
+              ],
+              [
+                200,
+                92
+              ]
+            ],
+            [
+              [
+                200,
+                92
+              ],
+              [
+                238,
+                119
+              ],
+              [
+                340,
+                142
+              ],
+              [
+                426,
+                142
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#21E890",
+          "stroke": 4,
+          "duration": 0.45,
+          "linear": true,
+          "target_rows": [
+            2,
+            3
+          ],
+          "delay": 0
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "is not enough today.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 36,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 72,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "reference_pattern": false
+    },
+    {
+      "text": "Your audience needs more.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "x": 400,
+          "face": "italic",
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 34,
+          "x": 357,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 77,
+          "x": 355,
+          "face": "serif",
+          "color": "#08EF86",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 130,
+          "x": 389,
+          "face": "serif",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 3,
+          "band": 3,
+          "reveal": "row",
+          "role": "emphasis"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "scribble",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                205,
+                166
+              ],
+              [
+                310,
+                160
+              ],
+              [
+                520,
+                158
+              ],
+              [
+                520,
+                166
+              ]
+            ],
+            [
+              [
+                520,
+                166
+              ],
+              [
+                512,
+                178
+              ],
+              [
+                265,
+                190
+              ],
+              [
+                250,
+                198
+              ]
+            ],
+            [
+              [
+                250,
+                198
+              ],
+              [
+                240,
+                207
+              ],
+              [
+                433,
+                211
+              ],
+              [
+                427,
+                224
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#FFFFFF",
+          "stroke": 2.5,
+          "duration": 0.6,
+          "linear": true,
+          "glow": true,
+          "taper": true,
+          "delay": 0.1,
+          "target_rows": [
+            2,
+            3
+          ]
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "ONE POST CHANGES NOTHING.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 40,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support",
+          "case": "upper"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 88,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support",
+          "case": "upper"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 136,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support",
+          "case": "upper"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 0,
+          "path": [
+            [
+              [
+                200,
+                205
+              ],
+              [
+                310,
+                258
+              ],
+              [
+                565,
+                219
+              ],
+              [
+                590,
+                118
+              ]
+            ],
+            [
+              [
+                590,
+                118
+              ],
+              [
+                625,
+                5
+              ],
+              [
+                445,
+                -15
+              ],
+              [
+                265,
+                21
+              ]
+            ],
+            [
+              [
+                265,
+                21
+              ],
+              [
+                125,
+                45
+              ],
+              [
+                100,
+                108
+              ],
+              [
+                160,
+                152
+              ]
+            ],
+            [
+              [
+                160,
+                152
+              ],
+              [
+                200,
+                189
+              ],
+              [
+                320,
+                211
+              ],
+              [
+                450,
+                184
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#F00031",
+          "stroke": 6,
+          "duration": 0.6,
+          "linear": true,
+          "target_rows": [
+            0,
+            1,
+            2
+          ],
+          "delay": 0.2
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "middle and bottom funnel.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 10,
+          "x": 310,
+          "face": "serif",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 10,
+          "x": 495,
+          "source_row": 1,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 65,
+          "x": 360,
+          "face": "serif",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 2,
+          "band": 1,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 111,
+          "x": 380,
+          "source_row": 3,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "scribble",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                205,
+                151
+              ],
+              [
+                310,
+                145
+              ],
+              [
+                520,
+                143
+              ],
+              [
+                520,
+                151
+              ]
+            ],
+            [
+              [
+                520,
+                151
+              ],
+              [
+                512,
+                163
+              ],
+              [
+                265,
+                175
+              ],
+              [
+                250,
+                183
+              ]
+            ],
+            [
+              [
+                250,
+                183
+              ],
+              [
+                240,
+                192
+              ],
+              [
+                433,
+                196
+              ],
+              [
+                427,
+                209
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#21E890",
+          "stroke": 2.5,
+          "duration": 0.6,
+          "linear": true,
+          "glow": true,
+          "taper": true,
+          "target_rows": [
+            2,
+            3
+          ],
+          "delay": 0.1
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "reels that connect.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "italic",
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 35,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 70,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "reference_pattern": false
+    },
+    {
+      "text": "they will trust you.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 55,
+          "x": 300,
+          "face": "italic",
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 55,
+          "x": 420,
+          "source_row": 1,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 94,
+          "source_row": 2,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 133,
+          "source_row": 3,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 0,
+          "path": [
+            [
+              [
+                228.8,
+                213
+              ],
+              [
+                319.0,
+                266
+              ],
+              [
+                528.1,
+                227
+              ],
+              [
+                548.6,
+                126
+              ]
+            ],
+            [
+              [
+                548.6,
+                126
+              ],
+              [
+                577.3,
+                13
+              ],
+              [
+                429.7,
+                -7
+              ],
+              [
+                282.1,
+                29
+              ]
+            ],
+            [
+              [
+                282.1,
+                29
+              ],
+              [
+                167.3,
+                53
+              ],
+              [
+                146.8,
+                116
+              ],
+              [
+                196.0,
+                160
+              ]
+            ],
+            [
+              [
+                196.0,
+                160
+              ],
+              [
+                228.8,
+                197
+              ],
+              [
+                327.2,
+                219
+              ],
+              [
+                433.8,
+                192
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#F00031",
+          "stroke": 5,
+          "duration": 0.6,
+          "linear": true,
+          "target_rows": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "delay": 0.2
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "you might lose clients.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 47,
+          "face": "serif",
+          "color": "#F00031",
+          "tracking": -0.07,
+          "size": 88,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "emphasis"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 99,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "reference_pattern": false
+    },
+    {
+      "text": "a powerful impact.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "italic",
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 36,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 72,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "reference_pattern": false
+    },
+    {
+      "text": "Keep the spacing tight.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 36,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            3
+          ],
+          "y": 72,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "reference_pattern": false
+    },
+    {
+      "text": "Build a connection,",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "face": "italic",
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "y": 36,
+          "source_row": 1,
+          "band": 1,
+          "reveal": "row",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "y": 72,
+          "source_row": 2,
+          "band": 2,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "reference_pattern": false
+    },
+    {
+      "text": "People need",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "a clear reason",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "to stop,",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "listen,",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "and care.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Think about your",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Create",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Tell a story",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "with real meaning.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Then",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "But without",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "a message,",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Good design",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "supports your words.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "A simple idea",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "can make",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Let each line",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "arrive with purpose.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "Make the important words",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "stand out.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "stay consistent,",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "and keep improving.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "That is how",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "your story becomes",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    },
+    {
+      "text": "worth remembering.",
+      "language": "English",
+      "motion": "rise",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "y": 0,
+          "source_row": 0,
+          "band": 0,
+          "reveal": "row",
+          "role": "support"
+        }
+      ],
+      "reference_pattern": false
+    }
+  ],
+  "sample_groups": [
+    {
+      "text": "Why one single post",
+      "starts": [
+        0.11,
+        0.31,
+        0.59,
+        0.965
+      ],
+      "end": 1.395
+    },
+    {
+      "text": "is not enough today.",
+      "starts": [
+        1.395,
+        1.545,
+        1.815,
+        2.125
+      ],
+      "end": 3.485
+    },
+    {
+      "text": "Your audience needs more.",
+      "starts": [
+        3.485,
+        3.71,
+        4.175,
+        4.46
+      ],
+      "end": 5.81
+    },
+    {
+      "text": "ONE POST CHANGES NOTHING.",
+      "starts": [
+        5.81,
+        6.055,
+        6.4399999999999995,
+        6.97
+      ],
+      "end": 8.45
+    },
+    {
+      "text": "People need",
+      "starts": [
+        8.45,
+        8.775
+      ],
+      "end": 9.0
+    },
+    {
+      "text": "a clear reason",
+      "starts": [
+        9.0,
+        9.059999999999999,
+        9.44
+      ],
+      "end": 9.82
+    },
+    {
+      "text": "to stop,",
+      "starts": [
+        9.82,
+        9.924999999999999
+      ],
+      "end": 10.559999999999999
+    },
+    {
+      "text": "listen,",
+      "starts": [
+        10.559999999999999
+      ],
+      "end": 11.15
+    },
+    {
+      "text": "and care.",
+      "starts": [
+        11.15,
+        11.29
+      ],
+      "end": 12.665
+    },
+    {
+      "text": "Think about your",
+      "starts": [
+        12.665,
+        12.934999999999999,
+        13.235
+      ],
+      "end": 13.415
+    },
+    {
+      "text": "middle and bottom funnel.",
+      "starts": [
+        13.415,
+        13.74,
+        13.905,
+        14.254999999999999
+      ],
+      "end": 15.645
+    },
+    {
+      "text": "Create",
+      "starts": [
+        15.645
+      ],
+      "end": 16.075
+    },
+    {
+      "text": "reels that connect.",
+      "starts": [
+        16.075,
+        16.41,
+        16.599999999999998
+      ],
+      "end": 18.13
+    },
+    {
+      "text": "Tell a story",
+      "starts": [
+        18.13,
+        18.36,
+        18.425
+      ],
+      "end": 18.849999999999998
+    },
+    {
+      "text": "with real meaning.",
+      "starts": [
+        18.849999999999998,
+        19.029999999999998,
+        19.275
+      ],
+      "end": 20.669999999999998
+    },
+    {
+      "text": "Then",
+      "starts": [
+        20.669999999999998
+      ],
+      "end": 20.88
+    },
+    {
+      "text": "they will trust you.",
+      "starts": [
+        20.88,
+        21.009999999999998,
+        21.16,
+        21.57
+      ],
+      "end": 22.81
+    },
+    {
+      "text": "But without",
+      "starts": [
+        22.81,
+        22.98
+      ],
+      "end": 23.32
+    },
+    {
+      "text": "a message,",
+      "starts": [
+        23.32,
+        23.38
+      ],
+      "end": 24.439999999999998
+    },
+    {
+      "text": "you might lose clients.",
+      "starts": [
+        24.439999999999998,
+        24.58,
+        24.849999999999998,
+        25.115
+      ],
+      "end": 26.7
+    },
+    {
+      "text": "Good design",
+      "starts": [
+        26.7,
+        26.9
+      ],
+      "end": 27.36
+    },
+    {
+      "text": "supports your words.",
+      "starts": [
+        27.36,
+        27.9,
+        28.08
+      ],
+      "end": 29.584999999999997
+    },
+    {
+      "text": "A simple idea",
+      "starts": [
+        29.584999999999997,
+        29.654999999999998,
+        30.049999999999997
+      ],
+      "end": 30.424999999999997
+    },
+    {
+      "text": "can make",
+      "starts": [
+        30.424999999999997,
+        30.645
+      ],
+      "end": 30.88
+    },
+    {
+      "text": "a powerful impact.",
+      "starts": [
+        30.88,
+        30.939999999999998,
+        31.549999999999997
+      ],
+      "end": 33.115
+    },
+    {
+      "text": "Keep the spacing tight.",
+      "starts": [
+        33.115,
+        33.39,
+        33.485,
+        34.035
+      ],
+      "end": 35.445
+    },
+    {
+      "text": "Let each line",
+      "starts": [
+        35.445,
+        35.64,
+        35.96
+      ],
+      "end": 36.214999999999996
+    },
+    {
+      "text": "arrive with purpose.",
+      "starts": [
+        36.214999999999996,
+        36.589999999999996,
+        36.73
+      ],
+      "end": 38.35
+    },
+    {
+      "text": "Make the important words",
+      "starts": [
+        38.35,
+        38.614999999999995,
+        38.754999999999995,
+        39.305
+      ],
+      "end": 39.65
+    },
+    {
+      "text": "stand out.",
+      "starts": [
+        39.65,
+        40.01
+      ],
+      "end": 41.305
+    },
+    {
+      "text": "Build a connection,",
+      "starts": [
+        41.305,
+        41.54,
+        41.605
+      ],
+      "end": 42.68
+    },
+    {
+      "text": "stay consistent,",
+      "starts": [
+        42.68,
+        42.975
+      ],
+      "end": 44.144999999999996
+    },
+    {
+      "text": "and keep improving.",
+      "starts": [
+        44.144999999999996,
+        44.285,
+        44.589999999999996
+      ],
+      "end": 46.195
+    },
+    {
+      "text": "That is how",
+      "starts": [
+        46.195,
+        46.379999999999995,
+        46.525
+      ],
+      "end": 46.735
+    },
+    {
+      "text": "your story becomes",
+      "starts": [
+        46.735,
+        46.93,
+        47.375
+      ],
+      "end": 47.849999999999994
+    },
+    {
+      "text": "worth remembering.",
+      "starts": [
+        47.849999999999994,
+        48.184999999999995
+      ],
+      "end": 49.75
+    }
+  ],
+  "notes": "Reference two supplies motion, typography and alignment only. Preview content is English, timed to a fresh offline English narration. English and Hinglish use the same style. Original Portuguese samples are private measurement data, not preview content.",
+  "reference_sample_groups": [
+    {
+      "text": "Por que um Ãºnico post",
+      "starts": [
+        0.033,
+        0.11,
+        0.3,
+        0.4667,
+        0.7667
+      ],
+      "end": 1.2
+    },
+    {
+      "text": "nÃ£o vai fazer com que",
+      "starts": [
+        1.2333,
+        1.32,
+        1.4333,
+        1.7333,
+        1.83
+      ],
+      "end": 2.0
+    },
+    {
+      "text": "seu cliente venda mais?",
+      "starts": [
+        2.0,
+        2.1667,
+        2.6667,
+        3.0333
+      ],
+      "end": 3.4
+    },
+    {
+      "text": "Se ele",
+      "starts": [
+        3.4,
+        3.54
+      ],
+      "end": 3.64
+    },
+    {
+      "text": "nÃ£o tem",
+      "starts": [
+        3.64,
+        3.78
+      ],
+      "end": 3.94
+    },
+    {
+      "text": "uma",
+      "starts": [
+        3.94
+      ],
+      "end": 4.06
+    },
+    {
+      "text": "base",
+      "starts": [
+        4.06
+      ],
+      "end": 4.36
+    },
+    {
+      "text": "pra",
+      "starts": [
+        4.36
+      ],
+      "end": 4.58
+    },
+    {
+      "text": "converter",
+      "starts": [
+        4.58
+      ],
+      "end": 4.98
+    },
+    {
+      "text": "um",
+      "starts": [
+        4.98
+      ],
+      "end": 5.64
+    },
+    {
+      "text": "dois",
+      "starts": [
+        5.64
+      ],
+      "end": 6.04
+    },
+    {
+      "text": "dez",
+      "starts": [
+        6.04
+      ],
+      "end": 6.32
+    },
+    {
+      "text": "ou",
+      "starts": [
+        6.32
+      ],
+      "end": 6.58
+    },
+    {
+      "text": "vinte",
+      "starts": [
+        6.58
+      ],
+      "end": 7.02
+    },
+    {
+      "text": "NÃƒO VÃƒO ADIANTAR NADA",
+      "starts": [
+        7.02,
+        7.26,
+        7.52,
+        7.94
+      ],
+      "end": 8.48
+    },
+    {
+      "text": "nunca",
+      "starts": [
+        8.48
+      ],
+      "end": 8.96
+    },
+    {
+      "text": "que",
+      "starts": [
+        8.96
+      ],
+      "end": 9.16
+    },
+    {
+      "text": "isso",
+      "starts": [
+        9.16
+      ],
+      "end": 9.4
+    },
+    {
+      "text": "vai",
+      "starts": [
+        9.4
+      ],
+      "end": 9.58
+    },
+    {
+      "text": "fazer",
+      "starts": [
+        9.58
+      ],
+      "end": 9.84
+    },
+    {
+      "text": "um",
+      "starts": [
+        9.84
+      ],
+      "end": 9.92
+    },
+    {
+      "text": "insta flopado",
+      "starts": [
+        9.92,
+        10.27
+      ],
+      "end": 10.62
+    },
+    {
+      "text": "virar",
+      "starts": [
+        10.62
+      ],
+      "end": 10.96
+    },
+    {
+      "text": "uma",
+      "starts": [
+        10.96
+      ],
+      "end": 11.06
+    },
+    {
+      "text": "mÃ¡quina",
+      "starts": [
+        11.06
+      ],
+      "end": 11.48
+    },
+    {
+      "text": "de vendas",
+      "starts": [
+        11.48,
+        11.74
+      ],
+      "end": 12.22
+    },
+    {
+      "text": "Ele precisa",
+      "starts": [
+        12.22,
+        12.34
+      ],
+      "end": 12.6
+    },
+    {
+      "text": "entender",
+      "starts": [
+        12.6
+      ],
+      "end": 12.96
+    },
+    {
+      "text": "que",
+      "starts": [
+        12.96
+      ],
+      "end": 13.22
+    },
+    {
+      "text": "um post",
+      "starts": [
+        13.22,
+        13.32
+      ],
+      "end": 13.54
+    },
+    {
+      "text": "vai atuar",
+      "starts": [
+        13.54,
+        13.72
+      ],
+      "end": 13.96
+    },
+    {
+      "text": "muito bem",
+      "starts": [
+        13.96,
+        14.36
+      ],
+      "end": 14.72
+    },
+    {
+      "text": "pra",
+      "starts": [
+        14.72
+      ],
+      "end": 15.0
+    },
+    {
+      "text": "converter",
+      "starts": [
+        15.0
+      ],
+      "end": 15.36
+    },
+    {
+      "text": "uma",
+      "starts": [
+        15.36
+      ],
+      "end": 15.62
+    },
+    {
+      "text": "base",
+      "starts": [
+        15.62
+      ],
+      "end": 16.14
+    },
+    {
+      "text": "ou seja",
+      "starts": [
+        16.14,
+        16.26
+      ],
+      "end": 16.76
+    },
+    {
+      "text": "meio e fundo de funil.",
+      "starts": [
+        16.76,
+        17.104,
+        17.448,
+        17.792,
+        18.136
+      ],
+      "end": 18.58
+    },
+    {
+      "text": "Existem",
+      "starts": [
+        18.58
+      ],
+      "end": 19.06
+    },
+    {
+      "text": "exceÃ§Ãµes",
+      "starts": [
+        19.06
+      ],
+      "end": 19.68
+    },
+    {
+      "text": "como",
+      "starts": [
+        19.68
+      ],
+      "end": 20.04
+    },
+    {
+      "text": "trÃ¡fego pago",
+      "starts": [
+        20.04,
+        20.34
+      ],
+      "end": 20.86
+    },
+    {
+      "text": "ou um",
+      "starts": [
+        20.86,
+        21.0
+      ],
+      "end": 21.06
+    },
+    {
+      "text": "reels que explodiu",
+      "starts": [
+        21.06,
+        21.3,
+        21.44
+      ],
+      "end": 21.92
+    },
+    {
+      "text": "e tem",
+      "starts": [
+        21.92,
+        21.98
+      ],
+      "end": 22.12
+    },
+    {
+      "text": "muita",
+      "starts": [
+        22.12
+      ],
+      "end": 22.52
+    },
+    {
+      "text": "gente",
+      "starts": [
+        22.52
+      ],
+      "end": 22.86
+    },
+    {
+      "text": "entrando",
+      "starts": [
+        22.86
+      ],
+      "end": 23.24
+    },
+    {
+      "text": "no perfil",
+      "starts": [
+        23.24,
+        23.42
+      ],
+      "end": 23.86
+    },
+    {
+      "text": "Mas",
+      "starts": [
+        23.86
+      ],
+      "end": 24.0
+    },
+    {
+      "text": "se vocÃª",
+      "starts": [
+        24.0,
+        24.1
+      ],
+      "end": 24.26
+    },
+    {
+      "text": "nÃ£o explicar",
+      "starts": [
+        24.26,
+        24.46
+      ],
+      "end": 24.78
+    },
+    {
+      "text": "isso",
+      "starts": [
+        24.78
+      ],
+      "end": 24.98
+    },
+    {
+      "text": "pra",
+      "starts": [
+        24.98
+      ],
+      "end": 25.14
+    },
+    {
+      "text": "ele",
+      "starts": [
+        25.14
+      ],
+      "end": 25.44
+    },
+    {
+      "text": "meu amigo",
+      "starts": [
+        25.44,
+        25.62
+      ],
+      "end": 26.22
+    },
+    {
+      "text": "ele vai montar em vocÃª.",
+      "starts": [
+        26.22,
+        26.34,
+        26.58,
+        27.2,
+        27.32
+      ],
+      "end": 27.52
+    },
+    {
+      "text": "Ele vai",
+      "starts": [
+        27.52,
+        27.9
+      ],
+      "end": 28.08
+    },
+    {
+      "text": "querer",
+      "starts": [
+        28.08
+      ],
+      "end": 28.28
+    },
+    {
+      "text": "alterar",
+      "starts": [
+        28.28
+      ],
+      "end": 28.84
+    },
+    {
+      "text": "ele vai",
+      "starts": [
+        28.84,
+        29.04
+      ],
+      "end": 29.2
+    },
+    {
+      "text": "querer",
+      "starts": [
+        29.2
+      ],
+      "end": 29.34
+    },
+    {
+      "text": "explicaÃ§Ãµes",
+      "starts": [
+        29.34
+      ],
+      "end": 30.08
+    },
+    {
+      "text": "do porquÃª",
+      "starts": [
+        30.08,
+        30.24
+      ],
+      "end": 30.76
+    },
+    {
+      "text": "ele nÃ£o",
+      "starts": [
+        30.76,
+        30.92
+      ],
+      "end": 31.06
+    },
+    {
+      "text": "tÃ¡",
+      "starts": [
+        31.06
+      ],
+      "end": 31.3
+    },
+    {
+      "text": "atraindo",
+      "starts": [
+        31.3
+      ],
+      "end": 32.1
+    },
+    {
+      "text": "e",
+      "starts": [
+        32.1
+      ],
+      "end": 32.2
+    },
+    {
+      "text": "vendendo",
+      "starts": [
+        32.2
+      ],
+      "end": 32.76
+    },
+    {
+      "text": "mais",
+      "starts": [
+        32.76
+      ],
+      "end": 33.02
+    },
+    {
+      "text": "E no fim",
+      "starts": [
+        33.02,
+        33.44,
+        33.58
+      ],
+      "end": 34.0
+    },
+    {
+      "text": "vocÃªs",
+      "starts": [
+        34.0
+      ],
+      "end": 34.46
+    },
+    {
+      "text": "dois",
+      "starts": [
+        34.46
+      ],
+      "end": 34.88
+    },
+    {
+      "text": "vÃ£o se",
+      "starts": [
+        34.88,
+        35.14
+      ],
+      "end": 35.28
+    },
+    {
+      "text": "sentir",
+      "starts": [
+        35.28
+      ],
+      "end": 35.6
+    },
+    {
+      "text": "frustrados",
+      "starts": [
+        35.6
+      ],
+      "end": 36.6
+    },
+    {
+      "text": "Ele",
+      "starts": [
+        36.6
+      ],
+      "end": 36.98
+    },
+    {
+      "text": "por nÃ£o ter o resultado que imaginou",
+      "starts": [
+        36.98,
+        37.24,
+        37.42,
+        37.64,
+        37.82,
+        38.08,
+        38.38
+      ],
+      "end": 38.86
+    },
+    {
+      "text": "e vocÃª",
+      "starts": [
+        38.86,
+        38.98
+      ],
+      "end": 39.38
+    },
+    {
+      "text": "por ter perdido um cliente",
+      "starts": [
+        39.38,
+        39.6,
+        39.78,
+        40.2,
+        40.26
+      ],
+      "end": 40.86
+    },
+    {
+      "text": "e alÃ©m",
+      "starts": [
+        40.86,
+        40.92
+      ],
+      "end": 41.14
+    },
+    {
+      "text": "disso",
+      "starts": [
+        41.14
+      ],
+      "end": 41.5
+    },
+    {
+      "text": "toda",
+      "starts": [
+        41.5
+      ],
+      "end": 41.74
+    },
+    {
+      "text": "a jornada",
+      "starts": [
+        41.74,
+        41.86
+      ],
+      "end": 42.24
+    },
+    {
+      "text": "dele",
+      "starts": [
+        42.24
+      ],
+      "end": 42.44
+    },
+    {
+      "text": "ter sido",
+      "starts": [
+        42.44,
+        42.66
+      ],
+      "end": 42.92
+    },
+    {
+      "text": "um",
+      "starts": [
+        42.92
+      ],
+      "end": 43.16
+    },
+    {
+      "text": "saco",
+      "starts": [
+        43.16
+      ],
+      "end": 43.84
+    },
+    {
+      "text": "EntÃ£o",
+      "starts": [
+        43.84
+      ],
+      "end": 43.98
+    },
+    {
+      "text": "deixa",
+      "starts": [
+        43.98
+      ],
+      "end": 44.22
+    },
+    {
+      "text": "claro",
+      "starts": [
+        44.22
+      ],
+      "end": 44.52
+    },
+    {
+      "text": "a funÃ§Ã£o",
+      "starts": [
+        44.52,
+        44.82
+      ],
+      "end": 45.1
+    },
+    {
+      "text": "do seu",
+      "starts": [
+        45.1,
+        45.38
+      ],
+      "end": 45.52
+    },
+    {
+      "text": "serviÃ§o",
+      "starts": [
+        45.52
+      ],
+      "end": 45.96
+    },
+    {
+      "text": "Se nÃ£o",
+      "starts": [
+        45.96,
+        46.14
+      ],
+      "end": 46.3
+    },
+    {
+      "text": "fechar",
+      "starts": [
+        46.3
+      ],
+      "end": 46.74
+    },
+    {
+      "text": "tudo",
+      "starts": [
+        46.74
+      ],
+      "end": 46.98
+    },
+    {
+      "text": "bem",
+      "starts": [
+        46.98
+      ],
+      "end": 47.2
+    },
+    {
+      "text": "Talvez",
+      "starts": [
+        47.2
+      ],
+      "end": 47.52
+    },
+    {
+      "text": "no futuro",
+      "starts": [
+        47.52,
+        47.62
+      ],
+      "end": 47.92
+    },
+    {
+      "text": "vocÃª",
+      "starts": [
+        47.92
+      ],
+      "end": 48.32
+    },
+    {
+      "text": "ainda",
+      "starts": [
+        48.32
+      ],
+      "end": 48.52
+    },
+    {
+      "text": "tenha",
+      "starts": [
+        48.52
+      ],
+      "end": 48.96
+    },
+    {
+      "text": "uma",
+      "starts": [
+        48.96
+      ],
+      "end": 49.16
+    },
+    {
+      "text": "chance",
+      "starts": [
+        49.16
+      ],
+      "end": 49.733333
+    }
+  ],
+  "preview_language": "English",
+  "supported_languages": [
+    "English",
+    "Hinglish"
+  ],
+  "font_identification": {
+    "serif": "Playfair Display Bold Italic",
+    "sans": "Inter SemiBold",
+    "evidence": "Glyph silhouette comparisons against source frames; strongest measured candidates, original project font metadata unavailable.",
+    "source": "https://github.com/google/fonts/tree/main/ofl/playfairdisplay"
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-10-23",
+    "owner_statement": "yes its great .. save it",
+    "native_review": "output/editor-handoffs/bea8f297bfef5f/CAPTIONS-001.prproj"
+  },
+  "layout": {
+    "max_row_width": 600,
+    "min_ink_gap": 3,
+    "max_ink_gap": 8,
+    "anchor": [
+      0.5,
+      0.65
+    ]
+  },
+  "correction": {
+    "date": "2026-10-23",
+    "request": "Restore reference contours, staggered ink alignment and motion; retain patterns through script changes.",
+    "previous_profile": "output/captions/serif-circle-correction/before-profile.json",
+    "application_validation": "Owner performs Storylens and Premiere testing; not run by Codex."
+  },
+  "pattern_contract": {
+    "script_changes": "Only words and timing change; retain the source pattern, fonts, hierarchy, colors, accents and motion.",
+    "pagination": "Continue longer scripts across pages using the same frozen source pattern. Never fall back to generic plain text.",
+    "reveal": "Reserve complete word slots before reveal; keep revealed words fixed.",
+    "owner_edits": "Retain subsequent positioning and size edits through saving."
+  },
+  "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 6.mp4"
+}

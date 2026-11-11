@@ -1,0 +1,2 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');
+test('Caption 3 timing intake does not inherit Caption 1 row-count limits',()=>{const m=require('../editor_plugins/caption-three/model.cjs'),script='one two three four five six seven',words=script.split(' ').map(text=>({text,start:0,end:2}));const p=m.prepare({script,words,duration:3});assert.equal(p.pages.length,1);assert.equal(p.pages[0].words.length,7);});

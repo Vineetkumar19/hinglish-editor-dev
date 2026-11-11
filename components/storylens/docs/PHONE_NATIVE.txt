@@ -1,0 +1,31 @@
+STORYLENS PERSONAL ANDROID APPLICATION
+
+This replaces the browser-based phone workflow for the owner. It is a native Android application, not a browser shortcut, PWA or WebView. It contains Ask the Editor, attachments, real progress and result viewing/sharing, not the full editing feature grid.
+
+Connection
+- Android app -> owned HTTPS mailbox -> outbound Windows receiver -> existing StoryLens assistant.
+- Commands and file chunks use end-to-end AES-256-GCM encryption. The relay only forwards encrypted frames and does not receive the encryption key.
+- Separate phone/laptop bearer credentials authenticate the two directions. They are not embedded in the APK or placed in URLs.
+- Pairing configuration is protected by Windows DPAPI on the laptop and Android Keystore on the phone.
+- No Tailscale, browser, public laptop port or USB connection is needed for normal operation.
+- A one-time USB installation/pairing transfer is optional if the owner authorizes it; otherwise install the APK and paste/import the private connection code in the app.
+- The laptop must remain online, awake and running StoryLens plus Start StoryLens Android Connection.cmd. Existing assistant model/GPU settings and task authorization remain unchanged.
+- Stop StoryLens Android Connection.cmd stops only the identity-checked native connection worker, not the editor or current editing jobs.
+
+Personal scope
+One owner phone/laptop pair. This is not a customer SaaS, multi-tenant account system or public remote-desktop service. Codex/Claude provider integrations are not added; the owner selected the existing configured StoryLens assistant/local model. The original browser/Tailscale setup is preserved until the replacement is accepted; it is not required by the native app.
+
+Messages/results
+Create/message IDs survive retries through the existing phone companion request journal. The transport does not blindly replay an uncertain command. Read the chat before issuing a new command after a timeout. Files are restricted to structured results of the paired chats under the project's output folder; no arbitrary filesystem or shell endpoint is provided. Upload and download limits are currently 256 MiB with bounded encrypted chunks. Existing engine-specific attachment limits also apply. Unsupported audio/video codecs may need another player after saving; not every native editor package can be viewed on Android.
+
+Relay operation
+The personal relay uses the owner's existing Cloudflare account. It has no customer data database: payloads are short-lived bounded in-memory mailboxes. Messages can expire or be lost when the receiver is offline or the relay restarts; authoritative chat/work and request receipts remain on the laptop. Reconnect/check progress instead of assuming a queued transport frame completed a task. Provider free-plan limits and internet availability still apply. No paid plan or capacity guarantee is included.
+
+Build and evidence
+Android sources: mobile/android
+Relay source: mobile/relay
+Laptop transport: hinglish_app/phone_native.py
+APK/evidence: output/phone-native
+Build signing key and pairing material must remain private and must never be uploaded with source/site bundles. A signed personal development APK is not a Play Store-reviewed production release.
+
+Verification is recorded in output/phone-native/status.json. Unit/build/relay checks are supplementary. Physical Android installation, direct native command/reply and actual generated media playback must be recorded separately; an APK build alone is not an end-to-end result.

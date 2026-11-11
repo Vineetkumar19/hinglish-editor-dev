@@ -1,0 +1,311 @@
+{
+  "fixture_notice": "Synthetic bytes and injected metadata; not playable media or live/native evidence.",
+  "manifest": {
+    "schema": "storylens.broll.video-candidates",
+    "version": 1,
+    "bank_id": "fixture-bank",
+    "project_path": "<FIXTURE_ROOT>/broll-project.json",
+    "content_format": "long",
+    "per_keyword_cap": 2,
+    "collection_state": "complete",
+    "timeline": {
+      "name": "Synthetic speech",
+      "fps": "30/1",
+      "duration": 12.0,
+      "width": 1080,
+      "height": 1920
+    },
+    "slots": [
+      {
+        "id": "fixture-bank:slot:4",
+        "keyword_id": "fixture-bank:keyword:4",
+        "slot_index": 4,
+        "keyword": "room interior",
+        "meaning": "A residential room",
+        "anchor": {
+          "spoken_seconds": {
+            "start": 2.14,
+            "end": 3.1
+          },
+          "frames": {
+            "start": 64,
+            "end": 93
+          },
+          "sequence_seconds": {
+            "start": 2.1333333333333333,
+            "end": 3.1
+          },
+          "fps": "30/1",
+          "timebase": "sequence_frames",
+          "rounding": "nearest_even",
+          "canvas": {
+            "width": 1080,
+            "height": 1920
+          },
+          "quote": "a small room"
+        },
+        "fingerprint": "9204e03072b56dc3aeb22a65c21abb087b9b527855a8d1ddd3fd5e8f35ffe890",
+        "candidates": [
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:0",
+            "candidate_id": "stock:0",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-0.mp4",
+              "sha256": "d0fa03ac51df9f3390bd33034c30244eaaa05215ad913b154b5326859e2c0130",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-0.mp4",
+              "sha256": "f59b0f609d79932d5d8cdd35c3e2a9bc364e475eb1ac343455f4483257d60657",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/0",
+                "sha256": "eb9fd2ffe4ade920a0ec6eac9d1824ec49042c77f75dd3e1ff51ce0dbec133b5"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/0/checked_window",
+                "sha256": "e43a9871a8327a8fa8b45f8243236a671ec372489c6893028f0ceddb8ca7a3a2"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/0",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "f31ea0e7dadceab85768e645875d2c5a1abe983ae8d509118b92651c6e7d8ed0"
+          },
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:4",
+            "candidate_id": "stock:4",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-4.mp4",
+              "sha256": "4348ad2286d9bbe1c4c5d1e3c8bc8f2bca2360eae5b9ccffb0723a2d87836285",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-4.mp4",
+              "sha256": "887f14b4d3dfea2939395088f83f89e977d06795af6eb6520ec3203a44763a40",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/4",
+                "sha256": "0f1651c127fb4508fc464466b304ac9286e0f4b6ad2dc5a165c043bb8570e861"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/4/checked_window",
+                "sha256": "6b4608823e2990f9d58f1ae352863146493cfd636e6e3fc89b9db766fe505b5a"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/4",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "b85cba5ad3e3fef31f20f4e138cb4037d3fc9034dd89d22698cea1bceaf7626b"
+          }
+        ],
+        "rejected_candidates": [],
+        "collection_state": "complete",
+        "available_valid_candidates": 6,
+        "available_selectable_candidates": 6,
+        "omitted_by_cap": 4,
+        "choice": {
+          "state": "selected",
+          "candidate_id": "fixture-bank:slot:4:candidate:stock:4",
+          "candidate_fingerprint": "b85cba5ad3e3fef31f20f4e138cb4037d3fc9034dd89d22698cea1bceaf7626b",
+          "slot_fingerprint": "9204e03072b56dc3aeb22a65c21abb087b9b527855a8d1ddd3fd5e8f35ffe890",
+          "source": "owner",
+          "revision": 1,
+          "status": "ready",
+          "issue": null
+        }
+      }
+    ],
+    "orphaned_choices": {}
+  }
+}

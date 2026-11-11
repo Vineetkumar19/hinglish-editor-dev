@@ -1,0 +1,40 @@
+LOCAL-MODEL REFERENCE MOTION — 24 October 2026
+
+Owner scope: local Qwen/Vision create the composition. Codex critiques, repairs software and gives error feedback; no hand-authored substitute.
+Reference: Styles/Motion Graphic videos/...733453489360323555.mp4
+SHA256: 5620fa10217c1f1b26ed53771d38bdfcfb1ff6e822f458b047cfdd986ad2cddf
+Actual source: 720x1280, 60fps, 16.511995 seconds.
+
+New ordinary requests route through assistant_motion_reference to autonomous_reference.
+The original teacher/student/continuation routes remain available. The old teacher and local student outputs are preserved.
+Local Vision observes four ordered source frames per short window. Text/motion readings and non-text visual inventories are separate. Local Qwen chooses the cut sequence and typed source measurements, then separately authors its numeric camera, reveal, drift and optional orbit tracks. Code extracts model-selected individual source crops and renders their layers through GSAP/Hyperframes. The supplied source audio is reused and must be labelled; this is not a newly designed soundtrack or independently generated imagery.
+
+All new scene data originates in local-model responses. Code only validates/scales source pixels, binds exact observed text/assets and source time, fits complete text rows and renders the chosen tracks. Invalid replies receive error feedback, never creative defaults. Successful observations/replies and completed scenes survive retries. Failed receipts remain available. Check colour grammar, positive finite dimensions, chronological scene coverage, image crop bounds and character reveal deadlines. Legacy saved plans are not silently rewritten by the new reveal checks.
+
+Observed limitations and repairs during the actual live request:
+- Directly asking 9B Vision for a large 18-field-per-layer scene produced invalid canvas-sized boxes and colour words. Split observation from 14B measurement.
+- Initial Vision summaries omitted photos while reading OCR; add a separate non-text inventory rather than accepting a text-only substitute.
+- Vision repeated descriptions until its JSON was truncated. Add brief replies, repetition control and explicit correction; preserve the failed raw content.
+- 14B measurement repeatedly returned colour names despite prose feedback. Add a hex pattern to its decoder schema rather than substituting a designer-selected colour.
+- One temporal window per scene target moment prevents mechanically concatenating every nearby title into a single poster. This does not prove precise cuts or reference fidelity.
+
+Memory is retrieved guidance and saved examples, NOT weight training. The owner must judge quality. A syntactically valid plan or queued job is not a successful recreation. Independent new-script generalization, pixel-exact movement, every-frame reference comparison and native editor playback are not established.
+
+Current live request: 8a2f90638833, port 8881, chat e278fb65754f4a37.
+No finished new-reference video yet at this documentation point; actual render and Storylens playback remain pending. Other GPU jobs are left running and shared GPU serialization is retained.
+
+FINAL LIVE RESULT
+Job a29b1c5a545f completed. Actual output:
+output/motion/local-reference-5620fa10217c/student-93d9c82432/MOTION_GRAPHICS.mp4
+9 scenes, 496 frames, 16.533333s, 360x640, stereo supplied reference audio.
+Render-only time 25.9s; queue/model/repair time is separate and was substantial.
+
+57 focused checks passed. Both source-measurement and final student-plan audits match genuine local-model receipts. No manual creative changes. All measured layer geometry was reused by the local student; camera/reveal/drift/orbit settings came from its replies. This is not independent new-script generation or model weight training.
+
+Actual existing in-app Storylens video played to its 16.533333s end with no media error. The idle page was refreshed to clear an old connection before playback. The result is kept visible in the in-app browser. Chrome was not opened visibly; no native editor was launched. Other jobs were left running.
+
+VISUAL ACCEPTANCE FAILED. Wrong source crops/masks, mixed title text, clipped or off-frame lettering, mismatched hierarchy and nearly empty sections remain. Square album cards became circular fragments. The existing 100/100 Script Edit quality result did not detect these failures and must not be treated as a reference-fidelity score or owner approval. Full playback proves delivery, not quality.
+
+Further implementation repairs before verification: full-frame camera pan/rotation ranges for new references, explicit numeric limits in the actual prompt, combined field-specific validation feedback, reasoning mode for difficult corrections, and accepted later-attempt recovery before new measurement calls. Old saved plans retain their prior bounds.
+
+Per the final-review rule, newly confirmed visual issues were recorded without another manual composition or repair after verification. See final-review.json, generated-review.jpg, source-review.jpg, authorship-audit.json, source-authorship-audit.json and live-playback.json in the output folder. Permanent reference critique is also saved as library/motion-teacher/5620fa10217c1f1b26ed5377/review-feedback.json. Existing source-hash caching still requires explicit source-analysis repair for bad source bindings; a motion-only continuation cannot replace missing or misidentified assets. One-shot reliability and exact reference imitation are NOT achieved.

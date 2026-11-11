@@ -1,0 +1,1175 @@
+{
+  "name": "Caption 3",
+  "layout_revision": 4,
+  "source_fps": 30,
+  "source_width": 720,
+  "source_height": 1280,
+  "native_width": 720,
+  "position": 0.65,
+  "source_video": "A:/Full Drive/Styles/Videos/From Klickpin.com- Natural Makeup Looks You Can Try This Weekend-pin-id-924363892284327261.mp4",
+  "owner_direction": "Owner explicitly chose rebuilding Caption 3 to match this supplied serif video on 2026-10-23.",
+  "previous_profile": "docs/caption-three-before-serif-rebuild-2026-10-23.json",
+  "main_font": "caption-three/CaptionThree-BoldItalic.ttf",
+  "support_font": "caption-three/CaptionThree-RegularItalic.ttf",
+  "playful_font": "caption-three/CaptionThree-Playful.ttf",
+  "blue_font": "arialbi.ttf",
+  "ink": "#242422",
+  "blue": "#259DD0",
+  "black": "#242422",
+  "white": "#FFFFFF",
+  "grey_top": "#242422",
+  "grey_bottom": "#242422",
+  "tracking": -0.045,
+  "support_tracking": -0.035,
+  "space": 0.2,
+  "safe_width": 0.76,
+  "max_words": 5,
+  "max_row_offset": 116,
+  "readable_line_gap": 8,
+  "readable_support_size": 40,
+  "main_size": 148,
+  "header_size": 56,
+  "footer_size": 48,
+  "motion": {
+    "focus_seconds": 0.36,
+    "fade_seconds": 0.26,
+    "blur": 8,
+    "exit_blur": 5,
+    "exit_seconds": 0.16,
+    "main_rise": 18,
+    "support_rise": 7,
+    "camera_seconds": 1.8,
+    "camera_zoom": 0.09,
+    "camera_drift": -7,
+    "transition_seconds": 0.22
+  },
+  "recipes": [
+    {
+      "text": "Let's suppose you're not feeling well",
+      "start": 1,
+      "end": 47,
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 56,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -94,
+          "frame": 1
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 132,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 10
+        },
+        {
+          "words": [
+            3,
+            4,
+            5
+          ],
+          "size": 40,
+          "role": "footer",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 106,
+          "frame": 22
+        }
+      ],
+      "motion": "in"
+    },
+    {
+      "text": "and need a Doctor",
+      "start": 47,
+      "end": 83,
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 50.96,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -76,
+          "frame": 47
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 129.22,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 52
+        }
+      ],
+      "motion": "out",
+      "echo": true
+    },
+    {
+      "text": "you see two Clinics",
+      "start": 83,
+      "end": 120,
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 47.32,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 83
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 132.86,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 91
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "one is bright red with Playful Fonts the other is clean white with Calm Blue text",
+      "start": 120,
+      "end": 270,
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "size": 36.4,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 121
+        },
+        {
+          "words": [
+            5,
+            6
+          ],
+          "size": 86,
+          "role": "main",
+          "weight": 400,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "font_override": "playful",
+          "frame": 143
+        },
+        {
+          "words": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "size": 36.4,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 186,
+          "gap_before": 36
+        },
+        {
+          "words": [
+            13,
+            14,
+            15
+          ],
+          "size": 86,
+          "role": "accent",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "font_override": "blue",
+          "tone_override": "blue",
+          "frame": 212
+        }
+      ],
+      "motion": "in"
+    },
+    {
+      "text": "you trust one Instantly",
+      "start": 270,
+      "end": 306,
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 49.14,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -68,
+          "frame": 270
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 114.66,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 281
+        }
+      ],
+      "motion": "out",
+      "dash": true
+    },
+    {
+      "text": "Without a word Spoken",
+      "start": 306,
+      "end": 350,
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 47.32,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -94,
+          "frame": 306
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 125.58,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 34,
+          "frame": 321
+        }
+      ],
+      "motion": "out"
+    },
+    {
+      "text": "Because Your Brain read visual before logic kicks in.",
+      "start": 350,
+      "end": 438,
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 49.14,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -32,
+          "frame": 350
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 138.32,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 359
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 101.92,
+          "role": "accent",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 38,
+          "frame": 379,
+          "gap_before": 28
+        },
+        {
+          "words": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "size": 34.58,
+          "role": "footer",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 70,
+          "frame": 401
+        }
+      ],
+      "motion": "in"
+    },
+    {
+      "text": "that's Visual Vocabulary.",
+      "start": 438,
+      "end": 485,
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 56.42,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -116,
+          "frame": 438
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 134.68,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 445
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 96.46,
+          "role": "accent",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 42,
+          "frame": 455
+        }
+      ],
+      "motion": "in",
+      "transition": "slide_left"
+    },
+    {
+      "text": "Design doesn't decorate Brands",
+      "start": 485,
+      "end": 535,
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 111.02,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": -54,
+          "frame": 486
+        },
+        {
+          "words": [
+            1,
+            2
+          ],
+          "size": 56.42,
+          "role": "footer",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 62,
+          "frame": 494
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 132.86,
+          "role": "accent",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 42,
+          "frame": 505,
+          "gap_before": 76
+        }
+      ],
+      "motion": "in",
+      "arrow": true,
+      "transition": "slide_left"
+    },
+    {
+      "text": "it's set Expectations Without single word Spoken.",
+      "start": 535,
+      "end": 628,
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 45.5,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": -100,
+          "frame": 535
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 91.0,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 546
+        },
+        {
+          "words": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "size": 30.94,
+          "role": "footer",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 80,
+          "frame": 567
+        }
+      ],
+      "motion": "in",
+      "transition": "slide_up"
+    },
+    {
+      "text": "For more Branding tips Follow Web Rank Studio",
+      "start": 628,
+      "end": 709,
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 50.96,
+          "role": "support",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 628
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "size": 50.96,
+          "role": "main",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 628
+        },
+        {
+          "words": [
+            4
+          ],
+          "size": 50.96,
+          "role": "footer",
+          "weight": 400,
+          "font": "support",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 628
+        },
+        {
+          "words": [
+            5,
+            6,
+            7
+          ],
+          "size": 56.42,
+          "role": "accent",
+          "weight": 700,
+          "font": "main",
+          "tone": "ink",
+          "offset": 0,
+          "frame": 653,
+          "gap_before": 76
+        }
+      ],
+      "motion": "out",
+      "arrow": true
+    }
+  ],
+  "demo_phrases": [
+    {
+      "text": "Imagine a monument that changes",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.557956
+    },
+    {
+      "text": "with the light.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 1.3469848000000002
+    },
+    {
+      "text": "The Taj Mahal stands beside",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.11271839999999989
+    },
+    {
+      "text": "the Yamuna River in Agra.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.10708240000000036
+    },
+    {
+      "text": "Its white marble glows softly",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.5185046
+    },
+    {
+      "text": "at sunrise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 1.335712899999999
+    },
+    {
+      "text": "and shines beneath the moon.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.15780570000000083
+    },
+    {
+      "text": "Look closer at",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.2141649000000001
+    },
+    {
+      "text": "the carved flowers,",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.6537667000000003
+    },
+    {
+      "text": "the balanced gardens, and",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -1.9387564000000008
+    },
+    {
+      "text": "the reflections in the water.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.1127184000000021
+    },
+    {
+      "text": "Every detail invites you",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.8172083999999984
+    },
+    {
+      "text": "to slow down.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.6030434000000007
+    },
+    {
+      "text": "Some places are more",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.3325192000000001
+    },
+    {
+      "text": "than buildings.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.9524703999999993
+    },
+    {
+      "text": "They become stories that",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.5523200999999993
+    },
+    {
+      "text": "the world remembers.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.7439414000000006
+    }
+  ],
+  "inspection": {
+    "extracted_frames": 709,
+    "frame_sheets": "output/captions/caption-three-reference-rebuild/all-frames-*.jpg",
+    "font_note": "Playfair Display regular/bold italic and Schoolbell matched against source letter shapes and bundled as separate named instances. Blue accent uses Arial Bold Italic.",
+    "scope": "Reusable caption text and text annotations; scene photographs, logos, hospital/brain illustrations and decorative stars are not caption layers."
+  }
+}

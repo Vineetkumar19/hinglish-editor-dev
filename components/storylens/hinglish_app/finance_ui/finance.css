@@ -1,0 +1,36 @@
+@font-face { font-family: Geist; src: url('/geist-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Geist; src: url('/geist-latin-600-normal.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: Geist; src: url('/geist-latin-700-normal.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+* { box-sizing: border-box; }
+:root { color-scheme: light; font: 15px/1.5 Geist, system-ui, sans-serif; color: #192a3b; }
+body { margin: 0; background: #e8eff5; }
+main { max-width: 1180px; margin: auto; padding: clamp(18px, 4vw, 44px); }
+header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+h1 { margin: 0; font-size: clamp(24px, 3vw, 31px); font-weight: 700; letter-spacing: -.035em; }
+h2 { margin: 3px 0 0; font-size: 21px; font-weight: 600; letter-spacing: -.02em; }
+p { margin: 0; }
+.source, .status, dt, label { color: #4d6073; }
+.source, .status, dt, label { font-size: 13px; }
+.source { font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+label { display: inline-flex; align-items: center; gap: 8px; }
+input, button {
+  min-height: 42px; border: 1px solid #bacad9; border-radius: 8px; padding: 6px 11px;
+  background: #f9fbfd; color: inherit; font: inherit;
+}
+input { max-width: 100%; }
+button { cursor: pointer; font-weight: 600; }
+button:hover { background: #e0e9f1; }
+:focus-visible { outline: 2px solid #315b7a; outline-offset: 2px; }
+.panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; align-items: start; }
+.panels:has(#pocket-summary:not([hidden])):has(#finance-tracker-values:not([hidden])) { align-items: stretch; }
+section { min-width: 0; padding: clamp(16px, 3vw, 24px); border: 1px solid #cfdae5; border-radius: 14px; background: #f9fbfd; }
+.status { margin-top: 8px; min-height: 20px; }
+dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 18px; margin: 15px 0 0; padding-top: 15px; border-top: 1px solid #dce5ee; }
+dl[hidden] { display: none; }
+dd { margin: 3px 0 0; color: #171717; font-size: clamp(17px, 2.1vw, 25px); font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.amount-positive { color: #146c3a; }
+.amount-negative { color: #b12933; }
+@media (max-width: 740px) { .panels { grid-template-columns: 1fr; gap: 12px; } }
+@media (max-width: 480px) { input, button { min-height: 44px; } }
+

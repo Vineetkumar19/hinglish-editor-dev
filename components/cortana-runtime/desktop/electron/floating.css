@@ -1,0 +1,9 @@
+:root { color-scheme: dark; font-family: "Segoe UI", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; overflow: hidden; background: transparent; display: flex; align-items: center; flex-direction: column; }
+.drag { height: 17px; width: 42px; color: #a1cdd2; text-align: center; font-size: 12px; -webkit-app-region: drag; cursor: move; background: #08212edb; border-radius: 9px 9px 0 0; }
+button { cursor: pointer; -webkit-app-region: no-drag; color: #d4fbff; }
+.orb { width: 57px; height: 57px; border: 2px solid #65e4ed; border-radius: 50%; background: radial-gradient(circle at 38% 30%, #245a70, #061323 75%); box-shadow: 0 0 12px #32b8c451, inset 0 0 12px #32b8c448; font-size: 25px; font-weight: 600; }
+.orb:hover { border-color: #fff; background: #164354; }
+.screen { width: 32px; height: 24px; margin-top: 1px; border: 1px solid #2c7184; border-radius: 7px; background: #092230f0; font-size: 19px; line-height: 18px; }
+button:focus-visible { outline: 2px solid white; outline-offset: 2px; }

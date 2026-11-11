@@ -1,3 +1,0 @@
-Put only horizontal YouTube or long-form videos in this folder.
-
-Run CPU.bat after adding your videos. The Premiere XML will use a 1920 x 1080 horizontal sequence and will fit the entire video without automatic cropping.

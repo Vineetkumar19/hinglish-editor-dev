@@ -1,0 +1,5 @@
+# Optional official publishing clients. No extra AI model is required.
+google-api-python-client>=2.150,<3
+google-auth-oauthlib>=1.2,<2
+google-auth>=2.35,<3
+boto3>=1.35,<2

@@ -1,0 +1,68 @@
+Storylens layered Sound Design — 24 October 2026
+
+IMPLEMENTED
+Sound Design accepts an existing video/path or edited XML. Layered cinematic
+sound is enabled by default; unchecking it retains restrained selection.
+Existing speech transcription, prosody analysis, local Qwen story/emotion
+planning and CLAP/library retrieval feed a new role-aware layer planner.
+The planner selects complementary roles per measured event: anticipation,
+travel, contact, detail and tail, with separate environmental bed/texture roles.
+It may choose silence; density is a maximum budget, not a requirement to fill
+every second. Up to three action layers and two ambient layers may overlap.
+Music remains independently selected for the emotional arc.
+
+Local Vision now sees 12 numbered frames per approximately six-second window.
+Action intervals resolve from supplied frame indices. These support approximate
+sustained Foley, not frame-exact contacts. Measured editor events and aligned
+speech words retain their existing precise timestamp sources.
+
+Mixing applies group gain compensation, speech-keyed effect ducking, the existing
+music ducking/EQ and final limiter. Source-trimmed effects retain their requested
+duration. Preview encoding now preserves stereo supplied mixes. Editable XML
+keeps overlapping stereo effects on separate tracks, labeled with role/group.
+Model decisions, timing uncertainty, scene observations and per-asset reasons
+remain in the result's saved plan and report. No Epidemic private models/code,
+AuroLA weights, MMAudio or FoleyCrafter runtime were installed in this work.
+This is an independent local implementation, not recovered Epidemic AI.
+
+VALIDATION
+43 focused tests passed: tests.test_sound_layers, tests.test_sound_timing,
+tests.test_sound. This includes actual WAV mixing and stereo MP4 encoding,
+overlapping layer export to editable XML, candidate batching/index preservation,
+fixed timing, source offsets, saved role metadata, and existing sound behavior.
+Initial failing tests were observed for layer planning, ambient texture support,
+stereo preview and malformed optional uncertainty. Batching/export integration
+checks added afterward are supplementary checks, not claimed as prior TDD.
+
+Final adversarial review reproduced two failures:
+1. One ambient layer from one group plus two from another at the same time
+   admitted three layers, exceeding the intended limit of two. This can crowd
+   the mix. Fixed after explicit owner approval by counting the current group.
+2. A model returning a list instead of a string event ID raised TypeError rather
+   than skipping the malformed selection. Fixed after explicit owner approval
+   by validating event ID, role and family types. Valid rows still survive.
+Both regression tests failed before repair and pass afterward. Original and
+post-repair receipts: output/sound-layer-validation/final-review*.json.
+
+REAL APPLICATION STATUS — INCOMPLETE
+An isolated visible Storylens instance runs on port 8876. The initial normal
+chat request failed before generation because the assistant planning context
+was oversized. Creator knowledge was not removed to work around it.
+The direct Sound Design panel was then used with the existing real 10.67-second
+validation/orientation/VID20260802150930-oriented-test.mp4 clip. Layered sound,
+music, effects and transitions were checked, with medium density. The request
+was accepted and is queued behind another live B-roll job on port 8767 holding
+the shared GPU lock. That unrelated job was not interrupted. No successful
+generated result or listening review is claimed. The short local validation
+request remains queued in the isolated instance; no external upload/publishing.
+Screenshot: output/sound-layer-validation/live-queued.png.
+Main application services were not restarted by this Sound Design validation.
+
+LIMITS / FOLLOW-UP
+Actual audio taste, asset suitability, vision inference and end-to-end output
+remain unverified until the real job completes. No native Premiere/CapCut
+playback was performed. The library constrains coverage; this does not generate
+missing Foley from a new waveform model. Existing source audio is treated as
+the input track, not separated into dialogue/music/noise. Sampled visual timing
+is approximate. Existing music-off/on rebuild behavior remains a previously
+recorded source-review risk, not a verified repaired capability in this change.

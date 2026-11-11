@@ -1,0 +1,21 @@
+{
+  "number": 3,
+  "name": "Caption 3",
+  "style_id": "caption_3",
+  "source": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Natural Makeup Looks You Can Try This Weekend-pin-id-35817759534066891.mp4",
+  "sha256": "c629a50b63825923ae2d560cfb8fc9b1c6b054c600ad201ff727e2410482c460",
+  "status": "approved",
+  "demo_url": "/caption-output/template-demos/caption_3/report.html",
+  "review_video": "output/share/Caption-3.mp4",
+  "rendered_video_sha256": "25290110dd3bd0fc2d5616332ac4af77c90c89e89c29d7b531a7a8931107469c",
+  "source_fps": 30,
+  "source_frames": 1481,
+  "reference_frame_identity_verified": false,
+  "owner_revision": "Keep original camera movement; compact three-line composition, one shaded main word, short dotted footer, smoother box entrance; 17 slides, all 65 words.",
+  "approved_video_sha256": "25290110dd3bd0fc2d5616332ac4af77c90c89e89c29d7b531a7a8931107469c",
+  "owner_confirmation": "Perfect awesome... Now caption 4",
+  "revision_status": "awaiting_owner_review",
+  "revision_demo_url": "/caption-output/template-demos/caption_3_compact/report.html",
+  "revision_video": "output/captions/template-demos/caption_3_compact/captioned-preview.mp4",
+  "revision_video_sha256": "e90f780422034454cc18da2f140406746c46b5af7b2617fca1c2e8309eee4842"
+}

@@ -1,0 +1,412 @@
+{
+  "communication": {
+    "prefer_installed_apps": true,
+    "whatsapp_contact_order": "top_result",
+    "instagram_transport": "chrome",
+    "browser": "existing_chrome",
+    "chrome_profile_directory": "Default",
+    "gmail_sender": "vineetdas1903@gmail.com",
+    "gmail_contacts": {
+      "Vineet Kumar": "vineetkd132@gmail.com"
+    }
+  },
+  "permissions": {
+    "approved_app_allowlist": {
+      "chrome": [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      ],
+      "edge": [
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      ],
+      "vs code": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+      ],
+      "vscode": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+      ],
+      "explorer": [
+        "C:\\Windows\\explorer.exe"
+      ],
+      "file explorer": [
+        "C:\\Windows\\explorer.exe"
+      ],
+      "notepad": [
+        "C:\\Windows\\System32\\notepad.exe"
+      ],
+      "calculator": [
+        "C:\\Windows\\System32\\calc.exe"
+      ],
+      "paint": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.Paint_8wekyb3d8bbwe!App"
+      ],
+      "task manager": [
+        "C:\\Windows\\System32\\taskmgr.exe"
+      ],
+      "settings": {
+        "uri": "ms-settings:"
+      },
+      "snipping tool": {
+        "uri": "ms-screenclip:"
+      },
+      "access": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\MSACCESS.EXE"
+      ],
+      "adobe media encoder": [
+        "D:\\Editing\\Editing Softwares\\Media Encoder\\Adobe Media Encoder 2026\\Adobe Media Encoder.exe"
+      ],
+      "adobe media encoder 2026": [
+        "D:\\Editing\\Editing Softwares\\Media Encoder\\Adobe Media Encoder 2026\\Adobe Media Encoder.exe"
+      ],
+      "adobe photoshop": [
+        "D:\\Editing\\Editing Softwares\\PhotoShop\\Adobe Photoshop 2026\\Photoshop.exe"
+      ],
+      "adobe photoshop 2026": [
+        "D:\\Editing\\Editing Softwares\\PhotoShop\\Adobe Photoshop 2026\\Photoshop.exe"
+      ],
+      "adobe premiere pro": [
+        "C:\\Program Files\\Adobe\\Adobe Premiere Pro 2026\\Adobe Premiere Pro.exe"
+      ],
+      "adobe premiere pro 2026": [
+        "C:\\Program Files\\Adobe\\Adobe Premiere Pro 2026\\Adobe Premiere Pro.exe"
+      ],
+      "blackmagic raw player": [
+        "C:\\Program Files (x86)\\Blackmagic Design\\Blackmagic RAW\\Blackmagic RAW Player\\BlackmagicRAWPlayer.exe"
+      ],
+      "brave": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+      ],
+      "cinema 4d": [
+        "C:\\Program Files\\Maxon Cinema 4D 2025\\Cinema 4D.exe"
+      ],
+      "cinema4d": [
+        "C:\\Program Files\\Maxon Cinema 4D 2025\\Cinema 4D.exe"
+      ],
+      "ea": [
+        "C:\\Program Files\\Electronic Arts\\EA Desktop\\13.813.1.6327-1792736075\\EA Desktop\\EALauncher.exe"
+      ],
+      "excel": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE"
+      ],
+      "git gui": [
+        "C:\\Program Files\\Git\\cmd\\git-gui.exe"
+      ],
+      "google chrome": [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      ],
+      "intellij": [
+        "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2026.2.3\\bin\\idea64.exe"
+      ],
+      "intellij idea": [
+        "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2026.2.3\\bin\\idea64.exe"
+      ],
+      "intellij idea 2026.2.3": [
+        "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2026.2.3\\bin\\idea64.exe"
+      ],
+      "maxon cinema 4d 2025": [
+        "C:\\Program Files\\Maxon Cinema 4D 2025\\Cinema 4D.exe"
+      ],
+      "media encoder": [
+        "D:\\Editing\\Editing Softwares\\Media Encoder\\Adobe Media Encoder 2026\\Adobe Media Encoder.exe"
+      ],
+      "microsoft edge": [
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      ],
+      "mysql workbench": [
+        "C:\\Program Files\\MySQL\\MySQL Workbench\\MySQL Workbench.exe"
+      ],
+      "obs": [
+        "C:\\Program Files\\obs-studio\\bin\\64bit\\obs64.exe"
+      ],
+      "obs studio": [
+        "C:\\Program Files\\obs-studio\\bin\\64bit\\obs64.exe"
+      ],
+      "onenote": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\ONENOTE.EXE"
+      ],
+      "pgadmin 4": [
+        "C:\\Program Files\\PostgreSQL\\18\\pgAdmin 4\\runtime\\pgAdmin4.exe"
+      ],
+      "photoshop": [
+        "D:\\Editing\\Editing Softwares\\PhotoShop\\Adobe Photoshop 2026\\Photoshop.exe"
+      ],
+      "postman": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Postman\\Postman.exe"
+      ],
+      "powerpoint": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE"
+      ],
+      "premiere": [
+        "C:\\Program Files\\Adobe\\Adobe Premiere Pro 2026\\Adobe Premiere Pro.exe"
+      ],
+      "premiere pro": [
+        "C:\\Program Files\\Adobe\\Adobe Premiere Pro 2026\\Adobe Premiere Pro.exe"
+      ],
+      "publisher": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\MSPUB.EXE"
+      ],
+      "steam": [
+        "D:\\Steam\\steam.exe"
+      ],
+      "visual studio code": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+      ],
+      "winrar": [
+        "C:\\Program Files\\WinRAR\\WinRAR.exe"
+      ],
+      "word": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
+      ],
+      "whatsapp": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App"
+      ],
+      "telegram": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\TelegramMessengerLLP.TelegramDesktop_t4vj0pshhgkwm!Telegram.TelegramDesktop.Store"
+      ],
+      "instagram": [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome_proxy.exe",
+        "--profile-directory=Default",
+        "--app-id=akpamiohjfcnimfljfndmaldlcfphjmp"
+      ],
+      "ace studio": [
+        "C:\\Program Files\\ACE Studio\\ACE Studio.exe"
+      ],
+      "adobe after effects 2026": [
+        "C:\\Program Files\\Adobe\\Adobe After Effects 2026\\Support Files\\AfterFX.exe"
+      ],
+      "after effects": [
+        "C:\\Program Files\\Adobe\\Adobe After Effects 2026\\Support Files\\AfterFX.exe"
+      ],
+      "amd software": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\AdvancedMicroDevicesInc-2.AMDRadeonSoftware_0a9344xs7nr4m!AMDRadeonsoftwareUWP"
+      ],
+      "armoury crate": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\B9ECED6F.ArmouryCrate_qmba6cd70vzyy!App"
+      ],
+      "asus glidex": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\B9ECED6F.Glidex_qmba6cd70vzyy!App"
+      ],
+      "aura creator": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\B9ECED6F.AURACreator_qmba6cd70vzyy!App"
+      ],
+      "blackmagic raw speed test": [
+        "C:\\Program Files (x86)\\Blackmagic Design\\Blackmagic RAW\\Blackmagic RAW Speed Test\\BlackmagicRAWSpeedTest.exe"
+      ],
+      "camera": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.WindowsCamera_8wekyb3d8bbwe!App"
+      ],
+      "capcut": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\CapCut\\Apps\\9.6.0.4097\\CapCut.exe"
+      ],
+      "character map": [
+        "C:\\Windows\\System32\\charmap.exe"
+      ],
+      "chatgpt desktop": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\OpenAI.Codex_2p2nqsd0c76g0!App"
+      ],
+      "claude": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\AnthropicPBC.Claude_fnn82j28hfe8t!Claude"
+      ],
+      "clock": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.WindowsAlarms_8wekyb3d8bbwe!App"
+      ],
+      "davinci resolve": [
+        "C:\\Program Files\\Blackmagic Design\\DaVinci Resolve\\Resolve.exe"
+      ],
+      "resolve": [
+        "C:\\Program Files\\Blackmagic Design\\DaVinci Resolve\\Resolve.exe"
+      ],
+      "deskflow": [
+        "C:\\Program Files\\Deskflow\\deskflow.exe"
+      ],
+      "dolby access": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\DolbyLaboratories.DolbyAccess_rz1tebttyb220!App"
+      ],
+      "dualsensex": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\DualSenseX\\DualSenseX.exe"
+      ],
+      "family": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\MicrosoftCorporationII.MicrosoftFamily_8wekyb3d8bbwe!App"
+      ],
+      "feedback hub": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe!App"
+      ],
+      "frameview": [
+        "C:\\Program Files\\NVIDIA Corporation\\FrameView\\FrameView_x64.exe"
+      ],
+      "game bar": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe!App"
+      ],
+      "get help": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.GetHelp_8wekyb3d8bbwe!App"
+      ],
+      "get started": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy!WebExperienceHost"
+      ],
+      "icat": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\icat\\ICAT.exe"
+      ],
+      "livecaptions": [
+        "C:\\Windows\\System32\\LiveCaptions.exe"
+      ],
+      "logi options+": [
+        "C:\\Program Files\\LogiOptionsPlus\\logioptionsplus.exe"
+      ],
+      "logitech options": [
+        "C:\\Program Files\\Logitech\\LogiOptions\\LogiOptions.exe"
+      ],
+      "magnify": [
+        "C:\\Windows\\System32\\Magnify.exe"
+      ],
+      "media player": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic"
+      ],
+      "microsoft clipchamp": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Clipchamp.Clipchamp_yxz26nhyzhsrt!App"
+      ],
+      "microsoft news": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.BingNews_8wekyb3d8bbwe!AppexNews"
+      ],
+      "microsoft store": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.WindowsStore_8wekyb3d8bbwe!App"
+      ],
+      "microsoft to do": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.Todos_8wekyb3d8bbwe!App"
+      ],
+      "mixed reality link": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.MixedRealityLink_8wekyb3d8bbwe!App"
+      ],
+      "myasus": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\B9ECED6F.ASUSPCAssistant_qmba6cd70vzyy!App"
+      ],
+      "narrator": [
+        "C:\\Windows\\System32\\Narrator.exe"
+      ],
+      "nvidia app": [
+        "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\CEF\\NVIDIA App.exe"
+      ],
+      "nvidia control panel": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\NVIDIACorp.NVIDIAControlPanel_56jybvy8sckqj!NVIDIACorp.NVIDIAControlPanel"
+      ],
+      "office language preferences": [
+        "C:\\Program Files\\Microsoft Office\\root\\Office16\\SETLANG.EXE"
+      ],
+      "ollama": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      ],
+      "on-screen keyboard": [
+        "C:\\Windows\\System32\\osk.exe"
+      ],
+      "outlook": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.OutlookForWindows_8wekyb3d8bbwe!Microsoft.OutlookforWindows"
+      ],
+      "phone link": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.YourPhone_8wekyb3d8bbwe!App"
+      ],
+      "photos": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.Windows.Photos_8wekyb3d8bbwe!App"
+      ],
+      "power automate": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe!PAD.Console"
+      ],
+      "powertoys (preview)": [
+        "C:\\Users\\Vineet Kumar\\AppData\\Local\\PowerToys\\PowerToys.exe"
+      ],
+      "realtek audio console": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\RealtekSemiconductorCorp.RealtekAudioControl_dt26b99r8h8gj!App"
+      ],
+      "screenxpert": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\B9ECED6F.ScreenPadMaster_qmba6cd70vzyy!B9ECED6F.ScreenPadMaster"
+      ],
+      "solitaire & casual games": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe!App"
+      ],
+      "sound recorder": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe!App"
+      ],
+      "sticky notes": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App"
+      ],
+      "system information": [
+        "C:\\Windows\\System32\\msinfo32.exe"
+      ],
+      "telegram desktop": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\TelegramMessengerLLP.TelegramDesktop_t4vj0pshhgkwm!Telegram.TelegramDesktop.Store"
+      ],
+      "topaz video": [
+        "C:\\Windows\\Installer\\{0FE2E046-5401-4B1B-8317-E500103E7DC2}\\mainapp.exe"
+      ],
+      "topaz video ai": [
+        "C:\\Windows\\Installer\\{9DDA638A-492C-4894-BE4C-75132C1EA988}\\mainapp.exe"
+      ],
+      "weather": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.BingWeather_8wekyb3d8bbwe!App"
+      ],
+      "windows backup": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy!WindowsBackup"
+      ],
+      "windows security": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.SecHealthUI_8wekyb3d8bbwe!SecHealthUI"
+      ],
+      "xbox": [
+        "C:\\Windows\\explorer.exe",
+        "shell:AppsFolder\\Microsoft.GamingApp_8wekyb3d8bbwe!Microsoft.Xbox.App"
+      ]
+    },
+    "approved_folder_aliases": {
+      "Downloads": "C:\\Users\\Vineet Kumar\\Downloads",
+      "Documents": "C:\\Users\\Vineet Kumar\\Documents",
+      "Desktop": "C:\\Users\\Vineet Kumar\\Desktop",
+      "Pictures": "C:\\Users\\Vineet Kumar\\Pictures",
+      "Videos": "C:\\Users\\Vineet Kumar\\Videos",
+      "Music": "C:\\Users\\Vineet Kumar\\Music",
+      "Cortana": "D:\\Cortana",
+      "A Drive": "D:/",
+      "C Drive": "C:/",
+      "E Drive": "E:/"
+    },
+    "approved_search_roots": [
+      "D:/",
+      "C:/",
+      "E:/"
+    ],
+    "_comment": "User authorized all laptop files on 2026-10-20. Read/search roots are installed fixed drives under the current Windows account. File changes and sensitive computer actions require approval; credentials and system/security modifications remain protected."
+  }
+}

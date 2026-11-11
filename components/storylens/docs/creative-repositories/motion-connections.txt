@@ -1,0 +1,27 @@
+Motion Graphics connected tools — 24 October 2026
+
+Choose Connected studio in Motion Graphics for typed local-model asset planning:
+script -> image queries -> web/Agent Reach/Wikipedia/stock -> local Vision ->
+transparent PNG preparation -> GSAP entrance/hold/drift/exit -> optional ThreeUI
+orbital background -> Hyperframes MP4 (browser/PyAV for transparent MOV).
+
+Asset scenes support one or two images, rise, slide-left, slide-right, push or
+float movement. PNGs and photos are local layers; their provenance stays in the
+project. Objects search the web first in combined mode, then may use the existing
+image generator. Named people/brands/places must occur in the source script.
+Missing required assets or Vision stop clearly. No unrestricted shell/code tools
+are delegated to the local model. Existing clip-based templates remain available.
+
+ReelMimic sample selection now includes motion. A future explicitly provided
+sample can be learned with hinglish_cut.reelmimic and fed to planning/Vision.
+This does not train model weights or guarantee arbitrary reference reconstruction.
+
+The Motion Graphics connections manifest is returned with style settings and
+saved in each new project. Model prompts receive the real typed connection list.
+Saved style selections remain intact; new application/CLI requests default to
+Connected studio. Short feature labels list the connected tools.
+
+No live render, network search, model inference or browser test was performed in
+this integration, at the owner's request. Python syntax/import checks and JS
+syntax checks passed. The previous export-sizing correction remains visually
+unverified. A normal Storylens service reload loads server modules changed on disk.

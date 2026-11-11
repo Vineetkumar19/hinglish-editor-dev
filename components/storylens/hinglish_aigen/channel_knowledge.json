@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "scope": "Persistent image-direction guidance; not model weight training",
+  "shared": [
+    "Follow the user's actual subject, requested number of subjects, action, mood, viewpoint and exclusions. Translate Hindi/Hinglish instructions into a concrete English image prompt without changing the intent.",
+    "Choose one readable focal action, a coherent foreground/midground/background, natural anatomy, plausible scale, intentional lighting and clean silhouettes. Avoid a collage of unrelated ideas.",
+    "When a specific visible count matters, state the exact number and spatial allocation explicitly (for four opponents, two on the left and two on the right), with no extra people or duplicated objects. If the user asks for one ball, do not add a second ball. A model may still miss counts; inspect the output instead of assuming compliance.",
+    "For a thumbnail, use a large focal subject, clear emotion/action and uncluttered negative space for separately edited text. Do not generate a title, scoreboard, watermark, badge or random letters unless explicitly requested.",
+    "For a background, make a usable scene with quiet space and no pasted-on labels. Honor the requested art style rather than turning every request into photorealism.",
+    "Keep the existing real-person/brand substitution rules. Named games and teams establish context; use original generic characters, unbranded equipment and team-inspired colours when needed. Never label an imagined scene as a real match photograph or game screenshot.",
+    "Do not invent scores, statistics, match results, roster facts or release details. A fictional visual does not require a factual claim."
+  ],
+  "gaming": {
+    "direction": [
+      "Identify the genre first: tactical shooter, battle royale, open-world driving, survival crafting, fantasy RPG, horror, mobile competition or streamer setup. Preserve that visual world and viewpoint.",
+      "For a clutch scene, show one focal competitor with coherent cover, a clear threat direction and readable spatial stakes. Keep weapon grips, limb count, trigger hand and equipment plausible; never fuse a hand into the weapon.",
+      "For driving, preserve vehicle geometry, wheel contact and a clear route. For block-building, retain cubic geometry instead of smooth realistic surfaces. For horror, use a specific threat and restrained light rather than unrelated monsters.",
+      "Use original unbranded game-like characters and environments. No invented HUD, rank badges, minimap or unreadable UI unless the creator explicitly needs a fictional interface.",
+      "A channel thumbnail should read at small size: one dominant action, bold value contrast, limited accent colours, space for a supplied creator cutout or later headline."
+    ],
+    "examples": [
+      "A lone tactical gamer surviving a 1v4 rooftop clutch at night, rain and orange searchlights, cinematic wide shot, no text",
+      "An original block-built island with a huge floating castle, sunrise, colourful cubic world, wide establishing shot",
+      "A blue sports car drifting through a rainy city at night, low camera, realistic wheels, no logos"
+    ]
+  },
+  "cricket": {
+    "direction": [
+      "Use cricket equipment and field geometry: a flat wooden cricket bat, red or white cricket ball, three vertical stumps with two bails, crease markings, batting gloves, pads and a proper cricket helmet grille. Never substitute a baseball bat, mitt or baseball diamond.",
+      "Choose a clear phase of play: bowler release, batsman meeting the ball, follow-through, wicketkeeper taking a catch, slip catch, run-out, celebration or quiet dressing-room moment. The ball and eye line must agree with the action.",
+      "A batting pose needs a plausible two-handed grip and grounded stance. A bowling action needs coherent arm, front leg and delivery direction. Show one clear ball rather than several unrelated floating balls.",
+      "Distinguish a floodlit limited-overs stadium, daylight Test setting, domestic ground and Indian gully cricket. Use the requested atmosphere, equipment and clothing context consistently without guessing historical kits.",
+      "For a dramatic finish, communicate tension with framing, player posture, crowd blur and light. Avoid fabricated scoreboards or claims that the picture documents an actual match. Use generic athletes unless an exact supplied asset is available."
+    ],
+    "examples": [
+      "A generic Indian batsman hitting a last-over winning six in a packed floodlit stadium, blue unbranded kit, low-angle sports photograph, no text",
+      "A red cricket ball knocking the bails off three wooden stumps, flying dust, dramatic close-up, no text",
+      "Indian gully cricket at golden hour, friends playing in a narrow neighbourhood lane, natural documentary photograph"
+    ]
+  }
+}

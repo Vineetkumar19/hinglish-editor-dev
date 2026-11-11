@@ -1,0 +1,17 @@
+{
+  "native_automations": {
+    "cricket-inbox-daily-gpt-research": "PAUSED",
+    "cricket-inbox-match-evening-research": "PAUSED"
+  },
+  "local_scheduler": "Owner-enabled; feeds every 30 min, GPT 18:00\u201300:00 IST every 30 min",
+  "feeds_off": false,
+  "gpt_off": false,
+  "inbox_candidates": 80,
+  "gpt_live_run_tested": false,
+  "reason": "Latest explicit owner activation supersedes quiet-period OFF",
+  "startup_shortcut_verified": true,
+  "ui_screenshot": "clean-ui.png",
+  "keyword_revision_review": "D:/Workflow_Automation/cricket-demo-three-20261104/Revision2/REVIEW.html",
+  "no_publishing": true,
+  "ui_update_receipt": "ui-update-result.json"
+}

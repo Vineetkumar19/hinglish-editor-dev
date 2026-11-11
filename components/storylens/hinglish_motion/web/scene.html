@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Motion Graphics scene</title>
+<!-- Scene templates for Motion Graphics. Design language from the Madurai "street-tech case file"
+     (tar / paper / orange / red, condensed display type + mono labels, grain, stamps, stickers).
+     Data only: mgLoad(scene) fills a template with text (textContent, never HTML) and the renderer
+     seeks every frame with mgSeek(seconds). Works at 1080x1920 (portrait) and 1920x1080 (landscape). -->
+<style>
+  :root {
+    --bg: #171310; --paper: #f3eadf; --accent: #ff6b2c; --alert: #e8373d; --ink: #171310;
+    --ash: #c9bfb2; --muted: #a89d90; --panel: #211b17;
+    --display: "League Gothic", "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+    --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+    --grain: .13;
+    --texture: road;                          /* road / paper / grid / plain / dark */
+    --photo: none;                            /* photo treatment, e.g. grayscale(1) contrast(1.1) */
+    --hand: "Segoe Print", "Ink Free", "Comic Sans MS", cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow: hidden; background: transparent; }
+  body { font-family: var(--mono); color: var(--paper); }
+  #stage { position: absolute; inset: 0; overflow: hidden; }
+  body.full #stage { background: var(--bg); }
+  body.full #stage.light { background: var(--paper); color: var(--ink); }
+  .fill { position: absolute; inset: 0; }
+  .light { background: var(--paper); color: var(--ink); }
+  .dark { background: var(--bg); color: var(--paper); }
+  .grain { position: absolute; inset: 0; pointer-events: none; opacity: var(--grain); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.95'/%3E%3C/svg%3E"); mix-blend-mode: screen; }
+  .light .grain { mix-blend-mode: multiply; opacity: calc(var(--grain) * .9); }
+  .road { position: absolute; inset: -20%; opacity: .22; background-image: repeating-linear-gradient(90deg, transparent 0 142px, rgba(243,234,223,.2) 142px 148px, transparent 148px 290px); transform: skewY(-17deg); }
+  .light .road { opacity: .12; background-image: repeating-linear-gradient(90deg, transparent 0 115px, rgba(23,19,16,.32) 115px 121px, transparent 121px 246px); }
+  .corner { position: absolute; width: 96px; height: 96px; border-color: var(--accent); border-style: solid; }
+  .corner.tl { top: 72px; left: 48px; border-width: 5px 0 0 5px; }
+  .corner.br { right: 48px; bottom: 72px; border-width: 0 5px 5px 0; }
+  .status { position: absolute; top: 72px; left: 64px; right: 64px; display: flex; justify-content: space-between; align-items: center; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: var(--ash); }
+  .light .status { color: var(--ink); }
+  .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 16%, transparent); }
+  .label { font-size: 24px; letter-spacing: .1em; text-transform: uppercase; color: var(--ash); }
+  .light .label { color: var(--ink); opacity: .8; }
+  .kicker { display: flex; gap: 16px; align-items: center; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: var(--ash); }
+  .kicker::before { content: ""; width: 56px; height: 3px; background: var(--accent); flex: none; }
+  .light .kicker { color: var(--ink); }
+  .display { font-family: var(--display); font-weight: 400; letter-spacing: -.035em; line-height: .82; text-transform: uppercase; }
+  .accent { color: var(--accent); }
+  .alert { color: var(--alert); }
+  .fit { overflow: hidden; }
+  .foot { position: absolute; left: 64px; right: 64px; bottom: 120px; display: flex; justify-content: space-between; gap: 30px; border-top: 2px solid rgba(243,234,223,.3); padding-top: 20px; font-size: 20px; letter-spacing: .1em; text-transform: uppercase; color: var(--ash); }
+  .light .foot { border-top-color: rgba(23,19,16,.25); color: var(--ink); }
+  .stroke { position: absolute; height: 26px; background: var(--accent); transform-origin: left center; }
+
+  /* main block of every scene (also the card shown in overlay mode) */
+  .hero { position: absolute; left: 64px; right: 64px; top: 330px; }
+  body.landscape .hero { left: 140px; right: 140px; top: 190px; }
+
+  /* headline */
+  .hl-lines { margin-top: 26px; font-size: 230px; max-height: 900px; }
+  .hl-lines .display { font-size: 1em; text-shadow: .06em .06em 0 color-mix(in srgb, var(--accent) 20%, transparent); }
+  .hl-sub { margin-top: 34px; font-size: 44px; letter-spacing: .12em; color: var(--accent); text-transform: uppercase; }
+  body.landscape .hl-lines { max-height: 560px; }
+
+  /* big number */
+  .plate { padding: 48px; background: var(--paper); color: var(--ink); box-shadow: 22px 28px 0 color-mix(in srgb, var(--accent) 30%, transparent); }
+  .plate .label { color: var(--ink); }
+  .amount { margin-top: 40px; font-family: var(--display); font-size: 300px; line-height: .66; letter-spacing: -.055em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .amount .unit { font-family: var(--mono); font-size: .22em; vertical-align: top; color: var(--accent); letter-spacing: 0; margin: 0 .04em; }
+  .caption { margin-top: 44px; font-size: 52px; font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+  .caption .accent { color: var(--accent); }
+
+  /* versus / price switch */
+  .vs-left { width: 72%; }
+  .vs-right { position: relative; margin: -40px 0 0 16%; width: 78%; padding: 42px 42px 52px; background: var(--alert); color: var(--paper); border: 10px solid var(--paper); box-shadow: 0 30px 0 rgba(0,0,0,.3), 26px 38px 42px rgba(0,0,0,.26); transform-origin: 15% 10%; }
+  .vs-right .label { color: var(--paper); }
+  .vs-right .amount { color: var(--paper); }
+  body.landscape .vs-wrap { display: flex; gap: 60px; align-items: flex-start; }
+  body.landscape .vs-left, body.landscape .vs-right { width: 48%; margin: 0; }
+  body.landscape .vs-right { margin-top: 90px; }
+
+  /* stamp */
+  .stamp { padding: 48px 32px 40px; border: 12px solid var(--alert); color: var(--alert); font-family: var(--display); font-size: 200px; line-height: .78; letter-spacing: -.03em; text-align: center; text-transform: uppercase; background: color-mix(in srgb, var(--paper) 88%, transparent); }
+  .stamp-why { margin-top: 64px; font-size: 58px; font-weight: 900; letter-spacing: -.035em; line-height: 1.05; color: var(--ink); }
+  .cut-route { position: absolute; left: 88px; right: 88px; top: 250px; height: 420px; border: 3px solid var(--ink); overflow: hidden; }
+  body.landscape .cut-route { top: 150px; height: 330px; left: 300px; right: 300px; }
+  .cut-route::before { content: ""; position: absolute; left: -30px; top: 200px; width: 130%; height: 12px; background: var(--accent); transform: rotate(-17deg); }
+
+  /* phone app */
+  .phone { position: relative; margin: 0 auto; width: 560px; height: 1060px; padding: 18px; border-radius: 78px; background: #171310; border: 8px solid #54473d; box-shadow: 36px 48px 0 rgba(23,19,16,.28), 0 38px 70px rgba(23,19,16,.32); }
+  .screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 54px; background: var(--paper); color: var(--ink); }
+  .notch { position: absolute; top: 20px; left: 50%; width: 184px; height: 34px; transform: translateX(-50%); background: #171310; border-radius: 0 0 22px 22px; z-index: 3; }
+  .app-top { position: absolute; top: 80px; left: 44px; right: 44px; display: flex; justify-content: space-between; font-size: 20px; letter-spacing: .08em; text-transform: uppercase; }
+  .app-map { position: absolute; top: 150px; left: 0; right: 0; height: 400px; background: #ded2c2; overflow: hidden; }
+  .app-map::before { content: ""; position: absolute; inset: -120px; background-image: repeating-linear-gradient(72deg, transparent 0 36px, rgba(23,19,16,.12) 36px 42px, transparent 42px 90px); transform: rotate(12deg); }
+  .app-map svg { position: absolute; inset: 20px; width: calc(100% - 40px); height: 360px; }
+  .route-path { fill: none; stroke: var(--accent); stroke-width: 18; stroke-linecap: round; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+  .sheet { position: absolute; left: 30px; right: 30px; bottom: 30px; height: 460px; padding: 34px; border-radius: 38px; background: var(--bg); color: var(--paper); }
+  .sheet .label { font-size: 20px; }
+  .sheet-title { margin-top: 16px; font-size: 30px; font-weight: 800; }
+  .sheet-value { margin-top: 30px; font-family: var(--display); font-size: 170px; line-height: .7; letter-spacing: -.05em; white-space: nowrap; }
+  .sheet-value .unit { font-size: .3em; vertical-align: top; }
+  .sheet-button { position: absolute; left: 30px; right: 30px; bottom: 30px; height: 76px; border-radius: 18px; background: var(--accent); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .side-note { position: absolute; right: 64px; bottom: 150px; width: 300px; padding: 18px 0 0 22px; border-top: 4px solid var(--accent); font-size: 21px; line-height: 1.45; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
+  body.landscape .phone { width: 470px; height: 890px; margin: 0; }
+  body.landscape .phone-row { display: flex; gap: 90px; align-items: center; }
+  body.landscape .phone-text { flex: 1; }
+  body.landscape .side-note { position: static; width: auto; margin-top: 40px; }
+
+  /* call */
+  .call-title { margin-top: 18px; font-size: 150px; }
+  .call-box { margin-top: 60px; padding: 42px; background: var(--panel); border: 3px solid rgba(243,234,223,.45); box-shadow: 24px 30px 0 color-mix(in srgb, var(--accent) 20%, transparent); }
+  .bars { display: flex; height: 120px; align-items: center; gap: 12px; }
+  .bars i { display: block; width: 18px; background: var(--accent); }
+  .msg { margin-top: 48px; padding: 36px; background: var(--paper); color: var(--ink); border-top: 14px solid var(--accent); font-family: var(--display); font-size: 110px; line-height: .84; text-transform: uppercase; max-height: 420px; }
+
+  /* chat */
+  .bubbles { margin-top: 50px; display: flex; flex-direction: column; gap: 34px; }
+  .bubble { max-width: 82%; padding: 30px 36px; font-size: 46px; line-height: 1.12; font-weight: 700; border-radius: 34px; }
+  .bubble.them { align-self: flex-start; background: var(--panel); color: var(--paper); border-bottom-left-radius: 8px; border: 2px solid rgba(243,234,223,.3); }
+  .bubble.me { align-self: flex-end; background: var(--accent); color: var(--ink); border-bottom-right-radius: 8px; }
+  .bubble small { display: block; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; opacity: .75; margin-bottom: 10px; font-weight: 400; }
+
+  /* list */
+  .list-head { font-size: 140px; }
+  .cards { margin-top: 60px; display: flex; flex-direction: column; gap: 28px; }
+  .card { min-height: 170px; padding: 26px 32px; background: var(--paper); color: var(--ink); border-left: 18px solid var(--accent); display: grid; grid-template-columns: 110px 1fr; align-items: center; gap: 20px; box-shadow: 12px 14px 0 color-mix(in srgb, var(--accent) 20%, transparent); }
+  .card-no { font-family: var(--display); font-size: 90px; color: var(--accent); line-height: .8; }
+  .card-text { font-size: 54px; font-weight: 800; line-height: 1.08; max-height: 176px; }
+  body.landscape .cards { display: grid; grid-template-columns: 1fr 1fr; }
+
+  /* timeline */
+  .tl { position: relative; margin-top: 60px; padding-left: 90px; }
+  .tl-line { position: absolute; left: 24px; top: 20px; bottom: 20px; width: 8px; background: var(--accent); transform-origin: top center; }
+  .tl-item { position: relative; margin-bottom: 44px; }
+  .tl-item::before { content: ""; position: absolute; left: -84px; top: 26px; width: 34px; height: 34px; border-radius: 50%; background: var(--paper); border: 8px solid var(--accent); }
+  .tl-year { font-family: var(--display); font-size: 120px; line-height: .8; color: var(--accent); }
+  .tl-text { margin-top: 8px; font-size: 38px; font-weight: 700; line-height: 1.12; max-height: 90px; }
+  body.landscape .tl { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 40px; padding: 70px 0 0; }
+  body.landscape .tl-line { left: 0; right: 0; top: 18px; bottom: auto; height: 8px; width: auto; transform-origin: left center; }
+  body.landscape .tl-item::before { left: 0; top: -66px; }
+
+  /* route */
+  .route-box { position: relative; margin-top: 70px; height: 760px; }
+  .route-box svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .route-line { fill: none; stroke: var(--paper); stroke-width: 12; stroke-linecap: round; stroke-dasharray: 1600; stroke-dashoffset: 1600; }
+  .route-accent { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1600; stroke-dashoffset: 1600; }
+  .pin { position: absolute; width: 76px; height: 76px; border: 8px solid var(--accent); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 22px 30px rgba(0,0,0,.45); }
+  .pin::after { content: ""; position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); inset: 20px; }
+  .place { position: absolute; font-family: var(--display); font-size: 120px; line-height: .82; text-transform: uppercase; max-width: 560px; }
+  body.landscape .route-box { height: 600px; }
+  .place small { display: block; font-family: var(--mono); font-size: 22px; letter-spacing: .14em; color: var(--ash); margin-bottom: 12px; }
+
+  /* quote */
+  .q-mark { font-family: var(--display); font-size: 400px; line-height: .6; color: var(--accent); height: 190px; }
+  .q-text { font-family: var(--display); font-size: 150px; line-height: .86; text-transform: uppercase; max-height: 820px; }
+  .q-author { margin-top: 40px; font-size: 30px; letter-spacing: .14em; text-transform: uppercase; color: var(--ash); }
+  .q-author::before { content: "— "; color: var(--accent); }
+  body.landscape .q-text { max-height: 520px; }
+
+  /* lower third (name tag) */
+  .lt { display: inline-flex; flex-direction: column; padding: 30px 44px 34px; background: var(--bg); border-left: 18px solid var(--accent); box-shadow: 16px 18px 0 color-mix(in srgb, var(--accent) 25%, transparent); max-width: 100%; }
+  .lt-name { font-family: var(--display); font-size: 130px; line-height: .82; text-transform: uppercase; color: var(--paper); white-space: nowrap; }
+  .lt-role { margin-top: 16px; font-size: 30px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+
+  /* end card */
+  .ring { position: absolute; left: 50%; top: 42%; width: 820px; height: 820px; margin: -410px 0 0 -410px; border: 5px solid var(--accent); border-radius: 50%; box-shadow: 0 0 0 34px color-mix(in srgb, var(--accent) 8%, transparent), inset 0 0 0 32px color-mix(in srgb, var(--accent) 8%, transparent); }
+  .end-words { position: absolute; left: 64px; right: 64px; top: 30%; text-align: center; }
+  .end-small { font-size: 31px; letter-spacing: .2em; color: var(--ash); text-transform: uppercase; }
+  .end-big { margin-top: 28px; font-size: 210px; line-height: .82; max-height: 560px; }
+  .end-tag { display: inline-block; margin-top: 30px; padding: 16px 22px; border: 4px solid var(--alert); color: var(--alert); font-size: 30px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; transform: rotate(-4deg); }
+  body.landscape .end-big { max-height: 330px; font-size: 170px; }
+
+  /* kinetic words (the standalone video between the key graphics): words land as they are said */
+  .kin { margin-top: 30px; font-family: var(--display); font-size: 190px; line-height: .9; letter-spacing: -.02em; text-transform: uppercase; max-height: 1150px; }
+  .kin span { display: inline-block; margin-right: .2em; }
+  .kin span.hot { color: var(--accent); }
+  body.landscape .kin { font-size: 150px; max-height: 700px; }
+
+  /* ---- backdrops (theme --texture) ---- */
+  .tex { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .tex-paper { background: radial-gradient(ellipse at 30% 18%, rgba(255,255,255,.35), transparent 62%), radial-gradient(ellipse at 80% 90%, rgba(0,0,0,.10), transparent 60%); }
+  .tex-paper i { position: absolute; left: 6%; right: 6%; height: 2px; background: color-mix(in srgb, var(--paper) 7%, transparent); }
+  .tex-grid { background-image: linear-gradient(color-mix(in srgb, var(--paper) 9%, transparent) 2px, transparent 2px), linear-gradient(90deg, color-mix(in srgb, var(--paper) 9%, transparent) 2px, transparent 2px); background-size: 118px 118px; }
+  .tex-grid::after { content: ""; position: absolute; inset: -30%; background: repeating-linear-gradient(118deg, transparent 0 200px, rgba(0,0,0,.13) 200px 330px, transparent 330px 470px); filter: blur(46px); }
+  .tex-dark { background: radial-gradient(ellipse at 50% 34%, color-mix(in srgb, var(--paper) 10%, transparent), transparent 58%), radial-gradient(ellipse at 50% 115%, rgba(0,0,0,.7), transparent 62%); }
+  .tex-dark::after { content: ""; position: absolute; inset: -20%; background: repeating-linear-gradient(105deg, transparent 0 260px, color-mix(in srgb, var(--paper) 5%, transparent) 260px 300px, transparent 300px 560px); filter: blur(20px); }
+  .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.28)); }
+
+  /* ---- assets (cut-outs and photos) ---- */
+  .asset { position: absolute; }
+  .asset img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; filter: var(--photo) drop-shadow(0 34px 38px rgba(0,0,0,.38)); }
+  .asset.photo { background: #fff; padding: 18px; box-shadow: 16px 24px 44px rgba(0,0,0,.34); }
+  .asset.photo img { object-fit: cover; object-position: 50% 30%; filter: var(--photo); }
+  .asset.round { border-radius: 50%; overflow: hidden; padding: 0; border: 10px solid var(--paper); background: var(--panel); }
+  .asset.round img { object-fit: cover; filter: var(--photo); }
+  .bigword { position: absolute; left: 40px; right: 40px; font-family: var(--display); text-transform: uppercase; line-height: .8; letter-spacing: -.03em; text-align: center; white-space: nowrap; overflow: hidden; }
+  .hand { font-family: var(--hand); font-size: 64px; line-height: 1.1; color: var(--paper); }
+  .hand.accent { color: var(--accent); }
+  .tag-label { display: inline-block; padding: 12px 22px; background: var(--accent); color: var(--ink); font-size: 34px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  .scribble { position: absolute; overflow: visible; pointer-events: none; }
+  .scribble path { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+  .tape { position: absolute; width: 170px; height: 52px; background: color-mix(in srgb, #fffbe8 62%, transparent); box-shadow: 0 3px 8px rgba(0,0,0,.18); z-index: 2; }
+  .spot { position: absolute; border-radius: 50%; background: var(--accent); }
+  .ground { position: absolute; height: 70px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.42), transparent); }
+  .vs-badge { position: absolute; width: 170px; height: 170px; border-radius: 50%; background: var(--accent); color: var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 90px; z-index: 3; box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+  .split { position: absolute; background: color-mix(in srgb, var(--paper) 35%, transparent); }
+  .side-label { position: absolute; text-align: center; font-family: var(--display); text-transform: uppercase; line-height: .86; }
+  .side-label small { display: block; font-family: var(--mono); font-size: 26px; letter-spacing: .12em; color: var(--muted); margin-bottom: 10px; }
+  .win { position: absolute; border-radius: 34px; overflow: hidden; border: 10px solid var(--paper); background: #000; box-shadow: 30px 44px 70px rgba(0,0,0,.45); }
+  .win img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; filter: var(--photo); }
+  .win-bar { position: absolute; left: 0; right: 0; top: 0; height: 54px; background: color-mix(in srgb, var(--bg) 88%, transparent); display: flex; gap: 12px; align-items: center; padding-left: 22px; z-index: 2; }
+  .win-bar i { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); opacity: .85; }
+  .glow img { filter: brightness(0) invert(1) drop-shadow(0 0 22px var(--accent)) drop-shadow(0 0 70px var(--accent)); }
+  .title-top { position: absolute; left: 64px; right: 64px; font-family: var(--display); text-transform: uppercase; line-height: .84; letter-spacing: -.02em; }
+  .title-top .accent { color: var(--accent); }
+  .item-label { position: absolute; left: 0; right: 0; bottom: -64px; text-align: center; }
+  .item-label span { display: inline-block; padding: 8px 18px; background: var(--paper); color: var(--ink); font-size: 30px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+  .map-thumb { position: absolute; width: 230px; height: 230px; }
+
+  /* overlay mode: only the main block, on a card, over your video */
+  body.overlay #stage { background: transparent; }
+  body.overlay .decor { display: none; }
+  body.overlay .hero { top: auto; bottom: 170px; left: 60px; right: 60px; padding: 44px; background: color-mix(in srgb, var(--bg) 92%, transparent); border-top: 12px solid var(--accent); box-shadow: 0 30px 60px rgba(0,0,0,.45); }
+  body.overlay .hero.plain { padding: 0; background: none; border: 0; box-shadow: none; }
+  body.overlay.landscape .hero { left: 110px; right: auto; width: 1100px; bottom: 110px; }
+  body.overlay .hl-lines, body.overlay .q-text { height: auto; max-height: 520px; }
+  body.overlay .stamp-why { color: var(--paper); }
+  .archive-world { position:absolute;inset:0;perspective:1700px;background:#526266;overflow:hidden; }
+  .archive-world.sepia { background:#352a24; }
+  .archive-world.ink { background:#f0eee8; }
+  .archive-writing { position:absolute;inset:-15%;opacity:.14;color:#eee7d5;font:48px Georgia,serif;line-height:1.4;transform:rotate(-12deg);white-space:pre-wrap; }
+  .archive-plane { position:absolute;inset:0;transform-style:preserve-3d; }
+  .archive-photo { position:absolute;background:#e8e2d4;padding:9px;box-shadow:0 20px 32px #0008;clip-path:polygon(0 1%,26% 0,48% 1%,75% 0,100% 1%,99% 49%,100% 100%,68% 99%,42% 100%,0 99%,1% 54%); }
+  .archive-photo img { width:100%;height:100%;object-fit:cover; }
+  .archive-world.sepia img { filter:sepia(.85) saturate(.65) contrast(1.13); }
+  .archive-world.ink .archive-photo { border:2px solid #fdf9e9; }
+  .archive-caption { position:absolute;left:7%;bottom:8%;max-width:75%;font:38px Georgia,serif;background:#e9e2d4;color:#29241e;padding:12px 22px;box-shadow:0 8px 24px #0006; }
+  .archive-world.slate .archive-writing,.archive-world.glass .archive-writing,.archive-world.ink .archive-writing,.archive-world.album .archive-writing { display:none; }
+  .archive-world.map { background:#0b1720; }
+  .archive-map { position:absolute;inset:-30%;opacity:.18;background:repeating-radial-gradient(ellipse at 34% 47%,transparent 0 38px,#b7bd9a 39px 40px,transparent 41px 62px),repeating-linear-gradient(32deg,transparent 0 99px,#b7bd9a 100px 101px);transform:rotate(-9deg); }
+  .archive-world.glass { background:radial-gradient(ellipse at 40% 35%,#d2e9e4,#9eaca5); }
+  .archive-world.glass .archive-photo { clip-path:none;padding:3px;background:#e8faf7;box-shadow:0 9px 25px #243e3855; }
+  .archive-world.album { background:radial-gradient(ellipse at 50% 30%,#575949,#161b16); }
+  .archive-book { position:absolute;inset:10% 7% 15%;background:linear-gradient(90deg,#a3a794,#d9d4bc 48%,#5e5b4d 50%,#d9d4bc 52%,#b7b8a0);box-shadow:0 30px 60px #000b;transform:rotate(-5deg);border:14px solid #292a22; }
+  .archive-world.album .archive-plane { inset:8% 10% 15%;width:80%;height:77%; }
+  .archive-world.album .archive-photo { background:#242b23;padding:12px; }
+  .archive-page { position:absolute;left:50%;top:10%;width:43%;height:75%;transform-origin:left center;background:linear-gradient(90deg,#a4a18f,#d7d4bc);box-shadow:0 20px 35px #0008;backface-visibility:hidden; }
+  .archive-ink-hero { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; }
+  .archive-light { position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 12% 35%,#ff704766,transparent 57%);mix-blend-mode:screen; }
+  .archive-world.night { background:radial-gradient(ellipse at 25% 30%,#343b3e55,transparent 48%),radial-gradient(ellipse at 75% 70%,#68727855,transparent 46%),#05090d; }
+  .archive-world.night .archive-writing { display:none; }
+  .archive-world.night .archive-photo { clip-path:none;background:transparent;padding:3px;border:2px solid #9d752f;box-shadow:0 20px 32px #0009; }
+  .archive-night-hero { position:absolute;left:18%;top:5%;width:72%;height:92%;object-fit:cover;filter:grayscale(.8);opacity:.2;mask-image:radial-gradient(ellipse,#000 12%,transparent 72%); }
+  .archive-world.monochrome img { filter:grayscale(1) contrast(1.08); }
+
+  .archive-route {position:absolute;inset:0;width:100%;height:100%;overflow:visible;opacity:.8}
+  .archive-filmstrip {position:absolute;background:#141718;box-shadow:0 20px 40px #0007;border-top:24px dashed #b8bcad;border-bottom:24px dashed #b8bcad;transform:rotate(-2deg)}
+  .archive-glass-band {position:absolute;inset:0;overflow:hidden}
+  .archive-tape {position:absolute;width:32%;height:32px;top:-14px;left:34%;background:#d6c79b66;transform:rotate(-7deg);box-shadow:0 3px 6px #0002}
+  .archive-world.album .archive-plane {inset:0;width:100%;height:100%}
+  .archive-page {z-index:6}
+  .archive-photo-corner {position:absolute;width:35px;height:35px;background:linear-gradient(135deg,#151715 49%,transparent 51%);z-index:2}
+  .archive-photo-corner.tl {top:0;left:0}.archive-photo-corner.tr {top:0;right:0;transform:rotate(90deg)}
+  .archive-photo-corner.bl {bottom:0;left:0;transform:rotate(-90deg)}.archive-photo-corner.br {bottom:0;right:0;transform:rotate(180deg)}
+  .archive-spotlight {position:absolute;inset:-20%;pointer-events:none;background:linear-gradient(105deg,transparent 28%,#fff2c21a 38%,#fff1ca44 45%,#fff2c21a 53%,transparent 62%);mix-blend-mode:screen;filter:blur(22px)}
+</style>
+<link rel="stylesheet" href="archive_cinematic.css">
+</head>
+<body class="full portrait">
+<div id="stage"></div>
+<script src="archive_cinematic.js"></script>
+<script src="archive_layouts.js"></script>
+<script>
+(() => {
+  const E_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
+  const E_IMPACT = "cubic-bezier(0.34, 1.56, 0.64, 1)";
+  let anims = [], tweens = [], speed = 1;
+
+  function el(tag, cls, text, parent) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined && text !== null) e.textContent = String(text);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function add(target, keyframes, opts) {
+    const list = typeof target === "string" ? document.querySelectorAll(target) : (target.length !== undefined ? target : [target]);
+    Array.from(list).forEach((node, i) => {
+      const a = node.animate(keyframes, { fill: "both", iterations: 1, easing: E_OUT, ...opts,
+        duration: (opts.duration || 600) / speed, delay: ((opts.delay || 0) + i * (opts.stagger || 0)) / speed });
+      a.pause(); anims.push(a);
+    });
+  }
+  const up = (t, delay, dist = 60) => add(t, [{ opacity: 0, transform: `translate3d(0,${dist}px,0)` }, { opacity: 1, transform: "none" }], { duration: 560, delay });
+  const slide = (t, delay, dist = -110) => add(t, [{ opacity: 0, transform: `translate3d(${dist}px,0,0)` }, { opacity: 1, transform: "none" }], { duration: 620, delay });
+  const pop = (t, delay, rot = 0) => add(t, [{ opacity: 0, transform: `rotate(${rot - 10}deg) scale(.6)` }, { opacity: 1, transform: `rotate(${rot + 4}deg) scale(1.1)`, offset: .68 }, { opacity: 1, transform: `rotate(${rot}deg) scale(1)` }], { duration: 560, delay, easing: E_IMPACT });
+  const draw = (t, delay, dur = 1200, from = 1000) => add(t, [{ strokeDashoffset: from }, { strokeDashoffset: 0 }], { duration: dur, delay, easing: "linear" });
+  const drift = (t, seconds) => add(t, [{ transform: "scale(1)" }, { transform: "scale(1.035)" }], { duration: seconds * 1000 * speed, delay: 0, easing: "linear" });
+
+  const texture = () => (getComputedStyle(document.documentElement).getPropertyValue("--texture") || "road").trim();
+  function decor(root, light, d) {
+    const g = el("div", "decor fill");
+    root.appendChild(g);
+    const tex = texture();
+    if (tex === "road") el("div", "road", null, g);
+    else { const t = el("div", "tex tex-" + tex, null, g); if (tex === "paper") for (let i = 0; i < 26; i++) el("i", "", null, t).style.top = (6 + i * 3.6) + "%"; }
+    if (tex !== "road") el("div", "vignette", null, g);
+    el("div", "grain", null, g);
+    el("i", "corner tl", null, g); el("i", "corner br", null, g);
+    const s = el("div", "status", null, g);
+    el("span", "", d.tag || "", s); el("span", "dot", null, s);
+    return g;
+  }
+  function kicker(parent, text) { if (text) el("div", "kicker", text, parent); }
+  function parseNumber(v) {
+    const m = String(v || "").replace(/,/g, "").match(/-?\d+(\.\d+)?/);
+    return m ? parseFloat(m[0]) : null;
+  }
+  function countUp(node, value, delay, dur) {
+    const target = parseNumber(value);
+    const text = String(value);
+    if (target === null || !isFinite(target)) { node.textContent = text; return; }
+    const decimals = (String(value).split(".")[1] || "").replace(/\D.*/, "").length;
+    tweens.push(t => {
+      const k = Math.min(1, Math.max(0, (t * 1000 * speed - delay) / dur));
+      const e = 1 - Math.pow(1 - k, 3);
+      const now = (target * e).toFixed(decimals);
+      node.textContent = k >= 1 ? text : text.replace(/-?[\d,]+(\.\d+)?/, Number(now).toLocaleString("en-IN", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }));
+    });
+  }
+  function amountBlock(parent, d, valueKey, prefixKey, suffixKey, delay) {
+    const a = el("div", "amount fit", null, parent);
+    if (d[prefixKey]) el("span", "unit", d[prefixKey], a);
+    const n = el("span", "", d[valueKey] || "", a);
+    if (d[suffixKey]) el("span", "unit", d[suffixKey], a);
+    countUp(n, d[valueKey] || "", delay, 900);
+    return a;
+  }
+  const lines = (d, max = 3) => (Array.isArray(d.lines) ? d.lines : [d.title, d.title2]).filter(Boolean).slice(0, max);
+
+  const T = {};
+  T.headline = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root);
+    kicker(h, d.kicker);
+    const box = el("div", "hl-lines fit", null, h);
+    const ls = lines(d);
+    ls.forEach((text, i) => el("div", "display" + (i === ls.length - 1 && ls.length > 1 ? " accent" : ""), text, box));
+    if (d.subtitle) el("div", "hl-sub", d.subtitle, h);
+    add(box.children, [{ opacity: 0, transform: "translate3d(-120px,90px,0) scale(.8)" }, { opacity: 1, transform: "scale(1.04)", offset: .72 }, { opacity: 1, transform: "none" }], { duration: 900, delay: 120, stagger: 220, easing: E_IMPACT });
+    up(".hl-sub", 700); slide(".kicker", 0); drift(box, d.duration);
+    return h;
+  };
+  T.big_number = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root);
+    kicker(h, d.kicker);
+    const p = el("div", "plate", null, h); p.style.marginTop = "40px";
+    el("div", "label", d.label || "", p);
+    amountBlock(p, d, "value", "prefix", "suffix", 350);
+    if (d.caption) el("div", "caption", d.caption, h).style.color = "var(--paper)";
+    add(p, [{ opacity: 0, transform: "translate3d(-160px,0,0) rotate(-5deg)" }, { opacity: 1, transform: "none" }], { duration: 600, delay: 100 });
+    up(".caption", 1100); slide(".kicker", 0);
+    const s = el("i", "stroke decor", null, root); Object.assign(s.style, { left: "64px", right: "64px", bottom: "200px" });
+    add(s, [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 320, delay: 1300 });
+    return h;
+  };
+  T.versus = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root);
+    kicker(h, d.kicker);
+    const w = el("div", "vs-wrap", null, h); w.style.marginTop = "40px";
+    const l = el("div", "plate vs-left", null, w);
+    el("div", "label", d.left_label || "", l); amountBlock(l, d, "left_value", "left_prefix", "left_suffix", 300);
+    const r = el("div", "vs-right", null, w); r.dataset.layer = "1";   // the sticker overlaps the plate on purpose
+    el("div", "label", d.right_label || "", r); amountBlock(r, d, "right_value", "right_prefix", "right_suffix", 900);
+    if (d.caption) el("div", "caption", d.caption, h).style.color = "var(--paper)";
+    add(l, [{ opacity: 0, transform: "translate3d(-160px,0,0) rotate(-5deg)" }, { opacity: 1, transform: "none" }], { duration: 570, delay: 100 });
+    add(r, [{ opacity: 0, transform: "translate3d(320px,-180px,0) rotate(17deg) scale(.56)" }, { opacity: 1, transform: "translate3d(-30px,10px,0) rotate(-4deg) scale(1.12)", offset: .7 }, { opacity: 1, transform: "rotate(-2deg)" }], { duration: 720, delay: 650, easing: E_IMPACT });
+    up(".caption", 1400); slide(".kicker", 0);
+    return h;
+  };
+  T.stamp = (root, d) => {
+    root.classList.add("light"); decor(root, true, d);
+    el("div", "cut-route decor", null, root);
+    const h = el("div", "hero plain", null, root);
+    h.style.top = document.body.classList.contains("landscape") ? "420px" : "760px";
+    const s = el("div", "stamp fit", d.stamp || "", h);
+    const why = el("div", "stamp-why", null, h);
+    if (d.caption) { const parts = String(d.caption).split("|"); el("span", "", parts[0], why); if (parts[1]) el("span", "alert", " " + parts[1], why); }
+    pop(s, 250, -3); up(why, 900);
+    return h;
+  };
+  T.phone = (root, d) => {
+    root.classList.add("light"); decor(root, true, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "95px" : "250px";
+    const row = el("div", "phone-row", null, h);
+    const ph = el("div", "phone", null, row);
+    const sc = el("div", "screen", null, ph); el("div", "notch", null, sc);
+    const top = el("div", "app-top", null, sc); el("span", "", d.app || "App", top); el("span", "", d.label || "", top);
+    const map = el("div", "app-map", null, sc);
+    map.insertAdjacentHTML("beforeend", '<svg viewBox="0 0 500 360"><path class="route-path" d="M61 79 C120 141, 165 82, 236 171 S359 279, 448 238"/></svg>');
+    const sh = el("div", "sheet", null, sc);
+    el("div", "label", d.kicker || "", sh); el("div", "sheet-title", d.title || "", sh);
+    const v = el("div", "sheet-value fit", null, sh);
+    if (d.prefix) el("span", "unit accent", d.prefix, v).style.fontFamily = "var(--mono)";
+    const n = el("span", "", d.value || "", v); countUp(n, d.value || "", 900, 700);
+    el("div", "sheet-button", d.button || "Continue", sh);
+    const tx = el("div", "phone-text", null, row);
+    if (d.caption) el("div", "side-note", d.caption, document.body.classList.contains("landscape") ? tx : root);
+    add(ph, [{ opacity: 0, transform: "translate3d(160px,220px,0) rotateX(18deg) rotateY(-24deg) rotateZ(9deg) scale(.72)" }, { opacity: 1, transform: "rotateY(-8deg) rotateZ(-2deg) scale(1.03)", offset: .72 }, { opacity: 1, transform: "rotateY(-6deg) rotateZ(-1deg)" }], { duration: 860, delay: 80, easing: E_IMPACT });
+    draw(".route-path", 500, 1100, 1000); up(".sheet-button", 1500, 40); up(".side-note", 1200, 30);
+    return h;
+  };
+  T.call = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "150px" : "250px";
+    kicker(h, d.kicker || "incoming call");
+    const t = el("div", "display call-title fit", null, h);
+    el("span", "", (d.title || "") + " ", t); el("span", "accent", d.title2 || "calling", t);
+    const box = el("div", "call-box", null, h);
+    const bars = el("div", "bars", null, box);
+    [22, 65, 102, 50, 84, 31, 76, 110, 48, 91, 24, 64, 42, 88, 36].forEach(v => el("i", "", null, bars).style.height = v + "px");
+    if (d.message) el("div", "msg fit", d.message, box);
+    slide(t, 100); up(box, 400, 130);
+    add(bars.children, [{ opacity: .28, transform: "scaleY(.35)" }, { opacity: 1, transform: "scaleY(1)" }, { opacity: .6, transform: "scaleY(.65)" }], { duration: 880, delay: 800, stagger: 46 });
+    up(".msg", 1300, 64);
+    return h;
+  };
+  T.chat = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "140px" : "260px";
+    kicker(h, d.kicker || "chat");
+    const b = el("div", "bubbles", null, h);
+    (d.messages || []).slice(0, 4).forEach((m, i) => {
+      const who = (m && m.who) || (i % 2 ? "me" : "them");
+      const bb = el("div", "bubble " + (/^(me|i|you)$/i.test(who) ? "me" : "them"), null, b);
+      if (m.who) el("small", "", m.who, bb);
+      el("span", "", (m && m.text) || String(m), bb);
+    });
+    add(b.children, [{ opacity: 0, transform: "translate3d(0,50px,0) scale(.85)" }, { opacity: 1, transform: "scale(1.03)", offset: .7 }, { opacity: 1, transform: "none" }], { duration: 480, delay: 250, stagger: 700, easing: E_IMPACT });
+    return h;
+  };
+  T.list = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "130px" : "220px";
+    kicker(h, d.kicker);
+    const hd = el("div", "display list-head fit", null, h);
+    el("span", "", d.title || "", hd); if (d.title2) { el("br", null, null, hd); el("span", "accent", d.title2, hd); }
+    const c = el("div", "cards", null, h);
+    (d.items || []).slice(0, 5).forEach((it, i) => { const cd = el("div", "card", null, c); el("div", "card-no", String(i + 1).padStart(2, "0"), cd); el("div", "card-text fit", it, cd); });
+    slide(hd, 50);
+    add(c.children, [{ opacity: 0, transform: "translate3d(160px,0,0) rotate(3deg)" }, { opacity: 1, transform: "none" }], { duration: 430, delay: 500, stagger: Math.min(700, (d.duration * 1000 - 1500) / Math.max(1, (d.items || []).length)) });
+    return h;
+  };
+  T.timeline = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "130px" : "220px";
+    kicker(h, d.kicker);
+    const hd = el("div", "display list-head fit", d.title || "", h);
+    const tl = el("div", "tl", null, h);
+    const items = (d.items || []).slice(0, 5);
+    tl.style.setProperty("--n", Math.max(1, items.length));
+    const line = el("i", "tl-line", null, tl);
+    items.forEach(it => { const row = el("div", "tl-item", null, tl); el("div", "tl-year", (it && it.year) || "", row); el("div", "tl-text fit", (it && it.text) || String(it), row); });
+    slide(hd, 50);
+    const horizontal = document.body.classList.contains("landscape");
+    add(line, [{ transform: horizontal ? "scaleX(0)" : "scaleY(0)" }, { transform: "none" }], { duration: 1400, delay: 400, easing: "linear" });
+    add(tl.querySelectorAll(".tl-item"), [{ opacity: 0, transform: "translate3d(60px,0,0)" }, { opacity: 1, transform: "none" }], { duration: 480, delay: 500, stagger: 1200 / Math.max(1, items.length) });
+    return h;
+  };
+  T.route = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "120px" : "220px";
+    kicker(h, d.kicker);
+    const box = el("div", "route-box", null, h);
+    box.insertAdjacentHTML("beforeend", '<svg viewBox="0 0 1000 760" preserveAspectRatio="none"><path class="route-line" d="M110 150 C 252 101, 324 348, 435 350 S 566 214, 669 312 S 752 575, 900 610"/><path class="route-accent" d="M110 150 C 252 101, 324 348, 435 350 S 566 214, 669 312 S 752 575, 900 610"/></svg>');
+    const a = el("i", "pin", null, box); Object.assign(a.style, { left: "7%", top: "8%" });
+    const b = el("i", "pin", null, box); Object.assign(b.style, { left: "86%", top: "72%" });
+    const from = el("div", "place fit", null, box); Object.assign(from.style, { left: "0", top: "-6%" });
+    el("small", "", d.from_label || "from", from); el("span", "", d.from || "", from);
+    const to = el("div", "place fit accent", null, box); Object.assign(to.style, { right: "0", bottom: "-10%", textAlign: "right" });
+    el("small", "", d.to_label || "to", to); el("span", "", d.to || "", to);
+    if (d.caption) el("div", "caption", d.caption, h).style.marginTop = "150px";
+    draw(".route-line", 300, 1600, 1600); draw(".route-accent", 650, 1250, 1600);
+    pop(a, 150, -45); pop(b, 1600, -45); slide(from, 100); add(to, [{ opacity: 0 }, { opacity: 1 }], { duration: 400, delay: 1700 }); up(".caption", 1900);
+    [[A(d, 0), { left: "18%", top: "14%" }, 350], [A(d, 1), { left: "62%", top: "40%" }, 1750]].forEach(([p, pos, delay]) => {
+      if (!p) return;
+      const t = assetEl(box, { ...p, cut: false }, {}, "round map-thumb"); Object.assign(t.style, pos); pop(t, delay, 0);
+    });
+    return h;
+  };
+  T.quote = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root); h.style.top = document.body.classList.contains("landscape") ? "110px" : "260px";
+    el("div", "q-mark", "“", h);
+    const q = el("div", "q-text fit", d.quote || "", h);
+    if (d.author) el("div", "q-author", d.author, h);
+    up(".q-mark", 0, 40); up(q, 200, 64); up(".q-author", 900, 30); drift(q, d.duration);
+    return h;
+  };
+  T.lower_third = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root);
+    h.style.top = document.body.classList.contains("landscape") ? "600px" : "1200px";
+    const lt = el("div", "lt", null, h);
+    el("div", "lt-name fit", d.name || d.title || "", lt); if (d.role) el("div", "lt-role", d.role, lt);
+    add(lt, [{ opacity: 0, transform: "translate3d(-200px,0,0)", clipPath: "inset(0 100% 0 0)" }, { opacity: 1, transform: "none", clipPath: "inset(0 0 0 0)" }], { duration: 700, delay: 100 });
+    return h;
+  };
+  T.end_card = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const ring = el("div", "ring decor", null, root);
+    const h = el("div", "hero plain end-words", null, root); h.style.top = document.body.classList.contains("landscape") ? "220px" : "30%";
+    if (d.kicker) el("div", "end-small", d.kicker, h);
+    const big = el("div", "display end-big fit", null, h);
+    lines(d).forEach((t, i, all) => el("div", i === 1 || (all.length === 1) ? "accent" : "", t, big));
+    if (d.tag2 || d.caption) el("div", "end-tag", d.tag2 || d.caption, h);
+    add(ring, [{ opacity: 0, transform: "scale(.5) rotate(-50deg)" }, { opacity: 1, transform: "none" }], { duration: 760, delay: 80 });
+    add(big, [{ opacity: 0, transform: "translate3d(0,80px,0) scale(.82)" }, { opacity: 1, transform: "scale(1.06)", offset: .68 }, { opacity: 1, transform: "none" }], { duration: 740, delay: 400, easing: E_IMPACT });
+    pop(".end-tag", 1100, -4);
+    return h;
+  };
+
+  // Text boxes (.fit) shrink until their text fits: not wider than the box, not taller than its max-height,
+  // never past the frame. Measured on the real text (a Range), with room for the tight display line-height.
+  function textRect(node) {
+    const r = document.createRange(); r.selectNodeContents(node);
+    return r.getBoundingClientRect();
+  }
+  function misfit(node) {
+    const box = node.getBoundingClientRect(), text = textRect(node), cs = getComputedStyle(node);
+    const slack = parseFloat(cs.fontSize) * .18 + 2;
+    const limit = cs.maxHeight !== "none" ? parseFloat(cs.maxHeight) : (cs.height !== "auto" && node.style.height ? parseFloat(cs.height) : null);
+    const problems = [];
+    if (node.scrollWidth > node.clientWidth + 2 || text.right > box.right + slack || text.left < box.left - slack) problems.push("wide");
+    if (limit !== null && text.height > limit + slack) problems.push("tall");
+    if (text.right > window.innerWidth - 16 || text.left < 16 || text.bottom > window.innerHeight - 16) problems.push("frame");
+    return problems;
+  }
+  function fitAll() {
+    document.querySelectorAll("#stage .fit").forEach(node => {
+      let size = parseFloat(getComputedStyle(node).fontSize);
+      const min = size * .3;
+      let guard = 0;
+      while (misfit(node).length && size > min && guard++ < 70) { size *= .94; node.style.fontSize = size + "px"; }
+    });
+  }
+
+  // Portrait: a short scene sits a little above the middle of the phone screen instead of at the top
+  function centre(template) {
+    if (!document.body.classList.contains("portrait") || document.body.classList.contains("overlay")) return;
+    if (["stamp", "phone", "lower_third", "end_card", "cutout_hero", "photo_card", "archive_board", "spotlight", "object_drop", "collage", "versus_assets", "frame_clip", "silhouette"].includes(template)) return;
+    const hero = document.querySelector("#stage .hero");
+    if (!hero) return;
+    const r = hero.getBoundingClientRect();
+    const top = Math.max(200, (window.innerHeight - r.height) / 2 - 90);
+    if (top > r.top) hero.style.top = top + "px";
+  }
+  // ---------------- asset scenes: the picture carries the frame, words only support it ----------------
+  const LAND = () => document.body.classList.contains("landscape");
+  function place(node, box) { Object.entries(box).forEach(([k, v]) => node.style[k] = typeof v === "number" ? v + "px" : v); return node; }
+  function assetEl(parent, a, box, cls = "") {
+    const w = el("div", "asset " + cls + (a && a.cut ? " cut" : " photo"), null, parent);
+    place(w, box);
+    if (a && a.src) {
+      const img = el("img", "", null, w); img.src = a.src; img.alt = "";
+      if (Number.isFinite(a.enter_at)) add(img,[{opacity:0},{opacity:1}],{duration:240,delay:Math.max(0,a.enter_at)*1000*speed});
+    }
+    return w;
+  }
+  const A = (d, i) => (d.assets || [])[i] || null;
+  function scribble(parent, box, kind, delay) {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "scribble"); svg.setAttribute("viewBox", "0 0 400 160"); svg.setAttribute("preserveAspectRatio", "none");
+    place(svg, box);
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", kind === "arrow" ? "M20 30 C 120 20, 230 60, 330 118 M300 92 L 336 122 L 292 136"
+      : kind === "underline" ? "M10 120 C 120 104, 260 128, 390 110" : "M200 18 C 330 14, 392 60, 380 96 C 366 140, 90 150, 30 112 C -4 86, 40 20, 230 24");
+    svg.appendChild(path); parent.appendChild(svg);
+    draw(path, delay, 700, 1400);
+    return svg;
+  }
+  function writeOn(node, delay, dur = 700) {   // handwriting feel: the line is revealed left to right
+    add(node, [{ clipPath: "inset(0 100% 0 0)", opacity: 1 }, { clipPath: "inset(0 0 0 0)", opacity: 1 }], { duration: dur, delay, easing: "linear" });
+  }
+  const rise = (t, delay, dist = 140) => add(t, [{ opacity: 0, transform: `translate3d(0,${dist}px,0) scale(.94)` }, { opacity: 1, transform: "translate3d(0,-8px,0) scale(1.01)", offset: .75 }, { opacity: 1, transform: "none" }], { duration: 820, delay, easing: E_OUT });
+  const slowZoom = (t, seconds, to = 1.05) => add(t, [{ scale: "1" }, { scale: String(to) }], { duration: seconds * 1000 * speed, delay: 0, easing: "linear" });
+  function titleTop(root, d, box, size) {
+    if (!d.title && !d.title2) return null;
+    const t = el("div", "title-top fit", null, root); place(t, box); t.style.fontSize = size + "px"; t.style.maxHeight = (size * 1.8) + "px";
+    if (d.title) el("div", "", d.title, t); if (d.title2) el("div", "accent", d.title2, t);
+    up(t, 150, 50);
+    return t;
+  }
+
+  T.archive_board = (root,d) => window.buildArchiveMotion(root,d,{el,place,tweens,speed,landscape:LAND()});
+  T.cutout_hero = (root, d) => {           // the person / object cut out, a huge word BEHIND them
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    const word = el("div", "bigword fit", d.word || d.title || "", root);
+    place(word, L ? { top: 120, fontSize: 330, maxHeight: 300 } : { top: 560, fontSize: 300, maxHeight: 520 });
+    word.style.whiteSpace = L ? "nowrap" : "normal";
+    const sub = assetEl(root, A(d, 0), L ? { left: 460, width: 1000, bottom: 0, height: 900 } : { left: 40, width: 1000, bottom: 0, height: 1180 });
+    if (d.kicker) place(el("div", "kicker", d.kicker, root), L ? { left: 160, top: 70, position: "absolute" } : { left: 64, top: 230, position: "absolute" });
+    if (d.label) {
+      const lab = el("div", "hand accent fit", d.label, root);
+      place(lab, L ? { right: 110, top: 470, width: 420, maxHeight: 220, position: "absolute", textAlign: "center" } : { left: 140, right: 140, top: 350, maxHeight: 160, position: "absolute", textAlign: "center" });
+      writeOn(lab, 1100);
+      scribble(root, L ? { right: 80, top: 440, width: 480, height: 190 } : { left: 200, right: 200, top: 330, height: 190 }, "circle", 1500);
+    }
+    add(word, [{ opacity: 0, transform: "scale(1.18)", letterSpacing: ".08em" }, { opacity: 1, transform: "none", letterSpacing: "-.03em" }], { duration: 750, delay: 50 });
+    add(word, [{ translate: "0 0" }, { translate: "-26px 0" }], { duration: d.duration * 1000 * speed, delay: 0, easing: "linear", composite: "add" });
+    rise(sub, 280, 180); slowZoom(sub, d.duration, 1.045);
+    return sub;
+  };
+  T.photo_card = (root, d) => {            // a real photo taped on the page, a handwritten note with an arrow
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    titleTop(root, d, L ? { top: 110, left: 160, right: "auto", width: 660 } : { top: 200 }, L ? 150 : 150);
+    if (A(d, 1)) { const back = assetEl(root, A(d, 1), L ? { left: 1180, top: 190, width: 560, height: 700 } : { left: 520, top: 560, width: 480, height: 600 }, "photo");
+      back.classList.add("photo"); back.style.transform = "rotate(7deg)"; add(back, [{ opacity: 0, transform: "translate3d(200px,-300px,0) rotate(20deg)" }, { opacity: 1, transform: "rotate(7deg)" }], { duration: 700, delay: 600, easing: E_IMPACT }); }
+    const card = assetEl(root, A(d, 0), L ? { left: 760, top: 150, width: 620, height: 780 } : { left: 110, top: 520, width: 760, height: 940 }, "photo");
+    card.classList.add("photo"); card.classList.remove("cut");
+    [[-40, -20, -8], [null, -18, 10]].forEach(([l, t, r], i) => { const tp = el("i", "tape", null, card); place(tp, i ? { right: -40, top: t } : { left: l, top: t }); tp.style.transform = `rotate(${r}deg)`; });
+    add(card, [{ opacity: 0, transform: "translate3d(0,-520px,0) rotate(-14deg) scale(1.1)" }, { opacity: 1, transform: "translate3d(0,12px,0) rotate(-2deg)", offset: .75 }, { opacity: 1, transform: "rotate(-3deg)" }], { duration: 820, delay: 200, easing: E_IMPACT });
+    slowZoom(card.querySelector("img") || card, d.duration, 1.06);
+    if (d.label) {
+      const lab = el("div", "hand fit", d.label, root);
+      place(lab, L ? { left: 120, top: 560, width: 560, maxHeight: 260, position: "absolute" } : { left: 80, top: 1540, width: 900, maxHeight: 220, position: "absolute" });
+      writeOn(lab, 1200);
+      scribble(root, L ? { left: 400, top: 470, width: 360, height: 150 } : { left: 520, top: 1440, width: 300, height: 130 }, "arrow", 1000);
+    }
+    return card;
+  };
+  T.spotlight = (root, d) => {             // a big accent circle, the subject pops out of it
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    titleTop(root, d, L ? { top: 130, left: 160, right: "auto", width: 740 } : { top: 230 }, L ? 160 : 170);
+    const size = L ? 760 : 900;
+    const spot = el("div", "spot", null, root); place(spot, L ? { left: 1000, top: 210, width: size, height: size } : { left: 90, top: 760, width: size, height: size });
+    const sub = assetEl(root, A(d, 0), L ? { left: 930, top: 40, width: 900, height: 1040 } : { left: 40, top: 560, width: 1000, height: 1360 });
+    if (d.label) { const lab = el("div", "tag-label", d.label, root); place(lab, L ? { left: 110, top: 760, position: "absolute" } : { left: 64, top: 1720, position: "absolute" }); up(lab, 1200, 30); }
+    add(spot, [{ opacity: 0, transform: "scale(0)" }, { opacity: 1, transform: "scale(1.06)", offset: .7 }, { opacity: 1, transform: "none" }], { duration: 760, delay: 150, easing: E_IMPACT });
+    rise(sub, 450, 200); slowZoom(sub, d.duration, 1.04);
+    return sub;
+  };
+  T.object_drop = (root, d) => {           // an object drops in and lands with a real shadow; the number / label beside it
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    titleTop(root, d, L ? { top: 130, left: 160, right: "auto", width: 780 } : { top: 230 }, L ? 150 : 150);
+    const obj = assetEl(root, A(d, 0), L ? { left: 1030, top: 170, width: 760, height: 700 } : { left: 150, top: 560, width: 780, height: 820 });
+    const ground = el("div", "ground", null, root); place(ground, L ? { left: 1110, top: 860, width: 600 } : { left: 220, top: 1370, width: 640 });
+    add(obj, [{ opacity: 1, transform: "translate3d(0,-1300px,0) rotate(-8deg)" }, { transform: "translate3d(0,0,0) rotate(2deg) scale(1.04,.95)", offset: .62 }, { transform: "translate3d(0,-60px,0) rotate(-1deg)", offset: .8 }, { opacity: 1, transform: "none" }], { duration: 1000, delay: 250, easing: "cubic-bezier(.5,0,.5,1)" });
+    add(ground, [{ opacity: 0, transform: "scaleX(.2)" }, { opacity: 1, transform: "scaleX(1.05)", offset: .62 }, { opacity: .8, transform: "scaleX(.85)", offset: .8 }, { opacity: 1, transform: "none" }], { duration: 1000, delay: 250 });
+    const info = el("div", "", null, root); place(info, L ? { left: 110, top: 520, width: 800, position: "absolute" } : { left: 64, right: 64, top: 1480, position: "absolute" });
+    if (d.value) { const a = amountBlock(info, d, "value", "prefix", "suffix", 1200); a.style.marginTop = "0"; a.style.fontSize = (L ? 260 : 230) + "px"; a.style.lineHeight = ".95"; a.style.color = "var(--paper)"; }
+    if (d.label) el("div", "caption", d.label, info).style.marginTop = "18px";
+    up(info, 1100, 50);
+    return obj;
+  };
+  T.collage = (root, d) => {               // 2-4 things, each a picture with its name
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    titleTop(root, d, L ? { top: 90 } : { top: 220 }, L ? 140 : 150);
+    const assets = (d.assets || []).slice(0, 4), n = Math.max(1, assets.length);
+    const boxes = L ? assets.map((_, i) => ({ left: 110 + i * (1700 / n), top: 380, width: 1700 / n - 60, height: 520 }))
+      : assets.map((_, i) => n <= 2 ? { left: 90, top: 560 + i * 640, width: 900, height: 540 } : { left: (i === n - 1 && n % 2) ? 315 : (i % 2 ? 560 : 70), top: 560 + Math.floor(i / 2) * 640, width: 450, height: 520 });
+    assets.forEach((a, i) => {
+      const w = assetEl(root, a, boxes[i]);
+      w.style.transform = `rotate(${[-4, 3, 5, -3][i]}deg)`;
+      const label = (d.items || [])[i];
+      if (label) { const lab = el("div", "item-label", null, w); el("span", "", label, lab); }
+      add(w, [{ opacity: 0, transform: "translate3d(0,120px,0) scale(.6) rotate(0deg)" }, { opacity: 1, transform: `scale(1.06) rotate(${[-4, 3, 5, -3][i]}deg)`, offset: .7 }, { opacity: 1, transform: `rotate(${[-4, 3, 5, -3][i]}deg)` }], { duration: 560, delay: 400 + i * Math.min(650, (d.duration * 1000 - 1400) / n), easing: E_IMPACT });
+    });
+    return root;
+  };
+  T.versus_assets = (root, d) => {         // two things side by side, VS in the middle, a number under each
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    const line = el("i", "split", null, root); place(line, L ? { left: 958, top: 120, width: 4, height: 840 } : { left: 538, top: 300, width: 4, height: 1320 });
+    add(line, [{ transform: "scaleY(0)" }, { transform: "none" }], { duration: 700, delay: 100 });
+    const sides = [["left", 0], ["right", 1]];
+    sides.forEach(([side, i]) => {
+      const box = L ? { left: 120 + i * 960, top: 120, width: 720, height: 600 } : { left: 40 + i * 540, top: 420, width: 460, height: 760 };
+      const w = assetEl(root, A(d, i), box);
+      const lab = el("div", "side-label", null, root);
+      place(lab, L ? { left: 120 + i * 960, width: 720, top: 750 } : { left: 30 + i * 540, width: 480, top: 1240 });
+      if (d[side + "_label"]) el("small", "", d[side + "_label"], lab);
+      if (d[side + "_value"]) { const v = el("div", "fit", null, lab); v.style.fontSize = (L ? 150 : 120) + "px"; v.style.maxHeight = "150px"; if (d[side + "_prefix"]) el("span", "accent", d[side + "_prefix"], v); const n = el("span", "", d[side + "_value"], v); countUp(n, d[side + "_value"], 900 + i * 500, 700); }
+      add(w, [{ opacity: 0, transform: `translate3d(${i ? 260 : -260}px,0,0)` }, { opacity: 1, transform: "none" }], { duration: 640, delay: 200 + i * 450 });
+      up(lab, 700 + i * 450, 40);
+    });
+    const vs = el("div", "vs-badge", "VS", root); place(vs, L ? { left: 875, top: 455 } : { left: 455, top: 720 });
+    titleTop(root, d, L ? { top: 40, left: 160, right: 160, textAlign: "center" } : { top: 180, textAlign: "center" }, L ? 70 : 120);
+    pop(vs, 1100, 0);
+    return root;
+  };
+  T.frame_clip = (root, d) => {            // a real clip (or photo) playing inside a window
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    titleTop(root, d, L ? { top: 130, left: 160, right: "auto", width: 580 } : { top: 220 }, L ? 140 : 150);
+    const win = el("div", "win", null, root); place(win, L ? { left: 760, top: 140, width: 1040, height: 800 } : { left: 70, top: 560, width: 940, height: 1100 });
+    const bar = el("div", "win-bar", null, win); el("i", "", null, bar); el("i", "", null, bar); el("i", "", null, bar);
+    const img = el("img", "", null, win);
+    const a = A(d, 0) || {};
+    const frames = a.frames || [];
+    if (frames.length) {
+      img.src = frames[0];
+      tweens.push(t => {                     // the clip plays: the right frame for this moment
+        const src = frames[Math.min(frames.length - 1, Math.max(0, Math.floor(t * (a.fps || 30))))];
+        if (img.getAttribute("src") === src) return null;
+        img.src = src; return img.decode().catch(() => null);
+      });
+    } else if (a.src) { img.src = a.src; slowZoom(img, d.duration, 1.12); }
+    if (d.label) { const lab = el("div", "tag-label", d.label, root); place(lab, L ? { left: 110, top: 700, position: "absolute" } : { left: 70, top: 1700, position: "absolute" }); up(lab, 1000, 30); }
+    add(win, [{ opacity: 0, transform: "perspective(1600px) rotateY(-26deg) rotateX(10deg) translate3d(120px,160px,0) scale(.8)" }, { opacity: 1, transform: "perspective(1600px) rotateY(-6deg) rotateX(2deg)" }], { duration: 900, delay: 150, easing: E_IMPACT });
+    return win;
+  };
+  T.silhouette = (root, d) => {            // the subject as a glowing silhouette in the dark, a word through it
+    root.classList.add("dark"); decor(root, false, d);
+    const L = LAND();
+    const sub = assetEl(root, A(d, 0), L ? { left: 560, width: 800, bottom: 40, height: 940 } : { left: 140, width: 800, bottom: 160, height: 1300 }, "glow");
+    const word = el("div", "bigword fit", d.word || d.title || "", root);
+    place(word, L ? { top: 400, fontSize: 280, maxHeight: 280 } : { top: 820, fontSize: 250, maxHeight: 500 });
+    word.style.whiteSpace = L ? "nowrap" : "normal"; word.style.mixBlendMode = "difference";
+    if (d.label) { const lab = el("div", "kicker", d.label, root); place(lab, L ? { left: 140, top: 90, position: "absolute" } : { left: 64, top: 240, position: "absolute" }); slide(lab, 300); }
+    add(sub, [{ opacity: 0, filter: "blur(30px)" }, { opacity: 1, filter: "blur(0px)" }], { duration: 1200, delay: 100 });
+    add(word, [{ opacity: 0, letterSpacing: ".3em" }, { opacity: 1, letterSpacing: "-.03em" }], { duration: 1100, delay: 700 });
+    slowZoom(sub, d.duration, 1.05);
+    return sub;
+  };
+  T.kinetic = (root, d) => {
+    root.classList.add("dark"); decor(root, false, d);
+    const h = el("div", "hero plain", null, root);
+    kicker(h, d.kicker);
+    const box = el("div", "kin fit", null, h);
+    (d.words || []).slice(0, 40).forEach(w => {
+      const s = el("span", w.hot ? "hot" : "", w.w, box);
+      // t = when the word is said (seconds into the scene); speed must not move it
+      add(s, [{ opacity: 0, transform: "translate3d(0,46px,0) scale(.88)" }, { opacity: 1, transform: "none" }], { duration: 240, delay: Math.max(0, Number(w.t) || 0) * 1000 * speed });
+    });
+    drift(box, d.duration);
+    return h;
+  };
+  window.mgLoad = (scene) => {
+    const stage = document.getElementById("stage");
+    stage.innerHTML = ""; stage.className = ""; anims = []; tweens = [];   // the page is reused scene after scene
+    const w = scene.width, hgt = scene.height;
+    document.body.className = (scene.mode === "overlay" ? "overlay " : "full ") + (w > hgt ? "landscape" : "portrait");
+    const theme = scene.theme || {};
+    (window.__mgThemeKeys || []).forEach(k => document.documentElement.style.removeProperty(k));   // no leftovers from the last scene
+    window.__mgThemeKeys = [];
+    Object.entries(theme).forEach(([k, v]) => {
+      if (/^--[a-z0-9-]+$/.test(k)) { document.documentElement.style.setProperty(k, String(v)); window.__mgThemeKeys.push(k); }
+    });
+    speed = Math.min(1.6, Math.max(.6, Number(scene.speed) || 1));
+    const build = T[scene.template] || T.headline;
+    build(stage, { archive_variant: (Number(scene.index)||0)%2, ...scene.data, duration: scene.duration || 4 });
+    window.mgSeek(99);          // fit on the settled frame (at 0 s blocks are still sliding in from off-screen)
+    fitAll();
+    centre(scene.template);
+    window.mgSeek(0);
+    return true;
+  };
+  window.mgSeek = (seconds) => {
+    anims.forEach(a => { a.currentTime = seconds * 1000; a.pause(); });
+    const waits = tweens.map(f => f(seconds)).filter(x => x && typeof x.then === "function");
+    return waits.length ? Promise.all(waits).then(() => true) : true;
+  };
+  // every picture decoded before the first frame is captured
+  window.mgReady = () => Promise.all(Array.from(document.querySelectorAll("#stage img")).map(i => i.decode().catch(() => null))).then(() => true);
+  // layout check: text that is still cut off, blocks outside the frame, main blocks on top of each other
+  window.mgCheck = () => {
+    const problems = [];
+    window.mgSeek(99);                                   // the settled frame
+    document.querySelectorAll("#stage .fit").forEach(node => {
+      const bad = misfit(node);
+      const name = (node.className || node.tagName).toString().split(" ")[0];
+      if (bad.length) problems.push(`${name} ${bad.join("+")}: "${node.textContent.slice(0, 40)}"`);
+    });
+    // main text blocks must not sit on top of each other
+    const blocks = Array.from(document.querySelectorAll("#stage .hero .fit, #stage .hero .caption, #stage .hero .kicker"))
+      .filter(n => n.textContent.trim() && !n.closest("[data-layer]")).map(n => {
+        const r = textRect(n), s = parseFloat(getComputedStyle(n).fontSize) * .16;   // tight display lines
+        return { n, r: { left: r.left, right: r.right, top: r.top + s, bottom: r.bottom - s } };
+      });
+    for (let i = 0; i < blocks.length; i++) for (let j = i + 1; j < blocks.length; j++) {
+      const a = blocks[i], b = blocks[j];
+      if (a.n.contains(b.n) || b.n.contains(a.n)) continue;
+      const x = Math.min(a.r.right, b.r.right) - Math.max(a.r.left, b.r.left);
+      const y = Math.min(a.r.bottom, b.r.bottom) - Math.max(a.r.top, b.r.top);
+      if (x > 20 && y > 20) problems.push(`overlap: "${a.n.textContent.slice(0, 25)}" / "${b.n.textContent.slice(0, 25)}"`);
+    }
+    window.mgSeek(0);
+    return problems;
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+{
+  "observed_utc": "2026-10-25T00:43:56.465602+00:00",
+  "scope": "READ-ONLY actual running job/source/receipts/cache/thumbnails audit; only scoped docs/evidence written. No model/network/media extraction/render/GPU/host/job/source changes.",
+  "job": {
+    "id": "a87c39c6a791",
+    "status": "running",
+    "stage": "Checking washing machine: 11/11 candidates, 1 choices saved",
+    "progress": 94,
+    "created": 1792888210.148189,
+    "recovery_attempts": 1
+  },
+  "partial_not_terminal": true,
+  "collecting": true,
+  "plan": [
+    {
+      "start": 2.14,
+      "end": 3.1,
+      "quote": "flat to mil hi jaega.",
+      "visual": "apartment interior",
+      "meaning": "Looking for a place to live"
+    },
+    {
+      "start": 5.0,
+      "end": 6.0,
+      "quote": "North Indian ho,",
+      "visual": "North Indian",
+      "meaning": "Person from North India"
+    },
+    {
+      "start": 6.0,
+      "end": 7.26,
+      "quote": "bachelor ho, party mein",
+      "visual": "room interior",
+      "meaning": "A single man living alone"
+    },
+    {
+      "start": 14.96,
+      "end": 15.6,
+      "quote": "chaar divaaren,",
+      "visual": "empty room",
+      "meaning": "Four walls"
+    },
+    {
+      "start": 16.24,
+      "end": 16.54,
+      "quote": "bed,",
+      "visual": "bed",
+      "meaning": "Furniture for sleeping"
+    },
+    {
+      "start": 17.22,
+      "end": 18.28,
+      "quote": "almaari, na",
+      "visual": "wardrobe",
+      "meaning": "Cabinet or wardrobe"
+    },
+    {
+      "start": 18.28,
+      "end": 18.72,
+      "quote": "geyser,",
+      "visual": "water heater",
+      "meaning": "Water heating device"
+    },
+    {
+      "start": 20.34,
+      "end": 20.78,
+      "quote": "fridge,",
+      "visual": "refrigerator",
+      "meaning": "Refrigerator"
+    },
+    {
+      "start": 21.2,
+      "end": 22.6,
+      "quote": "washing machine, bol jao",
+      "visual": "washing machine",
+      "meaning": "Appliance for washing clothes"
+    },
+    {
+      "start": 28.36,
+      "end": 28.88,
+      "quote": "PG mein.",
+      "visual": "room interior",
+      "meaning": "Private guest room in a shared accommodation"
+    }
+  ],
+  "coverage": [
+    {
+      "index": 0,
+      "visual": "apartment interior",
+      "options": 2,
+      "complete": true,
+      "original_checks": 2,
+      "prepared_checks": 2,
+      "criteria_versions": [
+        "broll-residential-v1"
+      ]
+    },
+    {
+      "index": 1,
+      "visual": "North Indian",
+      "options": 0,
+      "complete": true,
+      "original_checks": 3,
+      "prepared_checks": 0,
+      "criteria_versions": []
+    },
+    {
+      "index": 2,
+      "visual": "room interior",
+      "options": 0,
+      "complete": true,
+      "original_checks": 10,
+      "prepared_checks": 1,
+      "criteria_versions": [
+        "broll-residential-v1"
+      ]
+    },
+    {
+      "index": 3,
+      "visual": "empty room",
+      "options": 3,
+      "complete": true,
+      "original_checks": 12,
+      "prepared_checks": 3,
+      "criteria_versions": []
+    },
+    {
+      "index": 4,
+      "visual": "bed",
+      "options": 0,
+      "complete": true,
+      "original_checks": 8,
+      "prepared_checks": 2,
+      "criteria_versions": []
+    },
+    {
+      "index": 5,
+      "visual": "wardrobe",
+      "options": 1,
+      "complete": true,
+      "original_checks": 3,
+      "prepared_checks": 2,
+      "criteria_versions": []
+    },
+    {
+      "index": 6,
+      "visual": "water heater",
+      "options": 0,
+      "complete": true,
+      "original_checks": 1,
+      "prepared_checks": 0,
+      "criteria_versions": []
+    },
+    {
+      "index": 7,
+      "visual": "refrigerator",
+      "options": 0,
+      "complete": true,
+      "original_checks": 4,
+      "prepared_checks": 1,
+      "criteria_versions": []
+    },
+    {
+      "index": 8,
+      "visual": "washing machine",
+      "options": 1,
+      "complete": null,
+      "original_checks": 10,
+      "prepared_checks": 2,
+      "criteria_versions": []
+    }
+  ],
+  "guard_reports": [
+    {
+      "label": "video summary",
+      "feature": "broll",
+      "tries": [
+        {
+          "attempt": 1,
+          "hard": 0,
+          "soft": 0,
+          "problems": []
+        }
+      ],
+      "repaired": [],
+      "final_hard": 0,
+      "final_soft": 0,
+      "final_problems": []
+    },
+    {
+      "label": "B-roll keyword discovery",
+      "feature": "broll",
+      "tries": [
+        {
+          "attempt": 1,
+          "hard": 0,
+          "soft": 0,
+          "problems": []
+        }
+      ],
+      "repaired": [],
+      "final_hard": 0,
+      "final_soft": 0,
+      "final_problems": []
+    }
+  ],
+  "target_pair": [
+    {
+      "context_compatible": true,
+      "frame_checks": [
+        {
+          "no_dominant_presenter": true,
+          "no_intrusive_overlay": true,
+          "real_clear_footage": true,
+          "subject_visible": true
+        },
+        {
+          "no_dominant_presenter": true,
+          "no_intrusive_overlay": true,
+          "real_clear_footage": true,
+          "subject_visible": true
+        },
+        {
+          "no_dominant_presenter": true,
+          "no_intrusive_overlay": true,
+          "real_clear_footage": true,
+          "subject_visible": true
+        }
+      ],
+      "identity_compatible": true,
+      "no_intrusive_text": true,
+      "real_clear_footage": true,
+      "reason": "The frames show a residential room interior with a woman unpacking, fitting the generic apartment context.",
+      "related": true,
+      "seen": "A residential room interior with a woman unpacking clothes and a ceiling fan.",
+      "matches_scene": true,
+      "matches_action": true,
+      "fits_spoken_meaning": true,
+      "matches_setting": true,
+      "passed": true,
+      "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+      "physical_criteria_revision": "broll-residential-v1",
+      "id": "web:3c206d9faa4963ed",
+      "producer_stage": "original",
+      "checked_media_path": "A:\\Full Drive\\remove silence\\cache\\broll\\web-video\\e2d2da6898635dfd557c.mp4",
+      "checked_media_sha256": "b9a920dede624953dbd818a3970980d882e92bb0202168f87d0f22b4cc748b49",
+      "checked_interval": {
+        "start": 36.56666666666667,
+        "end": 37.833333333333336
+      },
+      "checked_crop": {
+        "space": "upright_source_pixels",
+        "x": 656,
+        "y": 0,
+        "width": 608,
+        "height": 1080
+      }
+    },
+    {
+      "context_compatible": false,
+      "frame_checks": [
+        {
+          "no_dominant_presenter": false,
+          "no_intrusive_overlay": true,
+          "real_clear_footage": true,
+          "subject_visible": false
+        },
+        {
+          "no_dominant_presenter": false,
+          "no_intrusive_overlay": true,
+          "real_clear_footage": true,
+          "subject_visible": false
+        },
+        {
+          "no_dominant_presenter": false,
+          "no_intrusive_overlay": true,
+          "real_clear_footage": true,
+          "subject_visible": false
+        }
+      ],
+      "identity_compatible": false,
+      "no_intrusive_text": true,
+      "real_clear_footage": true,
+      "reason": "Not every sampled frame shows clean, relevant filmed B-roll: The visible subject is a woman, not a single man, and the room is cluttered with bedding, not a clear residential interior.",
+      "related": false,
+      "seen": "A woman stands in a room with a fan and a pile of bedding on the floor.",
+      "matches_scene": false,
+      "matches_action": false,
+      "fits_spoken_meaning": false,
+      "matches_setting": false,
+      "passed": false,
+      "judge": "storylens-planner:9b-q6 (looks at the pixels)",
+      "physical_criteria_revision": "broll-residential-v1",
+      "id": "web:3c206d9faa4963ed",
+      "producer_stage": "prepared",
+      "checked_media_path": "A:\\Full Drive\\remove silence\\output\\broll\\20261025-060011-4048d8\\001-audio-only-source\\media\\broll-03-web-3c206d9faa4963ed-d7710346.mp4",
+      "checked_media_sha256": "442bdcd7197eab9f7afecffd0b51a3d5ccdff1f8a6c10fdb2b351f3355cf8af7",
+      "checked_interval": {
+        "start": 3.0,
+        "end": 4.266666666666667
+      },
+      "checked_crop": {
+        "space": "upright_source_pixels",
+        "x": 0,
+        "y": 0,
+        "width": 270,
+        "height": 480
+      }
+    }
+  ],
+  "criteria_from_frozen_source_not_persisted_prompt": {
+    "revision": "broll-residential-v1",
+    "requested_keyword": "room interior",
+    "required_visual": "visible residential indoor space",
+    "permitted_spaces": [
+      "residential living area",
+      "residential sleeping area",
+      "residential kitchen area"
+    ],
+    "excluded_visuals": [
+      "commercial salon",
+      "office or public lobby",
+      "outdoor-only scene",
+      "floor plan or title card",
+      "CGI or animation",
+      "unrelated dominant presenter",
+      "unreadable footage or intrusive overlays"
+    ],
+    "nonclaims": [
+      "rental status",
+      "ownership",
+      "bachelor eligibility",
+      "actual narrated address"
+    ],
+    "narrated_country": "India",
+    "geography_policy": "Retain named-place and visible setting-contradiction vetoes. Generic stock does not prove the actual local address. Never infer nationality from faces."
+  },
+  "source_semantics": {
+    "text": "bachelor ho, party mein",
+    "meaning": "A single man living alone",
+    "visual": "room interior",
+    "subject": "",
+    "country": "India",
+    "context": "0.10-2.14s: Aane ke pahle mujhe laga sir, abhi\n2.14-3.10s: flat to mil hi jaega.\n3.56-4.56s: Bhai main galat tha.\n5.00-7.26s: North Indian ho, bachelor ho, party mein\n7.26-7.78s: kaam karte ho.\n8.16-11.02s: Congratulations 99 percent flat tumhaare lie band\n11.04-12.74s: hai aur jo ek percent flat milega\n12.76-13.00s: abhi na\n13.50-14.32s: usmen kuchh nahin hoga.\n14.72-15.60s: Sirph chaar divaaren,",
+    "direction": ""
+  },
+  "mapping": {
+    "inferred_prepared_origin_in_source": 33.56666666666667,
+    "source_times": [
+      36.75666666666667,
+      37.2,
+      37.64333333333334
+    ],
+    "prepared_times_mapped_to_source": [
+      36.75666666666667,
+      37.2,
+      37.64333333333334
+    ],
+    "limits": "Intended requested times agree; source60fps vs prepared30fps and read_frames first-at-or-after t-.02 rule do not guarantee identical decoded pixels. Resize/crop rounding/compression also differ. No new sample extraction performed."
+  },
+  "byte_hashes_match": {
+    "original": true,
+    "prepared": true
+  },
+  "raw_cache_matches": [
+    {
+      "stage": "original",
+      "file": "cache\\visuals\\evaluator\\e64948e42f6bf6a95a49716b2543d629afc9cd2422c723d322aa301c9d7d13b3.json",
+      "sha256": "941b1db4b68a8c82ffc08ab7020040279172db5f20ec8d50b6cd88bec32447d1",
+      "mtime_utc": "2026-10-25T00:37:43.789870+00:00",
+      "stored_fields_match": true,
+      "reason_suffix_matches": true,
+      "execution_lineage": "Exact saved answer match and within-run mtime; no per-call hit/miss/digest receipt. Fresh inference not proven."
+    },
+    {
+      "stage": "prepared",
+      "file": "cache\\visuals\\evaluator\\f5a219598a41cab2ce6d8962f028fc1ad3e259b09b9a905efd1d0f9efdfd47f7.json",
+      "sha256": "c8c4124d9f4a78e4dcfb22c3289e3fc9c18c1d42965b725fef5459723db40252",
+      "mtime_utc": "2026-10-25T00:38:02.645850+00:00",
+      "stored_fields_match": true,
+      "reason_suffix_matches": true,
+      "execution_lineage": "Exact saved answer match and within-run mtime; no per-call hit/miss/digest receipt. Fresh inference not proven."
+    }
+  ],
+  "findings": [
+    {
+      "id": "both-criteria-paths",
+      "status": "confirmed source metadata and frozen code route",
+      "detail": "broll-residential-v1 is present on original and prepared checks; no missing criteria revision propagation found. Both helper inputs use same semantic fields. Actual per-call prompts are not persisted, so exact provider payload/honoring remains unverified."
+    },
+    {
+      "id": "occupant-narrative-veto",
+      "status": "observed model disagreement, no automatic approval",
+      "detail": "Prepared reason adds woman versus single man requirement from meaning despite generic room keyword. Current nonclaims mention bachelor eligibility but not incidental occupant identity/marital status or tidiness. It also vetoes dominant presenter/subject visibility; those could reflect real framing or model misclassification. Pixel-level cause not established."
+    },
+    {
+      "id": "regional-person-query",
+      "status": "unsupported identity verification risk, no accepted clip established",
+      "detail": "North Indian keyword has empty identity and queries North Indian man/person. Regional origin/nationality/ethnicity cannot be verified from a face or attire. Reject/unknown identity must remain; do not present model wording about regional attire as established origin. Three stored checks rejected; no accepted person identity found."
+    },
+    {
+      "id": "coverage-improved-not-accepted",
+      "status": "partial",
+      "detail": "Apartment and four-walls empty-room opportunities exist now; earlier opening street and pan no longer planned. Complete per-subject five-choice coverage, native insertion and final playback unverified."
+    }
+  ],
+  "source_stability": {
+    "verify_sha256": "874b1df6906dd71f5016b798e221c014df54988b26d7e6b7f50ad0ad6011da4b",
+    "criteria_revision": "broll-residential-v1",
+    "no_source_fix_applied": true
+  },
+  "existing_images_seen": [
+    {
+      "path": "thumbs/checked-0-web-57aeab2eb3fb2b2f.jpg",
+      "kind": "Prepared checked thumbnail",
+      "observation": "Visible furnished living space; single-frame observation only."
+    },
+    {
+      "path": "thumbs/web-3c206d9faa4963ed.jpg",
+      "kind": "Source lead/thumbnail, not target checked interval",
+      "observation": "Collage with room decor text/person/indoor scenes; cannot establish selected source/prepared sample content."
+    }
+  ],
+  "follow_up_boundary": "No repair or repair proposal released while the job is active. Recorded caller-criteria gaps and regional-identity concern require a separate post-terminal lease; no new inference or protected shared change is authorized."
+}

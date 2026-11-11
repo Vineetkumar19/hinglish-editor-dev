@@ -1,0 +1,76 @@
+{
+  "voice_source": "cached StoryLens greeting after live voice startup error",
+  "minimize_restore": true,
+  "phase": "ready",
+  "Speaking": {
+    "frames": 7,
+    "head": [
+      0.04238,
+      0.17012
+    ],
+    "wristR": [
+      0.34264,
+      0.55862
+    ],
+    "wristL": [
+      0.32129,
+      0.48074
+    ],
+    "footR": [
+      0.06986,
+      0.12912
+    ],
+    "footL": [
+      0.00106,
+      0.13763
+    ],
+    "finger3-1R": [
+      0.45312,
+      0.10426
+    ],
+    "levator05R": [
+      0.04502,
+      0.0
+    ],
+    "jaw": [
+      0.04239,
+      0.20116
+    ]
+  },
+  "Listening": {
+    "frames": 47,
+    "head": [
+      0.03127,
+      0.19872
+    ],
+    "wristR": [
+      0.10466,
+      0.14248
+    ],
+    "wristL": [
+      0.09496,
+      0.12977
+    ],
+    "footR": [
+      0.01924,
+      0.09602
+    ],
+    "footL": [
+      0.05202,
+      0.11558
+    ],
+    "finger3-1R": [
+      0.13555,
+      0.02726
+    ],
+    "levator05R": [
+      0.05198,
+      0.0
+    ],
+    "jaw": [
+      0.03275,
+      0.05002
+    ]
+  },
+  "shader_and_page_errors": []
+}

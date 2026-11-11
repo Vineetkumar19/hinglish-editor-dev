@@ -1,0 +1,9 @@
+{
+  "kind": "Existing raw cached local-model answer, copied verbatim for regression reproduction; not a fresh model call or successful result.",
+  "source_path": "cache\\visuals\\brain\\27bb13469797b969ea5e8ec5fd455be60f97bfcb32d3978ac299cc46179363d1.json",
+  "source_sha256": "0a5af4e21e4cc43aef153ccaae33c8239ccbdf933f047594aef281bd6e450d4a",
+  "related_job": "7c03db6fbd88",
+  "lineage_limit": "File appeared during related job; no persisted per-call cache receipt identifies exact attempt or loaded model digest.",
+  "raw_preserved": true,
+  "test_transform": "Selected observed row is copied and explicitly given physical wardrobe queries plus test-local word_index=0. Its original meaning is retained. Other scripted model answers are labelled synthetic."
+}

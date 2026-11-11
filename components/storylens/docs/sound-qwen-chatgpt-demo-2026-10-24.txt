@@ -1,0 +1,80 @@
+Owner-requested sound-effects comparison — 24 October 2026
+
+Source: vineet_2919_2026-09-27_16-23-46_3995379039531335742_6252883210.mp4,
+in A:/Chrome Downloads/Instagram Downloader Pro/vineet_2919.
+Keep original song and picture. No new music or source-music removal.
+Qwen must author the first take; ChatGPT independently authors the second.
+
+Delivered full-resolution clips:
+output/sound/20261024-qwen-chatgpt-comparison/QWEN.mp4
+output/sound/20261024-qwen-chatgpt-comparison/CHATGPT.mp4
+Both are 1280x720, stereo, 613 original video packets, 20.433333 seconds.
+Original video packet hashes match exactly; sound is mixed and encoded anew.
+The source container has a longer audio tail; the video stream itself ends at
+20.433333 seconds. Do not describe this as a 33-second source.
+
+Qwen: actual Storylens job 1a341168ab2e. Planning: storylens-meaning:14b;
+Vision: storylens-planner:9b-q6. Eight retained cues, all contact/poke family.
+No Codex creative repairs were made to Qwen's baseline. Its original plan and
+hash receipt are preserved in output/sound-comparison-20261024. The model
+mistook the English song ASR for narration and selected UI/contact sounds.
+Planning quality remained flagged (invalid proposed music rows), though the
+renderer correctly added NO music and its 13 mix checks passed. This is a
+weak creative draft, not an accepted result or proof of reliable local taste.
+
+ChatGPT: independent manually authored score after Qwen finished, 24 unique
+files in 15 editorial groups. Short directional air connects riding cuts;
+selected low contacts, graphic flash textures, approach/release layers for
+hiking/landscape changes, and deliberate song-only spaces. No new inference
+claim, literal wildlife or engine Foley. Source contact/cut frames and measured
+frame changes were reviewed. Peak measurement is not proof of a sound's
+semantic contact point. No claim of full subjective listening approval.
+29/29 mix checks passed. Normal editable sound-plan/report/XML/stems are saved
+in output/sound/20261024-chatgpt-motorcycle/001-chatgpt-motorcycle.
+
+Initial implementation repairs followed meaningful failing tests, then passes:
+- Keep original stereo/bass audio once; do not reduce an existing song to mono
+  or apply the dialogue high-pass to it. Original audio is a separate stem.
+- Save and retry genuinely incomplete Vision JSON; never invent scene answers.
+- Respect planning_think preference; expose useful HTTP model errors.
+- On a real context overflow only, omit optional retrieved reference prose for
+  that individual request. Preserve full creator_profile, script, evidence,
+  candidates and saved guidance files. Small requests retain optional guidance.
+- No-music analysis schema forbids music rows for future jobs. The completed
+  Qwen worker had loaded the older schema; its warning was not erased.
+
+137 sound unit checks pass. One first test attempt was blocked by Windows local
+socket restrictions; rerunning with local network permission passed all 137.
+Actual Qwen generation traversed live Storylens; ChatGPT used the same local
+mix/export engine. Browser preview for ChatGPT played to 15.376907 seconds and
+was then observed paused; full uninterrupted playback was NOT verified.
+Both reports' actual Send to CapCut buttons completed. Two native projects
+exist, with 9 and 25 separate audio segments respectively, original source
+audio muted on the video layer, existing song/base stem once, all layer files
+present. Mastered stems reconstruct their full mixes within .000122071 PCM.
+No Premiere or CapCut application was launched; native playback is unverified.
+
+Final safe rejection probes: unknown processing key, NaN pan, excessive pan,
+and export outside output are rejected. Delivery audit: output/sound-comparison-
+20261024/delivery-audit.json. These are bounded checks, not proof of immunity.
+
+Final findings, preserved without further creative/source repairs:
+- Trigger: English-song montage with music disabled. Expected: recognize the
+  song and choose motivated editorial/visual effects. Actual Qwen: lyrics
+  treated as narration, UI-family cues and invalid proposed music rows.
+  Impact: poor creative relevance; no unwanted music was rendered. Evidence:
+  qwen-original-plan.json, qwen-authorship.json and Qwen report.
+- Trigger: prepare both sound results for CapCut. Expected: distinct display
+  names. Actual: both show Storylens Sound Design 1, with separate identities.
+  Impact: ambiguous Home titles; newest is ChatGPT (25 audio segments). Each
+  result report targets its own native handoff. Evidence: delivery-audit.json
+  and qwen-capcut-ready.png / chatgpt-capcut-ready.png.
+- Untested: subjective final listening, full uninterrupted browser playback and
+  native editor playback. Owner creative approval remains pending.
+
+Browser reports:
+http://127.0.0.1:8876/sound-output/20261024-221240-2892a7/001-vineet_2919_2026-09-27_16-23-46_39953790/report.html
+http://127.0.0.1:8876/sound-output/20261024-chatgpt-motorcycle/001-chatgpt-motorcycle/report.html
+
+No unrelated GPU jobs or services were stopped. No model-weight training,
+external upload, paid service call, or new browser window was used here.

@@ -1,0 +1,24 @@
+{
+  "scope": "Read-only semantic investigation, raw negative fixture, proposal and test-only replay; no model/network/media/job/native mutations.",
+  "tests": {
+    "count": 6,
+    "passed": 6,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 0.371,
+    "log": "residential-negative-replay-tests.txt"
+  },
+  "released_product_hashes_unchanged": {
+    "hinglish_broll\\keywords.py": true,
+    "hinglish_broll\\producer_contract.py": true,
+    "hinglish_broll/candidate_manifest.py": true
+  },
+  "proposed_product_lease": [
+    "hinglish_broll/verify.py"
+  ],
+  "lease_granted": false,
+  "raw_verdict_sha256": "d6930a38a68eca457ab5e4e339ac84e4ce2e30ce5724061220cd83014a3cead3",
+  "causal_limit": "Categorical rejection inconsistency is observed. Narrative-absence causality and actual pixel suitability remain unproven.",
+  "actual_live_acceptance": "Not run; suite owns active retry.",
+  "protected_findings": "No exact previous protected classification found in scoped history; no protected shared finding changed."
+}

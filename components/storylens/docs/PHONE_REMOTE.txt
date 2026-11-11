@@ -1,0 +1,34 @@
+STORYLENS PRIVATE PHONE COMPANION
+
+Purpose
+Use only Ask the Editor from Android. Commands go to the existing laptop assistant and configured local model; results and measured progress come back to the phone. No USB, full desktop UI, public tunnel or separate mobile AI model is required.
+
+Connection on this installation
+Private address: https://vineet.tail2c74b0.ts.net/
+Tailscale must be connected on the laptop and Android under the same account. The laptop must be awake, online and running StoryLens. Tailscale Serve forwards only the loopback companion on 127.0.0.1:8796. The editor on 8765 is not exposed. Public Funnel is not enabled.
+
+Start and stop
+- Start Storylens Phone.cmd starts the companion or displays a new pairing code when it is already running.
+- Stop Storylens Phone.cmd revokes phone sessions and stops only the identity-checked companion process and its matching private HTTPS route. Main editor jobs are not cancelled.
+- No phone-companion Windows logon task was installed. After reboot, open StoryLens and run Start Storylens Phone.cmd. Tailscale's own installed Windows client remains separate.
+- Pairing codes expire after ten minutes and work once. A paired browser session lasts 24 hours. Sign out revokes that browser. Do not forward a pairing code.
+
+What the phone provides
+- New/recent phone-created chats and General/Cricket/Gaming context.
+- Typed commands, attachment transfer, actual stage/progress and after-current-step Stop.
+- Playback/display for browser-supported video, audio and images; downloads for allowed generated PDF/text/subtitle/XML/ZIP files.
+- Results must be real structured outputs from that same chat, inside the project's output folder. Arbitrary laptop paths, active HTML/SVG and the full local editor API are not shared.
+- Non-browser-compatible codecs may need download and a suitable player. No automatic transcode is performed just for phone playback.
+- Remote uploads have a 256 MiB companion cap. The existing assistant's own limits still apply, including its smaller non-video limit. Choose large laptop files by explicitly naming their known local source in the chat instead of uploading them from the phone.
+
+Reliability and authorization
+Each create/message/upload has a durable request ID. Repeated confirmed requests reuse the saved identity. A proven connection refusal before submission can retry that ID; an uncertain submitted command is never replayed automatically. Read the chat on the laptop before choosing a fresh command when the outcome is uncertain. Existing app permissions, model/GPU queue, publishing gates and native editor requirements remain unchanged.
+
+Privacy
+Tailscale HTTPS records the device hostname in certificate transparency logs; chat contents and files remain private to authenticated network access plus pairing. Companion cookies are HttpOnly, Secure over HTTPS, SameSite Strict; CSRF/origin/host checks apply. Pairing codes and session cookies are stored only as hashes in cache/phone-remote/phone.sqlite3. Ordinary browser drafts are stored locally; do not use a shared phone browser for private work. The installed Tailscale client, sign-in and network policy are managed independently.
+
+Limits
+This is a remote entry point into Ask the Editor, not unrestricted remote-desktop control. Codex/Claude subscription integration was explicitly deferred by the owner in favor of the existing assistant/local model. No API key or cloud-model subscription is added. Supported outputs and tasks remain limited by existing StoryLens workflows. Laptop sleep, stopped engine, mobile VPN disconnection and missing source/editor connections prevent work.
+
+Validation boundaries
+Focused unit, actual assistant-HTTP integration with model work disabled, file-range/ownership checks, mobile UI fixtures and real private HTTPS/pairing/chat-creation checks were performed. Fixture files are supporting tests, not a fabricated generated owner result. Actual Android command execution and owner-generated media acceptance are recorded separately in output/phone-remote-validation/status.json.

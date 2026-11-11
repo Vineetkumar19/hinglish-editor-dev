@@ -1,0 +1,47 @@
+Motion Graphics engine build — 24 October 2026
+
+First task implemented: selectable Remotion, Motion Canvas and preserved Hyperframes.
+New tools-panel and assistant requests default to Remotion. Explicit engine wording
+or the selected control is carried into the queued job and CLI. Saved legacy
+projects without an engine field continue to use Hyperframes. Native adapters
+render the existing typed plans with Remotion's frame clock or Motion Canvas's
+Scene2D / Renderer clock; neither wraps a Hyperframes video as native output.
+The short result label names the actual engine.
+
+Remotion 4.0.538, Motion Canvas 3.17.2 and their pinned dependencies are isolated
+under tools/motion-engines-runtime. Both production bundles compile and TypeScript,
+Python and changed JavaScript syntax checks pass. 22 focused engine/creative/element
+checks pass. HTTP checks confirm all three choices and Remotion default are served
+at http://127.0.0.1:8912/?tool=motion. This separate service does not start the
+publisher or automatic background recovery. No existing service/job was stopped.
+
+Coverage: native full-screen MP4, Connected studio, Element animation, Clean motion,
+Product spotlight and Step explainer. Existing saved reference cards, orbital 3D,
+reference-copy and transparent-overlay workflows retain Hyperframes. Unsupported
+combinations fail clearly; no automatic engine substitution. Premiere/CapCut handoff
+continues through the existing MP4/XML flow, not editable native engine components.
+
+Owner explicitly asked to build first and supply the next test script. No local LLM
+inference, generated sample, browser playback, video render or native editor test
+was run. No claim of end-to-end rendering, visual quality or comparative performance.
+The subsequent richer-component / rendered-Vision / single-correction architecture
+is pending as the next stage, rather than misrepresented as completed here.
+
+Broader assistant regression suite: 32 tests ran; 26 passed and six failed. The same
+six failures reproduce with the new motion-engine enum and prompt removed in memory:
+PlannerTests.test_local_llm_receives_context_and_always_closes,
+PlannerTests.test_multistep_model_cannot_replace_explicit_typography_number,
+PlannerTests.test_negated_or_multiple_templates_are_not_rebound,
+PlannerTests.test_typography_number_selects_exact_style,
+AssistantTests.test_voice_transcript_uses_the_same_dispatch_flow,
+AssistantTests.test_gaming_bundle_and_publication_keep_original_and_prepared_shorts.
+They concern existing planner context limits, legacy caption names and publication
+review expectations. No new failure appeared in that comparison. No unrelated fixes.
+
+Final adversarial source review after build verification: no additional code changes.
+Runtime output remains unverified because no render was authorized for this build
+stage. Native engine layout checks currently fit text and validate typed scene
+contracts; they are not an every-frame OCR/geometry audit or local Vision acceptance.
+Motion Canvas uses a pinned bootstrap API, so upgrading packages requires a fresh
+build/API check. The current native adapters retain existing recipe limitations;
+switching engines alone does not establish improved motion design.

@@ -1,0 +1,23 @@
+(()=>{'use strict';
+window.storylensEffectsLibrary=function({native,isBusy=()=>false,clearError=()=>{}}){
+ const $=id=>document.getElementById(id),session='fx-'+Date.now()+'-'+Math.random().toString(36).slice(2);let running=false,refreshing=false,visible=false,timer=null,catalog=[],serial=0;const pending=new Map();
+ const status=text=>{$('effectsTemplateStatus').textContent=text;};
+ function failure(e){const box=$('effectsTemplateError');box.hidden=false;box.textContent=window.storylensError?window.storylensError(e):e.message;const details=$('storylensErrorDetails');if(details)box.append(details);status('This step did not finish. Check the message, then retry.');}
+ function clean(){$('effectsTemplateError').hidden=true;$('effectsTemplateError').replaceChildren();clearError();}
+ async function call(action,payload={}){const r=await native('effectsLibrary',{...payload,action});if(r.error)throw Object.assign(Error(r.error),{code:r.code,details:r.details});return r;}
+ function button(text,fn){const el=document.createElement('button');el.type='button';el.textContent=text;el.onclick=fn;return el;}
+ async function work(fn){if(running||refreshing||isBusy()){status('Wait for the current Storylens task to finish.');return;}running=true;clean();try{return await fn();}catch(e){failure(e);}finally{running=false;}}
+ function render(){const nodes=catalog.map(p=>{const row=document.createElement('div');row.className='effects-template-row';let select=null;const add=button(p.name,()=>insert(p,select?.value));add.className='effects-template-add';add.title='Add this effect at the playhead';row.append(add);if(p.projects.length>1){select=document.createElement('select');select.setAttribute('aria-label','Project in '+p.name);for(const project of p.projects){const option=document.createElement('option');option.value=project.key;option.textContent=project.name;select.append(option);}select.value=p.projects[0].key;row.append(select);}return row;});$('effectsTemplatePacks').replaceChildren(...nodes);}
+ async function refresh(){if(running||refreshing)return;refreshing=true;try{const r=await call('catalog'),next=r.packs||[];if(JSON.stringify(next)!==JSON.stringify(catalog)){for(const [key,state] of pending)if(!next.some(p=>p.id===state.pack_id&&p.signature===state.signature)){pending.delete(key);$('effectsTemplateChoices').replaceChildren();}catalog=next;render();}if(!catalog.length)status('Add an extracted After Effects project to Effects templates, then refresh.');const names=r.archives||[];$('effectsTemplateArchives').textContent=names.length?'Extract these ZIP packs into Effects templates to use them: '+names.join(', '):'';}catch(e){failure(e);}finally{refreshing=false;}}
+ async function insert(pack,projectKey,choice){return work(async()=>{
+  const current=catalog.find(p=>p.id===pack.id&&p.signature===pack.signature);if(!current)throw Error('The library changed. Refresh Effects before adding this pack.');
+  const key=pack.id+':'+(projectKey||pack.projects[0]?.key),state=pending.get(key)||{pack_id:pack.id,signature:pack.signature,project_key:projectKey||pack.projects[0]?.key,request_id:session+'-'+(++serial)};pending.set(key,state);
+  status('Adding '+pack.name+'…');const r=await call('insert',{...state,...choice});
+  if(r.needs_choice){$('effectsTemplateChoices').replaceChildren(...r.choices.map(c=>button(c.name,()=>insert(pack,state.project_key,{scene_id:c.id,project_id:r.project_id,target_id:r.target_id}))));status('Choose the main composition for '+pack.name+'.');return;}
+  pending.delete(key);$('effectsTemplateChoices').replaceChildren();status(pack.name+' added'+(r.reused?' (previous click recovered)':'')+'. '+(r.slots?r.slots+' video placeholder'+(r.slots===1?'':'s')+' · Copy your video, then Paste next.':'No standard video holder was found; this template needs a holder mapping.'));
+ });}
+ async function media(action){return work(async()=>{const r=await native('copyPaste',{action,fit:'fill'});if(r.error)throw Object.assign(Error(r.error),{code:r.code,details:r.details});status(action==='copy'?'Copied '+(r.clipboard?.name||'media')+'. Select the effect layer, then Paste next.':action==='undo'?'Last Storylens paste undone.':(r.pasted?.media||'Video')+' placed · '+r.next+' of '+r.total+' placeholders.');});}
+ $('effectsTemplateRefresh').onclick=()=>refresh();$('effectsTemplateCopy').onclick=()=>media('copy');$('effectsTemplatePaste').onclick=()=>media('paste');$('effectsTemplateUndo').onclick=()=>media('undo');
+ window.addEventListener('focus',()=>{if(visible)refresh();});
+ return {isRunning:()=>running||refreshing,async select(){visible=true;await refresh();if(!timer)timer=setInterval(()=>{if(visible)refresh();},5000);},hide(){visible=false;},refresh};
+};})();

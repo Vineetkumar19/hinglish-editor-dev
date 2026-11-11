@@ -1,0 +1,3790 @@
+{
+  "scope": "Source-declared controls; dynamic choices and enabled states require the live application",
+  "screens": [
+    {
+      "path": "components/storylens/hinglish_app/finance_ui/index.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "refresh",
+          "label": "Refresh",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/activation.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "activate",
+          "label": "Activate this computer",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/ai-agents.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "refresh",
+          "label": "Refresh",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "connect",
+          "label": "Reconnect Agent Suite",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "developer-toggle",
+          "label": "Developer tools",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "check-all",
+          "label": "Check social accounts",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "All agents",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "refresh-comments",
+          "label": "Refresh inbox",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "All agents",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/auto-caption-2.html",
+      "controls": []
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/auto-captions.html",
+      "controls": []
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/beats.html",
+      "controls": [
+        {
+          "kind": "select",
+          "id": "density",
+          "label": "Light · fewer prominent beats Medium · balanced Strong · more detected beats",
+          "options": [
+            {
+              "label": "Light · fewer prominent beats",
+              "value": "light"
+            },
+            {
+              "label": "Medium · balanced",
+              "value": "medium"
+            },
+            {
+              "label": "Strong · more detected beats",
+              "value": "strong"
+            }
+          ]
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Timing and trimmed music",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "fps",
+          "label": "24 25 29.97 30 50 59.94 60",
+          "options": [
+            {
+              "label": "24",
+              "value": ""
+            },
+            {
+              "label": "25",
+              "value": ""
+            },
+            {
+              "label": "29.97",
+              "value": "29.97002997002997"
+            },
+            {
+              "label": "30",
+              "value": ""
+            },
+            {
+              "label": "50",
+              "value": ""
+            },
+            {
+              "label": "59.94",
+              "value": "59.94005994005994"
+            },
+            {
+              "label": "60",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "detect",
+          "label": "Detect beats",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "json",
+          "label": "Download marker JSON",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "csv",
+          "label": "Download marker CSV",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "style",
+          "label": "Punch zoom Smooth zoom",
+          "options": [
+            {
+              "label": "Punch zoom",
+              "value": "punch"
+            },
+            {
+              "label": "Smooth zoom",
+              "value": "smooth"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "effects",
+          "label": "Prepare effect plan",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/call-qa.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Voice assistant",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "import-open",
+          "label": "Import test recording",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "refresh",
+          "label": "Refresh",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "language-filter",
+          "label": "All languages",
+          "options": [
+            {
+              "label": "All languages",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "older",
+          "label": "Load older calls",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "back",
+          "label": "← Test calls",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Gateway timing",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "export-report",
+          "label": "Export anonymized",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "save-report",
+          "label": "Save anonymized JSON locally",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "save-review",
+          "label": "Save review",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "reload-call",
+          "label": "Reload saved review",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Recording retention",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "delete-call",
+          "label": "Remove recording and review",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "import-close",
+          "label": "Close import",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Transcript format",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "import-submit",
+          "label": "Add to test calls",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/chrome.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "openFolder",
+          "label": "Open extension folder",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "copy",
+          "label": "Copy code",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "inspect",
+          "label": "Check Instagram account",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "revoke",
+          "label": "Revoke Chrome connection",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "profile",
+          "label": "General Cricket Gaming",
+          "options": [
+            {
+              "label": "General",
+              "value": "general"
+            },
+            {
+              "label": "Cricket",
+              "value": "cricket"
+            },
+            {
+              "label": "Gaming",
+              "value": "gaming"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "save",
+          "label": "Save destination",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/cinematic-footage.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "browseFolder",
+          "label": "Folder",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "browseFiles",
+          "label": "Videos",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "runTool",
+          "label": "Extract shots",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "stopTool",
+          "label": "Stop",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "bestTab",
+          "label": "Best Shots",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "extrasTab",
+          "label": "Extras",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "openOutput",
+          "label": "Open folder",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Selection details",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/cinematic.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "latest",
+          "label": "Open latest completed reel",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "density",
+          "label": "Light · fewer beat points Medium · balanced Strong · more beat points",
+          "options": [
+            {
+              "label": "Light · fewer beat points",
+              "value": "light"
+            },
+            {
+              "label": "Medium · balanced",
+              "value": "medium"
+            },
+            {
+              "label": "Strong · more beat points",
+              "value": "strong"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "fps",
+          "label": "24 25 30 60",
+          "options": [
+            {
+              "label": "24",
+              "value": ""
+            },
+            {
+              "label": "25",
+              "value": ""
+            },
+            {
+              "label": "30",
+              "value": ""
+            },
+            {
+              "label": "60",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "detect",
+          "label": "Detect music beats",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "pace",
+          "label": "Cinematic · longer breathing room Balanced · travel & performance Action · quicker cuts",
+          "options": [
+            {
+              "label": "Cinematic · longer breathing room",
+              "value": "cinematic"
+            },
+            {
+              "label": "Balanced · travel & performance",
+              "value": "balanced"
+            },
+            {
+              "label": "Action · quicker cuts",
+              "value": "action"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aspect",
+          "label": "Vertical · 9:16 Landscape · 16:9 Square · 1:1",
+          "options": [
+            {
+              "label": "Vertical · 9:16",
+              "value": "9:16"
+            },
+            {
+              "label": "Landscape · 16:9",
+              "value": "16:9"
+            },
+            {
+              "label": "Square · 1:1",
+              "value": "1:1"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "resolution",
+          "label": "720 · faster preview 1080 · full quality",
+          "options": [
+            {
+              "label": "720 · faster preview",
+              "value": "720"
+            },
+            {
+              "label": "1080 · full quality",
+              "value": "1080"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "framing",
+          "label": "Fit · preserve the whole shot Fill · crop to the frame",
+          "options": [
+            {
+              "label": "Fit · preserve the whole shot",
+              "value": "fit"
+            },
+            {
+              "label": "Fill · crop to the frame",
+              "value": "fill"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "assemble",
+          "label": "Choose best sections & assemble",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "cancel",
+          "label": "Cancel processing",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Why these sections?",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "apply",
+          "label": "Apply selected effects to beats",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/color-grade.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Color Grade 1 RealFilm V2 · Rec.709",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Color Grade 2 Original 19-node structure",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "inputProfile",
+          "label": "SDR Rec.709 / Rec.709 HDR / Log / other",
+          "options": [
+            {
+              "label": "SDR Rec.709 / Rec.709",
+              "value": "rec709"
+            },
+            {
+              "label": "HDR / Log / other",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "runTool",
+          "label": "Apply to duplicate timeline",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "resolveLut",
+          "label": "No LUT selected",
+          "options": [
+            {
+              "label": "No LUT selected",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "resolveLutDownload",
+          "label": "Download LUT",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "resolveBuiltinLut",
+          "label": "Choose a LUT to preview in Resolve",
+          "options": [
+            {
+              "label": "Choose a LUT to preview in Resolve",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "restoreResolveGrade",
+          "label": "Restore previous grade",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Project setup",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/creator-analytics.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Overview",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Analytics",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Reports",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Connections",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "refresh",
+          "label": "Refresh accounts",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "All accounts",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Cricket",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Gaming",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "account",
+          "label": "Account",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "period",
+          "label": "Report period",
+          "options": [
+            {
+              "label": "Monthly",
+              "value": "monthly"
+            },
+            {
+              "label": "Quarterly",
+              "value": "quarterly"
+            },
+            {
+              "label": "Annual",
+              "value": "annual"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "quarter",
+          "label": "Quarter",
+          "options": [
+            {
+              "label": "Q1 · Jan–Mar",
+              "value": "1"
+            },
+            {
+              "label": "Q2 · Apr–Jun",
+              "value": "2"
+            },
+            {
+              "label": "Q3 · Jul–Sep",
+              "value": "3"
+            },
+            {
+              "label": "Q4 · Oct–Dec",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "metric",
+          "label": "Trend metric",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "download",
+          "label": "Download annual CSV",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "cancel-connect",
+          "label": "Cancel",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Connect",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "close-video",
+          "label": "Close",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/cricket-desk.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "reload",
+          "label": "Reload inbox",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Inbox not available?",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/documentary-intro.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "import",
+          "label": "Inspect and import",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "restore",
+          "label": "Restore documentary preview",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "resume",
+          "label": "Resume saved render",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Reference style review",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "style-inspect",
+          "label": "Inspect reference video",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Save reference observations",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Script and timed words",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "add",
+          "label": "Add source span",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Protect scoreboard and other revealing visuals",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "save",
+          "label": "Save story review",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "doc-style-card",
+          "label": "Use the documentary recipe",
+          "options": [
+            {
+              "label": "Use the documentary recipe",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "render",
+          "label": "Render 40-second preview",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/downloader.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "browseDownloadFolder",
+          "label": "Browse",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "downloadMode",
+          "label": "Video Video + separate audio Audio only",
+          "options": [
+            {
+              "label": "Video",
+              "value": "video"
+            },
+            {
+              "label": "Video + separate audio",
+              "value": "both"
+            },
+            {
+              "label": "Audio only",
+              "value": "audio"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "downloadQuality",
+          "label": "Highest available 4K · 2160p 2K · 1440p 1080p 720p",
+          "options": [
+            {
+              "label": "Highest available",
+              "value": "best"
+            },
+            {
+              "label": "4K · 2160p",
+              "value": "2160"
+            },
+            {
+              "label": "2K · 1440p",
+              "value": "1440"
+            },
+            {
+              "label": "1080p",
+              "value": "1080"
+            },
+            {
+              "label": "720p",
+              "value": "720"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "audioFormat",
+          "label": "WAV MP3",
+          "options": [
+            {
+              "label": "WAV",
+              "value": "wav"
+            },
+            {
+              "label": "MP3",
+              "value": "mp3"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "startDownload",
+          "label": "Add to queue",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "YouTube clip · optional",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "closeDownloadPreview",
+          "label": "Close",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/editor-link.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "pick-source",
+          "label": "Choose file",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Transfer format",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "copy",
+          "label": "Copy transfer location",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/editor-panel.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "storylensHome",
+          "label": "Storylens",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetSlideLeft",
+          "label": "Scroll sections left",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "animationPresetsHome",
+          "label": "Presets",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsHome",
+          "label": "Text",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsLibraryHome",
+          "label": "Effects",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetSlideRight",
+          "label": "Scroll sections right",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsCinematic",
+          "label": "Cinematic Text",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsRemoveBackground",
+          "label": "Remove BG",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsRestoreBackground",
+          "label": "Restore BG",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsCopyPaste",
+          "label": "Copy Paste",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsRefresh",
+          "label": "Refresh",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsTemplateRefresh",
+          "label": "Refresh",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsTemplateCopy",
+          "label": "Copy media",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsTemplatePaste",
+          "label": "Paste next",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "effectsTemplateUndo",
+          "label": "Undo paste",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetRemoveBg",
+          "label": "Remove BG",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetRestoreBg",
+          "label": "Restore BG",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetCopy",
+          "label": "Copy",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetPaste",
+          "label": "Paste",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetUndo",
+          "label": "Undo",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "presetRefresh",
+          "label": "Refresh",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Script & timeline",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "capture",
+          "label": "Use current timeline",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "contentFormat",
+          "label": "Short form · 5 options per keyword Long form · 2 options per keyword",
+          "options": [
+            {
+              "label": "Short form · 5 options per keyword",
+              "value": "short"
+            },
+            {
+              "label": "Long form · 2 options per keyword",
+              "value": "long"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "refreshCapcut",
+          "label": "Refresh projects",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateAliner",
+          "label": "Run Template Aliner",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateAlinerReset",
+          "label": "Read folders again",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Technical details",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Template fonts",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateImport",
+          "label": "Run Import Template",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateImportStop",
+          "label": "Stop",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Technical details",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateTextRun",
+          "label": "Run Template Text",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateTextStop",
+          "label": "Stop",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Settings",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateTextNarration",
+          "label": "Choose narration",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateTextUseTimeline",
+          "label": "Use timeline audio",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Technical details",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "animationPresetCC",
+          "label": "CC",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "animationPresetEffects",
+          "label": "Effects",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "animationPresetCreate",
+          "label": "Create adjustment layer",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "animationPresetRefresh",
+          "label": "Refresh",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "animationPresetTarget",
+          "label": "Selected layer(s) New adjustment layer",
+          "options": [
+            {
+              "label": "Selected layer(s)",
+              "value": "selected"
+            },
+            {
+              "label": "New adjustment layer",
+              "value": "adjustment"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "imageDownloadPaste",
+          "label": "Ctrl+V / Ctrl+B",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "imageDownloadSubmit",
+          "label": "Download",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "imageDownloadRetry",
+          "label": "Retry",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "captionStyle",
+          "label": "Caption style",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "soundAction",
+          "label": "Keyword folders + draft timeline AI places sounds & background music",
+          "options": [
+            {
+              "label": "Keyword folders + draft timeline",
+              "value": "recommend"
+            },
+            {
+              "label": "AI places sounds & background music",
+              "value": "auto"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "savedSound",
+          "label": "Choose a saved review",
+          "options": [
+            {
+              "label": "Choose a saved review",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "refreshSounds",
+          "label": "Refresh reviews",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "openSounds",
+          "label": "Review sound alternatives",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "History",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "savedBroll",
+          "label": "Choose a saved result",
+          "options": [
+            {
+              "label": "Choose a saved result",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "refreshBroll",
+          "label": "Refresh results",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "openBroll",
+          "label": "Open",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "History",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "savedVisual",
+          "label": "Choose a saved review",
+          "options": [
+            {
+              "label": "Choose a saved review",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "refreshVisuals",
+          "label": "Refresh reviews",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "openVisuals",
+          "label": "Open",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "run",
+          "label": "Run Smart Clean",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "importResult",
+          "label": "Add result to editor",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "useSelected",
+          "label": "Use selected clips",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "useMusic",
+          "label": "Use selected music",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Settings",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateCollapseNow",
+          "label": "Collapse folders",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "templateFontCheck",
+          "label": "Check fonts",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/finance.html",
+      "controls": []
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/hook-drafts.html",
+      "controls": [
+        {
+          "kind": "select",
+          "id": "hook-intro-type",
+          "label": "Instagram Reel YouTube Gaming YouTube",
+          "options": [
+            {
+              "label": "Instagram Reel",
+              "value": "reel"
+            },
+            {
+              "label": "YouTube",
+              "value": "youtube"
+            },
+            {
+              "label": "Gaming YouTube",
+              "value": "gaming"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "hook-apply-timing",
+          "label": "Apply custom timing",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "gaming-intro-browse",
+          "label": "Choose video",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "gaming-intro-create",
+          "label": "Create gaming intro",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "gaming-intro-resume",
+          "label": "Resume render",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Gaming intro history",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "History",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "hook-play",
+          "label": "Play intro",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "hook-stop",
+          "label": "Stop",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Picture cuts",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Sound layers",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/important-captions.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "transcribe",
+          "label": "Transcribe video",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Add word or phrase",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "word-list",
+          "label": "Spoken word",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "word-count",
+          "label": "Words in phrase",
+          "options": [
+            {
+              "label": "1 word",
+              "value": "1"
+            },
+            {
+              "label": "2 words",
+              "value": "2"
+            },
+            {
+              "label": "3 words",
+              "value": "3"
+            },
+            {
+              "label": "4 words",
+              "value": "4"
+            },
+            {
+              "label": "5 words",
+              "value": "5"
+            },
+            {
+              "label": "6 words",
+              "value": "6"
+            },
+            {
+              "label": "7 words",
+              "value": "7"
+            },
+            {
+              "label": "8 words",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "add",
+          "label": "Add",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "build",
+          "label": "Start caption",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/index.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "",
+          "label": "AI Agents",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Voice assistant",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "✂ Smart Clean Remove silent space 1",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "≋ Smart Edit Arrange clips by meaning 2",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "CC Auto Captions Premium Roman Hinglish 3",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Sounds Recordings, permission and recipes",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Match Cut Finder Find transitions between different scenes",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Intro Create Instagram hooks and YouTube intro drafts",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Reel Recreate",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Reference Reel Match a reference timeline with your footage",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "▶ Add B-roll Footage for what you say 4",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "◈ Smart Visuals Real people, logos, facts 5",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "⤢ Smart Zoom Zooms on key moments 6",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "♪ Sound Design Music + effects by meaning 7",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "◉ Eye Contact Look into the camera 8",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "▯ Long to Shorts Best hook moments as shorts 9",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "◧ Motion Graphics Animated key moments, your style 11",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "🎮 Gaming Highlights Strong moments from a stream 12",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "▧ Thumbnail Covers, posts, posters & images 13",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "◩ Cinematic Footage Unique short shots & extras 14",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "◷ Selective Slow Motion Find moving shots and edit speed points",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "♫ Beat Studio Music markers & effects 15",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Downloader Save videos & extract audio 16",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Photo Collector Collect photos from a screenshot 17",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Cricket Desk Cricket memes & news inbox",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Gaming Desk Game releases, updates & memes",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Call QA Review test calls with playable evidence",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Editor Handoff Export between Premiere, After Effects, Resolve & CapCut",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "VO Voice Clone Your voice, any script 18",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Color Grade",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Import Template",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Template Aligner",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Template Text",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Copy Paste",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Image Downloader",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Template Library",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Animation Presets",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "ac-method",
+          "label": "Hyperframes Local LLM + Vision",
+          "options": [
+            {
+              "label": "Hyperframes",
+              "value": "hyperframes"
+            },
+            {
+              "label": "Local LLM + Vision",
+              "value": "local_llm"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "ac-format",
+          "label": "Vertical · 9:16 Square · 1:1 Horizontal · 16:9",
+          "options": [
+            {
+              "label": "Vertical · 9:16",
+              "value": "instagram_vertical"
+            },
+            {
+              "label": "Square · 1:1",
+              "value": "square"
+            },
+            {
+              "label": "Horizontal · 16:9",
+              "value": "youtube_horizontal"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "ac-generate",
+          "label": "Generate captions",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "ac-reconnect",
+          "label": "Check saved progress",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Local vision review · not a guarantee of an exact match",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "browse",
+          "label": "Choose videos",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "browseFolder",
+          "label": "Choose folder",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "thumbnailCategory",
+          "label": "YouTube thumbnail Instagram cover Social post Poster General image",
+          "options": [
+            {
+              "label": "YouTube thumbnail",
+              "value": "youtube"
+            },
+            {
+              "label": "Instagram cover",
+              "value": "instagram"
+            },
+            {
+              "label": "Social post",
+              "value": "post"
+            },
+            {
+              "label": "Poster",
+              "value": "poster"
+            },
+            {
+              "label": "General image",
+              "value": "general"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "thumbnailAspect",
+          "label": "Match category Landscape · 16:9 Reel cover · 9:16 Portrait post · 4:5 Square · 1:1 Poster · 2:3 Profile picture · 1:1",
+          "options": [
+            {
+              "label": "Match category",
+              "value": "auto"
+            },
+            {
+              "label": "Landscape · 16:9",
+              "value": "16:9"
+            },
+            {
+              "label": "Reel cover · 9:16",
+              "value": "9:16"
+            },
+            {
+              "label": "Portrait post · 4:5",
+              "value": "4:5"
+            },
+            {
+              "label": "Square · 1:1",
+              "value": "1:1"
+            },
+            {
+              "label": "Poster · 2:3",
+              "value": "2:3"
+            },
+            {
+              "label": "Profile picture · 1:1",
+              "value": "profile"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "thumbnailCount",
+          "label": "1 image 2 options 3 options 4 options",
+          "options": [
+            {
+              "label": "1 image",
+              "value": "1"
+            },
+            {
+              "label": "2 options",
+              "value": "2"
+            },
+            {
+              "label": "3 options",
+              "value": "3"
+            },
+            {
+              "label": "4 options",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "loadScript",
+          "label": "Load .txt file",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "captionContent",
+          "label": "Speech / dialogue Song lyrics — Hinglish",
+          "options": [
+            {
+              "label": "Speech / dialogue",
+              "value": "speech"
+            },
+            {
+              "label": "Song lyrics — Hinglish",
+              "value": "lyrics"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "loadCaptionScript",
+          "label": "Load reference .txt",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "thumbnailStyle",
+          "label": "Cinematic",
+          "options": [
+            {
+              "label": "Cinematic",
+              "value": "cinematic"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "thumbnailTextMode",
+          "label": "Let AI suggest Use my exact words No text",
+          "options": [
+            {
+              "label": "Let AI suggest",
+              "value": "auto"
+            },
+            {
+              "label": "Use my exact words",
+              "value": "exact"
+            },
+            {
+              "label": "No text",
+              "value": "none"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "zoomStyle",
+          "label": "Smooth (recommended) Mixed (smooth + punch) Punch-in",
+          "options": [
+            {
+              "label": "Smooth (recommended)",
+              "value": "smooth"
+            },
+            {
+              "label": "Mixed (smooth + punch)",
+              "value": "mixed"
+            },
+            {
+              "label": "Punch-in",
+              "value": "punch"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "zoomStrength",
+          "label": "Subtle 106% Medium 112% Strong 118%",
+          "options": [
+            {
+              "label": "Subtle 106%",
+              "value": "subtle"
+            },
+            {
+              "label": "Medium 112%",
+              "value": "medium"
+            },
+            {
+              "label": "Strong 118%",
+              "value": "strong"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "zoomFrequency",
+          "label": "Low Medium High",
+          "options": [
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "Medium",
+              "value": "medium"
+            },
+            {
+              "label": "High",
+              "value": "high"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "eyeReach",
+          "label": "Near the lens Further away",
+          "options": [
+            {
+              "label": "Near the lens",
+              "value": "near"
+            },
+            {
+              "label": "Further away",
+              "value": "far"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "eyeSize",
+          "label": "2 · smaller 3 · default 4 5 6 · larger",
+          "options": [
+            {
+              "label": "2 · smaller",
+              "value": "2"
+            },
+            {
+              "label": "3 · default",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6 · larger",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoMethod",
+          "label": "Prompt to video Reference guided Motion / 3D explainer",
+          "options": [
+            {
+              "label": "Prompt to video",
+              "value": "generative"
+            },
+            {
+              "label": "Reference guided",
+              "value": "reference"
+            },
+            {
+              "label": "Motion / 3D explainer",
+              "value": "motion"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoQuality",
+          "label": "Full · 5-second clips Quick preview · 2-second clips",
+          "options": [
+            {
+              "label": "Full · 5-second clips",
+              "value": "full"
+            },
+            {
+              "label": "Quick preview · 2-second clips",
+              "value": "preview"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoMotionStyle",
+          "label": "Orbital depth · 3D Clean motion Product spotlight Step explainer Connected studio",
+          "options": [
+            {
+              "label": "Orbital depth · 3D",
+              "value": "orbit"
+            },
+            {
+              "label": "Clean motion",
+              "value": "gsap"
+            },
+            {
+              "label": "Product spotlight",
+              "value": "product"
+            },
+            {
+              "label": "Step explainer",
+              "value": "explainer"
+            },
+            {
+              "label": "Connected studio",
+              "value": "studio"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoCount",
+          "label": "Low (~1 per 4 min) Medium (~1 per 2 min) High (~1 per min) Exactly 3 Exactly 5 Exactly 10",
+          "options": [
+            {
+              "label": "Low (~1 per 4 min)",
+              "value": "low"
+            },
+            {
+              "label": "Medium (~1 per 2 min)",
+              "value": "medium"
+            },
+            {
+              "label": "High (~1 per min)",
+              "value": "high"
+            },
+            {
+              "label": "Exactly 3",
+              "value": "3"
+            },
+            {
+              "label": "Exactly 5",
+              "value": "5"
+            },
+            {
+              "label": "Exactly 10",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoAspect",
+          "label": "Same as the video (16:9 for a script) 16:9 YouTube 9:16 Reels / Shorts 1:1 Square",
+          "options": [
+            {
+              "label": "Same as the video (16:9 for a script)",
+              "value": "auto"
+            },
+            {
+              "label": "16:9 YouTube",
+              "value": "16:9"
+            },
+            {
+              "label": "9:16 Reels / Shorts",
+              "value": "9:16"
+            },
+            {
+              "label": "1:1 Square",
+              "value": "1:1"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoOptions",
+          "label": "1 2 (you pick) 3",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2 (you pick)",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "aivideoBrain",
+          "label": "Auto (Ollama if running) Ollama qwen3 Built-in Qwen",
+          "options": [
+            {
+              "label": "Auto (Ollama if running)",
+              "value": "auto"
+            },
+            {
+              "label": "Ollama qwen3",
+              "value": "ollama"
+            },
+            {
+              "label": "Built-in Qwen",
+              "value": "local"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "+ Save the prompt as my style",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "motionEngine",
+          "label": "Remotion Motion Canvas Hyperframes",
+          "options": [
+            {
+              "label": "Remotion",
+              "value": "remotion"
+            },
+            {
+              "label": "Motion Canvas",
+              "value": "motion-canvas"
+            },
+            {
+              "label": "Hyperframes",
+              "value": "hyperframes"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionCount",
+          "label": "Low (~2 per min) Medium (~4 per min) High (~6 per min) Exactly 5 Exactly 10 Exactly 20",
+          "options": [
+            {
+              "label": "Low (~2 per min)",
+              "value": "low"
+            },
+            {
+              "label": "Medium (~4 per min)",
+              "value": "medium"
+            },
+            {
+              "label": "High (~6 per min)",
+              "value": "high"
+            },
+            {
+              "label": "Exactly 5",
+              "value": "5"
+            },
+            {
+              "label": "Exactly 10",
+              "value": "10"
+            },
+            {
+              "label": "Exactly 20",
+              "value": "20"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionMode",
+          "label": "AI decides (full screen or card) All full screen (V2) Cards over my video where they fit (V3)",
+          "options": [
+            {
+              "label": "AI decides (full screen or card)",
+              "value": "auto"
+            },
+            {
+              "label": "All full screen (V2)",
+              "value": "full"
+            },
+            {
+              "label": "Cards over my video where they fit (V3)",
+              "value": "overlay"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionCoverage",
+          "label": "Auto (full video up to 3 min, else key moments) Full motion-graphics video (every line) Key moments on my timeline",
+          "options": [
+            {
+              "label": "Auto (full video up to 3 min, else key moments)",
+              "value": "auto"
+            },
+            {
+              "label": "Full motion-graphics video (every line)",
+              "value": "full"
+            },
+            {
+              "label": "Key moments on my timeline",
+              "value": "key"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionAssets",
+          "label": "Web + Pexels/Pixabay + local images Web + Pexels/Pixabay only Local images for objects",
+          "options": [
+            {
+              "label": "Web + Pexels/Pixabay + local images",
+              "value": "all"
+            },
+            {
+              "label": "Web + Pexels/Pixabay only",
+              "value": "web"
+            },
+            {
+              "label": "Local images for objects",
+              "value": "ai"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionAspect",
+          "label": "16:9 YouTube 9:16 Reels / Shorts 1:1 Square",
+          "options": [
+            {
+              "label": "16:9 YouTube",
+              "value": "auto"
+            },
+            {
+              "label": "9:16 Reels / Shorts",
+              "value": "9:16"
+            },
+            {
+              "label": "1:1 Square",
+              "value": "1:1"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionBrain",
+          "label": "Auto (Ollama if running) Ollama qwen3 Built-in Qwen",
+          "options": [
+            {
+              "label": "Auto (Ollama if running)",
+              "value": "auto"
+            },
+            {
+              "label": "Ollama qwen3",
+              "value": "ollama"
+            },
+            {
+              "label": "Built-in Qwen",
+              "value": "local"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "motionQuality",
+          "label": "Full quality Quick preview · 360p",
+          "options": [
+            {
+              "label": "Full quality",
+              "value": "full"
+            },
+            {
+              "label": "Quick preview · 360p",
+              "value": "preview"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "motionLearnFiles",
+          "label": "+ Learn from pictures / videos",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "motionLearnFolder",
+          "label": "+ Learn from a folder",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "shortsLook",
+          "label": "My template (framed 16:9 video) Face crop 9:16 (follows the face)",
+          "options": [
+            {
+              "label": "My template (framed 16:9 video)",
+              "value": "template"
+            },
+            {
+              "label": "Face crop 9:16 (follows the face)",
+              "value": "face"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "shortsPieces",
+          "label": "Up to 3 parts (hook + payoff) Up to 2 parts One straight part",
+          "options": [
+            {
+              "label": "Up to 3 parts (hook + payoff)",
+              "value": "3"
+            },
+            {
+              "label": "Up to 2 parts",
+              "value": "2"
+            },
+            {
+              "label": "One straight part",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "shortsBrain",
+          "label": "Auto (Ollama if running) Ollama Built-in Qwen",
+          "options": [
+            {
+              "label": "Auto (Ollama if running)",
+              "value": "auto"
+            },
+            {
+              "label": "Ollama",
+              "value": "ollama"
+            },
+            {
+              "label": "Built-in Qwen",
+              "value": "local"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "soundStyle",
+          "label": "Auto (AI decides) Cinematic Funny / meme Chill vlog Emotional story",
+          "options": [
+            {
+              "label": "Auto (AI decides)",
+              "value": "auto"
+            },
+            {
+              "label": "Cinematic",
+              "value": "cinematic"
+            },
+            {
+              "label": "Funny / meme",
+              "value": "funny"
+            },
+            {
+              "label": "Chill vlog",
+              "value": "chill"
+            },
+            {
+              "label": "Emotional story",
+              "value": "emotional"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "soundDensity",
+          "label": "Low Medium High",
+          "options": [
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "Medium",
+              "value": "medium"
+            },
+            {
+              "label": "High",
+              "value": "high"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "soundContentForm",
+          "label": "Short form Long form",
+          "options": [
+            {
+              "label": "Short form",
+              "value": "short"
+            },
+            {
+              "label": "Long form",
+              "value": "long"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "pickMusic",
+          "label": "Change",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "pickSfx",
+          "label": "Change",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "visualsDensity",
+          "label": "Low Medium High",
+          "options": [
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "Medium",
+              "value": "medium"
+            },
+            {
+              "label": "High",
+              "value": "high"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "visualsPresentation",
+          "label": "Choose for the story Full screen Moving pop-up Cutout rising from below Behind the speaker",
+          "options": [
+            {
+              "label": "Choose for the story",
+              "value": "auto"
+            },
+            {
+              "label": "Full screen",
+              "value": "fullscreen"
+            },
+            {
+              "label": "Moving pop-up",
+              "value": "popup"
+            },
+            {
+              "label": "Cutout rising from below",
+              "value": "cutout"
+            },
+            {
+              "label": "Behind the speaker",
+              "value": "behind"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "visualsBrain",
+          "label": "Auto (Ollama if running) Ollama Built-in Qwen",
+          "options": [
+            {
+              "label": "Auto (Ollama if running)",
+              "value": "auto"
+            },
+            {
+              "label": "Ollama",
+              "value": "ollama"
+            },
+            {
+              "label": "Built-in Qwen",
+              "value": "local"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "openBrollSettings",
+          "label": "B-roll settings",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "brollOptionsPerMoment",
+          "label": "1 2 3 4 5",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "addLibrary",
+          "label": "+ Add footage folder",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Close",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "saveBrollSettings",
+          "label": "Save settings",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "VIDEO 1 Caption 01 - Blue Keyword Stack",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "VIDEO 2 Caption 02 - Lime Keyword Zoom",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "VIDEO 3 Caption 03 - Serif Soft Focus",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "VIDEO 4 Caption 04 - Legacy Serif",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "VIDEO 5 Caption 05 - Bold Red Word Clusters",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "PREMIUM ANCHOR supporting phrase Typography 3",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "PREMIUM fir sawal uthata hai Typography 4",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "PREMIUM vakt aur fasle ko par Typography 5",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "REFERENCE SIMPLE WORDS Kinetic Documentary",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "REFERENCE KOLKATTA Documentary Outline",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "REFERENCE PRESSURE Documentary Echo",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "CINEMATIC Your story unfolds Cinematic Script Mix",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "CINEMATIC Every story matters Cinematic Clean Reveal",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "CINEMATIC Overthinking Caption 08 - Kinetic Gold",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "CINEMATIC single post Caption 06 - Serif Circle",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Output settings Optional",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "format",
+          "label": "Same as source Instagram vertical Square 1:1 YouTube horizontal",
+          "options": [
+            {
+              "label": "Same as source",
+              "value": "source"
+            },
+            {
+              "label": "Instagram vertical",
+              "value": "instagram_vertical"
+            },
+            {
+              "label": "Square 1:1",
+              "value": "square"
+            },
+            {
+              "label": "YouTube horizontal",
+              "value": "youtube_horizontal"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "device",
+          "label": "CPU NVIDIA RTX",
+          "options": [
+            {
+              "label": "CPU",
+              "value": "cpu"
+            },
+            {
+              "label": "NVIDIA RTX",
+              "value": "cuda"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "pacing",
+          "label": "Natural Tight Relaxed",
+          "options": [
+            {
+              "label": "Natural",
+              "value": "natural"
+            },
+            {
+              "label": "Tight",
+              "value": "tight"
+            },
+            {
+              "label": "Relaxed",
+              "value": "relaxed"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "run",
+          "label": "✂ Clean my videos RUN",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Activity",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "openResult",
+          "label": "View Result",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "openFolder",
+          "label": "Open Folder",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/intro-create.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "load",
+          "label": "Load candidates",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "restore",
+          "label": "Restore saved preview",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "resume",
+          "label": "Resume saved render",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "create",
+          "label": "Render three previews",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/match-cut.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "pick",
+          "label": "Add folder",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "pickFiles",
+          "label": "Choose videos",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "run",
+          "label": "Find matches",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "cancel",
+          "label": "Stop scan",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "resume",
+          "label": "Retry saved scan",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "choices",
+          "label": "Preview",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "export",
+          "label": "Export",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "exportXml",
+          "label": "Editable XML",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "closeExport",
+          "label": "Close",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/native-curation.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "connect",
+          "label": "Read open After Effects project",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "inspect",
+          "label": "Inspect template",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "restore",
+          "label": "Restore saved native work",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "load",
+          "label": "Load reviewed footage",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "suggest",
+          "label": "Propose slots from story",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "downloadSlotMap",
+          "label": "Download slot map JSON",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "populate",
+          "label": "Save separate populated project",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "render",
+          "label": "Render native preview",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "nativeIntros",
+          "label": "Create native intro comparisons",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "comparisonPart",
+          "label": "Intro A Intro B Intro C Trial A Trial B Trial C",
+          "options": [
+            {
+              "label": "Intro A",
+              "value": "intro_A"
+            },
+            {
+              "label": "Intro B",
+              "value": "intro_B"
+            },
+            {
+              "label": "Intro C",
+              "value": "intro_C"
+            },
+            {
+              "label": "Trial A",
+              "value": "trial_A"
+            },
+            {
+              "label": "Trial B",
+              "value": "trial_B"
+            },
+            {
+              "label": "Trial C",
+              "value": "trial_C"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "renderComparison",
+          "label": "Render selected comparison",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/photos.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "collectPhotos",
+          "label": "Submit",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/prepare-post.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "connections",
+          "label": "Connections",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Cricket",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Gaming",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Long",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Shorts",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Highlights",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "connectYouTube",
+          "label": "Connect YouTube",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "pickVideo",
+          "label": "Choose video",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "pickThumbnail",
+          "label": "Choose thumbnail",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "saveThumbnail",
+          "label": "Save thumbnail selection",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "run",
+          "label": "Run",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "cancelLong",
+          "label": "Cancel Long video",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "clear",
+          "label": "Clear this screen. Saved uploads and schedules are kept.",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "audience",
+          "label": "Choose… Not made for kids Made for kids",
+          "options": [
+            {
+              "label": "Choose…",
+              "value": ""
+            },
+            {
+              "label": "Not made for kids",
+              "value": "no"
+            },
+            {
+              "label": "Made for kids",
+              "value": "yes"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "synthetic",
+          "label": "Choose… No Yes",
+          "options": [
+            {
+              "label": "Choose…",
+              "value": ""
+            },
+            {
+              "label": "No",
+              "value": "no"
+            },
+            {
+              "label": "Yes",
+              "value": "yes"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "longPost",
+          "label": "Post now",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "longSchedule",
+          "label": "Schedule",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "saved",
+          "label": "Saved videos",
+          "options": [
+            {
+              "label": "Select a saved video",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "startSaved",
+          "label": "Start",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "cancelReview",
+          "label": "Cancel preparation",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "clearReview",
+          "label": "Clear these results. Saved uploads and schedules are kept.",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "clip",
+          "label": "Prepared clip",
+          "options": [
+            {
+              "label": "Clip 1",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "postClips",
+          "label": "Post now",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "scheduleClips",
+          "label": "Schedule",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "savedHighlights",
+          "label": "Saved Highlights",
+          "options": [
+            {
+              "label": "Select saved Highlights",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "startHighlightShorts",
+          "label": "Start",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/preview-reader-proof.html",
+      "controls": []
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/publisher.html",
+      "controls": []
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/reel-recreate.html",
+      "controls": [
+        {
+          "kind": "select",
+          "id": "style",
+          "label": "Caption 01 - Blue Keyword Stack Caption 02 - Lime Keyword Zoom Caption 03 - Serif Soft Focus Caption 04 - Legacy Serif Caption 05 - Bold Red Word Clus",
+          "options": [
+            {
+              "label": "Caption 01 - Blue Keyword Stack",
+              "value": "caption_1"
+            },
+            {
+              "label": "Caption 02 - Lime Keyword Zoom",
+              "value": "caption_2"
+            },
+            {
+              "label": "Caption 03 - Serif Soft Focus",
+              "value": "caption_3"
+            },
+            {
+              "label": "Caption 04 - Legacy Serif",
+              "value": "caption_4"
+            },
+            {
+              "label": "Caption 05 - Bold Red Word Clusters",
+              "value": "caption_5"
+            },
+            {
+              "label": "Typography 3",
+              "value": "typography_3"
+            },
+            {
+              "label": "Typography 4",
+              "value": "typography_4"
+            },
+            {
+              "label": "Typography 5",
+              "value": "typography_5"
+            },
+            {
+              "label": "Cinematic Script Mix",
+              "value": "cinematic_mixed_draft"
+            },
+            {
+              "label": "Cinematic Clean Reveal",
+              "value": "cinematic_clean_draft"
+            },
+            {
+              "label": "Caption 08 - Kinetic Gold",
+              "value": "kinetic_gold_draft"
+            },
+            {
+              "label": "Caption 06 - Serif Circle",
+              "value": "serif_circle_draft"
+            },
+            {
+              "label": "Kinetic Documentary",
+              "value": "kinetic_documentary"
+            },
+            {
+              "label": "Documentary Outline",
+              "value": "documentary_outline"
+            },
+            {
+              "label": "Documentary Echo",
+              "value": "documentary_echo"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "pace",
+          "label": "Slow Medium Fast",
+          "options": [
+            {
+              "label": "Slow",
+              "value": "slow"
+            },
+            {
+              "label": "Medium",
+              "value": "medium"
+            },
+            {
+              "label": "Fast",
+              "value": "fast"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "source",
+          "label": "Auto · spoken voice first Spoken voice Song lyrics",
+          "options": [
+            {
+              "label": "Auto · spoken voice first",
+              "value": "auto"
+            },
+            {
+              "label": "Spoken voice",
+              "value": "speech"
+            },
+            {
+              "label": "Song lyrics",
+              "value": "lyrics"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "prepare",
+          "label": "Prepare reel",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "retryConnection",
+          "label": "Retry connection",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "newStyle",
+          "label": "Caption 01 - Blue Keyword Stack Caption 02 - Lime Keyword Zoom Caption 03 - Serif Soft Focus Caption 04 - Legacy Serif Caption 05 - Bold Red Word Clus",
+          "options": [
+            {
+              "label": "Caption 01 - Blue Keyword Stack",
+              "value": "caption_1"
+            },
+            {
+              "label": "Caption 02 - Lime Keyword Zoom",
+              "value": "caption_2"
+            },
+            {
+              "label": "Caption 03 - Serif Soft Focus",
+              "value": "caption_3"
+            },
+            {
+              "label": "Caption 04 - Legacy Serif",
+              "value": "caption_4"
+            },
+            {
+              "label": "Caption 05 - Bold Red Word Clusters",
+              "value": "caption_5"
+            },
+            {
+              "label": "Typography 3",
+              "value": "typography_3"
+            },
+            {
+              "label": "Typography 4",
+              "value": "typography_4"
+            },
+            {
+              "label": "Typography 5",
+              "value": "typography_5"
+            },
+            {
+              "label": "Cinematic Script Mix",
+              "value": "cinematic_mixed_draft"
+            },
+            {
+              "label": "Cinematic Clean Reveal",
+              "value": "cinematic_clean_draft"
+            },
+            {
+              "label": "Caption 08 - Kinetic Gold",
+              "value": "kinetic_gold_draft"
+            },
+            {
+              "label": "Caption 06 - Serif Circle",
+              "value": "serif_circle_draft"
+            },
+            {
+              "label": "Kinetic Documentary",
+              "value": "kinetic_documentary"
+            },
+            {
+              "label": "Documentary Outline",
+              "value": "documentary_outline"
+            },
+            {
+              "label": "Documentary Echo",
+              "value": "documentary_echo"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "update",
+          "label": "Update captions and style",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "import",
+          "label": "Add to After Effects",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/reference-reel.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "pick-folder",
+          "label": "Choose folder",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Build reel",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/selective-slow-motion.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "browse",
+          "label": "Browse folder",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "addVideos",
+          "label": "Add videos",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Find moments",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "cancel",
+          "label": "Stop",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "retry",
+          "label": "Resume job",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "batch",
+          "label": "Render recommended speeds",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Scan details",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "variant",
+          "label": "0.7× 0.6× 0.5×",
+          "options": [
+            {
+              "label": "0.7×",
+              "value": ""
+            },
+            {
+              "label": "0.6×",
+              "value": ""
+            },
+            {
+              "label": "0.5×",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "addPoint",
+          "label": "Add point",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "addRamps",
+          "label": "Ramp from 1×",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "resetPoints",
+          "label": "Reset variant",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "backend",
+          "label": "Automatic / motion interpolation Frame sampling / repetition Frame blending",
+          "options": [
+            {
+              "label": "Automatic / motion interpolation",
+              "value": "interpolate"
+            },
+            {
+              "label": "Frame sampling / repetition",
+              "value": "repeat"
+            },
+            {
+              "label": "Frame blending",
+              "value": "blend"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "audio",
+          "label": "Mute Preserve pitch at flat speeds Keep original audio separately",
+          "options": [
+            {
+              "label": "Mute",
+              "value": "mute"
+            },
+            {
+              "label": "Preserve pitch at flat speeds",
+              "value": "pitch"
+            },
+            {
+              "label": "Keep original audio separately",
+              "value": "separate"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Render selected previews",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "open",
+          "label": "Open Slow Motion folder",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "History",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "restoreSlow",
+          "label": "Open last review",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/sound-library.html",
+      "controls": [
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Source and usage details",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "",
+          "label": "Import for review",
+          "options": []
+        },
+        {
+          "kind": "select",
+          "id": "sound-category-filter",
+          "label": "All categories",
+          "options": [
+            {
+              "label": "All categories",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Prepare an ambience loop",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "loop-render",
+          "label": "Create loop for audition",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Timing and levels",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "mix",
+          "label": "Render recipe preview",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/stock-browser.html",
+      "controls": [
+        {
+          "kind": "button",
+          "id": "pair",
+          "label": "Connect Chrome",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "refresh",
+          "label": "Check connection",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "disconnect",
+          "label": "Disconnect",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Access details",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/voiceover.html",
+      "controls": [
+        {
+          "kind": "select",
+          "id": "voice",
+          "label": "Save your voice first",
+          "options": [
+            {
+              "label": "Save your voice first",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "id": "language",
+          "label": "Auto · English / Hindi / Hinglish English Hindi",
+          "options": [
+            {
+              "label": "Auto · English / Hindi / Hinglish",
+              "value": "auto"
+            },
+            {
+              "label": "English",
+              "value": "en"
+            },
+            {
+              "label": "Hindi",
+              "value": "hi"
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "generate",
+          "label": "Generate voice clone",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Technical details",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "save",
+          "label": "Save voice",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "History",
+          "options": []
+        },
+        {
+          "kind": "button",
+          "id": "refresh",
+          "label": "Refresh",
+          "options": []
+        }
+      ]
+    },
+    {
+      "path": "components/storylens/hinglish_app/static/workflow.html",
+      "controls": [
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Saved batches",
+          "options": []
+        },
+        {
+          "kind": "summary",
+          "id": "",
+          "label": "Scheduling & recovery",
+          "options": []
+        }
+      ]
+    }
+  ]
+}

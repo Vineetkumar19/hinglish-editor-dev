@@ -1,0 +1,799 @@
+{
+  "scene_layers": {
+    "layers": [
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the sampled bright_sunny_day ambience event, which spans the first 5 seconds of the scene.",
+        "event_id": "b31fdd0bc81b",
+        "intent": "bright_sunny_day",
+        "level_db": -12,
+        "offset": 0.0,
+        "role": "bed",
+        "strength": 1,
+        "type": "ambience",
+        "why": "Provides a foundational ambient layer representing the bright, sunny environment of the water park. This supports the whimsical and playful tone of the scene."
+      },
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the visual_interval of people walking on wet concrete surfaces, which is observed for the first 5 seconds.",
+        "event_id": "ffbccdee87de",
+        "intent": "people_walking",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "texture",
+        "strength": 1,
+        "type": "foley",
+        "why": "Adds a subtle, continuous texture of footsteps on wet concrete to reinforce the presence of people in the scene."
+      },
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the visual_interval of water jets spraying and splashing in the background, which is observed for the first 5 seconds.",
+        "event_id": "3a0c75c04682",
+        "intent": "water_splash",
+        "level_db": -15,
+        "offset": 0.0,
+        "role": "texture",
+        "strength": 1,
+        "type": "foley",
+        "why": "Adds a quiet, continuous texture of water splashing in the background to support the water park environment."
+      },
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the visual_interval of people running on wet concrete surfaces, which is observed for the first 5 seconds.",
+        "event_id": "d24bde45a7c7",
+        "intent": "people_running",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "texture",
+        "strength": 1,
+        "type": "foley",
+        "why": "Adds a subtle, continuous texture of running footsteps on wet concrete to reinforce the presence of movement in the scene."
+      },
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the sampled quiet, contextual water ambience event, which spans from 5.0 to 10.0 seconds.",
+        "event_id": "519debe9a0a3",
+        "intent": "A quiet, contextual water ambience is supported by the visible wet surfaces of the slide and the surrounding park. This includes the sound of water flowing over",
+        "level_db": -12,
+        "offset": 5.0,
+        "role": "bed",
+        "strength": 1,
+        "type": "ambience",
+        "why": "Provides a foundational ambient layer representing the quiet, contextual water ambience of the water park. This supports the transition from the initial scene to the slide action."
+      },
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the visual_interval of the continuous, wet sliding sound, which is observed from 5.0 to 10.0 seconds.",
+        "event_id": "51c088c58b15",
+        "intent": "A continuous, wet sliding sound is produced by the rider's body and clothing moving over the smooth, wet surface of the water slide. The sound is a mix of a low-frequency whoosh",
+        "level_db": -15,
+        "offset": 5.0,
+        "role": "texture",
+        "strength": 1,
+        "type": "foley",
+        "why": "Adds a continuous, subtle texture of the rider sliding on the wet surface to support the transition and reinforce the water park environment."
+      },
+      {
+        "duration": 1.0,
+        "duration_reason": "A playful, whimsical 'cute' sound to support the transition into the punchline of the scene.",
+        "event_id": "51c088c58b15",
+        "intent": "A playful, whimsical chime representing the imaginative engagement of the scene.",
+        "level_db": -6,
+        "offset": 5.0,
+        "role": "detail",
+        "strength": 1,
+        "type": "cute",
+        "why": "Adds a brief, playful chime to support the transition into the punchline of the scene, enhancing the whimsical and imaginative tone."
+      }
+    ],
+    "provenance": {
+      "source": "output\\sound-recommendations\\20261025-064938-f348668ccc\\receipts\\0027-model-http-response.json",
+      "artifact_sha256": "95818696f6c68f6ca6b357f9674992fe3b5f0ab6db84380e318559894e08cb22",
+      "kind": "actual saved local model output, not a fabricated answer"
+    }
+  },
+  "speech_layers": {
+    "layers": [
+      {
+        "duration": 1.5,
+        "duration_reason": "A resonant chime decay supports the mysterious and whimsical setup, echoing the playful tone of the water park environment.",
+        "event_id": "word-0-0",
+        "intent": "Resonant playful descending chime",
+        "level_db": -12,
+        "offset": -0.5,
+        "role": "contact",
+        "strength": 1,
+        "type": "cute",
+        "why": "Matches the mysterious and whimsical tone, with a natural decay that supports the introduction."
+      },
+      {
+        "duration": 0.2,
+        "duration_reason": "A short, dry punctuation emphasizes the word 'kolo' as a transition into the next phrase.",
+        "event_id": "word-1-0",
+        "intent": "Dry click with a slight metallic edge",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "contact",
+        "strength": 1,
+        "type": "poke",
+        "why": "Provides a clean, sharp transition without overpowering the speech."
+      },
+      {
+        "duration": 0.3,
+        "duration_reason": "A light airy movement follows the word 'ye' to support the flow of the sentence.",
+        "event_id": "word-1-1",
+        "intent": "Airy upward sweep",
+        "level_db": -16,
+        "offset": 0.0,
+        "role": "travel",
+        "strength": 1,
+        "type": "whoosh",
+        "why": "Enhances the natural flow of the phrase with a subtle motion."
+      },
+      {
+        "duration": 1.2,
+        "duration_reason": "A joyful tonal reaction supports the word 'apanaa' as a turning point in the narrative.",
+        "event_id": "word-1-2",
+        "intent": "Joyful ascending chime with natural decay",
+        "level_db": -10,
+        "offset": -0.2,
+        "role": "contact",
+        "strength": 1,
+        "type": "cute",
+        "why": "Matches the emotional shift to imaginative engagement."
+      },
+      {
+        "duration": 2.0,
+        "duration_reason": "A suspenseful tension swell builds as the speaker introduces the imaginative world of 'imejineshan'.",
+        "event_id": "word-1-3",
+        "intent": "Sustained low-frequency tension with a rising pitch",
+        "level_db": -14,
+        "offset": -0.8,
+        "role": "anticipation",
+        "strength": 1,
+        "type": "suspense",
+        "why": "Supports the transition into the imaginative punchline."
+      },
+      {
+        "duration": 0.2,
+        "duration_reason": "A brief comic tonal sting reacts to the word 'yahaam', adding a playful tone.",
+        "event_id": "word-1-4",
+        "intent": "Comic descending tonal sting",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "contact",
+        "strength": 1,
+        "type": "awkward",
+        "why": "Adds a light comedic touch to the phrase."
+      },
+      {
+        "duration": 0.15,
+        "duration_reason": "A quick, dry punctuation emphasizes the word 'to', reinforcing the narrative flow.",
+        "event_id": "word-1-5",
+        "intent": "Short click with a slight metallic edge",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "contact",
+        "strength": 1,
+        "type": "poke",
+        "why": "Provides a clean, sharp transition without overpowering the speech."
+      },
+      {
+        "duration": 1.0,
+        "duration_reason": "A resonant chime decay supports the word 'krejii' as a pivotal moment in the punchline.",
+        "event_id": "word-1-6",
+        "intent": "Resonant playful descending chime",
+        "level_db": -12,
+        "offset": -0.3,
+        "role": "contact",
+        "strength": 1,
+        "type": "cute",
+        "why": "Matches the whimsical and imaginative tone of the punchline."
+      },
+      {
+        "duration": 0.2,
+        "duration_reason": "A brief comic tonal sting reacts to the word 'ho', adding a playful tone.",
+        "event_id": "word-1-7",
+        "intent": "Comic descending tonal sting",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "contact",
+        "strength": 1,
+        "type": "awkward",
+        "why": "Adds a light comedic touch to the punchline."
+      },
+      {
+        "duration": 1.5,
+        "duration_reason": "A joyful tonal reaction supports the word 'jaaegaa' as the punchline resolution.",
+        "event_id": "word-1-8",
+        "intent": "Joyful ascending chime with natural decay",
+        "level_db": -10,
+        "offset": -0.2,
+        "role": "contact",
+        "strength": 1,
+        "type": "cute",
+        "why": "Matches the resolution of the punchline with a positive and playful tone."
+      },
+      {
+        "duration": 8.0,
+        "duration_reason": "A continuous ambient water bed supports the environment and provides a subtle background texture throughout the scene.",
+        "event_id": "word-0-0",
+        "intent": "Subtle water flow with a natural ebb and flow",
+        "level_db": -24,
+        "offset": 0.0,
+        "role": "tail",
+        "strength": 1,
+        "type": "whoosh",
+        "why": "Matches the ambient sounds of the water park environment."
+      }
+    ],
+    "provenance": {
+      "source": "output\\sound-recommendations\\20261025-064938-f348668ccc\\receipts\\0032-model-http-response.json",
+      "artifact_sha256": "2f9607b8cc026fa5856d996ea03d7ac5791507065085c3ebf14878d0acea77fd",
+      "kind": "actual saved local model output, not a fabricated answer"
+    }
+  },
+  "scene_evidence": {
+    "model": "storylens-planner:9b-q6",
+    "sample_interval_seconds": 6,
+    "temporal_contact_sheets": true,
+    "observations": [
+      {
+        "action": "water_park",
+        "ambience": "bright_sunny_day",
+        "confidence": 0.95,
+        "events": [
+          {
+            "action": "people_walking",
+            "action_kind": "continuous_physical_action",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "visible people walking on wet concrete surfaces"
+          },
+          {
+            "action": "water_splash",
+            "action_kind": "continuous_physical_action",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "visible water jets spraying and splashing in the background"
+          },
+          {
+            "action": "people_standing",
+            "action_kind": "incidental_pose",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "visible people standing near water features"
+          },
+          {
+            "action": "people_sitting",
+            "action_kind": "incidental_pose",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "visible people sitting on benches near the water"
+          },
+          {
+            "action": "people_running",
+            "action_kind": "continuous_physical_action",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "visible people running on the wet concrete surfaces"
+          },
+          {
+            "action": "people_talking",
+            "action_kind": "speech_gesture",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "visible people talking near the water features"
+          }
+        ],
+        "mood": "joyful",
+        "setting": "water_park",
+        "time": 0.0,
+        "end": 5.0,
+        "precision": "sampled",
+        "action_events": [
+          {
+            "time": 0.0,
+            "end": 5.0,
+            "kind": "foley",
+            "label": "people_walking",
+            "precision": "visual_interval",
+            "uncertainty": 0.41666666666666696,
+            "confidence": 0.95,
+            "sound_evidence": "visible people walking on wet concrete surfaces"
+          },
+          {
+            "time": 0.0,
+            "end": 5.0,
+            "kind": "foley",
+            "label": "water_splash",
+            "precision": "visual_interval",
+            "uncertainty": 0.41666666666666696,
+            "confidence": 0.95,
+            "sound_evidence": "visible water jets spraying and splashing in the background"
+          },
+          {
+            "time": 0.0,
+            "end": 5.0,
+            "kind": "foley",
+            "label": "people_running",
+            "precision": "visual_interval",
+            "uncertainty": 0.41666666666666696,
+            "confidence": 0.95,
+            "sound_evidence": "visible people running on the wet concrete surfaces"
+          }
+        ]
+      },
+      {
+        "action": "A person is sliding down a large, colorful water slide at a water park. The camera follows the rider's descent from a high angle, showing the slide's surface and the surrounding park environment.",
+        "ambience": "A quiet, contextual water ambience is supported by the visible wet surfaces of the slide and the surrounding park. This includes the sound of water flowing over the slide's surface and splashing into the pool below. The ambient noise of the water park is present but subdued, allowing for clear dialogue.",
+        "confidence": 0.95,
+        "events": [
+          {
+            "action": "sliding",
+            "action_kind": "continuous_physical_action",
+            "confidence": 0.95,
+            "end_frame": 11,
+            "frame": 0,
+            "sound_evidence": "A continuous, wet sliding sound is produced by the rider's body and clothing moving over the smooth, wet surface of the water slide. The sound is a mix of a low-frequency whoosh and higher-frequency splashes as the rider navigates the curves and drops of the slide. The sound is sustained throughout the descent, with variations in intensity and pitch corresponding to the rider's speed and the slide's geometry."
+          }
+        ],
+        "mood": "joyful",
+        "setting": "water park",
+        "time": 5.0,
+        "end": 10.0,
+        "precision": "sampled",
+        "action_events": [
+          {
+            "time": 5.0,
+            "end": 10.0,
+            "kind": "foley",
+            "label": "sliding",
+            "precision": "visual_interval",
+            "uncertainty": 0.41666666666666785,
+            "confidence": 0.95,
+            "sound_evidence": "A continuous, wet sliding sound is produced by the rider's body and clothing moving over the smooth, wet surface of the water slide. The sound is a mix of a low-frequency whoosh and higher-frequency splashes as the rider navigates the curve"
+          }
+        ]
+      }
+    ]
+  },
+  "transcribe": {
+    "raw_words": [
+      {
+        "text": "imaajikaa",
+        "start": 0.16,
+        "end": 1.84,
+        "score": 0.3342738317118751,
+        "aligned": true
+      },
+      {
+        "text": "kolo",
+        "start": 3.94,
+        "end": 4.28,
+        "score": 0.5782944094389677,
+        "aligned": true
+      },
+      {
+        "text": "ye",
+        "start": 4.3999999999999995,
+        "end": 4.5,
+        "score": 0.8963528573513031,
+        "aligned": true
+      },
+      {
+        "text": "apanaa",
+        "start": 4.66,
+        "end": 5.279999999999999,
+        "score": 0.6650722995221562,
+        "aligned": true
+      },
+      {
+        "text": "imejineshan",
+        "start": 5.279999999999999,
+        "end": 7.3,
+        "score": 0.83275782791051,
+        "aligned": true
+      },
+      {
+        "text": "yahaam",
+        "start": 7.3,
+        "end": 7.640000000000001,
+        "score": 0.6321869987151937,
+        "aligned": true
+      },
+      {
+        "text": "to",
+        "start": 7.68,
+        "end": 7.76,
+        "score": 0.5822959691286087,
+        "aligned": true
+      },
+      {
+        "text": "krejii",
+        "start": 7.859999999999999,
+        "end": 8.58,
+        "score": 0.6702072807044411,
+        "aligned": true
+      },
+      {
+        "text": "ho",
+        "start": 8.74,
+        "end": 8.86,
+        "score": 0.8853259384632111,
+        "aligned": true
+      },
+      {
+        "text": "jaaegaa",
+        "start": 9.12,
+        "end": 9.88,
+        "score": 0.6148853726418955,
+        "aligned": true
+      }
+    ],
+    "words": [
+      {
+        "text": "imaajikaa",
+        "start": 0.16,
+        "end": 1.84,
+        "score": 0.3342738317118751,
+        "aligned": true
+      },
+      {
+        "text": "kolo",
+        "start": 3.94,
+        "end": 4.28,
+        "score": 0.5782944094389677,
+        "aligned": true
+      },
+      {
+        "text": "ye",
+        "start": 4.3999999999999995,
+        "end": 4.5,
+        "score": 0.8963528573513031,
+        "aligned": true
+      },
+      {
+        "text": "apanaa",
+        "start": 4.66,
+        "end": 5.279999999999999,
+        "score": 0.6650722995221562,
+        "aligned": true
+      },
+      {
+        "text": "imejineshan",
+        "start": 5.279999999999999,
+        "end": 7.3,
+        "score": 0.83275782791051,
+        "aligned": true
+      },
+      {
+        "text": "yahaam",
+        "start": 7.3,
+        "end": 7.640000000000001,
+        "score": 0.6321869987151937,
+        "aligned": true
+      },
+      {
+        "text": "to",
+        "start": 7.68,
+        "end": 7.76,
+        "score": 0.5822959691286087,
+        "aligned": true
+      },
+      {
+        "text": "krejii",
+        "start": 7.859999999999999,
+        "end": 8.58,
+        "score": 0.6702072807044411,
+        "aligned": true
+      },
+      {
+        "text": "ho",
+        "start": 8.74,
+        "end": 8.86,
+        "score": 0.8853259384632111,
+        "aligned": true
+      },
+      {
+        "text": "jaaegaa",
+        "start": 9.12,
+        "end": 9.88,
+        "score": 0.6148853726418955,
+        "aligned": true
+      }
+    ],
+    "lines": [
+      {
+        "id": 0,
+        "start": 0.16,
+        "end": 1.84,
+        "text": "imaajikaa",
+        "meaning": ""
+      },
+      {
+        "id": 1,
+        "start": 3.94,
+        "end": 9.88,
+        "text": "kolo ye apanaa imejineshan yahaam to krejii ho jaaegaa",
+        "meaning": ""
+      }
+    ],
+    "corrections": [],
+    "notes": [],
+    "cache": "managed by existing ASR; per-source lineage unobserved here"
+  },
+  "local_analysis": {
+    "analysis": {
+      "lines": [
+        {
+          "emotion": "mysterious, whimsical",
+          "id": 0,
+          "intensity": 2,
+          "role": "setup"
+        },
+        {
+          "emotion": "playful, imaginative",
+          "id": 1,
+          "intensity": 2,
+          "role": "punchline"
+        }
+      ],
+      "moments": [],
+      "music": [
+        {
+          "energy": 2,
+          "from_id": 0,
+          "mode": "music",
+          "mood": "neutral",
+          "to_id": 1,
+          "why": "The ambient sounds of the water park provide a joyful and immersive backdrop that supports the playful and imaginative tone of the spoken lines."
+        }
+      ],
+      "palette": "serious",
+      "sound_palette": {
+        "avoid": [
+          "dramatic booms",
+          "loud cartoon sounds",
+          "overly comedic effects"
+        ],
+        "identity": "A subtle and immersive sonic environment that supports the whimsical and playful tone of the spoken lines, with a focus on natural ambient sounds and gentle transitions.",
+        "textures": [
+          "low-frequency whooshes",
+          "gentle splashes",
+          "soft ambient water sounds",
+          "quiet, contextual background noise"
+        ]
+      },
+      "story": "A mysterious and whimsical setup leads into a playful and imaginative punchline, set in a joyful water park environment. The emotional arc moves from curiosity to imaginative engagement, supported by the ambient sounds of the park.",
+      "_thinking": "",
+      "_request_context": "Optional retrieved prose omitted for this call; creator profile and evidence retained; saved knowledge unchanged"
+    },
+    "palette": {
+      "palette": "comedic",
+      "reason": "The story's emotional arc transitions from curiosity to imaginative engagement in a joyful water park setting, which aligns with a comedic sound palette. The reference emphasizes short, deliberate accents, comic motifs, and playful sound design, fitting the playful and imaginative punchline. The initial 'serious' palette is incompatible with the whimsical and joyful tone described, and the creator",
+      "initial_palette": "serious",
+      "source": "local delivery review"
+    },
+    "moments": [
+      {
+        "duration": 5.0,
+        "duration_reason": "Matches the sampled bright_sunny_day ambience event, which spans the first 5 seconds of the scene.",
+        "event_id": "b31fdd0bc81b",
+        "intent": "bright_sunny_day",
+        "level_db": -12,
+        "offset": 0.0,
+        "role": "bed",
+        "strength": 1,
+        "type": "ambience",
+        "why": "Provides a foundational ambient layer representing the bright, sunny environment of the water park. This supports the whimsical and playful tone of the scene.",
+        "processing": {},
+        "target": 0.0,
+        "group_id": "b31fdd0bc81b",
+        "source": "ambience",
+        "length": 5.0,
+        "emotion": "comedic",
+        "word": "",
+        "trigger": "ambience",
+        "line_text": "bright_sunny_day",
+        "timing_precision": "sampled",
+        "uncertainty": 0,
+        "anchor_time": 0.0,
+        "word_index": null,
+        "line_id": null
+      },
+      {
+        "duration": 0.2,
+        "duration_reason": "A short, dry punctuation emphasizes the word 'kolo' as a transition into the next phrase.",
+        "event_id": "word-1-0",
+        "intent": "Dry click with a slight metallic edge",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "contact",
+        "strength": 1,
+        "type": "poke",
+        "why": "Provides a clean, sharp transition without overpowering the speech.",
+        "processing": {},
+        "target": 3.94,
+        "group_id": "word-1-0",
+        "source": "speech",
+        "length": 0.2,
+        "emotion": "",
+        "word": "kolo",
+        "trigger": "speech",
+        "line_text": "kolo ye apanaa imejineshan yahaam to krejii ho jaaegaa",
+        "timing_precision": "speech",
+        "uncertainty": 0,
+        "anchor_time": 3.94,
+        "word_index": 0,
+        "line_id": 1
+      },
+      {
+        "duration": 0.3,
+        "duration_reason": "A light airy movement follows the word 'ye' to support the flow of the sentence.",
+        "event_id": "word-1-1",
+        "intent": "Airy upward sweep",
+        "level_db": -16,
+        "offset": 0.0,
+        "role": "travel",
+        "strength": 1,
+        "type": "whoosh",
+        "why": "Enhances the natural flow of the phrase with a subtle motion.",
+        "processing": {},
+        "target": 4.3999999999999995,
+        "group_id": "word-1-1",
+        "source": "speech",
+        "length": 0.3,
+        "emotion": "",
+        "word": "ye",
+        "trigger": "speech",
+        "line_text": "kolo ye apanaa imejineshan yahaam to krejii ho jaaegaa",
+        "timing_precision": "speech",
+        "uncertainty": 0,
+        "anchor_time": 4.3999999999999995,
+        "word_index": 1,
+        "line_id": 1
+      },
+      {
+        "duration": 2.0,
+        "duration_reason": "A suspenseful tension swell builds as the speaker introduces the imaginative world of 'imejineshan'.",
+        "event_id": "word-1-3",
+        "intent": "Sustained low-frequency tension with a rising pitch",
+        "level_db": -14,
+        "offset": -0.8,
+        "role": "anticipation",
+        "strength": 1,
+        "type": "suspense",
+        "why": "Supports the transition into the imaginative punchline.",
+        "processing": {},
+        "target": 4.4799999999999995,
+        "group_id": "word-1-3",
+        "source": "speech",
+        "length": 2.0,
+        "emotion": "",
+        "word": "imejineshan",
+        "trigger": "speech",
+        "line_text": "kolo ye apanaa imejineshan yahaam to krejii ho jaaegaa",
+        "timing_precision": "speech",
+        "uncertainty": 0,
+        "anchor_time": 5.279999999999999,
+        "word_index": 3,
+        "line_id": 1
+      },
+      {
+        "duration": 0.15,
+        "duration_reason": "A quick, dry punctuation emphasizes the word 'to', reinforcing the narrative flow.",
+        "event_id": "word-1-5",
+        "intent": "Short click with a slight metallic edge",
+        "level_db": -18,
+        "offset": 0.0,
+        "role": "contact",
+        "strength": 1,
+        "type": "poke",
+        "why": "Provides a clean, sharp transition without overpowering the speech.",
+        "processing": {},
+        "target": 7.68,
+        "group_id": "word-1-5",
+        "source": "speech",
+        "length": 0.15,
+        "emotion": "",
+        "word": "to",
+        "trigger": "speech",
+        "line_text": "kolo ye apanaa imejineshan yahaam to krejii ho jaaegaa",
+        "timing_precision": "speech",
+        "uncertainty": 0,
+        "anchor_time": 7.68,
+        "word_index": 5,
+        "line_id": 1
+      }
+    ],
+    "measured_events": [
+      {
+        "id": "b31fdd0bc81b",
+        "time": 0.0,
+        "end": 5.0,
+        "kind": "ambience",
+        "label": "bright_sunny_day",
+        "precision": "sampled",
+        "phase": "entrance",
+        "confidence": 0.95
+      },
+      {
+        "id": "ffbccdee87de",
+        "time": 0.0,
+        "end": 5.0,
+        "kind": "foley",
+        "label": "people_walking",
+        "precision": "visual_interval",
+        "phase": "entrance",
+        "uncertainty": 0.41666666666666696,
+        "confidence": 0.95,
+        "sound_evidence": "visible people walking on wet concrete surfaces"
+      },
+      {
+        "id": "3a0c75c04682",
+        "time": 0.0,
+        "end": 5.0,
+        "kind": "foley",
+        "label": "water_splash",
+        "precision": "visual_interval",
+        "phase": "entrance",
+        "uncertainty": 0.41666666666666696,
+        "confidence": 0.95,
+        "sound_evidence": "visible water jets spraying and splashing in the background"
+      },
+      {
+        "id": "d24bde45a7c7",
+        "time": 0.0,
+        "end": 5.0,
+        "kind": "foley",
+        "label": "people_running",
+        "precision": "visual_interval",
+        "phase": "entrance",
+        "uncertainty": 0.41666666666666696,
+        "confidence": 0.95,
+        "sound_evidence": "visible people running on the wet concrete surfaces"
+      },
+      {
+        "id": "519debe9a0a3",
+        "time": 5.0,
+        "end": 10.0,
+        "kind": "ambience",
+        "label": "A quiet, contextual water ambience is supported by the visible wet surfaces of the slide and the surrounding park. This includes the sound of water flowing over",
+        "precision": "sampled",
+        "phase": "entrance"
+      },
+      {
+        "id": "51c088c58b15",
+        "time": 5.0,
+        "end": 10.0,
+        "kind": "foley",
+        "label": "sliding",
+        "precision": "visual_interval",
+        "phase": "entrance",
+        "uncertainty": 0.41666666666666785,
+        "confidence": 0.95,
+        "sound_evidence": "A continuous, wet sliding sound is produced by the rider's body and clothing moving over the smooth, wet surface of the water slide. The sound is a mix of a low-frequency whoosh and higher-frequency splashes as the rider navigates the curve"
+      }
+    ],
+    "sections": [
+      {
+        "energy": 2,
+        "from_id": 0,
+        "mode": "music",
+        "mood": "neutral",
+        "to_id": 1,
+        "why": "The ambient sounds of the water park provide a joyful and immersive backdrop that supports the playful and imaginative tone of the spoken lines.",
+        "start": 0.0,
+        "end": 10.0,
+        "strict_bounds": true
+      }
+    ]
+  }
+}

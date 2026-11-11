@@ -1,0 +1,11 @@
+{
+  "installed_at": "2026-11-03T20:32:49.007902+00:00",
+  "feature": "Gaming Desk",
+  "entry": "Storylens > Show tools > Gaming Desk",
+  "url": "http://127.0.0.1:8765/?tool=gamingDesk",
+  "inbox": "http://127.0.0.1:8880/",
+  "backup": "D:\\Workflow_Automation\\gaming-meme-inbox\\storylens-integration\\backup-20261104-020248",
+  "scope": "Web feature menu, native Adobe panel unchanged",
+  "browser_validation": "Verified feature search/menu activation and real inbox render",
+  "screenshot": "D:\\Workflow_Automation\\gaming-meme-inbox\\storylens-integration\\feature-visible.png"
+}

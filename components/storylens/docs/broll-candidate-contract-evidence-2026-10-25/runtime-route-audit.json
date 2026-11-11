@@ -1,0 +1,67 @@
+{
+  "client_date": "2026-10-25",
+  "method": "Read-only source/config inspection; no model/provider endpoint was queried and no inference was started.",
+  "new_contract_route": {
+    "cloud_llm_dependency_found": false,
+    "codex_or_chatgpt_session_dependency_found": false,
+    "side_effects": "Explicit owner sidecar writes only; inspection uses local files/CPU and shared error helpers."
+  },
+  "upstream_route": {
+    "meaning_backend": "ollama",
+    "meaning_model": "storylens-meaning:14b",
+    "vision_model": "storylens-planner:9b-q6",
+    "inference_endpoint": "http://127.0.0.1:11434",
+    "runtime_version_recorded": "b11011",
+    "ollama_version_recorded_not_live_verified": "0.40.5",
+    "model_storage_active": true,
+    "selected_roles_configuration_not_live_proof": {
+      "meaning": {
+        "repo": "Qwen/Qwen3-14B-GGUF",
+        "revision": "530227a7d994db8eca5ab5ced2fb692b614357fd",
+        "ollama_model": "storylens-meaning:14b",
+        "weight_file": "Qwen3-14B-Q4_K_M.gguf",
+        "local_directory_present": true
+      },
+      "vision": {
+        "repo": "unsloth/Qwen3.5-9B-GGUF",
+        "revision": "3885219b6810b007914f3a7950a8d1b469d598a5",
+        "ollama_model": "storylens-planner:9b-q6",
+        "weight_file": "Qwen3.5-9B-Q6_K.gguf",
+        "local_directory_present": true
+      },
+      "broll_vision": {
+        "repo": "Qwen/Qwen3-VL-Embedding-2B",
+        "revision": "9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda",
+        "local_directory_present": true
+      },
+      "asr": {
+        "repo": "Oriserve/Whisper-Hindi2Hinglish-Prime",
+        "revision": "4edf7b8291f950e3ac4f32bdacb38c46800e77dc",
+        "local_directory_present": true
+      }
+    }
+  },
+  "remote_llm_fallback_found_in_inspected_broll_route": false,
+  "legitimate_external_dependencies": [
+    "Pexels/Pixabay credentials and service availability",
+    "Commons/public web/video search and downloads",
+    "Model-weight acquisition from Hugging Face if required weights are absent",
+    "Applicable Storylens/Adobe product licensing, separate from the LLM brain"
+  ],
+  "logging_gaps": [
+    "Existing local-model receipts/cache hits do not by themselves prove a fresh local-model call in this acceptance run.",
+    "Vision cache keys include model tag, prompts/images/schema but not a verified active model-weight digest.",
+    "Complete provider/model/runtime versions, request/response/tool receipts, cache lineage and intervention flags still need suite-owned actual-run capture."
+  ],
+  "acceptance": "Pending serialized actual configured-local-LLM/Vision short then long normal-application runs; synthetic component goldens are not acceptance.",
+  "source_sha256": {
+    "hinglish_broll/candidate_manifest.py": "6c788e7a736c0fe694884409b8b7ce5dc2255c8588dc98cc39b332303e64c98b",
+    "hinglish_broll/candidate_selection.py": "7291713df361c9af2221e70bfcaaf19ee4ade552bf528038957e1c6b5b447a64",
+    "hinglish_broll/llm.py": "395ef1d9c1bfb044a76ef182dad11c073d8859c1713ba65c0f107633e399a50a",
+    "hinglish_broll/vision.py": "8214cbcf7c7cc0b7825f0183140149e6a703aa35722bfba583f1d3cc73a5cfc6",
+    "hinglish_broll/verify.py": "33ec53114f7ed6d2a66427a3b0127cfaa75c9d4cd876975f69e75dffe6d9bf1e",
+    "hinglish_cut/ollama_runtime.py": "32a6ab1b01f0b79d1c1e4c8848e3794c123385478739417707404998b112e5b2",
+    "hinglish_cut/model_preferences.py": "7b7e252f4e787f9dd88101f7b5bee64ed60561d2683c4fc5064389659bc2dea4",
+    "hinglish_visuals/evaluator.py": "ce9dca0d8a364d064b44f35fccd20790496d0fa78d1891353094c3cd98690983"
+  }
+}

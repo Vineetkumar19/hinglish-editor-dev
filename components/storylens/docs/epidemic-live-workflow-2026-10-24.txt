@@ -1,0 +1,164 @@
+Epidemic Studio: actual E7 workflow and identified tools
+24 October 2026
+
+Result
+The owner uploaded e7 night life11.mp4 and personally operated the assistant.
+REA passively observed the real signed-in session. The assistant assembled
+25 sound-effect clips and one 33.3-second music bed, Old Grump by Smartface.
+The same arrangement appeared after the saved project was reopened. This is
+real generation/timeline evidence, not the previous built-in Forest example.
+The account still displayed 2,500 credits at the final observation. Do not
+claim credits were charged, that a free export was available, or that Codex
+clicked generation. No additional generation was initiated by Codex.
+
+Observed user and assistant sequence
+1. The owner uploaded E7. The initial upload itself predates this capture.
+2. The owner requested questions before soundtracking. The assistant described
+   the opening graphics, room footage and dry dialogue. This establishes what
+   the assistant SAID; it is not independent proof its visual interpretation
+   or Hinglish transcript was entirely correct.
+3. It asked whether to add music, effects or both. Owner selected both.
+4. It proposed playful hip-hop plus graphic accents, then asked about mood.
+   Owner selected the lighthearted comedic direction.
+5. It restated the brief. Owner wrote Go ahead and soundtrack it with this brief.
+6. It added a continuous music bed, opening accents, clock/street accents,
+   shop/cafe accents, then the finale. Progress prose appeared alongside actual
+   persisted timeline revisions. Completion text followed the populated timeline.
+7. Post-generation controls offer Lower music volume, Try different music,
+   Change sound effect levels and Simplify sound effects. These controls were
+   observed but not used; no second generation or revision was authorized here.
+
+Concrete E7 placement examples (UI-rounded seconds)
+0.9: deep designed impact, 1.4 seconds.
+1.0: bubble/pop interface accent, 1.2 seconds, overlapping the impact.
+2.7: short fast swish, 0.3 seconds.
+5.2: comic boing, 1.0 seconds; 5.8: punchy thud, 0.2 seconds.
+8.3, 8.8, 9.8 and 10.0: swish, wooden impact, UI zap and bright flyby.
+11.2 and 11.9: clothy swish and bubbly option accent overlap.
+13.6: airy zoom whoosh, 2.6 seconds.
+25.3 and 26.6: cartoon/ringing pop and single bubble pop.
+28.5 and 29.0: fast swish and typewriter hits overlap.
+30.6 and 31.5: metallic snap and comic crash overlap near the ending.
+The complete measured UI list is saved in e7-live-summary.json. Displayed
+timings are rounded; these are clip placements, not identified waveform
+hitpoints or frame-exact alignment measurements. This output does not support
+a claim that every two seconds always contains five simultaneous SFX.
+Physical-sounding catalogue titles alone do not establish scene motivation:
+a wood impact or bubble may be an expressive graphic accent.
+
+Assistant and timeline orchestration: verified client code
+SendConversationMessage returns conversationId, inputTurnId and replyTurnId.
+ConversationTurnSubscription streams TextPart, ThinkingPart, NextStepsPart,
+RecordingListPart, SoundEffectListPart, ErrorPart, TimelineChangedPart and
+TurnCompletionPart. These are typed client messages, NOT recovered private
+assistant function-tool definitions. TimelineChangedPart announces fromVersion
+and toVersion. The workspace adopts remote accepted operations and waits for
+the required revision. Chat completion and saved timeline completion are
+separate states. Cancellation, resumption, event deduplication and stored
+conversation identity are present in the selected source.
+
+The live network window observed successful GraphQL event-stream responses
+on client-api.epidemicsound.com/soundtrack-graph/graphql/, a saved timeline GET
+and the timeline live-update stream. The captured request shape contained
+conversationId and turnId. Console observations showed timeline versions
+advancing from 2 to 3 to 4 and four tracks loaded. Earlier 30-second stream
+reconnects and HTTP/2 errors did not prevent the eventual arrangement.
+Passive REA captures retain value-free payload shapes, not raw private request
+or response bodies. Do not invent a hidden prompt, model invocation or ranking
+score from those shapes. Initial upload/earlier turn traffic was not captured.
+
+Actual exposed operations and their boundaries
+SearchRecordings: music retrieval.
+RecordingWithSimilar: similar-music candidates.
+SearchSoundEffects: SFX retrieval.
+SoundEffectAnchors: source audio hitpoint groups/segments.
+MusicTypeahead and SoundEffectTypeahead: search suggestions.
+SuggestVideoTimeline, VideoTimeline and VideoTimelineSubscription: timed plan
+creation/recovery. This older route and the current chat route coexist in code;
+their presence does not prove this E7 chat used every operation.
+VoiceoverGenerate, GetVoiceoverStatus and VoiceoverDownload: a separate voice
+feature. CARTESIA and ELEVENLABS appear as voiceover provider enums. They are
+NOT evidence for the soundtrack planner or Vision provider.
+Video annotation channels distinguish event windows, cuts, hit instants and
+per-clip audio anchors. The producer label soundtracking-agents/video-analysis
+does not disclose a model vendor. Flags such as agents_vision_model and
+agents_music are configuration switches, not recovered model identities.
+
+Tools/technology identified with the correct evidence scope
+1. Search AI: Epidemic's 16 September engineering disclosure identifies AuroLA,
+   based on Qwen2.5-Omni-7B, for production SFX search. Audio and metadata are
+   embedded offline; text queries are embedded online. Elasticsearch fuses
+   lexical and semantic KNN results. SGLang serves the embedding encoder.
+   A separate binary reranker is described, but invocation on every E7 query
+   and the exact production checkpoint remain unknown. Publicly documented
+   deployment is not runtime proof of the exact internal request in this video.
+   https://www.epidemicsound.com/blog/state-of-the-art-audio-retrieval/
+2. Editor: React/TanStack client modules, typed GraphQL operations, streamed
+   conversation events and versioned saved timeline operations.
+3. Arrangement: separate timeline start, source excerpt offset, duration,
+   candidate references and gain/fade settings. Overlap opens additional lanes.
+   Sound starts and simultaneous layers are different measurements.
+4. Audio: Web Audio API, independent clip sources/gain/fades, channel and role
+   buses, optional dialogue-keyed music/SFX sidechain and a master limiter.
+   The inspected editor enables its limiter. Sidechain has separate optional
+   engagement; presence does not prove ducking was enabled on E7. There is no
+   verified every-overlap automatic EQ/pan/reverb optimizer in inspected code.
+5. Media/export infrastructure: Mediabunny, encoder references, browser offline
+   audio processing, zip.js packaging, and server-generated native timeline
+   export jobs. These are not the sound-selection AI. Exact bundled package
+   versions and successful native E7 export were not established.
+
+Mix graph supported by previous exact client inspection
+source -> clip gain/fade/mute -> channel processing/mute/solo -> role bus
+(music, SFX, dialogue) -> summed master processing/limiter -> output.
+Suggested section timings and source hitpoints are distinct. A source event at
+h lands at timeline_start + h - source_offset. The client scheduling contract
+supports this; the private detector/selector for h remains unknown.
+
+Export inspection and limitations
+Two controlled REA browser scenarios failed with generic execution_failure;
+the first also reported cleanup_incomplete with no identified local resources.
+They are saved separately. Passive REA remained usable, and post-reopen
+inspection confirmed the same clips. Do not repeat unchanged failed scenarios
+or claim their intended export click succeeded. No subscription or new credits
+were purchased. An older built-in-sample export inspection required a
+subscription; the current E7 export gate and actual download remain unverified.
+The owner was already playing the video during observation. Codex did not
+perform a full listening assessment or native-editor export verification.
+
+Storylens implementation implications (our design, not recovered source)
+Use an explicit per-video creative brief; separate music, event spotting,
+retrieval, excerpt/hitpoint selection, arrangement and mixing. Use distinct
+semantic, emotional and measured visual triggers, not four repeated sound
+families or a density quota. Keep short scene-level planning batches with
+their actual local timing evidence, then check the complete arrangement for
+cross-scene consistency. Ask only genuinely missing creative choices; preserve
+owner defaults instead of forcing a questionnaire every time.
+Keep cue/event identities, alternatives, source offsets, rejections and owner
+edits across preview/rebuild/export. Require persisted revision and playback
+evidence rather than treating a friendly assistant completion as success.
+Use local/credited assets and existing typed Storylens tools. Internal Epidemic
+endpoints are evidence, not supported integration APIs to copy into Storylens.
+Public AuroLA release licensing and resource requirements remain unresolved;
+no model download, weight training or complete private AI recovery occurred.
+
+New Storylens anti-repetition implementation is recorded separately in
+output/sound-platform-rea-20261024/architecture/implementation-receipt.json.
+Its 110 focused checks are supplementary. A new real Storylens generation,
+listening comparison and owner acceptance are still outstanding.
+
+Evidence ledger
+e7-current-page.json: ev_e35d0d50cdd9f8fea0712afae63cb67710a9856f9987a039e53ebebff6d43082
+e7-assistant-session.json: ev_526f76f12e07944ec65de9b21871a7382eaecda628b8c25bfeb40c436a212fe5
+e7-reading-page.json: ev_eeb01c7d9ce8ea7ed4f5df63da278679068e373a1a6d70765ab0c49f5c2ee926
+e7-assistant-scripts.json: ev_a0eb1f9048bdccba018375f3295ad846c4187eed165650a17a7f1d2f3e686ba2
+Script export: ev_31d6198fef549ce7148a51cac0303a83097f8661eee37e6d66d9c78f5ce6d132
+e7-layering-page.json: ev_c083990337eb1837c5c9aac45c2ed3102e0ca213194dd9e8857706648b67e759
+e7-persisted-page.json: ev_839666bce94b1f59e1a42886e2e3ee7e01d4494857d8ab8001f99d2560b44835
+e7-finished-timeline.png metadata: ev_036555afc6cf70aee0dbaf3f16127a04cb111a434f791126f951570c526b1cd2
+Focused assistant static REA: ev_c0937513ebf15db061d3fdfa4b72e71e3556db422ed8786c9d5fb1c7c07ab6f4
+Exact hashes, Unicode and byte offsets: assistant-verified-offsets.json.
+Static coverage: two selected files parsed; 70 other exported files not covered
+by this focused analysis. Earlier mixer evidence and analysis limits remain in
+docs/epidemic-layer-mixer-code-2026-10-24.txt. All evidence artifacts above are
+under output/sound-platform-rea-20261024/epidemic.

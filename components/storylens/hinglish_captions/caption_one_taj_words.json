@@ -1,0 +1,338 @@
+{
+  "script": "Imagine a monument that changes with the light. The Taj Mahal stands beside the Yamuna River in Agra. Its white marble glows softly at sunrise and shines beneath the moon. Look closer at the carved flowers, the balanced gardens, and the reflections in the water. Every detail invites you to slow down. Some places are more than buildings. They become stories that the world remembers.",
+  "duration": 30,
+  "voice": "Microsoft Zira Desktop",
+  "engine": "Windows System.Speech",
+  "timing_source": "SpeakProgress audio positions, transformed with the same tempo as the audio; ends trimmed against PCM energy",
+  "original_seconds": 26.615,
+  "tempo": 0.8871666666666667,
+  "audio": "demo_media/caption1-taj.wav",
+  "audio_sha256": "31085cff425424965a48f65549776dd12ac376fb2ab0fc65d9927348723f3374",
+  "words": [
+    {
+      "text": "Imagine",
+      "start": 0.1127184,
+      "end": 0.6
+    },
+    {
+      "text": "a",
+      "start": 0.6030434,
+      "end": 0.6686744
+    },
+    {
+      "text": "monument",
+      "start": 0.6706744,
+      "end": 1.25
+    },
+    {
+      "text": "that",
+      "start": 1.2906256,
+      "end": 1.49
+    },
+    {
+      "text": "changes",
+      "start": 1.4935187,
+      "end": 2.01
+    },
+    {
+      "text": "with",
+      "start": 2.0176592,
+      "end": 2.17
+    },
+    {
+      "text": "the",
+      "start": 2.1811009,
+      "end": 2.2974552
+    },
+    {
+      "text": "light.",
+      "start": 2.2994552,
+      "end": 3.6838914
+    },
+    {
+      "text": "The",
+      "start": 3.6858914,
+      "end": 3.7966098
+    },
+    {
+      "text": "Taj",
+      "start": 3.7986098,
+      "end": 4.19
+    },
+    {
+      "text": "Mahal",
+      "start": 4.1931242,
+      "end": 4.5969104
+    },
+    {
+      "text": "stands",
+      "start": 4.5989104,
+      "end": 5.09
+    },
+    {
+      "text": "beside",
+      "start": 5.1005072,
+      "end": 5.5662886
+    },
+    {
+      "text": "the",
+      "start": 5.5682886,
+      "end": 5.673371
+    },
+    {
+      "text": "Yamuna",
+      "start": 5.675371,
+      "end": 6.2764144
+    },
+    {
+      "text": "River",
+      "start": 6.2784144,
+      "end": 6.6145696
+    },
+    {
+      "text": "in",
+      "start": 6.6165696,
+      "end": 6.7667394
+    },
+    {
+      "text": "Agra.",
+      "start": 6.7687394,
+      "end": 8.1869912
+    },
+    {
+      "text": "Its",
+      "start": 8.1889912,
+      "end": 8.39
+    },
+    {
+      "text": "white",
+      "start": 8.408792,
+      "end": 8.7054958
+    },
+    {
+      "text": "marble",
+      "start": 8.7074958,
+      "end": 9.1
+    },
+    {
+      "text": "glows",
+      "start": 9.1020101,
+      "end": 9.4888886
+    },
+    {
+      "text": "softly",
+      "start": 9.4908886,
+      "end": 10.04
+    },
+    {
+      "text": "at",
+      "start": 10.0432087,
+      "end": 10.18
+    },
+    {
+      "text": "sunrise",
+      "start": 10.1841067,
+      "end": 10.82
+    },
+    {
+      "text": "and",
+      "start": 10.8322375,
+      "end": 10.9880432
+    },
+    {
+      "text": "shines",
+      "start": 10.9900432,
+      "end": 11.45
+    },
+    {
+      "text": "beneath",
+      "start": 11.4521886,
+      "end": 11.8
+    },
+    {
+      "text": "the",
+      "start": 11.8072515,
+      "end": 11.9
+    },
+    {
+      "text": "moon.",
+      "start": 11.9030622,
+      "end": 13.2874984
+    },
+    {
+      "text": "Look",
+      "start": 13.2894984,
+      "end": 13.44
+    },
+    {
+      "text": "closer",
+      "start": 13.5036633,
+      "end": 14.0370757
+    },
+    {
+      "text": "at",
+      "start": 14.0390757,
+      "end": 14.15543
+    },
+    {
+      "text": "the",
+      "start": 14.15743,
+      "end": 14.26
+    },
+    {
+      "text": "carved",
+      "start": 14.2645125,
+      "end": 14.6852065
+    },
+    {
+      "text": "flowers,",
+      "start": 14.6872065,
+      "end": 15.7954826
+    },
+    {
+      "text": "the",
+      "start": 15.7974826,
+      "end": 15.9
+    },
+    {
+      "text": "balanced",
+      "start": 15.9045651,
+      "end": 16.42
+    },
+    {
+      "text": "gardens,",
+      "start": 16.4568852,
+      "end": 17.5031663
+    },
+    {
+      "text": "and",
+      "start": 17.5051663,
+      "end": 17.62
+    },
+    {
+      "text": "the",
+      "start": 17.6235206,
+      "end": 17.734239
+    },
+    {
+      "text": "reflections",
+      "start": 17.736239,
+      "end": 18.4669085
+    },
+    {
+      "text": "in",
+      "start": 18.4689085,
+      "end": 18.573991
+    },
+    {
+      "text": "the",
+      "start": 18.575991,
+      "end": 18.6754375
+    },
+    {
+      "text": "water.",
+      "start": 18.6774375,
+      "end": 20.11
+    },
+    {
+      "text": "Every",
+      "start": 20.114597,
+      "end": 20.4056649
+    },
+    {
+      "text": "detail",
+      "start": 20.4076649,
+      "end": 20.9298054
+    },
+    {
+      "text": "invites",
+      "start": 20.9318054,
+      "end": 21.4088585
+    },
+    {
+      "text": "you",
+      "start": 21.4108585,
+      "end": 21.53
+    },
+    {
+      "text": "to",
+      "start": 21.5348488,
+      "end": 21.6737468
+    },
+    {
+      "text": "slow",
+      "start": 21.6757468,
+      "end": 22.0288097
+    },
+    {
+      "text": "down.",
+      "start": 22.0308097,
+      "end": 23.46
+    },
+    {
+      "text": "Some",
+      "start": 23.4623333,
+      "end": 23.79
+    },
+    {
+      "text": "places",
+      "start": 23.7948525,
+      "end": 24.35
+    },
+    {
+      "text": "are",
+      "start": 24.3528086,
+      "end": 24.463527
+    },
+    {
+      "text": "more",
+      "start": 24.465527,
+      "end": 24.7453229
+    },
+    {
+      "text": "than",
+      "start": 24.7473229,
+      "end": 24.948216
+    },
+    {
+      "text": "buildings.",
+      "start": 24.950216,
+      "end": 26.6051764
+    },
+    {
+      "text": "They",
+      "start": 26.6071764,
+      "end": 26.7460744
+    },
+    {
+      "text": "become",
+      "start": 26.7480744,
+      "end": 27.1574965
+    },
+    {
+      "text": "stories",
+      "start": 27.1594965,
+      "end": 27.71
+    },
+    {
+      "text": "that",
+      "start": 27.7174526,
+      "end": 27.87
+    },
+    {
+      "text": "the",
+      "start": 27.9034379,
+      "end": 28.0254281
+    },
+    {
+      "text": "world",
+      "start": 28.0274281,
+      "end": 28.4086707
+    },
+    {
+      "text": "remembers.",
+      "start": 28.4106707,
+      "end": 29.14
+    }
+  ]
+}

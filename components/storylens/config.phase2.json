@@ -1,0 +1,17 @@
+{
+  "embedding_model": "storylens-embedding:8b-q6",
+  "judge_model": "storylens-meaning:14b",
+  "device": "cuda",
+  "cpu_threads": 8,
+  "offline": true,
+  "candidates_per_line": 4,
+  "similarity_floor": 0.7,
+  "ambiguity_margin": 0.025,
+  "verification_threshold": 0.85,
+  "order": "auto",
+  "retake_window": 45,
+  "pacing": "natural",
+  "speech_backend": "swift",
+  "matching_backend": "meaning",
+  "protected_terms": []
+}

@@ -1,0 +1,558 @@
+{
+  "script": "Toh flat nahi mila, PG le liya. Socha chalo, PG mein toh basic cheezein hongi hi. Bhai… nahi thi.\n\nWi-Fi? Nahi.\nWashing machine? Nahi.\nFridge? Nahi.\nAC room? Milega, par jugaad se.\n\nTable itna chhota hai ki laptop bhi bol de, “Main yahaan nahi rehna chahta.”\n\nChair? Chair ka toh character assassination na hi karun toh better hai.\n\nLekin ek cheez PG mein sahi hai. Sirf ek.\n\nBed. Bed mast hai. Aur shayad isi bed ki wajah se main abhi tak sane hoon.\n\nNext episode — Rapido ka scam. Bhai, aankh khul jaayegi.",
+  "observed": [
+    {
+      "text": "तो",
+      "start": 0,
+      "end": 0.12,
+      "probability": 0.9050806760787964
+    },
+    {
+      "text": "फ्लाइट",
+      "start": 0.12,
+      "end": 0.36,
+      "probability": 0.8390520612398783
+    },
+    {
+      "text": "नहीं",
+      "start": 0.36,
+      "end": 0.54,
+      "probability": 0.9897227764129639
+    },
+    {
+      "text": "मिला",
+      "start": 0.54,
+      "end": 0.78,
+      "probability": 0.9955221861600876
+    },
+    {
+      "text": "पीजी",
+      "start": 0.78,
+      "end": 1.76,
+      "probability": 0.8338420490423838
+    },
+    {
+      "text": "ले",
+      "start": 1.76,
+      "end": 2.04,
+      "probability": 0.9924188653628031
+    },
+    {
+      "text": "लिया",
+      "start": 2.04,
+      "end": 2.3,
+      "probability": 0.9739582061767578
+    },
+    {
+      "text": "सोचा",
+      "start": 2.3,
+      "end": 2.94,
+      "probability": 0.9715843081474305
+    },
+    {
+      "text": "पीजी",
+      "start": 2.94,
+      "end": 3.44,
+      "probability": 0.9719670315583547
+    },
+    {
+      "text": "में",
+      "start": 3.44,
+      "end": 3.6,
+      "probability": 0.9927828709284464
+    },
+    {
+      "text": "तो",
+      "start": 3.6,
+      "end": 3.72,
+      "probability": 0.9966855446497599
+    },
+    {
+      "text": "बेसिक",
+      "start": 3.72,
+      "end": 4.0,
+      "probability": 0.8927345176537832
+    },
+    {
+      "text": "कीज़े",
+      "start": 4.0,
+      "end": 4.3,
+      "probability": 0.8707828521728516
+    },
+    {
+      "text": "होंगी",
+      "start": 4.3,
+      "end": 4.74,
+      "probability": 0.9556339482466379
+    },
+    {
+      "text": "ही",
+      "start": 4.74,
+      "end": 5.06,
+      "probability": 0.9968104064464569
+    },
+    {
+      "text": "आई",
+      "start": 5.06,
+      "end": 5.44,
+      "probability": 0.7398447245359421
+    },
+    {
+      "text": "नहीं",
+      "start": 5.44,
+      "end": 5.78,
+      "probability": 0.9562368273735047
+    },
+    {
+      "text": "थी",
+      "start": 5.78,
+      "end": 6.12,
+      "probability": 0.9983283281326294
+    },
+    {
+      "text": "पाइफाइन",
+      "start": 6.12,
+      "end": 6.94,
+      "probability": 0.8407121463255449
+    },
+    {
+      "text": "नहीं",
+      "start": 6.94,
+      "end": 7.92,
+      "probability": 0.948038113117218
+    },
+    {
+      "text": "वाशिंग",
+      "start": 7.92,
+      "end": 8.38,
+      "probability": 0.9078922735320197
+    },
+    {
+      "text": "मशीन",
+      "start": 8.38,
+      "end": 8.76,
+      "probability": 0.8876026630401611
+    },
+    {
+      "text": "नहीं",
+      "start": 8.76,
+      "end": 9.72,
+      "probability": 0.9965834856033325
+    },
+    {
+      "text": "फ्रिज",
+      "start": 9.72,
+      "end": 10.3,
+      "probability": 0.9846328582082476
+    },
+    {
+      "text": "नहीं",
+      "start": 10.3,
+      "end": 11.6,
+      "probability": 0.9932559132575989
+    },
+    {
+      "text": "एसी",
+      "start": 11.6,
+      "end": 12.54,
+      "probability": 0.9771355241537094
+    },
+    {
+      "text": "मिलेगा",
+      "start": 12.54,
+      "end": 13.26,
+      "probability": 0.9951605711664472
+    },
+    {
+      "text": "पर",
+      "start": 13.26,
+      "end": 13.62,
+      "probability": 0.9777184923489889
+    },
+    {
+      "text": "जुगार",
+      "start": 13.62,
+      "end": 13.98,
+      "probability": 0.9523930922150612
+    },
+    {
+      "text": "से",
+      "start": 13.98,
+      "end": 14.28,
+      "probability": 0.9924187064170837
+    },
+    {
+      "text": "टेबल",
+      "start": 14.28,
+      "end": 14.76,
+      "probability": 0.9879603783289591
+    },
+    {
+      "text": "इतना",
+      "start": 14.76,
+      "end": 15.04,
+      "probability": 0.9846351027488709
+    },
+    {
+      "text": "छोटा",
+      "start": 15.04,
+      "end": 15.38,
+      "probability": 0.949000746011734
+    },
+    {
+      "text": "है",
+      "start": 15.38,
+      "end": 15.56,
+      "probability": 0.9985532462596893
+    },
+    {
+      "text": "कि",
+      "start": 15.56,
+      "end": 15.64,
+      "probability": 0.9779272675514221
+    },
+    {
+      "text": "लैपटॉप",
+      "start": 15.64,
+      "end": 16.06,
+      "probability": 0.9269383332946084
+    },
+    {
+      "text": "भी",
+      "start": 16.06,
+      "end": 16.2,
+      "probability": 0.982171376546224
+    },
+    {
+      "text": "कह",
+      "start": 16.2,
+      "end": 16.42,
+      "probability": 0.9658087193965912
+    },
+    {
+      "text": "देता",
+      "start": 16.42,
+      "end": 16.66,
+      "probability": 0.9374204039573669
+    },
+    {
+      "text": "है",
+      "start": 16.66,
+      "end": 16.84,
+      "probability": 0.9982635974884033
+    },
+    {
+      "text": "मैं",
+      "start": 16.84,
+      "end": 17.26,
+      "probability": 0.7423869470755259
+    },
+    {
+      "text": "यहाँ",
+      "start": 17.26,
+      "end": 17.54,
+      "probability": 0.9200678865114847
+    },
+    {
+      "text": "नहीं",
+      "start": 17.54,
+      "end": 17.7,
+      "probability": 0.9896609902381897
+    },
+    {
+      "text": "रहना",
+      "start": 17.7,
+      "end": 17.94,
+      "probability": 0.9747013926506043
+    },
+    {
+      "text": "चाहता",
+      "start": 17.94,
+      "end": 18.3,
+      "probability": 0.9825447301069895
+    },
+    {
+      "text": "शेर",
+      "start": 18.3,
+      "end": 19.1,
+      "probability": 0.8644941300153732
+    },
+    {
+      "text": "शेर",
+      "start": 19.1,
+      "end": 20.2,
+      "probability": 0.80464818328619
+    },
+    {
+      "text": "का",
+      "start": 20.2,
+      "end": 20.36,
+      "probability": 0.9916394650936127
+    },
+    {
+      "text": "गैरेक्टर",
+      "start": 20.36,
+      "end": 20.7,
+      "probability": 0.9149915158748627
+    },
+    {
+      "text": "असैसिनेशन",
+      "start": 20.7,
+      "end": 21.4,
+      "probability": 0.9133740040388975
+    },
+    {
+      "text": "नहीं",
+      "start": 21.4,
+      "end": 21.7,
+      "probability": 0.9137408375740051
+    },
+    {
+      "text": "करो",
+      "start": 21.7,
+      "end": 21.94,
+      "probability": 0.9463171362876892
+    },
+    {
+      "text": "तो",
+      "start": 21.94,
+      "end": 22.08,
+      "probability": 0.8612206776936849
+    },
+    {
+      "text": "बेटर",
+      "start": 22.08,
+      "end": 22.36,
+      "probability": 0.953611304362615
+    },
+    {
+      "text": "है",
+      "start": 22.36,
+      "end": 22.52,
+      "probability": 0.9879818856716156
+    },
+    {
+      "text": "पीजी",
+      "start": 22.52,
+      "end": 22.94,
+      "probability": 0.9108859896659851
+    },
+    {
+      "text": "में",
+      "start": 22.94,
+      "end": 23.16,
+      "probability": 0.9994059602419535
+    },
+    {
+      "text": "सिर्फ",
+      "start": 23.16,
+      "end": 23.36,
+      "probability": 0.9977812667687734
+    },
+    {
+      "text": "एक",
+      "start": 23.36,
+      "end": 23.56,
+      "probability": 0.9997158646583557
+    },
+    {
+      "text": "चीज",
+      "start": 23.56,
+      "end": 23.78,
+      "probability": 0.9953599691390991
+    },
+    {
+      "text": "सही",
+      "start": 23.78,
+      "end": 24.08,
+      "probability": 0.9416651129722595
+    },
+    {
+      "text": "है",
+      "start": 24.08,
+      "end": 24.24,
+      "probability": 0.9921991229057312
+    },
+    {
+      "text": "सिर्फ",
+      "start": 24.86,
+      "end": 25.42,
+      "probability": 0.9800256192684174
+    },
+    {
+      "text": "एक",
+      "start": 25.42,
+      "end": 25.76,
+      "probability": 0.9993409911791483
+    },
+    {
+      "text": "बेड",
+      "start": 26.62,
+      "end": 27.18,
+      "probability": 0.942225706577301
+    },
+    {
+      "text": "बेड",
+      "start": 28.1,
+      "end": 28.66,
+      "probability": 0.9882360935211182
+    },
+    {
+      "text": "मस्क",
+      "start": 28.66,
+      "end": 29.08,
+      "probability": 0.8331997841596603
+    },
+    {
+      "text": "और",
+      "start": 29.08,
+      "end": 29.74,
+      "probability": 0.9571777780850729
+    },
+    {
+      "text": "शायद",
+      "start": 29.74,
+      "end": 30.02,
+      "probability": 0.9848474562168121
+    },
+    {
+      "text": "इसी",
+      "start": 30.02,
+      "end": 30.2,
+      "probability": 0.9725524187088013
+    },
+    {
+      "text": "बेड",
+      "start": 30.2,
+      "end": 30.42,
+      "probability": 0.9993302822113037
+    },
+    {
+      "text": "के",
+      "start": 30.42,
+      "end": 30.6,
+      "probability": 0.9826252162456512
+    },
+    {
+      "text": "वज़े",
+      "start": 30.6,
+      "end": 30.84,
+      "probability": 0.9918332440512521
+    },
+    {
+      "text": "से",
+      "start": 30.84,
+      "end": 31.14,
+      "probability": 0.996936172246933
+    },
+    {
+      "text": "मैं",
+      "start": 31.14,
+      "end": 31.44,
+      "probability": 0.9850768049558004
+    },
+    {
+      "text": "अब",
+      "start": 31.44,
+      "end": 31.54,
+      "probability": 0.7994082495570183
+    },
+    {
+      "text": "जब",
+      "start": 31.54,
+      "end": 31.7,
+      "probability": 0.8427889421582222
+    },
+    {
+      "text": "जिन्दा",
+      "start": 31.7,
+      "end": 31.94,
+      "probability": 0.8581760339438915
+    },
+    {
+      "text": "हूँ",
+      "start": 31.94,
+      "end": 32.28,
+      "probability": 0.9743108749389648
+    },
+    {
+      "text": "भाई",
+      "start": 32.28,
+      "end": 32.54,
+      "probability": 0.9409729599952698
+    },
+    {
+      "text": "नेक्स्ट",
+      "start": 32.54,
+      "end": 32.88,
+      "probability": 0.9880450699064467
+    },
+    {
+      "text": "एपिसोड",
+      "start": 32.88,
+      "end": 33.3,
+      "probability": 0.9907047152519226
+    },
+    {
+      "text": "में",
+      "start": 33.3,
+      "end": 34.02,
+      "probability": 0.9977744817733765
+    },
+    {
+      "text": "ग्रापिडो",
+      "start": 34.02,
+      "end": 34.48,
+      "probability": 0.7795764776793394
+    },
+    {
+      "text": "का",
+      "start": 34.48,
+      "end": 34.68,
+      "probability": 0.9766157865524292
+    },
+    {
+      "text": "स्कैम",
+      "start": 34.68,
+      "end": 34.92,
+      "probability": 0.8890831470489502
+    },
+    {
+      "text": "देता",
+      "start": 34.92,
+      "end": 35.16,
+      "probability": 0.8972433090209961
+    },
+    {
+      "text": "हूंगा",
+      "start": 35.16,
+      "end": 35.42,
+      "probability": 0.8066434902804238
+    },
+    {
+      "text": "बाई",
+      "start": 35.42,
+      "end": 36.16,
+      "probability": 0.6897855699062347
+    },
+    {
+      "text": "आग",
+      "start": 36.16,
+      "end": 36.48,
+      "probability": 0.8685027658939362
+    },
+    {
+      "text": "फुल",
+      "start": 36.48,
+      "end": 36.7,
+      "probability": 0.932192599773407
+    },
+    {
+      "text": "जाएगी",
+      "start": 36.7,
+      "end": 37.1,
+      "probability": 0.9029582105576992
+    }
+  ],
+  "duration": 37.5
+}

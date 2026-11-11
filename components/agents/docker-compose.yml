@@ -1,0 +1,63 @@
+# Two ways to run this:
+#
+#   docker compose up dashboard          SQLite, nothing else needed
+#   docker compose --profile pg up       PostgreSQL-backed, durable across hosts
+#
+# The scheduler service is optional; leave it out and run agents by hand with
+# `python run.py run <agent>` until you trust what they draft.
+
+services:
+  dashboard:
+    build:
+      context: .
+      args:
+        WITH_POSTGRES: "1"
+    image: agentsuite:latest
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      DASHBOARD_HOST: 0.0.0.0
+      DASHBOARD_PORT: "8080"
+    ports:
+      - "127.0.0.1:8080:8080"     # localhost only: the dashboard approves sends
+    volumes:
+      - agent-data:/data
+      - ./profiles:/app/profiles   # edit your resume and rate card from the host
+    restart: unless-stopped
+
+  scheduler:
+    build:
+      context: .
+      args:
+        WITH_POSTGRES: "1"
+    image: agentsuite:latest
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    command: ["python", "run.py", "schedule"]
+    volumes:
+      - agent-data:/data
+      - ./profiles:/app/profiles
+    depends_on:
+      - dashboard
+    restart: unless-stopped
+    profiles: ["scheduler"]
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: agent
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agent}
+      POSTGRES_DB: agentsuite
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agent -d agentsuite"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles: ["pg"]
+
+volumes:
+  agent-data:
+  pg-data:

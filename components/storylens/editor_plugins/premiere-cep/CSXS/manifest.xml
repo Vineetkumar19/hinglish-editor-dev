@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.hinglish.editor" ExtensionBundleVersion="1.0.0" ExtensionBundleName="Storylens">
+  <ExtensionList>
+    <Extension Id="com.hinglish.editor.panel" Version="1.0.0" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PPRO" Version="[22.0,26.9]" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="11.0" />
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.hinglish.editor.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <ScriptPath>./jsx/host.jsx</ScriptPath>
+          <CEFCommandLine>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--mixed-context</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Storylens</Menu>
+          <Geometry>
+            <Size>
+              <Width>390</Width>
+              <Height>620</Height>
+            </Size>
+            <MinSize>
+              <Width>280</Width>
+              <Height>350</Height>
+            </MinSize>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

@@ -1,0 +1,57 @@
+{
+  "status": "implementation_and_bounded_local_validation_complete",
+  "scope": "mobile/relay only",
+  "deployed": false,
+  "cloudflare_login_performed": false,
+  "production_secrets_read_or_created": false,
+  "parent_files_modified": false,
+  "public_success_status": {"health": 200, "push_new": 200, "push_duplicate": 200, "pull": 200},
+  "wire_limits": {"request_bytes": 262144, "ciphertext_decoded_bytes": 184320, "nonce_bytes": 12, "pull_frames": 8, "pull_below_bytes": 2097152},
+  "mailbox_limits": {"frames_per_direction": 64, "serialized_bytes_per_direction": 8388608, "ttl_seconds": 120, "longpoll_seconds": 20, "default_calls_per_role_per_minute": 600},
+  "tdd": {
+    "tests_authored_before_runtime": true,
+    "initial_command": "npm.cmd test",
+    "initial_result": "failed as expected: src/index.js did not yet exist",
+    "final_result": "21 tests passed; zero failed, cancelled or skipped"
+  },
+  "checks": [
+    {"command": "npm.cmd test", "result": "pass", "tests": 21, "runner": "Node built-in test runner with in-memory DO/fake-clock fixtures"},
+    {"command": "npm.cmd run check", "result": "pass"},
+    {"command": "npm.cmd run test:runtime", "result": "pass", "runtime": "local actual Miniflare/workerd from Wrangler 4.160.0", "covered": ["native constant-time comparison", "SQLite-class DO binding", "HTTPS requirement", "authentication", "opposite-role routing", "duplicate receipts", "longpoll wake", "one waiter per role", "timeout"]},
+    {"command": "wrangler deploy --dry-run --outdir build-cache/bundle", "result": "pass", "wrangler": "4.160.0", "upload_performed": false, "bundle_kib": 13.45},
+    {"check": "IDE diagnostics on three JavaScript files", "result": "no errors"}
+  ],
+  "runtime_fixture_adjustment": "Pinned Miniflare uses a newer options schema. The test harness was updated to its exported convertV4MiniflareOptions adapter; product code was unchanged for this harness correction.",
+  "final_safe_review": {
+    "result": "no new confirmed failure found in the bounded probes performed",
+    "probes": [
+      {"trigger": "257-character bearer", "expected_actual": "401; no DO access"},
+      {"trigger": "boolean envelope version", "expected_actual": "400 invalid_envelope"},
+      {"trigger": "additional plaintext envelope field", "expected_actual": "400 before DO"},
+      {"trigger": "forged Origin and role headers", "expected_actual": "authenticated role retained; no CORS response privilege"},
+      {"trigger": "Worker-to-DO forwarded request", "expected_actual": "Authorization and Origin stripped"},
+      {"trigger": "push after longpoll timeout", "expected_actual": "frame retained for next pull, no stale waiter consumption"}
+    ]
+  },
+  "intentional_boundaries": [
+    "Payloads and duplicate receipts are memory-only and may disappear on eviction, restart or deployment before TTL.",
+    "Pull destructively assigns frames to the HTTP response; network loss can lose delivery. Identical push retry does not requeue a consumed frame.",
+    "Endpoint application IDs, acknowledgements, expiry checks and deduplication are required for safe command retries.",
+    "The relay cannot validate AES-GCM authenticity without the endpoint-only AES key; envelope bytes must already be encrypted by endpoints.",
+    "Replay rejection is bounded to active in-memory receipts; it is not a durable replay ledger.",
+    "Rate control begins after authenticated, valid envelope routing. Cloudflare account request/CPU quotas still apply to edge requests.",
+    "Free-plan compatibility is configured, not a guarantee of unlimited free usage or deployed account eligibility.",
+    "No real deployed Android-to-laptop encrypted traffic or production connection was tested."
+  ],
+  "handoff": {
+    "configuration": "wrangler.jsonc",
+    "instructions_and_status_codes": "README.md",
+    "secrets": ["PHONE_TOKEN_HASH", "LAPTOP_TOKEN_HASH"],
+    "do_binding": "PERSONAL_MAILBOX",
+    "do_class": "PersonalMailbox",
+    "do_name": "personal-v1",
+    "migration": "v1/new_sqlite_classes",
+    "compatibility_date": "2026-10-01",
+    "next_action": "Parent privately provisions token hashes and deploys using existing authorized Cloudflare access; then verifies actual endpoint traffic."
+  }
+}

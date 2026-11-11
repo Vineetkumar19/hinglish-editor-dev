@@ -1,0 +1,127 @@
+OWNER E7 REFERENCE AND COMPOSED SOUND DESIGN — 24 October 2026
+
+Owner rejected the four-accent soundtrack and supplied:
+A:/Full Drive/thisis.vineet/e7/E7 final.mp4.
+The requested direction is a dense, contextually designed soundtrack with short
+accent sequences and complementary layers, like the owner's completed edit.
+Do not interpret removal of unrelated Foley as permission to make every future
+video sparse. Do not claim that an effect count alone establishes quality.
+
+Reference inspection
+- Final is 33.32 seconds, 1080x1920, 30fps, stereo 44.1kHz. Original is 33.274s.
+- Sampled final frames show a title composition (2–5s), text emphasis, an
+  illustrated card sequence (~14s), a cafe illustration (~17s), camera changes
+  and the final direct-address turn. These are concrete visual/rhetorical cues,
+  beyond incidental physical gestures.
+- Speech-band waveform alignment has zero global lag, fitted gain .98973,
+  and 2s-window correlations .9388–.9994. This permits a useful difference
+  analysis, but does not recover isolated music or SFX tracks.
+- The difference signal yielded 136 candidate spectral onsets. Those include
+  codec/mastering differences and speech leakage: NOT 136 proven effects.
+  Correlation against 752 short library assets did not establish unique source
+  identities (best ~.57); approximate matches are not used as known originals.
+- Local CLAP on fourteen 2s difference windows frequently favored scratch-like,
+  comic/interface/pop descriptors. These are uncertain composite descriptions,
+  not human listening approval or isolated-source labels. Added this scoped
+  observation and its caveats to the saved reference, retaining the prior profile.
+- ReelMimic ingestion initially failed only while printing a Unicode arrow in
+  Windows cp1252. Re-running with PYTHONUTF8=1 saved its actual analysis and
+  selected the sound profile; prior config/profile copies are retained.
+  Beat estimates from a mixed speech soundtrack are not a known music tempo.
+  Its zero-shot scene result is not accepted as proof that the edit has no cuts.
+- Profile: library/reelmimic/sound/61dbf24d550729f611a1aa04/profile.json.
+  Added scoped sound-design direction and evidence limits. This is reusable
+  reference retrieval, NOT weight training or permission to copy mixed audio
+  into unrelated productions. Other feature references remain unchanged.
+
+New external findings
+Epidemic samples substantiate the density objection: Welcome 39 SFX/18.04s,
+up to 9 NEW starts inside 2 seconds and 5 simultaneous effects; Brand 78/40.24s,
+9 starts/2s and 6 simultaneous; Product Demo Ad 15/12s, 5 starts/2s. These are
+authored built-in samples, not a measured automatic-generation success rate.
+The client packs overlapping sections into lanes without pruning to one effect
+per event or dividing every layer by overlap count. Short .2–.6s excerpts and
+reuse with different source/timeline positions are important.
+Evidence: docs/epidemic-layered-deeper-followup-2026-10-24.txt and
+output/sound-research/epidemic-studio/dense-comparison-2026-10-24.json.
+
+SoundCraft official source is pinned/downloaded, not installed as a running DAW:
+tools/reference-repositories/soundcraft-ef646cf6263e.
+It has real multitrack mixing, envelopes, EQ/compression, buses, sends, automation,
+LUFS/true-peak metering and stem export. No video/emotion-to-sound director or
+semantic catalogue was found in the bounded source scan. Its CLAP is the plugin
+standard, not the audio-text model. Source review:
+docs/soundcraft-deep-review-2026-10-24.txt.
+No private Epidemic planner/model weights have been recovered. Retrieval-paper
+versions and production-client observations remain distinct in the source report.
+
+Implemented repair
+- Every supplied actual speech word can be a measured anchor, with repeated
+  occurrences preserved. The LLM chooses meaningful anchors using deduplicated
+  phrase context, the story and selected reference; timestamps are not invented.
+- Validated base accents remain fixed and are now visible to the layer planner.
+  Composed mode adds bounded anticipation/travel/contact/detail/tail layers and
+  additional spoken anchors, up to five contrasting roles per ensemble.
+- Layer offsets, short durations and role attenuation are explicit. Physical
+  Foley still requires visible sound-producing evidence. Foreign/generic sounds
+  are not a substitute for missing suitable library coverage.
+- Nearby distinct measured anchors may cluster. Legacy restrained mode retains
+  its former spacing and role behavior. Duplicate roles/files, malformed model
+  fields, excessive simultaneous effects and displaced base accents are guarded.
+- New composed mixes use explicit role levels instead of another automatic
+  -10*log10(group-size) reduction; dialogue ducking is 2dB. Legacy mixes retain
+  their former policy. Peak/full-band protection and final mastering remain.
+- Export QA checks composed layer identities instead of rejecting valid close
+  anchors, and retains speech anchors separately from authored sonic offsets.
+- Two officially downloaded CC BY 4.0 Kevin MacLeod music tracks were added,
+  with attribution/changes carried by the existing credits exporter. Music
+  options total six; no paid access, new account or cloud upload was used.
+
+Checks and live status
+68 focused checks currently pass, including real WAV/MP4/XML operations, dense
+nearby anchors, five-role ensembles, bounded offsets, protected base accents,
+legacy behavior and local HTTP output guards. These supplement, not replace,
+the real workflow or listening comparison.
+The first live request failed before inference because Ollama was stopped.
+The existing configured Ollama service was started with C:/Ai Models/ollama.
+Real comparison job 7ac1c129d957 is running through Storylens on port 8876,
+using ORIGINAL e7 night life11.mp4, Auto/High/Layered and the selected E7 final
+reference. The owner's finished file is not modified or mixed over.
+Do not claim end-to-end quality, reference parity or owner approval while this
+run and listening comparison remain incomplete. No unrelated job was stopped.
+
+FINAL IMPLEMENTATION / ACTUAL RESULT
+The initial 7ac1c129d957 trial rendered ten single accents, peak two starts/2s,
+and failed sync QA. The second e1cb0deb5155 rendered 15 clips, peak three/2s,
+but still selected Morning birds for electrical buzz/static. Neither is accepted.
+These exposed free-form model role/type contradictions, generic intent strings,
+and mislabelled listening evidence overriding known physical source metadata.
+
+Speech composition now uses eight typed semantic motifs. The local model selects
+measured anchor IDs, motif, reason and strength; the compiler owns valid acoustic
+role/type, precise intent, offset, short excerpt duration and attenuation. Physical
+scene/editor composition remains separate. Known physical title/tag subjects must
+match the requested subject; birds cannot answer fluorescent hum/radio static.
+Empty/None ambience observations produce no events. Requested short excerpts are
+selected around an actual source peak, not a possibly silent file prefix. Role
+audibility uses consistent weighting and accounts for ducking and safety caps.
+Repeated acoustic choices share a palette while preserving each timed placement.
+98 focused tests pass. The latest query-warming optimization batches identical
+search text without changing ranking; it was unit-checked after the render began
+and has not been performance-benchmarked in another full render.
+
+Completed real Storylens job f83cefdff788, one attempt:
+output/sound/20261024-140650-e26d71/001-e7-night-life11.
+58 proposed layers; 44 rendered effect clips across 14 groups. Busiest two-second
+window: nine NEW effect starts. Peak simultaneous effects: three, plus music and
+the original voice. Largest ensemble has four clips, which need not all overlap.
+Roles: 10 contact, 10 detail, 13 tail, 9 anticipation, 2 travel. No Foley/ambience
+layers; no silent exported stems. Comedic palette; Sneaky Snitch music with credit
+and edit notices exported. 33.266667s stereo MP4 fully decoded: 998 video frames.
+Mix checks and app technical checks passed. This is NOT listening approval,
+pixel/frame fidelity or a claim that it matches the owner's artistic standard.
+Browser playback remains unverified. User asked why this had taken two hours;
+do not start further renders just to present this completed comparison.
+
+Receipt: output/sound-owner-reference-2026-10-24/composition-review.json.
+Preview: http://127.0.0.1:8876/sound-output/20261024-140650-e26d71/001-e7-night-life11/report.html

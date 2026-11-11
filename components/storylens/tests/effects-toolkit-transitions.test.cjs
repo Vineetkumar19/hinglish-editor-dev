@@ -1,0 +1,9 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const base=require('./quick-motion-native.test.cjs').fixture;
+function fixture(){const f=base(['footage','footage']);f.ctx.$={global:f.ctx};for(const name of ['model.js','transitions-model.js','controls.jsx','transitions.jsx','host.jsx'])vm.runInContext(fs.readFileSync('editor_plugins/effects-toolkit/'+name,'utf8'),f.ctx);f.comp.selectedLayers.forEach((l,i)=>l.index=i+1);return {...f,run:(id,settings={})=>JSON.parse(f.ctx.storylensToolkit({id,settings}))};}
+test('whip preserves authored transform values and creates progress keys on both layers',()=>{const f=fixture(),r=f.run('whip');assert.equal(r.ok,true,r.details);for(const l of f.comp.selectedLayers){assert.deepEqual(l.transform.property('ADBE Position').value,[540,960]);assert.equal(l.effects.property('SLT whip · Progress').property(1).keys.length,2);assert.match(l.transform.property('ADBE Position').expression,/Storylens Toolkit transition/);}});
+test('transitions reject missing overlap before modifying either clip',()=>{const f=fixture();f.comp.selectedLayers[0].inPoint=5;assert.match(f.run('whip').error,/overlap/);assert.equal(f.changes.length,0);});
+test('custom transform expression rejects zoom before creating controls',()=>{const f=fixture();f.comp.selectedLayers[1].transform.property('ADBE Scale').expression='wiggle(1,5)';assert.match(f.run('zoom-transition').error,/expression/);assert.equal(f.changes.length,0);});
+test('zoom changes scale and opacity, leaving position untouched',()=>{const f=fixture(),r=f.run('zoom-transition');assert.equal(r.ok,true,r.details);assert.equal(f.comp.selectedLayers[0].transform.property('ADBE Position').expression,'');assert.match(f.comp.selectedLayers[0].transform.property('ADBE Scale').expression,/value/);});
+module.exports={fixture};

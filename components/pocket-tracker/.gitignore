@@ -1,0 +1,15 @@
+.gradle/
+.gradle-home/
+.android-home/
+local.properties
+**/build/
+*.jks
+*.keystore
+*.hprof
+*.log
+captures/
+laptop/.private/
+design/private-*
+private-data.ptx
+*.key
+transfer-private-reference/

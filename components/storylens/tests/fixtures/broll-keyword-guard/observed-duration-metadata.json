@@ -1,0 +1,190 @@
+{
+  "scope": "Read-only metadata observations from eight actual failed-run prepared files. Test files using this metadata are synthetic; no model verdicts are generated. Movie/edit timing was independently read from first source as 1000Hz/6033 ticks; per-file edit headers must be verified by production reader before real acceptance.",
+  "job": "7c03db6fbd88",
+  "rows": [
+    {
+      "candidate_id": "pixabay:176609",
+      "file_sha256": "6b891e21096c75e1da674669dc6b9fd415c0b7eca2bd873d734f5aa242aba5ff",
+      "declared": 6.033333333333333,
+      "duration": 6.0330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 181,
+        "packet_count": 181,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 92160,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 6033,
+        "stream_duration_ticks": 92667
+      }
+    },
+    {
+      "candidate_id": "pixabay:1643",
+      "file_sha256": "5e1cf04ea7f424b827f5939cd1838380b22e1d12e20adf791650a5ac42fd3478",
+      "declared": 6.033333333333333,
+      "duration": 6.0330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 181,
+        "packet_count": 181,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 92160,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 6033,
+        "stream_duration_ticks": 92667
+      }
+    },
+    {
+      "candidate_id": "pixabay:3175",
+      "file_sha256": "98da0ba1a0ae47bbb7b69d0a0ef0f6d6000657174b40b6ed08f0f0574769d864",
+      "declared": 6.033333333333333,
+      "duration": 6.0330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 181,
+        "packet_count": 181,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 92160,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 6033,
+        "stream_duration_ticks": 92667
+      }
+    },
+    {
+      "candidate_id": "web:d0a44bfbb6bc918d",
+      "file_sha256": "e017663adab42f2dc8a38a9f0bb977ee70a94dd66a7220b86ed3979515d5d907",
+      "declared": 8.033333333333335,
+      "duration": 8.0330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 241,
+        "packet_count": 241,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 122880,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 8033,
+        "stream_duration_ticks": 123387
+      }
+    },
+    {
+      "candidate_id": "pixabay:2067",
+      "file_sha256": "235146f71c069d2b47276462468be3f0ad2b6fcaad558d538c95a10ec03ee9e1",
+      "declared": 4.333333333333333,
+      "duration": 4.3330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 130,
+        "packet_count": 130,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 66048,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 4333,
+        "stream_duration_ticks": 66555
+      }
+    },
+    {
+      "candidate_id": "pixabay:1495",
+      "file_sha256": "00d8c948538c532b20f3e0e286e8d5947e89eadb252f365e370de9cfd92f29f9",
+      "declared": 4.333333333333333,
+      "duration": 4.3330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 130,
+        "packet_count": 130,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 66048,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 4333,
+        "stream_duration_ticks": 66555
+      }
+    },
+    {
+      "candidate_id": "pixabay:72930",
+      "file_sha256": "2e2f02681c45055f8797a48136cfb7b821e7eed0bab49ee6beb776308368e11f",
+      "declared": 4.333333333333333,
+      "duration": 4.3330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 130,
+        "packet_count": 130,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 66048,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 4333,
+        "stream_duration_ticks": 66555
+      }
+    },
+    {
+      "candidate_id": "pixabay:267",
+      "file_sha256": "a9d79dc1369ce9d8f99bdc60e1957de360389e1ea173e5bffc590ec3a10c2176",
+      "declared": 4.333333333333333,
+      "duration": 4.3330078125,
+      "fps": "30",
+      "time_base": "1/15360",
+      "frame_timing": {
+        "basis": "mp4_cfr_packet_grid_and_edit_list",
+        "frame_count": 130,
+        "packet_count": 130,
+        "base_rate": "30",
+        "ticks_per_frame": 512,
+        "first_pts": 0,
+        "last_pts": 66048,
+        "min_pts_step": 512,
+        "max_pts_step": 512,
+        "packet_durations_match": true,
+        "movie_time_base": "1/1000",
+        "edit_duration_ticks": 4333,
+        "stream_duration_ticks": 66555
+      }
+    }
+  ]
+}

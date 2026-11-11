@@ -1,0 +1,46 @@
+{
+  "operations": [
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Discover Stunning family dinner ideas that feel fresh practical and surprisingly easy to try for ideas worth saving right now-p (1).mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 1.mp4",
+      "sha256": "fb208d98480935ccc000f6795c1b780a5045af89ef62654b2a0606335c77c615"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Discover Stunning family dinner ideas that feel fresh practical and surprisingly easy to try for ideas worth saving right now-p.mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 2.mp4",
+      "sha256": "969d0e0e789db2c29e7ae197c58bcaded62ac4dee38b8ddaaf35b62b6d199263"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Natural Makeup Looks You Can Try This Weekend-pin-id-924363892284327261.mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 4.mp4",
+      "sha256": "f9e05f3fdf5691fc03c85a7bd820f01e9a35678e072cd442502ed888f2fdd2f1"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Save this viral herb garden roundup that feel luxe without spending a fortune using simple ideas you can actually pull off and (1).mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 5.mp4",
+      "sha256": "ab8228c2f9e93da88b6900df14b72d0735c81b71de62e02e6bf71f4942eec1b9"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Save this viral herb garden roundup that feel luxe without spending a fortune using simple ideas you can actually pull off and (2).mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 6.mp4",
+      "sha256": "4d9edf6f06a9707cd581f03a554c989b040f68c59ac65d38b92de113a5885240"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Save this viral herb garden roundup that feel luxe without spending a fortune using simple ideas you can actually pull off and (3).mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 7.mp4",
+      "sha256": "cbb9e762261c3c8cd2ce55f8e2783ae99b7f827905fa09ba417b46fcffcdf819"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Save this viral herb garden roundup that feel luxe without spending a fortune using simple ideas you can actually pull off and.mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 8.mp4",
+      "sha256": "345111446dbcffb2362742834f3dddc7fb54ff4e58414e2e0a922a0d36276ecf"
+    },
+    {
+      "old": "A:\\Full Drive\\Styles\\Videos\\From Klickpin.com- Natural Makeup Looks You Can Try This Weekend-pin-id-35817759534066891.mp4",
+      "new": "A:\\Full Drive\\Styles\\Videos\\Caption 3 - previous reference.mp4",
+      "sha256": "c629a50b63825923ae2d560cfb8fc9b1c6b054c600ad201ff727e2410482c460"
+    }
+  ],
+  "duplicate": "Caption 3.mp4 is a copy of Caption 4.mp4; owner selected the same reference for both.",
+  "completed": true
+}

@@ -1,0 +1,83 @@
+Sound relevance repair — 24 October 2026
+
+Owner rejected output/sound/20261024-032554-b381d9 for irrelevant audible effects.
+Do not treat that run's 98/100 technical export score as creative acceptance.
+The saved plan used mixkit-1232 (Footsteps on heels on pavement) five times for
+sitting/looking/holding poses. The initial spoken-word accents were discarded
+by the layered planning pass. Generic "Foley" intent and broad top-three CLAP
+family acceptance allowed this mismatch. User-described birds/horses/leaves
+are listening feedback; the saved file identity establishes footsteps, not a
+confirmed horse recording.
+
+Repair:
+- Preserve validated, word-timed speech accents when augmenting with layers.
+- Require a foreground continuous sound-producing action and explicit visual
+  evidence for sampled Foley. Incidental poses/gestures and old observations
+  without that evidence are ineligible. Sparse-frame contacts remain unsuitable
+  for exact impacts.
+- Reject generic Foley/ambience requests. For physical/environmental recordings,
+  require the exact-intent CLAP score to compete with alternative labels even
+  inside the same broad family. Designed accents may pass with their intended
+  primary category; matching only a secondary category does not suffice.
+- Do not broaden a sparse sound category to unrelated categories. Preserve
+  actual title/tags in candidate descriptions and treat classifier labels as
+  estimates, not stronger evidence than contradictory asset identity.
+- Clarify dry-comedy/sarcasm interpretation in the story prompt.
+
+Library: 152 hash-distinct audio files imported from Kenney Interface Sounds
+and UI Audio; CC0 license text, source URL and file hashes retained. These are
+short interface/transition/accent options, not a claim of 1,500 cinematic assets.
+Receipt: output/sound-layer-validation/library-additions.json.
+Sources: https://kenney.nl/assets/interface-sounds and https://kenney.nl/assets/ui-audio
+The existing music library still has only four tracks.
+
+Verification so far: relevance regression tests observed 3 expected failures
+and one missing-function error before implementation. 50 focused tests now
+pass, including actual WAV/MP4 mixing, XML layers and the scoped HTTP sound
+output viewer. One candidate-document test already passed before the change;
+it is coverage, not failing-before evidence.
+
+First UI rerun: port 8876, job ab616774fe25, owner's original nightlife video and
+same approximate script, Auto style/Medium/layering on. Produced two speech
+accents and one music section with no Foley/ambience. Its live activity exposed
+over-rejection of real whooshes and contradictory type/intent after model repair.
+Additional failing-before regressions cover those integration failures. The
+checker now distinguishes primary-family designed accents from precise physical
+recordings, and repaired trigger types keep a compatible retrieval description.
+52 focused checks pass after these follow-ups.
+
+The next UI run (a7f6d70a7a62) produced four speech accents without Foley or
+ambience, but repeated three times because the export checker ignored the
+mixer's full-band bass ceiling after speech ducking. The owner had already
+authorized export-checker repairs. A real low-frequency WAV regression failed
+before the repair; it now passes while deliberately silent stems still fail.
+The mixer saves words_full_db, and export validation compares both peak and
+full-band ceilings after intentional layer gain and ducking. No gain or waveform
+was changed to force the checker to pass.
+
+Final completed Storylens run: f35a631eaf7a,
+output/sound/20261024-040713-e0b829/001-e7-night-life11.
+Started via the normal local job API after the browser automation connection
+failed; same source/script/Auto/Medium/layering settings. Application completed
+in ONE attempt with no hard technical failures. Four speech-timed effects:
+5.68s baad (whoosh), 21.62s baad (whoosh), 27.26s definition (impact), 29.64s
+camera (interface accent). One music section, no Foley or ambience. 33.266667s
+stereo preview fully decoded (998 video frames). 921 effects indexed.
+
+53 focused unit/integration tests pass. Final bounded review found no additional
+failures in the checks performed: encoded path traversal, foreign bridge origin,
+non-media serving, malformed layer identifiers, NaN/negative visual evidence,
+incidental poses and old evidence without sound-producing classification.
+Real HTTP report returned 200 and MP4 byte range returned 206. Receipt:
+output/sound-layer-validation/relevance-final-review.json.
+
+Browser playback remains UNVERIFIED: the in-app tab stopped polling at 17%,
+new-tab navigation/focus timed out, reload timed out, then the browser transport
+closed. The actual service completed independently. Codex open_in_codex returned
+queued for the final report, not proof of a visible loaded page. Do not claim
+the owner heard or accepted this version, or that native editor playback passed.
+No owner assets or previous renders were removed. Music coverage remains four
+tracks; the automatic planner still chose a serious palette for its dry-comedy
+story description, so artistic tone/track fit needs owner listening judgement.
+
+Preview: http://127.0.0.1:8876/sound-output/20261024-040713-e0b829/001-e7-night-life11/report.html

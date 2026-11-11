@@ -1,0 +1,52 @@
+test_absent_profile_uses_timeline_and_explicit_format_has_precedence (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_absent_profile_uses_timeline_and_explicit_format_has_precedence) ... ok
+test_legacy_profile_object_remains_supported (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_legacy_profile_object_remains_supported) ... ok
+test_normal_producer_string_profiles_keep_their_own_caps (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_normal_producer_string_profiles_keep_their_own_caps) ... 
+  test_normal_producer_string_profiles_keep_their_own_caps (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_normal_producer_string_profiles_keep_their_own_caps) (profile='short') ... ERROR
+  test_normal_producer_string_profiles_keep_their_own_caps (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_normal_producer_string_profiles_keep_their_own_caps) (profile='long') ... ERROR
+test_real_write_outputs_boundary_with_string_profile_can_finish_and_repeat (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_real_write_outputs_boundary_with_string_profile_can_finish_and_repeat) ... ERROR
+
+======================================================================
+ERROR: test_normal_producer_string_profiles_keep_their_own_caps (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_normal_producer_string_profiles_keep_their_own_caps) (profile='short')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_profile_finalization_regression.py", line 31, in test_normal_producer_string_profiles_keep_their_own_caps
+    manifest = self.finalize()
+  File "A:\Full Drive\remove silence\tests\test_broll_profile_finalization_regression.py", line 22, in finalize
+    return finalize_candidate_bank(self.fixture.project_file, media_reader=self.reader)
+  File "A:\Full Drive\remove silence\hinglish_broll\producer_contract.py", line 92, in finalize_candidate_bank
+    content_format=project.get('content_format') or project.get('profile',{}).get('name')
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+
+======================================================================
+ERROR: test_normal_producer_string_profiles_keep_their_own_caps (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_normal_producer_string_profiles_keep_their_own_caps) (profile='long')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_profile_finalization_regression.py", line 31, in test_normal_producer_string_profiles_keep_their_own_caps
+    manifest = self.finalize()
+  File "A:\Full Drive\remove silence\tests\test_broll_profile_finalization_regression.py", line 22, in finalize
+    return finalize_candidate_bank(self.fixture.project_file, media_reader=self.reader)
+  File "A:\Full Drive\remove silence\hinglish_broll\producer_contract.py", line 92, in finalize_candidate_bank
+    content_format=project.get('content_format') or project.get('profile',{}).get('name')
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+
+======================================================================
+ERROR: test_real_write_outputs_boundary_with_string_profile_can_finish_and_repeat (tests.test_broll_profile_finalization_regression.ProfileFinalizationRegressionTests.test_real_write_outputs_boundary_with_string_profile_can_finish_and_repeat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_profile_finalization_regression.py", line 69, in test_real_write_outputs_boundary_with_string_profile_can_finish_and_repeat
+    pipeline.write_outputs(self.fixture.root, self.fixture.root, project)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "A:\Full Drive\remove silence\hinglish_broll\pipeline.py", line 332, in write_outputs
+    finalize_candidate_bank(Path(folder)/'broll-project.json')
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "A:\Full Drive\remove silence\hinglish_broll\producer_contract.py", line 92, in finalize_candidate_bank
+    content_format=project.get('content_format') or project.get('profile',{}).get('name')
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.166s
+
+FAILED (errors=3)

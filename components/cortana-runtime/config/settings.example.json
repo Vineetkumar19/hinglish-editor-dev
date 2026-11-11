@@ -1,0 +1,38 @@
+{
+  "agent": {
+    "host": "127.0.0.1",
+    "port": 8000
+  },
+  "ollama": {
+    "host": "http://localhost:11434",
+    "model": "qwen3:8b",
+    "vision_model": "llava"
+  },
+  "permissions": {
+    "_comment": "approved_app_allowlist: friendly name Cortana understands -> the exact command/executable to launch. Only apps listed here can be opened by voice/chat.",
+    "approved_app_allowlist": {
+      "chrome": "chrome.exe",
+      "vs code": "code",
+      "vscode": "code",
+      "intellij": "idea64.exe",
+      "calculator": "calc.exe",
+      "notepad": "notepad.exe",
+      "explorer": "explorer.exe"
+    },
+    "_comment2": "approved_folder_aliases: friendly name -> absolute Windows path. Replace <you> with your actual username.",
+    "approved_folder_aliases": {
+      "Downloads": "C:/Users/<you>/Downloads",
+      "Documents": "C:/Users/<you>/Documents",
+      "Desktop": "C:/Users/<you>/Desktop",
+      "Projects": "C:/Users/<you>/Projects",
+      "Reports": "C:/Users/<you>/Documents/Reports"
+    },
+    "_comment3": "approved_search_roots: directories search_files() is allowed to scan. Defaults to the folder aliases above if omitted.",
+    "approved_search_roots": [
+      "C:/Users/<you>/Downloads",
+      "C:/Users/<you>/Documents",
+      "C:/Users/<you>/Desktop",
+      "C:/Users/<you>/Projects"
+    ]
+  }
+}

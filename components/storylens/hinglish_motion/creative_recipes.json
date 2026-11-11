@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "design": {
+    "source": "https://github.com/Leonxlnx/taste-skill",
+    "principles": [
+      "Use the real subject, exact claims and a clear hierarchy; do not invent proof or metrics.",
+      "Measure the complete text layout before animation. Keep existing words fixed during reveals.",
+      "One display role, one supporting role, coherent spacing and safe frame margins.",
+      "Plan a quick entrance, a readable settled hold and an intentional exit.",
+      "Preserve approved caption fonts, compact ink gaps, word order, black backgrounds and pattern identity.",
+      "Keep familiar application controls. This is scene design guidance, not a website redesign."
+    ]
+  },
+  "recipes": [
+    {"id":"fixed-word-reveal","features":["motion","visuals","captions"],"topics":["title","caption","words"],"idea":"Resolve the entire row first; reveal words in fixed slots. Motion should guide attention without moving already-readable text.","source":"https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/twoclipping-402193.md"},
+    {"id":"product-story","features":["motion","cinematic"],"topics":["product","launch","promo","app"],"idea":"Hook, reveal, concrete highlights, then a short close. Show actual product material when supplied; never invent screenshots, customers or claims. Give short labels at least 0.8 seconds settled and longer phrases roughly 0.3 seconds per word.","source":"https://github.com/latent-spaces/brag/blob/main/skills/brag/references/step-2-plan.md"},
+    {"id":"sequential-explainer","features":["motion","visuals","cinematic"],"topics":["step","process","recipe","explain"],"idea":"Show the process in causal order. Reveal steps with a small stagger, then hold the complete set so it can be read. Keep measurements exactly as supplied.","source":"https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/ror-fly-880547.md"},
+    {"id":"meaningful-visual-motion","features":["visuals","motion","cinematic"],"topics":["visual","picture","person","logo"],"idea":"Enter the relevant visual at the spoken idea, settle for identification, drift gently, then exit before the next subject. No cursor, click effects or random decorative motion.","source":"https://github.com/latent-spaces/brag"},
+    {"id":"orbital-depth","features":["motion"],"topics":["3d","orbit","technology","network"],"idea":"Use the orbital sphere as a separate optional scene layer. Keep type clear of its dense center. Seek absolute time and use fixed seeded geometry.","source":"https://github.com/MengTo/threeui/tree/main/src/shaders/orbital-sphere"}
+  ]
+}

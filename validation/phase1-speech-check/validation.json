@@ -1,9 +1,0 @@
-{
-  "source_seconds": 75,
-  "edited_seconds": 11.32,
-  "removed_seconds": 63.68,
-  "utterances_preserved": 5,
-  "audio_correlation": 0.999998317400471,
-  "max_frame_brightness_error": 1.0,
-  "output": "E:\\remove silence\\validation\\phase1-speech-check\\run-20260909-204214-519929"
-}

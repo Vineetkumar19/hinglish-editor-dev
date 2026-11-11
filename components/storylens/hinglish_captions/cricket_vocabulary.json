@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "scope": "Spelling references, not a current roster, match facts or exhaustive world-player registry. Preserve the identity and historical team name actually spoken.",
+  "sources": [
+    "https://www.iplt20.com/teams",
+    "https://www.iplt20.com/news/article/teams-announce-squads-for-ipl-2013",
+    "https://www.iplt20.com/teams/delhi-capitals",
+    "https://www.iplt20.com/teams/chennai-super-kings",
+    "https://www.iplt20.com/news/article/preview-m56-mi-vs-kkr",
+    "https://www.iplt20.com/news/article/report-match-69-kxip-v-dd",
+    "https://www.iplt20.com/news/article/vivo-ipl-2017-player-retention-list",
+    "https://www.icc-cricket.com/rankings/59429/babar-azam",
+    "https://www.icc-cricket.com/rankings/4308/steve-smith",
+    "https://www.lords.org/mcc/about-the-laws-of-cricket",
+    "https://lawsofcricket.lords.org/laws-and-playing-conditions"
+  ],
+  "teams": [
+    "Mumbai Indians", "Chennai Super Kings", "Delhi Capitals", "Gujarat Titans",
+    "Kolkata Knight Riders", "Lucknow Super Giants", "Punjab Kings", "Rajasthan Royals",
+    "Royal Challengers Bengaluru", "Sunrisers Hyderabad", "Delhi Daredevils",
+    "Kings XI Punjab", "Deccan Chargers", "Royal Challengers Bangalore"
+  ],
+  "players": [
+    "Kieron Pollard", "Michael Hussey", "David Hussey", "MS Dhoni", "Virat Kohli",
+    "Rohit Sharma", "Sachin Tendulkar", "Suresh Raina", "Shikhar Dhawan",
+    "Virender Sehwag", "Gautam Gambhir", "Yuvraj Singh", "Rahul Dravid",
+    "Sourav Ganguly", "Axar Patel", "Rishabh Pant", "KL Rahul", "Kuldeep Yadav",
+    "Ruturaj Gaikwad", "Ravindra Jadeja", "Ravichandran Ashwin", "Harbhajan Singh",
+    "Dinesh Karthik", "Ajinkya Rahane", "Suryakumar Yadav", "Ambati Rayudu",
+    "Robin Uthappa", "Manish Pandey", "Yusuf Pathan", "Irfan Pathan",
+    "Umesh Yadav", "Ishant Sharma", "Ashish Nehra", "Zaheer Khan", "Mohammad Shami",
+    "Mohammad Siraj", "Bhuvneshwar Kumar", "Piyush Chawla", "Praveen Kumar",
+    "Sandeep Sharma", "Wriddhiman Saha", "Murali Vijay", "Amit Mishra",
+    "Sanju Samson", "Mayank Agarwal", "Karun Nair", "Harshal Patel", "Shivam Dube",
+    "Shakib Al Hasan", "Sunil Narine", "Andre Russell", "Jacques Kallis",
+    "Brendon McCullum", "Brett Lee", "Eoin Morgan", "Manvinder Bisla",
+    "Ryan ten Doeschate", "David Warner", "David Miller", "Shaun Marsh",
+    "Adam Gilchrist", "Glenn Maxwell", "Chris Gayle", "AB de Villiers",
+    "Ricky Ponting", "Lasith Malinga", "Mitchell Johnson", "Mitchell Marsh",
+    "Dwayne Bravo", "Dwayne Smith", "Morne Morkel", "Albie Morkel",
+    "Quinton de Kock", "Kumar Sangakkara", "Mahela Jayawardene",
+    "Tillakaratne Dilshan", "Muttiah Muralitharan", "Dale Steyn", "Ross Taylor",
+    "Shane Watson", "Steve Smith", "Babar Azam", "Rashid Khan",
+    "Aaron Finch", "Angelo Mathews", "Jason Holder", "Nathan Coulter-Nile",
+    "Ben Duckett", "Kyle Jamieson", "Dushmantha Chameera", "Rehan Ahmed",
+    "Khaleel Ahmed", "Dewald Brevis", "Rahul Chahar", "Mukesh Choudhary",
+    "Jasprit Bumrah", "Hardik Pandya", "Krunal Pandya", "Shubman Gill",
+    "Nitish Rana", "Rinku Singh", "Faf du Plessis", "Deepak Chahar"
+  ],
+  "terms": [
+    "wicket", "wickets", "wicketkeeper", "batter", "batsman", "bowler",
+    "innings", "boundary", "boundaries", "crease", "stumps", "bails",
+    "no ball", "wide ball", "dead ball", "free hit", "leg bye", "byes",
+    "leg before wicket", "run out", "stumped", "caught", "bowled",
+    "hit wicket", "obstructing the field", "powerplay", "super over",
+    "net run rate", "strike rate", "economy rate", "duck", "century",
+    "half-century", "maiden", "yorker", "bouncer", "googly", "off spin",
+    "leg spin", "swing", "seam", "follow-on", "declaration", "appeal",
+    "umpire", "third umpire", "DRS", "DLS", "LBW", "IPL", "ODI", "T20"
+  ],
+  "caption_rules": [
+    "Reference terms help identify heard words; do not rewrite the narration to teach or correct cricket laws.",
+    "Never infer a score, year, record, winner, team membership or player identity from general cricket knowledge.",
+    "Preserve historical names and spoken abbreviations. Delhi Daredevils is not a misspelling of Delhi Capitals; Kings XI Punjab is not a misspelling of Punjab Kings; Bangalore and Bengaluru are not interchangeable in historical speech.",
+    "A correct whole name must never change into another known name merely because their surnames are similar.",
+    "Keep Roman Hindi as Hindi. Standardize spelling only when the surrounding speech supports the same word.",
+    "Use digits for spoken quantities and numeric ordinals. Preserve cricket over notation; do not invent missing digits or remove a zero without audio evidence."
+  ]
+}

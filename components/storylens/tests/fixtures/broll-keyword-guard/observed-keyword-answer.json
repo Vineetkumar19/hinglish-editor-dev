@@ -1,0 +1,114 @@
+{
+  "keywords": [
+    {
+      "identity": "",
+      "keyword": "Indian city street",
+      "meaning": "A typical urban street in India, often used to depict the setting of the struggle for housing.",
+      "queries": [
+        "Indian city street",
+        "North Indian street",
+        "urban Indian street"
+      ],
+      "word_index": 0
+    },
+    {
+      "identity": "",
+      "keyword": "flat availability",
+      "meaning": "The lack of available flats for a bachelor in North India.",
+      "queries": [
+        "flat availability",
+        "housing shortage",
+        "no available flat"
+      ],
+      "word_index": 7
+    },
+    {
+      "identity": "",
+      "keyword": "bachelor accommodation",
+      "meaning": "Accommodation specifically for single men, often in PGs or small flats.",
+      "queries": [
+        "bachelor accommodation",
+        "single man housing",
+        "PG for bachelor"
+      ],
+      "word_index": 19
+    },
+    {
+      "identity": "",
+      "keyword": "bedroom without bed",
+      "meaning": "A room that lacks a bed, a common issue in small flats.",
+      "queries": [
+        "bedroom without bed",
+        "empty bedroom",
+        "room without furniture"
+      ],
+      "word_index": 50
+    },
+    {
+      "identity": "",
+      "keyword": "wardrobe missing",
+      "meaning": "A room without a wardrobe, indicating lack of storage space.",
+      "queries": [
+        "wardrobe missing",
+        "no wardrobe",
+        "empty storage space"
+      ],
+      "word_index": 52
+    },
+    {
+      "identity": "",
+      "keyword": "geyser missing",
+      "meaning": "A room without a geyser, indicating lack of hot water facility.",
+      "queries": [
+        "geyser missing",
+        "no hot water",
+        "room without geyser"
+      ],
+      "word_index": 54
+    },
+    {
+      "identity": "",
+      "keyword": "kitchen without pan",
+      "meaning": "A kitchen that lacks basic cooking equipment like a pan.",
+      "queries": [
+        "kitchen without pan",
+        "no cooking tools",
+        "empty kitchen"
+      ],
+      "word_index": 56
+    },
+    {
+      "identity": "",
+      "keyword": "refrigerator missing",
+      "meaning": "A room without a refrigerator, indicating lack of storage for food.",
+      "queries": [
+        "refrigerator missing",
+        "no fridge",
+        "room without fridge"
+      ],
+      "word_index": 57
+    },
+    {
+      "identity": "",
+      "keyword": "washing machine missing",
+      "meaning": "A room without a washing machine, indicating lack of laundry facilities.",
+      "queries": [
+        "washing machine missing",
+        "no laundry machine",
+        "room without washing machine"
+      ],
+      "word_index": 59
+    },
+    {
+      "identity": "",
+      "keyword": "PG accommodation",
+      "meaning": "A common type of housing for bachelors, often with shared facilities.",
+      "queries": [
+        "PG accommodation",
+        "bachelor PG",
+        "shared housing"
+      ],
+      "word_index": 82
+    }
+  ]
+}

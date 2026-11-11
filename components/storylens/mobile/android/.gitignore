@@ -1,0 +1,11 @@
+.private/
+.gradle/
+.gradle-home/
+.android-home/
+toolchain/
+local.properties
+**/build/
+checks/classes/
+*.keystore
+*.jks
+*.p12

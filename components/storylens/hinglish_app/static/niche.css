@@ -1,0 +1,28 @@
+.channel-profiles{border:1px solid #35414f;border-radius:16px;padding:20px;margin:0 0 24px;background:linear-gradient(120deg,#18212d,#151c26)}.channel-title{display:flex;align-items:center;justify-content:space-between;gap:16px}.channel-title h2{font-size:22px;margin:0 0 16px}.channel-title .eyebrow{margin:0 0 7px}.channel-title>span{padding:6px 12px;border-radius:20px;background:#293e37;color:#b8e3cc;font-size:12px}.channel-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.channel-cards button{text-align:left;padding:15px 12px;background:#17212d;color:#e7ecf5;border:1px solid #3b485b;border-radius:10px;cursor:pointer}.channel-cards button[aria-pressed=true]{border-color:#f1b56d;background:#342a20}.channel-cards b,.channel-cards small{display:block}.channel-cards small{font-size:11px;margin-top:6px;color:#acb8c9;line-height:1.5}.channel-note{font-size:12px;color:#afbdcd;line-height:1.6}.channel-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.channel-profiles button:not([data-profile]){padding:9px 12px;border:1px solid #526b81;border-radius:8px;background:#223342;color:#e0eaf7;cursor:pointer}.channel-profiles details{border-top:1px solid #35414f;padding-top:12px;margin-top:15px}.channel-profiles summary{cursor:pointer;font-size:13px}.channel-profiles label{display:block;font-size:12px;margin:15px 0 7px}.channel-profiles textarea,.channel-profiles input{width:100%;background:#101923;color:#e3ebf8;border:1px solid #3a4a5c;padding:10px;border-radius:8px;box-sizing:border-box}.channel-profiles textarea{min-height:80px}.channel-profiles a{display:block;color:#8bd3ff;font-size:12px;margin:8px 0;overflow-wrap:anywhere}#channelEvidence{font-size:12px;max-height:250px;overflow:auto;margin-top:15px}#channelExtras[hidden],#gamingActions[hidden],#cricketResearch[hidden]{display:none}.niche-tool{display:none}body[data-creator-profile=gaming] .gaming-tool,body[data-creator-profile=cricket] .thumbnail-tool,body[data-creator-profile=gaming] .thumbnail-tool{display:flex}@media(max-width:600px){.channel-cards{grid-template-columns:1fr}.channel-cards button{padding:10px}.channel-title h2{font-size:19px}}
+
+/* Creator settings share the dark theme on every page, including Publishing. */
+dialog.profile-dialog{box-sizing:border-box;width:min(760px,calc(100vw - 32px));max-width:760px;max-height:88vh;overflow:auto;padding:24px;background:#171c23;color:#edf1f6;color-scheme:dark;border:1px solid #39434e;border-radius:16px;box-shadow:0 24px 80px #0009;font-family:inherit}
+dialog.profile-dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}
+dialog.profile-dialog .profile-close{float:right;display:grid;place-items:center;width:34px;height:34px;padding:7px;background:#252d37;color:#edf1f6;border:1px solid #3d4855;border-radius:8px;cursor:pointer}
+dialog.profile-dialog .profile-close:hover{background:#333e4b}
+dialog.profile-dialog .profile-close svg{display:block;width:18px;height:18px}
+dialog.profile-dialog .channel-profiles{clear:both;margin:0;padding:14px 0 0;border:0;background:none;color:#edf1f6}
+dialog.profile-dialog .channel-title{align-items:flex-start;margin-bottom:20px}
+dialog.profile-dialog .channel-title h2{color:#f2f4f7;margin:6px 0 0;font-size:24px;line-height:1.25}
+dialog.profile-dialog .channel-title .eyebrow{color:#ffab73;font-size:11px;letter-spacing:.13em}
+dialog.profile-dialog .channel-title>span{margin-top:22px;white-space:nowrap}
+dialog.profile-dialog .channel-cards button{min-height:86px;font:inherit;background:#1d2530;border-color:#394653}
+dialog.profile-dialog .channel-cards button[aria-pressed=true]{background:#32271f;border-color:#e6a16b}
+dialog.profile-dialog .channel-cards b{font-size:15px;color:#f2f4f7}
+dialog.profile-dialog .channel-cards small{font-size:12px;color:#b6c3d2}
+dialog.profile-dialog .channel-note{font-size:13px;color:#bac7d5}
+dialog.profile-dialog summary,dialog.profile-dialog label{color:#e3e9f0}
+dialog.profile-dialog summary{padding:6px 0}
+dialog.profile-dialog button:focus-visible,dialog.profile-dialog summary:focus-visible{outline:2px solid #ffad76;outline-offset:3px}
+dialog.profile-dialog #channelStatus:empty{display:none}
+@media(max-width:600px){dialog.profile-dialog{padding:18px}dialog.profile-dialog .channel-title h2{font-size:21px}dialog.profile-dialog .channel-cards button{min-height:68px}}
+
+/* Compact profile actions and reference links; research fields keep their layout. */
+#channelReferences{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:12px 0}
+#channelReferences a{display:inline-flex;margin:0}
+.channel-profiles .channel-actions button{flex:1 1 0;min-width:0;min-height:44px;overflow-wrap:normal;word-break:normal}

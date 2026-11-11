@@ -1,0 +1,19 @@
+{
+  "scope": "Test-only initial reproductions; no product fix or running-job mutation.",
+  "tests": 6,
+  "passed": 4,
+  "failures": 2,
+  "errors": 0,
+  "seconds": 0.267,
+  "meaningful_failure_evidence": "keyword-guard-red-tests.txt",
+  "test_module": "tests\\test_broll_keyword_guard_regression.py",
+  "test_module_sha256": "2cd99c31d5114fab6bdfd12df8b014818430577153c2d3b072bd14491e356285",
+  "raw_fixture_sha256": "0a5af4e21e4cc43aef153ccaae33c8239ccbdf933f047594aef281bd6e450d4a",
+  "proposed_lease": [
+    "hinglish_broll/keywords.py"
+  ],
+  "lease_granted": false,
+  "network_model_gpu_native_calls": false,
+  "protected_findings": "No exact matching prior protected final-adversarial classification found in scoped AGENTS/review/handoff search. Standing prohibition remains.",
+  "live_acceptance": "Not repeated. Actual suite job left untouched."
+}

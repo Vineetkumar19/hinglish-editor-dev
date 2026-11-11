@@ -1,0 +1,10 @@
+# Small web service only. Install requirements.txt separately on rendering workers.
+fastapi>=0.143.1,<0.144
+uvicorn>=0.54,<0.55
+httpx>=0.28.1,<0.29
+argon2-cffi>=25.1,<26
+requests>=2.32,<3
+urllib3>=2.8,<3
+cryptography>=46,<51
+SQLAlchemy>=2.0.46,<2.1
+PyMySQL[rsa]>=1.1.2,<1.2

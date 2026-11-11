@@ -1,0 +1,45 @@
+{
+  "verified_at": "2026-11-03T20:02:06.495682+00:00",
+  "config": {
+    "active_from": "",
+    "active_until": "",
+    "consent_revision": "20261104-owner-controls",
+    "daily_times": "09:00,16:00",
+    "domains": [
+      "instagram.com",
+      "x.com",
+      "reddit.com",
+      "icc-cricket.com",
+      "bcci.tv",
+      "iplt20.com",
+      "espncricinfo.com",
+      "cricbuzz.com"
+    ],
+    "enabled": true,
+    "event": "",
+    "gpt_enabled": true,
+    "gpt_interval": 30,
+    "gpt_schedule": "interval",
+    "interval_minutes": 30,
+    "lookback_hours": 48,
+    "max_daily": 12,
+    "mode": "auto",
+    "window_end": "00:00",
+    "window_start": "18:00"
+  },
+  "candidates": 80,
+  "browser_checks": [
+    "settings open/close",
+    "Reddit source filter",
+    "search filter",
+    "Selected empty state",
+    "both activation checkboxes checked"
+  ],
+  "console_errors_observed": [],
+  "gpt_live_run_tested": false,
+  "gpt_running_at_check": false,
+  "engine": "ChatGPT-authenticated official Codex CLI live web search; no Chrome UI automation",
+  "screenshot": "D:\\Workflow_Automation\\cricket-meme-inbox\\clean-ui.png",
+  "no_publishing": true,
+  "task_ui_actions_finished": true
+}

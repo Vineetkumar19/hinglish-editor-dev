@@ -1,0 +1,304 @@
+{
+  "script": "Madurai aane ke pehle mujhe laga tha, bhai, flat toh mil hi jayega. Bhai, main galat tha.\n\nNorth Indian ho, bachelor ho, IT mein kaam karte ho… congratulations! 99 percent flat tumhare liye band hain.\n\nAur jo ek percent flat milega bhi na, usmein kuch nahi hoga. Sirf chaar deewarein.\n\nNa bed, na almari, na geyser, na fan. Fridge, washing machine… bhool jao.\n\nSab tumhein apne jeb se daalna hai, aur tab jaake tum wahan reh sakte hain.\n\nToh main kahan ruka hoon? PG mein.\n\nAur PG ki kahani, uska level aur alag hai. Bataunga aapko agle video mein.",
+  "capture": {
+    "host": "aftereffects",
+    "project_id": "D:\\AE mere edited files\\captions.aep",
+    "sequence_id": "117",
+    "name": "Comp 1",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 14.4,
+    "clips": [
+      {
+        "path": "D:\\Full Drive\\thisis.vineet\\e2\\e2(1).mp4",
+        "start": 0,
+        "end": 14.4,
+        "source_in": 0,
+        "kind": "video",
+        "track": 0,
+        "stretch": 100,
+        "source_duration": 35.7
+      }
+    ],
+    "unsupported": []
+  },
+  "observed": [
+    {
+      "text": "मदुराई",
+      "start": 0,
+      "end": 0.36,
+      "probability": 0.8391927083333334
+    },
+    {
+      "text": "आने",
+      "start": 0.36,
+      "end": 0.48,
+      "probability": 0.980712890625
+    },
+    {
+      "text": "के",
+      "start": 0.48,
+      "end": 0.7,
+      "probability": 0.851318359375
+    },
+    {
+      "text": "पहले",
+      "start": 0.7,
+      "end": 0.86,
+      "probability": 0.9931640625
+    },
+    {
+      "text": "मुझे",
+      "start": 0.86,
+      "end": 1.06,
+      "probability": 0.8787027994791666
+    },
+    {
+      "text": "लगा",
+      "start": 1.06,
+      "end": 1.28,
+      "probability": 0.9974609375
+    },
+    {
+      "text": "था",
+      "start": 1.28,
+      "end": 1.58,
+      "probability": 0.76416015625
+    },
+    {
+      "text": "आई",
+      "start": 1.58,
+      "end": 2.08,
+      "probability": 0.655303955078125
+    },
+    {
+      "text": "फ्लैट",
+      "start": 2.08,
+      "end": 2.34,
+      "probability": 0.9133649553571429
+    },
+    {
+      "text": "को",
+      "start": 2.34,
+      "end": 2.5,
+      "probability": 0.5230712890625
+    },
+    {
+      "text": "मिली",
+      "start": 2.5,
+      "end": 2.68,
+      "probability": 0.9737548828125
+    },
+    {
+      "text": "जाएगा",
+      "start": 2.68,
+      "end": 3.1,
+      "probability": 0.95703125
+    },
+    {
+      "text": "बाई",
+      "start": 3.1,
+      "end": 3.72,
+      "probability": 0.729541015625
+    },
+    {
+      "text": "मैं",
+      "start": 3.72,
+      "end": 4.04,
+      "probability": 0.9423828125
+    },
+    {
+      "text": "गलत",
+      "start": 4.04,
+      "end": 4.32,
+      "probability": 0.9105224609375
+    },
+    {
+      "text": "था",
+      "start": 4.32,
+      "end": 4.64,
+      "probability": 0.9962565104166666
+    },
+    {
+      "text": "नौर्थिंडेन",
+      "start": 4.64,
+      "end": 5.52,
+      "probability": 0.8459123883928571
+    },
+    {
+      "text": "हो,",
+      "start": 5.52,
+      "end": 5.66,
+      "probability": 0.843994140625
+    },
+    {
+      "text": "पैचलेर",
+      "start": 5.66,
+      "end": 6.46,
+      "probability": 0.8714599609375
+    },
+    {
+      "text": "हो,",
+      "start": 6.46,
+      "end": 6.6,
+      "probability": 0.99169921875
+    },
+    {
+      "text": "आईटे",
+      "start": 6.64,
+      "end": 7.06,
+      "probability": 0.8188127790178571
+    },
+    {
+      "text": "में",
+      "start": 7.06,
+      "end": 7.24,
+      "probability": 0.9158528645833334
+    },
+    {
+      "text": "काम",
+      "start": 7.24,
+      "end": 7.36,
+      "probability": 0.8958333333333334
+    },
+    {
+      "text": "करते",
+      "start": 7.36,
+      "end": 7.6,
+      "probability": 0.999267578125
+    },
+    {
+      "text": "हो",
+      "start": 7.6,
+      "end": 7.78,
+      "probability": 0.9990234375
+    },
+    {
+      "text": "कॉंग्राइटुलेशन्स",
+      "start": 8.5,
+      "end": 9.0,
+      "probability": 0.8781294389204546
+    },
+    {
+      "text": "99",
+      "start": 9.0,
+      "end": 9.26,
+      "probability": 0.62548828125
+    },
+    {
+      "text": "%",
+      "start": 9.26,
+      "end": 9.86,
+      "probability": 0.94091796875
+    },
+    {
+      "text": "फ्लैट",
+      "start": 9.86,
+      "end": 10.3,
+      "probability": 0.9932338169642857
+    },
+    {
+      "text": "तुम्हारे",
+      "start": 10.3,
+      "end": 10.54,
+      "probability": 0.892431640625
+    },
+    {
+      "text": "ले",
+      "start": 10.54,
+      "end": 10.72,
+      "probability": 0.9002278645833334
+    },
+    {
+      "text": "बंद",
+      "start": 10.72,
+      "end": 11.0,
+      "probability": 0.9763671875
+    },
+    {
+      "text": "है",
+      "start": 11.0,
+      "end": 11.12,
+      "probability": 0.997802734375
+    },
+    {
+      "text": "और",
+      "start": 11.12,
+      "end": 11.52,
+      "probability": 0.9793294270833334
+    },
+    {
+      "text": "जो",
+      "start": 11.52,
+      "end": 11.68,
+      "probability": 0.9820963541666666
+    },
+    {
+      "text": "1",
+      "start": 11.68,
+      "end": 11.76,
+      "probability": 0.68505859375
+    },
+    {
+      "text": "%",
+      "start": 11.76,
+      "end": 12.02,
+      "probability": 0.9931640625
+    },
+    {
+      "text": "फ्लैट",
+      "start": 12.02,
+      "end": 12.38,
+      "probability": 0.9949776785714286
+    },
+    {
+      "text": "मिलेगा",
+      "start": 12.38,
+      "end": 12.7,
+      "probability": 0.9979073660714286
+    },
+    {
+      "text": "भी",
+      "start": 12.7,
+      "end": 12.9,
+      "probability": 0.9480794270833334
+    },
+    {
+      "text": "न",
+      "start": 12.9,
+      "end": 12.94,
+      "probability": 0.969482421875
+    },
+    {
+      "text": "ना",
+      "start": 12.94,
+      "end": 13.1,
+      "probability": 0.83642578125
+    },
+    {
+      "text": "उसमें",
+      "start": 13.1,
+      "end": 13.68,
+      "probability": 0.8998209635416666
+    },
+    {
+      "text": "कुछ",
+      "start": 13.68,
+      "end": 13.88,
+      "probability": 0.9931640625
+    },
+    {
+      "text": "नहीं",
+      "start": 13.88,
+      "end": 14.06,
+      "probability": 0.9955078125
+    },
+    {
+      "text": "होगा",
+      "start": 14.06,
+      "end": 14.26,
+      "probability": 0.99111328125
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freelancer Finance</title>
+  <link rel="stylesheet" href="/finance.css">
+  <script src="/finance.js?v=voice-toolbar" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Freelancer Finance</h1>
+      <div class="controls">
+        <label>Month <input id="month" type="month"></label>
+        <button type="button" id="refresh">Refresh</button>
+      </div>
+    </header>
+    <div class="panels">
+      <section aria-labelledby="cash-title">
+        <p class="source">Pocket Tracker</p>
+        <h2 id="cash-title">Monthly cash flow</h2>
+        <p class="status" id="pocket-status" role="status">Connecting to your phone…</p>
+        <div id="pocket-summary" hidden>
+          <dl id="pocket-values"></dl>
+        </div>
+      </section>
+      <section aria-labelledby="wealth-title">
+        <p class="source">Finance Tracker</p>
+        <h2 id="wealth-title">Net worth</h2>
+        <p class="status" id="finance-tracker-status" role="status">Connecting to Finance Tracker…</p>
+        <dl id="finance-tracker-values" hidden></dl>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
+

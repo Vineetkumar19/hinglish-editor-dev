@@ -1,0 +1,97 @@
+Sound Design integration readiness — 24 October 2026
+
+Status: implementation is ready for the owner's next supplied-video demo.
+The new model-authored creative result and listening approval remain pending
+that video. This report does not claim parity with Epidemic's private AI.
+
+References preserved and connected
+The owner confirmed five long tutorials, not six. Their 30 teaching cards,
+the three saved shorts, E7/e2/e5 edited examples, selected ReelMimic profile,
+live E7 Epidemic workflow and Artlist/ACE/SoundCraft research remain saved.
+The full creator profile, accepted choices and saved removals are preserved.
+Knowledge is retrieved into configured local planning and Vision requests;
+this is not model weight training. Each new sound job now saves
+sound-guidance.json describing its available reference retrieval and tools.
+
+Implemented behavior
+- Per-video acoustic identity and independently authored layer intents replace
+  the default repeated speech motif ensembles. Legacy saved plans remain.
+- Candidate retrieval considers up to 24 relevant files, then gives the model
+  a bounded, varied six-file slate. Exact duplicate bytes are deduplicated.
+  Repeated sources require an explicit recurring motif and narrative reason.
+  The model can still reject every candidate; no random replacement is forced.
+- New line-anchored spotting sections support music, effects_only and
+  voice_only. They use actual supplied line IDs and timing, cover lines without
+  overlaps, and allow intentional dry passages without muting the voice.
+  Old saved music plans retain their previous bed behavior.
+- Music fades/filter tails do not leak into explicit no-music intervals.
+  Effects are excluded from voice-only anchors, and pre-roll/tails are trimmed
+  without moving the source event relative to the timeline.
+- Optional per-layer filters, speech-frequency dip, stereo pan, fades and
+  speech ducking are bounded typed settings with an explanation. They are
+  rendered into editor stems and saved with processing receipts. No arbitrary
+  plugin code, shell expressions or unsupported processor is executed.
+- Candidate alternatives and measured source-offset synchronization metadata
+  remain with each cue. Energy peaks are not labeled verified semantic contacts.
+- Music off/on keeps immutable saved track/excerpt choices. Invalid saved
+  processing is rejected before replacing the prior preview or teaching taste.
+- Shared errors explain the next step and retain Technical details. QA accounts
+  for intentionally authored speech ducking while still rejecting silent output.
+- Mastered stems keep the common gain/limiter envelope and existing native
+  editor handoff paths. Approved captions and other feature designs are untouched.
+
+Validation performed
+TDD: meaningful tests were added before the spotting, processing, candidate
+variety, music recovery and failure-preservation implementations, and their
+expected failures were observed. The final Sound Design suite passes 128 tests.
+The initial local HTTP fixture needed permitted loopback access; it passed
+with that access. Creative-memory checks passed 5/5. Shared message checks
+passed 6/8; the two unrelated old redirect-page assertions are recorded below.
+
+Actual running-application check used a separate root and a copied real
+Zomato project. The normal report's Save & remix action turned music off and
+restored its original track/excerpt. One deliberately authored engineering
+processing fixture was mixed through the same real route. It is NOT a newly
+AI-authored creative demo. A malformed processing fixture produced the shared
+plain-language error with a collapsed Technical details control and preserved
+the previous preview. Owner originals and taste-memory hashes were unchanged.
+The isolated server had its own local connection token and no publisher or
+workflow supervisor; other services/jobs were left running. No Premiere launch.
+
+Processed editor stems reconstruct the full mix with maximum PCM difference
+0.00012219 and peak -1.99992 dBFS. Processing is baked, and its saved ducking
+metadata correctly records -3 dB for the checked layer. All 82 quality checks
+on that compatibility mix passed. Native Premiere/CapCut playback and a full
+fresh listening assessment were not repeated. Source/processing provenance,
+unit log and the live receipt are in output/sound-final-readiness-20261024.
+
+Final adversarial review and breaking points
+Eight bounded invalid-input/security probes rejected unsupported executable
+fields, nonfinite/bool/out-of-range DSP settings, invalid IDs/modes and missing
+sound sections. No new Sound Design failure was found in those probes.
+
+Unrelated existing failures, left unchanged:
+- Trigger: run tests/test_user_messages.py, test_every_feature_page_loads_shared_
+  error_handling_before_feature_scripts for auto-caption-2.html.
+  Expected by test: page loads feedback.js. Actual: this legacy entry is now
+  only a redirect to main Auto Captions and lacks that script. Impact: the
+  static assertion fails; no current Sound Design failure was reproduced.
+- Same trigger and expected/actual behavior for auto-captions.html.
+  Both failures are outside this sound change; no caption redesign was made.
+
+Remaining quality/feature limits
+The local music catalogue is small. New code cannot manufacture suitable
+licensed music, reliable source-stem separation, or the private planner's
+ranking. Automatic musical key matching, pitched/reversed music-derived
+transitions, arbitrary reverb and music-stem rearrangement are not newly
+implemented. Existing licensed/local assets and conservative physical-source
+checks remain. AuroLA research is saved; no new model weights were downloaded.
+The owner-supplied next video is still required to judge fresh semantic fit,
+variety, timing and artistic mix quality. Do not call unit checks or this
+compatibility render creative acceptance.
+
+Changed implementation files
+hinglish_sound/acoustic.py, spotting.py, processing.py, cues.py, director.py,
+layers.py, pipeline.py, mix.py, evaluator.py; hinglish_eval/model_rules.py;
+hinglish_app/error_catalog.json. New checks: tests/test_sound_arrangement.py
+and tests/test_sound_candidate_variety.py, plus the earlier contextual tests.

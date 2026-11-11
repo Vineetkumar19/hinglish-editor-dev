@@ -1,0 +1,254 @@
+{
+  "name": "Caption 5",
+  "source_fps": 30,
+  "source_width": 714,
+  "source_height": 408,
+  "position": 0.45,
+  "font": "Inter-Variable.ttf",
+  "black": "#060606",
+  "red": "#B30C36",
+  "blue": "#009CF1",
+  "main_size": 104,
+  "condensed_size": 112,
+  "number_size": 240,
+  "support_size": 40,
+  "support_focus_size": 58,
+  "tracking": -0.02,
+  "space": 0.16,
+  "gap": 5,
+  "flank_drop": 20,
+  "safe_width": 0.84,
+  "max_words": 5,
+  "stop_words": [
+    "a",
+    "an",
+    "the",
+    "and",
+    "of",
+    "in",
+    "on",
+    "at",
+    "is",
+    "to",
+    "we",
+    "you",
+    "it",
+    "with",
+    "hai",
+    "ka",
+    "ki",
+    "ke",
+    "ko",
+    "aur",
+    "se"
+  ],
+  "motion": {
+    "main_seconds": 0.33,
+    "support_seconds": 0.18,
+    "main_fade": 0.0666666667,
+    "support_fade": 0.045,
+    "condensed_fade": 0.18,
+    "main_rise": 42,
+    "support_rise": 7,
+    "main_scale": 0.1,
+    "support_scale": 0.025,
+    "condensed_slide": 38
+  },
+  "recipes": [
+    {
+      "text": "BHAI 4 mahine hii bache haii",
+      "hero": 1,
+      "mode": "flank",
+      "tone": "red",
+      "condensed": false,
+      "start": 82,
+      "end": 145,
+      "hero_frame": 91
+    },
+    {
+      "text": "aur BHAI apna COMEBACK",
+      "hero": 3,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": 1,
+      "start": 220,
+      "end": 268,
+      "hero_frame": 239
+    },
+    {
+      "text": "per BHAII",
+      "hero": 1,
+      "mode": "offset",
+      "tone": "blue",
+      "condensed": false,
+      "start": 489,
+      "end": 515,
+      "hero_frame": 498
+    },
+    {
+      "text": "logo ko dikhane wale thee unnki AAUKAD",
+      "hero": 6,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": false,
+      "start": 403,
+      "end": 488,
+      "hero_frame": 441
+    }
+  ],
+  "demo_phrases": [
+    {
+      "text": "Imagine a monument",
+      "hero": 2,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": 0
+    },
+    {
+      "text": "that changes with the light.",
+      "hero": 1,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "The Taj Mahal",
+      "hero": 1,
+      "mode": "flank",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "stands beside the Yamuna River",
+      "hero": 3,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": -1
+    },
+    {
+      "text": "in Agra.",
+      "hero": 1,
+      "mode": "flank",
+      "tone": "blue",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "Its white marble",
+      "hero": 2,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": 1
+    },
+    {
+      "text": "glows softly at sunrise",
+      "hero": 0,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "and shines beneath the moon.",
+      "hero": 1,
+      "mode": "stack",
+      "tone": "blue",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "Look closer at",
+      "hero": 1,
+      "mode": "flank",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "the carved flowers,",
+      "hero": 2,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": 1
+    },
+    {
+      "text": "the balanced gardens,",
+      "hero": 2,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "and the reflections",
+      "hero": 2,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": -1
+    },
+    {
+      "text": "in the water.",
+      "hero": 2,
+      "mode": "stack",
+      "tone": "blue",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "Every detail invites you",
+      "hero": 1,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": -1
+    },
+    {
+      "text": "to slow down.",
+      "hero": 1,
+      "mode": "flank",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "Some places are more",
+      "hero": 1,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "than buildings.",
+      "hero": 1,
+      "mode": "stack",
+      "tone": "red",
+      "condensed": true,
+      "support_focus": -1
+    },
+    {
+      "text": "They become stories that",
+      "hero": 2,
+      "mode": "stack",
+      "tone": "blue",
+      "condensed": false,
+      "support_focus": -1
+    },
+    {
+      "text": "the world remembers.",
+      "hero": 1,
+      "mode": "offset",
+      "tone": "red",
+      "condensed": false,
+      "support_focus": -1
+    }
+  ]
+}

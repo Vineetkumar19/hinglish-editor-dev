@@ -1,0 +1,10 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+test('Caption 6 keeps English/Hinglish script and native style through saved speech generation',async()=>{
+ const nodes={},el=()=>({value:'',append(){},addEventListener(){},querySelector(s){return nodes[s]||(nodes[s]=el());},querySelectorAll(){return [];}}),calls=[],script='Bhukh lagi, Zomato khola. Delivery phir late hai.';
+ const c={window:{},document:{createElement:el},localStorage:{getItem:()=>JSON.stringify({style:'caption_6'}),setItem(){}},crypto:{getRandomValues:a=>a.fill(6)},Uint8Array,Option:function(n,v){this.text=n;this.value=v;},setTimeout:f=>f()};vm.createContext(c);vm.runInContext(fs.readFileSync('hinglish_app/static/caption-patterns.js','utf8'),c);
+ const view=c.window.storylensCaptionPatterns({root:el(),style:Object.assign(el(),{value:'caption_6'}),button:el(),readScript:()=>script,onStatus(){},showError:e=>{throw e;},native:async(a,p)=>{calls.push(p);if(p.action==='patternContext')return {project_id:'p',comp_id:'2'};if(p.action==='patternTimingContext')return {project_id:'p',sequence_id:'2'};if(p.action==='patternSpeechStart')return {status:'complete',folder:'saved'};return {ok:true,groups:2};}});
+ assert(view.isSelected());assert.equal(view.preferredStyle(),'caption_6');assert.equal(view.option('caption_6').text,'Caption 6');await view.generateSpeech();for(const action of ['patternSpeechStart','patternInsert']){const p=calls.find(p=>p.action===action);assert.equal(p.style,'caption_6');assert.equal(p.script,script);}
+});
+test('Caption 6 activates only its hash-verified font list and caches it separately',()=>{
+ const fonts=require('../editor_plugins/caption-patterns/fonts.cjs'),root=process.cwd()+'/caption-six-font-fixture',calls=[];const options={platform:'win32',spawnSync:(exe,args,opts)=>{calls.push(args);assert.equal(opts.shell,false);return {status:0};}};fonts.ensure(root,{...options,style:'caption_4'});fonts.ensure(root,{...options,style:'caption_6'});fonts.ensure(root,{...options,style:'caption_6'});assert.equal(calls.length,2);assert(calls[1].includes('--caption-six'));
+});

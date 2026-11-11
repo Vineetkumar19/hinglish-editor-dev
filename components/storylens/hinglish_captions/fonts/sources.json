@@ -1,0 +1,262 @@
+{
+  "Roboto-Black.ttf": {
+    "source": "https://raw.githubusercontent.com/googlefonts/roboto-2/main/src/hinted/Roboto-Black.ttf",
+    "sha256": "6ca9c892798579f5bf87a497bd9b9e087ecae16c75ee2209ae7bc86e27e8ff64",
+    "bytes": 508220,
+    "font_name": [
+      "Roboto",
+      "Black"
+    ]
+  },
+  "Roboto-Regular.ttf": {
+    "source": "https://raw.githubusercontent.com/googlefonts/roboto-2/main/src/hinted/Roboto-Regular.ttf",
+    "sha256": "56a45233d29f11b4dfb86d248e921939d115778f87325e7ae8cc108383d6664d",
+    "bytes": 515100,
+    "font_name": [
+      "Roboto",
+      "Regular"
+    ]
+  },
+  "Roboto-LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/googlefonts/roboto-2/main/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  "GreatVibes-Regular.ttf": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/greatvibes/GreatVibes-Regular.ttf",
+    "sha256": "8d509802186f1b51572531ecf313e8098f9a5bfdfaca93f0c9b34467f9982d15",
+    "bytes": 457588,
+    "font_name": [
+      "Great Vibes",
+      "Regular"
+    ]
+  },
+  "GreatVibes-OFL.txt": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/greatvibes/OFL.txt",
+    "sha256": "61093a21f5e63dedf54222b3c09997e54c0fe43e3851d21386e02ddcbc246d49",
+    "bytes": 4399
+  },
+  "DancingScript-Regular.ttf": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/dancingscript/DancingScript%5Bwght%5D.ttf",
+    "sha256": "21808625578fe8d8cd10cb684be546dca077b27cd03a53a2f1ec11dc743c924c",
+    "bytes": 133636,
+    "font_name": [
+      "Dancing Script",
+      "Regular"
+    ]
+  },
+  "DancingScript-OFL.txt": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/dancingscript/OFL.txt",
+    "sha256": "6f090277c00af96651ce6dbcc38ff1591047a3bffef486e80b6a32e8276a8201",
+    "bytes": 4443
+  },
+  "Inter-Bold.otf": {
+    "source": "https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip",
+    "sha256": "1e9dfd6a6e33ac63a8fe3b4ed7ae0df9eac2d0b25e444e8e7daef4ac77943fc1",
+    "bytes": 271436
+  },
+  "Inter-Medium.otf": {
+    "source": "https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip",
+    "sha256": "99dab2bdcb613c4c8264000a94351d1227f74dc95a86d1249493aeee0c0179c4",
+    "bytes": 269692
+  },
+  "Inter-LICENSE.txt": {
+    "source": "https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip",
+    "sha256": "4d7d9c95e7d7f2f0ebf76d5e0b344826b74e903a34028ee18ab54bb639e45906",
+    "bytes": 4426
+  },
+  "Inter-Variable.ttf": {
+    "source": "Existing reference-analysis Inter variable font in owner workspace",
+    "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "bytes": 876576,
+    "license": "Inter-LICENSE.txt",
+    "use": "Caption 2 warning-card light lettering"
+  },
+  "StorylensInterReference-Light.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 300
+    },
+    "sha256": "2572b8648a1359f4dd4f8622b9c1bd9f8d7a8bbec6b5ebad972157a777fff30b",
+    "bytes": 342280,
+    "font_name": [
+      "Storylens Inter Reference",
+      "Light"
+    ]
+  },
+  "StorylensInterReference-Regular.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 400
+    },
+    "sha256": "ffbda90db470c2e51d91ab5ae875d7000c5531811f4169d0a7bf43b6a68dc7e5",
+    "bytes": 341516,
+    "font_name": [
+      "Storylens Inter Reference",
+      "Regular"
+    ]
+  },
+  "StorylensInterReference-Bold.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 700
+    },
+    "sha256": "6b5beb30e5c9f9eee121970867b1d1d1e2a4ace990763b807b71f66d3acd1721",
+    "bytes": 343192,
+    "font_name": [
+      "Storylens Inter Reference",
+      "Bold"
+    ]
+  },
+  "StorylensInterReference-Black.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 900
+    },
+    "sha256": "82cf1a3a5837e850b3d03c2487781425f69aecc3e3cd82631f5259d88f5f608d",
+    "bytes": 343948,
+    "font_name": [
+      "Storylens Inter Reference",
+      "Black"
+    ]
+  },
+  "StorylensInterCaption-Light.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 300
+    },
+    "sha256": "8114df0f7ca954e52f9eda035183b612d8ec27881465434385fd6bcb3ee74197",
+    "bytes": 342388,
+    "font_name": [
+      "Storylens Inter Caption",
+      "Light"
+    ]
+  },
+  "StorylensInterCaption-Regular.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 400
+    },
+    "sha256": "c6efee5c272030413b33e141d9b47b89bbb92b5d5f17160fe3033beeba2c85d7",
+    "bytes": 341608,
+    "font_name": [
+      "Storylens Inter Caption",
+      "Regular"
+    ]
+  },
+  "StorylensInterCaption-Bold.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 700
+    },
+    "sha256": "5427b48a83aae5015be22cbdf58d21f026c2076d34fbccced14561bead435f0d",
+    "bytes": 343284,
+    "font_name": [
+      "Storylens Inter Caption",
+      "Bold"
+    ]
+  },
+  "StorylensInterCaption-Black.ttf": {
+    "source": "Static instance of verified bundled Inter-Variable.ttf",
+    "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "axes": {
+      "opsz": 14.0,
+      "wght": 900
+    },
+    "sha256": "e64c52d297b53c70ced5ac7e6174af131ef878061bc0e3661bbe2845f7c0b3ec",
+    "bytes": 344056,
+    "font_name": [
+      "Storylens Inter Caption",
+      "Black"
+    ]
+  },
+  "StorylensCaptionOne-Bold.otf": {
+    "source": "Exact outlines and metrics of verified Inter-Bold.otf with a distinct Adobe family",
+    "source_sha256": "1e9dfd6a6e33ac63a8fe3b4ed7ae0df9eac2d0b25e444e8e7daef4ac77943fc1",
+    "sha256": "a673bab6fe8c933740df36e0969888190783a8bdd51d90ea4b99c11d4033d24c",
+    "bytes": 271596,
+    "font_name": [
+      "Storylens Caption One",
+      "Bold"
+    ]
+  },
+  "StorylensCaptionOne-Medium.otf": {
+    "source": "Exact outlines and metrics of verified Inter-Medium.otf with a distinct Adobe family",
+    "source_sha256": "99dab2bdcb613c4c8264000a94351d1227f74dc95a86d1249493aeee0c0179c4",
+    "sha256": "d325c3f21db3c3bebbb1679f5613de3e723a658a58b2e79e3fea95baaf8e9c0d",
+    "bytes": 269832,
+    "font_name": [
+      "Storylens Caption One",
+      "Medium"
+    ]
+  },
+  "BarlowCondensed-SemiBold.ttf": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-SemiBold.ttf",
+    "sha256": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+    "bytes": 109428
+  },
+  "BarlowCondensed-OFL.txt": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+    "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+    "bytes": 4377
+  },
+  "RobotoCondensed-Bold.ttf": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/robotocondensed/RobotoCondensed%5Bwght%5D.ttf",
+    "sha256": "8ceae86db941dce9e901418d4afdaffd86cdd77f831be93acf6ae81313f71f3e",
+    "bytes": 145076,
+    "derivation": "Weight 700 static instance; namespaced family for unambiguous editor registration. Outlines unchanged."
+  },
+  "RobotoCondensed-OFL.txt": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/robotocondensed/OFL.txt",
+    "sha256": "0e4cc6ece88573545be2ed25835363662a6182ba4a4c1b5c8feda52add30e8a6",
+    "bytes": 4393
+  },
+  "PlayfairDisplay-BoldItalic.ttf": {
+    "source": "https://github.com/google/fonts/tree/main/ofl/playfairdisplay",
+    "sha256": "e7fdcecc589d88266b6f95ca1380adc523d2f16236d61853784914c6571c7b9a",
+    "bytes": 178304,
+    "derivation": "Static weight 700 instance of the official italic variable font; outlines unchanged."
+  },
+  "InterDisplay-SemiBoldItalic.ttf": {
+    "source": "https://github.com/google/fonts/tree/main/ofl/inter",
+    "sha256": "843ba36aa2314b176bf08504b0e90f5cce5432df3ae932e349193e993cef4a01",
+    "bytes": 345356,
+    "derivation": "Static optical size 32, weight 600 italic instance; explicit face names for editor selection."
+  },
+  "Inter-SemiBold.ttf": {
+    "source": "C:/Windows/Fonts/Inter-SemiBold.ttf",
+    "sha256": "b0b540e69bf6717016e33874670e09acf4bffc2ca3f4c1cf174a4ff696308c65",
+    "bytes": 316220,
+    "derivation": "Exact copy of the owner-installed Inter SemiBold font."
+  },
+  "PlayfairDisplay-OFL.txt": {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/OFL.txt",
+    "sha256": "566be814f8e96e93dfa16101331557eb6b5467e9e03f627c0910fe93ca12300e",
+    "bytes": 4449,
+    "derivation": "Original license"
+  },
+  "StorylensCircleSans-SemiBold.ttf": {
+    "source": "Exact outlines and metrics of verified Inter-SemiBold.ttf with distinct Adobe family",
+    "source_sha256": "b0b540e69bf6717016e33874670e09acf4bffc2ca3f4c1cf174a4ff696308c65",
+    "sha256": "26c3ff59768d80cf4bd1f0fe2c8900028a851e6d83332b668673a261ac8377fe",
+    "bytes": 316420,
+    "font_name": [
+      "Storylens Circle Sans SemiBold",
+      "Regular"
+    ]
+  }
+}

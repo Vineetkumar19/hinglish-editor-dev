@@ -1,0 +1,2 @@
+# Optional native Android companion transport; existing editor dependencies remain unchanged.
+cryptography>=46,<51

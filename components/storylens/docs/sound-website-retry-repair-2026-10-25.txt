@@ -1,0 +1,60 @@
+Focused Sound Design retry repair — 25 October 2026
+
+Owner reported repeated local-context overflow and analysis repair passes in
+the normal website, job 9dca9c055f29 on port 8765. Its saved log stopped at
+composing effects. The subsequent laptop restart stopped the worker; the source,
+scene observations, creator profile and cached Qwen replies remain on disk.
+
+Changes:
+- Fit oversized request input before its first model HTTP call by omitting only
+  approved optional retrieved prose for that individual call. Preserve the full
+  creator profile, evidence, exact script, schema and structured-answer budget.
+  Small requests retain optional guidance. No saved knowledge was removed.
+- Normalize adjacent music sections sharing an inclusive line endpoint before
+  evaluating the answer. This changes endpoint representation only, preserving
+  model-selected music/moods. It prevents two redundant analysis repair calls.
+- Add the shared plain-language sound_context_full failure when required input
+  itself cannot fit. Stop rather than silently discard required creator context.
+
+Validation:
+Meaningful regression tests were first observed failing, then implemented.
+All 143 test_sound*.py checks pass (3.159 seconds, local socket allowed).
+The restricted execution environment's HTTP fixture first failed with WinError
+10013; rerunning with local network access passed, without a software change.
+The actual saved website reply failed sound.analysis.music_spotting before the
+endpoint normalizer and passed afterward. An actual oversized saved request now
+fits before HTTP while preserving its requested 9,000 output tokens. Final edge
+probes cover nonconsecutive line IDs and leave genuine overlapping sections
+unchanged for the checker. No new breaking point found in those focused probes.
+These are actual-data/component checks, not a completed fresh end-to-end render.
+
+Recovery:
+tmp/recover_sound_website.py uses the saved uploaded media and normal Sound Design
+pipeline. This specific recovery uses one guard attempt per stage and omits the
+three-full-project-redo wrapper. It preserves the original source audio. It does
+not substitute a ChatGPT cue list or change saved preferences. A successful run
+records its genuine result in output/sound-website-repair-20261024/recovery-result.json.
+No native editor, browser window, remote publishing or paid generation is needed.
+
+Quality boundary:
+The earlier guided Qwen bike result is a separate completed demonstration, not
+this interrupted waterpark run. Context/retry repair does not prove the local
+model's creative quality equals the owner's accepted ChatGPT Foley take. Owner
+listening approval and fresh end-to-end performance remain separate evidence.
+
+Completed recovery: http://127.0.0.1:8876/sound-output/20261025-000748-861726/001-0000-d5752e39-vineet_2919_1678460747_305/report.html
+30.0667 seconds, 28 retained effects, six music sections, 34/34 mix checks.
+Recovery wall time 554.34 seconds (about nine minutes), reusing saved analysis
+and library data. No full-project redos or model-rule repair calls. Story
+analysis passed first attempt. Real server returns report 200 and video range
+206. Browser/full listening/native-editor playback not repeated.
+
+Final review breaking points (not silently repaired):
+- Qwen sometimes confuses moment index with candidate index. For eight moments
+  with six candidates, choices 6 and 7 are invalid; expected 0-5 or -1. These
+  are skipped, reducing coverage. Evidence: output sound model-checks.json.
+- Some acoustic intents remain generic contact/detail/travel; matching rejects
+  multiple cues and ambience. Expected precise acoustic descriptions. Impact:
+  uneven creative coverage. Evidence: sound-decisions.json and sound-plan.json.
+Full structured evidence: output/sound-website-repair-20261024/final-review.json.
+These findings are preserved; no further creative rerenders were started.

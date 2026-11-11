@@ -1,0 +1,54 @@
+function storylensPanelJSON(value){if(value===null)return 'null';if(typeof value==='string')return hinglishEscape(value);if(typeof value==='number'||typeof value==='boolean')return String(value);var rows=[],i;if(value instanceof Array){for(i=0;i<value.length;i++)rows.push(storylensPanelJSON(value[i]));return '['+rows.join(',')+']';}for(i in value)if(value.hasOwnProperty(i))rows.push(hinglishEscape(i)+':'+storylensPanelJSON(value[i]));return '{'+rows.join(',')+'}';}
+function storylensPanelEffectInventory(sequence){
+ var rows=[];
+ for(var t=0;t<sequence.videoTracks.numTracks;t++){
+  var track=sequence.videoTracks[t];
+  for(var n=0;n<track.clips.numItems;n++){
+   var clip=track.clips[n],effects=[];
+   for(var c=0;c<clip.components.numItems;c++){
+    var component=clip.components[c];
+    effects.push({name:component.displayName,match_name:component.matchName});
+   }
+   var source='';try{source=clip.projectItem.getMediaPath();}catch(_){}
+   rows.push({track:t+1,name:clip.name,start_ticks:String(clip.start.ticks),end_ticks:String(clip.end.ticks),source:source,components:effects});
+  }
+ }
+ return rows;
+}
+function storylensPanelContext(options){try{
+ var sequence=app.project.activeSequence;if(!sequence)throw Error('Open the timeline you want to edit first.');
+ var inventory=storylensPanelEffectInventory(sequence),path=options.output_path;
+ sequence.exportAsFinalCutProXML(path,1);if(!new File(path).exists)throw Error('Premiere could not capture the current timeline.');
+ var result={host:'premiere',project_id:app.project.path||app.project.name,sequence_id:String(sequence.sequenceID),name:sequence.name,timeline_xml:path,fps:254016000000/Number(sequence.timebase),native_video_inventory:inventory};
+ if(options.appearance_cache_path){
+  var cache=new File(options.appearance_cache_path),preset=new File(options.appearance_preset);
+  if(cache.exists)throw Error('An appearance cache already exists for this revision. Inspect its saved receipt; do not render it again.');
+  if(!preset.exists)throw Error('The installed Adobe Match Source export preset is unavailable. The XML capture is preserved.');
+  var sidecar=new File(cache.fsName+'.json'),state={project_id:result.project_id,sequence_id:result.sequence_id,name:result.name,output:cache.fsName,status:'rendering',intermediate_render_used:true};
+  function saveState(){sidecar.encoding='UTF-8';sidecar.open('w');sidecar.write(storylensPanelJSON(state));sidecar.close();}
+  saveState();var nativeResult=sequence.exportAsMediaDirect(cache.fsName,preset.fsName,0);
+  state.native_result=String(nativeResult);state.status=cache.exists&&cache.length>0?'rendered_needs_decode_verification':'failed';saveState();
+  if(state.status==='failed')throw Error('Premiere did not produce the appearance cache. Inspect its saved receipt before retrying.');
+  result.appearance_cache=state;
+ }
+ return storylensPanelJSON(result);
+}catch(e){return storylensPanelJSON({error:e.toString()});}}
+function storylensPanelSelectedMedia(){return hinglishSelectedMedia();}
+function storylensPanelProjectContext(){try{if(!app.project)throw Error('Open a Premiere project first.');return storylensPanelJSON({host:'premiere',project_id:app.project.path||app.project.name,project_path:app.project.path||'',sequence_id:'_project_',name:app.project.name});}catch(e){return storylensPanelJSON({error:e.toString()});}}
+function storylensPanelMusic(){return storylensMusicContext();}
+function storylensPanelMarkBeats(plan){return storylensMarkBeats(plan);}
+function storylensPanelBeatEffects(plan){return storylensApplyBeatEffects(plan);}
+function storylensPanelFindPath(bin,path){for(var i=0;i<bin.children.numItems;i++){var item=bin.children[i];if(item.type===ProjectItemType.BIN){var nested=storylensPanelFindPath(item,path);if(nested)return nested;}else if(item.getMediaPath()===path)return item;}return null;}
+function storylensSoundKeywordBins(groups){function child(parent,name){for(var i=0;i<parent.children.numItems;i++){var item=parent.children[i];if(item.type===ProjectItemType.BIN&&item.name===name)return item;}return parent.createBin(name);}var top=child(app.project.rootItem,'Sound Design');for(var g=0;g<groups.length;g++){var group=groups[g],bin=child(top,group.name),missing=[];for(var f=0;f<group.files.length;f++){var path=group.files[f].path;if(!new File(path).exists)throw Error('A keyword sound file is missing: '+path);if(!storylensPanelFindPath(bin,path))missing.push(path);}if(missing.length&&!app.project.importFiles(missing,true,bin,false))throw Error('Premiere could not import sounds into '+group.name);}}
+function storylensPanelImport(manifest){try{if(manifest.type==='photos'){if(manifest.panel_project_id&&manifest.panel_project_id!==String(app.project.path||app.project.name))throw Error('The project changed. Reconnect before importing photos.');return storylensPanelJSON(storylensPhotoImportPremiere(manifest));}var expected=manifest.expected||{},sequence=app.project.activeSequence;if(expected.project_id&&String(expected.project_id)!==String(app.project.path||app.project.name))throw Error('The project changed. Reconnect before importing.');if(expected.sequence_id&&(!sequence||String(expected.sequence_id)!==String(sequence.sequenceID)))throw Error('The active sequence changed. Reconnect before adding the result.');
+ var paths=manifest.paths||[];if(!paths.length)throw Error('Choose finished files to import.');for(var p=0;p<paths.length;p++)if(!new File(paths[p]).exists)throw Error('A saved output file is missing.');
+ if(manifest.selection_id&&manifest.sequence_name&&manifest.activate){for(var reuse=0;reuse<app.project.sequences.numSequences;reuse++){var existing=app.project.sequences[reuse];if(existing.name===manifest.sequence_name){app.project.openSequence(existing.sequenceID);return storylensPanelJSON({ok:true,reused:true,message:'Opened the existing editable B-roll selection. No duplicate timeline was added.'+(manifest.notice?' '+manifest.notice:''),selection_id:manifest.selection_id,sequence_ids:[String(existing.sequenceID)]});}}}
+ if(manifest.type==='assets'&&manifest.source_assets===true&&manifest.insert===false){var missing=[],reusedFiles=[];for(var source=0;source<paths.length;source++){if(storylensPanelFindPath(app.project.rootItem,paths[source]))reusedFiles.push(paths[source]);else missing.push(paths[source]);}if(!missing.length)return storylensPanelJSON({ok:true,reused:true,message:'These original sources are already in the project. No duplicate items were added.',files:reusedFiles,sequence_ids:[]});paths=missing;}
+ var prior=sequence?String(sequence.sequenceID):null,before={},q;for(q=0;q<app.project.sequences.numSequences;q++)before[String(app.project.sequences[q].sequenceID)]=true;
+ var bin=app.project.rootItem.createBin(manifest.name||'Storylens result');if(!app.project.importFiles(paths,true,bin,false))throw Error('Premiere did not confirm the file import.');
+ if(manifest.keyword_folders)storylensSoundKeywordBins(manifest.keyword_folders);
+ if(manifest.type==='assets'&&manifest.insert&&sequence){for(var i=0;i<paths.length;i++){var item=storylensPanelFindPath(bin,paths[i]);if(!item)throw Error('The imported media item could not be located.');var position=sequence.getPlayerPosition();if(/\.(wav|mp3|m4a|aac)$/i.test(paths[i])){var lane=sequence.audioTracks.numTracks-1;if(manifest.sound_review){lane=-1;for(var at=sequence.audioTracks.numTracks-1;at>=1;at--){if(sequence.audioTracks[at].clips.numItems===0){lane=at;break;}}}if(lane<1)throw Error('Add an empty audio track before placing this sound. Existing clips are kept.');sequence.audioTracks[lane].overwriteClip(item,position.ticks);}else{if(sequence.videoTracks.numTracks<2)throw Error('Add a spare video track before placing this asset.');sequence.videoTracks[sequence.videoTracks.numTracks-1].overwriteClip(item,position.ticks);}}}
+ var added=[];for(q=0;q<app.project.sequences.numSequences;q++)if(!before[String(app.project.sequences[q].sequenceID)])added.push(String(app.project.sequences[q].sequenceID));
+ if(manifest.activate){if(!added.length)throw Error('Premiere imported the file but did not confirm a new timeline. Check the Project panel before trying again.');app.project.openSequence(added[added.length-1]);}
+ return storylensPanelJSON({ok:true,message:'Premiere imported '+paths.length+' file(s)'+(manifest.type==='assets'&&manifest.insert?' at the playhead.':manifest.activate?' as a new editable timeline.':' into the project.')+(manifest.notice?' '+manifest.notice:''),files:paths,sequence_ids:added,prior_sequence_id:prior});
+}catch(e){return storylensPanelJSON({error:e.toString()});}}

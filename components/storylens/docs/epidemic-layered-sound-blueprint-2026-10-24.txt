@@ -1,0 +1,180 @@
+EPIDEMIC LAYERED SOUND: EVIDENCE AND STORYLENS RECONSTRUCTION
+24 October 2026
+
+What this investigation answered
+===============================
+Recovered six built-in sample arrangements from an already acquired public client
+bundle using a strict literal-only parser. No downloaded JavaScript was executed.
+Traced mixer initialization beyond the previously inspected processor factories.
+Reopened Product Demo Ad through the existing signed-in Studio UI and corroborated
+all 16 clip titles/start positions against the parsed sample. Returned to the
+original Forest sample and reset the temporary viewport. No upload, generation,
+credit expenditure, audio-library download or project edit was performed.
+
+Observed layering density (scheduled, non-muted clips)
+====================================================
+Example              Clips in arrangement    Maximum overlapping clips
+Cinematic Forest              15                         3
+Cinematic Winter              11                         2
+Studio Welcome                41                         7
+Product Showcase              29                         5
+Brand Showcase                79                         7
+Product Demo Ad                16                         6
+
+These are authored example data, not newly generated results. A clip can contain
+several recorded sound sources, and scheduled overlap is not measured acoustic
+activity: fades, silence inside files, processing and levels matter. The examples
+establish varied density rather than a universal sound-per-second rule. Forest's
+clip start positions were observed live previously and rechecked this turn;
+Product Demo Ad's full 16 starts were matched programmatically within 0.0001s.
+Other examples were inspected statically only.
+
+Concrete six-layer passage
+=========================
+Product Demo Ad, 8.320 to approximately 8.553 seconds:
+Role                  Source                               Stored linear gain
+Music                 Bateria Brasileira                        1.000
+Environment           Kitchen hum / light buzz                  0.251
+Build-up              Tonal musical riser                        0.430
+Movement transition   Reversed low whoosh                       0.501
+Action detail         Sugar poured on flour                     0.501
+Action body           Steamed milk pour                         0.501
+
+The role descriptions above are our interpretation of the source titles and
+placement. Gains are direct sample data. Effects at .501 are about -6 dB relative
+to their own file; ambience .251 is about -12 dB and riser .43 about -7.33 dB.
+These are NOT final loudness values or levels relative to dialogue/music: source
+recording loudness and downstream processing differ. At this passage all six
+saved fade values are zero; richness cannot be attributed to a universal fade
+recipe. The ambience starts near the beginning and the riser begins at 3.584s;
+six concurrent clips does not mean six new effects were triggered at 8.32s.
+The pour uses a 0.246676s source offset and room tone 0.288s, separating source
+trim from timeline placement. Several early ice drops reuse the same source
+with distinct starts/trims: banning all asset reuse would harm this pattern.
+
+What selection evidence establishes
+===================================
+AuroLA is publicly identified as the SFX retrieval model, not the complete
+scene-to-multitrack planner. Official Studio documentation describes actions,
+pacing, mood, scene ambience and editable alternatives. It does not disclose
+the learned decision to use five layers, exact event detection, joint ranking
+or how pre-existing video audio suppresses redundant added Foley.
+https://www.epidemicsound.com/tools/studio/tutorial/
+https://www.epidemicsound.com/blog/state-of-the-art-audio-retrieval/
+
+The public SFX guide says semantic queries can return candidates even for nonsense.
+Therefore a returned candidate requires a suitability check; a full result list
+is not proof that a useful sound exists. Action/material/context/distance should
+remain in descriptive queries. Public SFX metadata differs from music metadata;
+do not assume mood/BPM fields exist for all effects. UCS category parent context
+disambiguates names.
+https://developers.epidemicsound.com/docs/sound-effects/
+
+Published creator lessons describe atmosphere/emotion/movement/detail and
+riser/whoosh/hit combinations. These provide craft recipes; they are not the
+private Studio algorithm. Documentary guidance prioritizes narration, with music
+and environmental detail underneath.
+https://www.epidemicsound.com/how-it-works/video-guides/
+https://www.epidemicsound.com/filmmaking/documentary-sound-effects/
+More source boundaries: docs/epidemic-layer-selection-research-2026-10-24.txt
+
+What the mixer evidence establishes
+==================================
+Clip gains/fades and source offsets feed channel processing, then role buses
+(music, SFX, dialogue), then the master. Overlap is allowed; available lanes are
+organizational, not a one-sound-per-time constraint. Previous research established
+dialogue-keyed sidechain processing with filtered envelope measurement, optional
+gate and attack/hold/release. Controls must enable it; availability is not proof
+that every sample automatically uses dialogue ducking.
+
+Correction: the limiter factory starts bypassed, but editor initialization
+explicitly enables it and sets threshold -0.5 dB, attack .003s, release .1s.
+This is an established editor code path, not a measured true-peak guarantee.
+Sample loader disables fallback headroom. Forest has no explicit clip gains,
+while the denser examples contain explicit values. Do not generalize default
+-6/-12 dB values to every sample or generated project. Further formulas, source
+locations, generic plugin availability vs actual application are recorded in:
+docs/epidemic-layer-mixer-code-2026-10-24.txt
+
+Storylens source comparison
+==========================
+Existing strengths, not new work:
+- hinglish_sound/vectors.py already combines CLAP audio and local text retrieval.
+- hinglish_sound/mix.py already sums overlapping cues, levels against speech,
+  applies category processing/ducking and limits the preview. Separate stems exist.
+- hinglish_sound/events.py preserves measured event identity/times. Sparse sampled
+  frames are intentionally restricted to ambience; keep this honesty about timing.
+
+Constraints relevant to the requested richer layering:
+- events.py choose() rejects a second selected cue with the same event_id.
+- cues.py keep_musical() applies a shared budget/minimum target gap and prevents
+  overlapping ambience, so complementary nearby roles can compete for one slot.
+- pipeline.py applies keep_musical() before layer_hits().
+- layer_hits() adds only a whoosh for ai-source impacts with strength >=3.
+- director.py's current direction emphasizes sparse effects and avoiding nearby
+  spoken/edit duplication. This suits restrained narration but is insufficient
+  as the only policy for dense ads/product montage.
+These are source-level constraints, not a newly reproduced application failure.
+
+Proposed category-aware reconstruction (NOT IMPLEMENTED)
+=======================================================
+1. Scene and emotional plan
+   Track setting, distance, action, pacing, narration and intentional silence.
+   Choose documentary/subtle/product/energetic density explicitly. Keep continuous
+   environment and music beds across appropriate cuts instead of restarting each
+   second. Mood affects sustained music; an isolated object does not replace it.
+
+2. Event-to-layer recipe
+   One event may request several distinct roles, with stable IDs:
+   environment: room/wind/traffic bed plus optional localized detail;
+   physical action: contact/transient, body/material, movement and decay;
+   transition: anticipation/riser, travel/whoosh, landing/hit, optional tail;
+   graphic/UI: short motion cue plus restrained confirmation/landing cue;
+   cinematic emotional turn: music passage/texture shift and deliberate space.
+   These are Storylens design proposals inspired by evidence, not Epidemic rules.
+   Avoid treating each caption word or every visible object as mandatory Foley.
+
+3. Candidate retrieval and joint selection
+   Search by role + action + material + distance + environment. Compare AuroLA
+   with our CLAP baseline separately. Reject mismatches even when retrieval returns
+   results. Select complementary layers, avoiding duplicated bass/transients or
+   already audible source actions. Permit meaningful reuse (e.g. ice/footsteps)
+   with suitable segments/variants; retain asset and license provenance.
+
+4. Time placement
+   Store event onset/peak/end and source onset/peak/decay separately. Align a hit
+   transient to contact, end anticipation at the landing, and allow natural tails.
+   Derive motion timings from renderer events; obtain temporal evidence for real
+   video contacts. Never derive precise footsteps from one sampled still frame.
+
+5. Role-aware density and mixing
+   Use separate bed/foreground/transition budgets, with a group ID linking related
+   layers to one event. Preserve protective limits but do not reject a necessary
+   ambience merely because a Foley cue begins nearby. Measure the combined group,
+   assign foreground/background hierarchy, duck around dialogue and avoid masking.
+   Use EQ/pan only when justified and supported; these are proposed controls,
+   not proof of automatic Epidemic spatial/EQ decisions. Keep safety limiting last.
+
+6. Editability and quality
+   Preserve each layer, source offset, timing, gain, fades and group identity in
+   saved plans and Premiere/CapCut handoffs. Check preview/stem/master processing
+   differences explicitly. Validate sync, rejected sounds, combined loudness and
+   listening quality with realistic scenes before calling the implementation good.
+
+Remaining unknowns and scope
+===========================
+Exact private planner prompts/weights, layer-count objective, candidate diversity
+policy, contact detector, automatic masking/EQ/pan decisions and training labels
+remain undisclosed. No claim of complete reconstruction. No owner video submitted.
+This pass supplies research and a concrete blueprint, not feature changes or model
+training. No listening, generated-video validation or native export test occurred.
+Unit/integration application checks are not acceptance evidence from this pass.
+
+Artifacts
+=========
+output/sound-research/epidemic-studio/sample-layer-analysis.json
+output/sound-research/epidemic-studio/inspect_sample_layers.py
+output/sound-research/epidemic-studio/sample-layer-validation.json
+output/sound-research/epidemic-studio/live-product-layer-clips.json
+output/sound-research/epidemic-studio/live-product-layers.png
+Source hash and literal character spans are embedded in sample-layer-analysis.json.

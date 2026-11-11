@@ -1,0 +1,194 @@
+Epidemic Studio: deeper static layer/mixer findings
+24 October 2026
+
+Scope
+Only previously downloaded JavaScript was read as inert text. No target code
+was executed/imported, no REA job repeated, no browser/network access or audio
+download occurred. Sample objects were decoded with a restricted literal reader
+(objects, arrays, strings, numbers and !0/!1 only; expressions rejected).
+This complements timeline-code-findings.txt and the audio follow-up; it does not
+establish how the private server selects sounds or prove audible mix quality.
+
+Offsets are zero-based Unicode character positions in Python Path.read_text
+(UTF-8, universal newline handling), not byte positions or JavaScript UTF-16.
+Short identifiers apply to this build only. Hashes below cover raw bytes.
+
+Artifact identities
+W = bundles/WorkspaceEditor-B6Qochiy.js, 333615 bytes
+SHA256 8b96d863f44cad8b0c272d2e87ad8c9b80473e2a4391ac4e7e19608dfa6391fc
+T = bundles/workspace-types-DU-eqcuU.js, 370766 bytes
+SHA256 73dee9c1e9b6ab81bf4c3220c558a7e2e2807fc7d88041f1fdf036ccc47a90f2
+R = audio-runtime/useTranslation-BopTC-ly.js, 152666 bytes
+SHA256 ae33f1126e52b12b9fd26e01582b3aeb3fcbeaa45572bbfdda76e43bd37d28ae
+S = bundles/_timelineId-dr8KRnAE.js, 2418 bytes
+SHA256 2b8126b00fe04282a7e3dac83362fea485b60d310168fcf94be33594ea2c121b
+G = bundles/GqlClientContext-DjJSVFei.js, 41845 bytes
+SHA256 458cd9e3f540d524c17e05efe08858dbef53bb43c3608efdc94d96d51293bdaf
+All paths are relative to output/sound-research/epidemic-studio/.
+
+1. Headroom is a conditional initialization, not a continuously adaptive mix
+T @1957 ne() returns .501 for soundEffect/soundEffectSegment, .251 when clip
+category lowercases to ambience, and 1 otherwise. W imports this as ft.
+W @68244 qa() defaults applyInitialHeadroom to enabled. W @69222 invokes ft
+with the FIRST recommendation's type and the CLIP's category. It then chooses
+settings.volume using nullish fallback: a supplied gain wins, including zero.
+The initial .501/.251 values are approximately -6.00/-12.01 dB linear gain.
+They are not recalculated based on overlap count or a sound's measured loudness.
+
+Important exceptions now traced:
+- S @1081 sample population explicitly passes applyInitialHeadroom:false.
+- W @284087 ox() manual insertion gives new clips volume=1 and zero fades.
+- T @162377 Z() copies clip settings/automations/category/source offset to the
+  intermediate sample tracks but omits channel settings/mute/solo. The eventual
+  qa() tracks have no copied track settings and use ordinary unity defaults.
+- T @9045-29351 Forest's 15 clips contain NO explicit settings. Because the
+  sample disables initial headroom, their resulting gains are all 1, not .501
+  or .251. This corrects any assumption that Forest demonstrates those defaults.
+Generated server timelines may arrive with saved gains or bypass this particular
+population path. The server's gain-selection rule is not in this evidence.
+
+2. Master limiter IS engaged by the editor, despite factory bypass default
+R @110102 Xo() creates a missing master-limiter and initially bypasses it.
+However W @288615 Dx() sets threshold=-0.5 dB, attack=.003s, release=.1s once
+per player and calls setPluginBypassed(master-limiter,false). W @325906 invokes
+Dx(f) unconditionally in editor setup, before checking the studio_mixer flag.
+Thus the inspected editor path engages the limiter on mount. The previous
+factory-only follow-up left this activation unresolved; this is new call-site
+evidence. A user can subsequently bypass it through the visible control.
+
+R @107650-110102 also resolves the default engine: Jo() defaults engine to
+native and chooses the custom worklet only for engine='worklet'. Ko() uses
+DynamicsCompressor with ratio=20 and knee=0. Jo() appends an output gain of
+10^((0.6 * thresholdDb * (1 - 1/20))/20); at -0.5 dB this is about .968.
+This is a threshold-dependent output adjustment, not measured LUFS normalization.
+No caller with a limiterEngine override was found in the inspected files; that
+does not prove no unseen caller exists. Do not call the factory a guaranteed
+brick-wall or true-peak limiter, or claim the worklet is necessarily active.
+
+3. How simultaneous sounds are combined
+R @87477 iterates EVERY clip, creates its own gain/fade stage and BufferSource,
+and schedules it independently into its channel input. There is no division by
+the number of overlapping clips, automatic voice stealing or one-effect limit
+in this scheduling loop. R @71917 co() schedules using timeline start,
+bufferOffset and duration; it does not change gain based on neighbours.
+
+Observed graph (R @73350, @73600-78200, @79621, @100450-101850,
+@110266, @137400):
+source -> scheduling/stop gain -> clip volume -> clip fade -> clip mute ->
+channel volume -> channel plugin chain -> channel mute/solo gate ->
+role bus volume/plugins/mute -> summed mix -> master volume/plugin chain ->
+monitor output -> destination.
+The master limiter is pinned at the tail of the master plugin chain.
+Parallel sources naturally sum at channel/bus inputs. Music, SFX and dialogue
+are routed by clip type; a mixed-type channel takes its majority role rather
+than splitting individual clips into separate buses (T @7465-8400).
+This is conventional summed processing plus saved gains/fades and optional
+ducking. It is not evidence of an intelligent per-overlap balancing optimizer.
+
+4. Concrete six- and seven-layer sample arrangements
+Literal extraction independently matched the parent sample parser. These are
+scheduled overlapping clips, not measured simultaneous acoustic voices.
+
+T $ object @311896-370064 (Product Demo Ad) contains 16 clips. At t=8.32s,
+six clips overlap, all with zero fade-in/out in their saved automations:
+clip offset | role/title (shortened)        | timeline start-end | linear gain
+311941      | music, Bateria Brasileira     | 0-12               | 1.0
+348376      | reversed low swoop            | 6.922-11.452       | .501
+354960      | sugar poured on flour        | 8.320-9.155        | .501
+359089      | kitchen room tone            | 0-11.365           | .251
+365562      | steamed milk pour            | 5.129-8.553        | .501
+369182      | tonal musical riser          | 3.584-11.709       | .43
+Milk's source offset is .246675751s; kitchen tone's is .288s.
+The .43 riser gain is approximately -7.33 dB. These gains plus the engaged
+master limiter offer concrete mix-stage evidence; their resulting loudness,
+masking and quality cannot be determined without the source waveforms/listening.
+
+T Le object @163077-311893 (Brand Showcase) contains 79 clips and reaches
+seven overlapping at about 6.114s. Their gains are .5, .501, 1, 1, .251,
+.501 and 1, with zero saved fades in that overlap. Not every ambience-like
+sound has an attenuated value: the extra Audio 1 factory ambience is unity.
+Forest's 15 clips peak at three; Winter's 11 peak at two. Do not present the
+Forest example alone as evidence for four or five concurrent sound layers.
+
+5. Bus faders and monitor percentages are nonlinear, not normalization
+W @312837 SC() displays sqrt(busVolume); moving its normalized UI fader p
+writes p^2 as the bus gain. A displayed 50% is therefore .25 linear gain
+(about -12.04 dB), not .5. Clip gains and bus gains are different controls.
+W @318000-318800 monitor UI displays playerVolume^1.5 and converts its input
+back with power 2/3. R @65420 Ga() cubes the player value, giving the same
+p^2 final monitor gain. This monitor stage is downstream of the master bus.
+The offline renderer R @143130-147100 rebuilds saved channel/group/master
+processing and connects master output directly to the offline destination;
+it does not use the realtime monitor gain as an export loudness target.
+R @84212 Lo() / exportNormalized constructs normalized MAP/DATA SHAPES.
+It performs no audio-level normalization. Searches for LUFS/loudness/audio
+normalization in the inspected mixer/editor sources did not establish an
+automatic loudness target or per-asset gain-matching processor.
+
+6. Speech-clarity macro: exact client calibration, optional engagement
+W @291696-293200 defines a piecewise-linear macro over slider x in [0,1]:
+ x=0:   desired step-back 0dB,  attack14.6ms, hold0ms,  release90ms
+ x=.5:  desired step-back2.7dB, attack14.6ms, hold44ms, release90ms
+ x=1:   desired step-back12dB,  attack20ms,   hold55ms, release400ms
+Let S=measured speech dB (fallback -18), A=arriving speech level (fallback S),
+R=ratio and k=1-1/max(1,R). Threshold is clamp(S-stepBack/k,-60,0), or zero
+when k=0. P=max(0,k*(S-threshold)). Range is zero if P=0, else the NEGATIVE
+of min(24,P+8), rounded to .1 dB. Key gate is max(-140,A-8) when measured
+speech exists; otherwise -140. Displayed effective step-back is
+max(0,k*(A-threshold)), not a measured reduction meter.
+For unity-arriving S=-18, R=3 and x=.5: threshold=-22.05dB, range=-10.7dB,
+keyGate=-26dB, target reduction=2.7dB (arithmetic, not a DSP test).
+
+R @117739 defaults ratio=3, knee=0, rmsMs=10, keyHPF=20Hz and keyLPF=20kHz.
+W @318935 WC() uses one tuning object for separate music/SFX duckers. W
+@294652 lS() initializes enabled=false, inserts the sidechain only when
+enabled, removes it when disabled/unmounted, and keys it from dialogue.
+Hence merely rendering the Speech Clarity panel does not enable ducking.
+R @121502 vs() taps the dialogue bus OUTPUT, including its gain/mute/plugin
+processing, and avoids cyclic key wiring. It ducks the entire music/SFX bus,
+not selected individual overlapping effects. The key filters are detector
+filters, not automatic EQ applied to all audible SFX.
+
+7. EQ, pan and reverb: available engine components, no active preset found
+R @120358 _s() registers generic gain/meter/filter/delay/reverb/panner/graph/
+equalizer/limiter/sidechain factories. Registration alone creates no insertion.
+R @116400-117570 equalizer uses 320Hz low shelf, 1kHz peaking Q=.7, and
+3200Hz high shelf, with all gains defaulting to 0dB. R @115550-116100 panner
+defaults to centre. R @114650-115550 reverb defaults wet level=0 and creates
+a random decaying stereo impulse (duration2s, decay5). Low-pass filter also
+defaults wet level=0. Thus these factories are neutral even when default-built.
+
+Static caller checks found no equalizer/panner/reverb construction or parameter
+calls outside these factory/registry definitions in the inspected client set.
+WorkspaceEditor inserts the dialogue sidechain; the engine ensures a master
+limiter. A saved plugin array CAN be rebuilt by _o()/vo() (R @78100-78750),
+but no inspected sample supplies such EQ/pan/reverb chains. No evidence shows
+automatic spatial panning, equalization to prevent masking, reverb matching,
+or normalization being applied to every four-to-five-layer generated mix.
+This is a bounded negative result, not proof about unacquired code/server DSP.
+
+8. Source offsets preserve alignment; hitpoint selection remains untraced
+W @67447 saves a recommendation's segment.time as sourceOffsetMs (rounded
+milliseconds). W @64327 updateClipSource uses that new offset while retaining
+the clip duration and timeline start. It keeps the timeline slot stable while
+moving the chosen source excerpt. T @162377 Z() drops segment from sample
+recommendations, so that path alone cannot prove source-specific alternatives
+retain anchors. Saved project mediaReferences may still contain them.
+
+R @71917 scheduling computes elapsed=max(0,playhead-timelineStart), then
+sourceOffset=max(0,bufferOffset+elapsed), start=contextTime+max(0,start-playhead),
+and remaining duration bounded by clip and timeline end. Thus seeking preserves
+the relative source position. Derived relation: a source event at local h lands
+at timelineStart+(h-bufferOffset). This relation is bookkeeping, not recognition.
+G @7440 exposes SoundEffectAnchors returning hitpointGroups.segments with
+time/duration/value. No acquired caller here proves how the system chooses
+an anchor, aligns it to a detected video contact, or sets h automatically.
+
+Conclusion and limits
+The strongest NEW evidence is the actual editor limiter activation, conditional
+headroom exceptions, six/seven-layer sample gains, nonlinear faders, and optional
+bus-wide clarity macro. The observed client does not continually rebalance each
+overlap through EQ/pan/reverb or normalize every source. Server matching,
+catalogue mastering and per-project authored gains can still contribute; their
+quality and rules were not recovered. No playback, output-level, true-peak or
+perceptual validation was performed by this static investigation.

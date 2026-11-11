@@ -1,0 +1,12 @@
+#effectsTemplatesSection{padding:12px;color:inherit}
+.effects-template-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.effects-template-heading h2{font-size:15px;margin:0;font-weight:600}
+#effectsTemplatePacks{display:grid;gap:8px}
+.effects-template-row{display:grid;gap:6px;min-width:0}
+.effects-template-add{width:100%;min-height:44px;text-align:left;overflow-wrap:anywhere}
+.effects-template-row select{width:100%;min-width:0}
+#effectsTemplateStatus,#effectsTemplateArchives,.effects-template-help{font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.effects-template-media{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+#effectsTemplateChoices{display:grid;gap:6px;margin-top:8px}
+#effectsTemplateError{font-size:12px;line-height:1.5;border:1px solid #71534b;padding:10px;border-radius:5px;overflow-wrap:anywhere}
+#effectsLibraryHome[aria-pressed=true]{background:#343b44;color:#fff}

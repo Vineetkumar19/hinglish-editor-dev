@@ -1,0 +1,71 @@
+{
+  "status": "signed_native_apk_built_device_acceptance_pending",
+  "apk": "D:\\Full Drive\\remove silence\\output\\phone-native\\StoryLens-Phone.apk",
+  "sha256": "3f06c5820d9e962e16e8773b991404fcd8f3350d056b11c3d35849afc2bb85fe",
+  "bytes": 1692510,
+  "package": "app.storylens.phone",
+  "version": "0.1.0",
+  "min_android_api": 26,
+  "target_compile_android_api": 35,
+  "native_widgets": ["Activity", "TextView", "EditText", "ScrollView", "ImageView", "VideoView", "MediaPlayer", "Android document pickers", "FileProvider"],
+  "webview_browser_vpn_dependency": false,
+  "credentials_embedded": false,
+  "signing": {
+    "type": "separate personal development release RSA3072 APK v2",
+    "certificate_sha256": "c068bc0f3cdcee3e1ba0112f16f2054cb045e14523b8d1fab892eb5a372e72e8",
+    "key_location": "mobile\\android\\.private\\storylens-personal.p12",
+    "key_password": "Windows-user DPAPI protected local file, not distributed or logged",
+    "private_directory_acl": "current Windows user only; inheritance removed",
+    "signature_verified_on_final_apk": true
+  },
+  "toolchain": {
+    "jdk": "Microsoft OpenJDK 21.0.13.0.2+1 windows-x64",
+    "gradle": "8.12.1",
+    "android_gradle_plugin": "8.8.2",
+    "sdk_platform": "35 revision 2",
+    "sdk_build_tools": "35.0.0",
+    "source_bytecode": "Java17",
+    "androidx_core": "1.15.0",
+    "desugar_jdk_libs": "2.1.4",
+    "existing_pocket_tracker_inspection": "read-only build configuration; no app data or keys copied/read",
+    "recovery": "Configured migrated SDK/Gradle/JDK21 paths were absent. Verified missing prerequisites, then recovered official tooling into mobile/android/toolchain. Existing system JDK25 was used only for initial JVM checks/SDK setup.",
+    "global_environment_or_execution_policy_changed": false,
+    "last_build_offline": true
+  },
+  "checks": {
+    "protocol_tdd": "ProtocolChecks.java written before implementation; javac failed on missing Codec/Pairing/Json/Rpc/Transfer. Green:40 assertions.",
+    "transport_tdd": "TunnelChecks.java written before Tunnel; javac failed on missing Tunnel. Green: pull dispatch, single push per request, no action retry, lifecycle close.",
+    "send_journal_guard": "Static contract failed before guarded persistence commit; passed after implementation.",
+    "python_interop_vector": "Exact supplied AES256-GCM key/nonce/AAD/ciphertext decrypted to exact compact UTF8 request. Synthetic vector01 ID is intentionally not accepted as a production UUID.",
+    "compile": "assembleRelease succeeded; offline final run succeeded in18seconds",
+    "lint": {"errors":0,"warnings":9,"warning_categories":{"GradleDependency":2,"SetTextI18n":7}},
+    "native_source_contracts": "passed; source/manifest boundaries only, not real device evidence",
+    "final_boundary_probes": {"passed":10,"confirmed_findings":1},
+    "apk_inspection": "APK v2 signature valid; correct package/min/target; no private signing/connection/config files or test token/signing-environment strings in runtime APK. Internet plus AndroidX signature-protected receiver permission only."
+  },
+  "final_review_findings": [
+    {
+      "id":"F1",
+      "state":"confirmed_jvm_unfixed",
+      "trigger":"Import an otherwise valid .slconnect text file prefixed by a UTF8 BOM (EF BB BF), as some Windows text writers produce.",
+      "expected":"Connection file imports successfully.",
+      "actual":"Java trim retains U+FEFF, so Pairing.parse rejects the prefix instead of pairing.",
+      "impact":"Owner must export UTF8 without BOM, or paste the SL1 code directly. No secret disclosure or upload occurs.",
+      "evidence":"core/src/test/java/app/storylens/protocol/FinalReviewChecks.java and checks/final-review.txt",
+      "repair":"Not fixed after final review, following owner instruction."
+    }
+  ],
+  "limits": [
+    "No phone/emulator install, application control, hardware Keystore test, real relay pairing or end-to-end laptop job was run.",
+    "SAF attachment/save/share, screen geometry, device lifecycle and native media codecs/playback require owner-authorized device checks.",
+    "App must remain foreground for encrypted pull and file transfers. Laptop jobs continue independently.",
+    "An ambiguous mutation is not automatically replayed; uncertain sends require explicit chat readback before clearing their draft.",
+    "Uploads and downloads are capped at256MiB per file. Document providers must report upload size. Transfers interrupted by backgrounding are not automatically resumed.",
+    "Media is private app cache, not unlimited durable offline storage. Owner can clear it; Android may evict it. Saved/shared external copies remain separate.",
+    "English-only personal UI and pinned compatible dependencies account for retained lint warnings; immediate journal commit is intentional before send.",
+    "Pairing file must be kept private outside the app; forgetting locally does not revoke the relay token on the laptop.",
+    "Only pasted or file-imported pairing, not QR scanning, is implemented."
+  ],
+  "preserved": ["Pocket Tracker", "existing browser connection", "laptop services", "owner data", "relay/backend/shared code", "local model configuration"],
+  "model_runs_phone_installs_service_restarts_external_publishing": false
+}

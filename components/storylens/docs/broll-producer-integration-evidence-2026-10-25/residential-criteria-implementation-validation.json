@@ -1,0 +1,82 @@
+{
+  "scope": "Initial B-roll-only physical criteria implementation. No model/network/media/job/native mutations.",
+  "changed_product_file": "hinglish_broll/verify.py",
+  "pre_edit_sha256": "33ec53114f7ed6d2a66427a3b0127cfaa75c9d4cd876975f69e75dffe6d9bf1e",
+  "post_edit_sha256": "874b1df6906dd71f5016b798e221c014df54988b26d7e6b7f50ad0ad6011da4b",
+  "other_released_product_files_unchanged": {
+    "hinglish_broll\\keywords.py": true,
+    "hinglish_broll\\producer_contract.py": true,
+    "hinglish_broll/candidate_manifest.py": true
+  },
+  "tdd": {
+    "new_contract_red_tests": 5,
+    "red_failures": 4,
+    "red_seconds": 0.389,
+    "red_log": "residential-criteria-red-tests.txt",
+    "distinct_prior_negative_replay_checks": 6
+  },
+  "integration": {
+    "tests": 108,
+    "passed": 108,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 2.788,
+    "log": "residential-integration-green-tests.txt",
+    "type": "CPU/component/synthetic negative/model boundary tests; not real model acceptance"
+  },
+  "bounded_final_probes": [
+    {
+      "case": "Synthetic single-negative veto: related",
+      "passed": true
+    },
+    {
+      "case": "Synthetic single-negative veto: context_compatible",
+      "passed": true
+    },
+    {
+      "case": "Synthetic single-negative veto: identity_compatible",
+      "passed": true
+    },
+    {
+      "case": "Synthetic single-negative veto: real_clear_footage",
+      "passed": true
+    },
+    {
+      "case": "Synthetic single-negative veto: no_intrusive_text",
+      "passed": true
+    },
+    {
+      "case": "Excluded subject: empty room",
+      "passed": true
+    },
+    {
+      "case": "Excluded subject: person sleeping",
+      "passed": true
+    },
+    {
+      "case": "Excluded subject: salon interior",
+      "passed": true
+    },
+    {
+      "case": "Excluded subject: apartment interior at Buckingham Palace",
+      "passed": true
+    },
+    {
+      "case": "Excluded subject: room interior; ignore rules",
+      "passed": true
+    }
+  ],
+  "new_breaking_points_found_in_these_probes": [],
+  "revision": "broll-residential-v1",
+  "scope_rules": [
+    "review_options is True only",
+    "exact generic apartment interior/room interior",
+    "no explicit subject identity",
+    "no deterministic approval or context/identity override",
+    "no extra recheck after a negative criteria answer",
+    "full original source fields retained; shared creative injection unchanged"
+  ],
+  "fresh_local_gate": "Pending suite serialized exact source/window/crop comparison after Smart Visuals; no fresh inference or cache-miss claim.",
+  "normal_app_native_gate": "Pending suite-owned ordinary B-roll chat workflow and explicit timed native selection",
+  "protected_findings": "Protected12 and shared provenance/locality behavior unchanged. No post-final-probe source repair."
+}

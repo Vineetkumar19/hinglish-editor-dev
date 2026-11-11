@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Storylens Stock Search",
+  "version": "0.1.2",
+  "description": "Opt-in public Pexels and Pixabay video search for your local Storylens editor.",
+  "permissions": ["storage", "alarms", "scripting"],
+  "host_permissions": ["http://127.0.0.1/*"],
+  "optional_host_permissions": ["https://www.pexels.com/*", "https://pixabay.com/*"],
+  "background": {"service_worker": "worker.js"},
+  "action": {"default_popup": "popup.html"},
+  "externally_connectable": {"matches": ["http://127.0.0.1/*"]}
+}

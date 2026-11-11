@@ -1,0 +1,145 @@
+Epidemic Studio: signed-in in-app inspection and audio processor follow-up
+24 October 2026
+
+Completed scope
+===============
+Used the owner's now-authenticated in-app browser, opened Studio from its visible
+navigation, and inspected its existing sample, music filters and effects filters.
+Studio required a larger viewport; a temporary 1440x900 override allowed the
+inspection and was reset afterward. Chrome was not opened for this follow-up.
+No owner video was uploaded, no soundtrack generation was started and no credits
+were spent. No project clips were moved, replaced or edited.
+
+Read-only sample evidence
+=========================
+Cinematic Forest is a built-in example with a 35-second arrangement:
+- One continuous music clip, Hold My Hand by They Dream By Day, from 0 to 35s.
+- Scene beds include leaves 0-4.5s, river 4.5-8.5s, waterfall 8.5-19s, forest
+  ambience 19-26s, and alpine ambience 32.5-35s.
+- Short Foley includes grass handling 0-1.5s, grass steps 2.5-4s, puddle steps
+  6-7.5s, forest steps 11-12.5s, gravel steps 19-22.5s, stove ignition 26-26.5s,
+  gas 26.5-29.5s and kettle 29.5-32.5s. Another waterfall layer overlaps 13.5-15.5s.
+This establishes the example's layered arrangement, not the automatic matcher
+that produced it, an accurate contact-time comparison or a listening assessment.
+Rendered slider labels and values are saved in in-app-forest-clips.json.
+
+Observed search controls
+========================
+Music: best match/popular/newest sorting; genre, mood, musical key, instrument,
+vocals, BPM and duration filters. Vocals distinguishes lead vocals, no vocals,
+and vocal presence. BPM exposes min/max and slow-to-fast presets.
+Sound effects: category and sort filters, with visible families including
+Swooshes, Ambience, Water, Vehicles, Whoosh, Cartoon, User Interface, Riser,
+Computers, Objects, Voices and Designed.
+These visible controls establish retrieval dimensions, not their internal
+ranking weights, embeddings, training method or model provider.
+
+Export boundary actually observed
+=================================
+Opening Export on the sample displayed 'Download now with a subscription'.
+The current free account therefore did not permit a completed export through
+this flow. No subscription was purchased, no protection was bypassed and no
+export was claimed. Screenshot: in-app-export-subscription.png. The editor was
+left open; its 2,500-credit balance did not change.
+
+New code acquired and analyzed
+==============================
+The loaded page exposed useTranslation-BopTC-ly.js from Studio build 6cdf5da.
+Its exact static URLs identified two audio worklet dependencies. All three were
+downloaded as public files without credentials and parsed as inert text.
+Artifact root: output/sound-research/epidemic-studio/audio-runtime/
+
+useTranslation-BopTC-ly.js: 152666 bytes
+SHA256 ae33f1126e52b12b9fd26e01582b3aeb3fcbeaa45572bbfdda76e43bd37d28ae
+sidechainWorkletProcessor-BFBWyzVW.js: 11686 bytes
+SHA256 8442859d9b47a104ada6025c79903b2907f4a2a72e5dc19c88a502a45fe7cd13
+limiterWorkletProcessor-D1pQqXP3.js: 14406 bytes
+SHA256 50d04d2b7f46cbe8cf483eb0098926afffd3b3beae5d8c611c4aa985267f7def
+
+REA evidence:
+ev_88f23429986867c78d9d6c83dfe7eb91ba3d6687defbd143a236ced181316d15
+All three JavaScript files parsed; zero parse failures; 46,757 AST nodes visited.
+The input directory also contained three JSON evidence/metadata files. REA's
+six relevant files must not be described as six additional JavaScript modules.
+Semantic coverage remains bounded; static availability does not prove an active
+runtime path. A first single-file invocation was rejected because REA requires
+a directory or ASAR; that failure is preserved separately from the successful
+directory analysis. These scripts were never executed by our analysis.
+
+Audio mechanisms now established by source
+==========================================
+1. The mixer uses the Web Audio API with gain nodes, buses, filters and custom
+   AudioWorklet processors. This is ordinary audio processing infrastructure,
+   distinct from the server-side sound selection model.
+
+2. The sidechain worklet has two inputs: the audio being controlled and a key
+   signal (dialogue when routed by the previously inspected Studio controls).
+   It filters each key channel, measures a smoothed mean-square envelope, and
+   uses the largest channel level. Threshold, ratio and optional soft knee
+   determine desired reduction, bounded by a maximum reduction setting.
+
+3. The optional key gate prevents a sufficiently quiet key from activating
+   reduction. When enabled, a fixed 0.2-second gate hang bridges short gaps.
+   It is disabled at the processor's default floor; do not claim every project
+   automatically has breath/room-noise rejection enabled.
+
+4. Gain changes are smoothed in dB with separate attack, hold and release.
+   The reduction is then applied to program samples. Metering reports both key
+   level and gain reduction. Default values and clamps are visible, but no
+   listening or numerical DSP validation was run. Do not promise identical sound
+   merely by copying these parameter values.
+
+5. The limiter factory supports native DynamicsCompressor and custom-worklet
+   paths. The worklet contains look-ahead ring buffers with a 6ms pre-delay
+   setting and a shaped release. A helper creates a missing master limiter
+   BYPASSED, so presence alone does not establish active limiting in the sample.
+   No true-peak guarantee, actual ceiling or sample's active engine was measured.
+
+6. Clip fade scheduling scales fade-in/out together if they exceed clip duration.
+   It uses exponential approach via AudioParam.setTargetAtTime plus endpoint
+   ramps, and accounts for playback starting partway into a fade. This helps
+   preserve fade behavior when seeking instead of restarting every envelope.
+
+7. The offline mix renderer rebuilds saved master/group/channel processing in
+   a stereo OfflineAudioContext, respects mute/solo-derived audibility, resolves
+   bus routes and awaits sources and processors. It explicitly fails when a
+   required processor cannot load instead of silently exporting a passthrough.
+   This resolves the earlier uncertainty about the full browser mix graph;
+   the earlier export-bundle OfflineAudioContext was only a resampling step.
+
+Source locations
+================
+useTranslation offsets are Python Unicode character indices:
+- 107800 onward: native/worklet limiter paths and factory.
+- 117574 onward: sidechain defaults, clamps and two-input worklet wiring.
+- 78200-79820: fade scheduling and duration constraints.
+- 143130-147100: offline arrangement rebuild, routing, readiness and error checks.
+The two worklet files retain readable names, including process, refreshDerived,
+resetState and parameterDescriptors; verify them against the hashes above.
+
+Independent Storylens implementation implications
+=================================================
+- Retain a continuous music bed where the scene supports it; layer ambience and
+  brief action cues separately instead of forcing every sound into one budget.
+- Rank available music using distinct mood, tempo, instrument and vocal metadata,
+  then measure placement. Catalogue size and licensed assets remain separate
+  requirements; this inspection did not copy Epidemic's audio library.
+- Implement bounded dialogue-keyed gain envelopes with optional noise gating,
+  short-gap bridging and separate music/effects settings using our own mixer.
+- Preserve trims, fades, cue identities and processor settings across preview,
+  rebuild and export. Surface missing-asset/processor errors before producing a
+  misleading successful result. Use Storylens's shared error presentation.
+- Evaluate browser Web Audio only if interactive preview benefits. Existing
+  FFmpeg and native-editor exports need not be replaced to use these principles.
+
+Status
+======
+This is completed additional inspection and saved reference knowledge. It is
+not a new Storylens feature implementation, model training, private backend
+recovery, soundtrack quality certification or native-editor export validation.
+The previously recorded Storylens source-review risks remain unconfirmed.
+
+Evidence images
+===============
+output/sound-research/epidemic-studio/in-app-cinematic-forest.png
+output/sound-research/epidemic-studio/in-app-export-subscription.png

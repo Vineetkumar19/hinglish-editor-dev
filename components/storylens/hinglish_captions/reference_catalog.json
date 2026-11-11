@@ -1,0 +1,153 @@
+{
+  "reference_folder": "D:\\Full Drive\\Styles\\Videos",
+  "ordering": "Left to right in image(20261022-054808).png; matches filename sort",
+  "active_caption": 5,
+  "references": [
+    {
+      "number": 1,
+      "name": "Caption 01 - Blue Keyword Stack",
+      "style_id": "caption_1",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 01 - Blue Keyword Stack.mp4",
+      "sha256": "fb208d98480935ccc000f6795c1b780a5045af89ef62654b2a0606335c77c615",
+      "status": "approved",
+      "demo_url": "/caption-output/template-demos/caption_1/report.html",
+      "approved_video_sha256": "93983d49f94b2ff6b69b194c3e945e8e44fd0081b1672d8126540767931455a9",
+      "owner_confirmation": "Perfect loved it ... Name it caption 1.",
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 1.mp4",
+      "display_name": "Caption 01 - Blue Keyword Stack"
+    },
+    {
+      "number": 2,
+      "name": "Caption 02 - Lime Keyword Zoom",
+      "style_id": "caption_2",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 02 - Lime Keyword Zoom.mp4",
+      "sha256": "969d0e0e789db2c29e7ae197c58bcaded62ac4dee38b8ddaaf35b62b6d199263",
+      "status": "approved",
+      "demo_url": "/caption-output/template-demos/caption_2/report.html",
+      "review_video": "output/share/Caption-2.mp4",
+      "rendered_video_sha256": "2173773bf5f17413fef398e81ce9d55a0b97fd024a66ec567a08e01076d07394",
+      "source_fps": 30,
+      "reference_frame_identity_verified": false,
+      "owner_revision": "Approved settling zoom and overlap; warning cards and pointer icon removed.",
+      "approved_video_sha256": "2173773bf5f17413fef398e81ce9d55a0b97fd024a66ec567a08e01076d07394",
+      "owner_confirmation": "Perfect loved it... Just remove that click icon . And move to caption 3",
+      "revision_status": "awaiting_owner_review",
+      "revision_demo_url": "/caption-output/template-demos/caption_2_medium/report.html",
+      "revision_video": "output/captions/template-demos/caption_2_medium/captioned-preview.mp4",
+      "revision_video_sha256": "5d389c14f0ace78dfd5178a37a7af74885c38611333d98aa40862a2c0b71c738",
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 2.mp4",
+      "display_name": "Caption 02 - Lime Keyword Zoom"
+    },
+    {
+      "number": 3,
+      "name": "Caption 03 - Serif Soft Focus",
+      "style_id": "caption_3",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 03 - Serif Soft Focus.mp4",
+      "sha256": "f9e05f3fdf5691fc03c85a7bd820f01e9a35678e072cd442502ed888f2fdd2f1",
+      "status": "awaiting_owner_review",
+      "demo_url": "/caption-output/caption-three-reference-rebuild/report.html",
+      "review_video": "output/captions/caption-three-reference-rebuild/caption-three-10s.mp4",
+      "rendered_video_sha256": "d08c96e81e5ec081e87a063951e6f123256e8106832195b170d414dfce3c889c",
+      "source_fps": 30,
+      "source_frames": 709,
+      "reference_frame_identity_verified": false,
+      "owner_revision": "Owner selected supplied serif reference. Match Playfair typography, Schoolbell accents, staggered rows and soft-focus camera motion; fixed full-row slots across script edits.",
+      "owner_confirmation": "Reference selection confirmed; replacement design approval remains pending.",
+      "revision_status": "awaiting_owner_review",
+      "revision_demo_url": "/caption-output/caption-three-reference-rebuild/report.html",
+      "revision_video": "output/captions/caption-three-reference-rebuild/caption-three-10s.mp4",
+      "revision_video_sha256": "d08c96e81e5ec081e87a063951e6f123256e8106832195b170d414dfce3c889c",
+      "previous_approval_record": "docs/caption-three-catalog-before-serif-2026-10-23.json",
+      "pagination_revision": "Two separate comparison slides: handwritten first, blue second. Each page keeps its source identity through script replacement and save/reopen.",
+      "pagination_evidence": "output/captions/caption-three-reference-rebuild/two-slide-validation.json",
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 3.mp4",
+      "display_name": "Caption 03 - Serif Soft Focus"
+    },
+    {
+      "number": 4,
+      "name": "Caption 4",
+      "style_id": "caption_4",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 4.mp4",
+      "sha256": "f9e05f3fdf5691fc03c85a7bd820f01e9a35678e072cd442502ed888f2fdd2f1",
+      "status": "approved",
+      "demo_url": "/caption-output/template-demos/caption_4/report.html",
+      "review_video": "output/share/Caption-4.mp4",
+      "rendered_video_sha256": "7d4d201c089377c776047a5a887be1d5392594577fa1e172c10bd662d27ffe00",
+      "source_fps": 30,
+      "source_frames": 709,
+      "reference_frame_identity_verified": false,
+      "owner_revision": "Tighter optical gaps; headers and footers aligned to hero ink edges; original words, timing, fonts and motion preserved.",
+      "library_file_id": "libfile_9ca526601c688191920fb5b7605e91a9",
+      "library_version": 1,
+      "approved_video_sha256": "7d4d201c089377c776047a5a887be1d5392594577fa1e172c10bd662d27ffe00",
+      "owner_confirmation": "Move to next style"
+    },
+    {
+      "number": 5,
+      "name": "Caption 05 - Bold Red Word Clusters",
+      "style_id": "caption_5",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 05 - Bold Red Word Clusters.mp4",
+      "sha256": "ab8228c2f9e93da88b6900df14b72d0735c81b71de62e02e6bf71f4942eec1b9",
+      "status": "ready_for_review",
+      "demo_url": "/caption-output/template-demos/caption_5/report.html",
+      "review_video": "output/share/Caption-5.mp4",
+      "rendered_video_sha256": "7b14073fa69afde9a1d75d3b75268137d1258a5d306164a94e8fc16fa30feae2",
+      "source_fps": 30,
+      "source_frames": 574,
+      "reference_frame_identity_verified": false,
+      "library_file_id": "libfile_7a67b71469fc81919308efb9eb7a8a22",
+      "library_version": 0,
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 5.mp4",
+      "display_name": "Caption 05 - Bold Red Word Clusters"
+    },
+    {
+      "number": 6,
+      "name": "Caption 06 - Serif Circle",
+      "style_id": "caption_6",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 06 - Serif Circle.mp4",
+      "sha256": "4d9edf6f06a9707cd581f03a554c989b040f68c59ac65d38b92de113a5885240",
+      "status": "pending",
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 6.mp4",
+      "display_name": "Caption 06 - Serif Circle"
+    },
+    {
+      "number": 7,
+      "name": "Caption 7",
+      "style_id": "caption_7",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 7.mp4",
+      "sha256": "cbb9e762261c3c8cd2ce55f8e2783ae99b7f827905fa09ba417b46fcffcdf819",
+      "status": "pending"
+    },
+    {
+      "number": 8,
+      "name": "Caption 08 - Kinetic Gold",
+      "style_id": "caption_8",
+      "source": "D:\\Full Drive\\Styles\\Videos\\Caption 08 - Kinetic Gold.mp4",
+      "sha256": "345111446dbcffb2362742834f3dddc7fb54ff4e58414e2e0a922a0d36276ecf",
+      "status": "pending",
+      "previous_source": "D:\\Full Drive\\Styles\\Videos\\Caption 8.mp4",
+      "display_name": "Caption 08 - Kinetic Gold"
+    }
+  ],
+  "advance_policy": "Owner confirmation is required before beginning or exporting the next numbered caption style.",
+  "confirmed_captions": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "current_work": {
+    "style_id": "caption_5",
+    "status": "ready_for_review",
+    "scope": "Caption 5 only; await owner confirmation before beginning Caption 6.",
+    "live_editor_verified": false,
+    "rendered_video_verified": true
+  },
+  "approved_styles": {
+    "typography_5": {
+      "status": "approved",
+      "owner_confirmation": "Perfect loved it... Now move to caption 2..."
+    }
+  },
+  "naming_manifest": "D:\\Workflow_Automation\\style-reference-refresh\\naming-manifest.json"
+}

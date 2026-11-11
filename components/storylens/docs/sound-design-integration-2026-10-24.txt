@@ -1,0 +1,97 @@
+Storylens Sound Design — 24 October 2026
+
+Implemented in the existing Sound Design feature
+
+Local Qwen planning receives speech, vocal delivery, sampled edited-timeline
+Vision observations, saved creator/reference guidance, and measured editor
+events. Long transcripts are planned in chunks with the creator guidance kept.
+Vision samples describe setting/emotion; they cannot locate individual footsteps
+or contacts precisely. Missing Vision stops with a catalogued error and saves
+the underlying diagnostic. Scene observations are cached per actual frame/model.
+
+Timing comes from real transcript word occurrences or supplied event ids.
+Missing/ambiguous words are skipped. No last-word fallback. No sound is forced
+when the picker returns -1, including music. Events from saved Motion Graphics,
+Smart Visuals, B-roll, zoom and cinematic reel sidecars are supported. XML upper
+layers/transitions are also read. New GSAP scenes record their staggered object
+landings. Existing scene sidecars retain their previously available timing.
+Any feature can provide sound-events.json next to its input:
+  {"events":[{"time":1.25,"end":2.0,"kind":"motion",
+               "phase":"landing","label":"map pin settles"}]}
+Allowed kinds: motion, visual, broll, zoom, transition, foley, ambience.
+Times are seconds on the supplied edited timeline, not original source time.
+
+CLAP plus local text retrieval ranks actual library files; emotion/intent and
+audio checks guide selection. Music can change at a sustained emotional turn,
+including a tense ending. Measured energy selects a passage instead of always
+using the track intro. This is not musical phrase/harmonic analysis. Dialogue
+ducking, fades, ambience, reveal dips and separately editable audio tracks are
+retained. Silent input has explicit mixing levels. Fractional-frame SFX starts
+are preserved in exported PCM padding (sample accuracy) rather than rounded
+early in the XML. No native editor playback has been checked for this revision.
+
+Added local starter files: four Chris Zabriskie Cylinders instrumental tracks
+(CC BY 4.0; attribution required), twelve Mixkit ambience/Foley recordings
+(Mixkit Sound Effects Free License; no standalone library redistribution).
+Existing sfx-pro contains 757 files; their pre-existing provenance was not
+re-audited. Selected file metadata is written to CREDITS.txt and sound-sources.json.
+Library import receipts: output/sound-research/library-import.json.
+The bounded importer is tools/sound_library_starter.py. This is a small starter,
+not a replacement for Epidemic's large curated catalogue.
+
+Freesound is an OPTIONAL configured connector, disabled by default. Credentials
+stay in environment variables FREESOUND_API_KEY / FREESOUND_ACCESS_TOKEN.
+Original-quality downloads need OAuth. API access is free for non-commercial
+use; commercial use needs a separate agreement. Individual audio licences are
+separate. Owner has no account and requested skipping paid access, so no account,
+subscription or Freesound download was made. Config is
+config.sound-providers.local.json. Ready credentials plus explicit enablement
+permit bounded downloads when a selected category has no local candidates.
+This does not yet search after every unsuitable local candidate rejection.
+
+Public research and deliberate boundaries
+
+Epidemic Studio describes footage/mood/action analysis, curated matching, layered
+music/ambience/effects, editable alternatives and XML export. The actual Studio
+redirected to login. No private model, source code, matching algorithm or licensed
+catalogue was recovered. No user video was uploaded. REA can inspect accessible
+local code; it does not recover a remote service's private model/catalogue.
+https://www.epidemicsound.com/tools/studio/
+https://www.epidemicsound.com/tools/studio/tutorial/
+
+SoundCraft is a pre-alpha open-source DAW (MIT OR Apache-2.0), with CLI/control
+protocol and offline bounce. It is not an automatic music catalogue or a cracked
+Epidemic implementation. Its features overlap the existing local mixer/exporter;
+no SoundCraft binary or control integration is enabled in this revision.
+https://github.com/storytold/soundcraft
+https://github.com/storytold/soundcraft/blob/main/docs/control-protocol.md
+
+MMAudio can synthesize video/text-conditioned sound, but its checkpoint is
+CC-BY-NC-4.0, and the upstream documents speech/music artifacts. FoleyCrafter
+provides temporal/semantic video-to-audio generation (Apache-2.0 code; separately
+review model/dependency licences). Neither is a ready stock library or background
+music recommender. Both require separate GPU runtimes/checkpoints; neither is
+installed, called or claimed integrated here. No CUDA environment or model weights
+were replaced/downloaded. Provider settings clearly identify them as unavailable.
+https://github.com/hkchengrex/MMAudio
+https://github.com/open-mmlab/FoleyCrafter
+
+https://freesound.org/docs/api/overview.html
+https://freesound.org/docs/api/terms_of_use.html
+https://chriszabriskie.com/cylinders/
+https://chriszabriskie.com/use/
+https://mixkit.co/free-sound-effects/ambience/
+https://mixkit.co/license/#sfxFree
+
+Use and validation boundary
+
+Choose Sound Design with the video or finished exported XML; original project
+sidecars must remain beside the input to reuse their exact motion timings.
+This does not automatically rerun sound design after every edit in other tools.
+It does not isolate vocals from existing mixed music; supply clean dialogue or
+turn off new background music when keeping a pre-mixed soundtrack.
+Reload/restart Storylens normally when idle to load changed server modules.
+No services, other GPU jobs, Chrome windows or native editors were started/stopped.
+No local model inference or full video render was run for this revision.
+Regression/PCM/export checks are supplementary; real selection quality and
+native Premiere/CapCut playback remain UNVERIFIED.

@@ -1,0 +1,53 @@
+{
+  "targetViewports": [
+    "390x844",
+    "1366x768"
+  ],
+  "renderedEvidence": [
+    {
+      "artifact": "mobile.png",
+      "observation": "Compact mobile overview: smaller cards, stacked metadata, no horizontal clipping, fixed bottom navigation; synthetic test data only.",
+      "viewport": "390x844"
+    },
+    {
+      "artifact": "desktop-compact.png",
+      "observation": "Compact laptop overview fits summary, five transactions, budget and recurring cards within 768px height. Sidebar 192px; summary 147px; all eight pages checked without horizontal overflow. Synthetic test data only.",
+      "viewport": "1366x768"
+    }
+  ],
+  "contract": "contract.md: compact private finance dashboard; glass surfaces; money first; separate Safety; Setup in side menu.",
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Keyboard Tab produced visible 3px focus outline; form fields are labeled, modal retained focus, invalid required amounts rejected, reduced-motion media rule present. Mobile hidden sidebar now uses inert."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "All eight laptop screens checked at 1366px, with live connected dashboard checked at 1440px. New compact rules apply only above 760px; approved mobile rules remain unchanged. Update 0.4.0: all eight routes checked at 390x844 and 1366x768 without horizontal overflow; five mobile buttons and supplied logos verified."
+  },
+  "contentStates": {
+    "permission": {
+      "status": "pass",
+      "evidence": "Setup rendered Permission needed and SMS permission action; everyday navigation excludes Setup."
+    },
+    "loading": {
+      "status": "pass",
+      "evidence": "Initial document displays Connecting to your records while the local bridge loads."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "Synthetic filled desktop/mobile layouts inspected; real paired Wi-Fi snapshot returned HTTP 200. Combined CC+debit, CC+credit and Axis+BHIM filters verified with synthetic fixtures; PDF summary/table first pages visually inspected; 624-record live snapshot connected."
+    },
+    "partial": {
+      "status": "pass",
+      "evidence": "Synthetic provisional alert appeared as unconfirmed and outside totals."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "Reports and transaction empty states rendered with clear next actions."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "Unpaired/offline laptop showed connection error with Pair laptop and Retry; no false connected status."
+    }
+  }
+}

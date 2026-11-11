@@ -1,0 +1,25 @@
+{
+  "voice": "cached StoryLens greeting",
+  "avatars": {
+    "/cortana-hologram-portrait.glb": "1581368788735b441065fdad8352ec512ac8964a74bcfcb196b29331bb2d9871"
+  },
+  "voice_warm_calls": 1,
+  "renderer": "/cortana-3d-portrait.js",
+  "blink_stimulus": "controlled clock stimulus",
+  "animation": {
+    "frames": 62,
+    "jaw": 0.2662338577215931,
+    "blinkL": 0.3499996829630611,
+    "blinkR": 0.34999917323136903,
+    "peakClosure": 1,
+    "peakSpeech": 0.9871034553453453,
+    "joints": [
+      "jaw",
+      "orbicularis03L",
+      "orbicularis03R"
+    ]
+  },
+  "status": "passed",
+  "final_phase": "ready",
+  "errors": []
+}

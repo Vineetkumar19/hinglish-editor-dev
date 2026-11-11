@@ -1,0 +1,4 @@
+# Reproducible environment tested on Windows / Python 3.12.
+# Runtime and transitive dependency versions are pinned together.
+-r requirements.lock.txt
+-r requirements.architecture.txt

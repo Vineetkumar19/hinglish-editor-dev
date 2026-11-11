@@ -1,7 +1,0 @@
-{
-  "device": "cpu",
-  "cpu_threads": 4,
-  "speech_backend": "swift",
-  "matching_backend": "meaning",
-  "pacing": "natural"
-}

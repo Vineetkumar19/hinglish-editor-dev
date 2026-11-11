@@ -1,0 +1,595 @@
+<title>Cortana OS Architecture</title>
+<style>
+:root {
+  --bg: #f7f5f0;
+  --panel: #ffffff;
+  --ink: #1c1c1a;
+  --ink-dim: #55534c;
+  --ink-faint: #8a877c;
+  --line: #e4e0d4;
+  --accent: #1c6b78;
+  --accent-soft: #e8f2f3;
+  --warn: #9a4b1f;
+  --warn-soft: #fbeee2;
+  --danger: #8f2d2d;
+  --danger-soft: #f9e9e9;
+  --good: #2f6b3a;
+  --good-soft: #eaf3ea;
+  --mono: "Cascadia Code", ui-monospace, "SF Mono", Consolas, monospace;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14130f;
+    --panel: #1c1b16;
+    --ink: #eeece2;
+    --ink-dim: #b8b4a4;
+    --ink-faint: #82806f;
+    --line: #34322a;
+    --accent: #5fd0dc;
+    --accent-soft: #16292c;
+    --warn: #e0a468;
+    --warn-soft: #2e2015;
+    --danger: #e08a8a;
+    --danger-soft: #2e1a1a;
+    --good: #8fd49a;
+    --good-soft: #172a1a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14130f;
+  --panel: #1c1b16;
+  --ink: #eeece2;
+  --ink-dim: #b8b4a4;
+  --ink-faint: #82806f;
+  --line: #34322a;
+  --accent: #5fd0dc;
+  --accent-soft: #16292c;
+  --warn: #e0a468;
+  --warn-soft: #2e2015;
+  --danger: #e08a8a;
+  --danger-soft: #2e1a1a;
+  --good: #8fd49a;
+  --good-soft: #172a1a;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 20px 100px;
+}
+.wrap { max-width: 900px; margin: 0 auto; }
+.masthead {
+  padding: 56px 0 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+.kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+.subtitle {
+  font-size: 16px;
+  color: var(--ink-dim);
+  max-width: 640px;
+}
+.meta-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 22px;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  flex-wrap: wrap;
+}
+.meta-row span { display: flex; align-items: center; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+section { margin-bottom: 48px; }
+h2 {
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.num { font-family: var(--mono); font-size: 14px; color: var(--accent); font-weight: 600; }
+h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 26px 0 10px;
+  color: var(--ink);
+}
+p { margin: 0 0 14px; color: var(--ink-dim); }
+.lede { font-size: 15px; color: var(--ink); margin-bottom: 22px; }
+a { color: var(--accent); }
+
+.callout {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.callout.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+.callout.danger { border-left-color: var(--danger); background: var(--danger-soft); }
+.callout.good { border-left-color: var(--good); background: var(--good-soft); }
+.callout-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+.callout.warn .callout-label { color: var(--warn); }
+.callout.danger .callout-label { color: var(--danger); }
+.callout.good .callout-label { color: var(--good); }
+.callout .callout-label { color: var(--accent); }
+.callout p:last-child { margin-bottom: 0; }
+
+pre.diagram {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 18px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 16px 0;
+}
+th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 10px;
+}
+td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-dim);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+td.strong { color: var(--ink); font-weight: 600; }
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.tag-reuse { background: var(--good-soft); color: var(--good); }
+.tag-wrap { background: var(--accent-soft); color: var(--accent); }
+.tag-study { background: var(--warn-soft); color: var(--warn); }
+.tag-build { background: var(--line); color: var(--ink-dim); }
+.tag-reject { background: var(--danger-soft); color: var(--danger); }
+
+.phase-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  background: var(--panel);
+}
+.phase-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.phase-title { font-weight: 700; font-size: 14.5px; }
+.phase-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.phase-card ul { margin: 8px 0 0; padding-left: 20px; }
+.phase-card li { color: var(--ink-dim); font-size: 13.5px; margin-bottom: 4px; }
+.builds-on { font-size: 12px; color: var(--ink-faint); margin-top: 10px; font-style: italic; }
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+.mini-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: var(--panel);
+}
+.mini-card h4 { margin: 0 0 6px; font-size: 13.5px; }
+.mini-card p { font-size: 13px; margin: 0; }
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 40px;
+}
+.toc a {
+  font-size: 12.5px;
+  text-decoration: none;
+  color: var(--ink-dim);
+}
+.toc a:hover { color: var(--accent); }
+.toc span { color: var(--ink-faint); }
+
+footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+</style>
+
+<div class="wrap">
+
+<div class="masthead">
+  <div class="kicker">Architecture Reference · Draft for Review</div>
+  <h1>Cortana OS</h1>
+  <div class="subtitle">A local-first personal AI operating system — reconciling eight domain specifications with what's already running on your machine, and a build order that survives contact with a Ryzen 5 / GTX 1650 laptop.</div>
+  <div class="meta-row">
+    <span><span class="dot"></span>8 source specs read</span>
+    <span><span class="dot"></span>28 reference repos audited</span>
+    <span><span class="dot"></span>Existing Cortana: 24 tools, permission engine, memory, voice — already live</span>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#reality"><span>01</span> The hardware gap</a>
+  <a href="#architecture"><span>02</span> System architecture</a>
+  <a href="#permissions"><span>03</span> Permission ladder</a>
+  <a href="#memory"><span>04</span> Memory model</a>
+  <a href="#repos"><span>05</span> Repository audit</a>
+  <a href="#roadmap"><span>06</span> Build roadmap</a>
+  <a href="#rules"><span>07</span> Non-negotiables</a>
+</div>
+
+<section id="reality">
+  <h2><span class="num">01</span> The hardware gap — read this first</h2>
+  <p class="lede">Every one of the eight specifications you attached — and the "Claude Max 1-Month Build Playbook" that ties them together — is written against an <strong>RTX 4080 Laptop, 12GB VRAM, high-end HX CPU, 32–64GB RAM</strong>. That machine can keep an 8B–14B model resident in VRAM, run a vision model alongside it, and process video locally without the GPU becoming the bottleneck.</p>
+
+  <div class="callout warn">
+    <span class="callout-label">What you actually have</span>
+    <p>Ryzen 5 4600H, GTX 1650 4GB, 24GB RAM — currently running <code>qwen2.5:3b</code> on CPU because 4GB VRAM can't hold anything bigger without the CUDA crashes you already hit with qwen3:8b. This is not a smaller version of the same plan. It's a different machine class, and the playbook's assumptions about "the model reasons, tools execute instantly, vision runs continuously" don't hold when reasoning itself takes 3–5 seconds per turn.</p>
+  </div>
+
+  <p>This doesn't mean the vision in these documents is wrong — the architecture (Cortana Core as boss, specialist agents, deterministic tools, permission ladder, shared memory) is sound and is exactly what the current Cortana already implements in miniature. It means <strong>scope and sequencing have to change</strong>, and a few capabilities need to be marked honestly as "not viable on this hardware" rather than silently built badly.</p>
+
+  <h3>What changes, concretely</h3>
+  <table>
+    <tr><th>Capability</th><th>Playbook assumption</th><th>Reality on your laptop</th></tr>
+    <tr><td class="strong">Reasoning model</td><td>8B–14B resident in 12GB VRAM</td><td>3B on CPU (~3-5s/turn). A 7B+ model either OOMs or is too slow for voice interaction.</td></tr>
+    <tr><td class="strong">Screen vision</td><td>Continuous or frequent screenshot analysis via a vision model</td><td>On-demand only — one screenshot, one vision call, then done. No continuous "watch my screen" loop; the GPU doesn't have room for a second model alongside the chat model.</td></tr>
+    <tr><td class="strong">Video editing (Content Agent)</td><td>Local AI video pipeline: transcription + cut detection + rendering, GPU-accelerated</td><td>FFmpeg-based cutting/captioning/rendering is fine on CPU (it's not an LLM task). Whisper transcription works today. But this is the single heaviest subsystem in the whole spec — treat it as its own multi-week project, last in line.</td></tr>
+    <tr><td class="strong">Browser automation</td><td>Structured connectors + vision fallback</td><td>Fully viable — Playwright/browser-use don't need GPU. This is one of the best next builds.</td></tr>
+    <tr><td class="strong">Developer agent (OpenHands-style)</td><td>8B+ model doing multi-file reasoning</td><td>Viable in reduced form: a 3B model can do targeted, tool-assisted patches on <em>small, well-scoped</em> changes. Multi-file architectural reasoning will be weak — this is where cloud escalation (already built, see below) earns its keep.</td></tr>
+    <tr><td class="strong">Finance / Career / Instagram agents</td><td>Model-agnostic — mostly deterministic code + API calls, LLM explains results</td><td>Fully viable as designed. These are I/O and business-logic heavy, not reasoning-heavy, so they're not blocked by the GPU at all.</td></tr>
+  </table>
+
+  <div class="callout good">
+    <span class="callout-label">The good news — this is already anticipated</span>
+    <p>The current Cortana has a <code>cloud_fallback</code> module (built last session, off by default) that lets any turn escalate to a cloud-hosted model over an OpenAI-compatible endpoint when local inference genuinely isn't enough — exactly the "optional cloud escalation, not a promise of 100% local frontier intelligence" the playbook itself recommends. The Developer Agent and anything doing multi-file reasoning is where you'll actually want to turn it on.</p>
+  </div>
+</section>
+
+<section id="architecture">
+  <h2><span class="num">02</span> System architecture</h2>
+  <p>All eight specs agree on one shape: <strong>Cortana Core is the only orchestrator</strong>; everything else is a specialist that requests routing through it rather than acting independently. That's already true of the running system — <code>chat.py</code> is the single entry point, the tool registry is the single dispatch point, and every tool goes through the same permission check. The extension below keeps that shape and slots the new domains in as siblings, not replacements.</p>
+
+  <pre class="diagram">
+                              ┌─────────────────────────┐
+                              │      CORTANA CORE        │
+                              │  (agent/routers/chat.py) │
+                              │                          │
+                              │  session · routing        │
+                              │  system prompt builder    │
+                              │  tool selection (per-turn)│
+                              │  permission gate           │
+                              │  audit log                 │
+                              │  cloud escalation switch   │
+                              └────────────┬─────────────┘
+                                           │
+              ┌────────────────────────────┼────────────────────────────┐
+              │                            │                            │
+    ┌─────────▼─────────┐       ┌──────────▼──────────┐       ┌────────▼─────────┐
+    │  SHARED PLATFORM    │       │   MEMORY / KNOWLEDGE  │       │   SPECIALIST      │
+    │  (used by everyone)  │       │                       │       │   AGENTS           │
+    │                      │       │  global preferences   │       │                    │
+    │  Computer Control    │◄─────►│  domain memory         │◄─────►│  Developer         │
+    │   open/close/focus   │       │  project memory        │       │  Content (video)   │
+    │   keyboard/mouse     │       │  episodic (tasks done)  │       │  Career            │
+    │   clipboard          │       │  semantic (documents)   │       │  Finance           │
+    │  Screen Vision        │       │  workflow (automations) │       │  Communication     │
+    │   on-demand capture   │       │  source/provenance      │       │  Calendar          │
+    │  Browser               │       │                        │       │  Entertainment      │
+    │   navigate/search/fill │       └────────────────────────┘       │  Security          │
+    │  Document Engine        │                                        │  Automation         │
+    │   PDF/DOCX/PPTX/XLSX     │                                        └────────────────────┘
+    │  Verification              │
+    │   "did the action really  │
+    │    happen" checks           │
+    └─────────────────────────────┘
+              │
+    ┌─────────▼──────────────────────────────────────────────────────────┐
+    │                    PERMISSION + AUDIT LAYER                         │
+    │        (already built: tool_registry.py + permissions.py)          │
+    │   OBSERVE → ANALYZE → DRAFT → CONFIRM → EXECUTE → VERIFY           │
+    └───────────────────────────────────────────────────────────────────┘</pre>
+
+  <h3>Why "shared platform" is its own layer, not part of each agent</h3>
+  <p>The Communication/Vision spec says this explicitly and it's the single most important structural decision in all eight documents: <em>"Do not give every specialist its own independent mouse, keyboard, browser and screen-control implementation."</em> Right now, if Career needs to click through a job application form and Content needs to open a Premiere project and Communication needs to open WhatsApp Web, all three need the same underlying "open a window, click a thing, verify it happened" primitives. Build that once as a Computer Control tool family, and every specialist calls it — don't let three agents grow three different Playwright wrappers.</p>
+
+  <h3>Mapping onto what exists today</h3>
+  <table>
+    <tr><th>Spec concept</th><th>Existing Cortana equivalent</th><th>Gap to close</th></tr>
+    <tr><td class="strong">Cortana Core / orchestrator</td><td><code>routers/chat.py</code>, <code>tool_registry.py</code></td><td>None — this is already the right shape.</td></tr>
+    <tr><td class="strong">Permission ladder</td><td><code>core/permissions.py</code> (LOW/MEDIUM/HIGH/CRITICAL)</td><td>Specs want a 6-stage ladder (OBSERVE→VERIFY). Current 4 tiers collapse cleanly onto it — see §03.</td></tr>
+    <tr><td class="strong">Memory</td><td><code>memory_facts</code> table + lexical recall</td><td>Currently one flat table. Needs domain/project scoping — see §04.</td></tr>
+    <tr><td class="strong">Tool registry + audit</td><td><code>tool_registry.py</code> + <code>audit_log</code> table</td><td>Already matches the spec's "every tool has schema, permission, audit" requirement almost exactly.</td></tr>
+    <tr><td class="strong">Document Agent</td><td><code>tools/documents.py</code> (read_pdf/docx/xlsx)</td><td>Read-only today. Specs want generation (PDF→PPTX, PDF→XLSX) too — natural next step, see Phase 2.</td></tr>
+    <tr><td class="strong">Computer Control</td><td><code>tools/apps.py</code>, <code>tools/folders.py</code>, <code>tools/openpath.py</code></td><td>Open/launch only. No window focus, keyboard/mouse, or verification-of-action yet.</td></tr>
+    <tr><td class="strong">Screen Vision</td><td><code>tools/screenshot.py</code> (take + analyze via llava)</td><td>Already exists and matches "on-demand, not continuous" exactly as this hardware requires.</td></tr>
+    <tr><td class="strong">Browser</td><td><code>tools/web.py</code> (open/search only)</td><td>Can launch a search; cannot read the page or click. This is the biggest single capability gap.</td></tr>
+    <tr><td class="strong">Communication</td><td><code>tools/communication.py</code> (compose-and-hand-off)</td><td>Matches the spec's safety posture already: draft, never auto-send.</td></tr>
+    <tr><td class="strong">Cloud escalation</td><td><code>core/cloud_fallback.py</code></td><td>Built, off by default, currently only fires on Ollama failure — could add an explicit "escalate for hard reasoning" trigger for Developer/Finance-analysis tasks.</td></tr>
+    <tr><td class="strong">Developer / Career / Finance / Content / Security / Automation agents</td><td>Not built</td><td>New domains — see roadmap.</td></tr>
+  </table>
+</section>
+
+<section id="permissions">
+  <h2><span class="num">03</span> Permission ladder — one system, not eight</h2>
+  <p>Every spec independently invents a permission ladder with slightly different names (READ→ANALYZE→DRAFT→CONFIRM→EXECUTE in Finance/Career, OBSERVE→ANALYZE→DRAFT→CONFIRM→EXECUTE→VERIFY in Communication/Security). They're the same idea. Rather than building six different permission systems, collapse them onto the <code>RiskLevel</code> enum already in <code>core/permissions.py</code>, extended with the stages as sub-states of the HIGH tier:</p>
+
+  <table>
+    <tr><th>Stage</th><th>Existing RiskLevel</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="strong">OBSERVE</td><td><code>LOW</code></td><td>Read-only, no side effects</td><td>read_pdf, take_screenshot, search_files</td></tr>
+    <tr><td class="strong">ANALYZE</td><td><code>LOW</code></td><td>Reasoning over already-read data</td><td>score_job, detect anomaly, classify email</td></tr>
+    <tr><td class="strong">DRAFT</td><td><code>MEDIUM</code></td><td>Produces something a human reviews before it goes anywhere</td><td>compose_email, tailor_resume, prepare calendar event</td></tr>
+    <tr><td class="strong">CONFIRM</td><td><code>HIGH</code></td><td>Needs explicit yes before the next stage — currently fails closed because no confirmation UI exists yet</td><td>send_message, submit_application, install_dependency</td></tr>
+    <tr><td class="strong">EXECUTE</td><td><code>HIGH</code>, post-confirmation</td><td>The consequential action itself</td><td>actually clicking Send, actually submitting</td></tr>
+    <tr><td class="strong">VERIFY</td><td>new — runs after any EXECUTE</td><td>Proves the action really happened, doesn't trust its own success claim</td><td>"was the email actually sent", "does the window exist now"</td></tr>
+    <tr><td class="strong">—</td><td><code>CRITICAL</code></td><td>Always blocked, no exceptions</td><td>shell exec, delete, format, registry edit — already permanently barred</td></tr>
+  </table>
+
+  <div class="callout">
+    <span class="callout-label">One real gap to close before CONFIRM-tier tools go live</span>
+    <p>Today, <code>Decision.NEEDS_CONFIRMATION</code> fails closed because there's no UI for the user to actually confirm anything — it's a placeholder. Before Career (submit_application), Communication (send_message), or Automation (execute_workflow) go live, the desktop app needs a real confirmation modal: show the exact action, wait for click, then dispatch. This is small (a React modal + one new endpoint) but it's a hard prerequisite for roughly half the new capabilities in these specs.</p>
+  </div>
+</section>
+
+<section id="memory">
+  <h2><span class="num">04</span> Memory model</h2>
+  <p>The Knowledge spec defines seven memory types. The current <code>memory_facts</code> table is flat — one bucket, lexically searched, no domain isolation. That was fine for "remember my sister's birthday." It's not fine once Finance, Career and Developer all want to store things and none of them should leak into each other's context.</p>
+
+  <pre class="diagram">
+memory_facts (extend, don't replace)
+┌────────────────────────────────────────────────────────────┐
+│ id · content · category            (existing)                │
+│ + domain        global | developer | content | career |     │
+│                  finance | communication | security          │
+│ + scope_id       NULL for global, else project/repo/campaign │
+│                  id this fact belongs to                     │
+│ + source         where this came from (user told me /        │
+│                  extracted from doc X / inferred)             │
+│ + confidence     stated | inferred | uncertain                │
+│ + sensitivity    normal | sensitive | secret-adjacent          │
+│ + expires_at     NULL = permanent, else episodic TTL           │
+└────────────────────────────────────────────────────────────┘
+
+Retrieval rule: recall_facts always filters by domain first.
+A Developer-agent turn never sees Finance-domain facts unless
+the user explicitly asks Cortana Core to cross-reference them.</pre>
+
+  <p>This is a schema migration, not a rewrite — <code>db.py</code>'s existing <code>add_fact</code>/<code>recall_facts</code>/<code>retrieve_relevant</code> functions gain a <code>domain</code> filter parameter and three new columns. Small, and it should happen <strong>before</strong> the Developer or Finance agents are built, because retrofitting domain isolation after two agents are already sharing one memory pool is much more disruptive.</p>
+</section>
+
+<section id="repos">
+  <h2><span class="num">05</span> Repository audit — condensed</h2>
+  <p>Your research doc's own instruction is the right one: <em>audit, classify REUSE/FORK/WRAP/STUDY/REJECT, don't install everything</em>. Here's that classification applied with your actual hardware and the "smallest reliable stack" principle in mind. Full repo details are in your uploaded research doc; this is the decision layer on top of it.</p>
+
+  <table>
+    <tr><th>Repo</th><th>Verdict</th><th>Why</th></tr>
+    <tr><td class="strong">Browser Use</td><td><span class="tag tag-wrap">WRAP</span></td><td>No GPU dependency, actively maintained, does exactly what <code>tools/web.py</code> is missing (read page, click, fill forms). Best next build after Computer Control.</td></tr>
+    <tr><td class="strong">Browser Harness / Workflow Use</td><td><span class="tag tag-study">STUDY</span></td><td>Good recovery/retry patterns to borrow once Browser Use is wrapped — don't add a second browser dependency.</td></tr>
+    <tr><td class="strong">OpenHands</td><td><span class="tag tag-study">STUDY</span></td><td>Excellent architecture reference for the understand→patch→test→iterate loop, but it's built assuming a strong cloud or large local model driving multi-file edits. On a 3B local model, reuse its <em>workflow shape</em>, not its orchestration code — your Developer Agent V1 should be narrower (single-file, tool-verified patches) with cloud escalation for anything OpenHands-scale.</td></tr>
+    <tr><td class="strong">Open Interpreter / Workstation</td><td><span class="tag tag-study">STUDY</span></td><td>Reference for the permission/policy boundary pattern around computer control. Don't wrap directly — it wants a more capable model than 3B to drive well, and Cortana's tool registry already covers the same ground more conservatively.</td></tr>
+    <tr><td class="strong">Khoj</td><td><span class="tag tag-study">STUDY</span></td><td>Good second-brain retrieval patterns (source-backed answers, semantic + exact search combined). Full self-host is heavier than needed — the existing <code>recall.py</code> lexical approach plus the domain-scoping in §04 covers 80% of the value at near-zero cost.</td></tr>
+    <tr><td class="strong">Mem0</td><td><span class="tag tag-study">STUDY</span></td><td>Reference for memory lifecycle (confidence, provenance, expiry) — exactly the columns proposed in §04. Don't add the dependency; the concepts fit directly into the existing SQLite schema.</td></tr>
+    <tr><td class="strong">AnythingLLM</td><td><span class="tag tag-reject">REJECT (for now)</span></td><td>Full RAG workspace is significant infra (vector DB, ingestion pipeline) for what's currently "read a PDF and answer questions about it" — already solved more cheaply by the existing document tools. Revisit only if the document library grows into hundreds of files needing semantic cross-document search.</td></tr>
+    <tr><td class="strong">ScreenAgent / AI Vision System</td><td><span class="tag tag-study">STUDY</span></td><td>Both assume frequent vision-model calls — not viable continuously on this GPU. Borrow the plan→act→reflect loop structure for the existing on-demand <code>analyze_screenshot</code>, don't wrap either directly.</td></tr>
+    <tr><td class="strong">video-use / OpenCut</td><td><span class="tag tag-study">STUDY</span></td><td>video-use's "structured edit decisions, not frame-by-frame LLM calls" is the exact right architecture and should be copied conceptually. OpenCut as an actual rendering engine is worth evaluating once Content Agent is scheduled — but this is Phase 5+ territory regardless of which repo backs it.</td></tr>
+    <tr><td class="strong">Auto Cut Agent / Premiere Director / Ambar</td><td><span class="tag tag-reject">REJECT (for now)</span></td><td>All three assume an Adobe Premiere installation and its scripting API. Only relevant if the eventual Content pipeline targets Premiere specifically rather than FFmpeg — decide that when Content Agent is actually scheduled, not now.</td></tr>
+    <tr><td class="strong">Personal Finance CFO Agent</td><td><span class="tag tag-study">STUDY</span></td><td>"Deterministic calculations, LLM explains" is precisely the Finance spec's own core rule and the existing Cortana rule for tools. Good reference for the calculation engine's shape; write your own given how India-specific the data (SIPs, PPF, EPF) needs to be.</td></tr>
+    <tr><td class="strong">myFinance / FinFolio</td><td><span class="tag tag-study">STUDY</span></td><td>Closest to your actual instruments (EPF, NPS, PPF, SGB, gold). Reference its data model rather than wrapping the whole app.</td></tr>
+    <tr><td class="strong">MR.Jobs</td><td><span class="tag tag-study">STUDY</span></td><td>Closest end-to-end shape to the Career spec's discover→verify→score→tailor→apply→track pipeline. Study its state machine; your version needs the truth/no-fabrication resume validator this spec is explicit about, which isn't guaranteed to already exist there.</td></tr>
+    <tr><td class="strong">job-agent, Resume Agent, ApplyU-ai</td><td><span class="tag tag-study">STUDY</span></td><td>Each contributes one piece (safe-apply gating, resume tailoring, ATS scoring) worth reading before building your own — don't combine three codebases, write one coherent Career Agent informed by all three.</td></tr>
+    <tr><td class="strong">Instagram Analytics Agent / Creator CRM</td><td><span class="tag tag-study">STUDY</span></td><td>Both are small enough to reimplement directly against Instagram's actual permitted API surface rather than wrapping — Instagram's API restrictions mean most of the value is in the data model and the outreach pipeline state machine, not the code.</td></tr>
+  </table>
+  <p style="font-size: 13px; color: var(--ink-faint);">Verdicts favor STUDY over WRAP/REUSE almost everywhere because most of these repos assume either continuous GPU-hungry inference or a full separate service stack — on this hardware, re-implementing the <em>pattern</em> as a lightweight tool inside the existing FastAPI agent is usually cheaper than integrating someone else's service. Browser Use is the clear exception: genuinely worth wrapping directly.</p>
+</section>
+
+<section id="roadmap">
+  <h2><span class="num">06</span> Build roadmap</h2>
+  <p>Not "Month 1." The playbook's 4-week schedule assumes a team-scale Claude Max budget driving parallel workstreams on capable hardware. Working solo, step by step, on this hardware, the honest unit is <strong>phases with real acceptance tests</strong>, done in dependency order — platform pieces that everything else needs, first.</p>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 0 — Confirmation UI + Memory domains</span><span class="phase-badge">prerequisite</span></div>
+    <ul>
+      <li>Build the confirmation modal in the desktop app + a real <code>/api/confirm</code> flow, so HIGH-risk tools stop failing closed.</li>
+      <li>Migrate <code>memory_facts</code> to the domain-scoped schema in §04.</li>
+    </ul>
+    <div class="builds-on">Blocks: Career (submit), Communication (send), Automation (execute) — all of which need real confirmation to be usable at all.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 1 — Computer Control Layer</span><span class="phase-badge">shared platform</span></div>
+    <ul>
+      <li>Window focus/switch/minimize/close (extends <code>tools/apps.py</code>).</li>
+      <li>Verification primitive: "does this window now exist" — the shared check every later agent calls after an action.</li>
+      <li>Clipboard read/write.</li>
+    </ul>
+    <div class="builds-on">Builds on: existing open_application/open_folder. Blocks: every later agent that needs to control an app, not just launch it.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 2 — Browser control (wrap Browser Use)</span><span class="phase-badge">shared platform</span></div>
+    <ul>
+      <li>Read page content, click elements, fill forms — the gap <code>tools/web.py</code> currently has.</li>
+      <li>Structured-first: prefer an API/connector when one exists, browser automation as fallback (the spec's own stated preference).</li>
+    </ul>
+    <div class="builds-on">Builds on: Phase 1 verification pattern. Blocks: Career (apply), Instagram (outreach), Entertainment (search+play).</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 3 — Document Agent, generation half</span><span class="phase-badge">shared platform</span></div>
+    <ul>
+      <li>PDF/DOCX → PPTX, PDF tables → XLSX (extends the existing read-only <code>tools/documents.py</code>).</li>
+      <li>Versioned output, never overwrite source — already the pattern used elsewhere in the codebase.</li>
+    </ul>
+    <div class="builds-on">Builds on: existing document reading. Independent of Phases 1-2 — can run in parallel if you want a break from browser/window plumbing.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 4 — Developer Agent V1 (narrow)</span><span class="phase-badge">specialist</span></div>
+    <ul>
+      <li>Repository map (language/framework detection, entry points) — not a full AST/language-server layer yet.</li>
+      <li>Single-file, tool-verified patches: understand → patch → run narrowest test → show diff.</li>
+      <li>Cloud escalation wired in explicitly for anything touching more than ~2 files — this is where <code>cloud_fallback.py</code> earns its place.</li>
+    </ul>
+    <div class="builds-on">Builds on: Phase 0 confirmation (git commit/push gates), Phase 1 (running dev servers, opening IDE).</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 5 — Communication + Calendar</span><span class="phase-badge">specialist</span></div>
+    <ul>
+      <li>Extends the existing draft-and-handoff pattern in <code>tools/communication.py</code> to WhatsApp/Telegram/email triage.</li>
+      <li>Relationship-aware tone (needs the domain-scoped memory from Phase 0 to store contact profiles safely).</li>
+      <li>Calendar create/check availability — currently only <code>create_calendar_event</code> exists as a URL handoff; needs real read access to check conflicts.</li>
+    </ul>
+    <div class="builds-on">Builds on: Phase 0 memory domains, Phase 0 confirmation for sending.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 6 — Career Agent</span><span class="phase-badge">specialist</span></div>
+    <ul>
+      <li>Discovery + dedup + freshness tracking (own schema, per spec §4).</li>
+      <li>Match scoring with explainable sub-scores.</li>
+      <li>Resume tailoring with the requirement→evidence matrix — this is the safeguard against fabrication and should be built before generation, not after.</li>
+      <li>Application prep stops at CONFIRM; submission is Phase 6b once the whole pipeline has been trusted for a while.</li>
+    </ul>
+    <div class="builds-on">Builds on: Phase 2 (browser for applying), Phase 3 (PDF generation for tailored resumes), Phase 0 (confirmation before submit).</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 7 — Finance Agent V1 (read-only)</span><span class="phase-badge">specialist</span></div>
+    <ul>
+      <li>Net worth, manual/CSV portfolio import, monthly review — no live connectors yet.</li>
+      <li>Deterministic calculation engine kept entirely outside the LLM, per the spec's explicit rule.</li>
+    </ul>
+    <div class="builds-on">Builds on: Phase 3 (CSV/XLSX import), Phase 0 (memory domain for finance facts, kept strictly isolated).</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 8 — Instagram Content Agent</span><span class="phase-badge">specialist</span></div>
+    <ul>
+      <li>Analytics on your own account history first (evidence over prediction, per spec).</li>
+      <li>Creator CRM-style brand outreach pipeline, gated at CONFIRM before any pitch is sent.</li>
+    </ul>
+    <div class="builds-on">Builds on: Phase 2 (browser for Instagram web), Phase 5 (outreach messaging pattern).</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 9 — Content/Video Agent</span><span class="phase-badge">specialist · largest single phase</span></div>
+    <ul>
+      <li>Whisper transcription → silence/filler detection → cut ranges → captions (all CPU-viable today).</li>
+      <li>FFmpeg-based render pipeline, not an LLM touching every frame.</li>
+      <li>Motion templates as parameterized configs, not generated-per-video.</li>
+      <li>Deliberately scoped last — it's the single heaviest subsystem in all eight specs and deserves its own multi-week block once everything it depends on (Document Agent for reports, Communication for "here's your render") already exists.</li>
+    </ul>
+    <div class="builds-on">Builds on: almost everything before it, which is exactly why it's last.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-head"><span class="phase-title">Phase 10 — Security + Automation</span><span class="phase-badge">hardening</span></div>
+    <ul>
+      <li>Secret scanning, permission inventory ("what can Cortana access"), backup health check.</li>
+      <li>Workflow engine: dry-run → approve → schedule → verify, for the repeated tasks that emerge naturally once Phases 1-9 exist to automate.</li>
+    </ul>
+    <div class="builds-on">Deliberately last — automation needs real workflows to automate, and those only exist once the specialist agents are built.</div>
+  </div>
+</section>
+
+<section id="rules">
+  <h2><span class="num">07</span> Non-negotiables, consolidated</h2>
+  <p>Every spec repeats variations of the same handful of rules. Collected once, so they don't need re-deriving per phase:</p>
+  <div class="grid2">
+    <div class="mini-card"><h4>No arbitrary execution</h4><p>No shell/eval/run_command tool, ever — already enforced by the <code>ForbiddenTool</code> tripwire in the existing registry.</p></div>
+    <div class="mini-card"><h4>No fabrication</h4><p>Resume facts, financial figures, follower counts, brand relationships — if there's no verified evidence, the output is a gap, not a guess.</p></div>
+    <div class="mini-card"><h4>Deterministic where possible</h4><p>Finance math, video QA, resume ATS checks — code computes, the LLM explains. Never the reverse.</p></div>
+    <div class="mini-card"><h4>Domain memory isolation</h4><p>Finance facts never leak into a Developer or Content conversation by default (§04).</p></div>
+    <div class="mini-card"><h4>Consequential actions need a human</h4><p>Send, submit, install, delete, push, trade — all stop at CONFIRM until Phase 0's real confirmation UI exists, and stay there by default afterward.</p></div>
+    <div class="mini-card"><h4>Verify, don't trust</h4><p>Every EXECUTE is followed by a check that the thing actually happened — not just that the tool call returned without error.</p></div>
+    <div class="mini-card"><h4>Untrusted content stays untrusted</h4><p>A README, webpage, email or resume can contain injected instructions. Retrieved text is data, never a higher-priority instruction.</p></div>
+    <div class="mini-card"><h4>Respect platform terms</h4><p>No CAPTCHA/MFA bypass, no scraping past a platform's stated limits, no personal-proxy routing through a provider's free tier without knowing its terms — the same standard already applied to the OmniRoute decision last session.</p></div>
+  </div>
+</section>
+
+<footer>
+  Built from: Cortana_All_GitHub_Repositories_Research · Cortana_Claude_Max_1_Month_Build_Playbook · Cortana_Communication_Computer_Vision_Entertainment_Agent_Specification · Cortana_Developer_Agent_Specification · Cortana_Finance_Agent_Specification · Cortana_Instagram_Content_Agent_Specification · Cortana_Job_Career_Agent_Detailed_Specification · Cortana_Knowledge_Documents_Security_Automation_Specification — cross-checked against the running Cortana codebase at <code>C:\Users\vinee\OneDrive\Desktop\Cortana</code>.
+</footer>
+
+</div>

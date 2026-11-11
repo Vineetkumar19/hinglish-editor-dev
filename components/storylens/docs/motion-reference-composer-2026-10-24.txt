@@ -1,0 +1,22 @@
+Motion Graphics reference example — 24 October 2026
+
+Scope: one reference only, A:/Full Drive/Styles/Motion Graphic videos/1.mp4. No second source was started. Local Qwen + Vision author the copy, queries, text group choices and bounded movement programs. Codex repaired the software and submitted normal Storylens requests, rather than hand-authoring a substitute example.
+
+Current actual result:
+output/motion/native-text-20261024-165617-a3db94/MOTION_GRAPHICS.mp4
+17.232 seconds, 360 x 640, 516 decoded frames, stereo audio, three independent web assets. Source pixels and source mixed audio are not used in the render. Asset credit/source receipts remain beside the project; public production reuse rights have not been established.
+
+Owner rejected earlier static/generic drafts. Their actual camera tracks were 1.06 -> 1.06 and image drift was zero. The correction has local-model-selected continuous camera tracks, independent image movement, moving diagonal light, deterministic drifting particles, and GSAP transitions rendered by Hyperframes. Main text uses measured role widths, complete reserved word slots, compact ink-based gaps, separate serif/sans roles and tall faint backdrop lettering. Foreground text is separated from photo silhouettes. Official Hyperframes components are installed separately in tools/hyperframes-motion-components; no accepted caption renderer was changed.
+
+Local source study, exact word-group choices and movement receipts are saved alongside reference-motion-project.json. Reference analysis is retrieval, not model weight training. The source is sampled; a frame-by-frame camera curve was NOT extracted. The selected motion programs are approximate. The final local Vision plan selected soft-blur-in text, while the opening source includes sequential character completion. Bottom-up letter/word/blur/tracking components are connected, but their availability does not mean the final model selected the correct character reveal. This result must not be described as an exact copy or owner-approved.
+
+Actual running-application evidence:
+The normal Storylens assistant request ran on port 8881, session e278fb65754f4a37, job 41b009261bc5, and completed. The verified-idle demo service alone was reloaded to pick up accurate stage reporting. A hidden browser opened the real Storylens page, observed the actual result video, played from start to its 17.232-second end, and reported no media errors. Evidence: output/motion-reference-review/video-1/live-playback.json and live-motion-playback.png. This was actual browser playback, not a simulated result. The user already has the visible in-app Storylens chat open; the app's focus/open request returned queued. No visible Chrome windows or native editor were launched.
+
+Verification executed: TDD regressions were observed failing before their implementations; 29 focused native-text/reference/creative tests now pass. JavaScript syntax checks pass. Actual exported frames were sampled for text framing and continuous movement; final-motion-contact.jpg contains opening/middle/end evidence. Full video and audio decode succeeded. Browser playback completed, muted; listening approval was not performed. Native Premiere/CapCut import/playback remains unverified. The XML uses rendered video, not individually editable native text.
+
+Earlier broader suite: 21 passed, one pre-existing AssetFinder mock lacks require_vision. A legacy browser-launch check stalled and was interrupted; neither is a full project pass. No additional heavy validation was started after the finished example.
+
+Post-implementation adversarial review: output/motion-reference-review/video-1/final-adversarial-review.json. Two malformed-input probes ran; one direct-helper finding remains: compile_motion does not separately reject unknown transition/particle enums. Normal local-model requests have those fields schema-bound. The finding was recorded without repair in accordance with the owner's final-review stopping instruction. Artistic/reference fidelity, exact new-motion/SFX synchronization and public asset rights remain limitations; the old soundtrack was reused.
+
+GPU priority: the owner specifically authorized stopping the Sound Design worker on 8876. Only its confirmed worker tree rooted 69756 was stopped; the sound service and saved progress remain. Other Storylens services were not stopped. Receipt: priority-receipt.json in the same evidence directory. Future jobs retain shared GPU serialization.

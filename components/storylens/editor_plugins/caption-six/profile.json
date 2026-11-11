@@ -1,0 +1,1908 @@
+{
+  "id": "caption_6_ae_v1",
+  "name": "Caption 6",
+  "folder_name": "Caption 6",
+  "public_style": "caption_6",
+  "revision": 1,
+  "reference": "D:/Full Drive/Styles/Videos/Caption 6.mp4",
+  "reference_sha256": "4d9edf6f06a9707cd581f03a554c989b040f68c59ac65d38b92de113a5885240",
+  "reference_frames": 1492,
+  "source_fps": 30,
+  "anchor_y": 0.63,
+  "design_unit": "short_side",
+  "safe_width_fraction": 0.68,
+  "word_gap_em": 0.2,
+  "ink_gap": 4,
+  "independent_fit": true,
+  "fonts": {
+    "sans": [
+      "StorylensCircleSans-SemiBold"
+    ],
+    "serif": [
+      "PlayfairDisplayItalic-BoldItalic"
+    ],
+    "italic": [
+      "InterDisplay-SemiBoldItalic"
+    ]
+  },
+  "font_files": {
+    "sans": "StorylensCircleSans-SemiBold.ttf",
+    "serif": "PlayfairDisplay-BoldItalic.ttf",
+    "italic": "InterDisplay-SemiBoldItalic.ttf"
+  },
+  "tracking": {
+    "sans": -50,
+    "serif": -50,
+    "italic": -50
+  },
+  "colours": {
+    "white": [
+      255,
+      255,
+      255
+    ],
+    "green": [
+      27,
+      225,
+      134
+    ],
+    "red": [
+      199,
+      13,
+      19
+    ]
+  },
+  "recipes": [
+    {
+      "id": "unique_post",
+      "text": "Por que um único post",
+      "source_start": 0,
+      "source_end": 36,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": -30,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1,
+          "rise_frames": 3,
+          "fade_frames": 2,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            2
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 44,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 10,
+          "rise_frames": 4,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            3
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": -17,
+          "font": "serif",
+          "size": 88,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 14,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        },
+        {
+          "id": "row_3",
+          "words": [
+            4
+          ],
+          "source_row": 3,
+          "band": 3,
+          "offset": 44,
+          "font": "serif",
+          "size": 88,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 25,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 3,
+          "path": [
+            [
+              [
+                203,
+                123
+              ],
+              [
+                300,
+                174
+              ],
+              [
+                520,
+                174
+              ],
+              [
+                552,
+                125
+              ]
+            ],
+            [
+              [
+                552,
+                125
+              ],
+              [
+                584,
+                79
+              ],
+              [
+                447,
+                41
+              ],
+              [
+                313,
+                37
+              ]
+            ],
+            [
+              [
+                313,
+                37
+              ],
+              [
+                188,
+                29
+              ],
+              [
+                152,
+                64
+              ],
+              [
+                200,
+                92
+              ]
+            ],
+            [
+              [
+                200,
+                92
+              ],
+              [
+                238,
+                119
+              ],
+              [
+                340,
+                142
+              ],
+              [
+                426,
+                142
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#21E890",
+          "stroke": 4,
+          "duration": 0.45,
+          "linear": true,
+          "target_rows": [
+            2,
+            3
+          ],
+          "delay": 0
+        }
+      ],
+      "replace_words": false,
+      "source_slot": 0
+    },
+    {
+      "id": "three_sans_rows",
+      "text": "não vai fazer com que",
+      "source_start": 36,
+      "source_end": 60,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 37,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            2
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 44,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            3,
+            4
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 52,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": false,
+      "source_slot": 1
+    },
+    {
+      "id": "green_serif_question",
+      "text": "seu cliente venda mais?",
+      "source_start": 60,
+      "source_end": 101,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 40,
+          "font": "italic",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 60,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": -3,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 65,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": -5,
+          "font": "serif",
+          "size": 90,
+          "fill_rgb": [
+            27,
+            225,
+            134
+          ],
+          "case": "source",
+          "source_onset": 81,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        },
+        {
+          "id": "row_3",
+          "words": [
+            3
+          ],
+          "source_row": 3,
+          "band": 3,
+          "offset": 29,
+          "font": "serif",
+          "size": 86,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 91,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "scribble",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                205,
+                166
+              ],
+              [
+                310,
+                160
+              ],
+              [
+                520,
+                158
+              ],
+              [
+                520,
+                166
+              ]
+            ],
+            [
+              [
+                520,
+                166
+              ],
+              [
+                512,
+                178
+              ],
+              [
+                265,
+                190
+              ],
+              [
+                250,
+                198
+              ]
+            ],
+            [
+              [
+                250,
+                198
+              ],
+              [
+                240,
+                207
+              ],
+              [
+                433,
+                211
+              ],
+              [
+                427,
+                224
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#FFFFFF",
+          "stroke": 2.5,
+          "duration": 0.6,
+          "linear": true,
+          "glow": true,
+          "taper": true,
+          "delay": 0.1,
+          "target_rows": [
+            2,
+            3
+          ]
+        }
+      ],
+      "replace_words": false,
+      "source_slot": 2
+    },
+    {
+      "id": "small_phrase_replacements",
+      "text": "Se ele não tem uma base para converter",
+      "source_start": 104,
+      "source_end": 158,
+      "motion": "cut",
+      "rows": [
+        {
+          "id": "state_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 104,
+          "source_off": 109,
+          "role": "support"
+        },
+        {
+          "id": "state_1",
+          "words": [
+            2,
+            3
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 109,
+          "source_off": 118,
+          "role": "support"
+        },
+        {
+          "id": "state_2",
+          "words": [
+            4
+          ],
+          "source_row": 2,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 118,
+          "source_off": 123,
+          "role": "support"
+        },
+        {
+          "id": "state_3",
+          "words": [
+            5
+          ],
+          "source_row": 3,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 123,
+          "source_off": 133,
+          "role": "support"
+        },
+        {
+          "id": "state_4",
+          "words": [
+            6
+          ],
+          "source_row": 4,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 133,
+          "source_off": 137,
+          "role": "support"
+        },
+        {
+          "id": "state_5",
+          "words": [
+            7
+          ],
+          "source_row": 5,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 137,
+          "source_off": 158,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": true,
+      "source_slot": 3
+    },
+    {
+      "id": "count_blur_replacements",
+      "text": "um dois dez vinte",
+      "source_start": 158,
+      "source_end": 208,
+      "motion": "count",
+      "rows": [
+        {
+          "id": "state_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 158,
+          "source_off": 170,
+          "role": "support"
+        },
+        {
+          "id": "state_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 170,
+          "source_off": 184,
+          "role": "support"
+        },
+        {
+          "id": "state_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 184,
+          "source_off": 194,
+          "role": "support"
+        },
+        {
+          "id": "state_3",
+          "words": [
+            3
+          ],
+          "source_row": 3,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 194,
+          "source_off": 208,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": true,
+      "source_slot": 4
+    },
+    {
+      "id": "red_circle_statement",
+      "text": "NÃƒO VÃƒO ADIANTAR NADA",
+      "source_start": 212,
+      "source_end": 252,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "upper",
+          "source_onset": 212,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            2
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "upper",
+          "source_onset": 226,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            3
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "upper",
+          "source_onset": 239,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 0,
+          "path": [
+            [
+              [
+                200,
+                205
+              ],
+              [
+                310,
+                258
+              ],
+              [
+                565,
+                219
+              ],
+              [
+                590,
+                118
+              ]
+            ],
+            [
+              [
+                590,
+                118
+              ],
+              [
+                625,
+                5
+              ],
+              [
+                445,
+                -15
+              ],
+              [
+                265,
+                21
+              ]
+            ],
+            [
+              [
+                265,
+                21
+              ],
+              [
+                125,
+                45
+              ],
+              [
+                100,
+                108
+              ],
+              [
+                160,
+                152
+              ]
+            ],
+            [
+              [
+                160,
+                152
+              ],
+              [
+                200,
+                189
+              ],
+              [
+                320,
+                211
+              ],
+              [
+                450,
+                184
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#F00031",
+          "stroke": 6,
+          "duration": 0.6,
+          "linear": true,
+          "target_rows": [
+            0,
+            1,
+            2
+          ],
+          "delay": 0.2
+        }
+      ],
+      "replace_words": false,
+      "source_slot": 5
+    },
+    {
+      "id": "plain_replacements",
+      "text": "insta flopado virar uma máquina de vendas.",
+      "source_start": 297,
+      "source_end": 366,
+      "motion": "cut",
+      "rows": [
+        {
+          "id": "state_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 297,
+          "source_off": 303,
+          "role": "support"
+        },
+        {
+          "id": "state_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 303,
+          "source_off": 320,
+          "role": "support"
+        },
+        {
+          "id": "state_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 320,
+          "source_off": 328,
+          "role": "support"
+        },
+        {
+          "id": "state_3",
+          "words": [
+            3
+          ],
+          "source_row": 3,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 328,
+          "source_off": 332,
+          "role": "support"
+        },
+        {
+          "id": "state_4",
+          "words": [
+            4
+          ],
+          "source_row": 4,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 332,
+          "source_off": 346,
+          "role": "support"
+        },
+        {
+          "id": "state_5",
+          "words": [
+            5,
+            6
+          ],
+          "source_row": 5,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 346,
+          "source_off": 366,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": true,
+      "source_slot": 6
+    },
+    {
+      "id": "serif_inline_funnel",
+      "text": "meio e fundo de funil.",
+      "source_start": 506,
+      "source_end": 556,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "serif",
+          "size": 88,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 506,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 100,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 523,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 1,
+          "offset": 0,
+          "font": "serif",
+          "size": 88,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 526,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        },
+        {
+          "id": "row_3",
+          "words": [
+            3,
+            4
+          ],
+          "source_row": 3,
+          "band": 2,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 543,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "scribble",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                205,
+                151
+              ],
+              [
+                310,
+                145
+              ],
+              [
+                520,
+                143
+              ],
+              [
+                520,
+                151
+              ]
+            ],
+            [
+              [
+                520,
+                151
+              ],
+              [
+                512,
+                163
+              ],
+              [
+                265,
+                175
+              ],
+              [
+                250,
+                183
+              ]
+            ],
+            [
+              [
+                250,
+                183
+              ],
+              [
+                240,
+                192
+              ],
+              [
+                433,
+                196
+              ],
+              [
+                427,
+                209
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#21E890",
+          "stroke": 2.5,
+          "duration": 0.6,
+          "linear": true,
+          "glow": true,
+          "taper": true,
+          "target_rows": [
+            2,
+            3
+          ],
+          "delay": 0.1
+        }
+      ],
+      "replace_words": false,
+      "source_slot": 7
+    },
+    {
+      "id": "brief_replacements",
+      "text": "Existem exceções, como",
+      "source_start": 560,
+      "source_end": 598,
+      "motion": "cut",
+      "rows": [
+        {
+          "id": "state_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 560,
+          "source_off": 574,
+          "role": "support"
+        },
+        {
+          "id": "state_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 574,
+          "source_off": 592,
+          "role": "support"
+        },
+        {
+          "id": "state_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 592,
+          "source_off": 598,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": true,
+      "source_slot": 8
+    },
+    {
+      "id": "two_sans_rows",
+      "text": "tráfego pago",
+      "source_start": 598,
+      "source_end": 623,
+      "motion": "rise",
+      "replace_words": false,
+      "decorations": [],
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 598,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 612,
+          "role": "support"
+        }
+      ],
+      "source_slot": 9
+    },
+    {
+      "id": "reels_three_rows",
+      "text": "reels que explodiu",
+      "source_start": 631,
+      "source_end": 658,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": -25,
+          "font": "italic",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 631,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 12,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 639,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 643,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": false,
+      "source_slot": 10
+    },
+    {
+      "id": "red_circle_warning",
+      "text": "ele vai montar em você.",
+      "source_start": 786,
+      "source_end": 833,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": -40,
+          "font": "italic",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 786,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 39,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 786,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            2
+          ],
+          "source_row": 2,
+          "band": 1,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 798,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_3",
+          "words": [
+            3,
+            4
+          ],
+          "source_row": 3,
+          "band": 2,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 818,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [
+        {
+          "kind": "circle",
+          "trigger": 2,
+          "path": [
+            [
+              [
+                228.8,
+                213
+              ],
+              [
+                319.0,
+                266
+              ],
+              [
+                528.1,
+                227
+              ],
+              [
+                548.6,
+                126
+              ]
+            ],
+            [
+              [
+                548.6,
+                126
+              ],
+              [
+                577.3,
+                13
+              ],
+              [
+                429.7,
+                -7
+              ],
+              [
+                282.1,
+                29
+              ]
+            ],
+            [
+              [
+                282.1,
+                29
+              ],
+              [
+                167.3,
+                53
+              ],
+              [
+                146.8,
+                116
+              ],
+              [
+                196.0,
+                160
+              ]
+            ],
+            [
+              [
+                196.0,
+                160
+              ],
+              [
+                228.8,
+                197
+              ],
+              [
+                327.2,
+                219
+              ],
+              [
+                433.8,
+                192
+              ]
+            ]
+          ],
+          "y": 0,
+          "color": "#F00031",
+          "stroke": 5,
+          "duration": 0.6,
+          "linear": true,
+          "target_rows": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "delay": 0.2
+        }
+      ],
+      "replace_words": false,
+      "source_slot": 11
+    },
+    {
+      "id": "italic_replacements",
+      "text": "alterar, explicações",
+      "source_start": 849,
+      "source_end": 903,
+      "motion": "cut",
+      "rows": [
+        {
+          "id": "state_0",
+          "words": [
+            0
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "italic",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 849,
+          "source_off": 866,
+          "role": "support"
+        },
+        {
+          "id": "state_1",
+          "words": [
+            1
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 0,
+          "font": "italic",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 882,
+          "source_off": 903,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": true,
+      "source_slot": 12
+    },
+    {
+      "id": "green_result",
+      "text": "por não ter o resultado que imaginou",
+      "source_start": 1113,
+      "source_end": 1167,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1113,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            2
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1125,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            3,
+            4
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": 0,
+          "font": "serif",
+          "size": 86,
+          "fill_rgb": [
+            27,
+            225,
+            134
+          ],
+          "case": "source",
+          "source_onset": 1131,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        },
+        {
+          "id": "row_3",
+          "words": [
+            5,
+            6
+          ],
+          "source_row": 3,
+          "band": 3,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1148,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": false,
+      "source_slot": 13
+    },
+    {
+      "id": "red_lost_client",
+      "text": "por ter perdido um cliente",
+      "source_start": 1183,
+      "source_end": 1225,
+      "motion": "rise",
+      "rows": [
+        {
+          "id": "row_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1183,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        },
+        {
+          "id": "row_1",
+          "words": [
+            2
+          ],
+          "source_row": 1,
+          "band": 1,
+          "offset": 0,
+          "font": "serif",
+          "size": 88,
+          "fill_rgb": [
+            199,
+            13,
+            19
+          ],
+          "case": "source",
+          "source_onset": 1195,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "main"
+        },
+        {
+          "id": "row_2",
+          "words": [
+            3,
+            4
+          ],
+          "source_row": 2,
+          "band": 2,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1204,
+          "rise_frames": 6,
+          "fade_frames": 3,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": false,
+      "source_slot": 14
+    },
+    {
+      "id": "closing_replacements",
+      "text": "Se não fechar, tudo bem.",
+      "source_start": 1380,
+      "source_end": 1418,
+      "motion": "cut",
+      "rows": [
+        {
+          "id": "state_0",
+          "words": [
+            0,
+            1
+          ],
+          "source_row": 0,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1380,
+          "source_off": 1388,
+          "role": "support"
+        },
+        {
+          "id": "state_1",
+          "words": [
+            2
+          ],
+          "source_row": 1,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1388,
+          "source_off": 1404,
+          "role": "support"
+        },
+        {
+          "id": "state_2",
+          "words": [
+            3
+          ],
+          "source_row": 2,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1404,
+          "source_off": 1411,
+          "role": "support"
+        },
+        {
+          "id": "state_3",
+          "words": [
+            4
+          ],
+          "source_row": 3,
+          "band": 0,
+          "offset": 0,
+          "font": "sans",
+          "size": 56,
+          "fill_rgb": [
+            255,
+            255,
+            255
+          ],
+          "case": "source",
+          "source_onset": 1411,
+          "source_off": 1418,
+          "role": "support"
+        }
+      ],
+      "decorations": [],
+      "replace_words": true,
+      "source_slot": 15
+    }
+  ],
+  "measurement_limit": "All 1,492 decoded source frames inspected. Bundled Inter SemiBold / Playfair Display Bold Italic are silhouette candidates, not certified source project fonts. Native rendering, exact optical spacing and motion fidelity require owner AE testing. Original source flash/footage/camera excluded.",
+  "background": "transparent",
+  "annotation_policy": "Only reference text-linked drawn ellipses and underlines, editable shape paths. No source scene, UI or background.",
+  "motion": {
+    "rise_frames": 7,
+    "fade_frames": 5,
+    "travel": 46,
+    "blur": 7.5,
+    "ease_out": [
+      0.16,
+      1,
+      0.3,
+      1
+    ],
+    "rotation": 0,
+    "camera": "none; preserve text-local entrance rather than source footage camera"
+  },
+  "fit_policy": "Reserve complete row slots; fit each band independently, avoid simultaneous word/row collisions, paginate long content without rewriting."
+}

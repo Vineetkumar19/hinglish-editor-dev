@@ -1,0 +1,1292 @@
+{
+  "status": "reference_rebuild_pending_owner_review",
+  "source_fps": 48,
+  "notes": "Measured first Klickpin reference slots. Distinct layouts and full-row reveal positions are retained on script edits. Font identity remains a visual match, not source metadata.",
+  "design_width": 736,
+  "design_height": 414,
+  "accent": "#FFCC00",
+  "main_font": "BarlowCondensed-SemiBold.ttf",
+  "support_font": "arialbd.ttf",
+  "entrance_seconds": 0.25,
+  "camera_zoom": 0,
+  "recipes": [
+    {
+      "text": "Kaafi Overthinking ke baad",
+      "runs": [
+        {
+          "x": 229.5,
+          "y": 170.0,
+          "size": 38,
+          "role": "support",
+          "rise": -34,
+          "width": 81,
+          "height": 28,
+          "motion": "drop",
+          "duration": 0.25,
+          "row": 0,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 359.0,
+          "y": 222.5,
+          "size": 100,
+          "role": "main",
+          "width": 438,
+          "rise": 0,
+          "height": 95,
+          "motion": "grow",
+          "duration": 0.45,
+          "row": 1,
+          "font": "BarlowCondensed-SemiBold.ttf"
+        },
+        {
+          "x": 212.0,
+          "y": 271.0,
+          "size": 38,
+          "role": "support",
+          "rise": 0,
+          "width": 38,
+          "height": 30,
+          "motion": "cut",
+          "duration": 0.25,
+          "row": 2,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 492.0,
+          "y": 268.0,
+          "size": 38,
+          "role": "support",
+          "rise": 0,
+          "width": 84,
+          "height": 30,
+          "motion": "right",
+          "duration": 0.25,
+          "row": 2,
+          "font": "arialbd.ttf"
+        }
+      ]
+    },
+    {
+      "text": "maine finally Decide kar liya",
+      "runs": [
+        {
+          "x": 235.0,
+          "y": 143.5,
+          "size": 46,
+          "role": "support",
+          "rise": -32,
+          "width": 132,
+          "height": 35,
+          "motion": "drop",
+          "duration": 0.3,
+          "row": 0,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 510.0,
+          "y": 169.0,
+          "size": 46,
+          "role": "support",
+          "rise": -32,
+          "width": 130,
+          "height": 44,
+          "motion": "drop",
+          "duration": 0.3,
+          "row": 0,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 358.5,
+          "y": 206.5,
+          "size": 114,
+          "role": "main",
+          "width": 269,
+          "rise": 0,
+          "height": 81,
+          "motion": "cut",
+          "duration": 0.3,
+          "row": 1,
+          "font": "BarlowCondensed-SemiBold.ttf"
+        },
+        {
+          "x": 390,
+          "y": 266.0,
+          "size": 46,
+          "role": "support",
+          "rise": 0,
+          "width": 61,
+          "height": 36,
+          "motion": "cut",
+          "duration": 0.3,
+          "row": 2,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 470.5,
+          "y": 269.5,
+          "size": 46,
+          "role": "support",
+          "rise": 0,
+          "width": 79,
+          "height": 43,
+          "motion": "cut",
+          "duration": 0.3,
+          "row": 2,
+          "font": "arialbd.ttf"
+        }
+      ]
+    },
+    {
+      "text": "content banana maine START kar diya",
+      "inline": true,
+      "hero": 3,
+      "main_size": 50,
+      "support_size": 32,
+      "condensed_support": true,
+      "runs": [
+        {
+          "x": 151.55,
+          "y": 205,
+          "size": 32,
+          "font": "RobotoCondensed-Bold.ttf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 97.1,
+          "height": 21.5
+        },
+        {
+          "x": 257.45,
+          "y": 205,
+          "size": 32,
+          "font": "RobotoCondensed-Bold.ttf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 92.7,
+          "height": 24.4
+        },
+        {
+          "x": 353.8,
+          "y": 205,
+          "size": 32,
+          "font": "RobotoCondensed-Bold.ttf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 78.0,
+          "height": 24.0
+        },
+        {
+          "x": 460.2,
+          "y": 205,
+          "size": 50,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "main",
+          "rise": 18,
+          "row": 0,
+          "width": 112.8,
+          "height": 35.8
+        },
+        {
+          "x": 548.1,
+          "y": 205,
+          "size": 32,
+          "font": "RobotoCondensed-Bold.ttf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 41.0,
+          "height": 24.4
+        },
+        {
+          "x": 606.3,
+          "y": 205,
+          "size": 32,
+          "font": "RobotoCondensed-Bold.ttf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 53.4,
+          "height": 30.7
+        }
+      ]
+    },
+    {
+      "text": "Sach kahun",
+      "runs": [
+        {
+          "x": 368,
+          "y": 201,
+          "size": 94,
+          "role": "main",
+          "font": "arialbd.ttf",
+          "width": 210,
+          "rise": 100,
+          "row": 0,
+          "height": 69.7
+        },
+        {
+          "x": 533,
+          "y": 244,
+          "size": 38,
+          "role": "support",
+          "rise": 15,
+          "row": 1,
+          "font": "arialbd.ttf",
+          "width": 122,
+          "height": 30,
+          "typewriter": 0.16
+        }
+      ]
+    },
+    {
+      "text": "Perfect idea ka wait karte karte log",
+      "hero": 0,
+      "stack": true,
+      "main_width": 231,
+      "main_height": 75,
+      "main_size": 90,
+      "support_size": 26,
+      "support_font": "arial.ttf",
+      "gap": 6,
+      "typewriter": 0.48,
+      "runs": [
+        {
+          "x": 368,
+          "y": 190,
+          "size": 90,
+          "width": 231,
+          "height": 75,
+          "role": "main",
+          "motion": "cut",
+          "typewriter": 0.48,
+          "row": 0,
+          "font": "BarlowCondensed-SemiBold.ttf"
+        },
+        {
+          "x": 238.3,
+          "y": 243.38,
+          "size": 26,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 49.3,
+          "height": 18.9
+        },
+        {
+          "x": 283.7,
+          "y": 243.38,
+          "size": 26,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 27.5,
+          "height": 18.9
+        },
+        {
+          "x": 327.59999999999997,
+          "y": 243.38,
+          "size": 26,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 46.3,
+          "height": 18.9
+        },
+        {
+          "x": 386.7,
+          "y": 243.38,
+          "size": 26,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 57.9,
+          "height": 18.9
+        },
+        {
+          "x": 451.59999999999997,
+          "y": 243.38,
+          "size": 26,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 57.9,
+          "height": 18.9
+        },
+        {
+          "x": 504.94999999999993,
+          "y": 243.38,
+          "size": 26,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 34.8,
+          "height": 24.1
+        }
+      ]
+    },
+    {
+      "text": "Saal nikaal dete hain",
+      "hero": 0,
+      "stack": true,
+      "main_size": 90,
+      "main_width": 172,
+      "main_height": 75,
+      "support_size": 32,
+      "support_font": "arial.ttf",
+      "gap": 6,
+      "runs": [
+        {
+          "x": 368,
+          "y": 190,
+          "size": 90,
+          "width": 172,
+          "height": 75,
+          "role": "main",
+          "motion": "cut",
+          "typewriter": null,
+          "row": 0,
+          "font": "BarlowCondensed-SemiBold.ttf"
+        },
+        {
+          "x": 299.6,
+          "y": 245.66,
+          "size": 32,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 83.6,
+          "height": 23.3
+        },
+        {
+          "x": 379.54999999999995,
+          "y": 245.66,
+          "size": 32,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 62.3,
+          "height": 23.3
+        },
+        {
+          "x": 447.95,
+          "y": 245.66,
+          "size": 32,
+          "font": "arial.ttf",
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "row": 1,
+          "width": 60.5,
+          "height": 23.3
+        }
+      ]
+    },
+    {
+      "text": "Par Reality simple hai",
+      "runs": [
+        {
+          "x": 205,
+          "y": 142,
+          "size": 46,
+          "width": 77,
+          "height": 36,
+          "role": "support",
+          "motion": "drop",
+          "rise": -34,
+          "row": 0,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 339,
+          "y": 207,
+          "size": 114,
+          "width": 276,
+          "height": 106,
+          "role": "main",
+          "motion": "grow",
+          "duration": 0.28,
+          "row": 1,
+          "font": "BarlowCondensed-SemiBold.ttf"
+        },
+        {
+          "x": 501,
+          "y": 166,
+          "size": 46,
+          "width": 142,
+          "height": 44,
+          "role": "support",
+          "motion": "right",
+          "duration": 0.25,
+          "row": 0,
+          "font": "arialbd.ttf"
+        },
+        {
+          "x": 404,
+          "y": 267,
+          "size": 46,
+          "width": 67,
+          "height": 36,
+          "role": "support",
+          "motion": "drop",
+          "rise": -20,
+          "row": 2,
+          "font": "arialbd.ttf"
+        }
+      ]
+    },
+    {
+      "text": "Clarity",
+      "echo": true,
+      "font": "arialbd.ttf",
+      "main_size": 110,
+      "main_width": 428,
+      "main_height": 112,
+      "runs": [
+        {
+          "x": 368,
+          "y": 207,
+          "size": 110,
+          "width": 428,
+          "height": 112,
+          "font": "arialbd.ttf",
+          "role": "support",
+          "motion": "cut",
+          "duration": 0.18,
+          "echo": true,
+          "row": 0,
+          "echo_fade_seconds": 0.02
+        }
+      ]
+    },
+    {
+      "text": "Confidence",
+      "echo": true,
+      "font": "arialbd.ttf",
+      "main_size": 110,
+      "main_width": 575,
+      "main_height": 103,
+      "runs": [
+        {
+          "x": 368,
+          "y": 207,
+          "size": 110,
+          "width": 575,
+          "height": 103,
+          "font": "arialbd.ttf",
+          "role": "support",
+          "motion": "cut",
+          "duration": 0.18,
+          "echo": true,
+          "row": 0,
+          "echo_fade_seconds": 0.02
+        }
+      ]
+    },
+    {
+      "text": "Growth",
+      "echo": true,
+      "font": "arialbd.ttf",
+      "main_size": 110,
+      "main_width": 428,
+      "main_height": 112,
+      "runs": [
+        {
+          "x": 368,
+          "y": 207,
+          "size": 110,
+          "width": 428,
+          "height": 112,
+          "font": "arialbd.ttf",
+          "role": "support",
+          "motion": "cut",
+          "duration": 0.18,
+          "echo": true,
+          "row": 0,
+          "echo_fade_seconds": 0.02
+        }
+      ]
+    },
+    {
+      "text": "kaam shuru karne ke Baad aati hai",
+      "inline": true,
+      "hero": 4,
+      "main_size": 50,
+      "support_size": 32,
+      "underline": "#FFCC00",
+      "runs": [
+        {
+          "x": 135.2,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 81.9,
+          "height": 23.3
+        },
+        {
+          "x": 231.55,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 88.8,
+          "height": 23.3
+        },
+        {
+          "x": 329.65,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 85.4,
+          "height": 23.3
+        },
+        {
+          "x": 401.15000000000003,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 35.6,
+          "height": 23.3
+        },
+        {
+          "x": 474.15000000000003,
+          "y": 205,
+          "size": 50,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "main",
+          "rise": 18,
+          "row": 0,
+          "width": 88.4,
+          "height": 35.4
+        },
+        {
+          "x": 556.95,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 55.2,
+          "height": 23.3
+        },
+        {
+          "x": 618.65,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 46.2,
+          "height": 23.3
+        }
+      ],
+      "underline_path": [
+        296,
+        258,
+        575,
+        220,
+        6
+      ]
+    },
+    {
+      "text": "post karne ke baad Banta hai",
+      "inline": true,
+      "hero": 4,
+      "main_size": 50,
+      "support_size": 32,
+      "underline": "#C50019",
+      "runs": [
+        {
+          "x": 168.29999999999998,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 67.5,
+          "height": 28.8
+        },
+        {
+          "x": 255.75,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 85.4,
+          "height": 23.3
+        },
+        {
+          "x": 327.25,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 35.6,
+          "height": 23.3
+        },
+        {
+          "x": 393.35,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 74.6,
+          "height": 23.3
+        },
+        {
+          "x": 492.95000000000005,
+          "y": 205,
+          "size": 50,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "main",
+          "rise": 18,
+          "row": 0,
+          "width": 102.6,
+          "height": 35.4
+        },
+        {
+          "x": 578.35,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 46.2,
+          "height": 23.3
+        }
+      ],
+      "underline_path": [
+        317,
+        273,
+        587,
+        232,
+        8
+      ]
+    },
+    {
+      "text": "consistent rehne se Milti hai",
+      "inline": true,
+      "hero": 3,
+      "main_size": 50,
+      "support_size": 32,
+      "underline": "#C50019",
+      "runs": [
+        {
+          "x": 225.24999999999997,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 160.0,
+          "height": 23.3
+        },
+        {
+          "x": 359.79999999999995,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 87.1,
+          "height": 23.3
+        },
+        {
+          "x": 432.15,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 35.6,
+          "height": 17.4
+        },
+        {
+          "x": 497.25,
+          "y": 205,
+          "size": 50,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "main",
+          "rise": 18,
+          "row": 0,
+          "width": 72.6,
+          "height": 36.2
+        },
+        {
+          "x": 567.6500000000001,
+          "y": 205,
+          "size": 32,
+          "font": "Inter-Bold.otf",
+          "role": "support",
+          "rise": 18,
+          "row": 0,
+          "width": 46.2,
+          "height": 23.3
+        }
+      ],
+      "underline_path": [
+        291,
+        268,
+        582,
+        227,
+        8
+      ]
+    },
+    {
+      "text": "Isliye",
+      "echo": true,
+      "outline_echo": true,
+      "font": "BarlowCondensed-SemiBold.ttf",
+      "main_size": 80,
+      "main_width": 160,
+      "main_height": 75,
+      "runs": [
+        {
+          "x": 368,
+          "y": 207,
+          "size": 80,
+          "width": 160,
+          "height": 75,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "support",
+          "motion": "cut",
+          "duration": 0.18,
+          "echo": true,
+          "row": 0,
+          "outline_echo": true,
+          "echo_fade_seconds": 0.02
+        }
+      ]
+    },
+    {
+      "text": "Start karo",
+      "runs": [
+        {
+          "x": 368,
+          "y": 205,
+          "size": 85,
+          "font": "arialbd.ttf",
+          "role": "main",
+          "width": 214,
+          "height": 76,
+          "motion": "grow",
+          "duration": 0.2,
+          "row": 1
+        },
+        {
+          "x": 367,
+          "y": 157,
+          "size": 37,
+          "role": "support",
+          "width": 75,
+          "height": 34,
+          "motion": "drop",
+          "rise": -55,
+          "row": 0,
+          "font": "arialbd.ttf"
+        }
+      ]
+    },
+    {
+      "text": "chahe tum abhi Ready feel na kar rahe ho",
+      "inline": true,
+      "hero": 3,
+      "main_size": 43,
+      "support_size": 26,
+      "runs": [
+        {
+          "x": 120.09463443396227,
+          "y": 201,
+          "size": 30,
+          "width": 74.18926886792454,
+          "height": 22.8,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 0,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 187.0763561320755,
+          "y": 201,
+          "size": 30,
+          "width": 47.774174528301884,
+          "height": 20.1,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 0,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 243.4817216981132,
+          "y": 201,
+          "size": 30,
+          "width": 53.03655660377358,
+          "height": 22.8,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 0,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 322,
+          "y": 199,
+          "size": 43,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "main",
+          "rise": -75,
+          "row": 0,
+          "width": 84,
+          "height": 30,
+          "motion": "drop"
+        },
+        {
+          "x": 393.76165113182424,
+          "y": 201,
+          "size": 30,
+          "width": 45.523302263648475,
+          "height": 23.1,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 0,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 436.76165113182424,
+          "y": 201,
+          "size": 30,
+          "width": 28.476697736351532,
+          "height": 16.5,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 0,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 481.38242574257424,
+          "y": 225,
+          "size": 30,
+          "width": 40.76485148514851,
+          "height": 22.8,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 536.0767326732673,
+          "y": 225,
+          "size": 30,
+          "width": 56.62376237623763,
+          "height": 22.8,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 586.1943069306931,
+          "y": 225,
+          "size": 30,
+          "width": 31.611386138613863,
+          "height": 22.8,
+          "font": "RobotoCondensed-Bold.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        }
+      ]
+    },
+    {
+      "text": "Perfect idea ka wait karte karte log Saal nikaal dete hain",
+      "hero": 0,
+      "stack": false,
+      "main_width": 231,
+      "main_height": 75,
+      "main_size": 90,
+      "support_size": 26,
+      "support_font": "arial.ttf",
+      "gap": 6,
+      "typewriter": 0.48,
+      "runs": [
+        {
+          "x": 281,
+          "y": 206.5,
+          "size": 90,
+          "width": 231,
+          "height": 59,
+          "role": "main",
+          "motion": "cut",
+          "typewriter": 0.48,
+          "row": 0,
+          "font": "BarlowCondensed-SemiBold.ttf"
+        },
+        {
+          "x": 121.90421195652175,
+          "y": 270,
+          "size": 28,
+          "width": 55.808423913043484,
+          "height": 20.4,
+          "font": "arial.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 171.39266304347828,
+          "y": 270,
+          "size": 28,
+          "width": 31.16847826086957,
+          "height": 20.4,
+          "font": "arial.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 219.19633152173915,
+          "y": 270,
+          "size": 28,
+          "width": 52.43885869565218,
+          "height": 20.4,
+          "font": "arial.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 284.21637228260875,
+          "y": 270,
+          "size": 28,
+          "width": 65.60122282608695,
+          "height": 20.4,
+          "font": "arial.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 355.8175951086957,
+          "y": 270,
+          "size": 28,
+          "width": 65.60122282608695,
+          "height": 20.4,
+          "font": "arial.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 414.30910326086956,
+          "y": 270,
+          "size": 28,
+          "width": 39.381793478260875,
+          "height": 26.0,
+          "font": "arial.ttf",
+          "row": 1,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14,
+          "delay": 0.34
+        },
+        {
+          "x": 503.5,
+          "y": 279.5,
+          "size": 90,
+          "width": 113,
+          "height": 53,
+          "role": "main",
+          "motion": "drop",
+          "typewriter": null,
+          "row": 1,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "rise": -65
+        },
+        {
+          "x": 528.4791166586654,
+          "y": 322,
+          "size": 30,
+          "width": 88.95823331733078,
+          "height": 21.9,
+          "font": "arialbd.ttf",
+          "row": 2,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 611.2448391742678,
+          "y": 322,
+          "size": 30,
+          "width": 64.57321171387423,
+          "height": 21.9,
+          "font": "arialbd.ttf",
+          "row": 2,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        },
+        {
+          "x": 681.7657225156024,
+          "y": 322,
+          "size": 30,
+          "width": 64.468554968795,
+          "height": 21.9,
+          "font": "arialbd.ttf",
+          "row": 2,
+          "role": "support",
+          "motion": "drop",
+          "rise": -14
+        }
+      ],
+      "reference_compound": true
+    },
+    {
+      "text": "Aur",
+      "echo": true,
+      "runs": [
+        {
+          "x": 368,
+          "y": 207,
+          "size": 75,
+          "width": 124,
+          "height": 62,
+          "font": "BarlowCondensed-SemiBold.ttf",
+          "role": "support",
+          "row": 0,
+          "motion": "cut",
+          "echo": true,
+          "echo_color": "#FFCC00",
+          "echo_opacity": 1,
+          "echo_fade_seconds": 0.04
+        }
+      ]
+    }
+  ],
+  "sample_groups": [
+    {
+      "text": "Kaafi Overthinking ke baad",
+      "starts": [
+        0,
+        0.291667,
+        1.020833,
+        1.104167
+      ],
+      "end": 1.541667
+    },
+    {
+      "text": "maine finally Decide kar liya",
+      "starts": [
+        1.5625,
+        2.083333,
+        2.5,
+        2.770833,
+        2.770833
+      ],
+      "end": 3.145833
+    },
+    {
+      "text": "content banana maine START kar diya",
+      "starts": [
+        3.166667,
+        3.520833,
+        4.270833,
+        4.5,
+        4.916667,
+        4.916667
+      ],
+      "end": 5.166667
+    },
+    {
+      "text": "Sach kahun",
+      "starts": [
+        5.208333,
+        5.666667
+      ],
+      "end": 6
+    },
+    {
+      "text": "Perfect idea ka wait karte karte log Saal nikaal dete hain",
+      "starts": [
+        6,
+        6.625,
+        6.875,
+        7.125,
+        7.395833,
+        7.645833,
+        8.166667,
+        8.416667,
+        8.6875,
+        9.083333,
+        9.166667
+      ],
+      "end": 9.270833
+    },
+    {
+      "text": "Par Reality simple hai",
+      "starts": [
+        9.270833,
+        9.895833,
+        9.979167,
+        10.395833
+      ],
+      "end": 10.666667
+    },
+    {
+      "text": "Clarity",
+      "starts": [
+        10.770833
+      ],
+      "end": 11.791667
+    },
+    {
+      "text": "kaam shuru karne ke Baad aati hai",
+      "starts": [
+        11.895833,
+        12,
+        12.145833,
+        12.3125,
+        12.541667,
+        13.020833,
+        13.1875
+      ],
+      "end": 13.479167
+    },
+    {
+      "text": "Confidence",
+      "starts": [
+        13.625
+      ],
+      "end": 14.625
+    },
+    {
+      "text": "post karne ke baad Banta hai",
+      "starts": [
+        14.666667,
+        14.770833,
+        14.895833,
+        15,
+        15.291667,
+        15.791667
+      ],
+      "end": 16.145833
+    },
+    {
+      "text": "Aur",
+      "starts": [
+        16.145833
+      ],
+      "end": 16.291667
+    },
+    {
+      "text": "Growth",
+      "starts": [
+        16.291667
+      ],
+      "end": 16.895833
+    },
+    {
+      "text": "consistent rehne se Milti hai",
+      "starts": [
+        17,
+        17.145833,
+        17.270833,
+        17.604167,
+        18.125
+      ],
+      "end": 18.5
+    },
+    {
+      "text": "Isliye",
+      "starts": [
+        18.5
+      ],
+      "end": 19.1875
+    },
+    {
+      "text": "Start karo",
+      "starts": [
+        19.229167,
+        19.5625
+      ],
+      "end": 20.208333
+    },
+    {
+      "text": "chahe tum abhi Ready feel na kar rahe ho",
+      "starts": [
+        20.229167,
+        20.229167,
+        20.229167,
+        20.625,
+        21.145833,
+        21.145833,
+        21.479167,
+        21.479167,
+        21.479167
+      ],
+      "end": 21.666667
+    }
+  ],
+  "revision": 6,
+  "max_page_words": 11,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.65
+  },
+  "scope": "Caption typography, alignment, text annotations and motion only on plain black; no anime, stickers, illustrations or source background decorations.",
+  "persistence": "Freeze source recipe and numeric slot across new scripts, edits, pagination, save/reopen and export. Complete-row positions are reserved before reveal."
+}

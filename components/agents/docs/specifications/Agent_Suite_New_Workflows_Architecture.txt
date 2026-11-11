@@ -1,0 +1,418 @@
+
+=== PAGE 1 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+1
+AGENT SUITE / 01
+Agent Suite: useful new workflows
+Architecture, agent proposals and integration plan
+Extend the existing Agent Suite with a small set of useful roles. Preserve the current mobile interface,
+existing profiles and existing sponsorship, editing-gig, development-gig, community and job workflows.
+This document proposes additions; it does not claim they are deployed.
+Priority
+Agent / extension
+Concrete output
+P0
+System Health & Recovery
+Readiness checks, blocker diagnosis and recoverable job reports.
+P1
+Inbox & Commitment
+Selected messages converted into source-linked tasks and draft
+replies.
+P1
+Client Delivery
+Approved brief -> scope -> milestones -> revisions -> delivery
+package.
+P1
+Research-to-Experiment
+A relevant paper/repository -> reproducible small experiment ->
+measured result.
+P2
+Learning & Evidence
+Study plan, completed lab evidence and factual review/interview
+drafts.
+P2
+Content Release
+Approved StoryLens outputs -> platform package -> reviewed
+release -> outcome tracking.
+P2
+SaaS Sales extension
+Extend the existing sales role with demand signals, qualification
+and reviewed outreach drafts.
+Agent means a role, not another model server
+Each role is a bounded workflow using shared tools, state and model profiles. Multiple roles may share
+one local model sequentially. Add a new agent only when it has distinct inputs, outcomes and
+permissions.
+Known historical blockers include Windows socket/access failures and external DNS/connectivity errors.
+Treat these as issues to recheck, not evidence that they still exist or have been fixed.
+
+
+=== PAGE 2 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+2
+AGENT SUITE / 02
+Shared execution architecture
+EXISTING MOBILE + WEB CONSOLE
+Submit work, inspect evidence, review drafts, approve, pause and cancel
+SUITE ORCHESTRATOR
+Role routing, task state, schedules, deduplication and resource budgets
+AGENT WORKFLOWS
+Health | Inbox | Delivery | Experiments | Learning | Release | Sales extension
+SHARED CAPABILITIES
+Cortana actions, StoryLens jobs, research, repositories and approved integrations
+PERSISTENT RECORDS
+Tasks, events, drafts, approvals, artifacts, contacts and outcome evidence
+Reuse the existing suite controller and persistence. If the current runner lacks checkpoints, add them
+behind its job interface before adopting a new workflow framework. Do not create duplicate cron loops,
+parallel contact databases or a second mobile UI.
+Owner
+Responsibility
+Agent Suite
+Long-running goals, role selection, schedules and cross-project handoffs.
+Cortana
+Local desktop/browser execution, files, workspaces and exact-draft send approval.
+StoryLens
+Media analysis, clip plans, template edits, sound recipes and rendering.
+Model router
+Provider abstraction and resource admission; no external actions by itself.
+Expose a small typed API between projects. Each task receives only the tools and data required for its
+role. A policy decision is enforced by the execution broker, not entrusted to the role prompt.
+Where components are on different laptops, use device IDs, authenticated transport and
+content-addressed artifacts. Do not assume an A: or D: path on one device exists on the other.
+
+
+=== PAGE 3 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+3
+AGENT SUITE / 03
+P0: System Health & Recovery
+This should be the first addition because unreliable dependencies undermine every other agent. It
+diagnoses and reports; it does not blindly restart services or disable system protections.
+Step
+Implementation
+Inventory
+Record configured services, endpoints, model profile, integration versions and last
+known successful checks.
+Probe
+Test loopback service reachability, actual bound ports, DNS, target TLS/HTTP, disk
+space and model response separately.
+Classify
+Distinguish configuration, DNS, authentication, rate limit, permission, dependency and
+transient service failures.
+Propose
+Attach evidence and a bounded remedy. A changed firewall, service account or
+credential needs explicit review.
+Recover
+Retry only safe transient steps with backoff; checkpoint resumed jobs; verify the
+dependency and original task afterward.
+Report
+One concise incident card with affected workflows, observed facts, attempted fixes
+and next action.
+Windows error 10013 and DNS error 11001 are diagnostic clues, not root-cause conclusions. Capture the
+actual failing operation and OS error. Avoid claiming that a generic port change fixes an access policy.
+Inputs: task failures, periodic lightweight readiness checks and explicit "why is this stuck?" commands.
+Outputs: HealthReport, RecoveryProposal and a verified recovery result. Apply cooldowns so one outage
+does not flood the mobile console.
+Completion gate
+Inject DNS failure, expired authentication, a busy port, unavailable Ollama, full disk and a worker
+crash. Each must produce the correct visible state. A retry may not duplicate a submission or mark an
+unfinished task complete.
+Share device telemetry with Cortana Diagnostics rather than duplicating collectors. Health asks "can this
+workflow run?"; Cortana Diagnostics answers "what is happening on this laptop?".
+
+
+=== PAGE 4 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+4
+AGENT SUITE / 04
+P1: Inbox & Commitment + Client
+Delivery
+Agent
+Inputs
+Outputs
+Inbox & Commitment
+Selected conversations, emails,
+forwarded enquiries and user-entered
+deadlines.
+Contact-resolved task suggestions,
+commitment ledger, follow-up drafts and
+missing-information questions.
+Client Delivery
+Approved enquiry/brief, available
+services, agreed scope and asset
+references.
+Scope draft, milestones, revision list,
+delivery checklist and a reviewed delivery
+package.
+Inbox flow: ingest authorized content -> classify intent -> extract explicit commitments/dates -> link
+evidence -> deduplicate against existing task -> propose task/reply -> review. An incoming message
+cannot authorize an outgoing one.
+Do not infer "agreed" from a suggestion. Track proposed, accepted, completed and disputed
+commitments separately. Resolve ambiguous dates in the user's timezone and flag uncertain
+interpretations.
+Delivery flow: convert a qualified enquiry into a versioned brief -> confirm scope and price -> plan
+milestones -> request assets -> dispatch work -> collect timestamped feedback -> update only affected
+outputs -> prepare delivery.
+For an editing job, the delivery agent requests StoryLens artifacts by IDs and revisions. It does not
+directly mutate AE projects. For a development job, it requests a bounded repository task and test
+report; deployment remains a separate approved action.
+Integration with existing gig agents
+The editing/dev gig agents discover opportunities. Client Delivery starts after qualification, avoiding
+duplicate prospecting. Sponsorship continues to own sponsor deals. All roles share the same contact
+and opportunity IDs.
+Acceptance: no duplicate tasks from reimported messages; each deadline has evidence; changed briefs
+create revisions; feedback maps to a deliverable; scope expansion is visible; the exact delivery files and
+recipient are reviewed before sending.
+
+
+=== PAGE 5 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+5
+AGENT SUITE / 05
+P1: Research-to-Experiment
+Turn the existing weekly local-video-AI research into experiments that answer a practical question. This
+is a workflow consuming the research shortlist, not a duplicate weekly search automation.
+Stage
+Output
+Choose question
+A bounded claim such as "Does this embedding model improve retrieval of my travel
+clips?" with a baseline.
+Check feasibility
+Repository/source links, license, dependencies, hardware demand and a maximum
+runtime/storage budget.
+Prepare sandbox
+Pinned environment and isolated working copy; no access to unrelated personal files
+or credentials.
+Run baseline + candidate
+Same held-out dataset and scoring protocol; retain settings, versions, commands and
+random seeds where relevant.
+Evaluate
+Accuracy/relevance, time, peak memory, failure cases and representative outputs. Do
+not replace measurements with an LLM opinion.
+Recommend
+Adopt, investigate further or reject; include the evidence and integration change
+needed.
+First experiment family: video retrieval and candidate selection for StoryLens. Later add caption
+alignment or sound retrieval. Do not attempt arbitrary repository execution as the first release.
+Tool access: source retrieval, repository inspection, isolated environment setup, bounded commands,
+dataset reader and report writer. Remote code may be untrusted; inspect install hooks, request
+unexpected permissions and keep secrets outside the environment.
+Done means reproducible
+Another run can reproduce the result from its manifest within declared tolerances. If downloads fail,
+hardware is insufficient or the repository is incompatible, report the failed experiment and useful
+observations. Never label a proposal as a completed benchmark.
+Artifacts: experiment.json, environment lock, dataset manifest, baseline results, candidate results,
+failure samples and a short verdict. Forward an integration proposal to the relevant project only after
+review.
+
+
+=== PAGE 6 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+6
+AGENT SUITE / 06
+P2: Learning & Evidence + Content
+Release
+Role
+Workflow
+Useful personal result
+Learning & Evidence
+Read selected learning goals -> suggest a
+practical exercise -> capture completed evidence
+-> draft a factual progress summary.
+GCP/Terraform/microservice
+learning linked to actual labs;
+quarterly review and interview
+examples.
+Content Release
+Receive approved StoryLens exports -> validate
+files/rights/metadata -> prepare platform
+packages -> obtain release approval -> publish
+where supported -> reconcile.
+One reviewed place to manage
+body versions, three cinematic
+trials and release outcomes.
+Learning distinguishes reading, attempted practice and demonstrated completion. Personal labs are not
+client-project experience. Use the approved work context and never ingest employer confidential
+material into a personal store without authorization.
+Content Release consumes, rather than rebuilds, StoryLens Publisher Studio. StoryLens owns media and
+edit approval; the suite owns schedule coordination. One publication ledger and one scheduler own each
+platform job.
+A publish approval binds exact artifact hash, caption/title, platform account and time. Edited metadata
+or a rerender invalidates approval. If one platform succeeds and another fails, retry only the failed
+platform after reconciliation.
+For cinematic trials, retain the shared body revision and distinct intro IDs. First deliver upload-ready
+packages. Verify actual account/API Trial Reels support before offering direct trial publication; do not
+infer it from ordinary Reel upload support. [A2]
+Acceptance
+Learning summaries contain only evidence-backed achievements. Release jobs survive restart without
+duplicates, show actual remote IDs, preserve three intro identities and never publish an unapproved
+revision. No generic promise of audience growth.
+
+
+=== PAGE 7 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+7
+AGENT SUITE / 07
+Extend SaaS Sales; do not
+duplicate it
+Keep the existing SaaS sales role and add a demand-research and qualification workflow. This honors
+the earlier decision to extend sales instead of creating another overlapping agent.
+Capability
+Behavior
+Demand signals
+Collect explicitly accessible posts/enquiries about a concrete pain point. Keep the
+source, timestamp and exact expressed need.
+Qualification
+Score fit with actual product capabilities, urgency and available evidence. Distinguish
+facts from inferred interest.
+Solution match
+Map the need to a working capability or clearly labeled upcoming feature. Do not
+promise a feature because it appears in a blueprint.
+Draft outreach
+Prepare a contextual, concise response or demo offer. Resolve recipient/platform and
+require per-message review.
+Conversation handoff
+After genuine interest, create an opportunity and pass it to Client Delivery or the
+relevant existing sales workflow.
+Learning
+Record replies, opt-outs, disqualification reasons and outcomes; adjust prioritization
+using observed results.
+Reuse existing sponsorship, community and gig source adapters where appropriate. Respect access
+controls and platform-supported interfaces. A blocked source remains blocked; do not design evasion as
+a recovery strategy.
+Store a suppression/opt-out list and contact-level deduplication. Avoid sending the same person several
+messages from different agents. A contact's public post is research evidence, not standing consent to
+repeated outreach.
+Useful first scope
+Use 20 manually selected public enquiries or inbound messages. Produce ranked need summaries
+and five reviewed drafts. Measure whether the user finds the matches useful before enabling ongoing
+discovery.
+Acceptance: every lead has an accessible source and reason; unsupported product claims are flagged;
+opt-outs are honored; drafts do not send automatically; no duplicate contact attempts across agents.
+
+
+=== PAGE 8 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+8
+AGENT SUITE / 08
+Contracts, approvals &
+cross-project handoffs
+Object
+Required fields
+TaskEnvelope
+task_id, role, intent, input_refs, device_id, budgets, permissions, parent_task_id,
+idempotency_key.
+ArtifactRef
+artifact_id, project, revision, content_hash, device_id, canonical locator, type, evidence
+and approval status.
+Opportunity
+contact_id, source_ref, expressed_need, qualification_facts, inferred_signals, status,
+owner_role.
+Approval
+action_type, exact_payload_hash, target_account/recipient, artifact_refs, expiry and
+consumed state.
+Outcome
+task_id, verified_result, evidence_refs, errors, partial_results and next_valid_action.
+Example: the user asks Agent Suite to prepare a waterfall reel. Suite submits a StoryLens curation job,
+receives Best Clip and a body preview, waits for edit review, requests three intros, and then prepares
+release packages. Cortana opens the review workspace. None of these steps implicitly grants publishing
+permission.
+Every handoff uses explicit versioned IDs. A stale body revision returns a conflict, not a silent merge.
+Store event lineage so the UI can explain which source, plan, render and approval produced an outcome.
+States: queued, planning, running, waiting_for_review, waiting_for_device, waiting_for_network,
+waiting_for_auth, reconciling, succeeded, partially_succeeded, failed and cancelled. A draft, export or
+proposed experiment is not the same as a sent message, published post or completed experiment.
+Permissions are role-specific. Researchers cannot send; sales cannot change system settings; a release
+role cannot change a reviewed video. A shared execution broker enforces these boundaries and the
+exact-draft approval rules from Cortana.
+Use resource leases for GPU, active desktop input, browser account and publication slot. A queued role
+waits instead of fighting another agent for the same GPU or composer.
+
+
+=== PAGE 9 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+9
+AGENT SUITE / 09
+Rollout, observability & test gates
+Order
+Implementation
+Exit gate
+1
+Health plus task ledger
+Every existing workflow reports readiness and a verified outcome;
+recurring blockers are visible.
+2
+Client Delivery
+One real editing enquiry progresses to a reviewed delivery package
+with revision tracking.
+3
+Inbox & Commitment
+A selected mailbox/conversation set produces accurate, deduplicated
+tasks and unsent drafts.
+4
+Research-to-Experiment
+One reproducible comparison improves or rejects a StoryLens
+component using evidence.
+5
+Learning & Evidence
+A learning period yields a factual summary linked to completed work.
+6
+Release + Sales extension
+Approved packages and drafts work end to end; integrate external
+actions only after adapter checks.
+Preserve the current Agent Suite mobile redesign and existing profiles. Add capability cards and review
+views through additive changes. Keep DRY_RUN and JOB_AUTO_APPLICATIONS settings at their current
+values until the relevant user-authorized release changes them.
+Observe task success, blocked time, retry count, duplicate attempts, cost, peak RAM/VRAM and human
+correction rate. Store redacted trace summaries rather than unrestricted message dumps. Report
+completed outcomes and actionable blockers rather than constant progress chatter.
+Test restart after each external-action boundary, duplicate event delivery, two agents targeting one
+contact, changed artifact after approval, expired authentication, unavailable device, and a user
+cancellation during a queued action.
+Production gate
+Zero unauthorized external actions, zero duplicate sends/posts in the failure suite, correct data
+separation, recoverable jobs, backups and deletion, versioned adapters, and honest partial-result
+reporting. Passing unit tests alone does not establish working live integrations.
+Do not spread effort across all roles at once. Health plus one client-delivery workflow is the first useful
+release. Add the remaining roles after measured usage shows which ones save time.
+
+
+=== PAGE 10 ===
+Agent Suite | Architecture v1.0 | 04 Nov 2026
+10
+AGENT SUITE / 10
+Integration choices & handoff
+This plan is additive to the existing Agent Suite. Repository details and current integration health must
+be inspected during implementation; historical passing UI tests do not establish backend or network
+readiness.
+Decision
+Recommended default
+Orchestration
+Reuse the existing persistent runner. Add a durable workflow library only if its
+failure/recovery needs exceed the current design.
+Model use
+One shared local model service with per-role prompts and schemas; optional
+provider abstraction for future cloud access.
+Tool interface
+Typed local APIs first. MCP can expose selected tools to compatible clients without
+moving business rules into the model. [A1]
+Data
+Reuse existing records with migrations; source-backed artifacts and contact IDs
+shared across roles.
+Device placement
+Respect existing device profiles. Do not assume the suite has moved from the TUF
+to the ROG; route heavy media work to a configured worker.
+Mobile
+Extend the current authenticated gateway and console; preserve pairing and do not
+publish new unauthenticated ports.
+Primary references checked 4 November 2026:
+[A1] Model Context Protocol architecture - tools and context between compatible applications. MCP is an
+interface, not a replacement for workflow state or approvals.
+[A2] Meta Trial Reels - product behavior; account and integration capabilities still require validation.
+[A3] Ollama tool calling - local model tool interface. Actual models must pass your workflows.
+Project evidence: user brief and prior Agent Suite delivery records, including existing gig/community/job
+roles, mobile UI and preserved local profiles. Proposed role boundaries, sequencing and acceptance
+targets are design recommendations.
+Implementation handoff
+Start by mapping the current runner, records, adapters and review UI to these contracts. Add the
+Health agent and one Client Delivery path; test failures; then add the next role. No new account
+access, outreach, publishing or automation schedule has been activated by creating this document.

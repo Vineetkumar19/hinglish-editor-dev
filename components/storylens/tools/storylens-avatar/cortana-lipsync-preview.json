@@ -1,0 +1,16 @@
+[
+  {
+    "first_frame_ms": 6060,
+    "total_s": 8.921,
+    "frames": 84,
+    "fps": 9.4,
+    "gpu_peak_mib": 2339
+  },
+  {
+    "first_frame_ms": 149,
+    "total_s": 3.036,
+    "frames": 84,
+    "fps": 27.7,
+    "gpu_peak_mib": 2339
+  }
+]

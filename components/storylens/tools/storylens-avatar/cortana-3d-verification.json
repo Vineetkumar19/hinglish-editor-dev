@@ -1,0 +1,12 @@
+{
+  "front_back_profile": true,
+  "real_greeting": true,
+  "jaw_frames": 98,
+  "jaw_range": [
+    0,
+    0.9990516538493343
+  ],
+  "drag_orbit": true,
+  "expanded_and_resized": true,
+  "minimized_and_restored": true
+}

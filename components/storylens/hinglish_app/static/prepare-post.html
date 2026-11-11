@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prepare and Post · Storylens</title><link rel="stylesheet" href="prepare-post.css?v=20261108-studio-row"><script src="feedback.js"></script></head>
+<body><header class="topbar"><a href="/">Storylens</a><h1>Prepare and Post</h1><nav class="header-actions" data-scheduled-host><button id="connections" aria-expanded="false" aria-controls="connectionPanel">Connections</button></nav></header>
+<main data-ui>
+ <section class="channel-bar" aria-label="Channel and format">
+  <div class="segmented channels" role="group" aria-label="Channel"><button data-profile="cricket" aria-pressed="true">Cricket</button><button data-profile="gaming" aria-pressed="false">Gaming</button></div>
+  <div class="account-line"><span>YouTube <b id="youtubeAccount">—</b></span><span>Instagram <b id="instagramAccount">—</b></span></div>
+  <div class="segmented formats" role="group" aria-label="Video format"><button data-mode="long" aria-pressed="true">Long</button><button data-mode="shorts" aria-pressed="false">Shorts</button><button data-mode="highlights" aria-pressed="false" hidden>Highlights</button></div>
+ </section>
+ <section id="connectionPanel" class="connections-panel" aria-label="Connections" hidden><h2>Connections</h2><div class="connection-grid"><div><p id="youtubeConnection">YouTube · checking</p><div class="inline"><button id="connectYouTube">Connect YouTube</button><span id="youtubeSignInStatus" class="muted" role="status"></span><a id="openGoogleSignIn" target="_blank" rel="noopener noreferrer" hidden>Open Google</a></div></div><div><p id="instagramConnection">Instagram · checking</p><a class="connection-action" id="connectInstagram" href="chrome.html" target="_blank" rel="noopener">Connect Instagram</a></div><div><p id="chromeConnection">Chrome · checking</p><span class="muted">Keep this computer awake, Storylens and Chrome running for Instagram.</span></div></div></section>
+ <p id="status" role="status">Connecting to Storylens…</p><div id="actionProgress" class="action-progress" role="status" hidden></div><div id="problem"></div>
+ <section class="source" aria-label="Source selection">
+  <div class="source-grid">
+   <div class="video-field"><label for="source">Video file</label><div class="input-action"><input id="source" autocomplete="off" placeholder="Choose a video or paste its full path"><button id="pickVideo">Choose video</button></div></div>
+   <div id="thumbnailField"><label for="thumbnail">Thumbnail (optional)</label><div class="input-action"><input id="thumbnail" autocomplete="off" placeholder="Optional: choose a thumbnail or paste its full path"><button id="pickThumbnail">Choose thumbnail</button><button id="saveThumbnail" disabled>Save thumbnail selection</button></div></div>
+   <label id="countField" class="number-field" hidden>Shorts<input id="count" type="number" min="1" max="40" value="5"></label>
+   <label id="minutesField" class="number-field" hidden>Minutes<input id="minutes" type="number" min="1" max="60" value="15"></label>
+   <div class="source-actions"><button id="run" class="primary" disabled>Run</button><button id="cancelLong" aria-label="Cancel Long video" disabled>Cancel</button><button id="clear" title="Clear this screen. Saved uploads and schedules are kept.">Clear</button></div>
+  </div>
+  <div class="discovery-options"><label><input id="discoveryReview" type="checkbox" checked> SEO &amp; thumbnail review</label><label><input id="discoveryResearch" type="checkbox" checked> Live YouTube search suggestions</label><span class="muted">For new preparations · local publishing model</span></div>
+  <div id="declarations" class="inline declarations" hidden><label>Audience<select id="audience"><option value="">Choose…</option><option value="no">Not made for kids</option><option value="yes">Made for kids</option></select></label><label>Altered / synthetic content<select id="synthetic"><option value="">Choose…</option><option value="no">No</option><option value="yes">Yes</option></select></label></div>
+  <div id="longProgress" class="compact-progress" hidden></div><p id="longProgressCount" class="stage-counter" hidden></p><div id="longStages" class="stage-list" hidden></div>
+  <div id="longMetadata" class="metadata single" hidden><section aria-label="Long video YouTube review"><div class="inline metadata-heading"><h2>YouTube</h2><span id="longCopyState" class="muted">Waiting for video</span></div><div class="text-fields"><label>Title<input id="longTitle" maxlength="100" disabled></label><label>Search tags<input id="longTags" disabled></label></div><label>Description &amp; hashtags<textarea id="longDescription" rows="4" disabled></textarea></label><div id="longDiscovery" class="discovery-panel" hidden></div><div class="inline action-row"><button id="longPost" disabled>Post now</button><button id="longSchedule" disabled>Schedule</button></div></section></div>
+  <div id="longReceipt" class="receipt" hidden></div>
+ </section>
+ <section id="reviewSection" class="review" aria-label="Prepared clips">
+  <div class="review-heading"><h2 id="reviewHeading">Want to create Shorts?</h2><select id="saved" aria-label="Saved videos"><option value="">Select a saved video</option></select><label id="savedCountField" class="inline-count">Shorts<input id="savedCount" type="number" min="1" max="40" value="5"></label><button id="startSaved" class="primary" disabled>Start</button><button id="cancelReview" aria-label="Cancel preparation" disabled>Cancel</button><button id="clearReview" title="Clear these results. Saved uploads and schedules are kept.">Clear</button><select id="clip" aria-label="Prepared clip" disabled><option value="1">Clip 1</option></select></div>
+  <div id="reviewBody" hidden><p id="reviewStatus" class="compact-progress" role="status"></p><p id="reviewProgressCount" class="stage-counter"></p><div id="stages" class="stage-list"></div><p id="clipPath" class="path muted"></p>
+   <div class="metadata" id="metadata">
+    <section aria-label="YouTube metadata"><div class="inline metadata-heading"><h2>YouTube</h2><span id="youtubeState" class="muted">Not prepared</span></div><div class="text-fields"><label>Title<input id="title" maxlength="100" disabled></label><label>Search tags<input id="tags" disabled></label></div><label>Description &amp; hashtags<textarea id="description" rows="3" disabled></textarea></label><div id="youtubeReceipt" class="receipt"></div></section>
+    <section id="instagramMetadata" aria-label="Instagram metadata"><div class="inline metadata-heading"><h2>Instagram</h2><span id="instagramState" class="muted">Not prepared</span></div><label>Caption &amp; hashtags <span class="muted">· Up to 10 words, hashtags separate</span><textarea id="caption" rows="5" disabled></textarea></label><div id="instagramReceipt" class="receipt"></div></section>
+   </div>
+   <div id="clipDiscovery" class="discovery-panel" hidden></div>
+   <div class="inline shared-post-actions"><button id="postClips" disabled>Post now</button><button id="scheduleClips" disabled>Schedule</button></div>
+  </div>
+ </section>
+ <section id="highlightShorts" class="review highlight-shorts" aria-label="Shorts from Highlights" hidden>
+  <div class="review-heading"><h2>Want to create Shorts?</h2><select id="savedHighlights" aria-label="Saved Highlights"><option value="">Select saved Highlights</option></select><label class="inline-count">Shorts<input id="highlightShortsCount" type="number" min="1" max="40" value="5"></label><button id="startHighlightShorts" class="primary" disabled>Start</button></div>
+ </section>
+</main><script src="publisher-signin.js?v=20261028-compact-1"></script><script src="prepare-post-progress.js?v=20261031-weekly-resume"></script><script src="publishing-weekly.js?v=20261031-weekly-resume"></script><script src="publishing-discovery.js?v=20261031-weekly-resume"></script><script src="prepare-post.js?v=20261108-studio-header"></script></body></html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <title>Storylens · Ask the Editor</title>
+  <link rel="stylesheet" href="/phone/phone.css">
+  <script src="/phone/phone.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div><span class="brand">Storylens<span class="brand-dot" aria-hidden="true">.</span></span><h1>Ask the Editor</h1></div>
+      <button id="logout" class="quiet" type="button" hidden>Sign out</button>
+    </header>
+    <div class="connection" role="status"><span id="connection-dot" class="dot" aria-hidden="true"></span><span id="connection">Connecting to laptop…</span><button id="reconnect" class="text-button" type="button" hidden>Reconnect</button></div>
+    <section id="pair-panel" class="card" hidden aria-labelledby="pair-title">
+      <h2 id="pair-title">Pair this phone</h2>
+      <p>Use the code from your laptop. Stay connected to your private Tailscale network; no USB needed.</p>
+      <form id="pair-form">
+        <label for="pair-code">Pairing code</label>
+        <div class="inline"><input id="pair-code" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required maxlength="128"><button id="pair-submit" class="primary" type="submit">Pair</button></div>
+      </form>
+    </section>
+    <div id="error-box" class="error-box" role="alert" hidden>
+      <p id="error-text"></p>
+      <details id="error-details"><summary>Technical details</summary><pre id="error-technical"></pre></details>
+    </div>
+    <div id="retry-box" class="retry-box" hidden>
+      <p id="retry-text">The request may have reached your laptop. Check progress before retrying.</p>
+      <div class="inline"><button id="check-progress" type="button">Check progress</button><button id="retry" type="button">Retry same request</button></div>
+    </div>
+    <section id="workspace" hidden aria-label="Phone editor chat">
+      <div class="chat-navigation">
+        <details id="recent"><summary>Recent phone chats <span id="chat-count" class="muted"></span></summary><nav id="chat-list" aria-label="Recent phone chats"></nav></details>
+        <button id="new-chat" type="button">New chat</button>
+      </div>
+      <section class="conversation" aria-labelledby="chat-title">
+        <header class="conversation-heading"><h2 id="chat-title">Your editor</h2><span id="chat-status" class="muted"></span></header>
+        <div id="progress-panel" class="progress-panel" hidden role="status" aria-live="polite">
+          <div class="progress-heading"><span id="stage"></span><button id="stop" class="quiet" type="button">Stop after step</button></div>
+          <progress id="progress" aria-label="Current task progress"></progress><span id="progress-count" class="muted"></span>
+        </div>
+        <p id="empty-chat" class="empty">Choose a recent chat or start a new one. Your laptop does the work.</p>
+        <div id="messages" role="log" aria-label="Conversation" aria-live="off" tabindex="0"></div>
+        <details id="stored-attachments" hidden><summary>Chat attachments</summary><ul id="stored-attachment-list" class="attachments" aria-label="Uploaded chat attachments"></ul></details>
+        <section id="results-panel" hidden aria-labelledby="results-title"><h3 id="results-title">Results</h3><div id="results" class="results"></div></section>
+      </section>
+      <form id="composer" class="composer">
+        <div class="composer-top"><label for="message">Message</label><label class="profile-label" for="profile">Profile <select id="profile"><option value="general">General</option><option value="cricket">Cricket</option><option value="gaming">Gaming</option></select></label></div>
+        <textarea id="message" rows="3" placeholder="Ask your editor…" spellcheck="true" aria-describedby="composer-status"></textarea>
+        <ul id="attachments" class="attachments" aria-label="Selected attachments"></ul>
+        <input id="file-input" type="file" hidden accept=".mp4,.mov,.mkv,.webm,.mp3,.wav,.m4a,.ogg,.png,.jpg,.jpeg,.webp,.txt,.xml">
+        <div class="composer-actions"><button id="attach" type="button">Attach</button><span id="composer-status" class="muted" role="status"></span><button id="send" class="primary" type="submit">Send</button></div>
+      </form>
+      <p id="notice" class="notice" role="status"></p>
+      <p class="privacy">Private companion · processed on your laptop</p>
+    </section>
+    <noscript>Enable JavaScript to pair with your laptop.</noscript>
+  </main>
+</body>
+</html>

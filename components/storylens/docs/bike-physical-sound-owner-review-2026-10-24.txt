@@ -1,0 +1,70 @@
+Physical bike sound-design revision and Qwen coaching — 24 October 2026
+
+Owner rejected the first ChatGPT montage score for relying on click/whoosh
+gestures instead of the motorcycle, riding wind and terrain. The second
+ChatGPT take is owner-approved at 8/10. Keep both earlier takes available.
+
+Accepted reference:
+output/sound/20261024-chatgpt-bike-foley-take2/001-bike-foley
+Full-resolution MP4:
+output/sound/20261024-qwen-chatgpt-comparison/CHATGPT-BIKE-FOLEY-TAKE-2.mp4
+
+27 physical recorded layers, maximum three concurrent, with the existing song
+retained once. Engine distance, source excerpts and pan vary with the riding
+perspective; tire/gravel textures and sustained wind belong to moving shots.
+Motor stops for hiking/hilltop. Quiet approximate rock/grass contacts and open
+wind accompany that passage; the final parked bike receives a restrained idle.
+No UI clicks, cinematic swooshes, new song or unrelated wildlife was added.
+Generic engine recordings are not the exact motorcycle make/model. No claim
+of a measured original production-audio contact or exact physical engine RPM.
+
+Eleven free recordings were obtained from official Mixkit catalogue/download
+pages and added to library/sound-online/foley and ambience, with licence/source
+sidecars. Firecrawl connector calls failed because a required link_id was
+unavailable; direct requests to official pages were used instead. Source HTML,
+acquisition receipts and hashes are in output/sound-comparison-20261024/
+retry2-sources. Nine recordings were compared against explicit audio concepts
+with the installed local CLAP on CPU; similarity scores are evidence, not
+perfect recognition or subjective listening. The watery-sounding tree-breeze
+candidate was not used. Existing song and original picture were preserved.
+
+Verification: 32/32 mix checks. Mastered separate stems reconstruct the full
+mix within .000091553 PCM, peak around -2 dBFS. Original picture packets match
+the source exactly (613 packets, 1280x720, 20.433333 seconds). Native CapCut
+spec has 28 independent audio segments and the source video audio muted once.
+Real Storylens preview played to 14.222284s and was observed paused; full
+uninterrupted playback was not verified. CapCut preparation was requested from
+the real report. Native editor playback was not performed. Five creative-memory
+checks passed; no production renderer/planner code was changed for this take.
+
+Final safe probes and findings, not repaired:
+- NaN filter and export outside output are rejected.
+- A missing saved original-audio stem triggers FileNotFoundError in the internal
+  WAV duration read before capcut_spec's intended friendly missing-layer guard.
+  Reproduction: retry2-sources/missing-stem-probe.json, then capcut_spec(path).
+  Expected: intended actionable ValueError; actual: earlier filesystem error.
+  Real accepted stems remain present. No production repair was made.
+- Known default CapCut display-name ambiguity remains. Native playback is
+  unverified. Contact timing is approximate; generic engine identity remains
+  a fidelity limit. Owner has nevertheless approved the sound direction 8/10.
+
+Owner next explicitly requested a genuine Qwen-authored take after coaching,
+without ChatGPT rewriting its creative choices. Saved the accepted reference
+and physical-world-first lesson in the shared creative reference memory. This
+is retrieval/reference guidance, not model-weight training.
+
+Guided Qwen trial 001 uses Storylens Brain (storylens-meaning:14b), prior local
+Vision evidence, factual shot bounds, real catalogue/acoustic evidence and
+owner coaching. It ignores the garbled song transcript. Qwen independently
+chooses file IDs, source offsets, starts/ends, relative levels, filters, fades
+and gain/pan curves. Audited raw requests/replies and exact authored scores are
+saved. Numeric validation failures go back to Qwen; no human replacement cues.
+First trial made 14 sequential non-overlapping cues, used revs on some static
+shots and lacked engine in some moving ones. Two loudness checks narrowly
+failed; 17/19 passed. This is an intermediate genuine draft, not an approved
+result. Its MP4 is preserved as QWEN-GUIDED-DRAFT-1.mp4.
+
+Trial 002 asks Qwen to critique and revise its own draft against these same
+scene facts and owner criteria, without supplying the accepted ChatGPT cue
+list. It waits in the shared GPU queue rather than stopping other jobs. Final
+status must be recorded separately after that model run and actual rendering.

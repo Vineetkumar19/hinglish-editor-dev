@@ -1,0 +1,13 @@
+plugins { id 'java-library' }
+java { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+tasks.register('protocolChecks', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'app.storylens.protocol.ProtocolChecks'
+}
+tasks.register('tunnelChecks', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'app.storylens.protocol.TunnelChecks'
+}
+check.dependsOn protocolChecks, tunnelChecks

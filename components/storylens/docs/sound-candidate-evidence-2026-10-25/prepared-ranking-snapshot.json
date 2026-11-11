@@ -1,0 +1,97 @@
+{
+  "fixture": true,
+  "assets": [
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+      "kind": "music",
+      "category": "upbeat",
+      "name": "Synthetic warm instrumental fixture",
+      "text": "Synthetic warm instrumental fixture",
+      "duration": 3.0,
+      "loudness": -20.0,
+      "peak_time": 0.1
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+      "kind": "music",
+      "category": "upbeat",
+      "name": "Synthetic playful instrumental fixture",
+      "text": "Synthetic playful instrumental fixture",
+      "duration": 3.0,
+      "loudness": -20.0,
+      "peak_time": 0.1
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\2-sfx.wav",
+      "kind": "sfx",
+      "category": "foley",
+      "name": "Pool water lapping — SYNTHETIC TONE fixture",
+      "text": "Pool water lapping — SYNTHETIC TONE fixture",
+      "duration": 3.0,
+      "loudness": -20.0,
+      "peak_time": 0.1
+    },
+    {
+      "path": "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\3-sfx.wav",
+      "kind": "sfx",
+      "category": "foley",
+      "name": "Horse galloping — SYNTHETIC TONE fixture",
+      "text": "Horse galloping — SYNTHETIC TONE fixture",
+      "duration": 3.0,
+      "loudness": -20.0,
+      "peak_time": 0.1
+    }
+  ],
+  "queries": {
+    "playful instrumental": [
+      [
+        "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav",
+        0.9
+      ],
+      [
+        "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav",
+        0.8
+      ]
+    ],
+    "pool water lapping": [
+      [
+        "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\3-sfx.wav",
+        0.95
+      ],
+      [
+        "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\2-sfx.wav",
+        0.8
+      ]
+    ]
+  },
+  "facts": {
+    "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\0-music.wav": {
+      "vocals": false,
+      "fixture": true,
+      "sounds_like": [
+        "synthetic sine tone; not a semantic audio match"
+      ]
+    },
+    "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\1-music.wav": {
+      "vocals": false,
+      "fixture": true,
+      "sounds_like": [
+        "synthetic sine tone; not a semantic audio match"
+      ]
+    },
+    "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\2-sfx.wav": {
+      "vocals": false,
+      "fixture": true,
+      "sounds_like": [
+        "synthetic sine tone; not a semantic audio match"
+      ]
+    },
+    "A:\\Full Drive\\remove silence\\docs\\sound-candidate-evidence-2026-10-25\\fixtures\\3-sfx.wav": {
+      "vocals": false,
+      "fixture": true,
+      "sounds_like": [
+        "synthetic sine tone; not a semantic audio match"
+      ]
+    }
+  }
+}

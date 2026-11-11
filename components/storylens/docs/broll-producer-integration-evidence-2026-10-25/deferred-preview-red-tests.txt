@@ -1,0 +1,69 @@
+test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries (tests.test_broll_deferred_preview.DeferredPreviewTests.test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries) ... FAIL
+test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate (tests.test_broll_deferred_preview.DeferredPreviewTests.test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate) ... ERROR
+test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate (tests.test_broll_deferred_preview.DeferredPreviewTests.test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate) ... FAIL
+test_no_accessible_source_audio_retains_the_existing_preview_path (tests.test_broll_deferred_preview.DeferredPreviewTests.test_no_accessible_source_audio_retains_the_existing_preview_path) ... ok
+test_nonreview_output_keeps_aggregate_even_when_defer_is_requested (tests.test_broll_deferred_preview.DeferredPreviewTests.test_nonreview_output_keeps_aggregate_even_when_defer_is_requested) ... ERROR
+test_saved_explicit_owner_selection_does_not_get_deferred (tests.test_broll_deferred_preview.DeferredPreviewTests.test_saved_explicit_owner_selection_does_not_get_deferred) ... FAIL
+test_stale_aggregate_file_is_preserved_but_not_shown_as_current (tests.test_broll_deferred_preview.DeferredPreviewTests.test_stale_aggregate_file_is_preserved_but_not_shown_as_current) ... FAIL
+
+======================================================================
+ERROR: test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate (tests.test_broll_deferred_preview.DeferredPreviewTests.test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_deferred_preview.py", line 118, in test_failed_explicit_render_never_claims_ready_or_plays_stale_aggregate
+    self.assertEqual(self.saved['preview_state'],'failed')
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'preview_state'
+
+======================================================================
+ERROR: test_nonreview_output_keeps_aggregate_even_when_defer_is_requested (tests.test_broll_deferred_preview.DeferredPreviewTests.test_nonreview_output_keeps_aggregate_even_when_defer_is_requested)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_deferred_preview.py", line 89, in test_nonreview_output_keeps_aggregate_even_when_defer_is_requested
+    self.assertEqual(self.saved['preview_state'],'ready')
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'preview_state'
+
+======================================================================
+FAIL: test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries (tests.test_broll_deferred_preview.DeferredPreviewTests.test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_deferred_preview.py", line 79, in test_explicit_preview_after_deferral_renders_once_and_reports_real_boundaries
+    self.assertEqual(self.render.call_count,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate (tests.test_broll_deferred_preview.DeferredPreviewTests.test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_deferred_preview.py", line 64, in test_new_unselected_bank_has_real_source_audio_and_checked_options_without_aggregate
+    self.render.assert_not_called()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Vineet Kumar\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 940, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'mock' to not have been called. Called 1 times.
+Calls: [call(namespace(frames=4), array([1., 1., 1., 1.]), [None, None, None, None], WindowsPath('A:/Full Drive/remove silence/tmp/broll-manifest-unit/tmpgsg5jv1d/001-source/preview.mp4'), max_side=480, progress=<function write_outputs.<locals>.<lambda> at 0x0000016CD75C6C00>)].
+
+======================================================================
+FAIL: test_saved_explicit_owner_selection_does_not_get_deferred (tests.test_broll_deferred_preview.DeferredPreviewTests.test_saved_explicit_owner_selection_does_not_get_deferred)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_deferred_preview.py", line 105, in test_saved_explicit_owner_selection_does_not_get_deferred
+    self.assertEqual(self.render.call_count,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_stale_aggregate_file_is_preserved_but_not_shown_as_current (tests.test_broll_deferred_preview.DeferredPreviewTests.test_stale_aggregate_file_is_preserved_but_not_shown_as_current)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_deferred_preview.py", line 95, in test_stale_aggregate_file_is_preserved_but_not_shown_as_current
+    self.assertEqual(stale.read_bytes(),b'OLDER PREVIEW')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'SYNTHETIC AGGREGATE PREVIEW' != b'OLDER PREVIEW'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.634s
+
+FAILED (failures=4, errors=2)

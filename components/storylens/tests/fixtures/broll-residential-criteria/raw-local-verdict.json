@@ -1,0 +1,29 @@
+{
+  "context_compatible": false,
+  "frame_checks": [
+    {
+      "no_dominant_presenter": true,
+      "no_intrusive_overlay": true,
+      "real_clear_footage": true,
+      "subject_visible": false
+    },
+    {
+      "no_dominant_presenter": true,
+      "no_intrusive_overlay": true,
+      "real_clear_footage": true,
+      "subject_visible": false
+    },
+    {
+      "no_dominant_presenter": true,
+      "no_intrusive_overlay": true,
+      "real_clear_footage": true,
+      "subject_visible": false
+    }
+  ],
+  "identity_compatible": false,
+  "no_intrusive_text": true,
+  "real_clear_footage": true,
+  "reason": "The frames show a living room interior, but the specific subject of 'apartment interior' is not clearly visible or identifiable.",
+  "related": false,
+  "seen": "A living room interior with a sofa, coffee table, and wall art."
+}

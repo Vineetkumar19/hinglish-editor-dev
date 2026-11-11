@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Intro Create · Storylens</title>
+  <link rel="stylesheet" href="workbench.css"><link rel="stylesheet" href="tool-layout.css?v=4">
+  <link rel="stylesheet" href="editor-handoff.css">
+  <script src="feedback.js"></script><script src="icons.js"></script><script src="editor-handoff.js?v=export-row"></script>
+  <style>
+    #hook-view {position:relative; width:min(100%, 640px); aspect-ratio:16/9; background:#111; overflow:hidden}
+    #hook-view[data-vertical=true] {width:min(100%, 252px); aspect-ratio:9/16}
+    #hook-view video {position:absolute; inset:0; width:100%; height:100%; margin:0; object-fit:cover}
+    .hook-options {display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0}
+    .hook-options button[aria-pressed=true] {outline:2px solid #ffad65}
+    #hook-custom {margin:1rem 0; padding:.8rem; border:1px solid #3b424a; border-radius:.5rem}
+    #hook-custom h2 {margin:0 0 .6rem}
+    #hook-custom .hook-options {align-items:end}
+    #hook-custom label {display:grid; gap:.25rem; flex:1 1 125px; min-width:0}
+    #hook-timing-status {margin:0}
+    .hook-table {overflow:auto}
+    .hook-table td,.hook-table th {padding:.4rem; text-align:left}
+    .hook-table input {width:6rem}
+  </style>
+</head>
+<body><main>
+  <header><h1>Intro Create</h1><a href="/">Storylens</a><a href="intro-create.html">Earlier intro projects</a></header>
+  <form id="hook-custom" aria-labelledby="hook-timing-title">
+    <h2 id="hook-timing-title">Custom timing</h2>
+    <div class="hook-options">
+      <label>Intro type <select id="hook-intro-type"><option value="reel">Instagram Reel</option><option value="youtube">YouTube</option><option value="gaming">Gaming YouTube</option></select></label>
+      <label>Total intro seconds <input id="hook-total-seconds" type="number" min="0.3" max="90" step="any" required></label>
+      <label>Seconds per cut <input id="hook-clip-seconds" type="number" min="0.1" max="30" step="any" required></label>
+      <button id="hook-apply-timing" type="submit" disabled>Apply custom timing</button>
+    </div>
+    <section id="gaming-intro" hidden>
+      <p>30 seconds · 6–10 clips · 3–5 seconds each</p>
+      <p class="muted">Start with the funniest commentary, playful roasts and reactions. Keep the original audio and use gameplay to give each joke context.</p>
+      <label for="gaming-intro-source">Downloaded gaming replay</label>
+      <div class="input-row">
+        <input id="gaming-intro-source" type="text" placeholder="Choose the replay or paste its full path">
+        <button id="gaming-intro-browse" type="button">Choose video</button>
+        <button id="gaming-intro-create" type="submit">Create gaming intro</button>
+      </div>
+      <p id="gaming-intro-status" role="status"></p>
+      <button id="gaming-intro-resume" type="button" hidden>Resume render</button>
+      <div id="gaming-intro-result"></div>
+      <details id="gaming-intro-history" class="tool-history" hidden><summary>Gaming intro history</summary><div class="hook-options"></div></details>
+    </section>
+    <p id="hook-timing-status" role="status"></p>
+  </form>
+  <div id="hook-current"></div>
+  <details id="hook-history" class="tool-history"><summary>History</summary><nav id="hook-options" class="hook-options" aria-label="Intro drafts"></nav><div id="hook-past"></div><a href="intro-create.html">Earlier intro projects</a></details>
+  <section id="hook-preview" hidden><h2 id="hook-title"></h2>
+  <div id="hook-view" aria-label="Intro preview"></div>
+  <div class="hook-options">
+    <button id="hook-play" type="button" disabled>Play intro</button>
+    <button id="hook-stop" type="button" disabled>Stop</button>
+    <output id="hook-clock">0.00 s</output>
+  </div>
+  <p id="hook-status" role="status">Loading draft…</p>
+  <details open><summary>Picture cuts</summary><div id="hook-shots" class="hook-table"></div></details>
+  <details><summary>Sound layers</summary><div id="hook-audio" class="hook-table"></div><p id="hook-credits"></p></details>
+  <div class="hook-options"><div id="hook-exports" class="editor-exports"></div></div>
+  </section>
+</main><script src="embedded-tool.js"></script><script src="gaming-intro.js?v=1"></script><script src="hook-drafts.js?v=gaming-intro"></script></body>
+</html>

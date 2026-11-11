@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__" data-device="__DEFAULT_DEVICE__" data-rtx-only="__RTX_ONLY__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Storylens</title>
+  <link rel="stylesheet" href="styles.css?v=20261023-all-results-1">
+  <link rel="stylesheet" href="assistant.css?v=20261030-progress-stream"><link rel="stylesheet" href="auto-captions.css?v=20261023-main-1">
+<link rel="stylesheet" href="niche.css?v=20261024-profile-dark-1"><link rel="stylesheet" href="/caption-fonts.css">
+  <script src="feedback.js"></script>
+  <script src="icons.js?v=downloader-1-20261024-shell-1"></script>
+  <link rel="stylesheet" href="editor-handoff.css?v=20261030-responsive-1">
+<link rel="stylesheet" href="editor-shell.css?v=20261030-responsive-1"><link rel="stylesheet" href="caption-3d.css?v=20261028-c4d-7"><link rel="stylesheet" href="workbench-shell.css?v=20261103"></head>
+<body class="storylens-editor">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">H</span><span>Storylens</span><small>LOCAL AI</small></div>
+    <div class="privacy"><a class="publishing-link" href="prepare-post.html">Prepare and Post</a><span class="local-dot" title="Editing stays local" aria-label="Editing stays local"></span><a class="support-link" href="mailto:vineetkd418@gmail.com?subject=Hinglish%20Editor%20Support">Support</a></div>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">YOUR CONVERSATIONAL VIDEO EDITOR</p>
+      <h1>Describe the edit.<br> We handle the steps.</h1>
+      <p>Add your clips to the chat and tell us what you want. Your editing tools are here whenever you need them.</p>
+    </section>
+
+    <section class="workspace">
+      <nav class="modes" aria-label="Editing modes"><input id="toolSearch" class="tool-search" type="search" placeholder="Find a tool" aria-label="Find a Storylens tool">
+        <button class="mode active" data-mode="clean">
+          <span class="mode-icon cut-icon">✂</span><span><b>Smart Clean</b><small>Remove silent space</small></span><i>1</i>
+        </button>
+        <button class="mode" data-mode="script">
+          <span class="mode-icon">≋</span><span><b>Smart Edit</b><small>Arrange clips by meaning</small></span><i>2</i>
+        </button>
+        <button class="mode" data-mode="captions">
+          <span class="mode-icon caption-icon">CC</span><span><b>Auto Captions</b><small>Premium Roman Hinglish</small></span><i>3</i>
+        </button>
+        <button class="mode" data-mode="reelRecreate"><span class="mode-icon"></span><span><b>Reel Recreate</b></span></button>
+        <button class="mode" data-mode="broll">
+          <span class="mode-icon broll-icon">▶</span><span><b>Add B-roll</b><small>Footage for what you say</small></span><i>4</i>
+        </button>
+        <button class="mode" data-mode="visuals">
+          <span class="mode-icon visuals-icon">◈</span><span><b>Smart Visuals</b><small>Real people, logos, facts</small></span><i>5</i>
+        </button>
+        <button class="mode" data-mode="zoom">
+          <span class="mode-icon zoom-icon">⤢</span><span><b>Smart Zoom</b><small>Zooms on key moments</small></span><i>6</i>
+        </button>
+        <button class="mode" data-mode="sound">
+          <span class="mode-icon sound-icon">♪</span><span><b>Sound Design</b><small>Music + effects by meaning</small></span><i>7</i>
+        </button>
+        <button class="mode" data-mode="eyecontact">
+          <span class="mode-icon eye-icon">◉</span><span><b>Eye Contact</b><small>Look into the camera</small></span><i>8</i>
+        </button>
+        <button class="mode" data-mode="shorts">
+          <span class="mode-icon shorts-icon">▯</span><span><b>Long to Shorts</b><small>Best hook moments as shorts</small></span><i>9</i>
+        </button>
+        <button class="mode" data-mode="motion">
+          <span class="mode-icon motion-icon">◧</span><span><b>Motion Graphics</b><small>Animated key moments, your style</small></span><i>11</i>
+        </button>
+        <button class="mode" data-mode="gaming"><span class="mode-icon">🎮</span><span><b>Gaming Highlights</b><small>Strong moments from a stream</small></span><i>12</i></button>
+        <button class="mode thumbnail-tool" data-mode="thumbnail"><span class="mode-icon">▧</span><span><b>Thumbnail</b><small>Covers, posts, posters & images</small></span><i>13</i></button>
+        <button class="mode" data-mode="cinematic"><span class="mode-icon">◩</span><span><b>Cinematic Footage</b><small>Unique short shots & extras</small></span><i>14</i></button>
+        <button class="mode" data-mode="beats"><span class="mode-icon">♫</span><span><b>Beat Studio</b><small>Music markers & effects</small></span><i>15</i></button>
+        <button class="mode" data-mode="downloader"><span class="mode-icon"></span><span><b>Downloader</b><small>Save videos &amp; extract audio</small></span><i>16</i></button>
+        <button class="mode" data-mode="photos"><span class="mode-icon"></span><span><b>Photo Collector</b><small>Collect photos from a screenshot</small></span><i>17</i></button>
+        <button class="mode" data-mode="voiceover"><span class="mode-icon">VO</span><span><b>Voice Clone</b><small>Your voice, any script</small></span><i>18</i></button>
+
+
+        <div class="tool-group-label">Editor tools</div>
+        <button class="mode" data-mode="colorGrade"><span class="mode-icon"></span><span><b>Color Grade</b></span></button>
+        <button class="mode" data-mode="templateImport"><span class="mode-icon"></span><span><b>Import Template</b></span></button>
+        <button class="mode" data-mode="templateAligner"><span class="mode-icon"></span><span><b>Template Aligner</b></span></button>
+        <button class="mode" data-mode="templateText"><span class="mode-icon"></span><span><b>Template Text</b></span></button>
+        <button class="mode" data-mode="copyPaste"><span class="mode-icon"></span><span><b>Copy Paste</b></span></button>
+        <button class="mode" data-mode="imageDownload"><span class="mode-icon"></span><span><b>Image Downloader</b></span></button>
+        <button class="mode" data-mode="presetLibrary"><span class="mode-icon"></span><span><b>Template Library</b></span></button>
+        <button class="mode" data-mode="animationPresets"><span class="mode-icon"></span><span><b>Animation Presets</b></span></button>
+        <button class="mode" data-mode="effectsLibrary"><span class="mode-icon"></span><span><b>Effects Library</b></span></button>
+      </nav>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div><span id="stepLabel">SMART CLEAN</span><h2 id="modeTitle">Remove silence</h2></div>
+          <div class="engine"><span></span> Local engine ready</div>
+        </div>
+        <section id="embeddedTools" class="embedded-tools" hidden aria-label="Tool settings"></section>
+
+        <section id="autoCaptionPanel"><form id="ac-form"><div class="field"><label for="ac-method">Generation method</label><select id="ac-method"><option value="hyperframes" selected>Hyperframes</option><option value="local_llm">Local LLM + Vision</option></select><p id="ac-methodHelp" class="muted"></p></div><label for="ac-script">Your exact captions</label><textarea id="ac-script" maxlength="3000" placeholder="Paste your English or Hinglish script here. Include numbers and long words to try different layouts." required></textarea>
+<div class="ac-options"><label for="ac-duration">Duration (seconds)<input id="ac-duration" type="number" value="10" min="3" max="60" required></label>
+<label for="ac-format">Format<select id="ac-format"><option value="instagram_vertical">Vertical · 9:16</option><option value="square">Square · 1:1</option><option value="youtube_horizontal">Horizontal · 16:9</option></select></label></div>
+<p class="muted">Up to 240 words, five words per slide. Black background and sample timing; no voice. Preview rendering uses half resolution.</p>
+<div class="field"><label for="ac-style">Caption style</label><select id="ac-style" required></select><p id="ac-reference" class="muted"></p><p class="muted">Auto-sync · D:\Full Drive\Styles\Videos</p><div id="ac-cards" class="caption-styles" aria-label="Caption templates"></div></div><button id="ac-generate" class="primary" type="submit">Generate captions</button></form><p id="ac-status" role="status" aria-live="polite">Choose a template and paste your script.</p>
+<button id="ac-reconnect" class="secondary hidden">Check saved progress</button>
+<section class="ac-preview"><h2>Your preview</h2><p id="ac-empty" class="muted">The generated video will appear here. You can change the script or style and create another version.</p>
+<video id="ac-video" controls playsinline class="hidden"></video>
+<div id="ac-links" class="actions hidden"><a id="ac-editor" target="_blank" rel="noopener">Open editable captions</a><a id="ac-evidence" target="_blank" rel="noopener">Generation record</a></div>
+<p id="ac-models" class="muted"></p><details id="ac-review" class="hidden"><summary>Local vision review · not a guarantee of an exact match</summary><div id="ac-reviewText"></div></details>
+
+</section><section id="ac-featureResultBar" aria-live="polite"></section></section>
+        <div class="field">
+          <label>Videos</label>
+          <div class="picker"><input id="inputPath" placeholder="Choose videos, a folder, or paste a folder path"><button id="browse">Choose videos</button><button id="browseFolder">Choose folder</button></div>
+          <input id="videoFiles" class="native-file" type="file" multiple accept="video/*,.mxf,.mts,.m2ts,.mkv,.webm">
+          <input id="videoFolder" class="native-file" type="file" multiple webkitdirectory directory accept="video/*,.mxf,.mts,.m2ts,.mkv,.webm">
+          <input id="scriptFile" class="native-file" type="file" accept=".txt,text/plain">
+          <input id="captionScriptFile" class="native-file" type="file" accept=".txt,text/plain">
+          <div id="selectedFiles" class="selected-files hidden"></div>
+          <small id="inputHelp">Every selected video will get its own cleaned timeline.</small>
+        </div>
+
+        <section class="thumbnail-field hidden">
+          <div class="thumbnail-grid">
+            <label>Category<select id="thumbnailCategory"><option value="youtube">YouTube thumbnail</option><option value="instagram">Instagram cover</option><option value="post">Social post</option><option value="poster">Poster</option><option value="general">General image</option></select></label>
+            <label>Size<select id="thumbnailAspect"><option value="auto">Match category</option><option value="16:9">Landscape · 16:9</option><option value="9:16">Reel cover · 9:16</option><option value="4:5">Portrait post · 4:5</option><option value="1:1">Square · 1:1</option><option value="2:3">Poster · 2:3</option><option value="profile">Profile picture · 1:1</option></select></label>
+            <label>Options<select id="thumbnailCount"><option value="1" selected>1 image</option><option value="2">2 options</option><option value="3">3 options</option><option value="4">4 options</option></select></label>
+          </div>
+          <div class="thumbnail-meta"><span id="thumbnailSize">1280 × 720</span><span>PNG + JPEG</span></div>
+        </section>
+        <div class="field script-field hidden">
+          <label for="script">Script or reference outline</label>
+          <textarea id="script" rows="8" placeholder="Paste your Hinglish script here. The spoken words can be different if the meaning is the same."></textarea>
+          <div class="script-actions"><button id="loadScript" class="text-button">Load .txt file</button><span id="scriptCount">0 words</span></div>
+        </div>
+
+        <div class="field caption-script-field hidden">
+          <label for="captionContent">Audio content<select id="captionContent"><option value="speech">Speech / dialogue</option><option value="lyrics">Song lyrics — Hinglish</option></select></label>
+          <label for="captionReference" id="captionReferenceLabel">Reference script for correct spellings <small>Optional — wording can be different</small></label>
+          <textarea id="captionReference" rows="5" placeholder="For speech, paste spelling hints. For Song lyrics, paste the exact lyric lines; their wording and line breaks will be preserved."></textarea>
+          <div class="script-actions"><button id="loadCaptionScript" class="text-button">Load reference .txt</button><span id="captionReferenceHelp">Main names and English terms are enough</span></div>
+        </div>
+
+        <div class="timeline-field broll-row hidden">
+          <label class="broll-resolve hidden"><input type="checkbox" id="useResolve" checked> Use the timeline open in DaVinci Resolve</label>
+          <button id="pickXml" class="text-button">Or choose a timeline XML…</button>
+        </div>
+
+        <section class="gaming-field hidden"><label for="gamingMinutes">Highlights target · minutes</label><input id="gamingMinutes" type="number" min="1" max="30" value="15"><label><input id="gamingMemes" type="checkbox" checked> Use approved meme assets from my library</label><p>Chooses complete strong moments, keeps chronological context, and may finish shorter than the target.</p></section>
+
+        <section class="thumbnail-field thumbnail-options hidden">
+          <div class="thumbnail-grid thumbnail-look"><label>Style<select id="thumbnailStyle"><option value="cinematic">Cinematic</option></select></label><label>Headline<select id="thumbnailTextMode"><option value="auto">Let AI suggest</option><option value="exact">Use my exact words</option><option value="none">No text</option></select></label></div>
+          <div id="thumbnailHeadlineFields" class="hidden"><label>Exact headline<input id="thumbnailTitle" maxlength="160" placeholder="e.g. LAST OVER THRILLER"></label><label>Supporting text (optional)<input id="thumbnailSubtitle" maxlength="260" placeholder="Your words, exactly as written"></label></div>
+          <details class="thumbnail-settings"><summary>Image settings & photos</summary>
+            <div class="thumbnail-grid thumbnail-look"><label>Subject photo (optional)<input id="thumbnailPortrait" type="file" accept="image/png,image/jpeg,image/webp"><span id="thumbnailPortraitName"></span><button id="thumbnailClearPortrait" type="button" class="text-button hidden">Remove photo</button></label><label>Background photo (optional)<input id="thumbnailBackground" type="file" accept="image/png,image/jpeg,image/webp"><span id="thumbnailBackgroundName"></span><button id="thumbnailClearBackground" type="button" class="text-button hidden">Remove photo</button></label></div>
+            <label class="thumbnail-toggle"><input id="thumbnailGenerate" type="checkbox" checked> Generate with local AI</label>
+            <label>Lettering<select id="thumbnailRenderer"><option value="model">Local model · complete design</option><option value="typeset">Clean typesetting · exact spelling</option></select></label><label>Layout<select id="thumbnailLayout"><option value="auto">Let AI choose</option><option value="match">Match poster</option><option value="editorial">Editorial story</option><option value="clean">Clean image</option></select></label><label>Custom style (optional)<input id="thumbnailCustom" maxlength="2000" placeholder="Lighting, colours, texture and composition"></label>
+            <div class="thumbnail-grid"><label>Save style as<input id="thumbnailNewName" placeholder="My cricket look"></label><button type="button" class="text-button ai-save-style" data-tool="thumbnail">Save style</button><label>Accent colour<input id="thumbnailAccent" type="color" value="#ffd04a"></label></div>
+            <label>Seed<input id="thumbnailSeed" type="number" min="0" max="2147483643" value="1700" step="1"></label>
+          </details><div class="ai-status thumbnail-status" role="status">Local image model</div>
+        </section>
+        <section class="zoom-field hidden">
+          <div class="zoom-grid">
+            <label>Zoom style<select id="zoomStyle"><option value="smooth" selected>Smooth (recommended)</option><option value="mixed">Mixed (smooth + punch)</option><option value="punch">Punch-in</option></select></label>
+            <label>Strength<select id="zoomStrength"><option value="subtle">Subtle 106%</option><option value="medium" selected>Medium 112%</option><option value="strong">Strong 118%</option></select></label>
+            <label>How often<select id="zoomFrequency"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="zoomFace" checked> Zoom into my face</label><label><input type="checkbox" id="zoomJumpCuts"> Hide jump cuts (alternate framing on cuts)</label></div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="zoomSounds"> Sound effects on zooms</label><label><input type="checkbox" id="zoomOverlays"> Subtle overlays at cuts</label></div>
+          <small class="broll-note">Short videos alternate smooth zooms at cuts and hold until the next cut. Each shot keeps one fixed focal point. Long videos use major script points. Optional sound effects use only your approved basic whoosh, swoosh, swish, woosh and zoom collection below the voice. Cut overlays stay brief and subtle. Speech and cut order are kept.</small>
+        </section>
+
+        <section class="eye-field hidden">
+          <div class="zoom-grid">
+            <label>Where was your script?<select id="eyeReach"><option value="near" selected>Near the lens</option><option value="far">Further away</option></select></label>
+            <label>Eye size sensitivity<select id="eyeSize"><option value="2">2 · smaller</option><option value="3" selected>3 · default</option><option value="4">4</option><option value="5">5</option><option value="6">6 · larger</option></select></label>
+            <div></div>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="eyeLookAway" checked> Natural glances (never a fixed stare)</label></div>
+          <div id="eyeStatus" class="eye-status">Checking this PC…</div>
+          <small class="broll-note">Eye Contact adjusts your gaze toward the camera while you read. The free local neural engine preserves blinks and leaves large head turns alone. "Near the lens" = laptop or phone right under the camera; "Further away" = paper on the desk or a screen to the side. Only your camera clips are processed (B-roll is skipped); you get eye-contact copies with your original audio and timing, and the same timeline relinked to them. Your originals are never changed.</small>
+        </section>
+
+        <section class="ai-field aivideo-field hidden">
+          <div class="grid2">
+            <label>Generation method<select id="aivideoMethod"><option value="generative">Prompt to video</option><option value="reference">Reference guided</option><option value="motion">Motion / 3D explainer</option></select></label>
+            <label>Quality<select id="aivideoQuality"><option value="full">Full · 5-second clips</option><option value="preview">Quick preview · 2-second clips</option></select></label>
+            <label id="aivideoReferenceField" class="hidden">Reference video<input id="aivideoReference" placeholder="Local video path or public YouTube link"></label>
+            <label id="aivideoMotionField" class="hidden">Motion design<select id="aivideoMotionStyle"><option value="orbit">Orbital depth · 3D</option><option value="gsap">Clean motion</option><option value="product">Product spotlight</option><option value="explainer">Step explainer</option><option value="studio">Connected studio</option></select></label>
+          </div>
+          <small id="aivideoMethodNote" class="broll-note">Local scene planning and video generation. Each result keeps its actual method and reference receipts.</small>
+          <div class="eye-status ai-status">Checking the GPU and models…</div>
+          <div class="zoom-grid">
+            <label>Style<select id="aivideoStyle" class="ai-style"></select></label>
+            <label>How many clips<select id="aivideoCount"><option value="low">Low (~1 per 4 min)</option><option value="medium" selected>Medium (~1 per 2 min)</option><option value="high">High (~1 per min)</option><option value="3">Exactly 3</option><option value="5">Exactly 5</option><option value="10">Exactly 10</option></select></label>
+            <label>Format<select id="aivideoAspect"><option value="auto" selected>Same as the video (16:9 for a script)</option><option value="16:9">16:9 YouTube</option><option value="9:16">9:16 Reels / Shorts</option><option value="1:1">1:1 Square</option></select></label>
+          </div>
+          <div class="zoom-grid">
+            <label>First frames per clip<select id="aivideoOptions"><option value="1" selected>1</option><option value="2">2 (you pick)</option><option value="3">3</option></select></label>
+            <label>AI brain<select id="aivideoBrain"><option value="auto" selected>Auto (Ollama if running)</option><option value="ollama">Ollama qwen3</option><option value="local">Built-in Qwen</option></select></label>
+          </div>
+          <div class="zoom-grid">
+            <label>One-off style prompt (optional)<input id="aivideoCustom" class="ai-custom" placeholder="e.g. moody neon Mumbai night, rain, teal and orange"></label>
+            <label>Save it as my style, name<input id="aivideoNewName" class="ai-new-name" placeholder="e.g. My neon look"></label>
+            <label>&nbsp;<button class="text-button aigen-save ai-save-style" data-tool="aivideo" type="button">+ Save the prompt as my style</button></label>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="aivideoCheck" checked> Check generated results with the local evaluator</label></div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="aivideoFromText"> Animate from the text only (no first frame; faster, less sharp)</label></div>
+          <small class="broll-note">Choose a method, paste your script and review the result before exporting. Generated footage uses short clips; Motion / 3D covers the script with animated scenes. Quick preview keeps the first check small. Jobs wait for the shared GPU automatically.</small>
+        </section>
+
+        <section class="ai-field motion-field hidden">
+          <div class="zoom-grid">
+            <label>Render engine<select id="motionEngine"><option value="remotion" selected>Remotion</option><option value="motion-canvas">Motion Canvas</option><option value="hyperframes">Hyperframes</option></select></label>
+          </div>
+          <small class="broll-note" id="motionEngineNote">Qwen · Remotion</small>
+          <div class="zoom-grid">
+            <label>Style<select id="motionStyle"></select></label>
+            <label>How many graphics<select id="motionCount"><option value="low">Low (~2 per min)</option><option value="medium" selected>Medium (~4 per min)</option><option value="high">High (~6 per min)</option><option value="5">Exactly 5</option><option value="10">Exactly 10</option><option value="20">Exactly 20</option></select></label>
+            <label>Show them as<select id="motionMode"><option value="auto" selected>AI decides (full screen or card)</option><option value="full">All full screen (V2)</option><option value="overlay">Cards over my video where they fit (V3)</option></select></label>
+          </div>
+          <div class="zoom-grid">
+            <label>What to make<select id="motionCoverage"><option value="auto" selected>Auto (full video up to 3 min, else key moments)</option><option value="full">Full motion-graphics video (every line)</option><option value="key">Key moments on my timeline</option></select></label>
+            <label>Pictures from<select id="motionAssets"><option value="all" selected>Web + Pexels/Pixabay + local images</option><option value="web">Web + Pexels/Pixabay only</option><option value="ai">Local images for objects</option></select></label>
+            <label>Format (script only)<select id="motionAspect"><option value="auto" selected>16:9 YouTube</option><option value="9:16">9:16 Reels / Shorts</option><option value="1:1">1:1 Square</option></select></label>
+            <label>AI brain<select id="motionBrain"><option value="auto" selected>Auto (Ollama if running)</option><option value="ollama">Ollama qwen3</option><option value="local">Built-in Qwen</option></select></label>
+            <label>Quality<select id="motionQuality"><option value="full">Full quality</option><option value="preview">Quick preview · 360p</option></select></label>
+          </div>
+          <div class="motion-memory">
+            <b>Style memory</b> <small>Show it pictures or videos of a look you like: it measures the colours, type and speed and saves a style card. Approve a card to use it.</small>
+            <div id="motionCards" class="motion-cards"><small>Loading your styles…</small></div>
+            <div class="zoom-grid">
+              <label>Name for the new style<input id="motionLearnName" placeholder="e.g. My documentary look"></label>
+              <label>&nbsp;<button class="text-button aigen-save" id="motionLearnFiles" type="button">+ Learn from pictures / videos</button></label>
+              <label>&nbsp;<button class="text-button aigen-save" id="motionLearnFolder" type="button">+ Learn from a folder</button></label>
+            </div>
+          </div>
+          <small class="broll-note">Connected studio: web images, PNG cutouts, Vision checks, GSAP movement and optional ThreeUI depth. Paste a script or choose a video. Text stays editable here; Premiere and CapCut receive rendered scene clips.</small>
+        </section>
+
+        <section class="shorts-field hidden">
+          <div class="zoom-grid">
+            <label>Exact number<input id="shortsNumber" required type="number" min="1" max="40" step="1" value="10"></label>
+            <label>Look<select id="shortsLook"><option value="template" selected>My template (framed 16:9 video)</option><option value="face">Face crop 9:16 (follows the face)</option></select></label>
+            <label>Duration per short (seconds)<input id="shortsDuration" required type="number" min="10" max="120" step="1" value="60"></label>
+          </div>
+          <div class="zoom-grid">
+            <label>Join parts<select id="shortsPieces"><option value="3" selected>Up to 3 parts (hook + payoff)</option><option value="2">Up to 2 parts</option><option value="1">One straight part</option></select></label>
+            <label>AI brain<select id="shortsBrain"><option value="auto" selected>Auto (Ollama if running)</option><option value="ollama">Ollama</option><option value="local">Built-in Qwen</option></select></label>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="shortsCaptions"> Captions on the shorts</label></div>
+        </section>
+
+        <section class="sound-field hidden">
+          <div class="zoom-grid">
+            <label>Sound style<select id="soundStyle"><option value="auto" selected>Auto (AI decides)</option><option value="cinematic">Cinematic</option><option value="funny">Funny / meme</option><option value="chill">Chill vlog</option><option value="emotional">Emotional story</option></select></label>
+            <label>How many effects<select id="soundDensity"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+            <div></div>
+          </div>
+          <div class="toggles zoom-toggles"><label><input type="checkbox" id="soundMusic" checked> Background music</label><label><input type="checkbox" id="soundEffects" checked> Sound effects</label><label><input type="checkbox" id="soundTransitions" checked> Motion and transition sounds</label><label><input type="checkbox" id="soundLayered" checked> Layered cinematic sound</label></div>
+            <label>Sound workflow<select id="soundContentForm"><option value="auto">Auto · short up to 3 minutes</option><option value="short">Short-form · keyword folders + draft timeline</option><option value="long">Long-form · automatic timeline</option></select></label>
+            <p class="muted">Short-form: Qwen groups relevant recordings into keyword folders and creates a separate draft timeline. You choose. Long-form: automatic timeline.</p>
+          <label><input type="checkbox" id="soundRemoveMusic" checked> Remove existing music (keep voice)</label>
+          <div class="sound-library">
+            <div><span>Music folder</span><b id="musicFolder">…</b><button id="pickMusic" class="text-button">Change</button></div>
+            <div><span>Effects folder</span><b id="sfxFolder">…</b><button id="pickSfx" class="text-button">Change</button></div>
+          </div>
+          <small class="broll-note">Qwen · Vision · Clipwing · Earshot · Openverse fallback · FFmpeg. Reads speech and visible actions; Qwen chooses the sound layers. Review and remix the draft.</small>
+        </section>
+
+        <section class="visuals-field hidden">
+          <div class="zoom-grid">
+            <label>Timing density<select id="visualsDensity"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+            <label>Presentation<select id="visualsPresentation"><option value="auto">Choose for the story</option><option value="fullscreen">Full screen</option><option value="popup">Moving pop-up</option><option value="cutout">Cutout rising from below</option><option value="behind">Behind the speaker</option></select></label>
+            <label>AI brain<select id="visualsBrain"><option value="auto" selected>Auto (Ollama if running)</option><option value="ollama">Ollama</option><option value="local">Built-in Qwen</option></select></label>
+          </div>
+          <div class="toggles visuals-toggles">
+            <label><input type="checkbox" id="visualsPopups" checked> Name pop-ups</label>
+            <span>Web image + PNG options · You choose</span>
+          </div>
+        </section>
+
+        <section class="broll-field hidden">
+          <button id="openBrollSettings" class="secondary-btn" type="button" aria-haspopup="dialog">B-roll settings</button>
+          <div class="field broll-script"><label for="brollScript">Script (optional)</label>
+            <textarea id="brollScript" rows="3" maxlength="20000" placeholder="Paste your script for better understanding for AI"></textarea>
+          </div>
+        </section>
+
+        <dialog id="brollSettings" class="broll-dialog">
+          <form method="dialog">
+            <h3>B-roll settings</h3>
+            <p style="text-align:right;margin:0"><a href="/stock-browser.html" target="_blank" rel="noopener">Connect Chrome</a></p>
+            <input id="brollSearchMethod" type="hidden" value="website">
+            <label for="brollOptionsPerMoment">Options per highlight · Instagram ≤5 · YouTube ≤2</label>
+            <select id="brollOptionsPerMoment"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option></select>
+            <p class="dialog-help">The local AI chooses keywords and speech timestamps. Website mode uses public video pages without API keys or vision checks. Review each clip before importing.</p>
+            <div hidden>
+            <div class="broll-sources"><span>Footage sources</span><b id="sourceSummary">Checking…</b></div>
+            <p class="dialog-help">Keys are stored only on this computer and are never shown again after saving.</p>
+            <label>Pexels API key <small id="pexelsSaved"></small><input id="pexelsKey" type="password" autocomplete="off" placeholder="Paste your Pexels key"></label>
+            <label>Pixabay API key <small id="pixabaySaved"></small><input id="pixabayKey" type="password" autocomplete="off" placeholder="Paste your Pixabay key"></label>
+            <div class="toggles"><label><input type="checkbox" id="usePexels"> Use Pexels</label><label><input type="checkbox" id="usePixabay"> Use Pixabay</label><label><input type="checkbox" id="useLibrary"> Use my footage first</label></div>
+            <div class="toggles"><label><input type="checkbox" id="brollUseCommons"> Wikimedia Commons videos</label><label><input type="checkbox" id="brollUseWeb"> Web + YouTube video search</label></div><p class="broll-note">Videos only. Each cutaway must match the meaning of the speech; unsuitable matches stay empty.</p>
+            <p class="dialog-help">Source links and usage terms stay with each video choice.</p>
+            <label>My footage library</label>
+            <ul id="libraryList" class="library-list"></ul>
+            <button type="button" id="addLibrary" class="text-button">+ Add footage folder</button>
+            </div>
+            <p id="settingsError" class="dialog-error"></p>
+            <div class="dialog-actions"><button value="cancel" class="secondary-btn">Close</button><button type="button" id="saveBrollSettings" class="save-btn">Save settings</button></div>
+          </form>
+        </dialog>
+
+        <section class="caption-field hidden">
+          <div class="caption-title"><div><label>Choose a caption style</label><small>Animated word timing · editable files included</small></div><span>15 CAPTION TEMPLATES</span></div>
+          <p class="muted"><a href="/important-captions.html">Important words only · names, teams, scores and dates with glow + UI sounds</a></p>
+          <div class="caption-styles" id="captionStyles">
+            <button class="caption-card active" data-style="caption_1"><i>VIDEO 1</i><b><img src="/caption1-preview.png" alt="love the CHALLENGE of taking" style="max-width:100%;height:76px;object-fit:contain"></b><span>Caption 1</span></button>
+            <button class="caption-card" data-style="caption_2"><i>VIDEO 2</i><b><img src="/caption2-preview.png" alt="Caption 2 lime keywords and timed motion" style="max-width:100%;height:76px;object-fit:contain"></b><span>Caption 2</span></button>
+            <button class="caption-card" data-style="caption_3"><i>VIDEO 3</i><b><img src="/caption3-preview.png" alt="Caption 3 black and grey type with selection frames" style="max-width:100%;height:76px;object-fit:contain"></b><span>Caption 3</span></button>
+            <button class="caption-card" data-style="caption_4"><i>VIDEO 4</i><b><img src="/caption4-preview.png" alt="Caption 4 italic serif typography" style="max-width:100%;height:76px;object-fit:contain"></b><span>Caption 4</span></button>
+            <button class="caption-card" data-style="caption_5"><i>VIDEO 5</i><b><img src="/caption5-preview.png" alt="Caption 5 heavy black type and red emphasis" style="max-width:100%;height:76px;object-fit:contain"></b><span>Caption 5</span></button>
+            <button class="caption-card" data-style="typography_3"><i>PREMIUM</i><b style="font-family:Arial,sans-serif;text-align:left;line-height:.84"><strong style="font-size:1.45em">ANCHOR</strong><br><small style="font-weight:400">supporting phrase</small></b><span>Typography 3</span></button>
+            <button class="caption-card" data-style="typography_4"><i>PREMIUM</i><b style="font-family:'Roboto Black',Arial Black,sans-serif;line-height:.9"><small style="font-weight:900;color:#f4f4f4">fir sawal uthata</small><br><strong style="background:linear-gradient(#f4f4f4,#52c7ff);-webkit-background-clip:text;background-clip:text;color:transparent">hai</strong></b><span>Typography 4</span></button>
+            <button class="caption-card" data-style="typography_5"><i>PREMIUM</i><b style="font-family:Arial,sans-serif;line-height:.75;font-weight:400"><small style="font-size:.46em;color:#f4f4f4">vakt aur</small><br><strong style="font:400 1.45em/1 'Great Vibes',cursive;color:#ef4937">fasle</strong><br><small style="font-size:.46em;color:#f4f4f4">ko par</small></b><span>Typography 5</span></button>
+            <button class="caption-card" data-style="kinetic_documentary"><i>REFERENCE</i><b style="font-family:Impact,sans-serif;font-weight:400"><small style="font:700 11px Arial">SIMPLE</small> <strong style="color:#FFFFFF;font-weight:400">WORDS</strong></b><span>Kinetic Documentary</span></button>
+            <button class="caption-card" data-style="documentary_outline"><i>REFERENCE</i><b style="font:400 27px Impact;color:transparent;-webkit-text-stroke:1px white">KOLKATTA</b><span>Documentary Outline</span></button>
+            <button class="caption-card" data-style="documentary_echo"><i>REFERENCE</i><b style="font:400 27px Impact;color:white;text-shadow:0 5px 0 #555">PRESSURE</b><span>Documentary Echo</span></button>
+            <button class="caption-card" data-style="cinematic_mixed_draft"><i>CINEMATIC</i><b style="font:400 20px Roboto,Arial,sans-serif"><em style="font:400 32px 'Great Vibes',cursive;color:white">Your</em> story <strong>unfolds</strong></b><span>Cinematic Script Mix</span></button>
+            <button class="caption-card" data-style="cinematic_clean_draft"><i>CINEMATIC</i><b style="font:400 20px Roboto,Arial,sans-serif;letter-spacing:.02em">Every story matters</b><span>Cinematic Clean Reveal</span></button>
+            <button class="caption-card" data-style="kinetic_gold_draft"><i>CINEMATIC</i><b style="color:#ffcf00;font-family:Impact,sans-serif">Overthinking</b><span>Kinetic Gold</span></button>
+            <button class="caption-card" data-style="serif_circle_draft"><i>CINEMATIC</i><b style="font:italic 700 28px Georgia,serif">single post</b><span>Serif Circle</span></button>
+          </div>
+        </section>
+
+        <details id="outputSettings" class="settings">
+          <summary>Output settings <span>Optional</span></summary>
+          <div class="settings-grid">
+            <label>Format<select id="format"><option value="source">Same as source</option><option value="instagram_vertical">Instagram vertical</option><option value="square">Square 1:1</option><option value="youtube_horizontal">YouTube horizontal</option></select></label>
+            <label>Speed<select id="device"><option value="cpu">CPU</option><option value="cuda">NVIDIA RTX</option></select></label>
+            <label class="script-field hidden">Pacing<select id="pacing"><option value="natural">Natural</option><option value="tight">Tight</option><option value="relaxed">Relaxed</option></select></label>
+          </div>
+        </details>
+
+        <button id="run" class="primary"><span id="runIcon">✂</span><span id="runText">Clean my videos</span><kbd>RUN</kbd></button>
+        <section id="progress" class="progress hidden" aria-live="polite">
+          <div class="progress-top"><b id="statusText">Starting local AI</b><span id="percent">0%</span></div>
+          <div class="bar"><span id="bar"></span></div>
+          <p id="stage">Preparing</p>
+          <details><summary>Activity</summary><pre id="logs"></pre></details>
+        </section>
+
+        <section id="result" class="result storylens-result is-pending" aria-live="polite">
+          <div class="check">·</div><div class="result-summary"><b id="resultTitle">Your result will appear here</b><p id="resultMeta"></p><p id="qualityMeta" class="quality-meta"></p></div>
+          <div class="result-actions completed-result-actions" role="group" aria-label="Finished result actions"><button id="openResult">View Result</button><span id="editorExports" class="editor-exports" aria-label="Open in your editor"></span><button id="openFolder" class="secondary">Open Folder</button></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer><span>CPU + RTX ready</span><span>Premiere XML</span><span>Resolve XML</span><span>Hinglish meaning model</span></footer>
+  <script src="niche.js"></script><script src="broll-format.js?v=20261029-2"></script><script src="app.js?v=20261103-workbench"></script>
+  <script src="editor-handoff.js?v=20261103-four-editors"></script>
+  <script src="prepare-post-progress.js?v=20261030-assistant"></script>
+  <script src="assistant-progress.js?v=20261030-instagram-published"></script>
+  <script src="assistant.js?v=20261030-responsive-1"></script>
+<script src="feature-tools.js?v=20261029-visuals-web-1"></script><script src="auto-caption-2.js?v=20261023-main-1"></script><script src="thumbnail-studio.js?v=20261031-publishing-handoff"></script><script src="editor-shell.js?v=20261030-responsive-1"></script><script src="caption-3d-model.js?v=20261028-c4d-7"></script><script src="caption-3d.js?v=20261028-c4d-7"></script><script src="caption-extras.js?v=20261104"></script></body>
+</html>

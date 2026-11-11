@@ -1,0 +1,40 @@
+# Creator profile for tests. Real-looking but obviously fictional numbers.
+name: Vineet Kumar Das
+tagline: Cricket analysis and documentary-style edits
+channels:
+  - platform: youtube
+    handle: "@vineetcricket"
+    url: https://youtube.com/@vineetcricket
+    subscribers: 12500
+    avg_views: 38000
+    uploads_per_month: 6
+  - platform: instagram
+    handle: "@vineetcricket"
+    url: https://instagram.com/vineetcricket
+    followers: 24000
+    avg_reel_views: 61000
+    uploads_per_month: 12
+audience:
+  top_country: India
+  country_share: 82
+  male_share: 91
+  age_18_34_share: 74
+  top_cities: [Mumbai, Delhi, Bengaluru]
+formats:
+  - name: Match breakdown
+    description: Tactical analysis with on-screen graphics
+craft:
+  - written, edited and graded in-house
+  - motion graphics built in After Effects rather than templates
+deliverables:
+  - 60 to 90 second integrated read inside a match breakdown
+rates:
+  currency: INR
+  youtube_integration: 0
+  instagram_reel: 0
+  package_note: "Open to a package across a series"
+best_work:
+  - title: Mumbai Indians 2008 to 2016
+    url: https://youtube.com/watch?v=example1
+    why: Most-watched documentary edit on the channel
+media_kit_url: ""

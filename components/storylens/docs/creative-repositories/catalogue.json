@@ -1,0 +1,108 @@
+{
+  "reviewed": "2026-10-23",
+  "knowledge_file": "hinglish_app/knowledge/creative_repositories.json",
+  "repositories": [
+    {
+      "name": "GSAP",
+      "url": "https://github.com/greensock/GSAP",
+      "path": "A:\\Repository Vault\\2026-10-23\\gsap\\source",
+      "exists": true,
+      "status": "source reference; Hyperframes supports GSAP"
+    },
+    {
+      "name": "Taste Skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "path": "C:\\Users\\Vineet Kumar\\.codex\\skills\\design-taste-frontend",
+      "exists": true,
+      "status": "installed Codex skill; scoped principles retrieved by local models"
+    },
+    {
+      "name": "ThreeUI",
+      "url": "https://github.com/MengTo/threeui",
+      "path": "A:\\Repository Vault\\2026-10-23\\threeui\\source",
+      "exists": true,
+      "status": "Community source reference"
+    },
+    {
+      "name": "OpenCut Classic",
+      "url": "https://github.com/OpenCut-app/opencut-classic",
+      "path": "A:\\Full Drive\\remove silence\\tools\\opencut-classic",
+      "exists": true,
+      "status": "local evaluation on port 8870"
+    },
+    {
+      "name": "OpenCut rewrite",
+      "url": "https://github.com/OpenCut-app/OpenCut",
+      "path": "A:\\Repository Vault\\2026-10-23\\opencut\\source",
+      "exists": true,
+      "status": "source reference; roadmap features not assumed ready"
+    },
+    {
+      "name": "Awesome Opus 5.5 Videos",
+      "url": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+      "path": "A:\\Repository Vault\\2026-10-23\\awesome-opus5-5-videos\\source",
+      "exists": true,
+      "status": "prompt catalogue; not model weights"
+    },
+    {
+      "name": "Brag",
+      "url": "https://github.com/latent-spaces/brag",
+      "path": "A:\\Full Drive\\remove silence\\tools\\reference-repositories\\brag",
+      "exists": true,
+      "status": "source plus Codex skill installed"
+    },
+    {
+      "name": "WanGP",
+      "url": "https://github.com/deepbeepmeep/WanGP",
+      "path": "A:\\Full Drive\\remove silence\\tools\\reference-repositories\\wangp",
+      "exists": true,
+      "status": "source downloaded; no runtime/model installation"
+    },
+    {
+      "name": "Harvey",
+      "url": "https://github.com/ethanplusai/harvey",
+      "path": "A:\\Full Drive\\remove silence\\docs\\creative-repositories\\harvey",
+      "exists": true,
+      "status": "Persistent repository reference and README snapshot only; runtime not installed or activated.",
+      "reviewed": "2026-10-31",
+      "reference": "docs/creative-repositories/harvey/reference.json"
+    }
+  ],
+  "youtube_creator_toolkit": {
+    "added": "2026-10-31",
+    "skill": "C:\\Users\\Vineet Kumar\\.codex\\skills\\youtube-creator-toolkit\\SKILL.md",
+    "catalogue": "C:\\Users\\Vineet Kumar\\.codex\\tools\\youtube-creator-toolkit\\catalogue.json",
+    "status": "Persistent Codex skill, complete generator source/assets, three isolated environments and explicit CLI launchers installed; providers/generation unverified.",
+    "tools_root": "C:\\Users\\Vineet Kumar\\.codex\\tools\\youtube-creator-toolkit"
+  },
+  "creator_research_20261031": {
+    "catalogue": "C:/Users/Vineet Kumar/.codex/tools/creator-research/catalogue.json",
+    "repositories": [
+      {
+        "url": "https://github.com/Jakeschincariol/youtube-agent-skill",
+        "local_path": "C:\\Users\\Vineet Kumar\\.codex\\tools\\creator-research\\youtube-agent-skill",
+        "commit": "a2feb2104981a375ffd4f87ee04f4f5344ac43c6"
+      },
+      {
+        "url": "https://github.com/AgriciDaniel/claude-seo",
+        "local_path": "C:\\Users\\Vineet Kumar\\.codex\\tools\\creator-research\\claude-seo",
+        "commit": "6be93f45064ffbadced572b5d5c95f55fd263af0"
+      }
+    ],
+    "skills": [
+      "yt-audit",
+      "yt-chapters",
+      "yt-comment",
+      "yt-edit",
+      "yt-package",
+      "yt-plan",
+      "yt-retention",
+      "yt-script",
+      "yt-seo",
+      "yt-shorts",
+      "yt-viral",
+      "website-seo-toolkit"
+    ],
+    "state": "Persistent global downloads and Codex skills installed; SEO browser runtime not installed."
+  }
+}

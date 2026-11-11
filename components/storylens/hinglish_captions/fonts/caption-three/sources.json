@@ -1,0 +1,20 @@
+{
+  "CaptionThree-BoldItalic.ttf": {
+    "sha256": "bbc1afe9bf23b5b37eae571b8f200aa9801ed97a490c3f2e91a5cce8f2c11715",
+    "source": "https://github.com/google/fonts/tree/main/ofl/playfairdisplay",
+    "weight": 700,
+    "license": "OFL.txt"
+  },
+  "CaptionThree-RegularItalic.ttf": {
+    "sha256": "2a53ab8ad5972bc72f1177363fda9df7a0dd12c557eb9163654ef2f281e3234f",
+    "source": "https://github.com/google/fonts/tree/main/ofl/playfairdisplay",
+    "weight": 400,
+    "license": "OFL.txt"
+  },
+  "CaptionThree-Playful.ttf": {
+    "sha256": "fd6f4eb8d39b8f939fba14ed81b2a7149b4429914cbc85d3312b65b4f9ff93b2",
+    "source": "https://github.com/google/fonts/tree/main/apache/schoolbell",
+    "weight": 400,
+    "license": "Schoolbell-LICENSE.txt"
+  }
+}

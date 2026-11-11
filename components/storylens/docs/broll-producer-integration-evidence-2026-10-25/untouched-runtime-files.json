@@ -1,0 +1,9 @@
+{
+  "client_date": "2026-10-25",
+  "unchanged_from_previous_feature_baseline": {
+    "hinglish_broll/conform.py": true,
+    "hinglish_broll/verify.py": true,
+    "hinglish_broll/llm.py": true
+  },
+  "shared_files_edited_by_this_stage": []
+}

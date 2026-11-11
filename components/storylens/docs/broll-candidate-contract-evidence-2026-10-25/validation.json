@@ -1,0 +1,46 @@
+{
+  "client_date": "2026-10-25",
+  "scope": "Synthetic CPU component validation only; no live Storylens/native acceptance.",
+  "command": ".venv/Scripts/python.exe -X utf8 -m unittest tests.test_broll_candidate_manifest",
+  "tests_run": 35,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "elapsed_seconds": 1.777,
+  "fixture_media": "Synthetic bytes and injected metadata; default-reader corruption test opens only invalid synthetic bytes, no real video renders.",
+  "side_effect_limits": [
+    "No web/stock/model calls",
+    "No GPU, media render or encoder jobs",
+    "No shared panel/server/host adapter edits",
+    "No Adobe host interaction",
+    "No old job restart/status rewrite"
+  ],
+  "legacy_artifacts_before": {
+    "cache\\app\\broll-jobs\\8767\\c1145994598a.json": "877de107e3b1c7a2ab484911fd43ca7b27e770e6390e36c4d63c65b29a7b25c7",
+    "cache\\app\\jobs\\c1145994598a\\broll-checkpoint.json": "14f0725c24dc5dd607bc364409e953c20ce442cb76753bb285226b0cf5b612b4",
+    "output\\broll\\20261024-031225-b90409\\recovery.json": "309170bae7a9c9f7be2fb0843dd07c0fd244e8cce0e8edf8d6ce1b26c40194bf",
+    "output\\broll\\20261024-031225-b90409\\001-e2-1-\\broll-project.json": "b0d3d245f17cd16ee535d18d5bf9371d5b3e9c1782d54c230916b1feb1ac85d4"
+  },
+  "legacy_artifacts_after": {
+    "cache\\app\\broll-jobs\\8767\\c1145994598a.json": "877de107e3b1c7a2ab484911fd43ca7b27e770e6390e36c4d63c65b29a7b25c7",
+    "cache\\app\\jobs\\c1145994598a\\broll-checkpoint.json": "14f0725c24dc5dd607bc364409e953c20ce442cb76753bb285226b0cf5b612b4",
+    "output\\broll\\20261024-031225-b90409\\recovery.json": "309170bae7a9c9f7be2fb0843dd07c0fd244e8cce0e8edf8d6ce1b26c40194bf",
+    "output\\broll\\20261024-031225-b90409\\001-e2-1-\\broll-project.json": "b0d3d245f17cd16ee535d18d5bf9371d5b3e9c1782d54c230916b1feb1ac85d4"
+  },
+  "legacy_artifacts_unchanged": true,
+  "new_contract_artifact_sha256": {
+    "hinglish_broll\\candidate_manifest.py": "6c788e7a736c0fe694884409b8b7ce5dc2255c8588dc98cc39b332303e64c98b",
+    "hinglish_broll\\candidate_selection.py": "7291713df361c9af2221e70bfcaaf19ee4ade552bf528038957e1c6b5b447a64",
+    "tests\\test_broll_candidate_manifest.py": "4fc50123c6b97888fb3844f37bfd5bfb26f083c802bc68e77acac4b2dae87b37",
+    "tests\\fixtures\\broll-candidates-v1\\incomplete-and-no-match.json": "56687afc7e70707065c711e3e2f116dc8881b08c973137f10108ea0988238385",
+    "tests\\fixtures\\broll-candidates-v1\\long-selected-pinned.json": "f64e0b74811353eafd74283becf791ebd8011cf26023dda0f074b60c5fe5239e",
+    "tests\\fixtures\\broll-candidates-v1\\short-unselected.json": "20a5cc582b2cebce58f274f66b95106fbee3d02b10788587906fedc6d20355c6"
+  },
+  "pending": [
+    "Producer integration for fresh checked-window receipts",
+    "Shared panel contract wiring",
+    "Host-owned timed insertion and receipt",
+    "Real local workflow validation"
+  ],
+  "golden_notice": "All three golden manifests are synthetic fixtures, not real playable candidates or live results."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "draft_awaiting_owner_review",
+  "timing_accuracy": "Source is 30 fps (33.333 ms per frame); draft timing and font match require comparison, not claimed exact.",
+  "vertical_max_words": 4,
+  "horizontal_max_words": 7,
+  "cinematic_mixed_draft": {"size":32,"script_size":44,"space":8,"fade":0.18,"blur":5,"rise":0,"bold_words":["raasta","vaasta","badalta","safar","stories"]},
+  "cinematic_clean_draft": {"size":40,"space":10,"fade":0.12,"blur":2,"rise":3}
+}

@@ -1,0 +1,31 @@
+.grade-choices { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.grade-choices button { flex: 1 1 220px; display: grid; justify-items: start; gap: 4px; text-align: left; padding: 12px 14px; border: 1px solid #59616d; }
+.grade-choices button[aria-pressed="true"] { border-color: #76d4b8; box-shadow: inset 0 0 0 1px #76d4b8; }
+.grade-choices button span { display: block; font-size: .85em; }
+#gradeNodeControls[hidden], #downloadGrade[hidden] { display: none; }
+.resolve-graph {
+  margin: 12px 0 20px;
+  overflow-x: auto;
+  border: 1px solid #383e46;
+  border-radius: 9px;
+  background: #202328;
+}
+.resolve-graph svg { display: block; width: 100%; min-width: 760px; }
+.resolve-graph img { display: block; width: 100%; height: auto; min-width: 720px; }
+.resolve-graph[hidden], #resolveLutPreview[hidden] { display: none; }
+.resolve-graph text { font-family: "Segoe UI", sans-serif; text-anchor: middle; }
+.resolve-label { fill: #e3e7eb; font-size: 14px; font-weight: 600; }
+.resolve-number { fill: #ecf0f4; font-size: 11px; font-variant-numeric: tabular-nums; }
+.resolve-endpoint, .resolve-off { fill: #b2bac5; font-size: 11px; }
+.resolve-wires { fill: none; stroke: #8b9297; stroke-width: 1.6; }
+.resolve-wires .resolve-wire-bypass { stroke: #737981; stroke-dasharray: 4 4; }
+.resolve-bypassed use { opacity: .52; }
+.resolve-bypassed .resolve-label { fill: #aeb7c2; }
+
+.resolve-luts { margin: 20px 0; padding: 14px; border:1px solid #383e46; border-radius:9px; }
+.resolve-luts h2 { margin:0; }
+.resolve-luts select { flex:1 1 220px; width:auto; }
+#resolveLutPreview { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+.resolve-swatches { display:grid; grid-template-columns:repeat(10,1fr); height:26px; margin-top:4px; overflow:hidden; border-radius:4px; }
+.builtin-luts { border-top: 1px solid #383e46; margin-top: 16px; padding-top: 8px; }
+.builtin-luts p { margin-bottom: 0; }

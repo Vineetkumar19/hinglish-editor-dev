@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Storylens Chrome connection</title>
+<style>body{font:14px system-ui;background:#14171c;color:#eee;width:330px;padding:18px}input,button{box-sizing:border-box;width:100%;padding:10px;margin:6px 0;background:#242a33;color:white;border:1px solid #555;border-radius:6px}button{cursor:pointer}p{line-height:1.5}small{color:#bbc3ce}</style>
+<h2>Storylens Local Publisher</h2><p>Your editor and local model control uploads. No ChatGPT subscription is needed.</p>
+<label>Editor port<input id="port" type="number" value="8765" min="1024" max="65535"></label>
+<label>Connection code from Publishing Studio<input id="key" type="password" autocomplete="off"></label>
+<button id="connect">Connect & check for tasks</button><button id="check">Check now</button><button id="disconnect">Disconnect</button>
+<button id="youtube">Enable YouTube Studio scheduling</button>
+<small>YouTube Studio access is optional. It lets your local editor schedule only the new video IDs in your reviewed upload batch. Remove this permission in Chrome to disconnect Studio.</small>
+<p id="status" role="status"></p><small>Uses Chrome’s page debugger for native input in its dedicated Instagram or optional Studio tab, then detaches. This code does not read passwords/cookies. Chrome and Storylens must be open. Checks for explicitly requested work every 30 seconds; no daily posting is enabled.</small>
+<script src="popup.js"></script></html>

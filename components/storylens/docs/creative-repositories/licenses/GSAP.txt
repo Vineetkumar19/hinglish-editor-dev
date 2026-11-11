@@ -1,0 +1,16 @@
+GSAP 3.15.0
+Copyright 2026, GreenSock. All rights reserved.
+The original license header is preserved in hinglish_motion/web/vendor/gsap.min.js.
+Upstream license: https://gsap.com/standard-license
+Upstream source: https://github.com/greensock/GSAP
+
+ThreeUI orbital renderer is adapted from Meng To's MIT-licensed Community code.
+Its notice is preserved in ThreeUI.txt. Three.js 0.128.0 uses the notice in Three.txt.
+Changes: seeded random geometry, absolute-time rotations, transparent frame capture,
+aspect-aware placement and explicit resource disposal. No paid Pro/Beta assets.
+
+Awesome Opus 5.5 Videos supplies curated reference ideas, not a model/runtime.
+Its MIT notice is retained in OpusReferences.txt. External posts/media remain external.
+Brag and Taste provide scoped planning principles; their original skills and licenses
+are preserved at the catalogue locations. Existing Storylens fonts retain their
+original licensing in hinglish_captions/fonts.

@@ -1,3 +1,0 @@
-Put only Instagram, Reel, Shorts, or other vertical videos in this folder.
-
-Run CPU.bat after adding your videos. The Premiere XML will use a 1080 x 1920 vertical sequence and will fit the entire video without automatic cropping.

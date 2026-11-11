@@ -1,0 +1,69 @@
+{
+  "duration": 30.0,
+  "templates": {
+    "caption_1": {
+      "name": "Caption 01 - Blue Keyword Stack",
+      "url": "/caption-output/template-demos/caption_1/report.html"
+    },
+    "caption_2": {
+      "name": "Caption 02 - Lime Keyword Zoom",
+      "url": "/caption-output/template-demos/caption_2_medium/report.html"
+    },
+    "caption_3": {
+      "name": "Caption 03 - Serif Soft Focus",
+      "url": "/caption-output/template-demos/caption_3_compact/report.html"
+    },
+    "caption_4": {
+      "name": "Caption 04 - Legacy Serif",
+      "url": "/caption-output/template-demos/caption_4/report.html"
+    },
+    "caption_5": {
+      "name": "Caption 05 - Bold Red Word Clusters",
+      "url": "/caption-output/template-demos/caption_5/report.html"
+    },
+    "typography_1": {
+      "name": "Typography 1",
+      "url": "/caption-output/template-demos/typography_1/report.html"
+    },
+    "typography_2": {
+      "name": "Typography 2",
+      "url": "/caption-output/template-demos/typography_2/report.html"
+    },
+    "typography_3": {
+      "name": "Typography 3",
+      "url": "/caption-output/template-demos/typography_3/report.html"
+    },
+    "typography_4": {
+      "name": "Typography 4",
+      "url": "/caption-output/template-demos/typography_4/report.html"
+    },
+    "typography_5": {
+      "name": "Typography 5",
+      "url": "/caption-output/template-demos/typography_5_interlock/report.html"
+    },
+    "minimal": {
+      "name": "Quiet Minimal",
+      "url": "/caption-output/template-demos/minimal/report.html"
+    },
+    "kinetic_documentary": {
+      "name": "Kinetic Documentary",
+      "url": "/caption-output/template-demos/kinetic_documentary_reference16/report.html"
+    },
+    "documentary_outline": {
+      "name": "Documentary Outline",
+      "url": "/caption-output/template-demos/documentary_outline/report.html"
+    },
+    "documentary_echo": {
+      "name": "Documentary Echo",
+      "url": "/caption-output/template-demos/documentary_echo/report.html"
+    },
+    "cinematic_mixed_draft": {
+      "name": "Cinematic Script Mix",
+      "url": "/caption-output/cinematic-reference-review/cinematic_mixed_draft/vertical/report.html"
+    },
+    "cinematic_clean_draft": {
+      "name": "Cinematic Clean Reveal",
+      "url": "/caption-output/cinematic-reference-review/cinematic_clean_draft/vertical/report.html"
+    }
+  }
+}

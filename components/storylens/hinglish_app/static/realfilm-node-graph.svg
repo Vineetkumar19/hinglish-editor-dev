@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 270" role="img">
+<title>RealFilm V2 Rec.709 · Resolve node structure</title>
+<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2b3037"/></pattern>
+<marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 6 3 0 6z" fill="#9eb57d"/></marker></defs>
+<rect width="1160" height="270" fill="#202328"/><rect width="1160" height="270" fill="url(#grid)"/>
+<g font-family="Segoe UI, sans-serif" fill="#e3e7eb" text-anchor="middle">
+<text x="30" y="112" font-size="12">Input</text><circle cx="30" cy="127" r="5" fill="#a1bf43"/>
+<text x="519" y="204" font-size="12">Output</text><circle cx="519" cy="220" r="5" fill="#a1bf43"/>
+<g fill="none" stroke="#90999f" stroke-width="1.5" marker-end="url(#arrow)">
+<path d="M35 127 C55 127 58 127 81 127"/>
+<path d="M153 127 C171 127 179 127 196 127"/>
+<path d="M35 127 C55 127 58 193 81 193"/>
+<path d="M153 193 C171 193 179 140 196 140"/>
+<path d="M35 127 C55 127 58 61 81 61"/>
+<path d="M153 61 C171 61 179 114 196 114"/>
+<path d="M233 127 H283"/>
+<path d="M354 127 H383"/>
+<path d="M454 127 H483"/>
+<path d="M554 127 H583"/>
+<path d="M654 127 H683"/>
+<path d="M754 127 H783"/>
+<path d="M854 127 H883"/>
+<path d="M954 127 H983"/>
+<path d="M1054 127 H1073"/>
+<path d="M1109 147 V198"/>
+<path d="M1074 220 H1055"/>
+<path d="M984 220 H955"/>
+<path d="M884 220 H855"/>
+<path d="M784 220 H755"/>
+<path d="M684 220 H655"/>
+<path d="M584 220 H527"/></g>
+<rect x="83" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="118" y="125" font-size="11" font-weight="600">MID</text>
+<text x="118" y="140" font-size="10" fill="#b2bac5">01</text>
+<rect x="83" y="173" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="118" y="191" font-size="11" font-weight="600">LOW</text>
+<text x="118" y="206" font-size="10" fill="#b2bac5">02</text>
+<rect x="83" y="41" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="118" y="59" font-size="11" font-weight="600">HI</text>
+<text x="118" y="74" font-size="10" fill="#b2bac5">03</text>
+<rect x="197" y="105" width="36" height="44" rx="6" fill="#394351" stroke="#6e7b89"/>
+<text x="215" y="126" font-size="12">≋</text><text x="215" y="141" font-size="11">04</text>
+<text x="215" y="97" font-size="12">Mixer</text>
+<rect x="284" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="319" y="125" font-size="11" font-weight="600">WB</text>
+<text x="319" y="140" font-size="10" fill="#b2bac5">05</text>
+<rect x="384" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="419" y="125" font-size="11" font-weight="600">CST in</text>
+<text x="419" y="140" font-size="10" fill="#b2bac5">06</text>
+<rect x="484" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="519" y="125" font-size="11" font-weight="600">PUSHPULL</text>
+<text x="519" y="140" font-size="10" fill="#b2bac5">07</text>
+<rect x="584" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="619" y="125" font-size="11" font-weight="600">SAT</text>
+<text x="619" y="140" font-size="10" fill="#b2bac5">08</text>
+<rect x="684" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="719" y="125" font-size="11" font-weight="600">LOOK</text>
+<text x="719" y="140" font-size="10" fill="#b2bac5">09</text>
+<rect x="784" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="819" y="125" font-size="11" font-weight="600">DENSITY</text>
+<text x="819" y="140" font-size="10" fill="#b2bac5">10</text>
+<rect x="884" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="919" y="125" font-size="11" font-weight="600">CURVES</text>
+<text x="919" y="140" font-size="10" fill="#b2bac5">11</text>
+<rect x="984" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="1019" y="125" font-size="11" font-weight="600">CYAN</text>
+<text x="1019" y="140" font-size="10" fill="#b2bac5">12</text>
+<rect x="1074" y="107" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="1109" y="125" font-size="11" font-weight="600">FADE</text>
+<text x="1109" y="140" font-size="10" fill="#b2bac5">13</text>
+<rect x="1074" y="200" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="1109" y="218" font-size="11" font-weight="600">CST out</text>
+<text x="1109" y="233" font-size="10" fill="#b2bac5">14</text>
+<rect x="984" y="200" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="1019" y="218" font-size="11" font-weight="600">HALATION</text>
+<text x="1019" y="233" font-size="10" fill="#b2bac5">15</text>
+<rect x="884" y="200" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="919" y="218" font-size="11" font-weight="600">SOFT-HI</text>
+<text x="919" y="233" font-size="10" fill="#b2bac5">16</text>
+<rect x="784" y="200" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="819" y="218" font-size="11" font-weight="600">DIRT</text>
+<text x="819" y="233" font-size="10" fill="#b2bac5">17</text>
+<rect x="684" y="200" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="719" y="218" font-size="11" font-weight="600">GRAIN</text>
+<text x="719" y="233" font-size="10" fill="#b2bac5">18</text>
+<rect x="584" y="200" width="70" height="40" rx="5" fill="#171d24" stroke="#59636f"/>
+<text x="619" y="218" font-size="11" font-weight="600">CLEAN</text>
+<text x="619" y="233" font-size="10" fill="#b2bac5">19</text>
+</g></svg>

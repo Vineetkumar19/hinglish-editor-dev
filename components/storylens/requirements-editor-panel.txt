@@ -1,0 +1,2 @@
+# Windows-only Project-panel cleanup for the optional Adobe editor panels.
+comtypes==1.4.15; sys_platform == "win32"

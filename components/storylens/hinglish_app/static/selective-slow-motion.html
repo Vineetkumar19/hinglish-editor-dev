@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-token="__APP_TOKEN__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Selective Slow Motion · Storylens</title>
+  <link rel="stylesheet" href="workbench.css">
+  <link rel="stylesheet" href="selective-slow-motion.css">
+  <link rel="stylesheet" href="editor-handoff.css">
+  <link rel="stylesheet" href="tool-layout.css?v=4">
+  <script src="feedback.js"></script>
+  <script src="icons.js"></script>
+  <script src="editor-handoff.js?v=export-row"></script>
+</head>
+<body>
+<main>
+  <header><h1>Selective Slow Motion</h1><a href="/">Storylens</a></header>
+  <form id="scan">
+    <label for="folder">Footage folders · one path per line</label>
+    <div class="input-row">
+      <textarea id="folder" rows="2" placeholder="Paste local folder paths" autocomplete="off"></textarea>
+      <button id="browse" type="button">Browse folder</button>
+      <button id="addVideos" type="button">Add videos</button>
+      <button type="submit">Find moments</button>
+    </div>
+    <input id="files" type="file" multiple accept="video/*,.mxf,.mts,.m2ts,.mkv,.webm" hidden>
+    <p id="filesSummary" class="muted"></p>
+  </form>
+  <div class="input-row"><span id="toolStatus" role="status">Choose footage to find moving shots.</span>
+    <button id="cancel" type="button" hidden>Stop</button>
+    <button id="retry" type="button" hidden>Resume job</button>
+  </div>
+  <progress id="progress" max="100" hidden></progress>
+  <div id="toolError" role="alert" hidden></div>
+  <section id="review" hidden>
+    <h2>Review a moment</h2>
+    <label for="moments">Suggested source ranges</label>
+    <div class="input-row"><select id="moments"></select>
+      <button id="batch" type="button">Render recommended speeds</button></div>
+    <details id="skipped"><summary>Scan details</summary><ul id="scanDetails"></ul></details>
+    <div id="momentEditor" hidden>
+      <div class="slow-review">
+        <div>
+          <video id="sourcePreview" controls muted playsinline preload="metadata" aria-label="Original speed preview"></video>
+          <p id="sourceNote" class="muted"></p>
+        </div>
+        <form id="render">
+          <h3>Speed points</h3>
+          <p class="muted">Offsets use source seconds. Speed changes continuously between points.</p>
+          <label for="variant">Variant to edit</label>
+          <select id="variant"><option>0.7×</option><option>0.6×</option><option>0.5×</option></select>
+          <div id="pointRows"></div>
+          <svg id="curve" viewBox="0 0 280 60" role="img" aria-label="Speed curve"></svg>
+          <p id="curveInfo" class="muted"></p>
+          <div class="input-row">
+            <button id="addPoint" type="button">Add point</button>
+            <button id="addRamps" type="button">Ramp from 1×</button>
+            <button id="resetPoints" type="button">Reset variant</button>
+          </div>
+          <fieldset id="alternates">
+            <legend>Speeds to preview</legend>
+            <label><input type="checkbox" checked> 0.7×</label>
+            <label><input type="checkbox" checked> 0.6×</label>
+            <label><input type="checkbox" checked> 0.5×</label>
+          </fieldset>
+          <div class="render-options">
+            <label>Frame method<select id="backend"><option value="interpolate">Automatic / motion interpolation</option><option value="repeat">Frame sampling / repetition</option><option value="blend">Frame blending</option></select></label>
+            <label>Audio<select id="audio"><option value="mute">Mute</option><option value="pitch">Preserve pitch at flat speeds</option><option value="separate">Keep original audio separately</option></select></label>
+          </div>
+          <div class="input-row">
+            <label><input id="lock" type="checkbox"> Lock action to prior preview frame</label>
+            <label>Fixed slot frames <input id="slot" type="number" min="1" step="1" placeholder="Optional"></label>
+          </div>
+          <button type="submit">Render selected previews</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section id="results" hidden>
+    <div class="input-row"><h2>Slow Motion review</h2><button id="open" type="button" hidden>Open Slow Motion folder</button>
+      <a id="recipe" download>Download speed points</a><a id="manifest" download hidden>Download export index</a></div>
+    <p id="outputRange" class="muted"></p>
+    <div id="outputs" class="shot-grid"></div>
+  </section>
+  <details id="slowHistory" class="tool-history" hidden><summary>History</summary>
+    <button id="restoreSlow" type="button">Open last review</button>
+  </details>
+</main>
+<script src="selective-slow-motion.js?v=history"></script>
+</body>
+</html>

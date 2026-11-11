@@ -1,0 +1,32 @@
+{
+  "installed_at": "2026-11-03T20:09:33.282344+00:00",
+  "feature": "Cricket Desk",
+  "entry": "Storylens > Show tools > Cricket Desk",
+  "direct_route": "http://127.0.0.1:8765/?tool=cricketDesk",
+  "inbox": "http://127.0.0.1:8879/",
+  "same_saved_database_and_schedule": true,
+  "server_restart": false,
+  "new_research_or_posting_job": false,
+  "scope": "Storylens web feature menu; native Adobe panels unchanged",
+  "backup": "D:\\Workflow_Automation\\cricket-meme-inbox\\storylens-integration\\backup-20261104-013933",
+  "sha256": {
+    "index.html": "639c23924542aebdf479e6662d097b512009aca45e2d62b41e7bfe6b31b79cd9",
+    "app.js": "35390bf150c3f1bf10c8d6aadf8e6ac8abe420467172fe1643c607d08cdf2449",
+    "icons.js": "9bdbbe5c2f2ee354f36cd7b72c1c3783b3d3d85beaacafafc087d7cab1999657",
+    "feature-tools.js": "0796838ff280ec3ca64654b202a52113182cf9380289ca9ff56d427187bcd4cf"
+  },
+  "browser_validation": "Feature search/menu activation and real inbox render verified",
+  "validated_at": "2026-11-03T20:13:42.366264+00:00",
+  "iframe_mode": "single direct iframe to existing 8879 service",
+  "embedded_settings_interaction": "Computer-use click/focus target unavailable; not independently verified",
+  "standalone_settings": "Previously verified; see ui-update-result.json",
+  "candidates": 80,
+  "feeds_enabled": true,
+  "gpt_enabled": true,
+  "screenshot": "D:\\Workflow_Automation\\cricket-meme-inbox\\storylens-integration\\feature-visible.png",
+  "task_ui_actions_finished": true,
+  "backups": [
+    "D:\\Workflow_Automation\\cricket-meme-inbox\\storylens-integration\\backup-20261104-013730",
+    "D:\\Workflow_Automation\\cricket-meme-inbox\\storylens-integration\\backup-20261104-013933"
+  ]
+}

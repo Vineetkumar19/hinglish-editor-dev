@@ -1,0 +1,54 @@
+{
+  "scope": "Bounded CPU/synthetic-only final review; no real-owner audio, model, library scan, network, browser, Adobe, service, GPU or video/full-mix render",
+  "tests": {
+    "total": 79,
+    "audition": 21,
+    "prior_pipeline_and_focused": 58,
+    "passed": true,
+    "elapsed_seconds": 5.833
+  },
+  "fixtures": "Injected stdlib WAV encoder plus one default PyAV PCM audition on a two-second synthetic 8kHz mono window; no external FFmpeg process",
+  "live_validation": {
+    "executed": false,
+    "blocker": "Suite owns authentication, job-bound routes/UI/native and current inference lease. No normal running-app audition or owner listening was attempted."
+  },
+  "findings": [
+    {
+      "status": "confirmed_component_bound_limitation_unfixed",
+      "trigger": "Set the snapshot input-size cap below a tiny source fixture size",
+      "expected": "Reject an oversized input before hashing its entire source",
+      "actual": {
+        "status": "failed",
+        "source_verifier_calls_before_limit": 1
+      },
+      "impact": "The size cap prevents snapshot copying but does not prevent the earlier whole-source verification hash. A very large source can consume disk I/O before rejection. No large file was created or read by this probe."
+    }
+  ],
+  "repairs_after_review": false,
+  "files": [
+    {
+      "path": "hinglish_sound/audition.py",
+      "sha256": "1647eaa0aee37cda19b4ffae2b06b097740c8ffd822968ab84fddad35e233d5e"
+    },
+    {
+      "path": "tests/test_sound_audition.py",
+      "sha256": "23fc25d478473cd13a2043ac907430eeb607420fb5460f4c3633c90b5ab1edf8"
+    },
+    {
+      "path": "hinglish_sound/recommendation_pipeline.py",
+      "sha256": "540f81a1a4afcfeabc4bdd1b249d11489465618532fad3ef36a5dda650be4795"
+    },
+    {
+      "path": "hinglish_sound/recommendations.py",
+      "sha256": "9f8ceb524bdd00dd4b037235f045b7376aee0e2040562e8b330b04dae615c983"
+    },
+    {
+      "path": "hinglish_sound/recommendation_runtime.py",
+      "sha256": "53f4d2f2666c7332d28f3221671b81ce000833e8bb713718909011f96498ffb3"
+    },
+    {
+      "path": "tests/test_sound_recommendations.py",
+      "sha256": "ec7b68064c43cc6269ad0b9f864abbd4ef80b4c42b3d1a32828eb5a04f45ab4a"
+    }
+  ]
+}

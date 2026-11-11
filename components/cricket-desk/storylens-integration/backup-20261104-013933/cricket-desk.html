@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cricket Desk · Storylens</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f8f5;color:#26382d;font:13px/1.5 "Segoe UI",system-ui,sans-serif}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-bottom:1px solid #e3e7e2}
+nav span{color:#66736a}nav div{display:flex;gap:12px;align-items:center}a{color:#236346;text-decoration:none}a:hover{text-decoration:underline}
+button{font:inherit;border:1px solid #d7ddd6;border-radius:5px;padding:5px 10px;background:#fff;color:inherit;cursor:pointer}
+iframe{display:block;width:100%;height:calc(100vh - 51px);min-height:640px;border:0;background:#f7f8f5}
+details{padding:10px 14px;color:#66736a}summary{cursor:pointer}code{overflow-wrap:anywhere}a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #236346;outline-offset:3px}
+@media(max-width:520px){nav{flex-wrap:wrap}nav span{font-size:12px}iframe{min-height:680px}}
+</style></head><body>
+<nav aria-label="Cricket Desk workspace"><span>Your saved inbox, feeds and GPT schedule</span><div><button id="reload" type="button">Reload inbox</button><a href="http://127.0.0.1:8879/" target="_blank" rel="noopener">Open full view ↗</a></div></nav>
+<iframe id="inbox" src="http://127.0.0.1:8879/" title="Cricket Desk inbox"></iframe>
+<details><summary>Inbox not available?</summary><p>Open <code>D:\Workflow_Automation\cricket-meme-inbox\Launch Cricket Desk.vbs</code>, then choose Reload inbox. Your saved posts and research settings are kept.</p></details>
+<script>document.getElementById('reload').onclick=()=>{document.getElementById('inbox').src='http://127.0.0.1:8879/'};</script>
+</body></html>

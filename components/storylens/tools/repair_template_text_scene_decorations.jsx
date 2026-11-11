@@ -1,0 +1,7 @@
+(function(){var root='D:/Full Drive/remove silence/',report={phase:'starting'},renderBefore=app.disableRendering;function save(){var f=new File(root+'output/template-text-repair/scene-decoration-progress.json');f.encoding='UTF-8';f.open('w');f.write(JSON.stringify(report));f.close();}try{
+if(!app.project.file||app.project.file.fsName.indexOf('Storylens recovery')<0)throw Error('Recovery project required.');
+$.evalFile(new File(root+'editor_plugins/template-text/model.js'));$.evalFile(new File(root+'editor_plugins/template-text/host.jsx'));
+var master=app.project.itemByID(24516),seen={},list=[],queue=[];for(var i=1;i<=master.numLayers;i++)if(master.layer(i).source instanceof CompItem)queue.push(master.layer(i).source);
+while(queue.length){var c=queue.pop();if(seen[c.id])continue;seen[c.id]=true;if(c.name.indexOf('-1793030591545-')<0)continue;list.push(c);for(i=1;i<=c.numLayers;i++){var s=c.layer(i).source;if(s&&s instanceof CompItem)queue.push(s);}}
+if(list.length!==492)throw Error('Private repair graph changed: '+list.length);app.beginUndoGroup('Template Text decoration repair');app.disableRendering=true;report.phase='cleaning';save();report.result=SLTemplateText.cleanDecorations(list);report.phase='complete';
+}catch(e){report.phase='failed';report.error=String(e);}finally{try{app.endUndoGroup();}catch(_){}app.disableRendering=renderBefore;save();}})();

@@ -1,0 +1,46 @@
+test_actual_apartment_request_has_explicit_physical_criteria (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_actual_apartment_request_has_explicit_physical_criteria) ... FAIL
+test_criteria_call_preserves_full_source_fields_and_independent_vetoes (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_criteria_call_preserves_full_source_fields_and_independent_vetoes) ... FAIL
+test_named_places_and_other_physical_claims_do_not_enter_generic_family (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_named_places_and_other_physical_claims_do_not_enter_generic_family) ... ok
+test_negative_criteria_answer_is_not_reasked_for_an_approval (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_negative_criteria_answer_is_not_reasked_for_an_approval) ... FAIL
+test_room_request_uses_same_bounded_family_without_losing_keyword (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_room_request_uses_same_bounded_family_without_losing_keyword) ... FAIL
+
+======================================================================
+FAIL: test_actual_apartment_request_has_explicit_physical_criteria (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_actual_apartment_request_has_explicit_physical_criteria)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_residential_criteria.py", line 25, in test_actual_apartment_request_has_explicit_physical_criteria
+    self.assertIsNotNone(criteria,'The actual apartment request needs bounded physical criteria.')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : The actual apartment request needs bounded physical criteria.
+
+======================================================================
+FAIL: test_criteria_call_preserves_full_source_fields_and_independent_vetoes (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_criteria_call_preserves_full_source_fields_and_independent_vetoes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_residential_criteria.py", line 59, in test_criteria_call_preserves_full_source_fields_and_independent_vetoes
+    self.assertEqual(result.get('physical_criteria_revision'),'broll-residential-v1')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'broll-residential-v1'
+
+======================================================================
+FAIL: test_negative_criteria_answer_is_not_reasked_for_an_approval (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_negative_criteria_answer_is_not_reasked_for_an_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_residential_criteria.py", line 66, in test_negative_criteria_answer_is_not_reasked_for_an_approval
+    self.assertEqual(checker.model.look.call_count,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_room_request_uses_same_bounded_family_without_losing_keyword (tests.test_broll_residential_criteria.ResidentialCriteriaTests.test_room_request_uses_same_bounded_family_without_losing_keyword)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "A:\Full Drive\remove silence\tests\test_broll_residential_criteria.py", line 38, in test_room_request_uses_same_bounded_family_without_losing_keyword
+    self.assertIsNotNone(criteria)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.389s
+
+FAILED (failures=4)

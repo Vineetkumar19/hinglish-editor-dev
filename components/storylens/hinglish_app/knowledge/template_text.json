@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "owner_guidance_date": "2026-10-26",
+  "density": "Only the main heading and a short subheading. Automatically hide empty text layers, long Lorem Ipsum, paragraphs, unsupported dates and unused placeholders. Do not fill every text layer or invent wording to occupy space.",
+  "cricket_priorities": [
+    "Player names",
+    "Team names",
+    "Runs",
+    "Wickets",
+    "Catches",
+    "Important moments",
+    "Dates and time",
+    "Battles and rivalries",
+    "Toss",
+    "Batting",
+    "Bowling",
+    "Fielding",
+    "Other relevant cricket terms and key facts supported by the spoken script"
+  ],
+  "evidence": "Use the actual final timeline and the script words spoken during each visible text interval. Never invent a score, statistic, date, result or player. Keep numbers associated with the correct player/team/event. If the relevant information is absent or cannot fit in a short heading/subheading, hide the layer.",
+  "style": "Preserve the template's existing font, text animation and motion; do not add large paragraphs. Empty reveal keyframes are not empty layers if later keyframes contain text. Protect text used as mattes and expression-driven controls.",
+  "decoration": "When hiding text, also hide its owned underlines, bars, torn-paper labels and backplates. Preserve photo frames, image placeholders, shared artwork and scene backgrounds. Restore the owned decorations when a heading is restored.",
+  "coverage": "A successful pass must visibly insert short script-grounded headings throughout supported scenes, not just hide sample words. Review missing-scene coverage; do not call a nearly empty result complete."
+}

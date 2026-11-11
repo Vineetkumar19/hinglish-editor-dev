@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<PremiereBlurTemplate><VideoFilterComponent ObjectID="271" ClassID="d10da199-beea-4dd1-b941-ed3a78766d50" Version="9">
+		<Component Version="7">
+			<Params Version="1">
+				<Param Index="0" ObjectRef="632" />
+				<Param Index="1" ObjectRef="633" />
+				<Param Index="2" ObjectRef="634" />
+			</Params>
+			<ID>6</ID>
+			<DisplayName>Gaussian Blur (Legacy)</DisplayName>
+		</Component>
+		<MatchName>AE.ADBE Gaussian Blur 2</MatchName>
+		<VideoFilterType>2</VideoFilterType>
+	</VideoFilterComponent>
+	<VideoComponentParam ObjectID="632" ClassID="a4ff2d6e-7ac2-44f8-9d52-17d9ca50e542" Version="10">
+		<Name>Blurriness</Name>
+		<UpperUIBound>50</UpperUIBound>
+		<ParameterID>1</ParameterID>
+		<StartKeyframe>-91445760000000000,25.,0,0,0,0,0,0</StartKeyframe>
+		<LowerBound>0</LowerBound>
+		<UpperBound>30000</UpperBound>
+	</VideoComponentParam>
+	<VideoComponentParam ObjectID="633" ClassID="6e02e8bb-2569-46b2-8ab1-4ab11c43e9c8" Version="10">
+		<Name>Blur Dimensions</Name>
+		<ParameterID>2</ParameterID>
+		<DiscontinuousInterpolate>true</DiscontinuousInterpolate>
+		<StartKeyframe>-91445760000000000,0,0,0,0,0,0,0</StartKeyframe>
+		<LowerBound>0</LowerBound>
+		<UpperBound>2</UpperBound>
+	</VideoComponentParam>
+	<VideoComponentParam ObjectID="634" ClassID="cc12343e-f113-4d3b-ae05-b287db77d461" Version="10">
+		<Name> </Name>
+		<ParameterID>3</ParameterID>
+		<StartKeyframe>-91445760000000000,true,0,0,0,0,0,0</StartKeyframe>
+	</VideoComponentParam>
+	</PremiereBlurTemplate>

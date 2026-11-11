@@ -1,0 +1,139 @@
+EPIDEMIC: DENSITY, CUE CONTRACT AND MIXING FOLLOW-UP
+24 October 2026
+
+Scope
+Reused acquired Studio build 6cdf5da and its previously parsed example data.
+New calculations below use the exact saved clip schedules. Read selected client
+code as inert text and ran a bounded REA follow-up. No owner video was uploaded,
+no account/credit/subscription action occurred, no catalogue audio was acquired,
+and no live Studio generation or audio listening was performed in this pass.
+
+1. The owner's dense-two-second comparison IS supported by sample timelines
+
+Example            Scheduled SFX / length   Peak SFX overlap   Most new SFX starts/2s
+Welcome                    39 / 18.04s             5                    9
+Product Showcase           28 / 22.37s             4                    6
+Brand Showcase             78 / 40.24s             6                    9
+Product Demo Ad            15 / 12.00s             5                    5
+Forest                     14 / 35.00s             2                    2
+Winter                     10 / 37.50s             1                    2
+
+Music is excluded from these SFX counts. This goes beyond the prior overlap
+analysis: Welcome really starts NINE effect clips inside [0.8,2.8), rather than
+merely keeping several long beds active. Its sub-second light swishes repeat
+at 0.80, 0.84, 0.92, 1.12, 1.40 and 1.92 seconds; mouse clicks/typing add detail.
+The dense Welcome window's swish durations range from .20 to .60 seconds.
+These schedules support rapid, layered graphic accents. They do not establish
+the visual contacts without frame comparison or prove automatic generation.
+
+Data/method: output/sound-research/epidemic-studio/dense-comparison-2026-10-24.json.
+Half-open timeline intervals, positive-gain/non-muted clips, individual start
+times. Source: sample-layer-analysis.json, independently literal-parsed from
+workspace-types-DU-eqcuU.js, SHA256
+73dee9c1e9b6ab81bf4c3220c558a7e2e2807fc7d88041f1fdf036ccc47a90f2.
+Scheduled clips are not acoustically separated voices; one asset may itself
+contain composite sounds. These remain public authored examples, not new
+automatic generations. Earlier live checks corroborated Welcome/Product Demo
+arrangements; this pass did not repeat browser observation.
+
+2. The client preserves dense sections; it does not impose our motif budget
+
+File: output/sound-research/epidemic-studio/followup-bundles/
+useTimelineSuggestions-Dry_aMx2.js, SHA256
+03965efaa093c1c6d2e899468bcb0bfd90517b52a3e050142ee3d2c3327553a7.
+Offsets below are zero-based Python Unicode character positions.
+
+@4886: U=9,W=10. Nine is the retained alternative recommendation count;
+10 milliseconds is the interval-packing clearance. Neither is an SFX budget.
+@8672, function Q: sections sort by timeline start. A lane is reusable only
+for the same category and when its previous section ends at least W before
+the new section. Exact condition: r.startTimeMs+r.durationMs+W<=t.startTimeMs.
+When it does not fit, the converter allocates another lane; it does not drop
+the overlapping section. The inspected converter exposes no three-role-per-
+event or five-effect global cap.
+
+@7683, function de: picks the first recommendation, retains alternatives,
+keeps section timeline start, and gives the source excerpt its own buffer
+offset. Exact duration bound: Math.min(e.durationMs/1e3,n.duration-r).
+This uses the requested TIMELINE section duration and source remaining length;
+it does not blindly play an entire multi-variation recording. Segment.time
+becomes bufferOffset; segment.duration is retained in recommendation metadata
+but is not an additional bound in this converter. Start offsets are useful
+excerpt anchors, not proof of a recognized visual impact time.
+
+3. Returned generation sections are not a disclosed intelligent mixer recipe
+
+File: bundles/GqlClientContext-DjJSVFei.js under the same evidence root,
+SHA256 458cd9e3f540d524c17e05efe08858dbef53bb43c3608efdc94d96d51293bdaf.
+@8291 VideoTimeline query requests section ID, timeline start/duration,
+description/category, candidate assets and optional source segments/anchors.
+It requests no per-section volume, fade, pan, EQ or automation fields.
+The converter above initially applies type/category headroom. Saved-project
+settings are a separate path. Therefore this queried generation path does not
+establish a private model computing a precise EQ/gain recipe per new section.
+It does establish a sequence of independent section placements and excerpts.
+
+Earlier mixer findings remain applicable: all sources sum through clip/channel/
+role buses; editor initialization engages its master limiter. The scheduling
+loop does not divide gain by concurrent clip count. Speech ducking is an
+optional bus control. No universal active EQ/pan/reverb preset was established.
+Full hashes/locations: docs/epidemic-layer-mixer-code-2026-10-24.txt.
+
+4. The direct Storylens differences to address
+
+This is a reconstruction recommendation, not recovered proprietary AI:
+- Represent a graphic's small sub-events and short source excerpts, so a 2s
+  animated sequence can legitimately hold several staggered accents.
+- Preserve baseline word accents AND let the creative motif planner augment
+  speech/graphic events. Passing only physical scene evidence to the second
+  planner cannot construct motion-based layers for ordinary talking footage.
+- Keep physical Foley evidence conservative, while explicitly permitting
+  motivated nonliteral graphic/comedy sounds. These are different purposes.
+- Compare actual motif coverage and sound durations against the owner's final
+  edit, rather than counting a continuous bed as newly triggered detail.
+- Evaluate group attenuation: current Storylens subtracts 10*log10(group size)
+  and 4dB speech ducking. Three ingredients therefore lose about 8.77dB before
+  other safety caps. Independent role envelopes and short anticipations/tails
+  can preserve clarity without making every extra layer equally weak.
+None of these recommendations requires copying Epidemic's catalogue or putting
+five arbitrary effects everywhere. Denser relevant output needs more motivated
+sub-events and suitable short excerpts, not wildlife under indoor dialogue.
+
+5. Current primary-source model boundary
+
+Epidemic's 16 Sep engineering article describes specialized AuroLA retrieval,
+offline audio/metadata indexing, online hybrid search and a separate pairwise
+audio-text judge. That is substantially different from a generic text LLM
+reading broad CLAP labels. It is not the complete video-to-timeline planner.
+https://www.epidemicsound.com/blog/state-of-the-art-audio-retrieval/
+
+Version caution: the currently served arXiv v2, dated 5 Oct 2026, describes
+two-stage InfoNCE embedding retrieval; its text contains no re-ranking or
+HybridNCE section. The September article and older project/code descriptions
+must not be collapsed into one verified current production recipe. This
+document discrepancy does not establish removal from production.
+https://arxiv.org/pdf/2602.18010 (v2 pages 1,4-5; equations 1-6).
+No model weights were downloaded or deployed; licensing/production checkpoint
+identity remain separate checks.
+
+6. REA evidence and honest limits
+
+Fresh bounded analysis: selected main-CkfoEK3_.js and the suggestions converter,
+2GB worker heap, 60s per source, bounded semantic records. Converter parsed;
+main again exhausted its heap. Do not repeat the unchanged analysis or claim
+complete application coverage. Ordinary inert-text search of main found no
+literal prompt/density/soundtrack strings; this is a bounded negative search,
+not proof about private code.
+Parent Evidence: ev_250e986f4d7bad87a85c69f9a0123baadccf8b62f1f6e4b3e700a454d13b7dcb.
+View: ev_10680eb878bd88c10481b36c397b7be2fefa3597c5db51e4705cc2283b3aa5d9.
+Complete retained records exported to:
+output/sound-research/epidemic-studio/rea-deeper-followup-20261024.json.
+No earlier-session retained records were available in this new REA session;
+the earlier exported evidence files were preserved and consulted locally.
+
+New conclusions: the user's density objection is supported by concrete sample
+schedules; excerpt/sub-event planning and the lack of client-side suppression
+are stronger actionable leads than another sparse Forest demonstration. Private
+server planner, training/evaluation policy and expert audible quality remain
+unrecovered. No Storylens runtime edit, new generation or listening validation
+was performed by this research task.

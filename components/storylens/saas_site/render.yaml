@@ -1,0 +1,51 @@
+# Deployment template. This uses a paid persistent-disk service, NOT free hosting.
+# Review the provider's price and connect your own account before applying.
+services:
+  - type: web
+    name: storylens
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./saas_site/Dockerfile.api
+    dockerContext: .
+    healthCheckPath: /api/health
+    disk:
+      name: customer-data
+      mountPath: /data/hinglish
+      sizeGB: 5
+    envVars:
+      - key: HINGLISH_SAAS_ORIGIN
+        sync: false
+      - key: HINGLISH_SAAS_PRODUCTION
+        value: "1"
+      - key: HINGLISH_SAAS_DATABASE_URL
+        sync: false
+      - key: HINGLISH_SAAS_SALES_ENABLED
+        value: "0"
+      - key: HINGLISH_SAAS_WORKER_ENABLED
+        value: "0"
+      - key: HINGLISH_SAAS_DATA_DIR
+        value: /data/hinglish
+      - key: HINGLISH_SAAS_LICENSE_PRIVATE_KEY
+        sync: false
+      - key: HINGLISH_SAAS_RAZORPAY_KEY_ID
+        sync: false
+      - key: HINGLISH_SAAS_RAZORPAY_KEY_SECRET
+        sync: false
+      - key: HINGLISH_SAAS_RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: HINGLISH_SAAS_SMTP_HOST
+        sync: false
+      - key: HINGLISH_SAAS_SMTP_USER
+        sync: false
+      - key: HINGLISH_SAAS_SMTP_PASSWORD
+        sync: false
+      - key: HINGLISH_SAAS_MAIL_FROM
+        sync: false
+      - key: HINGLISH_SAAS_SUPPORT_EMAIL
+        value: vineetkd418@gmail.com
+      - key: HINGLISH_SAAS_SUPPORT_ADMIN_EMAILS
+        value: vineetkd418@gmail.com
+      - key: HINGLISH_SAAS_SUPPORT_TOTP_SECRET
+        sync: false
+      - key: HINGLISH_SAAS_DEVICE_LIMIT
+        value: "1"

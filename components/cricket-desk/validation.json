@@ -1,0 +1,17 @@
+{
+  "candidate_count": 55,
+  "gpt_off": true,
+  "feeds_off": true,
+  "gpt_run_rejected_while_off": true,
+  "manual_focus_saved_and_restored": true,
+  "real_source_image_download": {
+    "path": "D:\\Workflow_Automation\\cricket-meme-inbox\\data\\media\\c8f0f350108b2269d224.png"
+  },
+  "export_test": {
+    "folder": "D:\\Workflow_Automation\\cricket-meme-inbox\\data\\exports\\20261104-011642",
+    "images": 1,
+    "items": 1
+  },
+  "gpt_live_research_executed": false,
+  "browser_ui": "Controls rendered/saved in Chrome; screenshot retained. Chrome connector later disconnected; no further UI actions attempted."
+}

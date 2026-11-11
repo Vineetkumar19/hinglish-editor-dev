@@ -1,0 +1,21 @@
+{
+  "name": "Harvey",
+  "repository": "ethanplusai/harvey",
+  "url": "https://github.com/ethanplusai/harvey",
+  "reviewed": "2026-10-31",
+  "identity": "Screenshot title and autonomous sales-agent tagline match the repository README.",
+  "observed_commit": "4237f07f5873e270c362b43aec76e60fc4faa9cf",
+  "purpose": "Sales automation: business discovery, company research, personalized email drafts, approved sending and reply handling.",
+  "architecture": [
+    "Deterministic heartbeat prioritizes work; models handle judgment and writing.",
+    "SQLite persists pipeline state, observations, campaigns and replies.",
+    "Editable Markdown knowledge and prompts; dashboard/outbox; deterministic send gates and pause controls."
+  ],
+  "source_scope": "GitHub repository page and README inspected; source code and full runtime not audited.",
+  "runtime_installed": false,
+  "integrated_into_storylens": false,
+  "authorization": "Owner requested persistent repository memory only. No mail/account connections, background agent, subscription calls or outreach started.",
+  "compatibility_note": "README documents Codex provider for macOS/Linux; Windows runtime compatibility has not been verified.",
+  "snapshot": "docs/creative-repositories/harvey/README.source.md",
+  "snapshot_sha256": "5cc77bb2d2c134d9e1405b2255ab276129929968cc9eb1e27393f6b86092981d"
+}

@@ -1,0 +1,4 @@
+# Optional browser support. Core agents still use only the standard library.
+# Python 3.12 recommended; use an installed Chrome or Edge browser.
+playwright>=1.51,<2
+tzdata>=2025.1

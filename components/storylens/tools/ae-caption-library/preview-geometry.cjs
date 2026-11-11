@@ -1,0 +1,2 @@
+// Evaluate only the deterministic surface projection; never connect to AE.
+const fs=require('fs'),vm=require('vm');const request=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));const g={};vm.runInNewContext(fs.readFileSync('editor_plugins/caption-3d/engine.jsx','utf8'),{$:{global:g},Math,Error});const results=request.map(x=>({id:x.id,geometry:g.StorylensSurfaceTitles.geometry(x.plan,x.specs,1080,1920)}));process.stdout.write(JSON.stringify(results));

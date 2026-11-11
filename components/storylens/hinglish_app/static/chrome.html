@@ -1,0 +1,23 @@
+<!doctype html><html lang="en" data-token="__APP_TOKEN__"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local Chrome connection · Storylens</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="publisher.css">  <script src="feedback.js"></script>
+</head>
+<body><header class="topbar"><div class="brand">Storylens</div><a href="/">Editor</a><a href="prepare-post.html">Prepare and Post</a></header><main>
+<section class="intro"><p class="eyebrow">YOUR COMPUTER. YOUR MODEL.</p><h1>Connect local Chrome.</h1><p>Qwen writes the captions. Your local editor carries out the upload through Instagram in Chrome. No OpenAI subscription or Buffer account is needed.</p></section>
+<p id="status" role="status">Checking connection…</p>
+<div class="publish-grid"><section class="publish-panel"><h2>One-time setup</h2>
+<p>Install the included <b>Storylens Local Publisher</b> extension in the Chrome profile where you use Instagram.</p>
+<ol><li>Open Chrome’s extensions page, then enable <b>Developer mode</b>.</li><li>Choose <b>Load unpacked</b> and select this folder:</li></ol>
+<p><code id="folder">editor_plugins/storylens-chrome</code></p><button id="openFolder">Open extension folder</button>
+<p>Native input uses Chrome’s page debugger permission, which can inspect and control browser tabs. The code attaches to its dedicated Instagram tab for the selected MP4, or its optional YouTube Studio tab for reviewed release dates, then detaches. It does not request Windows administrator access or read passwords/cookies.</p>
+<p>Open its toolbar popup. Paste the connection code below, leave port <b id="port">8765</b>, then choose <b>Connect & check for tasks</b>.</p>
+<h3>YouTube upload and scheduling</h3><p>For an existing installation, reload <b>Storylens Local Publisher 0.4.0</b> once in Chrome's extensions page. In its popup choose <b>Enable YouTube Studio scheduling</b> and approve the optional Studio site access. This access persists until you remove it in Chrome.</p><p>Storylens uploads your reviewed campaign exports first, then schedules only their returned YouTube IDs using one Studio tab. The editor verifies the exact release dates before reporting success. Keep Chrome and Storylens open until verification finishes.</p>
+<button id="pair">Show connection code</button><input id="code" type="password" readonly hidden aria-label="Local Chrome connection code"><button id="copy" hidden>Copy code</button>
+<p class="muted">Keep the code private. It permits only the bounded local browser work queue; it is not the editor’s full control key.</p>
+<button id="inspect">Check Instagram account</button><button id="revoke">Revoke Chrome connection</button>
+</section><section class="publish-panel"><h2>Choose your destinations</h2><p>Save the exact account for each creator profile. The extension checks the signed-in account again before sharing.</p>
+<label for="profile">Creator profile</label><select id="profile"><option value="general">General</option><option value="cricket">Cricket</option><option value="gaming">Gaming</option></select>
+<label for="account">Instagram username</label><input id="account" placeholder="@your_username" autocomplete="off"><button id="save">Save destination</button><ul id="accounts"></ul>
+<h2>Ask your editor</h2><p>Attach one finished portrait MP4 and write:</p><p><b>Upload this video to Instagram @your_username with a caption about the video.</b></p>
+<p>Or: <b>Check my Instagram account in Chrome.</b></p><p>Your configured local Qwen model handles requests and writing. Uploads require internet, Chrome and the editor to stay open. No daily schedule is switched on by connecting Chrome.</p>
+<p class="muted">Reels up to 3 minutes and 2 GB. Instagram may ask you to complete login or verification yourself. Stories are not verified in the desktop uploader; the editor reports this rather than posting something else.</p>
+</section></div><section class="publish-panel"><h2>Chrome tasks & receipts</h2><div id="jobs"></div></section>
+</main><script src="chrome.js"></script><script src="feature-tools.js?v=20261024-inside-only-1"></script></body></html>

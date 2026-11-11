@@ -1,0 +1,98 @@
+{
+  "timeline": {
+    "id": "golden-synthetic-sequence",
+    "duration": 12.0,
+    "fps": "30"
+  },
+  "script": "Synthetic contract fixture only — no real video was analysed.",
+  "creator_context": {
+    "brief": "Preserve this complete synthetic creator profile. Do not describe these tones as real water, a real horse or accepted music.",
+    "references": [
+      {
+        "text": "No model, inference, rendering, native import or creative acceptance occurred."
+      }
+    ]
+  },
+  "library_revision": "golden-synthetic-v1",
+  "fixture": true,
+  "music_sections": [
+    {
+      "id": "opening",
+      "start": 0.0,
+      "end": 2.0,
+      "mood": "upbeat",
+      "intent": "playful instrumental",
+      "role": "bed",
+      "level_db": -16.0,
+      "evidence": {
+        "kind": "script",
+        "precision": "phrase",
+        "confidence": 0.8,
+        "description": "Synthetic playful-opening evidence for integration only"
+      }
+    },
+    {
+      "id": "rejected",
+      "start": 5.0,
+      "end": 7.0,
+      "mood": "upbeat",
+      "intent": "playful instrumental",
+      "role": "bed",
+      "level_db": -16.0,
+      "decision": -1,
+      "evidence": {
+        "kind": "script",
+        "precision": "phrase",
+        "confidence": 0.8,
+        "description": "Fixture rejection must stay rejected"
+      }
+    },
+    {
+      "id": "partial",
+      "start": 8.0,
+      "end": 12.0,
+      "mood": "upbeat",
+      "intent": "playful instrumental",
+      "role": "bed",
+      "level_db": -16.0,
+      "evidence": {
+        "kind": "script",
+        "precision": "phrase",
+        "confidence": 0.8,
+        "description": "Four-second request, three-second available source; never silently loop"
+      }
+    }
+  ],
+  "sfx_events": [
+    {
+      "id": "water",
+      "start": 3.0,
+      "end": 5.0,
+      "sound_type": "foley",
+      "intent": "pool water lapping",
+      "role": "detail",
+      "level_db": -14.0,
+      "evidence": {
+        "kind": "vision",
+        "precision": "visual_interval",
+        "confidence": 0.95,
+        "description": "SYNTHETIC fixture evidence says visible moving pool water; no Vision inference occurred"
+      }
+    },
+    {
+      "id": "cache-miss",
+      "start": 6.0,
+      "end": 7.0,
+      "sound_type": "foley",
+      "intent": "uncached water movement",
+      "role": "detail",
+      "level_db": -14.0,
+      "evidence": {
+        "kind": "vision",
+        "precision": "visual_interval",
+        "confidence": 0.95,
+        "description": "Synthetic pool water; cache miss must not start a model"
+      }
+    }
+  ]
+}

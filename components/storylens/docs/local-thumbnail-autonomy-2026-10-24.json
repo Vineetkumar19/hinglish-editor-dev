@@ -1,0 +1,50 @@
+{
+  "request": "Chennai Super Kings thumbnail, local-model creative decisions only; Codex repairs failures without authoring the design",
+  "chat": "2fd0c11ec5ee4fc4",
+  "preview_port": 8866,
+  "weight_training": false,
+  "cloud_image_inference": false,
+  "status": "Latest team-bound retry submitted through Storylens; waiting for shared GPU access; no valid CSK result verified",
+  "repairs": [
+    "Task-specific image routing preserves the actual brief and creator guidance without unrelated tool instructions",
+    "Style references travel separately from portrait/background inputs",
+    "Local Vision reference analysis and measured region boxes guide the local creative planner",
+    "Model-selected typed photo assets, editable headline, pixel coordinates and semantic stacking groups",
+    "No unsupported year restrictions; no diffusion-generated real faces or crests",
+    "Original-photo catalogue with source hashes and grounded identity/logo comparisons",
+    "Fresh corrective inference and saved per-attempt model/source/review receipts",
+    "Final rendered image reviewed by local Vision before result reporting",
+    "Separate photographic entity selection and composition schemas; layout can only refer to chosen source IDs",
+    "Literal requested-team binding from the existing cricket spelling catalogue, excluding negated reference-team mentions",
+    "Validate reference boxes against actual image dimensions; model chooses cover/contain framing"
+  ],
+  "failed_attempts": [
+    {
+      "folder": "output/thumbnails/20261024-190351-906d99",
+      "failure": "Planner used pixel values in a fractional coordinate contract"
+    },
+    {
+      "folder": "output/thumbnails/20261024-190843-5e1c10",
+      "failure": "Unsupported season queries and ungrounded logo rejection; real player cutouts were prepared"
+    },
+    {
+      "folder": "output/thumbnails/20261024-192235-aa0209",
+      "failure": "Planner repeated invalid array stacking order; invalid cached corrective answers were replayed"
+    },
+    {
+      "folder": "output/thumbnails/20261024-193318-a9fb62",
+      "failure": "Small model kept treating headline as a photographic brand source; split source selection from layout"
+    },
+    {
+      "folder": "output/thumbnails/20261024-194550-8c0da0",
+      "failure": "Local visual review rejected unrequested Mumbai branding; stopped only this repeated CSK worker and added literal team-scope binding"
+    }
+  ],
+  "supplementary_checks": {
+    "focused_tests_passed": 31,
+    "live_acceptance": false
+  },
+  "creative_work_authored_by_codex": false,
+  "software_and_general_model_instructions_authored_by_codex": true,
+  "previous_chat": "6acdaa27567a4b65"
+}

@@ -1,0 +1,700 @@
+{
+  "name": "Kinetic Documentary",
+  "source_name": "Shorts 16.mp4",
+  "reference_fps": 30,
+  "enter_frames": 4,
+  "exit_frames": 2,
+  "echo_zoom": [
+    [
+      0,
+      1.18
+    ],
+    [
+      0.25,
+      1.13
+    ],
+    [
+      0.5,
+      1.075
+    ],
+    [
+      0.75,
+      1.05
+    ],
+    [
+      1.1,
+      1.027
+    ],
+    [
+      1.7,
+      1.008
+    ],
+    [
+      2.1,
+      1
+    ]
+  ],
+  "hero_ratio": 0.2611111111111111,
+  "small_ratio": 0.06111111111111111,
+  "script_ratio": 0.145,
+  "region_ratio": 0.48,
+  "landscape_unit_ratio": 0.62,
+  "safe_width": 0.85,
+  "gap_ratio": 0.023148148148148147,
+  "colors": [
+    "#F4B400",
+    "#F11C18",
+    "#1769F5"
+  ],
+  "stop_words": [
+    "a",
+    "an",
+    "the",
+    "and",
+    "or",
+    "but",
+    "of",
+    "to",
+    "in",
+    "on",
+    "at",
+    "for",
+    "aur",
+    "ko",
+    "ki",
+    "ka",
+    "ke",
+    "se",
+    "hai",
+    "hain",
+    "hi",
+    "bhi",
+    "mein",
+    "me",
+    "toh",
+    "ye",
+    "yeh",
+    "wo",
+    "woh",
+    "vah",
+    "ek",
+    "is",
+    "it",
+    "that"
+  ],
+  "phrases": [
+    {
+      "text": "Punjab ko IPL ki sabse",
+      "top": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hero": [
+        [
+          4
+        ]
+      ],
+      "bottom": [],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "kharaab team bola jae to",
+      "top": [],
+      "hero": [
+        [
+          0
+        ]
+      ],
+      "bottom": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "ismen koi galat baat nahin",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3,
+          4
+        ]
+      ],
+      "bottom": [],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "hai Dilli aur baingalor se",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "bhi zyaada kharaab perform karti",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "echo",
+      "color": 0
+    },
+    {
+      "text": "hai team to",
+      "top": [],
+      "hero": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "bottom": [],
+      "effect": "stack",
+      "color": 0
+    },
+    {
+      "text": "vah Punjab hi hai",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2,
+        3
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "itne bade naam hone ke",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "echo",
+      "color": 0
+    },
+    {
+      "text": "unki brand value kisi",
+      "top": [
+        0,
+        1
+      ],
+      "hero": [
+        [
+          2
+        ]
+      ],
+      "bottom": [
+        3
+      ],
+      "effect": "echo",
+      "color": 0
+    },
+    {
+      "text": "ke vajah se hai",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2,
+        3
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "but Punjab Kings mein",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2,
+        3
+      ],
+      "effect": "bar",
+      "color": 1
+    },
+    {
+      "text": "to islie",
+      "top": [],
+      "hero": [
+        [
+          0,
+          1
+        ]
+      ],
+      "bottom": [],
+      "effect": "script",
+      "color": 2
+    },
+    {
+      "text": "Kolkatta se badla lene ke",
+      "top": [],
+      "hero": [
+        [
+          0
+        ]
+      ],
+      "bottom": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "effect": "outline",
+      "color": 0
+    },
+    {
+      "text": "lie taiyaar thi qualifier bankar",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "outline",
+      "color": 0
+    },
+    {
+      "text": "Phir final vaala din aata",
+      "top": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hero": [
+        [
+          4
+        ]
+      ],
+      "bottom": [],
+      "effect": "bar",
+      "color": 1
+    },
+    {
+      "text": "hai Punjab aur Kolkatta ka",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "bar",
+      "color": 1
+    },
+    {
+      "text": "match Punjab pahli batting karne",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "aati hai aur vahi knock",
+      "top": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hero": [
+        [
+          4
+        ]
+      ],
+      "bottom": [],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "out ka pressure vah jhel",
+      "top": [
+        0,
+        1
+      ],
+      "hero": [
+        [
+          2
+        ]
+      ],
+      "bottom": [
+        3,
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "nahin paati hai aur tis",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2,
+        3,
+        4
+      ],
+      "effect": "echo",
+      "color": 0
+    },
+    {
+      "text": "run mein apna 2 wicket",
+      "top": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hero": [
+        [
+          4
+        ]
+      ],
+      "bottom": [],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "but uske baad aate hain",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "vah dimaaag saah",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "batting karne ke lie",
+      "top": [],
+      "hero": [
+        [
+          0
+        ]
+      ],
+      "bottom": [
+        1,
+        2,
+        3
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "apne career best performance",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "dete hain final match mein",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "Saha aur apne team ko",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "bar",
+      "color": 2,
+      "handwriting": [
+        0,
+        1
+      ],
+      "handwriting_ratio": 0.09259259259259259,
+      "handwriting_gap_ratio": 0.017592592592592594,
+      "hero_offset_ratio": 0.04351851851851852,
+      "support_ratio": 0.05740740740740741,
+      "top_gap_ratio": 0.01574074074074074
+    },
+    {
+      "text": "1 99 tak pahuncha dete",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2,
+        3,
+        4
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "hain is match mein",
+      "top": [
+        0,
+        1
+      ],
+      "hero": [
+        [
+          2
+        ]
+      ],
+      "bottom": [
+        3
+      ],
+      "effect": "bar",
+      "color": 0
+    },
+    {
+      "text": "Saha ne apni 115 ki",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "career best performance kheli thi",
+      "top": [
+        0,
+        1
+      ],
+      "hero": [
+        [
+          2
+        ]
+      ],
+      "bottom": [
+        3,
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "Phir kolkaata aapke target",
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "hero": [
+        [
+          3
+        ]
+      ],
+      "bottom": [],
+      "effect": "bar",
+      "color": 2
+    },
+    {
+      "text": "chase karne ke lie aur",
+      "top": [],
+      "hero": [
+        [
+          0
+        ]
+      ],
+      "bottom": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    },
+    {
+      "text": "kaam Wriddhiman Saha ne Punjab",
+      "top": [
+        0
+      ],
+      "hero": [
+        [
+          1
+        ]
+      ],
+      "bottom": [
+        2,
+        3,
+        4
+      ],
+      "effect": "plain",
+      "color": 0
+    }
+  ],
+  "default_scale": 0.9,
+  "stripe": {
+    "frames": 5,
+    "delay_frames": 1,
+    "start_width": 0.96,
+    "slide_ratio": 0.012
+  },
+  "reference_color": "#FFFFFF",
+  "reference_position": 0.86015625,
+  "stripe_max_width": 0.91,
+  "echo_ratio": 1.15,
+  "echo_offset": 0.28,
+  "echo_opacity": 0.16,
+  "zoom_styles": [
+    "documentary_echo",
+    "kinetic_documentary",
+    "documentary_outline",
+    "typography_3",
+    "typography_4"
+  ]
+}

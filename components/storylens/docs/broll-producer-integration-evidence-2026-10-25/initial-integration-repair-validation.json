@@ -1,0 +1,109 @@
+{
+  "scope": "Minimal initial integration fixes: keywords.py and producer_contract.py only; no real job retry or model/network/render/native action.",
+  "tests": {
+    "count": 72,
+    "passed": 72,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 2.734,
+    "log": "initial-repair-green-tests.txt"
+  },
+  "profile_red": "profile-finalization-red-tests.txt",
+  "keyword_red": "keyword-guard-red-tests.txt",
+  "safe_final_probe": {
+    "probe": "Unknown profile is rejected without guessed successful bank",
+    "code": "broll_format_invalid",
+    "passed": true
+  },
+  "failed_job_observation": {
+    "status": "failed",
+    "recovery_attempts": 2,
+    "result": null
+  },
+  "observed_readiness_not_acceptance": {
+    "slots": 10,
+    "saved_options": 9,
+    "typed_selectable": 1,
+    "typed_rejected": 8,
+    "duration_deltas": [
+      {
+        "candidate_id": "pixabay:176609",
+        "declared": 6.033333333333333,
+        "actual": 6.0330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "pixabay:1643",
+        "declared": 6.033333333333333,
+        "actual": 6.0330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "pixabay:3175",
+        "declared": 6.033333333333333,
+        "actual": 6.0330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "web:d0a44bfbb6bc918d",
+        "declared": 8.033333333333335,
+        "actual": 8.0330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333357018
+      },
+      {
+        "candidate_id": "pixabay:2067",
+        "declared": 4.333333333333333,
+        "actual": 4.3330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "pixabay:1495",
+        "declared": 4.333333333333333,
+        "actual": 4.3330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "pixabay:72930",
+        "declared": 4.333333333333333,
+        "actual": 4.3330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "pixabay:267",
+        "declared": 4.333333333333333,
+        "actual": 4.3330078125,
+        "time_base": "1/15360",
+        "difference": 0.0003255208333330373
+      },
+      {
+        "candidate_id": "pixabay:30704",
+        "declared": 5.4,
+        "actual": 5.4,
+        "time_base": "1/15360",
+        "difference": 0.0
+      }
+    ]
+  },
+  "preserved_artifact_snapshot": {
+    "cache\\app\\broll-jobs\\8765\\7c03db6fbd88.json": "5713930f44f0fe9430f7447ccc4f4a13a6d4c307fb4fb9d9667ee93a33ef0f3c",
+    "output\\broll\\20261025-044757-2498b9\\recovery.json": "3ece04e74a42889f4538774cce6f08b66d64fe168a874d6b17ccf5e1d2913844",
+    "output\\broll\\20261025-044757-2498b9\\001-audio-only-source\\broll-project.json": "7a6b8060699d45a688cbb00603b45e251755b11ae2e001279d49d0ba2819b554",
+    "cache\\app\\jobs\\7c03db6fbd88\\broll-checkpoint.json": "f247a843280ec20921995be33c49fd3aac48eab37ac24f318c7f999d684f3593"
+  },
+  "changed_product_sha256": {
+    "hinglish_broll\\keywords.py": "9273b6075fb849de0c9068ac470d759760927cb0d3ed19821efcbda8d85f9228",
+    "hinglish_broll\\producer_contract.py": "4005440d30a5e301add724235099bb614318319ad92ac1b8e3eb49c95b446d58"
+  },
+  "additional_lease_needed": [
+    "hinglish_broll/candidate_manifest.py"
+  ],
+  "additional_lease_reason": "Initial actual integration: eight saved prepared clips rejected because declared frame duration exceeds muxed stream duration by 0.000325520833s. Need timebase/frame-aware bounded metadata comparison while retaining active interval, genuine over-trim, bytes and paired-verdict checks. No fix applied in this lease.",
+  "history": "No protected final-adversarial finding changed. Per-call inference freshness and generic interior judgments remain unresolved."
+}

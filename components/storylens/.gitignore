@@ -1,0 +1,54 @@
+.venv/
+.venv-old-laptop-*/
+downloads/
+config.models.local.json
+__pycache__/
+*.pyc
+cache/
+models/
+output/
+input/videos/*
+!input/videos/.gitkeep
+input/script.txt
+input/phase1/**/*.mp4
+input/phase1/**/*.mov
+input/phase1/**/*.mkv
+input/phase2/**/*.mp4
+input/phase2/**/*.mov
+input/phase2/**/*.mkv
+input/phase2/script.txt
+
+# B-roll: API keys and footage folders stay on this computer
+config.broll.local.json
+
+# Sound design: library folder choices stay on this computer
+config.sound.local.json
+
+# Downloaded pro SFX pack (Mixkit licence: use in videos, do not redistribute)
+library/
+
+# Eye Contact: NVIDIA AR SDK + built samples (NVIDIA licence, large) and this PC's paths
+tools/maxine/
+config.eyecontact.local.json
+
+# Smart Visuals: this PC's brain choice (keys stay in config.broll.local.json)
+config.visuals.local.json
+
+# AI Images & Video: models + its own Python (large) and this PC's install location
+tools/aigen/install/
+config.aigen.local.json
+
+# Publishing: account files, finished exports and creator notes stay local.
+config.publish.local.json
+publishing/
+*client_secret*.json
+*client-secret*.json
+
+# SaaS runtime data and merchant secrets never enter a website package.
+.env
+.env.*
+!.env.example
+saas.env
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm

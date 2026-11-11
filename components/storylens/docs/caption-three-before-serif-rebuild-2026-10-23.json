@@ -1,0 +1,1450 @@
+{
+  "name": "Caption 3",
+  "layout_revision": 3,
+  "source_fps": 30,
+  "source_width": 640,
+  "source_height": 1136,
+  "native_width": 720,
+  "position": 0.42,
+  "black": "#171816",
+  "grey_top": "#62655F",
+  "grey_bottom": "#9B9D97",
+  "white": "#FFFFFF",
+  "tracking": -0.035,
+  "space": 0.22,
+  "safe_width": 0.8,
+  "gap": 5,
+  "main_gap": 3,
+  "selection_gap": 10,
+  "selection_padding": 10,
+  "stop_words": [
+    "a",
+    "an",
+    "the",
+    "and",
+    "of",
+    "in",
+    "on",
+    "at",
+    "is",
+    "to",
+    "we",
+    "you",
+    "it",
+    "with",
+    "hai",
+    "ka",
+    "ki",
+    "ke",
+    "ko",
+    "aur",
+    "se"
+  ],
+  "motion": {
+    "focus_seconds": 0.27,
+    "fade_seconds": 0.23,
+    "wipe_fade_seconds": 0.06,
+    "blur": 6,
+    "exit_seconds": 0.16,
+    "exit_blur": 6,
+    "characters_per_second": 48,
+    "zoom": [
+      [
+        0,
+        1.18
+      ],
+      [
+        0.25,
+        1.13
+      ],
+      [
+        0.5,
+        1.075
+      ],
+      [
+        0.75,
+        1.05
+      ],
+      [
+        1.1,
+        1.027
+      ],
+      [
+        1.7,
+        1.008
+      ],
+      [
+        2.1,
+        1
+      ]
+    ],
+    "box_seconds": 0.68,
+    "box_fade_seconds": 0.18,
+    "box_rise": 5,
+    "box_initial_scale": 0.92,
+    "box_lead": 0.16
+  },
+  "recipes": [
+    {
+      "text": "The most expensive Sentence In business?",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 31.5,
+          "tone": "black",
+          "weight": 700,
+          "frame": 4
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 75.375,
+          "tone": "black",
+          "weight": 900,
+          "frame": 8
+        },
+        {
+          "words": [
+            4,
+            5
+          ],
+          "size": 73.125,
+          "tone": "grey",
+          "weight": 900,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 16
+        }
+      ],
+      "start": 4,
+      "end": 80,
+      "align": "left"
+    },
+    {
+      "text": "Let's test it for 3 Months",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "size": 31.5,
+          "tone": "white",
+          "weight": 700,
+          "label": true,
+          "frame": 86
+        },
+        {
+          "words": [
+            4
+          ],
+          "size": 315.0,
+          "tone": "black",
+          "weight": 900,
+          "frame": 91
+        },
+        {
+          "words": [
+            5
+          ],
+          "size": 38.25,
+          "tone": "black",
+          "weight": 700,
+          "frame": 100
+        }
+      ],
+      "start": 86,
+      "end": 146
+    },
+    {
+      "text": "We hear that More often Than you'd Think.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 31.5,
+          "tone": "black",
+          "weight": 700,
+          "frame": 149
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 72.0,
+          "tone": "black",
+          "weight": 900,
+          "frame": 157
+        },
+        {
+          "words": [
+            5,
+            6,
+            7
+          ],
+          "size": 72.0,
+          "tone": "black",
+          "weight": 900,
+          "sizes": {
+            "5": 31.5,
+            "6": 31.5
+          },
+          "tones": {
+            "7": "grey"
+          },
+          "frame": 166
+        }
+      ],
+      "start": 149,
+      "end": 212,
+      "align": "left"
+    },
+    {
+      "text": "Usually when a Business Wants growth",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 29.25,
+          "tone": "black",
+          "weight": 700,
+          "split_at": 1,
+          "frame": 215
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 87.75,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 226
+        },
+        {
+          "words": [
+            4,
+            5
+          ],
+          "size": 42.75,
+          "tone": "black",
+          "weight": 900,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 243
+        }
+      ],
+      "start": 215,
+      "end": 290
+    },
+    {
+      "text": "But isn't Ready To commit",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 29.25,
+          "tone": "black",
+          "weight": 700,
+          "frame": 296
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 78.75,
+          "tone": "black",
+          "weight": 900,
+          "frame": 303
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 72.0,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 309
+        }
+      ],
+      "start": 296,
+      "end": 323
+    },
+    {
+      "text": "To the Change That growth requires",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 36.0,
+          "tone": "black",
+          "weight": 700,
+          "frame": 328
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 85.5,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 332
+        },
+        {
+          "words": [
+            3,
+            4,
+            5
+          ],
+          "size": 45.0,
+          "tone": "black",
+          "weight": 700,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 337
+        }
+      ],
+      "start": 328,
+      "end": 380
+    },
+    {
+      "text": "So the Decision Becomes a test",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 393
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 84.375,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 394
+        },
+        {
+          "words": [
+            3,
+            4,
+            5
+          ],
+          "size": 42.75,
+          "tone": "black",
+          "weight": 700,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 401
+        }
+      ],
+      "start": 393,
+      "end": 454,
+      "align": "left"
+    },
+    {
+      "text": "3 Months",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 315.0,
+          "tone": "black",
+          "weight": 900,
+          "frame": 461
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 38.25,
+          "tone": "black",
+          "weight": 700,
+          "frame": 467
+        }
+      ],
+      "start": 460,
+      "end": 500
+    },
+    {
+      "text": "But real Growth Rarely shows up in 3 months",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 31.5,
+          "tone": "black",
+          "weight": 700,
+          "frame": 504
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 92.25,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 505
+        },
+        {
+          "words": [
+            3,
+            4,
+            5
+          ],
+          "size": 42.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 518
+        },
+        {
+          "words": [
+            6,
+            7,
+            8
+          ],
+          "size": 54.0,
+          "tone": "grey",
+          "weight": 900,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 532
+        }
+      ],
+      "start": 504,
+      "end": 588
+    },
+    {
+      "text": "3 months Becomes 6",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 598
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 65.25,
+          "tone": "black",
+          "weight": 900,
+          "frame": 605
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 315.0,
+          "tone": "black",
+          "weight": 900,
+          "frame": 609
+        }
+      ],
+      "start": 597,
+      "end": 652
+    },
+    {
+      "text": "6 Becomes a Year",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 315.0,
+          "tone": "black",
+          "weight": 900,
+          "frame": 653
+        },
+        {
+          "words": [
+            1,
+            2
+          ],
+          "size": 31.5,
+          "tone": "black",
+          "weight": 700,
+          "frame": 670
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 65.25,
+          "tone": "black",
+          "weight": 900,
+          "frame": 678
+        }
+      ],
+      "start": 653,
+      "end": 714
+    },
+    {
+      "text": "Business Keeps operating",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 92.25,
+          "tone": "white",
+          "weight": 900,
+          "frame": 719
+        },
+        {
+          "words": [
+            1,
+            2
+          ],
+          "size": 65.25,
+          "tone": "white",
+          "weight": 900,
+          "sizes": {
+            "1": 33.75
+          },
+          "frame": 727
+        }
+      ],
+      "start": 719,
+      "end": 772
+    },
+    {
+      "text": "Exactly the way It did before",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 778
+        },
+        {
+          "words": [
+            3,
+            4,
+            5
+          ],
+          "size": 56.25,
+          "tone": "grey",
+          "weight": 900,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 786
+        }
+      ],
+      "start": 778,
+      "end": 829
+    },
+    {
+      "text": "Markets Move",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 839
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 90.0,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 849
+        }
+      ],
+      "start": 839,
+      "end": 884
+    },
+    {
+      "text": "Competitors Evolve",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 889
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 90.0,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 895
+        }
+      ],
+      "start": 889,
+      "end": 928
+    },
+    {
+      "text": "But the Decision Stays in Test mode",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 31.5,
+          "tone": "black",
+          "weight": 700,
+          "frame": 940
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 69.75,
+          "tone": "black",
+          "weight": 900,
+          "frame": 941
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 45.0,
+          "tone": "black",
+          "weight": 700,
+          "frame": 950
+        },
+        {
+          "words": [
+            5,
+            6
+          ],
+          "size": 58.5,
+          "tone": "grey",
+          "weight": 900,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 962
+        }
+      ],
+      "start": 940,
+      "end": 1012
+    },
+    {
+      "text": "Growth Rarely Comes from Temporary Experiments",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 92.25,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 1020
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 47.25,
+          "tone": "black",
+          "weight": 700,
+          "frame": 1028
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "size": 36.0,
+          "tone": "black",
+          "weight": 400,
+          "frame": 1037
+        },
+        {
+          "words": [
+            4
+          ],
+          "size": 65.25,
+          "tone": "black",
+          "weight": 900,
+          "frame": 1048
+        },
+        {
+          "words": [
+            5
+          ],
+          "size": 72.0,
+          "tone": "grey",
+          "weight": 900,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 1062
+        }
+      ],
+      "start": 1020,
+      "end": 1117
+    },
+    {
+      "text": "It comes from Structural Commitment",
+      "rows": [
+        {
+          "words": [
+            0,
+            1,
+            2
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 1122
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 67.5,
+          "tone": "black",
+          "weight": 900,
+          "frame": 1128
+        },
+        {
+          "words": [
+            4
+          ],
+          "size": 69.75,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 1134
+        }
+      ],
+      "start": 1122,
+      "end": 1182
+    },
+    {
+      "text": "We don't Run 3 month Experiments",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 33.75,
+          "tone": "black",
+          "weight": 700,
+          "frame": 1198
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 63.0,
+          "tone": "black",
+          "weight": 900,
+          "frame": 1207
+        },
+        {
+          "words": [
+            5
+          ],
+          "size": 69.75,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 1216
+        }
+      ],
+      "start": 1198,
+      "end": 1274
+    },
+    {
+      "text": "We build Systems Meant to stay",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 36.0,
+          "tone": "black",
+          "weight": 700,
+          "frame": 1278
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 85.5,
+          "tone": "grey",
+          "weight": 900,
+          "frame": 1293
+        },
+        {
+          "words": [
+            3,
+            4,
+            5
+          ],
+          "size": 45.0,
+          "tone": "black",
+          "weight": 700,
+          "select": true,
+          "reveal": "wipe",
+          "frame": 1305
+        }
+      ],
+      "start": 1278,
+      "end": 1380
+    }
+  ],
+  "demo_phrases": [
+    {
+      "text": "Imagine a monument that changes",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.557956
+    },
+    {
+      "text": "with the light.",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 1.3469848000000002
+    },
+    {
+      "text": "The Taj Mahal stands beside",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.11271839999999989
+    },
+    {
+      "text": "the Yamuna River in Agra.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.10708240000000036
+    },
+    {
+      "text": "Its white marble glows softly",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.5185046
+    },
+    {
+      "text": "at sunrise",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 1.335712899999999
+    },
+    {
+      "text": "and shines beneath the moon.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.15780570000000083
+    },
+    {
+      "text": "Look closer at",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.2141649000000001
+    },
+    {
+      "text": "the carved flowers,",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.6537667000000003
+    },
+    {
+      "text": "the balanced gardens, and",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -1.9387564000000008
+    },
+    {
+      "text": "the reflections in the water.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3,
+            4
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.1127184000000021
+    },
+    {
+      "text": "Every detail invites you",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.8172083999999984
+    },
+    {
+      "text": "to slow down.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.6030434000000007
+    },
+    {
+      "text": "Some places are more",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2,
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.3325192000000001
+    },
+    {
+      "text": "than buildings.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.9524703999999993
+    },
+    {
+      "text": "They become stories that",
+      "rows": [
+        {
+          "words": [
+            0,
+            1
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            3
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": -0.5523200999999993
+    },
+    {
+      "text": "the world remembers.",
+      "rows": [
+        {
+          "words": [
+            0
+          ],
+          "size": 32,
+          "weight": 700,
+          "tone": "black",
+          "role": "support"
+        },
+        {
+          "words": [
+            1
+          ],
+          "size": 108,
+          "weight": 900,
+          "tone": "grey",
+          "role": "main"
+        },
+        {
+          "words": [
+            2
+          ],
+          "size": 34,
+          "weight": 700,
+          "tone": "black",
+          "role": "footer",
+          "select": true,
+          "reveal": "wipe"
+        }
+      ],
+      "align": "center",
+      "camera_lead": 0.7439414000000006
+    }
+  ],
+  "max_words": 5,
+  "main_size": 108,
+  "header_size": 32,
+  "footer_size": 34,
+  "selection_max_width": 0.62,
+  "selection_padding_y": 6,
+  "selection_dash": 5,
+  "selection_stroke": 1.5,
+  "selection_dash_gap": 5,
+  "selection_radius": 3,
+  "readable_line_gap": 8,
+  "readable_support_size": 40,
+  "support_tracking": 0.0
+}

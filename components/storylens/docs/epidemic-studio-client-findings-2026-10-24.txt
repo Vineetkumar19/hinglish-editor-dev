@@ -1,0 +1,182 @@
+Epidemic Studio client inspection and Storylens integration map
+24 October 2026
+
+Result
+======
+REA was used on actual JavaScript delivered to the signed-in Studio page.
+The investigation recovered the client-side sound-plan structure, placement
+logic, alternative-selection controls, mixing configuration and export flow.
+The private server-side matching model, prompts, ranking algorithm, training
+data and catalogue were not recovered. This is a partial client inspection,
+not a complete Studio clone or a new working Storylens sound engine.
+
+Acquisition and coverage
+========================
+The owner's existing Chrome session reached Studio's built-in Welcome sample.
+Only public client scripts observed on that page, plus two referenced lazy
+imports, were downloaded. No cookies, passwords, storage tokens, media uploads,
+catalogue audio downloads, soundtracking jobs or credit spending were involved.
+Downloaded JavaScript was parsed as inert text and never executed by REA.
+
+Build: https://cdn.epidemicsound.com/studio/6cdf5da/assets/
+Evidence root: output/sound-research/epidemic-studio/
+Initial acquisition: 24 files, 2,265,939 bytes; 23 parsed, one skipped.
+Follow-up acquisition: 2 files, 16,198 bytes; both parsed.
+main-CkfoEK3_.js exceeded the analysis worker's heap limit. Semantic graphs are
+bounded and incomplete; unresolved relationships remain unknown. Parsing a
+file is not proof that every function or live behavior was understood.
+
+REA evidence identifiers:
+ev_811e3cbfe92e02e26e582d9d014542cab9690f75aa779d31c45db09cd8472299
+ev_2befcea1558b6b41300441b324888daff7c2ed2228160b82ca6ca652c33759ed
+
+Read-only live observation confirmed an 18-second sample with simultaneous
+music, effects, Foley and ambience tracks, precise clip times, mute/solo and
+export controls. Interactive clip selection was blocked by automatic approval
+review because the timeline click might move a clip. The inspection continued
+through read-only DOM and static code. Editing, generation, exported output and
+listening quality were not validated. The duplicate Studio tab was left open.
+
+Findings directly supported by client code
+=========================================
+1. The AI returns a structured timeline, not just a finished audio file.
+   GqlClientContext-DjJSVFei.js declares SuggestVideoTimeline, accepting a file
+   identity and optional description/project/timeline identities. VideoTimeline
+   exposes music and effect sections with sectionId, startTimeMs, durationMs,
+   description, category and candidate recommendations. Requests go through
+   /a/soundtrack-graph/graphql/. This is an observed private client interface;
+   it is not a supported public integration contract or permission to call it.
+
+2. Candidate placement retains distinct timeline and source coordinates.
+   useTimelineSuggestions-Dry_aMx2.js converts millisecond section timings to
+   seconds, bounds duration to available source media, and applies an effect
+   segment's time as its source offset. Clip IDs derive from stable section IDs.
+   Up to nine candidate recommendations are retained. Category tracks are reused
+   only when a new clip fits after the previous one with 10ms clearance; overlap
+   creates another layer. Music and SFX therefore form a layered arrangement.
+
+3. Sound hitpoints are explicit data.
+   SoundEffectAnchors exposes hitpointGroups.segments with time, duration and
+   value. This supports anchoring an effect's useful moment rather than merely
+   placing the beginning of an arbitrary sound file at a visual event. The
+   algorithm that detects or scores those hitpoints is not in the inspected code.
+
+4. Alternatives remain editable after generation.
+   The workspace model separates startTime, bufferOffset, duration and sourceId.
+   Recommendations are kept with each clip. Selecting a replacement retains the
+   timeline slot and applies the replacement's own source offset. Clip gain,
+   mute, fade durations and automation are saved independently of source media.
+   The OTIO-shaped model uses Clip.2 and rational-time-shaped source ranges;
+   these structures do not by themselves prove native editor export fidelity.
+
+5. Mixing is organised around music, SFX and dialogue buses.
+   WorkspaceEditor and workspace-types explicitly assign those roles and expose
+   per-clip/per-track levels. Plugins named studio-duck-music-under-voice and
+   studio-duck-sfx-under-voice are keyed by the dialogue bus. Controls include
+   threshold, ratio, knee, attack, hold, release, reduction range and key filters.
+   Speech-level calibration measures gated RMS power in 50ms windows, not LUFS.
+   Default limiter settings are visible. Actual DSP internals are imported from
+   another dependency and were not recovered; defaults are not measured output.
+
+6. Export separates timeline, source assets, rendering and packaging.
+   Timeline payloads retain source offsets, timing, settings and automation.
+   The client requests Premiere XML, Resolve OTIO or Final Cut FCPXML from a
+   server-side writer. Export jobs have explicit pending/completed/failed states;
+   completion requires a download URL. Assets are retrieved separately and
+   packaged with zip.js, with deduplication and missing-asset handling.
+   The XML/OTIO/FCPXML writer and resulting native editability were not inspected.
+
+7. A reusable public media library is identifiable: Mediabunny.
+   The client contains Mediabunny APIs and explicit @mediabunny/mp3-encoder and
+   AAC encoder references. Browser export uses media decoding/encoding/muxing
+   and an OfflineAudioContext resampling step. These are media infrastructure,
+   not the sound-matching AI. Exact bundled versions were not established.
+   Official upstream: https://github.com/Vanilagy/mediabunny (MPL-2.0).
+   Storylens can evaluate the upstream library separately if browser media
+   export is needed; replacing its working FFmpeg/export path is not necessary.
+
+8. Generation has recoverable, explicit progress states.
+   Suggestions arrive as ProcessingVideo, ProgressMessage, music/effect sections,
+   TimelineComplete or Error. Sections are upserted by ID. The client retries
+   dropped transport and can recover a stored timeline through bounded polling.
+   Stream termination alone is not treated as success. The processing route
+   persists the completed arrangement, flushes saves and checks sync errors
+   before entering the editor. A local queue item is not a completed project.
+
+Evidence locations
+==================
+See timeline-code-findings.txt for exact hashes, character offsets, restrained
+excerpts and the full mixing/export analysis. graphql-excerpts.json and
+suggestions-excerpts.json retain the request schemas and placement evidence.
+bundle-manifest.json records the original 24 script URLs and hashes;
+research-index.json additionally records both follow-up scripts and REA coverage.
+Offsets in the detailed report are Python Unicode character indices, not bytes.
+Downloaded implementation code is evidence, not code to copy into Storylens.
+
+Storylens: reuse the behavior through our own implementation
+==========================================================
+Existing useful foundations:
+- director.py and brain.py combine transcript, sampled Vision, creator guidance
+  and saved reference evidence.
+- events.py and cues.py use measured editor events, disambiguated spoken words
+  and sound-peak offsets for timing.
+- vectors.py ranks available sounds; music.py chooses an energy-based passage.
+- pipeline.py plans music sections; mix.py handles levels, fades and music
+  ducking. xml_export.py retains sample/frame-aware PCM placement.
+
+Priority 1: one versioned, editable sound plan.
+Store stable cue/event IDs, role, source asset, timeline start, source offset,
+duration, gain, fades, candidate alternatives and the evidence for each trigger.
+Keep immutable originals so removing/replacing/remixing cannot erase the only
+copy of a choice or apply tuning repeatedly. Store source-event revisions and
+flag cues made stale by subsequent visual edits. This serves motion graphics,
+Smart Visuals, B-roll, zooms, transitions and both short/long-form video.
+
+Priority 2: audition and replace without changing the event slot.
+Extend the existing sound report/rebuild flow. A replacement must have its own
+hitpoint/source offset and available-duration bounds while retaining the selected
+visual event, user timing and saved gain/fades. An unsuitable candidate can stay
+rejected. The LLM proposes intent and candidates; deterministic code checks time.
+
+Priority 3: separate sustained atmosphere from short accents.
+Current shared effect budgets and truncation limit ambience. Model ambience as
+a bed with its own duration/overlap policy and crossfaded looping, while keeping
+short accents sparse. Do not invent precise contacts from sparse Vision frames.
+
+Priority 4: dialogue-controlled mixing for effects as well as music.
+Current SFX_UNDER_VOICE=0 disables effects ducking. Add independently adjustable
+role buses, measured voice activity, bounded attack/hold/release and protection
+against loud impacts masking speech. Preserve intentional quiet moments. Avoid
+copying numeric defaults blindly; listening and speech-intelligibility checks
+are necessary before claiming cinematic quality.
+
+Priority 5: musical structure and export preservation.
+Energy-only passage selection does not establish beats, phrases or cadences.
+Add measured musical boundaries and ending resolution before broader automatic
+music rearrangement. Preserve the existing safe Premiere/CapCut path. Export
+separate layers/sections and supported native automation only after verifying
+the destination editor's actual result; do not equate XML creation with success.
+
+Potential breakpoints observed in Storylens source, not reproduced
+================================================================
+- Music off -> rebuild -> music on: finish appears able to overwrite plan music
+  without an all_music original. Confirm whether re-enabling can recover it.
+- Repeated tuning/rebuild: verify that effect gain is derived from an immutable
+  original rather than accumulating the previous tuning value.
+These are source-review risks, not confirmed failing workflows. No repair was
+made during this final review. Owner's TDD/live-validation requirements apply
+when implementing any of the proposed behavior.
+
+Completion boundary
+===================
+Completed: authenticated read-only UI observation, actual REA static analysis,
+focused client-code tracing, existing Storylens architecture comparison and
+saved evidence/implementation map. No product feature code was changed here.
+The existing sound-design-workflow reference memory now also points to this
+research and distinguishes findings from available capabilities. Prior guidance
+and other entries were preserved, with a pre-edit backup. A direct retrieval
+check passed (knowledge-retrieval-check.json); no local model was called and no
+weights were trained. This data update is not a new mixing feature.
+Not completed: private AI recovery, generation quality assessment, live mixing
+or export checks, new runtime integration, listening comparison or model training.
+REA parsing and artifact checks are evidence of inspection, not application tests.

@@ -1,0 +1,674 @@
+{
+  "fixture_notice": "Synthetic bytes and injected metadata; not playable media or live/native evidence.",
+  "manifest": {
+    "schema": "storylens.broll.video-candidates",
+    "version": 1,
+    "bank_id": "fixture-bank",
+    "project_path": "<FIXTURE_ROOT>/broll-project.json",
+    "content_format": "short",
+    "per_keyword_cap": 5,
+    "collection_state": "complete",
+    "timeline": {
+      "name": "Synthetic speech",
+      "fps": "30/1",
+      "duration": 12.0,
+      "width": 1080,
+      "height": 1920
+    },
+    "slots": [
+      {
+        "id": "fixture-bank:slot:4",
+        "keyword_id": "fixture-bank:keyword:4",
+        "slot_index": 4,
+        "keyword": "room interior",
+        "meaning": "A residential room",
+        "anchor": {
+          "spoken_seconds": {
+            "start": 2.14,
+            "end": 3.1
+          },
+          "frames": {
+            "start": 64,
+            "end": 93
+          },
+          "sequence_seconds": {
+            "start": 2.1333333333333333,
+            "end": 3.1
+          },
+          "fps": "30/1",
+          "timebase": "sequence_frames",
+          "rounding": "nearest_even",
+          "canvas": {
+            "width": 1080,
+            "height": 1920
+          },
+          "quote": "a small room"
+        },
+        "fingerprint": "9204e03072b56dc3aeb22a65c21abb087b9b527855a8d1ddd3fd5e8f35ffe890",
+        "candidates": [
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:0",
+            "candidate_id": "stock:0",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-0.mp4",
+              "sha256": "d0fa03ac51df9f3390bd33034c30244eaaa05215ad913b154b5326859e2c0130",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-0.mp4",
+              "sha256": "f59b0f609d79932d5d8cdd35c3e2a9bc364e475eb1ac343455f4483257d60657",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/0",
+                "sha256": "eb9fd2ffe4ade920a0ec6eac9d1824ec49042c77f75dd3e1ff51ce0dbec133b5"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/0/checked_window",
+                "sha256": "e43a9871a8327a8fa8b45f8243236a671ec372489c6893028f0ceddb8ca7a3a2"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/0",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "f31ea0e7dadceab85768e645875d2c5a1abe983ae8d509118b92651c6e7d8ed0"
+          },
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:1",
+            "candidate_id": "stock:1",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-1.mp4",
+              "sha256": "fd583d75f4adaa25f04a25e143da2c01c9ce0036958ff7d89662253e069dfe51",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-1.mp4",
+              "sha256": "7c64ed5e6444cd4e01b778d69f5904e491006855a6622f0f0f3984ad8af14f6f",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/1",
+                "sha256": "96e36727d18211e213cb67c8da26a2bb0c751b1b9cd7b4ac3b7bd4bf5019ac5b"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/1/checked_window",
+                "sha256": "bc9dae38fca5d75ebf8a6d060ec63596f6c6d765a7f2af5bb72690e8ce1d30c4"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/1",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "6c14a7889b14a0239fdcef52c17dd98bb59da5f3a06524886a6dfd7c09a5e964"
+          },
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:2",
+            "candidate_id": "stock:2",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-2.mp4",
+              "sha256": "63e9b8eb34360856c93ab8b44578bd3e480d9969336e2f81c8cb95df20d8a0b1",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-2.mp4",
+              "sha256": "a564891f1b105f1a5bff34d601d2d9b7c82754d9a584faa77c67b34fafa1025d",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/2",
+                "sha256": "a41b34ba5b23fc01b11a29b401a7f45c44729aef1b56cac21ff5c7eff3f3b089"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/2/checked_window",
+                "sha256": "764476e22898bf6be532ae6ed79cffe3e7bfe501d64c290e131934dd3cde9e24"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/2",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "e4b4b015a1df37e31d972a1a5347e6750886afaae7b6dc5e3ea2c09c848152cc"
+          },
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:3",
+            "candidate_id": "stock:3",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-3.mp4",
+              "sha256": "dd5f8d2c0de44a9ea4a6ce7a33b2420017bd2fa6eea750515a3a4965b90a9439",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-3.mp4",
+              "sha256": "4e30d35d2cb94cb22942fd3b5e32fadaa1a2d9bb011b771bbbda60b8e3bccaac",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/3",
+                "sha256": "0ff6c2e07d715d40c9db647c3ed71a6bb7f98966fdbb3e4c60f8cabee222f511"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/3/checked_window",
+                "sha256": "041a0e9d73d1439d0276d135472406d3438cb2f131185730417555be70077132"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/3",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "ad92dbb59abbd586541c0e5dd9deba94866bd346c730c16899d487b1deacb139"
+          },
+          {
+            "id": "fixture-bank:slot:4:candidate:stock:4",
+            "candidate_id": "stock:4",
+            "slot_id": "fixture-bank:slot:4",
+            "keyword_id": "fixture-bank:keyword:4",
+            "kind": "video",
+            "original": {
+              "path": "<FIXTURE_ROOT>/raw-4.mp4",
+              "sha256": "4348ad2286d9bbe1c4c5d1e3c8bc8f2bca2360eae5b9ccffb0723a2d87836285",
+              "bytes": 21,
+              "duration": 20.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1920,
+              "height": 1080,
+              "rotation_degrees": 0
+            },
+            "prepared": {
+              "path": "<FIXTURE_ROOT>/preview-4.mp4",
+              "sha256": "887f14b4d3dfea2939395088f83f89e977d06795af6eb6520ec3203a44763a40",
+              "bytes": 26,
+              "duration": 8.0,
+              "fps": "30/1",
+              "time_base": "1/90000",
+              "width": 1080,
+              "height": 1920,
+              "rotation_degrees": 0
+            },
+            "mapping": {
+              "basis": "explicit_original_offset",
+              "prepared_origin_in_original": 4.0,
+              "prepared_active": {
+                "start": 3.0,
+                "end": 3.966666666666667
+              },
+              "original_active": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "original_prepared_range": {
+                "start": 4.0,
+                "end": 12.0
+              },
+              "original_ticks": {
+                "start": 630000,
+                "end": 717000
+              },
+              "prepared_ticks": {
+                "start": 270000,
+                "end": 357000
+              }
+            },
+            "handles": {
+              "availability_only": true,
+              "original": {
+                "before": 7.0,
+                "after": 12.033333333333333
+              },
+              "prepared": {
+                "before": 3.0,
+                "after": 4.033333333333333
+              }
+            },
+            "check": {
+              "state": "bound",
+              "active_original_seconds": {
+                "start": 7.0,
+                "end": 7.966666666666667
+              },
+              "crop": {
+                "space": "upright_source_pixels",
+                "x": 656,
+                "y": 0,
+                "width": 608,
+                "height": 1080
+              },
+              "verdict_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/checks/4",
+                "sha256": "0f1651c127fb4508fc464466b304ac9286e0f4b6ad2dc5a165c043bb8570e861"
+              },
+              "window_ref": {
+                "project_path": "<FIXTURE_ROOT>/broll-project.json",
+                "json_pointer": "/slots/0/options/4/checked_window",
+                "sha256": "6b4608823e2990f9d58f1ae352863146493cfd636e6e3fc89b9db766fe505b5a"
+              },
+              "judge": "synthetic-local-checker",
+              "frame_checks": [
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                },
+                {
+                  "subject_visible": true,
+                  "real_clear_footage": true,
+                  "no_dominant_presenter": true,
+                  "no_intrusive_overlay": true
+                }
+              ]
+            },
+            "source": {
+              "provider": "synthetic-stock",
+              "local_media_scope": "local_video",
+              "author": "Fixture creator",
+              "title": "",
+              "page_url": "https://example.org/source/4",
+              "license": "Synthetic test fixture",
+              "license_url": ""
+            },
+            "selectable": true,
+            "issues": [],
+            "fingerprint": "b85cba5ad3e3fef31f20f4e138cb4037d3fc9034dd89d22698cea1bceaf7626b"
+          }
+        ],
+        "rejected_candidates": [],
+        "collection_state": "complete",
+        "available_valid_candidates": 6,
+        "available_selectable_candidates": 6,
+        "omitted_by_cap": 1,
+        "choice": {
+          "state": "unselected",
+          "candidate_id": null,
+          "candidate_fingerprint": null,
+          "slot_fingerprint": "9204e03072b56dc3aeb22a65c21abb087b9b527855a8d1ddd3fd5e8f35ffe890",
+          "source": "none",
+          "revision": 0,
+          "status": "ready",
+          "issue": null
+        }
+      }
+    ],
+    "orphaned_choices": {}
+  }
+}

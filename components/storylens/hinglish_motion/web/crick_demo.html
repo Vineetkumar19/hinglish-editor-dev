@@ -1,0 +1,91 @@
+<!doctype html><html><meta charset="utf-8"><title>Crick Edit · motion study</title>
+<style>html,body{margin:0;background:#08090b;overflow:hidden}canvas{display:block;width:100vw;height:100vh}</style>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+const c=document.getElementById('c'),g=c.getContext('2d'),W=1280,H=720;
+const A={},frames=new Map();let root;
+const clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>1-Math.pow(1-clamp(x),3),smooth=x=>{x=clamp(x);return x*x*(3-2*x)},lerp=(a,b,t)=>a+(b-a)*t;
+function rnd(n){const x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+function round(x,y,w,h,r=16){g.beginPath();g.roundRect(x,y,w,h,r)}
+function fill(color,x=0,y=0,w=W,h=H){g.fillStyle=color;g.fillRect(x,y,w,h)}
+function text(s,x,y,size=30,color='#eee9db',font='Arial',align='left'){g.font=`${size}px ${font}`;g.fillStyle=color;g.textAlign=align;g.fillText(s,x,y);g.textAlign='left'}
+function tracked(s,x,y,size,spacing,color='#a9a49b'){g.font=`${size}px Arial`;g.fillStyle=color;for(const l of s){g.fillText(l,x,y);x+=g.measureText(l).width+spacing}}
+function cover(im,x,y,w,h,zoom=1,fx=.5,fy=.5){const r=Math.max(w/im.width,h/im.height)*zoom,iw=im.width*r,ih=im.height*r;g.drawImage(im,x+(w-iw)*fx,y+(h-ih)*fy,iw,ih)}
+function photo(im,x,y,w,h,zoom=1){g.save();round(x,y,w,h,3);g.clip();cover(im,x,y,w,h,zoom);g.restore()}
+function contain(im,x,y,w,h){const r=Math.min(w/im.width,h/im.height);g.drawImage(im,x+(w-im.width*r)/2,y+(h-im.height*r)/2,im.width*r,im.height*r)}
+function shadow(color='#000a',blur=40,x=0,y=20){g.shadowColor=color;g.shadowBlur=blur;g.shadowOffsetX=x;g.shadowOffsetY=y}
+function vignette(strength=.8){const q=g.createRadialGradient(640,310,150,640,360,760);q.addColorStop(0,'#0000');q.addColorStop(1,`rgba(0,0,0,${strength})`);fill(q)}
+const grain=document.createElement('canvas');grain.width=256;grain.height=144;let ng=grain.getContext('2d'),ni=ng.createImageData(256,144);
+for(let i=0;i<ni.data.length;i+=4){const n=rnd(i)*255;ni.data[i]=ni.data[i+1]=ni.data[i+2]=n;ni.data[i+3]=17}ng.putImageData(ni,0,0);
+function texture(t){g.save();g.globalAlpha=.5;g.drawImage(grain,(Math.floor(t*12)%3-1)*7,0,1290,720);g.restore()}
+function dust(t,count=40,color='#e6c498'){g.save();g.fillStyle=color;for(let i=0;i<count;i++){const x=rnd(i+10)*W+(Math.sin(t*.2+i)*20),y=(rnd(i+400)*H+t*(5+rnd(i)*8))%H;g.globalAlpha=.1+.3*rnd(i+70);g.beginPath();g.arc(x,y,.5+rnd(i+3)*1.3,0,7);g.fill()}g.restore()}
+function light(t,x,color='#eb692b',opacity=.25){g.save();g.globalCompositeOperation='screen';g.globalAlpha=opacity;const r=g.createRadialGradient(x,150,0,x,150,600);r.addColorStop(0,color);r.addColorStop(1,'#000');fill(r);g.restore()}
+function line(x1,y1,x2,y2,color='#b89659',width=1){g.strokeStyle=color;g.lineWidth=width;g.beginPath();g.moveTo(x1,y1);g.lineTo(x2,y2);g.stroke()}
+function bgPhoto(im,t,color='#101617',alpha=.15){fill(color);g.save();g.filter='blur(12px) saturate(.25)';g.globalAlpha=alpha;cover(im,-35,-35,W+70,H+70,1.07+t*.004);g.restore();vignette(.75)}
+function mat(img,x,y,w,h,rotation=0){g.save();g.translate(x+w/2,y+h/2);g.rotate(rotation);shadow();fill('#ede4d2',-w/2-9,-h/2-9,w+18,h+18);g.shadowColor='transparent';photo(img,-w/2,-h/2,w,h);g.restore()}
+function triangle(im,s,d){g.save();const cx=(d[0][0]+d[1][0]+d[2][0])/3,cy=(d[0][1]+d[1][1]+d[2][1])/3;const clip=d.map(p=>{const length=Math.hypot(p[0]-cx,p[1]-cy);return [p[0]+(p[0]-cx)/length*1.2,p[1]+(p[1]-cy)/length*1.2]});g.beginPath();g.moveTo(clip[0][0],clip[0][1]);g.lineTo(clip[1][0],clip[1][1]);g.lineTo(clip[2][0],clip[2][1]);g.closePath();g.clip();
+const [u0,v0]=s[0],[u1,v1]=s[1],[u2,v2]=s[2],D=u0*(v1-v2)+u1*(v2-v0)+u2*(v0-v1);
+function co(k){const q0=d[0][k],q1=d[1][k],q2=d[2][k];return [(q0*(v1-v2)+q1*(v2-v0)+q2*(v0-v1))/D,(q0*(u2-u1)+q1*(u0-u2)+q2*(u1-u0))/D,(q0*(u1*v2-u2*v1)+q1*(u2*v0-u0*v2)+q2*(u0*v1-u1*v0))/D]}
+const a=co(0),b=co(1);g.transform(a[0],b[0],a[1],b[1],a[2],b[2]);g.drawImage(im,0,0);g.restore()}
+function quad(im,p){triangle(im,[[0,0],[im.width,0],[0,im.height]],[p[0],p[1],p[3]]);triangle(im,[[im.width,0],[im.width,im.height],[0,im.height]],[p[1],p[2],p[3]])}
+const page=document.createElement('canvas');page.width=520;page.height=580;
+function pageArt(t,left=false){const p=page.getContext('2d');p.fillStyle='#dcc9a8';p.fillRect(0,0,520,580);for(let i=0;i<3500;i++){p.globalAlpha=.06;p.fillStyle=i%2?'#4d3924':'#fff';p.fillRect(rnd(i)*520,rnd(i+555)*580,1+rnd(i+77)*2,1)}p.globalAlpha=1;
+p.strokeStyle='#a18453';p.lineWidth=1;p.strokeRect(25,25,470,530);p.font='16px Georgia';p.fillStyle='#655138';p.fillText('THE CRICKET ARCHIVE',42,62);p.font='56px Georgia';p.fillStyle='#30271d';p.fillText(left?'The art':'Every story',42,134);p.fillText(left?'of pace.':'has a first',42,192);if(!left)p.fillText('page.',42,250);
+if(left){p.save();p.beginPath();p.rect(35,237,450,263);p.clip();const r=ease((t-2.2)/2);p.beginPath();p.ellipse(270,365,220*r,220*r,0,0,7);p.clip();p.filter='sepia(.85) saturate(.5) contrast(1.1)';const im=A.bowler;const scale=Math.max(450/im.width,263/im.height);p.drawImage(im,35,237,im.width*scale,im.height*scale);p.restore();p.font='16px Georgia';p.fillStyle='#574535';p.fillText('DALE STEYN · A PORTRAIT',42,526)}
+else{p.font='17px Georgia';p.fillStyle='#6a5740';['A rhythm. A release. A reaction.','The details that stay with us.','A study in cricket storytelling.'].forEach((s,i)=>p.fillText(s,42,332+i*31));p.font='italic 30px Georgia';p.fillText('Open the archive',42,478)}
+return page}
+function book(t){fill('#17100a');for(let i=0;i<24;i++){fill(i%2?'#ffffff03':'#00000008',0,i*32,W,2)}light(t,180,'#b16b2e',.36);g.save();g.translate(640,365);g.rotate(-.025+.012*Math.sin(t*.18));g.scale(1+t*.008,1+t*.008);
+shadow('#000d',45,0,30);fill('#38241a',-510,-272,1020,552);g.shadowColor='transparent';const lp=pageArt(t,true);quad(lp,[[ -486,-260],[-8,-275],[-8,277],[-486,253]]);
+const rp=document.createElement('canvas');rp.width=520;rp.height=580;rp.getContext('2d').drawImage(pageArt(t,false),0,0);quad(rp,[[8,-275],[486,-249],[486,254],[8,277]]);
+// A hinged leaf turns before the portrait's ink mask begins, with real foreshortening.
+const turn=smooth((t-.35)/1.6);if(turn<1){const angle=turn*Math.PI*.96,edge=486*Math.cos(angle),lift=Math.sin(angle)*115;const leaf=pageArt(0,false);if(angle>Math.PI/2){const back=leaf.getContext('2d');back.fillStyle='#d4c29e';back.fillRect(0,0,520,580);back.strokeStyle='#a88d61';back.strokeRect(25,25,470,530)}quad(leaf,[[8,-275],[edge,-249-lift],[edge,254+lift],[8,277]]);g.save();g.globalAlpha=Math.sin(angle)*.45;fill('#342510',Math.min(8,edge),-270,Math.abs(edge-8),535);g.restore()}
+const fold=g.createLinearGradient(-25,0,25,0);fold.addColorStop(0,'#0000');fold.addColorStop(.5,'#2917089a');fold.addColorStop(1,'#0000');fill(fold,-25,-275,50,555);g.restore();dust(t,40);vignette(.63);
+g.globalAlpha=ease((t-5)/1);tracked('01  /  THE FIRST PAGE',70,665,13,3,'#d5bc94');g.globalAlpha=1}
+function hero(t){bgPhoto(A.bowler,t,'#091311',.19);light(t,1050+Math.sin(t*.4)*100,'#d68132',.25);let e=ease(t/1.25);g.save();g.translate(55-60*(1-e),0);g.globalAlpha=e;
+tracked('THE ART OF FAST BOWLING',8,110,16,4,'#c9b891');const name='DALE';g.font='215px Impact';for(let i=0;i<name.length;i++){g.globalAlpha=ease((t-.15-i*.11)/.55);text(name[i],8+i*113,321,215,'#bc3827','Impact')};g.globalAlpha=ease((t-.85)/.8);text('STEYN',8,505,215,'#d3452d','Impact');g.restore();
+g.save();const z=1.08-.08*ease(t/1.1)+t*.003;g.translate(768+32*(1-e),376);g.scale(z,z);g.globalAlpha=e;g.filter=`blur(${(1-e)*12}px)`;shadow('#000b',30,-18,12);contain(A.cutout,-210,-366,475,730);g.restore();
+g.save();g.globalAlpha=ease((t-1.4)/.8);g.translate(88,0);text('A force of nature',0,596,67,'#eee3cd','Gabriola');line(0,617,370,617,'#d7be8d');tracked('PACE  /  PRECISION  /  PRESENCE',0,652,12,2.5,'#b4b7aa');g.restore();dust(t);vignette(.5)}
+function evidence(t){fill('#e8e2d7');g.save();g.globalAlpha=.13;for(let y=0;y<720;y+=8)for(let x=0;x<1280;x+=8){g.fillStyle='#5b5349';g.fillRect(x,y,1,1)}g.restore();
+const z=1+.016*smooth(t/10);g.save();g.translate(640,360);g.scale(z,z);g.translate(-640,-360);
+g.save();g.globalAlpha=.1;g.filter='grayscale(1)';contain(A.cutout,885,35,340,700);g.restore();
+tracked('FIELD NOTES   /   ANATOMY OF PACE',92,83,14,2.4,'#736a5d');line(92,107,1182,107,'#b5ab9b');text('Not just speed.',92,181,69,'#27231e','Georgia');
+const rows=[['01','THE RUN-UP','Build the rhythm.','#dbbf39'],['02','THE RELEASE','Make the moment count.','#69a8bd'],['03','THE REACTION','Let the emotion breathe.','#ca6c59']];
+rows.forEach((r,i)=>{const y=278+i*126,p=ease((t-.65-i*1.9)/.7);g.save();g.globalAlpha=ease((t-.3-i*.25)/.7);text(r[0],98,y,23,'#8a7b65','Georgia');g.save();g.beginPath();g.rect(154,y-46,460*p,55);g.clip();fill(r[3],154,y-43,455,54);g.restore();text(r[1],166,y,46,'#2b2721','Impact');text(r[2],168,y+39,25,'#595146','Georgia');line(154,y+65,825,y+65,'#c3b8a7');g.restore()});
+g.save();g.globalAlpha=ease((t-1)/1);shadow('#32292042',20,8,13);contain(A.cutout,866,185,315,502);g.restore();tracked('EDITORIAL CHAPTER NOTES',92,673,12,2,'#887a68');g.restore();vignette(.15)}
+function screenNoise(t,x,y,w,h,level=.4){g.save();g.globalAlpha=level;g.drawImage(grain,x,y,w,h);for(let j=0;j<40;j++){const yy=y+rnd(j+Math.floor(t*25))*h;fill(`rgba(230,237,219,${rnd(j+t)*.14})`,x,yy,w,1+rnd(j)*4)}g.restore()}
+function tv(t,im){fill('#130e17');light(t,190,'#922c70',.28);light(t,1090,'#366763',.3);for(let j=0;j<15;j++)line(0,560+j*12,1280,560+j*12,'#302029');
+let push=1+.13*smooth(t/10);g.save();g.translate(640,340);g.scale(push,push);g.translate(-640,-340);
+shadow('#000e',50,0,35);const body=g.createLinearGradient(200,160,1050,570);body.addColorStop(0,'#766e5b');body.addColorStop(.2,'#3f3e35');body.addColorStop(.75,'#252c29');body.addColorStop(1,'#101613');g.fillStyle=body;round(214,147,868,427,35);g.fill();g.shadowColor='transparent';
+g.fillStyle='#0a0c0b';round(242,174,659,366,38);g.fill();g.fillStyle='#596451';round(256,187,629,341,34);g.fill();
+g.save();round(266,196,609,322,31);g.clip();if(t<1.8){fill('#26342b',266,196,609,322);screenNoise(t,266,196,609,322,.9);g.save();const j=t>1&&t<1.17?16*Math.sin(t*110):0;g.translate(j,0);text('THE ARCHIVE',570,344,53,'#dfdec5','Impact','center');tracked('CRICKET  /  ON AIR',401,389,16,3,'#b0b698');g.restore()}else if(t<2.05){fill('#050807',266,196,609,322)}else {cover(im,266,196,609,322);screenNoise(t,266,196,609,322,.12)}
+for(let y=196;y<518;y+=4)fill('#00000028',266,y,609,1);const sheen=g.createLinearGradient(260,190,700,490);sheen.addColorStop(0,'#ffffff14');sheen.addColorStop(.5,'#ffffff00');fill(sheen,266,196,609,322);g.restore();
+text('CRICK ARCHIVE',928,218,14,'#b9b6a2','Arial');for(let k=0;k<2;k++){const cy=296+k*95;const q=g.createRadialGradient(979,cy,2,979,cy,37);q.addColorStop(0,'#9c9882');q.addColorStop(.5,'#474b3d');q.addColorStop(1,'#111b13');g.fillStyle=q;g.beginPath();g.arc(976,cy,33,0,7);g.fill();line(976,cy,991,cy-19,'#acb49a',3)}for(let k=0;k<8;k++)line(927,451+k*7,1031,451+k*7,'#101911',3);
+fill('#e23727',947,537,6,6);line(932,557,1040,557,'#a49268');g.restore();
+g.globalAlpha=ease((t-3.2)/.6);text('Let the action speak.',640,636,41,'#e0cfb9','Georgia','center');g.globalAlpha=1;dust(t,25,'#89647c');vignette(.55)}
+function tornPath(x,y,w,h,seed=0){g.beginPath();for(let i=0;i<=24;i++){const yy=y+8*rnd(i+seed),xx=x+i*w/24;if(i===0)g.moveTo(xx,yy);else g.lineTo(xx,yy)}for(let i=0;i<=16;i++)g.lineTo(x+w-8*rnd(i+seed+91),y+i*h/16);for(let i=24;i>=0;i--)g.lineTo(x+i*w/24,y+h-8*rnd(i+seed+119));for(let i=16;i>=0;i--)g.lineTo(x+8*rnd(i+seed+230),y+i*h/16);g.closePath()}
+function ripped(im,x,y,w,h,progress,angle,seed){g.save();g.translate(x+w/2,y+h/2);g.rotate(angle);x=-w/2;y=-h/2;shadow('#000b',24,0,15);g.fillStyle='#e5d9ba';tornPath(x-9,y-10,w+18,h+26,seed);g.fill();g.shadowColor='transparent';g.save();tornPath(x,y,w,h,seed);g.clip();fill('#ad9875',x,y,w,h);g.beginPath();for(let j=0;j<=30;j++){const xx=x+j*w/30,yy=y+(1-progress)*h+16*Math.sin(j*.7+seed);if(j===0)g.moveTo(xx,yy);else g.lineTo(xx,yy)}g.lineTo(x+w,y+h);g.lineTo(x,y+h);g.closePath();g.clip();cover(im,x,y,w,h,1.025,im===A.bowler?.15:.5);g.restore();g.restore()}
+function paper(t){bgPhoto(A.team,t,'#091b20',.24);light(t,960,'#a57b37',.2);
+g.save();g.translate(-t*3,Math.sin(t*.25)*7);ripped(A.bowler,95,106,493,460,ease((t-.2)/1.6),-.045,20);g.restore();
+g.save();g.translate(t*6,0);ripped(A.team,614,192,500,315,ease((t-2)/1.7),.027,41);g.restore();
+g.save();g.globalAlpha=ease((t-4)/1);tracked('THE HUMAN SIDE OF THE GAME',687,136,12,2,'#d5bf98');line(642,558,1182,558,'#d7b677');text('More than a moment.',643,610,42,'#e8ddc5','Georgia');text('A memory.',642,662,42,'#cfaa69','Georgia');g.restore();
+// Ink circles draw around the photographic story instead of another entrance slide.
+g.save();g.globalAlpha=.5;g.strokeStyle='#d9b47a';g.lineWidth=1.4;g.beginPath();g.ellipse(355,340,309,255,-.09,-.6,-.6+6.0*ease((t-5)/3));g.stroke();g.restore();dust(t,60);vignette(.6)}
+function film(t,im){bgPhoto(A.bowler,t,'#0a0d12',.19);let z=1+.055*smooth(t/8);g.save();g.translate(640,328);g.scale(z,z);g.translate(-640,-328);shadow('#000d',35,0,22);g.fillStyle='#171b1e';round(163,96,954,494,28);g.fill();g.shadowColor='transparent';
+g.save();round(184,113,876,461,19);g.clip();fill('#080c0d',184,113,876,461);contain(im,184,113,876,461);g.restore();g.strokeStyle='#9c9579';g.lineWidth=1;round(184,113,876,461,19);g.stroke();for(let i=0;i<8;i++){g.strokeStyle='#696d61';g.strokeRect(1080,128+i*56,19,33)}g.restore();
+g.save();g.globalAlpha=ease((t-.5)/.7);fill('#b33326',87,577,470,66);text(t<4.4?'THE RELEASE':'THE REACTION',112,624,45,'#f3e9d6','Impact');g.restore();
+g.globalAlpha=ease((t-5.5)/.8);text('The art of pace.',1177,651,43,'#e4d7b9','Georgia','right');g.globalAlpha=1;
+if(t>8){g.save();g.globalAlpha=smooth((t-8)/1.2)*.91;fill('#080d10');g.restore();g.globalAlpha=ease((t-8.3)/.8);tracked('CRICK EDIT',497,292,17,7,'#c8ad7a');text('Every moment',640,385,67,'#eee4d0','Georgia','center');text('has a story.',640,465,67,'#eee4d0','Georgia','center');g.globalAlpha=1}vignette(.4)}
+async function img(url){const i=new Image();i.src=url;await i.decode();return i}
+async function frame(name,n){const k=name+'/'+String(n).padStart(4,'0')+'.jpg';if(!frames.has(k)){frames.set(k,await img(root+'/'+k));if(frames.size>24)frames.delete(frames.keys().next().value)}return frames.get(k)}
+window.mgLoad=async data=>{root=data.assets;for(const [k,f] of Object.entries({bowler:'bowler.jpg',team:'team.jpg',portrait:'portrait.jpg',cutout:'steyn-cutout.png'}))A[k]=await img(root+'/'+f);return true};
+window.mgReady=()=>true;
+window.mgSeek=async T=>{const scene=Math.min(5,Math.floor(T/10)),t=T-scene*10;g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.filter='none';g.shadowColor='transparent';
+if(scene===0)book(t);if(scene===1)hero(t);if(scene===2)evidence(t);if(scene===3)tv(t,await frame('action',1+Math.min(209,Math.max(0,Math.floor((t-2.05)*30)))));if(scene===4)paper(t);if(scene===5)film(t,await frame(t<4.4?'action':'reaction',1+Math.min(t<4.4?209:149,Math.max(0,Math.floor((t<4.4?t:t-4.4)*30)))));
+texture(T);
+// Distinct exits: page-darken, amber film burn, pale paper wipe, CRT blackout, warm exposure flash.
+if(scene===0&&t>9.5){g.globalAlpha=smooth((t-9.5)/.5);fill('#08110e');g.globalAlpha=1}
+if([1,3,4].includes(scene)&&t>9.65){const p=smooth((t-9.65)/.35);g.save();g.globalCompositeOperation='screen';g.globalAlpha=p;fill(scene===3?'#d9cec0':'#edb57c');g.restore()}
+if(scene===2&&t>9.5){const p=smooth((t-9.5)/.5);fill('#17121d',0,0,W*p,H)}
+if(scene===5&&t>9.6){g.globalAlpha=smooth((t-9.6)/.4);fill('#080d10');g.globalAlpha=1}
+return {scene,time:t}}
+</script></html>

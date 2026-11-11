@@ -1,0 +1,62 @@
+{
+  "scope": "INITIAL performance policy repair, feature pipeline/report only. No actual render, model/network/GPU/native/job/media/cache operation; synthetic files and render boundaries only.",
+  "tdd_red": {
+    "tests": 7,
+    "behavioral_failures": 4,
+    "missing_state_errors": 2,
+    "seconds": 0.634,
+    "log": "deferred-preview-red-tests.txt",
+    "note": "Initial missing-keyword API and fixture-shape setup failures were corrected before behavioral red result. Minimal signature alone did not implement deferral."
+  },
+  "integration": {
+    "tests": 117,
+    "passed": 117,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 4.112,
+    "log": "deferred-preview-integration-tests.txt"
+  },
+  "measured_fixture_behavior": {
+    "new_unselected_black_audio_review_aggregate_render_calls": 0,
+    "explicit_preview_aggregate_render_calls": 1,
+    "no_elapsed_runtime_saving_measured": true
+  },
+  "bounded_final_probes": [
+    {
+      "case": "Untrusted deferred source URL is never embedded",
+      "passed": true
+    },
+    {
+      "case": "An explicitly requested preview remains opted-in on a later output call",
+      "passed": true
+    }
+  ],
+  "new_breaking_points_found_in_these_probes": [],
+  "known_shared_interface_gate": "server.py869 collects preview.mp4 by file presence, not project.preview_state; stale preserved aggregate must not be exposed as current by shared result UI. Root/suite review before deployment; no shared source edited.",
+  "new_fields": {
+    "preview_state": [
+      "deferred",
+      "ready",
+      "failed"
+    ],
+    "preview_requested": "Explicit/default render path opt-in; false while initially deferred.",
+    "preview_source": "Only ../audio-only-source.mp4 while deferred; generated same-job source only.",
+    "preview_notice": "Plain-language status; deferred is not a failed or completed render."
+  },
+  "limits": [
+    "No safe existing generated audio-over-black => preserve old real render path, do not silently remove source listening. Broader nonblack deferred source UI needs suite contract.",
+    "Any owner-sidecar or previous preview_requested=true prevents automatic deferral.",
+    "Old aggregate file preserved when deferred; report ignores it. Shared result collector requires state-aware review.",
+    "No live HTTP source playback, actual Save&rebuild, native insertion or real elapsed-time savings verified.",
+    "No semantic/caching/provider/key/threshold changes; protected12 untouched."
+  ],
+  "preserved_checks": {
+    "hinglish_broll/verify.py": true,
+    "saved_six_empty_project": true
+  },
+  "changed_product_hashes": {
+    "hinglish_broll/pipeline.py": "c4c2ff2ad9e77294effd5c98b5bed2523a2f0546bc22e649ac17111ce1d707e9",
+    "hinglish_broll/report.py": "5d353f71716037a4737587ef63126eff407145571c95bea37a0567616cee6c3c"
+  },
+  "released_for": "Suite import/server/UI review; not end-to-end deployment acceptance."
+}

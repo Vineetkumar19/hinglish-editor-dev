@@ -1,0 +1,101 @@
+================================================================
+  TURNING ON SENDING + REPLY ALERTS
+  One password does both. Takes about 3 minutes.
+================================================================
+
+STEP 1 - Get a Gmail App Password
+---------------------------------
+Your normal Gmail password will NOT work. Google requires an
+"App Password" for this.
+
+  1. Go to:  https://myaccount.google.com/apppasswords
+     (sign in as legendsfantasy91@gmail.com)
+
+  2. If it says App Passwords are unavailable, first turn on
+     2-Step Verification here:
+     https://myaccount.google.com/signinoptions/two-step-verification
+     Then come back to the link above.
+
+  3. Type any name, e.g.  Agent Suite
+  4. Click Create
+  5. Copy the 16 characters it shows you, e.g.  abcd efgh ijkl mnop
+     Remove the spaces ->  abcdefghijklmnop
+
+
+STEP 2 - Put it in your .env
+----------------------------
+Open the .env file in VS Code.
+
+FIND these lines and REPLACE them (do not add a second copy):
+
+    SENDER_EMAIL=you@yourdomain.com
+    SMTP_HOST=smtp.yourprovider.com
+    SMTP_USER=
+    OPERATOR_EMAIL=you@yourdomain.com
+
+With these:
+
+    SENDER_EMAIL=legendsfantasy91@gmail.com
+    SENDER_NAME=Vineet Kumar Das
+    SMTP_HOST=smtp.gmail.com
+    SMTP_PORT=587
+    SMTP_USER=legendsfantasy91@gmail.com
+    SMTP_PASSWORD=PASTE_YOUR_16_CHARS_HERE
+    OPERATOR_EMAIL=legendsfantasy91@gmail.com
+
+Then SAVE the file (Ctrl+S).
+
+Nothing else is needed for replies. The same password reads your
+inbox over IMAP.
+
+
+STEP 3 - Check it worked
+------------------------
+    python run.py doctor
+
+You want to see:
+
+    ok    SENDER_EMAIL set
+    ok    SMTP_HOST set
+    ok    replies can be read (IMAP)  (connected to imap.gmail.com, ...)
+
+If IMAP says "failed", the password is wrong or IMAP is off in
+Gmail. Turn it on here:
+https://mail.google.com/mail/u/0/#settings/fwdandpop
+
+
+STEP 4 - Send a test to yourself FIRST
+--------------------------------------
+    python run.py run sponsorship
+
+Approve one. It still will not send, because DRY_RUN is on.
+That is deliberate - read two or three drafts end to end first.
+
+When you are happy, in .env change:
+
+    DRY_RUN=true       ->     DRY_RUN=false
+
+Save, restart the bot. From then on, Approve = actually sent.
+
+
+STEP 5 - Reply alerts
+---------------------
+Replies land in your normal Gmail inbox. To ALSO get them in
+Telegram, keep this running in a second terminal:
+
+    python run.py schedule
+
+It checks the inbox every 5 minutes. When a brand replies you get
+a Telegram message, and the agent drafts an answer for you to
+approve.
+
+
+WHAT HAPPENS, START TO FINISH
+-----------------------------
+  1. /run sponsorship  ->  agent finds a brand, writes the email
+  2. You press Approve  ->  email is sent from your Gmail
+  3. Brand replies      ->  lands in your Gmail inbox
+  4. Poller sees it     ->  Telegram tells you, with a draft reply
+  5. You press Approve  ->  your reply is sent
+
+Nothing is ever sent without you pressing Approve.

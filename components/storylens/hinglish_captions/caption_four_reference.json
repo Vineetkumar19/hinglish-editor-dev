@@ -1,0 +1,290 @@
+{
+  "name": "Caption 4",
+  "source_fps": 30,
+  "source_width": 720,
+  "source_height": 1280,
+  "native_width": 720,
+  "position": 0.42,
+  "ink": "#F2F2F2",
+  "main_font": "timesbi.ttf",
+  "support_font": "timesi.ttf",
+  "main_size": 138,
+  "header_size": 52,
+  "footer_size": 42,
+  "header_gap": 3,
+  "footer_gap": 3,
+  "tracking": -0.045,
+  "support_tracking": -0.035,
+  "space": 0.2,
+  "safe_width": 0.78,
+  "max_words": 5,
+  "stop_words": [
+    "a",
+    "an",
+    "the",
+    "and",
+    "of",
+    "in",
+    "on",
+    "at",
+    "is",
+    "to",
+    "we",
+    "you",
+    "it",
+    "with",
+    "hai",
+    "ka",
+    "ki",
+    "ke",
+    "ko",
+    "aur",
+    "se"
+  ],
+  "motion": {
+    "focus_seconds": 0.36,
+    "fade_seconds": 0.26,
+    "blur": 9,
+    "exit_blur": 5,
+    "exit_seconds": 0.12,
+    "main_rise": 18,
+    "support_rise": 7,
+    "camera_seconds": 1.8,
+    "camera_zoom": 0.09,
+    "camera_drift": -7
+  },
+  "recipes": [
+    {
+      "text": "Let's suppose you're not feeling well",
+      "hero": 2,
+      "motion": "in",
+      "start": 1,
+      "end": 45,
+      "starts": [
+        1,
+        1,
+        10,
+        22,
+        22,
+        22
+      ],
+      "header_inset": -60,
+      "footer_outset": 40
+    },
+    {
+      "text": "and need a Doctor",
+      "hero": 3,
+      "motion": "out",
+      "start": 47,
+      "end": 82,
+      "starts": [
+        47,
+        47,
+        47,
+        52
+      ],
+      "header_inset": 24
+    },
+    {
+      "text": "you see two Clinics",
+      "hero": 3,
+      "motion": "out",
+      "start": 85,
+      "end": 119,
+      "starts": [
+        85,
+        85,
+        85,
+        91
+      ],
+      "header_alignment": "center"
+    },
+    {
+      "text": "Without a word Spoken",
+      "hero": 3,
+      "motion": "out",
+      "start": 306,
+      "end": 349,
+      "starts": [
+        306,
+        306,
+        306,
+        321
+      ],
+      "header_inset": -56
+    },
+    {
+      "text": "Because Your Brain",
+      "hero": 2,
+      "motion": "in",
+      "start": 350,
+      "end": 430,
+      "starts": [
+        350,
+        350,
+        359
+      ],
+      "header_inset": -12,
+      "footer_bold": true,
+      "footer_size": 88
+    },
+    {
+      "text": "that's Visual Vocabulary.",
+      "hero": 1,
+      "motion": "in",
+      "start": 438,
+      "end": 480,
+      "starts": [
+        438,
+        445,
+        455
+      ],
+      "header_inset": -68,
+      "footer_outset": 58,
+      "footer_bold": true,
+      "footer_size": 108
+    }
+  ],
+  "demo_phrases": [
+    {
+      "text": "Imagine a monument",
+      "hero": 2,
+      "motion": "in",
+      "header_inset": -60,
+      "footer_outset": 40
+    },
+    {
+      "text": "that changes with the light.",
+      "hero": 1,
+      "motion": "out",
+      "header_inset": 24
+    },
+    {
+      "text": "The Taj Mahal",
+      "hero": 2,
+      "motion": "in",
+      "header_alignment": "center"
+    },
+    {
+      "text": "stands beside the Yamuna River",
+      "hero": 3,
+      "motion": "in",
+      "header_inset": -56
+    },
+    {
+      "text": "in Agra.",
+      "hero": 1,
+      "motion": "out",
+      "header_inset": -12,
+      "footer_bold": true,
+      "footer_size": 88
+    },
+    {
+      "text": "Its white marble",
+      "hero": 2,
+      "motion": "in",
+      "header_inset": -68,
+      "footer_outset": 58,
+      "footer_bold": true,
+      "footer_size": 108
+    },
+    {
+      "text": "glows softly at sunrise",
+      "hero": 0,
+      "motion": "in",
+      "header_inset": -60,
+      "footer_outset": 40
+    },
+    {
+      "text": "and shines beneath the moon.",
+      "hero": 1,
+      "motion": "out",
+      "header_inset": 24
+    },
+    {
+      "text": "Look closer at",
+      "hero": 1,
+      "motion": "in",
+      "header_alignment": "center"
+    },
+    {
+      "text": "the carved flowers,",
+      "hero": 2,
+      "motion": "in",
+      "header_inset": -56
+    },
+    {
+      "text": "the balanced gardens,",
+      "hero": 2,
+      "motion": "out",
+      "header_inset": -12,
+      "footer_bold": true,
+      "footer_size": 88
+    },
+    {
+      "text": "and the reflections",
+      "hero": 2,
+      "motion": "in",
+      "header_inset": -68,
+      "footer_outset": 58,
+      "footer_bold": true,
+      "footer_size": 108
+    },
+    {
+      "text": "in the water.",
+      "hero": 2,
+      "motion": "in",
+      "header_inset": -60,
+      "footer_outset": 40
+    },
+    {
+      "text": "Every detail invites you",
+      "hero": 1,
+      "motion": "out",
+      "header_inset": 24
+    },
+    {
+      "text": "to slow down.",
+      "hero": 1,
+      "motion": "in",
+      "header_alignment": "center"
+    },
+    {
+      "text": "Some places are more",
+      "hero": 1,
+      "motion": "in",
+      "header_inset": -56
+    },
+    {
+      "text": "than buildings.",
+      "hero": 1,
+      "motion": "out",
+      "header_inset": -12,
+      "footer_bold": true,
+      "footer_size": 88
+    },
+    {
+      "text": "They become stories that",
+      "hero": 2,
+      "motion": "in",
+      "header_inset": -68,
+      "footer_outset": 58,
+      "footer_bold": true,
+      "footer_size": 108
+    },
+    {
+      "text": "the world remembers.",
+      "hero": 1,
+      "motion": "in",
+      "header_inset": -60,
+      "footer_outset": 40
+    }
+  ],
+  "layout_revision": 4,
+  "support_alignment": "reference_stagger_centered_group",
+  "row_fitting": "independent_visible_ink_width",
+  "latest_owner_feedback": "Text typography and motion only on solid black. Preserve reference stagger and font hierarchy while centering the complete group and keeping fixed word slots across scripts. No background designs, icons, arrows, duplicate backdrop lettering or other decorative elements. Owner performs testing.",
+  "max_support_offset": 0.24,
+  "text_only": true,
+  "background": "black"
+}

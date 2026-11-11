@@ -1,0 +1,20 @@
+/* Owner reference finish v2. Real source photos remain separate editable layers. */
+.stadium{filter:brightness(.88) saturate(.9)}
+.colour{background:linear-gradient(105deg,#06488aa8,#081b3440 46%,#55400020 53%,#edbe334d)}
+.team-field{position:absolute;inset:0}
+.team-field.blue{background:linear-gradient(125deg,#007cddd9,#0448b4aa 70%,#00357666);clip-path:polygon(0 0,59% 0,43% 100%,0 100%)}
+.team-field.gold{background:linear-gradient(120deg,#b78a1799,#f8c637bb 70%,#d49922b0);clip-path:polygon(59% 0,100% 0,100% 100%,43% 100%)}
+.team-field:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(125deg,transparent 0 155px,#ffffff0a 155px 248px,transparent 248px 400px)}
+.crest-backdrop{position:absolute;object-fit:contain;opacity:.19;mix-blend-mode:screen}
+.crest-left{left:-65px;top:126px;width:470px;height:330px;transform:rotate(-14deg)}
+.crest-right{right:-30px;top:133px;width:430px;height:352px;transform:rotate(9deg);opacity:.23}
+.energy{position:absolute;left:603px;top:60px;width:8px;height:430px;transform:rotate(16deg);background:linear-gradient(0deg,transparent,#ffbd44dd 30%,#fff6bc 80%,transparent);clip-path:polygon(25% 0,100% 3%,55% 100%,0 98%);filter:drop-shadow(0 0 8px #ffba3580)}
+.beam{display:none}
+.left{filter:drop-shadow(1px -1px 0 #dceaff66) drop-shadow(-7px 0 13px #29a6f766) drop-shadow(0 12px 14px #00133266)}
+.right{filter:drop-shadow(-1px -1px 0 #fff0b977) drop-shadow(7px 0 12px #ffd85f55) drop-shadow(0 12px 14px #18100666)}
+.team-badge{position:absolute;top:27px;width:133px;height:99px;object-fit:contain;filter:drop-shadow(0 3px 4px #06112688)}
+.badge-left{left:34px}.badge-right{right:31px}
+.shade{background:linear-gradient(0deg,#041026 0%,#041026f5 11%,#041026c9 24%,transparent 45%)}
+.headline{filter:drop-shadow(0 5px 3px #000b)}
+.headline span{-webkit-text-stroke:.65px #031329}
+.live{background:#e52b35;box-shadow:0 6px 18px #0004}
